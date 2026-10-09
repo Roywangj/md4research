@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#fffdf8"/>
+  <text x="600" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17324d">SMA system workflow</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#52606d">Recreated from Fig. 3 (PDF p. 4); arrows summarize the paper’s protocol</text>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#17324d"/></marker></defs>
+  <g font-family="Arial,sans-serif">
+    <rect x="45" y="135" width="190" height="155" rx="16" fill="#eaf3ff" stroke="#3b82c4" stroke-width="3"/>
+    <text x="140" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#17324d">1. Problem</text>
+    <text x="140" y="204" text-anchor="middle" font-size="15" fill="#52606d">visual input</text><text x="140" y="228" text-anchor="middle" font-size="15" fill="#52606d">natural-language task</text><text x="140" y="252" text-anchor="middle" font-size="15" fill="#52606d">ground-truth verifier</text>
+    <path d="M235 212 H285" stroke="#17324d" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="285" y="135" width="190" height="155" rx="16" fill="#fff1d9" stroke="#cf8a29" stroke-width="3"/>
+    <text x="380" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#7a4e12">2. Retrieval</text>
+    <text x="380" y="204" text-anchor="middle" font-size="15" fill="#52606d">semantic filter</text><text x="380" y="228" text-anchor="middle" font-size="15" fill="#52606d">normalize similarity</text><text x="380" y="252" text-anchor="middle" font-size="15" fill="#52606d">combine with TRS → top-k</text>
+    <path d="M475 212 H525" stroke="#17324d" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="525" y="135" width="190" height="155" rx="16" fill="#f2eaff" stroke="#8469a8" stroke-width="3"/>
+    <text x="620" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#4d3568">3. Frozen VLM</text>
+    <text x="620" y="204" text-anchor="middle" font-size="15" fill="#52606d">prompt + guidance</text><text x="620" y="228" text-anchor="middle" font-size="15" fill="#52606d">prediction</text><text x="620" y="252" text-anchor="middle" font-size="15" fill="#52606d">no write at deployment</text>
+    <path d="M715 212 H765" stroke="#17324d" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="765" y="135" width="190" height="155" rx="16" fill="#e9f6e5" stroke="#6b9e63" stroke-width="3"/>
+    <text x="860" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#315c30">4. Verify</text>
+    <text x="860" y="204" text-anchor="middle" font-size="15" fill="#52606d">Eval(answer, GT)</text><text x="860" y="228" text-anchor="middle" font-size="15" fill="#52606d">reward r ∈ [0,1]</text><text x="860" y="252" text-anchor="middle" font-size="15" fill="#52606d">evidence for transfer</text>
+    <path d="M860 290 V365" stroke="#17324d" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="485" y="365" width="470" height="125" rx="16" fill="#f7f7f7" stroke="#9299a1" stroke-width="3"/>
+    <text x="720" y="400" text-anchor="middle" font-size="19" font-weight="700" fill="#39434e">5. Reflection + memory update</text>
+    <text x="720" y="430" text-anchor="middle" font-size="15" fill="#52606d">strict JSON: summary, transferable lesson</text><text x="720" y="455" text-anchor="middle" font-size="15" fill="#52606d">write once; update retrieved cards’ n, c, v</text>
+    <path d="M485 428 H315 V290" fill="none" stroke="#17324d" stroke-width="3" marker-end="url(#a)"/>
+    <text x="355" y="405" text-anchor="middle" font-size="14" fill="#52606d">next environment problem</text>
+    <rect x="45" y="365" width="270" height="125" rx="16" fill="#fff8df" stroke="#c2a84e" stroke-width="3"/>
+    <text x="180" y="400" text-anchor="middle" font-size="19" font-weight="700" fill="#715e16">Deployment split</text><text x="180" y="430" text-anchor="middle" font-size="15" fill="#52606d">frozen memory bank</text><text x="180" y="455" text-anchor="middle" font-size="15" fill="#52606d">retrieve only; no new write</text>
+  </g>
+</svg>

@@ -1,0 +1,148 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "DC-WAM 是面向机器人控制的 World-Action Model 训练与推理方法，核心证据来自机制、主结果、消融和真实机器人评测。",
+  "dominant_domain": "embodied AI / robot manipulation / world-action models",
+  "must_cover": [
+    "RGB future PSNR 与 control utility 的研究矛盾",
+    "监督从外观重建向交互诱发动态的重分配",
+    "SAM 与 CoTracker3 离线动态图",
+    "temporal-difference dense supervision 与 TrackFM sparse supervision",
+    "DynaRoute relevance prediction、attention logit bias、stop-gradient",
+    "action-only inference cache",
+    "Eq. 18-26",
+    "LIBERO、LIBERO-Plus、真实机器人、Table 1-4、Figure 1-5",
+    "邻近工作定位、复现、局限和 overclaim"
+  ],
+  "key_numbers": [
+    "LIBERO 98.1%",
+    "LIBERO-Plus 60.9%",
+    "ID-OOD drop 37.2 points",
+    "8×A100、2000 clean demos、50 rollouts/task",
+    "真实机器人每任务 100 demonstrations、每 task-condition 100 trials",
+    "Table 3: 96.7/53.8, 97.1/56.6, 97.4/58.7, 98.1/60.9",
+    "Table 4: 97.7/59.1, 96.8/57.8, 95.8/49.2, 98.1/60.9, 97.0/57.0"
+  ],
+  "real_comparisons": [
+    "DC-WAM vs FastWAM/FastWAM-AC",
+    "dense vs sparse vs combined supervision",
+    "DynaRoute vs no/shuffled/action-query/stop-gradient",
+    "clean vs lighting/background shifts",
+    "PSNR vs policy success"
+  ],
+  "central_claims": [
+    {
+      "claim": "未来帧 PSNR 不是控制效用的单调代理。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:analysis"
+      ],
+      "what_it_actually_proves": "在本文五个 matched variants 的 LIBERO-Plus 实验中，PSNR 与成功率不单调一致。",
+      "what_it_does_not_prove": "不能证明 PSNR 在所有 WAM 上都无用；论文未给相关系数或多种子置信区间。"
+    },
+    {
+      "claim": "dense temporal difference、sparse TrackFM 与 DynaRoute 共同提升 OOD 控制。",
+      "supporting_evidence": [
+        "sec:method"
+      ],
+      "what_it_actually_proves": "在 matched Wan2.2/FastWAM-AC setting 中，各机制有增量收益且组合最好。",
+      "what_it_does_not_prove": "Table 3 不是完整因子消融，不能精确分离所有独立贡献。"
+    },
+    {
+      "claim": "视频监督通过 action-conditioned visual path 改善动作学习。",
+      "supporting_evidence": [
+        "sec:background-3"
+      ],
+      "what_it_actually_proves": "阻断 visual objectives 到 action branch 的梯度后，LIBERO/LIBERO-Plus 分别下降 1.1/3.9 点。",
+      "what_it_does_not_prove": "不能排除 stop-gradient 改变优化条件的间接影响。"
+    }
+  ],
+  "claim_boundaries": [
+    "仅覆盖 Wan2.2/MoT。",
+    "OOD 主要是外观级扰动，不等同于动力学或任务语义 OOD。",
+    "真实实验仅一个平台、三个任务。",
+    "PDF 共 9 页且无附录，尽管正文声称更多细节在 Appendix。"
+  ],
+  "negative_or_limiting_results": [
+    "Camera: 23.9 略低于 FastWAM-AC 24.0。",
+    "Action-query routing 退化到 95.8/49.2。",
+    "stop-grad 降至 97.0/57.0。",
+    "PSNR-control mismatch 缺少统计检验。"
+  ],
+  "mechanism_result_map": [
+    "TD → 抑制时序不变外观 → OOD 53.8→56.6",
+    "TrackFM → 聚焦稀疏交互区 → 53.8→58.7",
+    "dense+sparse → 60.9",
+    "key-side DynaRoute → 59.1→60.9",
+    "visual-to-action gradient → stop-grad 60.9→57.0"
+  ],
+  "comparative_positioning": [
+    "FastWAM 解决部署期完整未来想象成本；DC-WAM沿用 action-only deployment，改造训练期视觉监督。",
+    "FastWAM-AC 是最关键 matched baseline。",
+    "MaskWAM 改变/增加结构化未来模态；DC-WAM保留 RGB branch。",
+    "ImageWAM 用 image editing；DC-WAM改变 RGB branch 学习目标。",
+    "PhysisForcing 用轨迹物理 cue 训练 simulator；DC-WAM将其变为 visual-action WAM 的 token relevance。"
+  ],
+  "reuse_takeaways": [
+    "辅助生成指标必须与下游决策效用对齐。",
+    "离线强教师可训练 relevance predictor 而不进入部署。",
+    "attention prior 的注入路径不是可互换细节。"
+  ],
+  "followup_questions": [
+    "动力学改变、遮挡、相机运动和 tracker failure 下是否稳健？",
+    "同算力下 flow/mask/point/image-editing 谁的 control utility per FLOP 更高？",
+    "完整 2×2×2 因子消融是否仍互补？",
+    "多种子 PSNR-control 相关系数是多少？",
+    "δmot、α、λDice 敏感性如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释 RGB future 重建与控制相关动态之间的目标错位。",
+      "evidence_sources": [
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "记录输入输出、仿真与真实机器人协议和训练数据。",
+      "evidence_sources": [
+        "sec:method",
+        "sec:experiments"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "重建动态图、双重监督、路由、缓存推理与 Eq.18-26 的因果链。",
+      "evidence_sources": [
+        "sec:method"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "核验 Table 1-4、真实条件增益、负结果和消融边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:evaluation",
+        "sec:analysis"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "解释 PSNR 矛盾、真实贡献、邻近定位、stop-gradient 与复现成本。",
+      "evidence_sources": [
+        "sec:related-work",
+        "sec:analysis"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "区分已证明与未证明内容并审视架构、数据和统计外推。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:analysis",
+        "sec:conclusion"
+      ]
+    }
+  ]
+}

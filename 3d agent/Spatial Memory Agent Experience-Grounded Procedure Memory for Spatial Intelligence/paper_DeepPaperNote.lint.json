@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.1",
+  "target": "paper_DeepPaperNote.md",
+  "status": "PASS_WITH_CAVEATS",
+  "counts": {
+    "errors": 0,
+    "warnings": 2,
+    "unsupported_important_pdf_claims": 0,
+    "important_pdf_claims_grounded": 71,
+    "important_pdf_claims_total": 71,
+    "physical_pages_read": 80,
+    "physical_pages_total": 80,
+    "markdown_image_links": 4,
+    "resolved_image_links": 4,
+    "missing_images": 0,
+    "missing_required_sections": 0,
+    "numerical_mismatches_found": 0,
+    "missing_page_ranges": 0,
+    "new_raster_crops": 0
+  },
+  "checks": [
+    {"name":"source_page_count","status":"pass","details":"The source was read with the dedicated Read tool in four explicit ranges: 1-20, 21-40, 41-60 and 61-80. Each call returned 20 pages; no range is missing."},
+    {"name":"appendix_completeness","status":"pass","details":"Coverage now includes pp.16-80: added results, TRS design/pseudocode, benchmark overview/taxonomy/examples, split construction, baseline definitions, infrastructure, hyperparameters, author limitations, qualitative/failure panels and prompt templates."},
+    {"name":"required_note_sections","status":"pass","details":"核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线、关键结果、深度分析、局限、我的笔记、引用 and 图表取舍 are present."},
+    {"name":"grounding_markers","status":"pass","details":"The note uses G001-G073; 71 source/PDF claims are grounded and two workflow records are separately labeled."},
+    {"name":"evidence_coverage","status":"pass","details":"71/71 important PDF/source claims grounded = 100.0%; 80/80 physical pages read = 100.0%."},
+    {"name":"markdown_image_links","status":"pass","details":"All four linked SVG files were opened successfully with the Read tool: figure_2_sma_overview.svg, figure_3_sma_workflow.svg, figure_4_sma_diagnostics.svg and figure_6_memory_writing.svg."},
+    {"name":"image_provenance","status":"pass","details":"All four linked visuals explicitly identify themselves as recreated schematics/data charts and not pixel-faithful crops."},
+    {"name":"json_structure","status":"warning","details":"Plan, grounding, lint and figure-decision artifacts were authored as strict JSON objects and manually checked for balanced structure and quoting. Automated python/json parsing was attempted but blocked by the environment's command-approval policy, so no machine-parser success is claimed."},
+    {"name":"qualitative_failure_coverage","status":"pass","details":"Figures 9-30 were reviewed and grouped as 6 successful-transfer, 8 wrong-to-right, 5 benchmark-ambiguity and 3 base-model-limitation cases."},
+    {"name":"source_boundary","status":"pass","details":"No stale claim that the PDF ends at page 20 remains in the repaired artifacts; physical pages 21-80 are explicitly incorporated."},
+    {"name":"write_boundary","status":"pass","details":"Only paper_DeepPaperNote.md and its four JSON sidecars were edited. No new image was produced because raster export was blocked. Translation reader files and assets/ were not touched."},
+    {"name":"raster_export","status":"warning","details":"An optional attempt to render representative appendix pages was blocked before execution. No source-faithful raster crop is claimed; appendix panels remain anchored to the original PDF."}
+  ],
+  "caveats": [
+    "Automated JSON parser validation could not run because read-only Bash commands required unavailable approval; JSON syntax was manually checked and should be machine-parsed when command approval is available.",
+    "The four existing SVGs are reconstructions. No new PDF raster crop was created during this repair pass.",
+    "The evidence denominator counts 71 source/PDF claims; two workflow-only observations are tracked separately and excluded from the PDF-grounding numerator/denominator."
+  ],
+  "validated_at": "2026-08-27"
+}

@@ -1,0 +1,113 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "这是一篇提出并验证因果 World-Action Model 训练机制的机器人学习方法论文，核心证据来自模型结构、损失函数、失败轨迹协同训练、仿真与真实机器人实验。",
+  "dominant_domain": "world-action models for bimanual robotic manipulation",
+  "must_cover": [
+    "成功示范与失败回滚的监督语义必须分开：失败动作不是模仿目标，但其后果和低进度仍是世界分支目标。",
+    "动作先生成、再用干净动作条件预测价值与未来视频的因果顺序，以及训练时 G 槽位和推理时两阶段执行的差异。",
+    "归一化任务进度、失败惩罚、流匹配三模态损失、因果注意力掩码和共享 WAN2.2-5B 视频骨干。",
+    "RoboTwin、真实双臂已见任务与未见变体的主结果、消融、未来预测质量、失败数据规模和候选评分代价。",
+    "论文结果能支持的范围与不能支持的范围，尤其是数据来源、失败收集、候选数量和更广泛机器人泛化。"
+  ],
+  "key_numbers": [
+    "仿真 50 个 RoboTwin 任务，约 1.3K 条 rollout failures；Ours 平均 85.6%，加入 failure 后 87.5%，去掉视频协同训练 81.8%（第 6 页，表 1）。",
+    "真实任务每个单元平均 20 次试验；立方体任务 200 条专家示范，其余已见任务 50 条；每个立方体任务约 30 条失败回滚（第 6 页）。",
+    "真实已见任务平均成功率：Ours 82%，加入 failure 89%，再加候选评分 92%；Motus 64%（第 7 页，表 2）。",
+    "真实未见变体平均成功率：Ours 67%，加入 failure 77%，候选评分 82%；π0.5 为 85%（第 7 页，表 3）。",
+    "失败动作不屏蔽时真实已见任务平均成功率降至 63%；无因果掩码为 77%；无视频协同训练为 58%（第 7 页）。",
+    "失败回滚未来预测 PSNR 从 19.51 提升到 25.92，成功回滚子集为 26.12 对 26.08；全体为 22.82 对 26.00（第 7 页，表 4）。",
+    "失败数据比例从 0% 到 100% 时，三项 RoboTwin clean task 的平均成功率从 32.7% 单调升至 57.3%；100% 失败数据约占训练集 45%（第 8 页）。",
+    "实现设置：动作块 H=48，失败惩罚 λ_fail=1，损失权重 w_a=20、w_v=w_I=1，20 个 flow-Euler 去噪步；动作 FFN 学习率 2×10^-4，WAN 骨干 2×10^-5（第 6 页）。",
+    "RTX PRO 6000 上 Ours w/ failure 约 380 ms；Motus 1220 ms；π0.5 47 ms（第 19 页，表 7）。"
+  ],
+  "real_comparisons": [
+    "RoboTwin：π0、X-VLA、π0.5、Gigaworld-Policy、Motus、FACT 变体与去视频协同训练。",
+    "真实已见任务：Cosmos、π0、π0.5、Motus、FACT、failure-aware FACT、failure-aware + scoring，以及因果掩码、失败动作损失和视频协同训练消融。",
+    "真实未见任务：Cosmos、π0、π0.5、Motus 与三种 FACT 推理配置。",
+    "推理成本：FACT 的动作优先路径与视频优先 Motus 的延迟对比；候选数 N 增大带来成功率收益但增加延迟。"
+  ],
+  "central_claims": [
+    {
+      "claim": "FACT 把失败回滚转化为动作条件的后果监督，而不是把失败动作作为策略模仿目标。",
+      "supporting_evidence": [
+        {"section_id": "sec:introduction", "pages": [1, 2]},
+        {"section_id": "sec:method", "pages": [3, 4, 5, 6]},
+        {"section_id": "sec:appendix", "pages": [14]}
+      ],
+      "what_it_actually_proves": "论文的训练定义、注意力掩码和损失式明确实现了失败样本的动作损失屏蔽，同时保留价值与未来视频监督；消融中不屏蔽失败动作损失会使真实已见任务平均成功率降至 63%。",
+      "what_it_does_not_prove": "这不证明任意失败轨迹都能提供高质量监督，也不证明失败标注、失败起点或在线收集成本在更大规模机器人上可忽略。"
+    },
+    {
+      "claim": "教师强制的干净动作条件与动作先生成、再预测后果的因果接口，是提升策略和进度估计的关键机制。",
+      "supporting_evidence": [
+        {"section_id": "sec:method", "pages": [3, 4, 5, 6]},
+        {"section_id": "sec:ablations", "pages": [6, 7]}
+      ],
+      "what_it_actually_proves": "Figure 2/3、式(4)-(5)和消融结果共同支持：去掉干净动作 G 的因果掩码后真实已见成功率从 82% 降到 77%，去掉视频协同训练后从 82% 降到 58%。",
+      "what_it_does_not_prove": "消融并未独立分离所有共享骨干、未来视频目标、价值目标和注意力掩码的交互效应，因此不能把每个组件的收益解释为互不相关的因果贡献。"
+    },
+    {
+      "claim": "失败数据主要改善了坏动作条件下的未来预测和候选评分，而没有明显损害成功示范未来。",
+      "supporting_evidence": [
+        {"section_id": "sec:ablations", "pages": [7]},
+        {"section_id": "sec:method-4", "pages": [7, 8]},
+        {"section_id": "sec:appendix", "pages": [19]}
+      ],
+      "what_it_actually_proves": "失败回滚 PSNR/SSIM 大幅提升、成功回滚指标近似不变；加入失败数据与候选评分分别将已见任务平均成功率推到 89% 和 92%，并在未见变体达到 77% 和 82%。",
+      "what_it_does_not_prove": "候选评分不是独立训练的 critic，也不能据此断言其在所有长时程任务、分布外动作或不同硬件上都可靠。"
+    }
+  ],
+  "claim_boundaries": [
+    "实验覆盖 50 个 RoboTwin 仿真任务和少量真实双臂双手操作任务，不能直接外推到移动操作、灵巧手、导航或人机交互。",
+    "失败数据主要来自模型回滚，并且失败起点在可用时人工或流程标注；论文没有给出失败收集总成本、失败类型分布或标注一致性统计。",
+    "真实未见泛化只改变物体颜色、形状和对应指令，不等同于新技能、新机构或大幅视觉域迁移。",
+    "π0.5 等基线依赖大规模机器人预训练，而 FACT 的比较是统一微调示范下的协议比较，不是同等预训练资源的完整公平性结论。",
+    "论文报告均值成功率和有限试验次数，未报告置信区间、显著性检验或多随机种子方差。"
+  ],
+  "negative_or_limiting_results": [
+    "仅在 success-only checkpoint 上做候选评分并不能带来收益：真实已见任务的 Ours + scoring 为 79%，低于 Ours 的 82%。",
+    "失败动作也加入动作模仿损失时，真实已见任务平均成功率只有 63%。",
+    "候选数增加会提高任务完成率但增加推理延迟，论文选择 N=4 是计算和收益的折中而非普适最优。",
+    "视频优先或带完整未来想象的系统可能具有更高仿真成功率，但 Motus 的延迟约 1220 ms，FACT failure 约 380 ms。"
+  ],
+  "mechanism_result_map": [
+    "未来视频协同训练 → RoboTwin 平均成功率 81.8% 到 85.6%，真实已见任务 58% 到 82%；支持未来预测作为动作生成正则项。",
+    "干净 G 槽位与因果注意力掩码 → 去掉掩码后已见任务 77%；支持世界分支使用执行动作条件而不泄漏 noisy action 或反向污染策略。",
+    "失败样本保留价值与视频损失、屏蔽动作损失 → 失败动作损失消融 63%，失败回滚 PSNR 19.51 到 25.92；支持“后果监督而非模仿”的训练语义。",
+    "动作条件进度值 → failure-aware + scoring 已见任务 92%、未见任务 82%，但 success-only scoring 79%；说明值头的实用性依赖失败后果校准。",
+    "失败数据量增加 → 三项 RoboTwin clean task 平均成功率 32.7% 到 57.3%；说明收益在测试范围内随失败比例增加而继续出现。"
+  ],
+  "comparative_positioning": [
+    "相对 video-first WAM，FACT 采用 action-first 两阶段接口，可在只需动作时跳过世界预测；论文以 Motus 的 1220 ms 对比 FACT failure 的约 380 ms 支持部署效率优势。",
+    "相对把未来视频作为辅助条件的 WAM，FACT 的差异不是增加未来目标，而是让未来和价值目标条件化于执行动作，并利用失败轨迹覆盖坏动作区域。",
+    "相对直接 VLA 基线，FACT 在仿真平均 87.5%、真实已见 89%（failure-aware）和未见 77%（failure-aware）上显示出任务级收益，但 π0.5 在未见任务仍为 85%，而且拥有更大规模预训练。"
+  ],
+  "reuse_takeaways": [
+    "复现时先实现 [P,A,G,V,I] 的 token 排列与训练/推理两种 mask，再检查失败 batch 的动作损失是否严格为零。",
+    "要复现论文主结论，不能只测成功示范未来；必须把 held-out failure-rollout 与 success-rollout 分开报告 PSNR/SSIM。",
+    "候选评分应作为可选 deployment pass，而不是把 value head 当成独立监督来源；至少报告 N 与延迟曲线。",
+    "把失败轨迹建模成条件后果数据的范式可迁移到 DAgger、在线回滚和从负经验强化学习，但需要重新定义进度目标和失败 onset。",
+    "工程上可利用共享 prefix 的 key-value cache，保留动作-only 快路径，避免把未来视频生成的成本强加给每个控制周期。"
+  ],
+  "followup_questions": [
+    "失败回滚的来源、失败类型和失败起点标注是否影响 λ_fail 的最优值？",
+    "在同一数据预算下，增加失败轨迹与增加成功示范相比，收益曲线是否仍然成立？",
+    "如果未来视频目标只在 failure windows 上训练，是否还能保留成功任务的动作正则效果？",
+    "候选评分对动作候选的相关性、校准误差和 N 的边际收益如何随任务时域变化？",
+    "在真实硬件换臂、换相机或换动作空间后，action adapter 和共享 WAN 骨干的微调成本是多少？"
+  ],
+  "section_plan": [
+    {"section": "核心信息", "focus": "固定记录论文身份、作者、时间、链接、代码项目、数据资源与 AI 方法类型，不混入分析。", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}]},
+    {"section": "原文摘要翻译", "focus": "忠实翻译原始摘要，保留 WAM、失败回滚、未来视频、任务进度与成功偏置幻觉等术语。", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}]},
+    {"section": "创新点", "focus": "区分真正的新训练接口、失败监督语义和可选候选评分接口，说明它们相对于成功示范训练的必要性。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:method", "pages": [3, 4, 5, 6]}]},
+    {"section": "一句话总结", "focus": "用一句话抓住动作先生成、后果条件预测和失败数据可用化这条主线，避免泛化成增加数据。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}]},
+    {"section": "研究问题", "focus": "说明既有 WAM 在坏动作下产生成功偏置未来的原因，并明确失败轨迹如何在不污染策略的前提下提供因果后果监督。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:related-work", "pages": [2, 3]}]},
+    {"section": "数据与任务定义", "focus": "解释多视角 RGB 与本体感知输入、语言指令、H 步动作块、K 步未来视频、归一化进度，以及 RoboTwin 与真实双臂任务协议。", "evidence_sources": [{"section_id": "sec:method", "pages": [3, 4]}, {"section_id": "sec:experiments", "pages": [6]}, {"section_id": "sec:appendix", "pages": [15, 16, 18]}]},
+    {"section": "方法主线", "focus": "逐步重建 token 排列、教师强制动作条件、因果 mask、三模态流匹配损失、失败目标、两阶段推理和可选候选评分。", "evidence_sources": [{"section_id": "sec:method", "pages": [3, 4, 5, 6]}, {"section_id": "sec:appendix", "pages": [14]}]},
+    {"section": "关键结果", "focus": "用紧凑表格和解释串联仿真、已见/未见真实任务、消融、失败未来预测、失败数据规模和推理延迟。", "evidence_sources": [{"section_id": "sec:method-2", "pages": [6]}, {"section_id": "sec:ablations", "pages": [6, 7]}, {"section_id": "sec:method-4", "pages": [7, 8]}, {"section_id": "sec:appendix", "pages": [18, 19]}]},
+    {"section": "深度分析", "focus": "判断真正贡献是失败数据的监督语义和动作条件接口而非单一骨干，解释机制为何对应结果，并分析比较公平性、复杂度与复现风险。", "evidence_sources": [{"section_id": "sec:method", "pages": [3, 4, 5, 6]}, {"section_id": "sec:ablations", "pages": [6, 7]}, {"section_id": "sec:method-4", "pages": [7, 8]}, {"section_id": "sec:appendix", "pages": [17, 19]}]},
+    {"section": "局限", "focus": "基于作者限制与实验覆盖，明确真实任务规模、失败收集成本、候选评分计算代价、泛化范围和统计不确定性。", "evidence_sources": [{"section_id": "sec:limitations", "pages": [9]}, {"section_id": "sec:experiments", "pages": [6]}, {"section_id": "sec:appendix", "pages": [19]}]},
+    {"section": "我的笔记", "focus": "记录对世界模型、负经验训练、在线回滚和机器人策略复现的可复用启发，并提出可直接执行的后续问题。", "evidence_sources": [{"section_id": "sec:conclusion", "pages": [9]}, {"section_id": "sec:appendix", "pages": [14, 17, 19]}]},
+    {"section": "引用", "focus": "列出 FACT、关键 WAM/VLA 基线、Flow Matching、WAN2.2-5B、候选评分和失败学习相关引用，保留原论文编号与 arXiv 信息。", "evidence_sources": [{"section_id": "sec:references", "pages": [10, 11, 12, 13]}]}
+  ]
+}

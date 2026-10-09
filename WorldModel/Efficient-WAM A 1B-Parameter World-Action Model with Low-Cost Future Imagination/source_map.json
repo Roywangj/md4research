@@ -1,0 +1,791 @@
+{
+  "paper": {
+    "title": "Efficient-WAM: A 1B-Parameter World-Action Model with Low-Cost Future Imagination",
+    "authors": [
+      "Jiajun Li",
+      "Tiecheng Guo",
+      "Yifan Ye",
+      "Rongyu Zhang",
+      "Xiaowei Chi",
+      "Qianpu Sun",
+      "Ying Li",
+      "Yunfan Lou",
+      "Yan Huang",
+      "Zhihe Lu",
+      "Meng Guo",
+      "Shanghang Zhang"
+    ],
+    "date": "2026-06-10",
+    "year": 2026,
+    "arxiv": "2606.10040v2",
+    "doi": "10.48550/arXiv.2606.10040",
+    "zotero_item_key": "9CXEVNRE",
+    "zotero_attachment_key": "HPMGAGVC",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HPMGAGVC/Li 等 - 2026 - Efficient-WAM A 1B-Parameter World-Action Model with Low-Cost Future Imagination.pdf",
+    "sha256": "03bceaba02b236070153c14f956db378efa4aa2c8d3aaf6df6d3a70be16073d7",
+    "source_format": "pdf-text",
+    "pages": 18,
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "reader_roles": {
+      "paper.md": "authoritative complete paragraph-level bilingual reader",
+      "detailed_paper.md": "byte-identical authoritative detailed reader"
+    }
+  },
+  "inventory": {
+    "pages": 18,
+    "figures": "1-8",
+    "tables": "1-7",
+    "numbered_equations": "1-8",
+    "numbered_algorithms": 0,
+    "references": 40,
+    "appendices": [
+      "A Training Details",
+      "B Real-World Evaluation Details",
+      "C Latency Measurement Protocol and Summary",
+      "D Qualitative Future Prediction Results",
+      "E RoboTwin Detailed Results"
+    ],
+    "special_sections": [
+      "Limitations",
+      "Acknowledgments"
+    ],
+    "absent_statements": [
+      "Data/Code Availability",
+      "Impact/Broader Impact",
+      "Ethics"
+    ]
+  },
+  "section_page_inventory": [
+    {
+      "pages": "1",
+      "content": "title, abstract, keywords, Figure 1"
+    },
+    {
+      "pages": "2",
+      "content": "Introduction"
+    },
+    {
+      "pages": "3-5",
+      "content": "Related Works; Method; Experiments setup"
+    },
+    {
+      "pages": "6-8",
+      "content": "Experiments; Conclusion; Limitations"
+    },
+    {
+      "pages": "9-11",
+      "content": "Acknowledgments; References [1]-[40]"
+    },
+    {
+      "pages": "12-18",
+      "content": "Appendices A-E"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "paragraph_pair",
+      "order": 1,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "type": "paragraph_pair",
+      "order": 2,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "type": "paragraph_pair",
+      "order": 3,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "type": "paragraph_pair",
+      "order": 4,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "type": "paragraph_pair",
+      "order": 5,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "type": "paragraph_pair",
+      "order": 6,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "type": "paragraph_pair",
+      "order": 7,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "type": "paragraph_pair",
+      "order": 8,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "type": "paragraph_pair",
+      "order": 9,
+      "label": "5",
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "type": "paragraph_pair",
+      "order": 10,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "type": "paragraph_pair",
+      "order": 11,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "type": "paragraph_pair",
+      "order": 12,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "type": "paragraph_pair",
+      "order": 13,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "type": "paragraph_pair",
+      "order": 14,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "type": "paragraph_pair",
+      "order": 15,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S016",
+      "type": "paragraph_pair",
+      "order": 16,
+      "label": "5",
+      "confidence": "high"
+    },
+    {
+      "id": "S017",
+      "type": "paragraph_pair",
+      "order": 17,
+      "label": "0",
+      "confidence": "high"
+    },
+    {
+      "id": "S018",
+      "type": "paragraph_pair",
+      "order": 18,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S019",
+      "type": "paragraph_pair",
+      "order": 19,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S020",
+      "type": "paragraph_pair",
+      "order": 20,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S021",
+      "type": "paragraph_pair",
+      "order": 21,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S022",
+      "type": "paragraph_pair",
+      "order": 22,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S023",
+      "type": "paragraph_pair",
+      "order": 23,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S024",
+      "type": "paragraph_pair",
+      "order": 24,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S025",
+      "type": "paragraph_pair",
+      "order": 25,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S026",
+      "type": "paragraph_pair",
+      "order": 26,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S027",
+      "type": "paragraph_pair",
+      "order": 27,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S028",
+      "type": "paragraph_pair",
+      "order": 28,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S029",
+      "type": "paragraph_pair",
+      "order": 29,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S030",
+      "type": "paragraph_pair",
+      "order": 30,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S031",
+      "type": "paragraph_pair",
+      "order": 31,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S032",
+      "type": "paragraph_pair",
+      "order": 32,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S033",
+      "type": "paragraph_pair",
+      "order": 33,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S034",
+      "type": "paragraph_pair",
+      "order": 34,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S035",
+      "type": "paragraph_pair",
+      "order": 35,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S036",
+      "type": "paragraph_pair",
+      "order": 36,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S037",
+      "type": "paragraph_pair",
+      "order": 37,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S038",
+      "type": "paragraph_pair",
+      "order": 38,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S039",
+      "type": "paragraph_pair",
+      "order": 39,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S040",
+      "type": "paragraph_pair",
+      "order": 40,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S041",
+      "type": "paragraph_pair",
+      "order": 41,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S042",
+      "type": "paragraph_pair",
+      "order": 42,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S043",
+      "type": "paragraph_pair",
+      "order": 43,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S044",
+      "type": "paragraph_pair",
+      "order": 44,
+      "label": "5",
+      "confidence": "high"
+    },
+    {
+      "id": "S045",
+      "type": "paragraph_pair",
+      "order": 45,
+      "label": "6",
+      "confidence": "high"
+    },
+    {
+      "id": "S046",
+      "type": "paragraph_pair",
+      "order": 46,
+      "label": "7",
+      "confidence": "high"
+    },
+    {
+      "id": "S047",
+      "type": "paragraph_pair",
+      "order": 47,
+      "label": "8",
+      "confidence": "high"
+    },
+    {
+      "id": "S048",
+      "type": "paragraph_pair",
+      "order": 48,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S049",
+      "type": "paragraph_pair",
+      "order": 49,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S050",
+      "type": "paragraph_pair",
+      "order": 50,
+      "label": "3",
+      "confidence": "high"
+    },
+    {
+      "id": "S051",
+      "type": "paragraph_pair",
+      "order": 51,
+      "label": "4",
+      "confidence": "high"
+    },
+    {
+      "id": "S052",
+      "type": "paragraph_pair",
+      "order": 52,
+      "label": "5",
+      "confidence": "high"
+    },
+    {
+      "id": "S053",
+      "type": "paragraph_pair",
+      "order": 53,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S054",
+      "type": "paragraph_pair",
+      "order": 54,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "S055",
+      "type": "paragraph_pair",
+      "order": 55,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S056",
+      "type": "paragraph_pair",
+      "order": 56,
+      "label": "1",
+      "confidence": "high"
+    },
+    {
+      "id": "S057",
+      "type": "paragraph_pair",
+      "order": 57,
+      "label": "2",
+      "confidence": "high"
+    },
+    {
+      "id": "C001",
+      "type": "caption_pair",
+      "order": 1,
+      "confidence": "high"
+    },
+    {
+      "id": "C002",
+      "type": "caption_pair",
+      "order": 2,
+      "confidence": "high"
+    },
+    {
+      "id": "C003",
+      "type": "caption_pair",
+      "order": 3,
+      "confidence": "high"
+    },
+    {
+      "id": "C004",
+      "type": "caption_pair",
+      "order": 4,
+      "confidence": "high"
+    },
+    {
+      "id": "C005",
+      "type": "caption_pair",
+      "order": 5,
+      "confidence": "high"
+    },
+    {
+      "id": "C006",
+      "type": "caption_pair",
+      "order": 6,
+      "confidence": "high"
+    },
+    {
+      "id": "C007",
+      "type": "caption_pair",
+      "order": 7,
+      "confidence": "high"
+    },
+    {
+      "id": "C008",
+      "type": "caption_pair",
+      "order": 8,
+      "confidence": "high"
+    },
+    {
+      "id": "C009",
+      "type": "caption_pair",
+      "order": 9,
+      "confidence": "high"
+    },
+    {
+      "id": "C010",
+      "type": "caption_pair",
+      "order": 10,
+      "confidence": "high"
+    },
+    {
+      "id": "C011",
+      "type": "caption_pair",
+      "order": 11,
+      "confidence": "high"
+    },
+    {
+      "id": "C012",
+      "type": "caption_pair",
+      "order": 12,
+      "confidence": "high"
+    },
+    {
+      "id": "C013",
+      "type": "caption_pair",
+      "order": 13,
+      "confidence": "high"
+    },
+    {
+      "id": "C014",
+      "type": "caption_pair",
+      "order": 14,
+      "confidence": "high"
+    },
+    {
+      "id": "C015",
+      "type": "caption_pair",
+      "order": 15,
+      "confidence": "high"
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "label": "Figure 1",
+      "page": 1,
+      "image_path": "assets/page_001_fig_figure_1.png",
+      "caption_id": "C001",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F002",
+      "label": "Figure 2",
+      "page": 4,
+      "image_path": "assets/page_004_fig_figure_2.png",
+      "caption_id": "C002",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F003",
+      "label": "Figure 3",
+      "page": 7,
+      "image_path": "assets/page_007_fig_figure_3.png",
+      "caption_id": "C003",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F004",
+      "label": "Figure 4",
+      "page": 8,
+      "image_path": "assets/page_008_fig_figure_4.png",
+      "caption_id": "C004",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F005",
+      "label": "Figure 5",
+      "page": 13,
+      "image_path": "assets/page_013_fig_figure_5.png",
+      "caption_id": "C005",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F006",
+      "label": "Figure 6",
+      "page": 14,
+      "image_path": "assets/page_014_fig_figure_6.png",
+      "caption_id": "C006",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F007",
+      "label": "Figure 7",
+      "page": 16,
+      "image_path": "assets/page_016_fig_figure_7.png",
+      "caption_id": "C007",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "F008",
+      "label": "Figure 8",
+      "page": 16,
+      "image_path": "assets/page_016_fig_figure_8.png",
+      "caption_id": "C008",
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "label": "Table 1",
+      "page": 6,
+      "image_path": "assets/page_006_table_table_1.png",
+      "caption_id": "C009",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T002",
+      "label": "Table 2",
+      "page": 6,
+      "image_path": "assets/page_006_table_table_2.png",
+      "caption_id": "C010",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T003",
+      "label": "Table 3",
+      "page": 7,
+      "image_path": "assets/page_007_table_table_3.png",
+      "caption_id": "C011",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T004",
+      "label": "Table 4",
+      "page": 12,
+      "image_path": "assets/page_012_table_table_4.png",
+      "caption_id": "C012",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T005",
+      "label": "Table 5",
+      "page": 15,
+      "image_path": "assets/page_015_table_table_5.png",
+      "caption_id": "C013",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T006",
+      "label": "Table 6",
+      "page": 17,
+      "image_path": "assets/page_017_table_table_6.png",
+      "caption_id": "C014",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    },
+    {
+      "id": "T007",
+      "label": "Table 7",
+      "page": 18,
+      "image_path": "assets/page_018_table_table_7.png",
+      "caption_id": "C015",
+      "searchable_transcription": true,
+      "bbox": "tight crop from rendered canonical PDF",
+      "confidence": "high"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "World-Action Model (WAM)",
+      "translation": "世界—动作模型",
+      "note": "Jointly predicts future visual evolution and robot actions; retain WAM after first use."
+    },
+    {
+      "term": "Efficient-WAM",
+      "translation": "Efficient-WAM",
+      "note": "Compact 1B-parameter structural baseline; model name remains English."
+    },
+    {
+      "term": "Efficient-WAM-RT",
+      "translation": "Efficient-WAM-RT",
+      "note": "Fully optimized real-time variant with low-resolution futures and asymmetric denoising."
+    },
+    {
+      "term": "action-centric future imagination",
+      "translation": "以动作为中心的未来想象",
+      "note": "Future prediction optimized as control guidance rather than photorealistic rendering."
+    },
+    {
+      "term": "Mixture-of-Transformers (MoT)",
+      "translation": "Transformer 混合架构",
+      "note": "Layer-wise interaction between video and action experts."
+    },
+    {
+      "term": "world-knowledge transfer",
+      "translation": "世界知识迁移",
+      "note": "Structured layer slicing plus teacher-guided distillation from WAN-2.2-5B."
+    },
+    {
+      "term": "future video latent",
+      "translation": "未来视频潜变量",
+      "note": "$z_v$; low-resolution token-sparse future representation."
+    },
+    {
+      "term": "asymmetric video-action denoising",
+      "translation": "非对称视频—动作去噪",
+      "note": "Different denoising budgets $T_v$ and $T_a$."
+    },
+    {
+      "term": "flow matching",
+      "translation": "流匹配",
+      "note": "Conditional generative objective used for video and action branches."
+    },
+    {
+      "term": "action chunk",
+      "translation": "动作块",
+      "note": "A horizon-$H$ sequence; here $H=16$."
+    },
+    {
+      "term": "Clean / Random",
+      "translation": "干净 / 随机化",
+      "note": "RoboTwin 2.0 evaluation settings."
+    },
+    {
+      "term": "latency per chunk",
+      "translation": "每动作块延迟",
+      "note": "Wall-clock policy-call latency for predicting one $H=16$ chunk."
+    }
+  ],
+  "notes": {
+    "reading_order": "Visually verified against all 18 rendered pages and layout text.",
+    "table_6": "50 named task rows plus Average; 14 score columns (7 methods × clean/random).",
+    "table_7": "50 named task rows plus Average; 8 configurations including two distinct [2,10] runs.",
+    "references_policy": "All 40 bibliographic entries retained in original English for searchability.",
+    "identity": "paper.md and detailed_paper.md are exact byte-for-byte copies."
+  }
+}

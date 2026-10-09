@@ -1,0 +1,278 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2411.19488",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "The illustration between multimodal CoT with text-only rationales (Left) and interleaved-modal rationales (Right). Green",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:models",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Interleaved-modal CoT",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:preliminaries",
+      "decision": "visual_defect",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_004_fig_algorithm_1.png",
+      "relative_markdown_embed": "![Algorithm 1](images/page_004_fig_algorithm_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_004_fig_algorithm_1.png"
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "Attention-driven Selection",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:preliminaries",
+      "decision": "visual_defect",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_004_fig_algorithm_2.png",
+      "relative_markdown_embed": "![Algorithm 2](images/page_004_fig_algorithm_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_004_fig_algorithm_2.png"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "The workflow of ADS selecting fine-grained visual ra-",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:preliminaries",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_004_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Case studies between ICoT and multimodal CoT with text-only rationales on Chameleon. Three cases are selected according to",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:methods-4",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_008_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_008_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "The results of ICoT across validation sets of two datasets",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_011_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_011_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_011_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "The case of demonstration with Fine-grained Visual In-",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_011_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_011_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_011_fig_figure_5.png"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Results of ICoT and baselines based on Chameleon and Qwen2-VL, with the highest score bold. M3CoT and ScienceQA are",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_006_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Ablation studies of 1-shot ICoT on Chameleon-7B. ()",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:methods-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_007_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Results comparison between copying KV Cache (KV-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:methods-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_007_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_007_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Results concerning the design of demonstrations on",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:methods-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_007_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_007_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Evaluation on general benchmarks",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_011_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_011_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/1School_of_Computer_Science_and_Technology_Soochow_University/images/page_011_fig_table_5.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 12,
+    "by_decision": {
+      "insert": 9,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 3
+    }
+  }
+}

@@ -1,0 +1,613 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "title:1b6efc9f4e56",
+  "title": "CReFT-CAD: Boosting Orthographic Projection",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+    "total_pages": 23,
+    "text_pages_extracted": 23,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 23,
+    "text_max_pages": null,
+    "text_pages_extracted": 23,
+    "text_pages_scanned": 23,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 351,
+      "text_hash_sha256": "58639b6a34aa947c74e875dfc8335f08d47e409bd6c99c29ac27c00d84a33b2f"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1617,
+      "text_hash_sha256": "69b0710a5b97d92b154a9c969ed6f1db223421a150b903194f8b3cfb2f893868"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 5574,
+      "text_hash_sha256": "697a01f567cd7da753f3110c2e3b5068cf074d810f603fd64cf5b66d9d587d43"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 4475,
+      "text_hash_sha256": "50820e0fba8c585da23e15687d35fa59e093f44e1a90f95c539a847b344608a0"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "3-D Model",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 1211,
+      "text_hash_sha256": "18829e97d3626ac89f854fb9a535a4afe1e64067fad8ead433b1387962ee928a"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "3D Model",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 74,
+      "text_hash_sha256": "fc6f63194c634659177f13181cbdadc008529931783740954ee7d62894e3ba14"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "model.",
+      "page_start": 4,
+      "page_end": 5,
+      "char_count": 4300,
+      "text_hash_sha256": "bfd770d4dd48157c60942de09104907c235b3209774940cba874dcabe542b631"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "Methodology",
+      "page_start": 5,
+      "page_end": 7,
+      "char_count": 9662,
+      "text_hash_sha256": "35a7c1279d9c75e0ecdbd47d0ac410294d26e3e7e02e35133f0b241c5253e612"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 7,
+      "page_end": 9,
+      "char_count": 6108,
+      "text_hash_sha256": "8aa94396cf6d9b2ff59885ee0d0856940391aa3fc6ad9e7d8a38333a33103162"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "METHOD",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 3460,
+      "text_hash_sha256": "bd81dc681e1885e1c6358d96f902d96c4cf55f8a059e3c7819ee3317acc27d9a"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 10,
+      "page_end": 13,
+      "char_count": 10832,
+      "text_hash_sha256": "244abb17b2747121fc88f4cc7694f81e89ec3d180302726fe1041dd3f840fd27"
+    },
+    {
+      "section_id": "sec:limitations",
+      "kind": "conclusion",
+      "title": "2. Limitations",
+      "page_start": 13,
+      "page_end": 15,
+      "char_count": 7700,
+      "text_hash_sha256": "945fd5fa1fbab1b08ca57a359c01f7cdeb672642735b4295f8a1ade1515d87c2"
+    },
+    {
+      "section_id": "sec:results",
+      "kind": "experiment",
+      "title": "results?",
+      "page_start": 15,
+      "page_end": 23,
+      "char_count": 20785,
+      "text_hash_sha256": "dc8506bfc2c8a48340b15f51f1f32254570f8ec14b9123b6145cdda896cf77c5"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3009,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4560,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4185,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3229,
+      "section_ids": [
+        "sec:related-work",
+        "sec:model",
+        "sec:model-2",
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4246,
+      "section_ids": [
+        "sec:model-3",
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4447,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3917,
+      "section_ids": [
+        "sec:methodology",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4250,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4351,
+      "section_ids": [
+        "sec:experiments",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4233,
+      "section_ids": [
+        "sec:method",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4147,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 2371,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3234,
+      "section_ids": [
+        "sec:references",
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3695,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3241,
+      "section_ids": [
+        "sec:limitations",
+        "sec:results"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 2885,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3392,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 2948,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 790,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2827,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 4224,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1132,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 1074,
+      "section_ids": [
+        "sec:results"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "(a) (b) show the results of parameterization tasks of orthographic projection reasoning",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Constraint-driven synthesis pipeline for TriView2CAD.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Examples of Real-World",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Four sets of failure cases. Each set consists of three parts: the left part shows the",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:results"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation study results.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:results"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Performance comparison of training-free model, SFT model,and our GRPO-based model on",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:results"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "Given the top view < >, and front view < >, which one < > is the",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Given the <image>, is the Pier Column Cross-Bridge",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "The right side view is < >.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Given the front, top, and side views<image>, what is the quantity of",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "constraints (e.g., “Cross-Bridge Pier Spacing” < “Cap Beam",
+      "section_id": "sec:model-3",
+      "page_start": 4,
+      "page_end": 5
+    },
+    {
+      "text": "<mask>, .., 356 C... D ...",
+      "section_id": "sec:model-3",
+      "page_start": 4,
+      "page_end": 5
+    },
+    {
+      "text": "n follows a uniform distribution N ∼Uniform(a, b), where a = 1 and b = 15.",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "RP1 =",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "RP2 =",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "if Sselected = Scorrect",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "if Sselected ⊆Scorrect but Sselected ̸= Scorrect",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "if (Sselected ∩Scorrect ̸= ∅) and (Sselected ∩Sincorrect ̸= ∅)",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "if Sselected = Sincorrect",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "Where SSelected = Scorrect means the model selects only the correct parameter value lists; SSelected ⊇",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "Scorrect but SSelected ̸= Scorrect means the model selects all correct lists but fails to select all of them;",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "SSelected ∩Scorrect ̸= ∅and SSelected ∩Sincorrect ̸= ∅means the model selects both correct and incorrect",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "parameter value lists; SSelected = Sincorrect means the model selects incorrect parameter value lists.",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    },
+    {
+      "text": "RP3 =",
+      "section_id": "sec:methodology",
+      "page_start": 5,
+      "page_end": 7
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "6b93b08559261e69c078114d9eee1ec471e8bc2053686dbe4f0fa06caea9ca3a",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "title:1b6efc9f4e56",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "CReFT-CAD: Boosting Orthographic Projection",
+      "translated_title": "",
+      "authors": [],
+      "year": "",
+      "venue": "",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "CReFT-CAD: Boosting Orthographic Projection",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "pdf_url": "",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "title",
+        "value": "CReFT-CAD: Boosting Orthographic Projection",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "minor_title_variation_only",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "CReFT-CAD: Boosting Orthographic Projection",
+          "work_value": "CReFT-CAD: Boosting Orthographic Projection"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "CReFT-CAD: Boosting Orthographic Projection",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+    "pdf_url": "",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+    "doi": "",
+    "arxiv_id": "",
+    "zotero_key": ""
+  }
+}

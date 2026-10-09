@@ -1,0 +1,54 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "范式对比全景图：直观对比 2D VLA、2D WAM、3D WAM 与本文提出的 3D WSA 范式之间的因果流向与结构差异"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "预训练数据金字塔表：展示 6k 小时多源异构数据配比及其各自激活的监督优化目标"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "真机实测任务配置表：详尽呈现单臂与双臂 7 大物理操作任务的初始/终止状态与示教规模"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "WSA1 架构总览图：呈现混合 Transformer（MoT）三大专家以及 3D 中心化因果双向注意力掩码矩阵"
+    },
+    {
+      "figure_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "真机 7 项任务对比主表：量化呈现 WSA1 相比 pi0, pi0.5, InternVLA-A1 取得的 +20%~+46% 成功率跃升"
+    },
+    {
+      "figure_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "RoboTwin2.0 仿真综合榜单：展现 WSA1 在 50 项任务上夺得开源模型榜首（93.1%）并超越闭源基线"
+    },
+    {
+      "figure_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "Clean vs Randomized 扰动对比表：证实 3D 几何拓扑对极端外观纹理置换的强免疫性"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "三模块正交互补消融图：量化 2D 视觉思维与 3D 世界前向预测对纯动作基线的独立增益"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "预训练范式消融图：验证预训练与下游微调全周期贯彻 WSA 联合建模的必要性"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "定性心智推演可视化图：展示机载观测、视觉思维、3D 预测点云与实际动作轨迹的四维契合"
+    }
+  ]
+}

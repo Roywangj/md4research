@@ -1,0 +1,48 @@
+{
+  "status": "ok",
+  "script": "collect_metadata.py",
+  "title": "Light-WAM: Efficient World Action Models with State-Fusion Action Decoding",
+  "translated_title": "Light-WAM：使用状态融合动作解码的高效世界动作模型",
+  "authors": [
+    "Ziang Li",
+    "Dongzhou Cheng",
+    "Yibin Wang",
+    "Shiyue Wang",
+    "Xiaoyang Xu",
+    "Lingxuan Weng",
+    "Juan Wang",
+    "Jiaqi Wang"
+  ],
+  "affiliations": [
+    "Wuhan University",
+    "Shanghai Innovation Institute",
+    "Southeast University",
+    "Fudan University",
+    "East China Normal University"
+  ],
+  "year": "2026",
+  "venue": "arXiv preprint",
+  "arxiv_id": "2606.08242",
+  "source_url": "https://arxiv.org/abs/2606.08242",
+  "pdf_url": "https://arxiv.org/pdf/2606.08242",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/S7BIWD7S/Li 等 - 2026 - Light-WAM Efficient World Action Models with State-Fusion Action Decoding.pdf",
+  "zotero_key": "ZRZUWRII",
+  "source_type": "zotero_pdf",
+  "metadata_sources": [
+    "zotero_seed",
+    "arxiv",
+    "openalex"
+  ],
+  "paper_id": "arxiv:2606.08242",
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2606.08242v1",
+  "abstract": "World Action Models (WAMs) extend robot policy learning by incorporating future prediction as an additional training objective, encouraging the policy to encode task-relevant temporal structure in its representations. Current WAMs often rely on large-scale generative architectures that incur high training costs and inference latency, making them difficult to deploy as efficient closed-loop policies. We propose Light-WAM, a lightweight World Action Model for efficient robot manipulation. Specifically, it is built with a compact video backbone and performs future-video supervision in a downsampled latent space, reducing the cost of video co-training while retaining its benefits for representation learning. For action prediction, Light-WAM introduces the StateFusionActionExpert, which reads adapted states from multiple backbone layers, fuses them through learned-query pooling, and directly predicts action chunks in a single forward pass. This design provides an efficient interface between video backbone representations and robot actions, avoiding the need for heavy generative action experts. Experiments demonstrate that Light-WAM maintains strong performance on LIBERO and achieves usable multi-task performance on RoboTwin 2.0, while using only 0.44B trainable parameters. It also achieves 72.03ms inference latency with 4.1GiB peak GPU memory and improved training throughput.",
+  "published": "2026-06-06T15:58:12Z",
+  "doi": "10.48550/arxiv.2606.08242",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "doi_present",
+    "arxiv_id_present",
+    "zotero_key_present"
+  ]
+}

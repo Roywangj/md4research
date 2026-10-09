@@ -1,0 +1,427 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2511.22659",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview. (a) Semantic-Geometric Gap. The geometric details required for spatial reasoning are lost when translating visual",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overall Paradigm of GCA. Given a spatial reasoning query, our GCA leverages a geometrically-constrained reasoning strat-",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Reference Frame. Here, vsink→owen denotes a vector",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:methodology",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Ablation Study on Formalization. We compare our",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_007_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_007_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Ablation Study on Generalizability across Different",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_007_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_007_fig_figure_5.png"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Error Attribution and Failure Cases. We provide a detailed error attribution analysis to identify the main failure modes within",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "In Context Examples Used in Formalizing Reference",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Case Study #1. Unique object counting across multiple views.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Case Study #2. Direction-based reference frame.",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Case Study #3. Object-based reference frame",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_024_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_024_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_024_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Case Study #4. Camera rotation analysis.",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Case Study #5. Object movement analysis.",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Case Study #6. Metric-scale estimation.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Experimental Results on Several Spatial Reasoning Benchmarks.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_006_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Ablation Study on Each Component in GCA. Here,",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_008_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_008_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation Study on Task Constraint.",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_012_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_012_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Prompts Used for Formalizing Reference Frame Constraint. Here, {example} is the in-context examples (see Figure 7), and",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_017_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_017_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_017_fig_table_4.png"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Prompts Used for Formalizing Objective Constraint. Here, {question} is the placeholder that will be replaced.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_018_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_018_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_018_fig_table_5.png"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Prompts Used for Tool Orchestration. Here, {api documents} is the detailed documentation of provided APIs. {history}",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_019_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_019_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_019_fig_table_6.png"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Prompts Used for Coder. Here, {question}, {formalization}, {objective} and {var docs} are the placeholder",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_020_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_020_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_020_fig_table_7.png"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Knowledge and Formulas Used in Knowledge-Augmented Code Generation. We will inject the relevant knowledge based on",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_021_fig_table_8.png",
+      "relative_markdown_embed": "![Table 8](images/page_021_fig_table_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Geometrically_Constrained_Agent_for_Spatial_Reasoning/images/page_021_fig_table_8.png"
+    }
+  ],
+  "summary": {
+    "total_items": 21,
+    "by_decision": {
+      "insert": 5,
+      "low_priority": 9,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 7
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "source": {
+    "title": "MLLM-4D: Towards Visual-based Spatial-Temporal Intelligence",
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/94RFW2XM/Yin 等 - 2026 - MLLM-4D Towards Visual-based Spatial-Temporal Intelligence.pdf",
+    "pdf_pages": 21,
+    "printed_pages": "1-21",
+    "arxiv": "2603.00515v1"
+  },
+  "coverage": [
+    {"pdf_pages": "1-2", "sections": ["Abstract", "1. Introduction"]},
+    {"pdf_pages": "2-3", "sections": ["2. Related Works"]},
+    {"pdf_pages": "3-5", "sections": ["3. Scalable Spatial-Temporal Data Curation", "Figure 2", "Figure 3"]},
+    {"pdf_pages": "5-7", "sections": ["4. MLLM-4D Framework", "4.1 Supervised Fine-Tuning for 4D Understanding", "4.2 Cold-Start Alignment for 4D Reasoning", "4.3 Reinforcement Fine-Tuning for 4D Reasoning", "Figure 4"]},
+    {"pdf_pages": "7-8", "sections": ["Table 1", "5. Experiments", "5.1 Comparisons on MLLM4D-Bench", "5.2 Comparisons on VLM4D Benchmark", "5.3 Ablation Studies", "Table 2", "Table 3", "Figure 5", "6. Conclusion"]},
+    {"pdf_pages": "9-11", "sections": ["7. Impact Statement", "References"]},
+    {"pdf_pages": "12-14", "sections": ["8. Appendix", "8.1 Implementation Details", "8.2 Details of MLLM4D-2M and MLLM4D-R1-30k Dataset Construction", "Algorithm 1", "Figure 6", "Figure 7", "Figure 8", "Figure 9"]},
+    {"pdf_pages": "15-21", "sections": ["8.3 Details of Cold Start", "8.4 Details of data curation pipeline based on monocular videos", "8.5 Limitations and Future Work", "Figure 10", "Figure 11", "Figure 12", "Figure 13", "Figure 14", "Figure 15", "Figure 16", "Figure 17"]}
+  ],
+  "anchors": [
+    {"source": "Figure 1", "pdf_page": 1, "reader_anchor": "## Figure 1 / 图 1"},
+    {"source": "Equations (1)-(8)", "pdf_pages": "6-7", "reader_anchor": "4.1 and 4.3"},
+    {"source": "Equation (9)", "pdf_page": 14, "reader_anchor": "8.3 Details of Cold Start"},
+    {"source": "Tables 1-3", "pdf_pages": "7-8", "reader_anchor": "## Table 1 / 表 1; ## Table 2 / 表 2; ## Table 3 / 表 3"},
+    {"source": "Algorithm 1", "pdf_page": 14, "reader_anchor": "### Algorithm 1 / 算法 1"},
+    {"source": "Prompt blocks", "pdf_pages": "13,15", "reader_anchor": "## Figure 6 / 图 6; ## Figure 10 / 图 10; ## Figure 11 / 图 11"},
+    {"source": "Qualitative examples", "pdf_pages": "16-21", "reader_anchor": "## Figures 12–17 / 图 12–17"}
+  ],
+  "assets": {
+    "linked_local_assets": ["assets/table_1.svg", "assets/table_2.svg", "assets/table_3.svg"],
+    "status": "partial",
+    "reason": "Searchable Markdown transcriptions and readable SVG table renderings were created for Tables 1-3. Dense raster figure crops were not exported because the PDF reader exposed visual pages but did not provide an allowed raster-crop export path; figures remain represented by bilingual captions, source page anchors, and searchable panel text."
+  },
+  "validation_expectations": {
+    "page_coverage": "1-21",
+    "figures": "1-17 captions and panel literals retained",
+    "tables": "1-3 searchable transcriptions retained",
+    "appendices": "8.1-8.5 retained",
+    "references": "53 entries retained in original bibliographic form"
+  }
+}

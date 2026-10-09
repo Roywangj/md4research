@@ -1,0 +1,105 @@
+This explicit +12.5% trajectory-driven surge con-
+firms that our visual grounding data is strictly nec-
+essary for the agent to internalize the foundational
+perception-exploration paradigm. Interestingly, the
+improvement is more pronounced on VIDEODR-
+BENCH (51.0% vs. 43.0% base) than on VideoDR
+(55.0% vs. 38.0% base), suggesting that visual
+grounding is particularly crucial for benchmark-
+quality evaluations.
+Text-Augmented SFT (+7k-text-SFT). Subse-
+quently, incorporating 7K text-only QA instances
+results in an additional +3.8% improvement
+(56.8%). This directly validates our hypothesis: ex-
+plicitly injecting textual exploration data effectively
+mitigates the agent’s initial tool-invocation bias,
+thereby enforcing a more comprehensive open-web
+search capability. The cross-modal transfer effect
+suggests that textual deep research skills comple-
+ment and enhance visual grounding behaviors.
+RL Optimization (+2K-RL). Finally, applying
+GRPO on the 2K moderate-difficulty dataset
+achieves the peak overall accuracy of 59.3%.
+This final +2.5% performance leap underscores
+the necessity of reinforcement learning—pushing
+the model beyond static imitation to execute ro-
+bust, self-driven exploration trajectories. The RL
+phase particularly benefits VIDEODR-BENCH per-
+formance (+2.0% to 56.5%), indicating that the
+learned exploration strategy generalizes well to
+benchmark-quality tasks.
+Cumulative Design Insight. The incremental im-
+provements from each training phase reveal an im-
+portant principle: Video-DR capability emerges
+from the synergistic combination of visual ground-
+ing (trajectory SFT), textual deep research skills
+(mixed SFT), and autonomous exploration (RL).
+Neither component alone achieves optimal perfor-
+mance, and the full pipeline is essential for state-
+of-the-art results.
+4.5
+Discussion: Beyond Benchmarks
+The experimental results prompt deeper reflections
+on the nature of video intelligence.
+Emergence Over Scaling. Our findings challenge
+the prevailing assumption that sufficient model
+scale alone will yield emergent capabilities. The
+397B parameter Qwen3.5-397B-A13B, despite its
+massive capacity, performs comparably to our 30B
+model trained with our specialized pipeline. This
+suggests that Video-DR capability is not merely a
+function of model size, but rather an emergent prop-
+erty that requires deliberate curriculum design—
+specifically, the decoupled perception-exploration
+paradigm we introduce. The agent must learn when
+to perceive and when to retrieve, a temporal coordi-
+nation that cannot be extracted from static corpora
+alone.
+Active Grounding as a Test of True Understand-
+ing. A provocative interpretation of our results
+concerns what tool usage actually measures. The
+parametric knowledge leakage observed in GPT-
+5 (achieving competitive accuracy with zero tool
+calls) reveals that benchmark performance alone
+can be decoupled from genuine video understand-
+ing. Our approach, by enforcing exhaustive visual
+grounding prior to web retrieval, effectively op-
+erationalizes a principle: understanding a video
+means being able to act upon it. The shift in tool
+invocation patterns (from 0.10 to 2.33 visual opera-
+tions) thus represents not merely behavioral mod-
+ification, but a fundamental restructuring of the
+agent’s epistemic strategy—from passive recall to
+active verification.
+The Parity of Modalities. Perhaps the most coun-
+terintuitive finding is that training methodology
+can outweigh model scale by nearly an order of
+magnitude. Our 30B model achieves higher tool
+diversity than the 397B baseline, suggesting that
+modality bias is not an architectural limitation but a
+distributional artifact of training data. This implies
+that achieving true multimodal parity requires not
+just architectural unification, but data and training
+paradigm alignment—a more nuanced requirement
+than simply scaling model parameters.
+5
+Related Work
+5.1
+Video Understanding.
+Early Video-LLMs typically rely on uniform frame
+sampling for single-turn inference (Lin et al.,
+2024a,b; Zhang et al., 2024). Lacking dynamic
+visual querying mechanisms, they are prone to er-
+ror accumulation and hallucinations. While recent
+agentic frameworks introduce interactive tools for
+active fine-grained perception (Yang et al., 2025b;
+Zhang et al., 2025; Tian et al., 2025), they remain
+confined to closed-world video contexts. Conse-
+quently, they struggle with knowledge-intensive
+tasks that require external, verifiable evidence
+(Wang et al., 2017; Fu et al., 2025b).
+To ad-
+dress this, we introduce VIDEO-DEEPRESEARCH,
+a video deep research framework that couples in-
+ternal video-grounding with iterative open-web ex-
+ploration. By transitioning from closed-world para-

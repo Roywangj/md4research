@@ -1,0 +1,385 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "title:8d98ae569727",
+  "title": "Mitigating Low-Quality Reasoning in MLLMs: Self-Driven Refined Multimodal CoT with Selective Thinking and Step-wise Visual Enhancement",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.sdr_mcot_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.sdr_mcot_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TTWS8WL8/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinkin.pdf",
+    "total_pages": 9,
+    "text_pages_extracted": 9,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 9,
+    "text_max_pages": null,
+    "text_pages_extracted": 9,
+    "text_pages_scanned": 9,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": null
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 381,
+      "text_hash_sha256": "8146dfb5fe7c84763e75cbfe202955797221e03f36fddbbf18715f9f7e29a735"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1698,
+      "text_hash_sha256": "21d4e9b815237a57fe37bf205d5cd21ac2cbed51fbf7ca220799b2a8efc32402"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 8408,
+      "text_hash_sha256": "087b4248d6ffde0dad93f273944216b3d8453f7a1adb454eae58a58179e68f37"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 6172,
+      "text_hash_sha256": "85016c4f10916b68dd061d41cf8a15b1b555a9fb8e206052af603182e6348339"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 7505,
+      "text_hash_sha256": "0e32521b693eec0e6299a72961bed885f14033814e8bec6df60e13811ba8ef55"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 2835,
+      "text_hash_sha256": "2e6681bcbe721bc7c752ab5dadfeaf1ab9996377abd3396d7c276c88d90ffb3d"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 6240,
+      "text_hash_sha256": "b25eb77ab97291904e2662d07451ad30ffdd64ce864430f8907f1f66dad6b2ec"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 748,
+      "text_hash_sha256": "b52753bdfb18497281bbcd805d069960f46b870460049574591a48a1144b7cfb"
+    },
+    {
+      "section_id": "sec:acknowledgments",
+      "kind": "acknowledgments",
+      "title": "Acknowledgments",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 667,
+      "text_hash_sha256": "12115b8f0837f3de3020b069561c92e84a1e89e7b210f8ae6bd021eaf281ba63"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 10801,
+      "text_hash_sha256": "a97562eb62b4608a91b4845e4992d9adcbf93ea024e3e47b7bbdee08f6967a02"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4402,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4488,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 6326,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4555,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4504,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4138,
+      "section_ids": [
+        "sec:method",
+        "sec:method-2",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 5749,
+      "section_ids": [
+        "sec:experiments",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5655,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:acknowledgments",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5853,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Performance and token consumption comparisons",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Illustration of different MCoT methods. (a) No CoT: MLLMs directly generate answers without intermediate rea-",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of the proposed SDR-MCoT. Selective Thinking: For each query, MLLMs obtain answer confidence and",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Correlation between performance and entropy of",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Illustration of the relative attention mechanism. (a) When provided with answer options, MLLMs focus on answering,",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Performance comparison of different MCoT methods across multiple benchmarks. Token consumption represents the",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 1",
+        "caption": "presents the comparative results across eight bench-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation study on the two key components of SDR-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "H = −",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where pi =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j=1 exp(zj/T)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Strategy =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "if H < θ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "if H ≥θ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Aamp = Acurr ⊙Arel",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "k =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "∈S ai+P",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j∈S α·aj",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "if k ∈S",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "∈S ai+P",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j∈S α·aj",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "if k /∈S",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "k = 1.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "that much for 2+ 3=? on the overthinking of o1-like llms.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 9
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "6977ba6342aab95f77646d366e6660fdd156c49bdb98a9e5076f95fcdc270521"
+}

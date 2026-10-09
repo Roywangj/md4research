@@ -1,0 +1,25 @@
+{
+  "source": {
+    "type": "pdf-text",
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AMCJCEKS/Huang 等 - 2026 - Nano World Models A Minimalist Implementation of Future Video Prediction.pdf",
+    "pages": 19,
+    "extraction": "pdftotext -layout"
+  },
+  "claims": [
+    {"id":"G001","claim":"NanoWM 将 diffusion forcing 作为统一接口，允许替换目标、架构、动作注入、latent、数据集和 rollout。","source_pages":"4-8","source_anchor":"§3.1-3.8"},
+    {"id":"G002","claim":"world modeling 被定义为条件 latent 序列生成，并可用于期望回报最大化的 MPC planning。","source_pages":"4","source_anchor":"§2, planning equation"},
+    {"id":"G003","claim":"x/v 使用 cosine+ZTSNR，epsilon 使用 linear；RT-1 目标消融中 epsilon 指标较差。","source_pages":"9","source_anchor":"Table 1 and surrounding text"},
+    {"id":"G004","claim":"RT-1 三档规模的 PSNR/SSIM/LPIPS/FID 随参数规模单调改善。","source_pages":"9","source_anchor":"Table 2"},
+    {"id":"G005","claim":"RT-1 上 FiLM 最佳，PushT 上 additive 最佳，作者称 action injection task-dependent。","source_pages":"9-10","source_anchor":"Table 3"},
+    {"id":"G006","claim":"PushT planning 中 SD-VAE success 25%，Web-DINO 与 V-JEPA 2.1 为 0%。","source_pages":"10-11","source_anchor":"Table 4"},
+    {"id":"G007","claim":"语义 latent 的 GT/zero/random action 距离近似不变且 action RMS 接近零。","source_pages":"11","source_anchor":"Tables 5-6"},
+    {"id":"G008","claim":"CS:GO 50-frame 自回归 rollout 保持粗场景/相机运动但累积细节误差；更多 DDIM steps 降低 LPIPS。","source_pages":"12","source_anchor":"Figures 5-6 and §4.5"},
+    {"id":"G009","claim":"shipped checkpoints 在 Point Maze、Wall、Rope、Granular、PushT、RT-1 共享标准评估协议。","source_pages":"13","source_anchor":"Table 7 and §4.6"},
+    {"id":"G010","claim":"作者声称开源 code、data、weights、configs 和 evaluation scripts。","source_pages":"3,7","source_anchor":"§1.1, §3.7"}
+  ],
+  "interpretive_boundaries": [
+    {"statement":"本文是内部统一管线消融，不是外部 SOTA 排行。","basis":"正文未提供统一协议下的外部强基线表。"},
+    {"statement":"语义 latent 失败不能外推为语义表示本质不可控。","basis":"仅一个 PushT 设置，且正文未消融 latent scale、loss weighting、action branch 等替代解释。"},
+    {"statement":"Figure 4 的 3D 几何不是端到端 NanoWM 指标。","basis":"图注和 §3.8 明确使用下游 depth/camera estimation pipeline。"}
+  ]
+}

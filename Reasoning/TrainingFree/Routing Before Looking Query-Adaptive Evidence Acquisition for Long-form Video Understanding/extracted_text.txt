@@ -1,0 +1,2613 @@
+--- PAGE 1 ---
+Routing Before Looking: Query-Adaptive Evidence Acquisition for
+Long-form Video Understanding
+Tianyue Wang1,2,3
+Xuying Wu4
+Yuxiang Ma5
+Ruiming Liang2
+Jiaxuan Kang3
+Yanchao Hao3†
+Zheng Wei3
+Leigang Qu6∗
+Haiyun Guo2∗
+Jinqiao Wang1,2
+1School of Advanced Interdisciplinary Sciences, University of Chinese Academy of Sciences
+2Foundation Model Research Center, Institute of Automation, Chinese Academy of Sciences
+3Tencent
+4Wuhan University
+5Southeast University
+6National University of Singapore
+wangtianyue25@mails.ucas.ac.cn, leigangqu@gmail.com, haiyun.guo@nlpr.ia.ac.cn
+Abstract
+Long-form video understanding remains chal-
+lenging for video agents due to the mismatch
+between query demands and evidence acqui-
+sition strategies. Although recent planning-
+before-perception methods outperform query-
+agnostic pipelines, they often rely on a sin-
+gle dominant strategy, either generation-based
+strategy or retrieval-based strategy, limiting
+their ability to handle diverse query demands.
+We propose Route2Look, a lightweight and
+model-agnostic framework for query-adaptive
+evidence acquisition in long-form video un-
+derstanding. Route2Look operates in a Route-
+Look-Memorize loop with three tools: Global
+Browse for holistic context, Temporal Ground
+for explicit temporal cues, and Semantic Re-
+trieve for semantic search. The core compo-
+nent is a routing policy that dynamically se-
+lects evidence acquisition tools based on the
+query. To build this policy, Route2Look adopts
+a two-stage design: first distilling the rout-
+ing skill from differential contrastive analysis
+between generation-based and retrieval-based
+trajectories, and then applying the distilled
+skill with hard routing rules and continue-or-
+stop criteria during inference. Experiments on
+challenging long-video benchmarks show that
+Route2Look achieves state-of-the-art perfor-
+mance while maintaining comparable frame
+efficiency across datasets and query types. Ora-
+cle routing analysis further reveals the potential
+of query-adaptive evidence acquisition for fu-
+ture long-form video understanding.
+1
+Introduction
+Long-form video understanding has become an
+important frontier in multimodal intelligence,
+with applications in multimodal assistants (Qian
+∗Corresponding authors.
+† Project leader.
+et al., 2025; Weerasinghe et al., 2024), embod-
+ied agents (Song et al., 2025; Zitkovich et al.,
+2023), and autonomous systems (Tian et al., 2024;
+Jiang et al., 2025; Wei et al., 2025).
+Recent
+progress in multimodal large language models
+(MLLMs) (Wang et al., 2024a; Shu et al., 2025; Lin
+et al., 2026b; Qiang et al., 2025; Wei et al., 2026)
+and video agent frameworks (Ma et al., 2025; Yan
+et al., 2026; Yang et al., 2026a; Zhao et al., 2026;
+Yang et al., 2026c) has enabled models to process
+increasingly long and complex videos. However,
+a key problem remains unsolved: the systematic
+mismatch between query demands and evidence
+acquisition strategies.
+Based on observations, we identify three distinct
+query types in real-world scenarios as illustrated
+in Fig. 1: (1) global understanding queries, such
+as summarization, main theme identification, or
+overall video categorization; (2) explicit temporal
+queries, where the query contains timestamps, time
+ranges, or temporal expressions; and (3) implicit
+temporal queries, a common and challenging type
+where the relevant evidence is not explicitly local-
+ized by the query. For the first two types, evidence
+acquisition can often be guided by either global
+coverage or explicit temporal constraints. The core
+difficulty lies in the third type: before answering
+what happened, the model needs to infer where to
+acquire relevant evidence.
+Existing agentic systems for long-form video
+understanding fall into two lines. Query-agnostic
+pipelines apply a fixed pipeline (e.g., global scan-
+ning or precomputed textual representations) to
+all queries, wasting computation on irrelevant con-
+tent (Yang et al., 2025a; Zuo et al., 2026; Yang
+et al., 2025b; He et al., 2025; Wang et al., 2026b;
+Yin et al., 2025; Wang et al., 2024b, 2025b; Ma
+et al., 2025; Luo et al., 2026; Zhang et al., 2026a).
+Query-conditioned pipelines enable adaptive ac-
+quisition while still relying on a single dominant
+strategy for inspection, particularly for implicit
+arXiv:2608.20805v2  [cs.CV]  10 Sep 2026
+
+--- PAGE 2 ---
+Common limitation(of fixed pipelines)
+(II) Query-adaptive Video Agents
+Query-adaptive Router
+Adaptive routing (varies by query type & evidence needs)
+Answer
+Look&
+Think
+Sufficient?
+YES
+NO
+Generation-based strategy
+Optional
+Top-Down
+Weak for 
+unexpected/locali
+-zed evidence
+Strong global
+understanding
+Global 
+scan
+Local
+zoom-in
+Capture localized 
+evidence
+Weak long-range 
+reasoning
+Clip
+embeddings
+Query
+retrieval
+ Retrieval-based strategy
+Bottom-Up
+Real-world Queries 
+·What type of video is 
+this?
+·Who is the main 
+character?
+·What does the video 
+mainly introduce?
+(I) Query-agnostic Video Agents
+·What is the character 
+doing between 01:05-
+01:09?
+·How many birds at the 
+beginning?
+·What instruments do 
+they play? Is there 
+any abnormality?
+·Why is the king so 
+happy？
+Q1: Global 
+understanding
+Q2: Explicit 
+temporal query
+Q3: Implicit 
+temporal query
+Same Q3 type, different evidence needs
+ A: Long-range Evidence Chain
+e.g., Why is the king so happy?
+Fixed pipeline (same for all queries)
+A. Global scan → Zoom-in
+B. Text memory → Retrieve
+Common 
+limitations
+Wasted compute
+Miss key evidence
+Captions
+ASR
+OCR
+Memory
+Top-k Retrieved
+Sleigh burns  →   king sees   →  king rejoices
+Zoom-in
+Zoom-in
+ B: Unexpected/Localized Evidence
+e.g., What instruments do they play?
+Is there any abnormality? 
+one brief clue
+Zoom-in
+Figure 1: Real-world long-video queries demand different evidence acquisition strategies. Query-agnostic agents
+apply a fixed pipeline to all queries, wasting computation or missing key evidence. In contrast, Route2Look
+introduces query-adaptive routing that dynamically selects between top-down generation-based and bottom-up
+retrieval-based strategies for efficient and accurate evidence acquisition.
+temporal queries. These strategies fall into two
+paradigms based on how temporal intervals are
+selected. Generation-based strategies adopt a top-
+down paradigm, reasoning over the query and ac-
+cumulated observations to progressively generate
+temporal intervals (Lin et al., 2026a; Li et al., 2026;
+Zhang et al., 2026b). They excel at inference from
+global context or logic flow but may miss unex-
+pected, localized events (Lin et al., 2026a). In
+contrast, retrieval-based strategies adopt a bottom-
+up paradigm, retrieving semantically relevant tem-
+poral intervals in parallel via clip-level embed-
+dings (Chen et al., 2025a; Yuan et al., 2025; Chen
+et al., 2026). They capture salient local evidence
+but struggle with long-range causal chains or holis-
+tic narratives.
+Overall, existing methods lack the ability to
+adapt evidence acquisition strategy to diverse query
+demands. To quantify this gap, we conduct an ora-
+cle study on a subset of LVBench (Wang et al.,
+2025a): if one could perfectly select between
+generation-based and retrieval-based strategies per
+query, accuracy improves from 68.5% (best single
+strategy) to 81.5%, yielding a substantial 13.0%
+absolute gain. This strongly suggests that query-
+adaptive evidence acquisition is essential for long-
+form video understanding.
+Inspired by this, we propose Route2Look, a
+framework for query-adaptive evidence acquisition
+in long video understanding. It operates in a Route-
+Look-Memorize loop: it first routes the query to a
+suitable evidence acquisition strategy, then looks
+into the selected video evidence, and finally memo-
+rizes verified evidence for subsequent routing. The
+framework provides three tools: Global Browse for
+holistic context building, Temporal Ground for ex-
+plicit temporal grounding, and Semantic Retrieve
+for parallel semantic search. To decide which tool
+to invoke for evidence acquisition, Route2Look
+learns a reusable routing skill through a two-stage
+design: it first distills the routing skill from dif-
+ferential contrastive analysis between generation-
+based and retrieval-based trajectories, and then ap-
+plies the distilled skill with hard routing rules and
+continue-or-stop criteria during inference. As a
+result, Route2Look provides a lightweight, model-
+agnostic, and transferable framework for long-form
+video understanding.
+In summary, our contributions are threefold:
+• We identify query-adaptive evidence acquisi-
+tion as a core challenge in long-form video
+understanding, demonstrating that different
+query types demand distinct evidence acquisi-
+tion strategies instead of a single fixed one.
+
+--- PAGE 3 ---
+• We propose Route2Look, a two-stage frame-
+work that distills routing skill from differ-
+ential contrastive analysis between retrieval-
+based and generation-based strategies, en-
+abling query-adaptive strategy selection.
+• Extensive experiments on long-form video
+benchmarks demonstrate that Route2Look im-
+proves both accuracy and efficiency, general-
+izing across datasets and query types. Oracle
+routing results further highlight significant po-
+tential for future query-adaptive research.
+2
+Related Works
+2.1
+Video Agentic Models
+Recent advances in MLLMs have promoted agentic
+systems for long-form video understanding. Unlike
+single-pass video processing, video agents inter-
+act with videos through iterative perception, rea-
+soning, and tool use, making them suitable for
+temporally extended scenarios.
+Existing meth-
+ods can be broadly divided into two lines. The
+first line follows query-agnostic pipelines: some
+methods perform global scanning followed by pro-
+gressive zoom-in (Yang et al., 2025a; Zuo et al.,
+2026; Yang et al., 2025b; He et al., 2025; Yin
+et al., 2025), while others precompute textual mem-
+ories such as dense captions, ASR, or OCR for
+downstream retrieval and reasoning (Wang et al.,
+2024b, 2025b; Ma et al., 2025; Pang and Wang,
+2025; Tian et al., 2025; Gao et al., 2025; Luo et al.,
+2026; Zhang et al., 2026a; Lian et al., 2026). Al-
+though effective, these methods apply a fixed pro-
+cessing procedure to different queries, which may
+waste computation on irrelevant content or miss
+query-specific evidence. The second line intro-
+duces query-conditioned planning before detailed
+perception (Chen et al., 2025a; Yuan et al., 2025;
+Wang et al., 2025c; Lin et al., 2026a; Li et al., 2026;
+Zhang et al., 2026b). These methods improve adap-
+tivity by using the query to guide inspection, but
+they usually rely on a single dominant evidence
+acquisition strategy, such as global browsing with
+local refinement or retrieval with verification.
+2.2
+Automatic Skill Self-Evolution
+Automatic skill self-evolution has become an im-
+portant direction for improving the adaptability
+of language agents (Wang et al., 2023; Shinn
+et al., 2023; Zhao et al., 2024; Zheng et al., 2025;
+Yang et al., 2026b; Alzubi et al., 2026; Ni et al.,
+2026). Instead of relying on manually designed
+prompts or fixed tool-use policies, these methods
+extract generalizable skills from trajectories, inter-
+actions, or execution feedback, and reuse them in
+future tasks. Prior work studies skill generation
+through exploration (Zheng et al., 2025), skill ex-
+traction from user-agent interactions (Yang et al.,
+2026b), structured skill memory (Jiang et al., 2026;
+Zhou et al., 2026), and failure-driven behavior
+refinement (Alzubi et al., 2026). ExpeL (Zhao
+et al., 2024) extracts general insights from success–
+failure experiences, while Trace2Skill (Ni et al.,
+2026) distills trajectory-local lessons into trans-
+ferable declarative skills through parallel consol-
+idation. Sharing this trajectory-to-skill paradigm,
+our method extends it to long-form video under-
+standing through strategy-level differential con-
+trastive analysis: it compares generation-based
+and retrieval-based trajectories for the same query–
+video pair using an accuracy-first and efficiency-
+second criterion, and distills their relative prefer-
+ence into a routing skill for query-adaptive evi-
+dence acquisition.
+3
+Method
+In this work, we propose Route2Look, a query-
+adaptive framework for evidence acquisition in
+long-form video understanding (Fig. 2). We first
+formalize an agentic evidence acquisition protocol
+(Sec. 3.1), then present a two-stage framework that
+distills routing experience into reusable skill and
+applies it during frozen inference (Sec. 3.2).
+3.1
+Agentic Evidence Acquisition Protocol
+Route2Look operates in a Route-Look-Memorize
+loop. Given query Q and video V of duration l, the
+agent iteratively acquires evidence until sufficient
+to answer Q. At each iteration, it selects an acquisi-
+tion tool, inspects visual content, updates memory
+and decides whether to continue. The agent πθ
+remains frozen throughout.
+3.1.1
+Toolkit
+The agent is equipped with three evidence acquisi-
+tion tools, each designed for a distinct acquisition
+pattern.
+Global Browse.
+It uniformly samples frames
+across the full video to provide holistic context,
+supporting global understanding queries or provid-
+ing a coarse contextual prior before more localized
+inspection.
+
+--- PAGE 4 ---
+Stage 1: Distilling Routing Skill
+Query-Video Pairs in Evolving Set
+Implicit Temporal Queries
+Generation-based Trajectory
+Retrieval-based Trajectory
+Global
+Browser
+Answer
+Look
+Semantic
+Retrieve
+Look
+Answer
+Differential Contrastive Analysis
+Correctness
+Frame Count
+Which trajectory produces 
+the correct answer?
+Which trajectory uses 
+fewer frames to succeed?
+Trigger
+Route
+Lesson
+When to apply
+the skill?
+Which tools to 
+choose?
+Why this route is 
+referred?
+Describe & 
+Verify Evidence
+Working 
+Memory
+Context
+Memory
+Stage 2: Skill-Guided Frozen Inference
+Global Browse
+Temporal Ground
+Semantic Retrieve
+Distilling Routing Skill S*
+Compact knowledge patch 
+for skill-guided routing 
+Query-Aware Retrieval Mechanism
+Query
+Diversification
+Mutimodal
+Retrieval
+Temporal
+Aggregation
+Top-K 
+Candidates
+...
+Adaptive
+Segment
+Extraction
+Video V
+reasoning, tool calls, 
+verified evidence
+temporary 
+sub-task context
+？
+Skill Patch Distillation
+Hierarchical Patch Merging
+User Query Q
+clip embeddings
+Evidence 
+sufficient?
+YES
+NO
+Abstraction & 
+generalization
+Deduplication
+Disambiguation
+Final Answer
+Routing Policy ͆Σ
+1. Hard Rules
+2. Distilled Skill S*
+Implicit Temporal
+Explicit Temporal             
+Global Understanding 
+3. Continue / Stop
+Figure 2: Overview of Route2Look. The agent follows a Route-Look-Memorize loop for iterative evidence
+acquisition. In Stage 1, Route2Look compares generation-based and retrieval-based trajectories for the same
+query-video pairs in an evolving set, then distills the resulting strategy preferences into a reusable routing skill. In
+Stage 2, the distilled routing skill is combined with hard routing rules and stopping criteria to guide query-adaptive
+evidence acquisition on the test set without updating the backbone model.
+Temporal Ground.
+It uniformly samples frames
+within a definite temporal interval, specified by
+queries containing explicit timestamps, temporal
+ranges, or temporal descriptions.
+Semantic Retrieve.
+It performs query-aware se-
+mantic search over the entire video, as detailed in
+Sec. 3.1.3. Rather than sequential browsing, it re-
+trieves candidate clips in parallel by ranking multi-
+modal embedding relevance to the query, followed
+by frame sampling from the retrieved candidates.
+3.1.2
+Route–Look–Memorize
+Route.
+At iteration t, the agent receives the cur-
+rent query Qt (initialized as Q and updated with
+memory). Given Qt and the available tools T , the
+agent performs routing reasoning rt and selects
+a tool ut ∈T via πθ. For global understanding
+queries and explicit temporal queries, the agent
+applies deterministic routing rules. For more chal-
+lenging implicit temporal queries, the agent de-
+cides whether to adopt a generation-based strategy
+through Global Browse or a retrieval-based strategy
+through Semantic Retrieve.
+Look.
+The selected tool returns sampled frames
+Ft, which are then passed to a Vision-Language
+Model (VLM) for detailed visual inspection. The
+VLM generates descriptions and assesses whether
+the content provides useful evidence, filtering irrel-
+evant segments while preserving evidence Et for
+the final answer.
+Memorize.
+Two complementary memory compo-
+nents are maintained: Context memory Mc stores
+the full interaction history {(ri, ui, Ei)}t
+i=1 to sup-
+port coherent reasoning; Working memory Mw
+maintains focused context for sub-tasks, and only
+verified evidence returns to Mc.
+After each iteration, the agent evaluates whether
+Mc contains sufficient evidence to answer Q. If
+yes, it terminates and generates the final answer;
+otherwise, it proceeds to the next iteration (limited
+by a maximum iteration budget H).
+3.1.3
+Query-Aware Retrieval Mechanism
+We now detail the retrieval mechanism used by
+Semantic Retrieve.
+Query Diversification.
+To improve recall, we ex-
+pand the current query Qt into a set of diversified
+sub-queries Qi
+t which include multiple reformu-
+lations, higher-level semantic abstractions, alter-
+native perspectives, and variants that incorporate
+information from multiple-choice options. This di-
+versification increases the probability of matching
+relevant visual content across different semantic
+framings (Wang et al., 2026a).
+
+--- PAGE 5 ---
+Multimodal Retrieval.
+The video is divided into
+Nc non-overlapping clips {cj}Nc
+j=1. Each sub-query
+Qi
+t ∈Qt and each clip cj is encoded into a shared
+multimodal embedding space. We compute a tem-
+poral relevance score for each sub-query:
+si[j] = cos
+ Φ(Qi
+t), Φ(cj)
+
+,
+j = 1, . . . , Nc,
+(1)
+where Φ denotes a pre-trained multi-modal encoder,
+and sim(·, ·) denotes cosine similarity.
+Temporal Evidence Aggregation.
+To combine
+signals from different query formulations, we apply
+element-wise max pooling over all relevance score
+curves:
+sfused[j] = max
+i
+si[j],
+j = 1, . . . , Nc.
+(2)
+This fused score curve highlights temporal loca-
+tions that match any diversified query formulation.
+Adaptive Segment Extraction.
+Candidate seg-
+ments are extracted using a dynamic threshold:
+γret = µ(sfused) + α · σ(sfused),
+(3)
+where µ(·) and σ(·) denote the mean and standard
+deviation of the fused scores, and α controls the
+sensitivity of extraction. Peaks above γret are iden-
+tified and expanded bilaterally to cover coherent
+temporal events.
+Candidate Selection.
+The extracted segments
+are ranked by their average fused relevance score.
+The top-K segments are selected as candidate ev-
+idence and passed to the Look phase for detailed
+verification.
+3.2
+Two-Stage Framework: From Experience
+to Skill for Query-Adaptive Routing
+The evidence acquisition protocol defines how the
+agent acquires evidence once a tool is selected. The
+remaining challenge is how to choose the optimal
+tool for each query. To address this, Route2Look
+uses a two-stage framework: Stage 1 distills rout-
+ing knowledge from competing trajectories on an
+evolving set Devolve; Stage 2 applies the distilled
+skill during frozen inference on test set Dtest.
+3.2.1
+Routing Skill Evolution Formalization
+We define a routing skill S as a structured, human-
+readable knowledge document that specifies query-
+adaptive routing strategies, i.e., when to use a
+generation-based or retrieval-based strategy. Let
+Devolve and Dtest denote two disjoint query-video
+sets for skill evolution and evaluation, respectively.
+Given a skill S, we measure its answer accuracy
+on a dataset D as
+P(S; πθ, D) =
+1
+|D|
+X
+(Q,V,y∗)∈D
+1
+
+πθ(Q, V ; S) = y∗
+,
+(4)
+where y∗denotes the ground-truth answer. We
+further measure frame efficiency by the average
+number of inspected frames:
+C(S; πθ, D) =
+1
+|D|
+X
+(Q,V,y∗)∈D
+c(Q, V ; S),
+(5)
+where c(Q, V ; S) is the number of frames in-
+spected when answering query Q on video V .
+The objective of skill evolution is to construct a
+routing skill from competing trajectories on Devolve,
+without updating agent parameters θ:
+P(S∗; πθ, Dtest) > P(S0; πθ, Dtest),
+(6)
+or, when accuracies are equal,
+C(S∗; πθ, Dtest) < C(S0; πθ, Dtest).
+(7)
+The initial skill S0 represents a single fixed strategy
+(either generation-based or retrieval-based). The
+goal is to learn a routing skill S∗that outperforms
+the better of these two baselines.
+3.2.2
+Stage 1: Distilling Routing Skill from
+Competing Trajectories
+This stage aims to attain a generalizable routing
+skill S∗from an evolving set Devolve.
+Dual-Trajectory Sampling.
+For each query-
+video pair (Q, V ) ∈Devolve, we independently ex-
+ecute two distinct agentic trajectories within the
+pipeline defined in Sec. 3.1. For each implicit tem-
+poral query in Devolve, we execute two competing
+trajectories: a generation-based trajectory τ gen (us-
+ing Global Browse) and a retrieval-based trajec-
+tory τ ret (using Semantic Retrieve). For explicit or
+global queries, both trajectories follow the same
+deterministic routing.
+Differential Contrastive Analysis.
+A preference
+pair (τ +, τ −) is formed when one trajectory out-
+performs the other according to the accuracy-first,
+efficiency-second criterion: τ + is preferred if it
+answers correctly while τ −fails, or if both answer
+correctly but τ + inspects fewer frames.
+
+--- PAGE 6 ---
+Table 1: Main results on three long video understanding benchmarks. #Frames denotes the number of processed
+frames. Best results are in bold, second-best are underlined.
+Type
+Method
+LVBench
+VideoMME (Long)
+LongVideoBench (Long)
+#Frames↓
+Acc↑
+#Frames↓
+Acc↑
+#Frames↓
+Acc↑
+VLM
+-based
+Qwen2.5-VL-72B (Bai et al., 2025b)
+768
+47.3
+256
+53.2
+-
+-
+Qwen3-VL-8B (Bai et al., 2025a)
+768
+45.8
+256
+59.3
+-
+-
+Qwen3.5-9B (Team, 2026)
+768
+60.8
+256
+67.3
+-
+-
+Gemini-1.5-Pro (Team et al., 2024)
+3600
+33.1
+1233
+67.4
+256
+58.6
+Gemini 2.0 Flash (Pichai et al., 2024)
+4037
+48.3
+1233
+63.0
+256
+45.7
+GPT-4o (Hurst et al., 2024)
+384
+30.8
+384
+65.3
+256
+60.9
+GPT-5 (Singh et al., 2025)
+384
+60.1
+384
+67.9
+384
+64.5
+Agent
+-based
+VideoAgent (Wang et al., 2024b)
+25.5
+29.3
+24.6
+46.4
+-
+-
+VideoTree (Wang et al., 2025b)
+103.2
+28.8
+98.0
+53.1
+-
+-
+DrVideo (Ma et al., 2025)
+-
+-
+493.2
+51.7
+-
+-
+VCA (Yang et al., 2025a)
+20.0
+41.3
+18.1
+54.2
+-
+-
+Mr.Video (Pang and Wang, 2025)
+8074
+60.8
+4932
+61.8
+2816
+61.6
+DVD (Zhang et al., 2026a)
+8074
+74.2
+4932
+67.3
+2816
+68.6
+VideoSeek (Lin et al., 2026a)
+92.3
+68.4
+60.9
+70.1
+29.6
+73.5
+Route2Look (Ours)
+202.3
+75.4
+126.6
+76.1
+168.7
+77.8
+Skill
+Patch
+Distillation.
+For
+each
+pref-
+erence
+pair,
+πθ
+distills
+a
+skill
+patch
+pi
+=
+(Triggeri, Strategyi, Lessoni),
+where
+Trigger
+describes
+the
+query
+characteristics,
+Strategy recommends either generation or retrieval,
+and Lesson provides actionable routing guidelines.
+The
+patch
+converts
+instance-level
+trajectory
+comparisons into reusable routing knowledge.
+Hierarchical Patch Merging.
+The extracted
+patches may be redundant or conflicting.
+We
+merge them hierarchically: patches are grouped
+into batches and iteratively merged via the LLM
+πθ, which removes duplicates, resolves conflicts
+by favoring higher-support patches, and abstracts
+instance-specific observations into general prin-
+ciples. This process repeats until the number of
+patches falls below the batch size, yielding a com-
+pact routing skill S∗.
+3.2.3
+Stage 2: Skill-Guided Frozen Inference
+During inference, the distilled skill S∗is injected
+into the agent’s routing policy ρS, which consists
+of three layers. Layer 1 applies hard routing rules:
+Temporal Ground for explicit temporal hints and
+Global Browse for global understanding queries.
+Layer 2 employs the learned skill S∗to guide
+implicit temporal queries toward either retrieval-
+based or generation-based strategies. Layer 3 im-
+plements continue-or-stop criteria, terminating the
+loop when sufficient evidence is accumulated or
+the maximum iteration budget H is reached.
+4
+Experiments
+4.1
+Experimental Settings
+Benchmarks.
+We
+evaluate
+Route2Look
+on
+three long-form video understanding benchmarks.
+LVBench (Wang et al., 2025a) contains 1,549
+multiple-choice questions over 103 hour-long
+videos. VideoMME (Fu et al., 2025) (long sub-
+set) has 900 questions with an average duration
+of 2,466 seconds. LongVideoBench (Wu et al.,
+2024) (long split of its validation set) includes 564
+questions from 188 videos lasting 900–3,600 sec-
+onds. Together, these benchmarks cover a broad
+spectrum of long-form video scenarios, enabling a
+comprehensive evaluation of both the accuracy and
+efficiency of query-adaptive evidence acquisition.
+Baselines.
+We compare against two categories of
+methods for video understanding: (1) VLM-based
+methods, covering both commercial and open-
+source models, such as GPT-5, GPT-4o, Gemini-
+1.5 Pro, Gemini 2.0 Flash, and Qwen2.5-VL-72B.
+(2) Agent-based methods, such as VideoAgent,
+Videotree, VCA, MR.Video, DVD, VideoSeek
+which also use GPT-5 as the backbone. Most re-
+ported results are from official leaderboards or pub-
+lished reports.
+Implementation Details.
+Route2Look is model-
+agnostic and can be instantiated with different
+LLM/VLM backbones. By default, we use GPT-
+5 as the agent backbone and LanguageBind (Zhu
+et al., 2024) as the multimodal retriever using 10-
+second clips. We set top-K to 5, the threshold
+parameter α to 0.5, and the maximum number of
+
+--- PAGE 7 ---
+50
+60
+70
+80
+90
+100
+Accuracy (%)
+84.0
+63.3
+58.3
+92.0
+77.4
+63.2
+92.0
+82.7
+73.7
+Global
+(1.6%)
+Explicit
+(16.0%)
+Implicit
+(82.4%)
+102
+103
+104
+#Frames
+(log scale)
+8392
+8082
+8089
+70.4
+43.9
+131.8
+91.1
+66.0
+231.0
+DVD
+VideoSeek
+Route2Look
+Figure 3: Performance breakdown by query type on
+LVBench. The upper panel shows accuracy, and the
+lower panel shows frame usage in log scale. Query-type
+ratios are shown in parentheses on the x-axis.
+agent iterations to 10. For each tool call, videos are
+sampled at 2 FPS with at most 50 frames due to API
+input limits. The evolving set contains 500 strati-
+fied samples from CG-Bench (Chen et al., 2025b),
+and the merge batch size for hierarchical patch
+merging is set to B = 32. Hyperparameter analy-
+sis is provided in Appendix A.1.
+4.2
+Main Results
+Table 1 shows that Route2Look achieves state-of-
+the-art performance on all benchmarks while main-
+taining comparable frame efficiency. On LVBench,
+it reaches 75.4% accuracy with 202.3 frames, out-
+performing DVD by 1.2% while using only 2.5%
+of its frame budget. On VideoMME, Route2Look
+achieves 76.1% with 126.6 frames, surpassing
+VideoSeek by 6.0%. On LongVideoBench, it ob-
+tains 77.8% with 168.7 frames, improving over
+DVD and VideoSeek by 9.2% and 4.3%, respec-
+tively. These consistent gains are achieved with the
+routing skill distilled from an external evolution set,
+showing that Route2Look learns generalizable rout-
+ing patterns and improves the base model GPT-5
+with substantially lower frame usage.
+4.3
+Performance on Different Query Types
+We further analyze performance by query type in
+Fig. 3, including global understanding, explicit
+temporal, and implicit temporal queries. We repro-
+duce two strong baselines, DVD and VideoSeek,
+with GPT-5 as the same backbone for a fair com-
+parison. The three query types account for 1.6%,
+16.0%, and 82.4% of LVBench, respectively, show-
+Table 2: Ablation studies on core components on
+LVBench. “Gen.” and “Ret.” denote generation-based
+and retrieval-based strategies; “Diff. Con.” denotes dif-
+ferential contrastive analysis.
+Gen. Ret.
+Routing
+Diff. Con.
+Acc
+#Frames
+✓
+–
+–
+63.5
+107.5
+✓
+–
+–
+68.5
+290.7
+✓
+✓
+Random
+–
+65.8
+196.8
+✓
+✓
+Heuristic
+–
+66.5
+255.4
+✓
+✓
+Learned
+✗
+61.5
+238.6
+✓
+✓
+Learned
+✓
+70.0
+244.9
+✓
+✓
+Oracle
+–
+81.5
+131.8
+ing that implicit temporal queries dominate the
+benchmark. Route2Look achieves 92.0% accu-
+racy on global understanding queries, matching
+VideoSeek and surpassing DVD by 8.0%. For ex-
+plicit temporal queries, it improves over VideoSeek
+from 77.4% to 82.7% with only 66.0 frames on
+average. The largest gain appears on implicit tem-
+poral queries, where Route2Look reaches 73.7%
+accuracy, outperforming VideoSeek by 10.5% and
+DVD by 15.4%. Overall, Route2Look achieves
+the best accuracy with competitive frame efficiency
+across query types, especially on the dominant and
+challenging implicit temporal queries.
+4.4
+Ablation Studies
+We conduct ablations on a 200-sample stratified
+subset of LVBench that preserves the domain com-
+position and accuracy trends of the full dataset.
+More details are provided in Appendix A.4.
+Effectiveness of Core Components.
+Since
+global and explicit temporal queries are handled
+by deterministic rules, this ablation focuses on im-
+plicit temporal queries where routing is most crit-
+ical. We compare Route2Look with Generation-
+only, Retrieval-only, Random routing, Heuristic
+routing, w/o differential contrastive analysis, and
+Oracle. As for Heuristic routing, we implement
+a non-learned keyword-based router that uses ex-
+plicit surface cues in the query. For Heuristic rout-
+ing, we implement a non-learned keyword-based
+router using explicit surface cues in the query. Cues
+such as “why,” “relationship,” and “throughout the
+video” are routed to Global Browse, while cues
+such as “what color,” “how many,” and “what is
+written” are routed to Semantic Retrieve. The w/o
+differential contrastive analysis variant summarizes
+each trajectory independently, while Oracle selects
+
+--- PAGE 8 ---
+Ours：Answer: B，Frames: 570
+Ours：Answer: B，Frames: 50
+Ret：Answer: B，Frames: 400
+Gen：Answer: A，Frames: 400
+Ours：Answer: C，Frames: 240
+Ours：Answer: B，Frames: 50
+Ours：Answer: D，Frames: 50
+What happens between 05:05-05:57?"
+A. Jason is told that he's the father         
+B.  Jason and Raymond are told that neither of them is the father of the child
+C. Raymond is told that he's the father
+D. Raymond is told that he's not the father
+What type of video is this?
+A. News report B. Documentary C. Sporting events D.  TV show 
+<think>I need a global understanding of the video's overall genre. Global Browse 
+is suitable for identifying the overall theme or type of the entire video. </think>
+< global_browse> 0:4558< /global_browse> D. TV show
+<think>The tool results is: D. TV show.</think> <answer>D</answer>
+What color are the clothes on the two men playing the trumpet?
+A. Blue B. Yellow C.  Lilac D. Rose
+<think>I need to find the exact segment where two men are playing trumpets and 
+then inspect their clothing color. This is a localized visual scene best handled by 
+Semantic Retrieve to retrieve the relevant time span. I will request that segment 
+first, providing the options to aid retrieval, and then, once I have the time range, 
+I can query the video segment directly to confirm the clothing color.</think>
+...
+< semantic_retrieve> 80:1 20< \semantic_retrieve> Two uniformed human heralds 
+stand on a yellow wall and simultaneously blow long trumpets; both men wear 
+matching lilac/purple marching-band uniforms (with hats and white belts)
+<think>We have a retrieved segment (80–120s) showing two heralds blowing long 
+trumpets, described as wearing lilac/purple uniforms. To comply with the process, 
+I must verify this via the Temporal Ground for the specified interval and ask the 
+exact multiple-choice question to confirm the color.</think>
+< temporal_ground> 80:1 20< /temporal_ground>  ...Then the camera cuts to two 
+uniformed men standing side by side on top of a yellow brick castle wall. They are 
+both dressed in purple/lilac band uniforms with matching hats topped by 
+feathers, and they simultaneously blow long golden fanfare trumpets... 
+<think>I found the segment with two men playing trumpets (80–120s). The 
+verification confirmed they are wearing purple/lilac band uniforms. Among the 
+options, this corresponds to C. Lilac.</think><answer>C</answer>
+  
+What are the props in the hands of the audience during the concert?
+A. Yellow glow stick B.  Yellow crown props C. Red crown props D. Blue glow stick
+<think>I need to identify the audience props during the concert, a global visual 
+attribute likely consistent across multiple shots. Global Browse is suitable for 
+overall/persistent cues across the entire video. I will ask it directly to 
+determine which of the provided options matches the audience props.</think>
+< global_browse> 0:21 70< /global_browse> B. Yellow crown prop.
+<think>Global Browse provided a global assessment of the concert audience’s 
+props and identified them as yellow crown props, matching option B. This aligns 
+with the type of question (overall, persistent visual cue across the concert). 
+Therefore, the correct choice is B.</think>\n<answer>B</answer>"
+...
+<global_browse>0:2549</global_browse>...
+<temporal_ground>2200:2549</temporal_ground>...<temporal_ground>0:600</temporal_
+ground>...<temporal_ground>600:1200</temporal_ground>...<temporal_ground>1200:1800
+</temporal_ground>...<temporal_ground>1800:2200</temporal_ground>...<temporal_grou
+nd>1450:1600</temporal_ground>...<temporal_ground>1250:1350</temporal_ground>
+...
+<answer>A</answer>
+How does the movement of the host change throughout the video?
+A.  The host mostly sits on the couch,  but stands up and walks to the side 
+corridor to welcome the guests
+B. The host always stands up to address the audience directly
+C. The host moves around the stage from time to time interacting with the guests 
+and audience
+D. The host paces back and forth on the stage, expressing excitement and 
+engagement with the guests
+<think>Need overall understanding of host movement patterns across long 
+video; start with Global Browse for global summary, then verify with 
+targeted segments if needed.</think>
+< global_browse> 0:2893< /global_browse> the answer is:C. 
+<think>Global Browse suggests C, but must verify by checking multiple parts 
+of the video for host posture/movement patterns and whether any 
+distinctive behavior (mostly sitting then walking to corridor; always standing; 
+pacing back/forth) occurs. Sample early/middle/late segments with 
+temporal_ground.</think>
+< temporal_ground> 0:240< /temporal_ground>  ...answer is: C
+< temporal_ground> 1 200:1 440< /temporal_ground> ...A mostly sits then later 
+walks to side corridor to welcome guests.
+< temporal_ground> 2600:2893< /temporal_ground> . . . C moves around stage 
+from time to time.
+ 
+<think>We have mostly C evidence, but one segment was labeled A; need to 
+verify whether the host actually “walks to the side corridor to welcome 
+guests” (a specific behavior) anywhere, and also rule out persistent standing 
+(B) or pacing (D). Use Semantic Retrieve to search for (1) welcoming guests in 
+side corridor/entrance, (2) pacing back and forth.</think>
+< semantic_retrieve> 1 390:1 400< \semantic_retrieve> Option A: Host rises 
+from his seat/podium area, walks to the side corridor/entrance, greets a 
+teenage guest as he comes down the steps, then escorts him onto the 
+stage;< semantic_retrieve> 241 0: 2420< \semantic_retrieve> Option A: Host 
+waits near the bottom of the side-entrance stairs, shakes hands/hugs a male 
+guest as he enters, then guides him toward the seating area;
+< semantic_retrieve> 2580: 2600< \semantic_retrieve> Option A: Host steps 
+toward the side entrance to meet an entering guest (identified as a brother), 
+extends a hand and escorts him onto the stage while security manages a 
+nearby confrontation;< semantic_retrieve> 2680: 
+2690< \semantic_retrieve> Option A: Host stands and walks from the arched 
+side entrance area while holding hands with an emotional young woman, 
+guiding her toward the seating area;< semantic_retrieve> 2780: 
+2790< \semantic_retrieve> Option A: A male guest enters from the side 
+corridor; host is positioned by the steps with arms extended in a welcoming 
+posture as the guest approaches.
+...
+<think>Multiple verified segments show the host seated for much of the show, 
+then standing and walking to the side entrance/corridor repeatedly to greet 
+and escort incoming guests...This matches option A 
+best.</think>\n<answer>A</answer>
+<think>...first locate segments showing the audience during the concert. I'll use 
+the Semantic Retrieve to retrieve segments where the audience is holding 
+props...</think>
+<semantic_retrieve>1810:1830<\semantic_retrieve>...<semantic_retrieve>.1240:12
+50<\semantic_retrieve>...<semantic_retrieve>330:350<\semantic_retrieve>...<sem
+antic_retrieve>150:190<\semantic_retrieve>
+...
+<think>Multiple verified segments consistently show audience members holding 
+yellow crown-shaped light props, with no evidence of red/blue sticks or simple 
+yellow glow sticks. Therefore, the correct choice is Yellow crown 
+props.</think>\n<answer>B</answer>
+<think>I will use Temporal Ground because the question specifies an 
+explicit time range (05:05–05:57).</think>
+< temporal_ground> 305:357< /< temporal_ground> ...on-screen text 
+flashes “YOU ARE NOT THE FATHER!” ...The answer is: B. Jason and 
+Raymond are told that neither of them is the father of the child.
+<think>The interval 05:05–05:57 shows the host reading paternity 
+results for two men ... clarifying that neither man is the father. This 
+matches option B.</think>\n<answer>B</answer>
+Query of Implicit Temporal
+Query of Global Understanding
+Query of Explicit Temporal
+Query of Implicit Temporal
+Query of Implicit Temporal
+Figure 4: Case studies across different query types. Global understanding and explicit temporal queries are handled
+with low frame usage, while implicit temporal queries require adaptive evidence acquisition. Route2Look selects
+Semantic Retrieve for localized evidence, Global Browse for persistent global attributes, and multiple tools for
+complex reasoning, showing flexible routing across and within queries.
+the better strategy per sample using ground-truth
+answers. As shown in Table 2, Retrieval-only out-
+performs Generation-only by 5.0% but uses 2.7×
+more frames, indicating a trade-off between lo-
+cal evidence recall and verification cost. Random
+routing performs between the two single-strategy
+variants, showing that naive mixing is insufficient.
+Heuristic routing falls 3.5 percentage points be-
+low Route2Look while consuming more frames,
+suggesting that the distilled skill captures nuanced
+routing conditions that cannot be reliably repre-
+sented by surface-level keyword matching. Remov-
+ing differential contrastive analysis drops accuracy
+from 70.0% to 61.5%, confirming the importance
+of explicit trajectory comparison. Notably, Ora-
+cle reaches 81.5%, revealing substantial room for
+future query-adaptive routing.
+Compatibility with Various Modules.
+We re-
+place the default GPT-5 backbone in the agen-
+tic workflow with alternative LLMs and VLMs,
+as shown in Table 3. When fixing GPT-5 as the
+LLM and varying the VLM for visual inspection,
+the accuracy steadily improves from 41.0% with
+Qwen2.5-VL to 54.5% with Qwen3.5-VL, indicat-
+Table 3: Compatibility with different LLM and VLM
+backbones on LVBench.
+LLM
+VLM
+Acc
+#Frames
+GPT-5
+Qwen2.5-VL
+41.0
+317.7
+GPT-5
+Qwen3-VL
+47.5
+116.8
+GPT-5
+Qwen3.5-VL
+54.5
+156.2
+GPT-4o
+GPT-5
+45.5
+300.8
+GPT-4.1
+GPT-5
+58.0
+282.1
+GPT-5
+GPT-5
+70.0
+244.9
+ing that stronger visual inspection modules directly
+benefit evidence verification. When fixing GPT-5
+as the VLM and varying the LLM, GPT-5 achieves
+70.0% accuracy, substantially outperforming GPT-
+4o and GPT-4.1 while using fewer frames. This sug-
+gests that stronger reasoning capability improves
+routing and stopping decisions, leading to higher
+accuracy with fewer frames.
+4.5
+Case Study
+Figure 4 shows representative cases across different
+query types. For global understanding and explicit
+temporal queries, hard routing rules invoke Global
+
+--- PAGE 9 ---
+Browse or Temporal Ground and obtain correct
+answers with as few as 50 frames. For implicit
+temporal queries, Route2Look adapts its strategy
+to the evidence need: it uses Semantic Retrieve for
+localized evidence, Global Browse for persistent
+global attributes, and multiple tools for complex
+movement reasoning. These cases show that im-
+plicit queries do not favor a fixed strategy, and
+Route2Look can flexibly route among strategies
+across different queries and within a single query.
+5
+Conclusion
+We present Route2Look, a lightweight and model-
+agnostic framework for query-adaptive evidence ac-
+quisition in long-form video understanding. Moti-
+vated by the mismatch between query demands and
+fixed evidence acquisition strategies, Route2Look
+routes before looking and dynamically selects
+among three evidence acquisition tools. It learns
+reusable routing skills from contrastive generation-
+based and retrieval-based trajectories, enabling
+adaptive inference without updating the backbone
+model. Experiments on three long-video bench-
+marks demonstrate state-of-the-art accuracy with
+comparable frame efficiency.
+Further analyses
+show that the gains are most pronounced on im-
+plicit temporal queries, confirming the importance
+of adapting evidence acquisition to query-specific
+evidence needs.
+Limitations
+Route2Look provides a first step toward query-
+adaptive evidence acquisition, and several limita-
+tions remain. First, the routing skill is distilled
+from a finite evolution set, leaving room to close
+the gap between learned and oracle routing through
+larger data or better skill optimization. Second,
+Route2Look still requires moderate frame veri-
+fication, especially when Semantic Retrieve re-
+turns multiple candidates. Future work can explore
+more selective verification policies to further re-
+duce frame usage while maintaining or improving
+accuracy. Third, the current framework mainly fo-
+cuses on visual evidence, while audio cues may pro-
+vide complementary signals for long-form video
+understanding. These limitations together indicate
+broad opportunities for future adaptive routing re-
+search. By revealing the importance and room of
+query-adaptive strategy selection, Route2Look lays
+a foundation for building more accurate, efficient,
+and multimodally grounded long-video agents.
+Acknowledgements
+This work was supported in part by the New Gen-
+eration Artificial Intelligence-National Science and
+Technology Major Project (No. 2025ZD0123404)
+and the Beijing Natural Science Foundation (No.
+L252035).
+References
+Salaheddin Alzubi, Noah Provenzano, Jaydon Bingham,
+Weiyuan Chen, and Tu Vu. 2026. Evoskill: Auto-
+mated skill discovery for multi-agent systems. arXiv
+preprint arXiv:2603.02766.
+Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen,
+Xionghui Chen, Zesen Cheng, Lianghao Deng,
+Wei Ding, Chang Gao, Chunjiang Ge, et al.
+2025a. Qwen3-vl technical report. arXiv preprint
+arXiv:2511.21631.
+Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wen-
+bin Ge, Sibo Song, Kai Dang, Peng Wang, Shi-
+jie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu,
+Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei
+Wang, Wei Ding, Zheren Fu, Yiheng Xu, and 8 oth-
+ers. 2025b. Qwen2.5-vl technical report. Preprint,
+arXiv:2502.13923.
+Boyu Chen, Zhengrong Yue, Siran Chen, Zikang Wang,
+Yang Liu, Peng Li, and Yali Wang. 2025a. Lvagent:
+Long video understanding by multi-round dynamical
+collaboration of mllm agents. In Proceedings of the
+IEEE/CVF International Conference on Computer
+Vision, pages 20237–20246.
+Guo Chen, Yicheng Liu, Yifei Huang, Baoqi Pei, Ji-
+lan Xu, Yuping He, Tong Lu, Yali Wang, and Limin
+Wang. 2025b. Cg-bench: Clue-grounded question
+answering benchmark for long video understanding.
+In International Conference on Learning Representa-
+tions, volume 2025, pages 45647–45682.
+Tao Chen, Kun Zhang, Qiong Wu, Xiao Chen, Chao
+Chang, Xiaoshuai Sun, Yiyi Zhou, and Rongrong
+Ji. 2026. Scaling the long video understanding of
+multimodal large language models via visual memory
+mechanism. arXiv preprint arXiv:2603.29252.
+Chaoyou Fu, Yuhan Dai, Yongdong Luo, Lei Li,
+Shuhuai Ren, Renrui Zhang, Zihan Wang, Chenyu
+Zhou, Yunhang Shen, Mengdan Zhang, et al. 2025.
+Video-mme: The first-ever comprehensive evalua-
+tion benchmark of multi-modal llms in video anal-
+ysis. In Proceedings of the IEEE/CVF conference
+on computer vision and pattern recognition, pages
+24108–24118.
+Hong Gao, Yiming Bao, Xuezhen Tu, Yutong Xu,
+Yue Jin, Yiyang Mu, Bin Zhong, Linan Yue, and
+Min-Ling Zhang. 2025.
+Agentic video intelli-
+gence: A flexible framework for advanced video
+exploration and understanding.
+arXiv preprint
+arXiv:2511.14446.
+
+--- PAGE 10 ---
+Zefeng He, Xiaoye Qu, Yafu Li, Siyuan Huang, Daizong
+Liu, and Yu Cheng. 2025. Framethinker: Learning
+to think with long videos via multi-turn frame spot-
+lighting. arXiv preprint arXiv:2509.24304.
+Aaron Hurst, Adam Lerer, Adam P Goucher, Adam
+Perelman, Aditya Ramesh, Aidan Clark, AJ Os-
+trow, Akila Welihinda, Alan Hayes, Alec Radford,
+et al. 2024. Gpt-4o system card. arXiv preprint
+arXiv:2410.21276.
+Guanyu Jiang, Zhaochen Su, Xiaoye Qu, and Yi R
+Fung. 2026. Xskill: Continual learning from experi-
+ence and skills in multimodal agents. arXiv preprint
+arXiv:2603.12056.
+Sicong Jiang, Zilin Huang, Kangan Qian, Ziang Luo,
+Tianze Zhu, Yang Zhong, Yihong Tang, Menglin
+Kong, Yunlong Wang, Siwen Jiao, et al. 2025. A
+survey on vision-language-action models for au-
+tonomous driving. In Proceedings of the IEEE/CVF
+International Conference on Computer Vision, pages
+4524–4536.
+Keliang Li, Yansong Li, Hongze Shen, Mengdi Liu,
+Hong Chang, and Shiguang Shan. 2026. Lenswalk:
+Agentic video understanding by planning how you
+see in videos. arXiv preprint arXiv:2603.24558.
+Niu Lian, Yuting Wang, Hanshu Yao, Jinpeng Wang,
+Bin Chen, Yaowei Wang, Min Zhang, and Shu-Tao
+Xia. 2026. From verbatim to gist: Distilling pyrami-
+dal multimodal memory via semantic information
+bottleneck for long-horizon video agents.
+arXiv
+preprint arXiv:2603.01455.
+Jingyang Lin, Jialian Wu, Jiang Liu, Ximeng Sun,
+Ze Wang, Xiaodong Yu, Jiebo Luo, Zicheng Liu, and
+Emad Barsoum. 2026a. Videoseek: Long-horizon
+video agent with tool-guided seeking. arXiv preprint
+arXiv:2603.20185.
+Jingyang Lin, Jialian Wu, Ximeng Sun, Ze Wang, Jiang
+Liu, Yusheng Su, Xiaodong Yu, Hao Chen, Jiebo Luo,
+Zicheng Liu, et al. 2026b. Unleashing hour-scale
+video training for long video-language understanding.
+Advances in Neural Information Processing Systems,
+38:17523–17552.
+Yongdong Luo, Xiawu Zheng, Guilin Li, Shukang Yin,
+Haojia Lin, Chaoyou Fu, Jinfa Huang, Jiayi Ji, Fei
+Chao, Jiebo Luo, et al. 2026. Video-rag: Visually-
+aligned retrieval-augmented long video comprehen-
+sion. Advances in Neural Information Processing
+Systems, 38:168008–168033.
+Ziyu Ma, Chenhui Gou, Hengcan Shi, Bin Sun,
+Shutao Li, Hamid Rezatofighi, and Jianfei Cai. 2025.
+Drvideo: Document retrieval based long video un-
+derstanding. In Proceedings of the Computer Vision
+and Pattern Recognition Conference, pages 18936–
+18946.
+Jingwei Ni, Yihao Liu, Xinpeng Liu, Yutao Sun,
+Mengyu Zhou, Pengyu Cheng, Dexin Wang, Er-
+chao Zhao, Xiaoxi Jiang, and Guanjun Jiang.
+2026. Trace2skill: Distill trajectory-local lessons
+into transferable agent skills.
+arXiv preprint
+arXiv:2603.25158.
+Ziqi Pang and Yu-Xiong Wang. 2025.
+Mr. video:"
+mapreduce" is the principle for long video under-
+standing. arXiv preprint arXiv:2504.16082.
+Sundar
+Pichai,
+Demis
+Hassabis,
+and
+Koray
+Kavukcuoglu.
+2024.
+Introducing
+gemini
+2.0:
+Our new ai model for the agentic era.
+https://blog.google/innovation-and-ai/
+models-and-research/google-deepmind/
+google-gemini-ai-update-december-2024/.
+Google Blog, accessed May 16, 2026.
+Rui Qian, Shuangrui Ding, Xiaoyi Dong, Pan Zhang,
+Yuhang Zang, Yuhang Cao, Dahua Lin, and Jiaqi
+Wang. 2025. Dispider: Enabling video llms with ac-
+tive real-time interaction via disentangled perception,
+decision, and reaction. In Proceedings of the Com-
+puter Vision and Pattern Recognition Conference,
+pages 24045–24055.
+Chenhui Qiang, Zhaoyang Wei, Xumeng Han, Zipeng
+Wang, Siyao Li, Xiangyuan Lan, Jianbin Jiao, and
+Zhenjun Han. 2025. Ver-bench: Evaluating mllms on
+reasoning with fine-grained visual evidence. In Pro-
+ceedings of the 33rd ACM International Conference
+on Multimedia, pages 12698–12705.
+Noah Shinn, Federico Cassano, Ashwin Gopinath,
+Karthik Narasimhan, and Shunyu Yao. 2023. Re-
+flexion: Language agents with verbal reinforcement
+learning. Advances in neural information processing
+systems, 36:8634–8652.
+Yan Shu, Zheng Liu, Peitian Zhang, Minghao Qin,
+Junjie Zhou, Zhengyang Liang, Tiejun Huang, and
+Bo Zhao. 2025. Video-xl: Extra-long vision lan-
+guage model for hour-scale video understanding. In
+Proceedings of the Computer Vision and Pattern
+Recognition Conference, pages 26160–26169.
+Aaditya Singh, Adam Fry, Adam Perelman, Adam Tart,
+Adi Ganesh, Ahmed El-Kishky, Aidan McLaughlin,
+Aiden Low, AJ Ostrow, Akhila Ananthram, et al.
+2025. Openai gpt-5 system card. arXiv preprint
+arXiv:2601.03267.
+Chan Hee Song, Valts Blukis, Jonathan Tremblay,
+Stephen Tyree, Yu Su, and Stan Birchfield. 2025. Ro-
+bospatial: Teaching spatial understanding to 2d and
+3d vision-language models for robotics. In Proceed-
+ings of the Computer Vision and Pattern Recognition
+Conference, pages 15768–15780.
+Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan
+Burnell, Libin Bai, Anmol Gulati, Garrett Tanzer,
+Damien Vincent, Zhufeng Pan, Shibo Wang, et al.
+2024. Gemini 1.5: Unlocking multimodal under-
+standing across millions of tokens of context. arXiv
+preprint arXiv:2403.05530.
+Qwen Team. 2026. Qwen3. 5-omni technical report.
+arXiv preprint arXiv:2604.15804.
+
+--- PAGE 11 ---
+Shulin Tian, Ruiqi Wang, Hongming Guo, Penghao Wu,
+Yuhao Dong, Xiuying Wang, Jingkang Yang, Hao
+Zhang, Hongyuan Zhu, and Ziwei Liu. 2025. Ego-r1:
+Chain-of-tool-thought for ultra-long egocentric video
+reasoning. arXiv preprint arXiv:2506.13654.
+Xiaoyu Tian, Junru Gu, Bailin Li, Yicheng Liu, Yang
+Wang, Zhiyong Zhao, Kun Zhan, Peng Jia, Xian-
+peng Lang, and Hang Zhao. 2024. Drivevlm: The
+convergence of autonomous driving and large vision-
+language models. arXiv preprint arXiv:2402.12289.
+Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Man-
+dlekar, Chaowei Xiao, Yuke Zhu, Linxi Fan, and
+Anima Anandkumar. 2023. Voyager: An open-ended
+embodied agent with large language models. arXiv
+preprint arXiv:2305.16291.
+Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhi-
+hao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin
+Wang, Wenbin Ge, et al. 2024a. Qwen2-vl: Enhanc-
+ing vision-language model’s perception of the world
+at any resolution. arXiv preprint arXiv:2409.12191.
+Tianyue Wang, Leigang Qu, Tianyu Yang, Xiangzhao
+Hao, Yifan Xu, Haiyun Guo, and Jinqiao Wang.
+2026a. Wiser: Wider search, deeper thinking, and
+adaptive fusion for training-free zero-shot composed
+image retrieval. arXiv preprint arXiv:2602.23029.
+Weihan Wang, Zehai He, Wenyi Hong, Yean Cheng, Xi-
+aohan Zhang, Ji Qi, Ming Ding, Xiaotao Gu, Shiyu
+Huang, Bin Xu, et al. 2025a. Lvbench: An extreme
+long video understanding benchmark. In Proceed-
+ings of the IEEE/CVF International Conference on
+Computer Vision, pages 22958–22967.
+Xiaohan Wang, Yuhui Zhang, Orr Zohar, and Serena
+Yeung-Levy. 2024b. Videoagent: Long-form video
+understanding with large language model as agent.
+In European Conference on Computer Vision, pages
+58–76. Springer.
+Zheng Wang, Haoran Chen, Haoxuan Qin, Zhipeng Wei,
+Tianwen Qian, and Cong Bai. 2026b. Think, then
+verify: A hypothesis-verification multi-agent frame-
+work for long video understanding. arXiv preprint
+arXiv:2603.04977.
+Ziyang Wang, Shoubin Yu, Elias Stengel-Eskin, Jae-
+hong Yoon, Feng Cheng, Gedas Bertasius, and Mo-
+hit Bansal. 2025b. Videotree: Adaptive tree-based
+video representation for llm reasoning on long videos.
+In Proceedings of the Computer Vision and Pattern
+Recognition Conference, pages 3272–3283.
+Ziyang Wang, Honglu Zhou, Shijie Wang, Junnan
+Li, Caiming Xiong, Silvio Savarese, Mohit Bansal,
+Michael S Ryoo, and Juan Carlos Niebles. 2025c.
+Active video perception: Iterative evidence seeking
+for agentic long video understanding. arXiv preprint
+arXiv:2512.05774.
+Keshara Weerasinghe, Saahith Janapati, Xueren Ge,
+Sion Kim, Sneha Iyer, John A Stankovic, and Homa
+Alemzadeh. 2024. Real-time multimodal cognitive
+assistant for emergency medical services.
+arXiv
+preprint arXiv:2403.06734.
+Zhaoyang Wei, Chenhui Qiang, Bowen Jiang, Xumeng
+Han, Xuehui Yu, and Zhenjun Han. 2025. Adˆ 2-
+bench: A hierarchical cot benchmark for mllm in
+autonomous driving under adverse conditions. arXiv
+preprint arXiv:2506.09557.
+Zhaoyang Wei, Guoliang Wang, Guohua Gao, Yanchao
+Hao, Mingda Li, Wenchao Ding, Xi Chen, Shizhu He,
+and Xuehui Yu. 2026. Seeing is believing: Ground-
+ing long-video understanding in spatio-temporal vi-
+sual evidence.
+In Proceedings of the AAAI Con-
+ference on Artificial Intelligence, volume 40, pages
+10584–10592.
+Haoning Wu, Dongxu Li, Bei Chen, and Junnan Li.
+2024.
+Longvideobench: A benchmark for long-
+context interleaved video-language understanding.
+Advances in Neural Information Processing Systems,
+37:28828–28857.
+Haiyang Yan, Hongyun Zhou, Peng Xu, Xiaoxue Feng,
+and Mengyi Liu. 2026. Symphony: A cognitively-
+inspired multi-agent system for long-video under-
+standing. arXiv preprint arXiv:2603.17307.
+Ruoliu Yang, Chu Wu, Caifeng Shan, Ran He, and
+Chaoyou Fu. 2026a.
+Videodetective: Clue hunt-
+ing via both extrinsic query and intrinsic rele-
+vance for long video understanding. arXiv preprint
+arXiv:2603.22285.
+Yutao Yang, Junsong Li, Qianjun Pan, Bihao Zhan, Yux-
+uan Cai, Lin Du, Jie Zhou, Kai Chen, Qin Chen, Xin
+Li, et al. 2026b. Autoskill: Experience-driven life-
+long learning via skill self-evolution. arXiv preprint
+arXiv:2603.01145.
+Zeyuan Yang, Delin Chen, Xueyang Yu, Maohao Shen,
+and Chuang Gan. 2025a. Vca: Video curious agent
+for long video understanding. In Proceedings of the
+IEEE/CVF International Conference on Computer
+Vision, pages 20168–20179.
+Zhongyu Yang, Zuhao Yang, Shuo Zhan, Tan Yue,
+Wei Pang, and Yingfang Yuan. 2026c.
+Svagent:
+Storyline-guided long video understanding via cross-
+modal multi-agent collaboration.
+arXiv preprint
+arXiv:2604.05079.
+Zuhao Yang, Sudong Wang, Kaichen Zhang, Keming
+Wu, Sicong Leng, Yifan Zhang, Bo Li, Chengwei
+Qin, Shijian Lu, Xingxuan Li, et al. 2025b. Longvt:
+Incentivizing" thinking with long videos" via native
+tool calling. arXiv preprint arXiv:2511.20785.
+Yufei Yin, Qianke Meng, Minghao Chen, Jiajun Ding,
+Zhenwei Shao, and Zhou Yu. 2025.
+Videoarm:
+Agentic reasoning over hierarchical memory for
+long-form video understanding.
+arXiv preprint
+arXiv:2512.12360.
+
+--- PAGE 12 ---
+Huaying Yuan, Zheng Liu, Junjie Zhou, Hongjin Qian,
+Yan Shu, Nicu Sebe, Ji-Rong Wen, and Zhicheng
+Dou. 2025. Videoexplorer: Think with videos for
+agentic long-video understanding. arXiv preprint
+arXiv:2506.10821.
+Xiaoyi Zhang, Zhaoyang Jia, Zongyu Guo, Jiahao Li,
+Bin Li, Houqiang Li, and Yan Lu. 2026a.
+Deep
+video discovery: Agentic search with tool use for
+long-form video understanding. Advances in Neural
+Information Processing Systems, 38:89863–89895.
+Yaolun Zhang, Ruohui Wang, Jiahao Wang, Yepeng
+Tang, Xuanyu Zheng, Haonan Duan, Hao Lu, Han-
+ming Deng, and Lewei Lu. 2026b. Eva: Efficient
+reinforcement learning for end-to-end video agent.
+arXiv preprint arXiv:2603.22918.
+Andrew Zhao, Daniel Huang, Quentin Xu, Matthieu
+Lin, Yong-Jin Liu, and Gao Huang. 2024. Expel:
+Llm agents are experiential learners. In Proceedings
+of the AAAI Conference on Artificial Intelligence,
+volume 38, pages 19632–19642.
+Shitian Zhao, Shaoheng Lin, Ming Li, Haoquan Zhang,
+Wenshuo Peng, Kaipeng Zhang, and Chen Wei. 2026.
+Pyvision-rl: Forging open agentic vision models via
+rl. arXiv preprint arXiv:2602.20739.
+Boyuan Zheng, Michael Y Fatemi, Xiaolong Jin,
+Zora Zhiruo Wang, Apurva Gandhi, Yueqi Song,
+Yu Gu, Jayanth Srinivasa, Gaowen Liu, Graham Neu-
+big, et al. 2025. Skillweaver: Web agents can self-
+improve by discovering and honing skills. arXiv
+preprint arXiv:2504.07079.
+Huichi Zhou, Siyuan Guo, Anjie Liu, Zhongwei Yu,
+Ziqin Gong, Bowen Zhao, Zhixun Chen, Meng-
+long Zhang, Yihang Chen, Jinsong Li, et al. 2026.
+Memento-skills: Let agents design agents. arXiv
+preprint arXiv:2603.18743.
+Bin Zhu, Bin Lin, Munan Ning, Yang Yan, Jiaxi Cui,
+WANG HongFa, Yatian Pang, Wenhao Jiang, Junwu
+Zhang, Zongwei Li, et al. 2024. Languagebind: Ex-
+tending video-language pretraining to n-modality by
+language-based semantic alignment. In International
+Conference on Learning Representations, volume
+2024, pages 9588–9608.
+Brianna Zitkovich, Tianhe Yu, Sichun Xu, Peng Xu,
+Ted Xiao, Fei Xia, Jialin Wu, Paul Wohlhart, Stefan
+Welker, Ayzaan Wahid, et al. 2023. Rt-2: Vision-
+language-action models transfer web knowledge to
+robotic control. In Conference on Robot Learning,
+pages 2165–2183. PMLR.
+Jialong Zuo, Yongtai Deng, Lingdong Kong, Jingkang
+Yang, Rui Jin, Yiwei Zhang, Nong Sang, Liang Pan,
+Ziwei Liu, and Changxin Gao. 2026. Videolucy:
+Deep memory backtracking for long video under-
+standing. Advances in Neural Information Process-
+ing Systems, 38:25660–25691.
+
+--- PAGE 13 ---
+A
+Appendix
+A.1
+Hyperparameter Analysis
+We analyze three key hyperparameters in Table 4:
+the evolution set size |Devolve|, the merge batch size
+B, and the number of retrieved segments K.
+Evolution set size.
+Increasing the evolution set
+from 200 to 500 samples yields a notable improve-
+ment from 67.0% to 70.0%, indicating that more
+diverse training queries help distill a more robust
+routing skill. This trend suggests that further scal-
+ing the evolution data may continue to improve
+routing quality.
+Merge batch size.
+With 200 samples, batch size
+32 achieves the best accuracy (67.0%), while ex-
+tremely small and overly large batches degrade per-
+formance. A similar trend holds with 500 samples,
+where increasing batch size from 32 to 200 causes
+a drop from 70.0% to 64.0%. These results indi-
+cate that merging too many patches at once loses
+fine-grained distinctions, while too few patches per
+batch fail to resolve conflicts effectively. A moder-
+ate batch size B = 32 consistently yields the best
+trade-off.
+Number of retrieved segments.
+Decreasing K
+from 5 to 3 substantially reduces frame usage from
+249.5 to 171.7, but at the cost of a notable accuracy
+drop from 67.0% to 61.5%. This indicates that re-
+trieving fewer candidates improves efficiency but
+risks missing relevant evidence, and K = 5 pro-
+vides a favorable balance between coverage and
+cost.
+Table 4: Hyperparameter analysis on LVBench.
+|Devolve|
+B
+K
+Acc
+#Frames
+200
+32
+3
+61.5
+171.7
+200
+32
+5
+67.0
+249.5
+200
+10
+5
+63.5
+186.0
+200
+200
+5
+66.5
+216.8
+500
+32
+5
+70.0
+244.9
+500
+200
+5
+64.0
+253.7
+A.2
+Efficiency Analysis
+We further analyze the efficiency of Route2Look
+on LVBench. We report the average frame usage
+and token consumption of the GPT-5 base model
+and Route2Look in Table 5. Compared with the
+GPT-5 base model, Route2Look uses substantially
+Table 5: Performance comparison of different methods.
+Method
+#Frames
+#Tokens
+Acc
+GPT-5 (Base)
+384
+83K
+60.1
+Route2Look (Ours)
+202.3
+72K
+75.4
+fewer frames and fewer tokens, while achieving
+much higher accuracy. Specifically, Route2Look
+reduces the average number of inspected frames
+from 384.0 to 202.3, corresponding to a 47.3%
+reduction, and decreases token consumption from
+83K to 72K. Meanwhile, the accuracy improves
+from 60.1% to 75.4%. These results demonstrate
+that query-adaptive evidence acquisition enables
+the agent to focus on more relevant video segments,
+leading to a better accuracy-efficiency trade-off.
+A.3
+Algorithm Demonstration
+Algorithm 1 illustrates the agent workflow in
+Route2Look. The entire process follows a Route-
+Look-Memorize loop. Given a query Q and a video
+V , the agent repeatedly performs three steps. First,
+it updates the current query state Qt based on con-
+text memory Mc and selects a tool ut from the
+toolkit T under the routing policy ρS. Second, the
+agent initializes a temporary working memory Mt
+w
+for the current tool call. The selected tool is then
+invoked to obtain sampled frames Ft, and the VLM
+inspects these frames to extract verified evidence
+Et. Third, only the verified evidence and routing
+information are written back to the context mem-
+ory. And the agent checks whether the accumulated
+evidence is sufficient to answer the query. If so, it
+generates the final answer Y ; otherwise, it contin-
+ues the loop until reaching the maximum iteration
+budget H.
+A.4
+Subset Analysis in the Ablation Study
+We conduct ablation studies on a stratified subset
+of 200 samples from LVBench to reduce evalua-
+tion cost while preserving the benchmark distribu-
+tion. Following the sampling protocol of (Yin et al.,
+2025), we sample from the joint domain–task dis-
+tribution of the full set, prioritizing domain-level
+proportions and maintaining task-level proportions
+within each domain. Samples are drawn without
+replacement within each stratum, with minor round-
+ing adjustment to satisfy the 200-sample budget.
+As shown in Fig. 5, the resulting subset closely
+matches the domain composition of the full
+LVBench set and preserves similar accuracy trends
+
+--- PAGE 14 ---
+Algorithm 1 Route2Look Agent Workflow
+Require: User query Q; video V ; routing policy
+ρS; frozen LLM/VLM agent πθ; toolkit T ;
+maximum iteration budget H.
+Ensure: Answer Y .
+1: Initialize context memory Mc ←∅
+2: Initialize final answer Y ←∅
+3: for t = 1 to H do
+4:
+Initialize working memory Mt
+w ←∅
+5:
+(rt, ut, Qt) ←πθ(Q, Mc, T , ρS)
+▷
+Routing reasoning, tool selection, the current
+query
+6:
+Mt
+w ←Mt
+w ∪{Qt}
+▷Temporary
+memory for the current tool call
+7:
+(Ft, Mt
+w) ←APPLYTOOL(ut, V, Mt
+w) ▷
+Acquire sampled frames
+8:
+(Et, Mt
+w) ←πθ(Ft, Mt
+w)
+▷Inspect
+frames and verify evidence
+9:
+Mc ←Mc ∪{⟨rt, ut, Et⟩}
+▷Update
+context memory
+10:
+if SUFFICIENT(Q, Mc) then
+11:
+Y ←ANSWER(Q, Mc)
+12:
+break
+13:
+end if
+14: end for
+15: if Y = ∅then
+16:
+Y ←ANSWER(Q, Mc)
+▷Forced final
+answer
+17: end if
+18: return Y
+across domains. This indicates that the subset pro-
+vides a representative and efficient testbed for con-
+trolled ablation analysis.
+A.5
+Oracle Routing Analysis
+We conduct an in-depth analysis of the oracle rout-
+ing results, as summarized in Figure 6. The re-
+sults show that 50.5% of samples can be correctly
+answered by both strategies, indicating that a sub-
+stantial portion of implicit temporal queries can
+be handled reliably by either top-down reasoning
+or bottom-up semantic retrieval. Generation-only
+succeeds on 13.0% of samples where retrieval fails,
+while retrieval-only succeeds on 18.0% of samples
+where generation fails. By selecting the correct
+strategy for each sample, oracle routing achieves
+81.5% accuracy, which corresponds to the union of
+the two single-strategy success sets. This is substan-
+tially higher than either generation-only (63.5%) or
+retrieval-only (68.5%) performance, revealing sub-
+Figure 5: Effectiveness of Subset Analysis.
+stantial room for query-adaptive routing. Overall,
+Figure 6 provides direct empirical evidence that
+adaptive routing is necessary: the key challenge
+is not to replace one strategy with another, but to
+learn when each strategy should be trusted.
+Figure 6: Oracle Routing Analysis.
+A.6
+Generalization Beyond the Evolving Set
+Since the routing skill is distilled from a finite
+evolving set, an important question is whether it
+generalizes beyond the observed data. We exam-
+ine this question from three perspectives: cross-
+benchmark transfer, held-out-domain transfer, and
+the effect of evolving-set scale.
+Cross-Benchmark Generalization.
+The rout-
+ing skill is distilled exclusively from CG-Bench
+and directly applied to LVBench, VideoMME,
+and LongVideoBench without re-distillation or
+benchmark-specific adaptation. Its consistent gains
+across these independent benchmarks indicate
+that the learned skill captures transferable query–
+evidence acquisition patterns rather than dataset-
+specific shortcuts.
+Held-out-Domain Evaluation.
+To more directly
+assess domain generalization, we conduct held-out-
+domain experiments on two representative video
+domains, as shown in Table 6. For each target do-
+main, we remove all corresponding samples from
+the CG-Bench evolving set, distill the routing skill
+using only the remaining domains, and evaluate
+it on the corresponding LVBench domain. Specif-
+ically, we evaluate transfer from CG-Bench ex-
+
+--- PAGE 15 ---
+Table 6: Held-out-domain generalization on LVBench.
+The target domain is excluded from the CG-Bench
+evolving set during skill distillation.
+Domain
+Gen.-only
+Ret.-only
+Held-out Skill
+Sport
+71.0
+61.3
+74.2
+TV
+56.2
+56.2
+59.4
+cluding Sports & Exercise to the LVBench Sport
+domain, and from CG-Bench excluding Music &
+TV Show to the LVBench TV domain.
+Despite never observing samples from the cor-
+responding domains during skill distillation, the
+held-out skill outperforms both generation-only
+and retrieval-only baselines, demonstrating its abil-
+ity to transfer to unseen video domains.
+Effect of Evolving-Set Scale.
+Increasing the
+evolving set from 200 to 500 samples improves
+accuracy from 67.0% to 70.0% in Table 4, indicat-
+ing that broader coverage further improves routing
+quality.
+A.7
+Visualization of Skill
+To better understand what Route2Look learns dur-
+ing skill evolution, we visualize part of the distilled
+routing skill in Table 7. The distilled skills reveal
+clear routing preferences. Generation-based strat-
+egy are generally favored when the required evi-
+dence can be obtained from global context, stable
+visual attributes, contiguous workflows, or visually
+clear temporal boundaries. For example, queries
+about overall video type, persistent props, struc-
+tured processes, or visually defined durations often
+benefit from first building a coarse global timeline
+and then performing light local verification. In con-
+trast, retrieval-based strategy are preferred when
+the evidence is precise, sparse, transient, or lexi-
+cally grounded. Examples include exact on-screen
+text, brief UI changes, localized spatial relations,
+sparse first occurrences, or repeated similar actions
+that require high-recall candidate search and local
+verification. These examples show that the learned
+skill is not a simple preference for one fixed strat-
+egy. Instead, it captures reusable routing princi-
+ples that connect query characteristics with evi-
+dence acquisition behavior. This human-readable
+form also makes the routing policy interpretable:
+Route2Look learns when to rely on global reason-
+ing and when to retrieve localized evidence.
+A.8
+Additional Case Studies
+We provide additional qualitative examples in
+Fig. 7–Fig. 11 to further illustrate how Route2Look
+adapts evidence acquisition to different query types
+and evidence needs.
+For global understanding
+queries in Fig. 7, Route2Look directly invokes
+Global Browse to capture whole-video context,
+such as video category, documentary topic, and
+overall style. For explicit temporal queries in Fig. 8,
+it applies Temporal Ground to inspect the specified
+timestamp, time range, or temporal description,
+enabling direct verification of localized temporal
+evidence.
+For implicit temporal queries, Route2Look ex-
+hibits more diverse routing behaviors. When the
+query requires holistic judgment, repeated-event
+counting, global ordering, or long-range reason-
+ing, as shown in Fig. 9, Route2Look uses Global
+Browse to aggregate evidence across the full video.
+When the answer depends on localized visual cues,
+such as a specific reaction, object state, or existence
+of a target event, it uses Semantic Retrieve to locate
+relevant temporal segments before verification, as
+shown in 10. In more ambiguous cases in 11,
+Route2Look can switch between tools: it first at-
+tempts Semantic Retrieve for targeted evidence and
+then falls back to Global Browse or performs Se-
+mantic Retrieve when the initial Global Browse is
+insufficient. These cases further show that implicit
+temporal queries do not favor a fixed strategy, and
+that Route2Look can adaptively route both across
+different queries and within a single query.
+
+--- PAGE 16 ---
+What is the overall style of the video?
+A. Relaxing B. Romantic C.  Realistic D. Exciting
+<think>I need a global understanding of the video's 
+overall style across its duration; Global Browse is 
+designed for whole-video, overall questions. I will 
+use it to get a coarse answer distinguishing among 
+Relaxing, Romantic, Realistic, or Exciting.</think>
+< global_browse> 0:2254</global_browse> C. 
+Realistic
+<think>Global Browse, appropriate for whole-video 
+style questions, returned \"C. Realistic\" as the 
+overall style. There are no conflicting results, so I 
+can confidently select option 
+C.</think>\n<answer>C</answer>
+What does this documentary mainly introduce?
+A. Introducing BRABUS's modification of BMW cars. 
+This video records the process of BRABUS's 
+modification of Mercedes Benz E Class
+B. Introducing BRABUS's modification of Audi cars. 
+This video records the process of BRABUS's 
+modification of Mercedes Benz G Class
+C. Introducing BRABUS's modification of Mercedes-
+Benz cars. This video records the process of BRABUS's 
+modification of Mercedes Benz E Class
+D. Introducing BRABUS's modification of Mercedes-
+Benz cars. This video records the process of 
+BRABUS's modification of Mercedes Benz G Class
+<think>I need to identify the main subject of the 
+documentary: whether it's BRABUS modifying BMW, 
+Audi, or Mercedes-Benz, and specifically whether the 
+documented process is for the Mercedes E-Class or G-
+Class. This is a global/overall understanding task across 
+a long video, so the appropriate tool is Global Browse to 
+scan the whole video for branding, narration, and 
+featured car models.</think>
+< global_browse> 0:2959</global_browse> is:D. 
+Introducing BRABUS's modification of Mercedes-Benz 
+cars, specifically the process of modifying the 
+Mercedes-Benz G-Class
+<think>The global_browse result directly identifies the 
+documentary as about BRABUS modifying Mercedes-
+Benz cars, specifically the Mercedes-Benz G-Class. 
+That matches option D.</think>\n<answer>D</answer>
+What is the category of this video?
+A. A vlog of all kinds of food around Korea
+B. A vlog of travel around Korea
+C. A vlog of all kinds of food around Seoul
+D. A vlog of travel around Seoul
+<think>The question asks for the overall 
+category of the video, distinguishing between 
+food vs travel and Korea vs Seoul scope. This 
+is a global understanding task across the 
+entire long video. The appropriate tool is  
+Global Browse to get a high-level summary 
+and determine which category best 
+matches.</think>
+< global_browse> 0:6534</global_browse>The 
+best choice is **A. A vlog of all kinds of food 
+around Korea**. It shows a food-focused 
+travel vlog across multiple Korean locations, 
+not just Seoul.    
+<think>The global_browse tool provided a 
+global assessment indicating the video is a 
+food-focused vlog spanning multiple locations 
+across Korea (not limited to Seoul), matching 
+option A.</think><answer>A</answer>
+Query of Global Understanding
+Figure 7: Additional case studies on global understanding queries. Route2Look invokes Global Browse to capture
+whole-video context and answer questions about video category, documentary topic, and overall style.
+What is written in the orange circle in the picture that 
+appears at 69:20?
+A. WEB B. APP C.AWS D. PCI
+<think>We have an explicit timestamp (69:20) and need to 
+read on-screen text in a specific picture. The appropriate 
+tool is Temporal Ground. I will select a segment around 
+69:20 to capture the frame.</think>
+<temporal_ground>4130:4190</temporal_ground>The 
+scene is from a large tech conference in a dark auditorium 
+with a circular stage in the center. A presenter in a dark 
+suit, black shirt, and black shoes holds a clicker while 
+speaking. Around the stage hangs a large ring-shaped 
+display showing slides. After a “Cloud protection” slide, 
+the screen shows a diagram on a dark blue background. On 
+the left is a “Private Cloud” section divided into “Prod” and 
+“Dev,” each containing pill-shaped labels such as Web 
+Portal, Finance, PCI Data, Sales Portal, Sales, Customer 
+DB, Web, App, and Database. A vertical divider separates 
+this from the right side, which has a large dark circle 
+labeled “Marketing app. ” Overlapping the right of that 
+circle is a smaller orange circle containing text. The text 
+inside this orange circle reads “AWS. ”. The answer is: C. 
+AWS
+<think>The question references a specific timestamp 
+(69:20) with on-screen text in an orange circle. I queried 
+the segment around 69:20 using temporal_ground and the 
+returned result describes the slide with a diagram and 
+explicitly states the orange circle contains the text 
+“AWS,” matching option C.</think><answer>C</answer>
+Query of Explicit Temporal
+Why does the boy fall during 45:01-45:07?
+A. Because he is sick and unable to stand
+B. Because he suddenly faints due to hypoglycemia
+C. Because he suddenly falls asleep and collapses
+D. Because he accidentally trips over a stone
+<think>I should use Temporal Ground because the question 
+specifies an exact time range (45:01–45:07). I will start 
+with a ±30-second context around that window to capture 
+the lead-up and the fall.</think>
+< temporal_ground> 2670:2730< /temporal_ground> In an 
+overgrown stone courtyard with ivy-covered walls and a 
+broken fountain, an elderly man in a vest and cap speaks to 
+three youths. One boy sits in a small hand-pushed 
+wheelchair with a blanket over his legs. After some 
+encouragement, he removes the blanket, stands up shakily 
+using the chair’s handles for support, and tries to take a 
+few steps on the uneven stone paving. The camera shows 
+close-ups of his boots moving uncertainly. With his arms 
+stretched out trying to balance, his legs begin to give way; 
+he wobbles and then collapses forward onto the ground. 
+His two friends rush to him—one girl kneels by his side 
+and touches his head while another boy helps lift him. He 
+opens his eyes slowly, looking weak rather than injured 
+from a trip. The answer is: A. Because he is sick and 
+unable to stand.
+<think>I used the explicit timestamp strategy and 
+inspected 45:01–45:07 with context. The scene shows the 
+boy getting up shakily from a wheelchair, attempting a few 
+unstable steps on uneven stones, then his legs give way and 
+he collapses. Friends rush to help; he looks weak rather 
+than suddenly unconscious or tripped. There’s no visible 
+stone trip, no abrupt faint typical of hypoglycemia, and 
+certainly not falling asleep. The fall is due to his 
+underlying weakness/illness and inability to 
+stand.</think><answer>A</answer>
+How is the weather like in the opening?
+A. Cloudy B. Snowy C. Sunny D. Rainy
+<think>We need to determine the weather in the opening of 
+the video. The instructions say that if the question refers 
+to the beginning of the video, we should use Temporal 
+Ground directly, selecting a coarse initial range such as 0 
+to 120 seconds. We'll query the first two minutes to 
+identify the weather, then, if needed, narrow further 
+based on the returned results.</think>
+< temporal_ground> 0:1 20< /temporal_ground> The video 
+opens with a black screen and the words “A Netflix Series,” 
+then quickly contrasts glowing orange flames and sparks 
+from metalwork with a cut to a pale sky full of drifting 
+snow. A single crystalline snowflake is shown in close-up, 
+falling through thick, gray-white clouds as text overlays 
+describe historical context. The environment is wintry: 
+constant snowfall fills the air, and the ground is carpeted 
+with fresh snow. A cloaked figure in dark clothing and a 
+wide hat walks through a snowy forest path, leaving 
+footprints, the wind pushing the cloak as flakes continue to 
+fall. The figure enters a village where all the wooden 
+houses and fences are heavily coated in snow and icicles; 
+the air remains dense with falling snow. Children in robes 
+step out onto the snow-covered ground and toss stones 
+toward the cloaked figure. Intercut shots show hot sword 
+forging, but the exterior scenes throughout the opening 
+remain cold and snowy. The answer is: B. Snowy
+<think>The temporal_ground result for the opening (0–120s) 
+clearly describes heavy snowfall, snow-covered ground, and 
+a wintry environment, explicitly concluding the weather is 
+snowy. Thus the correct option is 
+B.</think><answer>B</answer>
+Figure 8: Additional case studies on explicit temporal queries. Route2Look invokes Temporal Ground when the
+query specifies a timestamp, time range, or temporal segment, enabling direct verification of localized evidence.
+
+--- PAGE 17 ---
+Query of Implicit Temporal
+Given all the performance, we can predict that ____ 
+is the best player?
+A. Mitoma B. Ferguson C. Salah D. Thiago 
+<think>We need a global understanding of the entire 
+match or performance compilation to judge which 
+player stands out overall among Mitoma, Ferguson, 
+Salah, and Thiago. This aligns with Global Browse’s 
+usage for overall summary and main contributors 
+across the whole video. I will ask the global_browse 
+to evaluate which player appears to be the best 
+based on visible performance and impact throughout 
+the video, explicitly listing all options.
+< global_browse> 0:6028< /global_browse> A. Mitoma. 
+- He scored the stoppage-time winner and was 
+Brighton’s constant threat from the left, creating 
+chances and driving attacks. - Ferguson had some 
+good moments but was quieter and went off hurt late 
+on. - Salah had a couple of openings but didn’t 
+convert and wasn’t as influential. - Thiago kept the 
+ball moving but had limited impact in the final third. 
+Mitoma’s decisive goal and overall influence make him 
+the standout among these options
+<think>The global_browse reviewed the entire match 
+and determined Mitoma was the standout: he scored 
+the stoppage-time winner and consistently 
+threatened from the left, creating chances and 
+driving attacks. Ferguson was quieter and injured 
+late, Salah had openings but didn’t convert, and 
+Thiago’s impact in the final third was limited. 
+Therefore, Mitoma is the best player among the 
+options.</think>\n<answer>A</answer>
+What appears first after the cast list?
+A. A book with a white cover
+B. A book with a yellow cover
+C. A book with a pink cover
+D. A book with a dark blue cover
+<think>I need to identify the “cast list” segment, 
+then determine which book cover appears first 
+immediately after it among the options. Since this 
+is a global/ordering query tied to a specific on-
+screen text segment, Global Browse is appropriate 
+to locate the cast list, then I can inspect the 
+nearby segment.</think>
+< global_browse> 0:4243< /global_browse> The 
+segment with the cast list is the credits card near 
+the end with Cyrillic text. Immediately after it, 
+the first book cover that appears is **D: dark blue 
+cover**
+<think>The global_browse indicates the cast list 
+appears near the end with Cyrillic text, and 
+immediately after it, the first book cover shown is 
+dark blue. No conflicting information is present, so 
+the correct choice is D.</think><answer>D</answer>
+How many birthdays does the protagonist celebrate 
+in the video?
+A. 1  B. 0  C. 4  D. 3
+<think>I need a global count of birthday celebrations 
+across the whole video. This is a repeated-event 
+counting task across a long clip, suitable for Global 
+Browse to get an overall understanding and count. I 
+will first use the global_browse to get a rough count 
+and, if needed, follow up with more targeted 
+semantic_retrieve.</think>
+<global_browse>>0:5333</global_browse>Answer: 
+D. 3. Birthday scenes I can spot in the video:. 1) 
+Around 49:45–51:00 (≈ 2986s) ...clearly staged like a 
+small birthday celebration for the protagonist. 2) 
+Around 74:45–76:30 (≈ 4479–4586s) – The 
+protagonist...is handed a ribbon-tied book as a 
+present; the group focuses on her, marking her 
+birthday. 3) Early on, shortly before they go into 
+hiding (≈ 15:30–16:10, around 930–970s) ... signaling 
+her first birthday shown in the film. 
+<think>The global_browse scanned the entire 5333s 
+video and identified three distinct birthday 
+celebration scenes anchored by typical cues (cake, 
+gifts, party focus): around 930–970s (diary gift), 
+2986–3060s (cake at the table), and 4479–4586s 
+(gift presentation in pink dress). This supports a 
+total of three birthdays celebrated by the 
+protagonist, aligning with option 
+D.</think><answer>D</answer>
+Figure 9: Additional case studies where implicit temporal queries favor Global Browse. When the query requires
+repeated-event counting, global ordering, or long-range reasoning, Route2Look uses Global Browse to aggregate
+evidence across the full video.
+What is Venus's mood at IBM 163 when she hit the ball 
+out of bounds to make it 30-40?
+A. Venus feels under pressure, but she gets the return 
+back
+B. Venus feels bad that she made a bad error to give 
+her sister game point
+C. Venus maintains her composure, quickly refocusing for 
+the next point with a determined expression
+D. Venus shows frustration as she clenches her fist and 
+shakes her head in disappointment
+<think>We need to precisely locate the moment when 
+Venus hits the ball out of bounds making the score 30-40, 
+referred to as IBM 163, and observe her immediate 
+reaction/mood. Semantic Retrieve is appropriate to 
+retrieve the exact segment showing this event and her 
+reaction.</think>
+< semantic_retrieve> 1 920:1 930< \semantic_retrieve> IB
+M serve-speed board shows 163. Score reads V. 
+WILLIAMS 3 30 / S. WILLIAMS 4 30. Venus (in purple-
+and-white) hits the ball long/out and the score updates to 
+30–40. Immediately after, a close-up shows her bring a 
+hand to her face and then wipe with a towel, turning 
+slightly away with a briefly frustrated expression.
+<think>We located the IBM 163 segment (1920–1930s) 
+showing Venus hitting long, the score updating to 30–40 
+(game point for Serena), and her immediate reaction: 
+bringing a hand to her face, wiping with a towel, turning 
+slightly away with a briefly frustrated expression. This 
+rules out A (she didn’t “get the return back”), C (not a 
+determined refocus), and D (no clenching fist or head 
+shake). Her reaction aligns with feeling bad about the 
+error giving her sister game point, matching 
+B.</think>\n<answer>B</answer>
+What are the skills of the red calabash boy?
+A. He has infinitely power and can get bigger
+B. He has invisibility
+C. He is indestructible
+D. He has clairaudience and clairvoyance
+<think>I will first locate the segment(s) where the 
+red calabash boy and his abilities are introduced or 
+demonstrated, comparing against the options (A 
+strength/growth, B invisibility, C indestructibility, D 
+clairaudience/clairvoyance).</think>
+< semantic_retrieve> 81 0:870< \semantic_retrieve> N
+ight on a cliffside with hanging multicolored 
+calabashes. The red calabash boy (in red/pink with a 
+green leaf belt and gourd-like hair ornament) leaps in, 
+strikes fighting poses, then squats and hoists a 
+massive blue-gray boulder over his head and smashes 
+it into pieces—clearly demonstrating super strength 
+(option A). No invisibility, indestructibility, or 
+clairaudience/clairvoyance are shown here.
+<think>The retrieved segment at 810–870 shows the 
+red calabash boy lifting and smashing a massive 
+boulder, demonstrating super strength. No evidence 
+of invisibility, indestructibility, or 
+clairaudience/clairvoyance appears. Thus, the correct 
+option is the one describing great strength (and 
+commonly associated size increase), i.e., 
+A.</think><answer>A</answer>
+Query of Implicit Temporal
+ What type of melon is cut?
+A. Honeydew
+B. Pumpkin
+C. Cantaloupe
+D. Watermelon
+<think>I need to find the exact moment in the video 
+where a melon is being cut to identify its type 
+based on visual cues such as rind pattern, flesh 
+color, and seeds. Semantic Retrieve is suitable to 
+locate the relevant segment first. </think>
+<semantic_retrieve>1170:1300<\semantic_retrie
+ve>...Based on the rind pattern and the pale flesh, 
+the melon appears to be a honeydew-type melon 
+rather than cantaloupe, pumpkin, or watermelon. 
+The answer is: A. Honeydew (green to pale-green 
+flesh, smooth pale rind)
+<semantic_retrieve>1320:1430<\semantic_retrie
+ve>... cut open a round green melon with pale yellow 
+mottling and striping. When the melon is split, the 
+inside flesh is clearly orange and firm...The answer 
+is: C. Cantaloupe
+<think>The two retrieved segments conflict: the 
+first describes pale flesh consistent with honeydew, 
+while the second clearly reports orange flesh, which 
+matches cantaloupe. Since the question asks what 
+type of melon is cut, and the later segment 
+explicitly identifies orange flesh and concludes 
+cantaloupe, I will answer with that 
+option.</think>\n<answer>C</answer>
+Figure 10: Additional case studies where implicit temporal queries favor Semantic Retrieve. When the answer
+depends on localized visual cues, such as a specific reaction, a brief object state, or the existence of a target event,
+Route2Look usesSemantic Retrieve to locate relevant segments before verification.
+
+--- PAGE 18 ---
+All the players in the video get ___ -Chair Turns.
+A. 2
+B. 4
+C. 3
+D. 1
+<think>I need to find a segment indicating how many 
+chair turns all players get. This likely appears in a 
+title card, intro text, or narration such as \"All 4 
+Chair Turns.\" Semantic Retrieve can search for text 
+like \"chair turns\" to locate a segment where this is 
+stated. I'll ask it to find the segment that indicates 
+the number, listing all options for precision.</think>
+...
+<think>Semantic Retrieve didn't retrieve any 
+segments. I need a global understanding: this likely 
+appears as a title/theme across the whole video (e.g., 
+\"All 4-Chair Turns\"). Global Browse is suitable to 
+infer the overarching theme or prominent on-screen 
+text/title. I'll use it to determine the number of 
+chair turns all players get, providing the 
+options.</think>
+< global_browse> 0:4558< \global_browse> B. 4
+<think>The global_browse, which is appropriate for 
+identifying prominent global text/themes, returned 
+that the correct completion is \"4\" for \"__-Chair 
+Turns.\" Therefore, the correct option is 
+B.</think>\n<answer>B</answer>
+Which country has the same number of players as 
+Australia?
+A. Britain B. Italy C. Russia D. America
+<think>I need identify the country list/count shown 
+in the video, then compare with Australia. This is 
+likely in a segment with a roster or scoreboard. I'll 
+use Global Browse to locate the relevant part 
+quickly.</think>
+<global_browse>0:2268<\global_browse>B.Italy
+<think>I want to verify the global_browse’s answer 
+by locating the exact segment showing Australia’s 
+player count alongside the options’ countries, then 
+directly ask within that segment.</think>
+<semantic_retrieve>20:160<\semantic_retrieve>... 
+The roster lists eight entries with flags and country 
+codes: RUS, USA, USA, ROU, AUS, ITA, RUS, 
+ROU...Australia’s green-and-gold, Russia’s red-and-
+white). The environment is the competition floor 
+with Olympic branding and equipment visible. The 
+answer is: B. Italy
+<think>The segment shows the start list with 
+country codes: RUS, USA, USA, ROU, AUS, ITA, 
+RUS, ROU. Australia (AUS) appears once; Italy 
+(ITA) also appears once. Therefore, Italy has the 
+same number of players as 
+Australia.</think><answer>B</answer>
+Which team is more likely to reach the final in the 
+future?
+A. I don't know
+B. German
+C. Spain
+D. None of them
+<think>I need to locate the specific part of the 
+video where the topic \"which team is more likely to 
+reach the final in the future\" is discussed or shown 
+via on-screen text/graphics. Semantic Retrieve is 
+suitable to retrieve the most relevant segment 
+before performing a focused inquiry.</think>
+...
+<think>The initial Semantic Retrieve returned no 
+relevant segment. To avoid guessing, I will use the 
+Global Browse to get a global understanding of the 
+video and identify if the content discusses Germany 
+vs Spain predictions or which team is more likely to 
+reach a final. This tool can provide an approximate 
+answer when exact segments are not found, 
+especially for overall narrative or spoken content 
+concentrated in a short segment.</think>
+<global_browse>0:5895<\global_browse>C. Spain
+<think>After the Semantic Retrieve attempt 
+returned no relevant segments, I used the Global 
+Browse to obtain a global understanding. It 
+indicated that the video suggests Spain is more 
+likely to reach the final. There are no conflicting 
+results, so I can confidently select the 
+corresponding option.</think>\n<answer>C</answer>
+Query of Implicit Temporal
+Figure 11: Additional case studies showing adaptive routing within implicit temporal queries. Route2Look can
+switch between Semantic Retrieve and Global Browse when the initial route is insufficient, showing adaptive routing
+within a single query.
+Given the vlog, is the restaurant profitable?
+A. No loss, no profit
+B. I don't know
+C. No
+D. Yes
+<think>I need determine whether the vlog explicitly 
+indicates restaurant profitability. This is a global, 
+narrative/business question; likely requires Global 
+Browse for overall context and any discussion of 
+sales, profit, loss, or restaurant performance.     
+< global_browse> 0:2499< \global_browse> There’s 
+no explicit statement in the vlog that the 
+restaurant is profitable or losing money. What the 
+footage does show is:. - A very busy dining room 
+with lots of seated customers. - Constant food prep 
+and rapid plate turnover. - Multiple chefs/staff 
+actively working at the pass. - A high-volume 
+service environment, which is **strong evidence of 
+good business activity**. So, based on the visuals 
+alone, the restaurant **appears to be doing well 
+operationally**, but I **can’t confirm 
+profitability** from the vlog because there’s no 
+direct mention of revenue, costs, profit, or loss
+<think>The vlog provides evidence of busy service, 
+but explicitly says profitability cannot be 
+confirmed from visuals alone and there is no direct 
+mention of revenue, costs, profit, or loss. 
+Therefore the correct choice is that we don't know 
+whether it is profitable.</think><answer>B</answer>
+What are the changing trends of NASDAQ when the 
+changing trends of Dow Jones are +457.21, 1.95%?
+A. +51.28, 1.86%
+B. +644.10, 1.44%
+C. +71.88, 0.89%
+D. +164.93, 2.90%
+<think>Need identify on-screen stock market data 
+where Dow Jones shows +457.21, 1.95%, then read 
+NASDAQ change. This is precise OCR-like Semantic 
+Retrieve.</think>
+< semantic_retrieve> 1 550:1 570< \semantic_retriev
+e> 1550, 1570, 'Not relevant after visual check; does 
+not show the stock market update with Dow Jones 
++457.21, 1.95% or a readable NASDAQ value.
+<think>Need continue locating segment with stock 
+market update. The returned segment was not 
+relevant, so use Global Browse for global rough 
+browsing of likely financial news / ticker screen since 
+OCR grounding failed once.</think>
+< global_browse> 0:6798< \global_browse> The 
+NASDAQ change shown at that moment is **A: +51. 
+28, 1. 86%**
+<think>The global_browse directly identified 
+NASDAQ change as option A. Final 
+answer.</think>\n<answer>A</answer>
+What color shoes is the sixth speaker wearing in 
+the video?
+A. Brown 
+B. Blue 
+C. Black 
+D. White
+<think>We need identify the sixth speaker and shoe 
+color. This likely requires locating speaker sequence 
+in a dialogue/interview, possibly via Global Browse 
+first to understand structure. Need count speakers 
+and inspect sixth speaker appearance.
+< global_browse> 0:5867< \global_browse> The 
+sixth distinct speaker appears to be **the woman in 
+the light blue pantsuit during the Intel/Accenture 
+segment**. She is wearing **light-colored shoes, 
+likely white or off-white**
+<think>The rough browse suggests the sixth 
+speaker is the woman in the light blue pantsuit, and 
+her shoes are described as light-colored, likely 
+white or off-white. Among the options, that 
+corresponds to White.</think><answer>D</answer>
+Failures
+Figure 12: Representative failure cases. Route2Look may still fail on subtle spatial details, OCR-like numerical
+reading, or questions requiring reasoning beyond directly observable visual evidence.
+
+--- PAGE 19 ---
+Table 7: Examples of distilled routing skill.
+Trigger
+Route
+Lesson
+Global or persistent visual understanding,
+such as overall setting, participants, sto-
+ryline flow, stable scene layout, persistent
+props, HUD/UI semantics, or category and
+role identification.
+Generation-based
+Skim the whole video to map scenes, participants,
+timeline, and causal flow. Use sparse uniform sam-
+pling to confirm stable cues and answer from repre-
+sentative frames. Escalate only when multiple scenes
+or configurations create ambiguity.
+Exact linguistic strings, including on-screen
+text, subtitles, spoken dialogue, earliest tex-
+tual instances, or narration-driven entity in-
+troductions.
+Retrieval-based
+Use retrieval to jump to the exact segment. Densely
+sample adjacent frames, crop or zoom when needed,
+and verify exact strings across multiple frames. For
+earliest-instance questions, confirm that no earlier true
+mention exists.
+Linguistic content where exact wording is
+not critical, such as prominent on-screen
+branding, stable text layout, or a single spo-
+ken fact concentrated in one short segment.
+Generation-based
+Skim to capture a clear card or overlay and lightly
+ground the timing. Read a few clean frames or a tight
+transcript window. Switch to retrieval when the text is
+small, transient, ambiguous, or requires precise lexical
+distinction.
+Event-anchored localized questions tied to
+a clear temporal cue, such as when, after,
+before, beginning, first, last, explicit times-
+tamps, or quoted lines.
+Generation-based
+Locate the anchor through visual cues, or transcript
+keywords, then bound a narrow temporal window
+and sample adjacent frames. Verify the simple detail,
+immediate outcome, or directionality without heavy
+retrieve–verify loops.
+Precise, localized, and time-bound visual
+evidence, including fine-grained spatial re-
+lations, transient UI labels, brief color or
+state changes, and multi-option frame-level
+cues.
+Retrieval-based
+Anchor the target moment through semantic or event-
+based retrieval, then densely sample a tight frame win-
+dow. Inspect the relevant region, resolve viewpoint
+changes, track entities across cuts, and verify each
+claim against explicit evidence.
+Counting repeated but visually salient items
+or actions within a clearly bounded interval
+or a stable wide shot.
+Generation-based
+Establish the interval boundary with a global skim,
+then tally within the contiguous window. Use adjacent
+frames to stabilize visibility, broaden slightly when
+needed, and track objects to avoid double-counting.
+Counting or enumeration tied to a specific
+narrative moment, step, brief visibility win-
+dow, or ordinal relation.
+Retrieval-based
+Retrieve the correct segment using the narrative cue or
+event boundary, then perform dense local verification
+across nearby frames. Count each visible item care-
+fully and avoid conflating it with similar steps.
+Counting how many times a repeated, visu-
+ally similar action occurs across the whole
+video, especially with replays, multi-angle
+cuts, or montages.
+Retrieval-based
+Retrieve candidate segments across the timeline. Ver-
+ify strict start and end boundaries locally, then dedu-
+plicate cross-angle replays, montage repeats, and near-
+duplicate views before counting.
+Order-of-events reasoning in a structured
+workflow, tutorial, or contiguous process,
+including identifying the earliest or latest
+acted-on item.
+Generation-based
+Build a coarse global timeline through a quick skim,
+pin salient anchor actions, and read forward through
+the contiguous segment. Use brief local checks only
+when similar candidates remain.
+Fine-grained temporal ordering with visu-
+ally similar candidates, strong distractors,
+or subtle action boundaries.
+Retrieval-based
+Anchor the referenced cue through transcript, UI, or
+visual semantics. Densely sample the immediate win-
+dow, track entities across cuts, and verify timestamps
+or boundary states until the order is resolved.
+Earliest or first occurrence queries across
+the whole video when the target is reason-
+ably frequent and the video is not long or
+cluttered.
+Generation-based
+Perform a global sweep to find the earliest relevant
+entry point, then ground and confirm the first true
+action or event in a tight post-cue window. Switch to
+retrieval if the search becomes exhaustive.
+Earliest or first occurrence in long or clut-
+tered videos where the target event is brief,
+sparse, or difficult to find with high recall.
+Retrieval-based
+Use semantic retrieval to propose candidate moments,
+perform dense local verification, deduplicate near-
+misses, and back-check earlier windows to ensure the
+first true instance.
+Duration questions with visually defined
+boundaries, such as a continuous action, the
+n-th occurrence in a known segment, or a
+visually distinctive activity interval.
+Generation-based
+Use a global sweep to locate clear start and end bound-
+aries, then compute elapsed time or match the closest
+option. Avoid sparse semantic retrieval that may miss
+boundary frames.

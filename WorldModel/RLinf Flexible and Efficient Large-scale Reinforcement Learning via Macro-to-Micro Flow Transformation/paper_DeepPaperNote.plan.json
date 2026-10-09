@@ -1,0 +1,28 @@
+{
+  "paper_id": "arxiv:2509.15965v2",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "这是以强化学习运行时、数据流变换和调度为核心贡献的分布式系统方法论文；算法效果用于验证系统可用性，而不是提出新的强化学习目标。",
+  "dominant_domain": "大规模强化学习系统与异构分布式运行时",
+  "must_cover": ["宏观逻辑流如何变换为微观执行流", "Worker、WorkerGroup、Channel、Controller、Profiler与Scheduler的职责边界", "时间、空间和混合执行模式及其适用条件", "弹性流水线、上下文切换、自适应通信和设备映射", "调度动态规划及流水线代价模型", "推理、具身任务的实验协议、硬件、公平性与复现依赖", "灵活性展示与效率实测之间的证据边界"],
+  "key_numbers": ["推理训练端到端吞吐提升1.07×–1.70×", "具身训练相对SimpleVLA-RL提升1.05×–2.43×", "Qwen2.5 GRPO时间模式相对veRL提升1.10×–1.58×", "PPO 1.5B空间模式在16/32/64卡提升69.6%/35.0%/35.6%", "LIBERO时间模式在8/16/32卡提升37.8%/42.6%/143.4%", "调度搜索8–1024卡耗时7×10^-4–5.98秒"],
+  "real_comparisons": ["RLinf-Temporal与veRL的GRPO同构近似比较", "RLinf三种模式与veRL的PPO比较", "RLinf与Slime/Slime-Colocate的MoE GRPO比较", "RLinf各模式与SimpleVLA-RL的LIBERO比较", "ManiSkill上仅比较RLinf内部模式"],
+  "central_claims": [
+    {"claim": "M2Flow把稳定的宏观程序语义与可变化的放置、流水粒度和时间复用分离。", "supporting_evidence": [{"pages": {"start": 4, "end": 7}}], "what_it_actually_proves": "接口和运行时设计能从同一过程式工作流生成时间、空间或混合执行计划。", "what_it_does_not_prove": "没有证明任意强化学习工作流都可无修改表达，也没有与其他编程接口做开发成本对照实验。"},
+    {"claim": "按组件特征选择执行模式可提高端到端吞吐。", "supporting_evidence": [{"pages": {"start": 9, "end": 12}}], "what_it_actually_proves": "在论文给定模型、批量、集群与基线实现上，不同模式确实各有胜负，搜索策略能选中测试候选中的最快模式。", "what_it_does_not_prove": "不能推出所有模型、网络拓扑、环境或负载分布下都优于手工调优系统。"},
+    {"claim": "RLinf覆盖推理与具身强化学习的异构组件。", "supporting_evidence": [{"pages": {"start": 8, "end": 12}}], "what_it_actually_proves": "实现和实验展示了多种算法、模型、服务引擎与模拟器的接入。", "what_it_does_not_prove": "支持清单是演示矩阵，不等于对任意算法、机器人设备或故障环境的通用性证明。"}
+  ],
+  "claim_boundaries": ["框架灵活性主要由设计与支持矩阵展示，效率则只在具体配置上测量", "ManiSkill没有分布式外部基线，因此只能证明内部模式选择差异", "系统未给出故障恢复、抢占、多租户隔离或持续运行可靠性实验", "调度估计误差在空间流水模式小于5%，但只覆盖四个案例"],
+  "negative_or_limiting_results": ["Qwen2.5 7B GRPO空间模式比veRL慢44.3%–68.6%", "Qwen3-30B-A3B在128卡时空间模式因训练尾部约80秒而不如时间模式", "LIBERO混合模式因CPU密集环境和GPU子集分配而不如时间模式", "空间流水预测受响应长度变化影响，估计误差略高但小于5%"],
+  "mechanism_result_map": ["时间模式扩大可用于KV缓存的显存并减少组件常驻冲突，对GRPO更有利", "空间模式让PPO的rollout、推理和训练重叠，适合阶段时长更均衡的工作负载", "混合模式让ManiSkill模拟器与生成协同，又让训练复用GPU，缓解全共置和全拆分的两端缺陷", "LIBERO环境偏CPU密集，额外给环境分配GPU不能带来对应收益"],
+  "comparative_positioning": ["相对veRL的价值不只是新内核，而是同一逻辑流可切换多种执行计划", "相对Slime，论文在MoE设置显示空间流水的机会，也暴露尾部不平衡", "相对SimpleVLA-RL，收益含去除重复环境初始化和合并前向等实现差异，不能全部归因于M2Flow"],
+  "reuse_takeaways": ["把组件语义、数据依赖与物理放置解耦，适合动态异构训练运行时", "调度器必须同时建模可运行显存约束、阶段瓶颈和换入换出成本", "报告平均吞吐之外应保留阶段分解、坏模式和预测误差"],
+  "followup_questions": ["在节点故障、Worker失联或Channel背压下是否能保持一致性并恢复", "响应长度重尾时能否在线重分配或采用尾部感知微批调度", "在B200或混合代际GPU、共享集群与受限网络下策略是否仍稳定", "把RLinf与基线对齐到同一rollout引擎和同一实现优化后剩余增益是多少"],
+  "section_plan": [
+    {"section": "研究问题", "focus": "解释动态rollout、异构资源与固定共置或拆分计划之间的根本错配。", "evidence_sources": [{"pages": {"start": 1, "end": 4}}]},
+    {"section": "数据与任务定义", "focus": "列清算法、模型、环境、硬件、吞吐指标和公平比较协议。", "evidence_sources": [{"pages": {"start": 8, "end": 12}}]},
+    {"section": "方法主线", "focus": "从过程式宏观工作流追踪到Worker微任务、Channel、执行计划和物理设备。", "evidence_sources": [{"pages": {"start": 4, "end": 8}}]},
+    {"section": "关键结果", "focus": "分GRPO、PPO、MoE和具身任务呈现多系统核心数字及负结果。", "evidence_sources": [{"pages": {"start": 9, "end": 12}}]},
+    {"section": "深度分析", "focus": "区分编程灵活性、支持矩阵和在特定协议下测得的效率，并追溯收益机制。", "evidence_sources": [{"pages": {"start": 4, "end": 12}}]},
+    {"section": "局限", "focus": "审视故障、长尾、显存、通信、基线实现差异和外推范围。", "evidence_sources": [{"pages": {"start": 3, "end": 12}}]}
+  ]
+}

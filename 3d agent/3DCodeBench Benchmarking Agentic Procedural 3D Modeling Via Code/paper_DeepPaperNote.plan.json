@@ -1,0 +1,155 @@
+{
+  "paper_type": "AI_benchmark_and_empirical_study",
+  "paper_type_rationale": "论文针对以程序化代码生成三维资产的智能体范式，构建了包含 212 个复杂语义类别、26K 代码-网格对的大规模评测基准 3DCodeBench、人类偏好竞技场 3DCodeArena，并对 12 个前沿多模态大模型及编程智能体进行了全方位单轮、多轮与执行工具链评测。",
+  "dominant_domain": "agentic procedural 3D modeling, code generation, benchmark, vision-language models",
+  "must_cover": [
+    "为什么三维程序化建模是连接语言模型与高精度引擎级资产的必然桥梁，以及现有数据集（ShapeNet/Objaverse）、编辑环境（BlenderGym）和简单体素基准（VoxelCodeBench）的缺陷。",
+    "3DCodeBench 的数据构建流水线：基于 Infinigen 工厂、Skills Library（代码简化器、模拟器、视觉批评器、网格分析器）、Experience Library 与人机协同验证机制。",
+    "任务定义：条件 c 到可执行独立 Blender 5.0 Python 脚本 f_pi，经确定性渲染算子 E 产生有效网格 M_pi，以及多轮迭代交互 (T>=1)。",
+    "评测协议：可执行性指标（Executability）、多视角感知相似度（SigLIP-2, DINOv3）、三维几何对齐（4-yaw Chamfer Distance, Uni3D 3D-3D 及跨模态）的双重聚合（Conditional vs. Penalized）。",
+    "3DCodeArena：基于 LMSYS 机制的无材质双盲人类对战平台、Bradley-Terry MLE Elo 评分体系，以及感知指标与人类偏好的强相关性（SigLIP-2 r=0.964, DINOv3 rho=0.972）。",
+    "12 个前沿大模型的基准主结果（GPT-5.5, Gemini 3.1 Pro, Gemini 3.5 Flash, Claude Opus 4.7, Claude Sonnet 4.6, Gemma 4 等）与成本-质量 Pareto 前沿。",
+    "消融与智能体机制：思考预算（Thinking Budget）对轻量级模型的阶跃提升与前沿模型的早饱和；多视角输入（N=1..4）的信息瓶颈；多轮错误反馈（Traceback retry）对可执行性的普适性挽救（+27.2 pp）；编程智能体 Harness 的'能跑但不变美'悖论；视觉自反思的跨任务不对称性（Text-to-3D 增益 vs Image-to-3D 倒退）；Text-to-Image-to-3D 中介流水线的得失。",
+    "深度研判：代码作为三维中间表示相较于直接生成 Mesh/Voxel/NeRF/3DGS 的不可替代性与核心痛点（部件悬浮与物理不合理性）；与 MeshCoder、Code2Worlds、P3D-Bench、SimWorld Studio 等工作的横向对比与生态定位。"
+  ],
+  "key_numbers": [
+    "基准覆盖 212 个复杂资产类别，包含 26K 提示-独立代码-3D网格三元组（12,963 个基础实例衍生有纹理与纯几何两套脚本）。",
+    "代码复杂度极高：平均每份脚本 531 行代码（中位数 387 行），平均文件大小 20.5 KB（中位数 14.9 KB），部分复杂几何节点脚本超 1000 行。",
+    "3DCodeArena 收集了 3,098+ 条有效人类偏好投票（实验切片 2,508 场对决）；SigLIP-2 与人类 Elo 线性相关度最高（Pearson r=0.964），DINOv3 排序相关度最高（Spearman rho=0.972），Uni3D 3D-3D 为 r=0.923，而单纯 Executability 相关度仅 r=0.459 / rho=0.287。",
+    "主评测中，GPT-5.5 取得最高 Elo 1163（Exec 0.906, SigLIP-2 0.834, Uni3D 0.562, CD 0.059, 单次成本 $0.32）；Gemini 3.1 Pro 取得 Elo 1147（Exec 0.725, SigLIP-2 0.824, Uni3D 0.567, 成本 $0.19）；Gemini 3.5 Flash 以 $0.04 极低成本取得 Elo 1119，距最高分仅差 44 分。",
+    "Claude Opus 4.7 单轮可执行性高达 0.910，但因几何简化和浮空部件导致 Elo 仅 1006（落后于 Gemini 3 Flash 的 1039）；Claude Haiku 4.5 垫底（Elo 799, Exec 0.502）。",
+    "前代模型 Gemini 2.5 Pro (Exec 7.1%) 与 GPT-5.4 Nano (Exec 6.1%) 因单轮低于 10% 可执行门槛被主榜排除，主要受 Blender 4.x 到 5.0 API 漂移导致（~85% 错误）。",
+    "多轮 Traceback 错误反馈（T=3）将 11 个模型的聚合可执行性从 0.692 飙升至 0.972（+27.2 pp），8 个配置达成 1.000 满分；惩罚 SigLIP-2 提升 +0.128，Chamfer 改善 -0.079，Uni3D 提升 +0.069，总修复成本仅 $55.54。",
+    "编程智能体 Harness（Claude Code, Codex CLI, Gemini CLI, Antigravity CLI）将可执行性从 0.716 提至 0.995（+27.9 pp），但相较单轮成功集合，条件感知质量毫无提升（SigLIP-2 0.173 -> 0.163, CD 0.071 -> 0.071, Uni3D 0.506 -> 0.494）。",
+    "视觉自反思在 Text-to-3D 带来全局正向收益（Δ SigLIP-2 +0.003 ~ +0.009），但在 Image-to-3D 出现一致性负收益（-0.006 ~ -0.009）；LLM-as-a-Judge 在图像模式下与人类判定达成 72.6%~74.4% 决胜一致性，而在代码模式下骤降至 59.6%~67.4%。"
+  ],
+  "real_comparisons": [
+    "与 ShapeNet、Objaverse 等传统静态三维网格数据集对比：缺少生成动力学与可微/可编辑参数化代码。",
+    "与 BlenderGym、VoxelCodeBench、SceneScript、CADBench 等代码/编辑基准对比：3DCodeBench 专注从零生成、复杂有机物/机械几何节点、长达数百行的现代 Blender 5.0 Python 脚本。",
+    "12 款前沿闭源/开源模型（GPT-5 系列、Gemini 3 系列、Claude 4 系列、Gemma 4 系列）在执行成功率、几何保真度、跨模态相似度、单次推理成本上的多维横向对决。",
+    "单轮直接生成（Single-turn Zero-shot）vs. 多轮无状态错误重试（Stateless Error-Feedback Retry）vs. 自主环境交互智能体（Autonomous Coding Harness）。",
+    "纯文本驱动（Text-to-3D）vs. 多视角图像驱动（Image-to-3D）vs. 文本-图像-代码复合管线（T2I-to-3D）。",
+    "自动化多模态感知评估（SigLIP-2 / DINOv3 / Uni3D）vs. 真实人类偏好（3DCodeArena Elo）vs. 大模型自评判（LLM/VLM Judge in Image vs Code mode）。"
+  ],
+  "central_claims": [
+    {
+      "claim": "代码是实现确定性、无缝嵌入工业管线且高精度可编辑 3D 生成的核心表示，但现有 VLM 缺乏真实复杂程序化建模能力与物理常识。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:statistics",
+        "sec:experiments",
+        "Table A.1",
+        "Figure 6"
+      ],
+      "what_it_actually_proves": "即使当前最强的 GPT-5.5、Gemini 3.1 Pro 和 Claude Opus 4.7 能够写出语法合规的脚本，但生成的网格在复杂类别（飞鸟、螃蟹、洗手池）上依然频繁出现几何部件脱节、悬浮、比例失调等缺乏物理世界物理常识的严重缺陷。",
+      "what_it_does_not_prove": "并未证明代码生成天然比 3DGS 或 NeRF 更难优化，而是证明从离散符号直接映射到三维连续空间结构的先验在预训练模型中依然匮乏。"
+    },
+    {
+      "claim": "多轮错误反馈（Traceback Loop）是普适且高性价比的执行力杠杆，但原生 Coding Agent 并未在几何形态质量上带来增益。",
+      "supporting_evidence": [
+        "Table 1",
+        "Table 2",
+        "Section 4.3",
+        "Table D.1"
+      ],
+      "what_it_actually_proves": "Blender 报错日志能直接指导模型修正 API 废弃与参数名错误，使通过率提升 27+ pp；但给 Agent 自主运行 600-900 秒，只要脚本编译通过，Agent 就缺乏驱动几何精细重构的内在感知信号，形态分数停滞不前。",
+      "what_it_does_not_prove": "并未证明 Agent 架构对 3D 生成无效，而是揭示了缺乏实时 3D 几何与视觉 Critic 闭环时，代码 Agent 仅能充当语法除错器。"
+    },
+    {
+      "claim": "多视角 SigLIP-2 与 DINOv3 能作为极其可靠的自动化评估指标替代昂贵的人类投票。",
+      "supporting_evidence": [
+        "Figure 4",
+        "Section 4.1",
+        "Figure A.2"
+      ],
+      "what_it_actually_proves": "在 12 个模型的 3DCodeArena 盲测中，SigLIP-2 视角相似度与人类 Elo 呈高度线性相关（r=0.964），DINOv3 排序一致性极高（rho=0.972），远胜单纯代码执行率（r=0.459）。",
+      "what_it_does_not_prove": "单一视角的 CLIP 分数无法替代多视角；在图像驱动反思中，SigLIP-2 容易受到光影渲染微小扰动而产生与真实几何改进相悖的负向引导。"
+    }
+  ],
+  "claim_boundaries": [
+    "基准测试基于 Blender 5.0 Python API，模型单轮失败中约 85% 归因于从 Blender 4.x 到 5.0 的 API 语法漂移与知识截止期限制，而非纯粹的三维空间几何推理崩溃。",
+    "评测全部基于无材质纯灰色着色器（MeshStandardMaterial）渲染，排除了纹理、材质贴图和灯光对形态判断的干扰；这有利于隔离纯几何能力，但未涵盖材质节点网络的程序化合成。",
+    "3DCodeArena 目前收集了约 3,100 张有效投票，虽然经过 1000 次 Bootstrap 检验，但部分两两对决样本数仍在累积中。",
+    "人类评估与评测指标均在单物体资产级别（212 类），尚未扩展到多物体场景布局与复杂装配约束关系。"
+  ],
+  "negative_or_limiting_results": [
+    "单轮纯代码执行率极其受限：前代强模型 Gemini 2.5 Pro 仅 7.1%，GPT-5.4 Nano 仅 6.1%，不得不因样本量不足被排除出主榜单。",
+    "编程智能体 Harness 的'形态停滞'：投入 10-15 分钟自主探索和高达数倍的 token 成本，生成的 3D 网格几何相似度（Uni3D 0.494 vs 0.506）未胜过单轮成功生成。",
+    "视觉自反思在 Image-to-3D 任务上发生系统性退化：4 款测试模型在图像引导下自反思修改代码，SigLIP-2 全部出现 -0.006 到 -0.009 的负向漂移，模型常常因为过度追求轮廓而引入错误拓扑或破坏原本可渲染的代码。",
+    "大语言模型无法单凭源码进行几何评判：Code 模式下的 LLM 裁判准确率相比 Image 模式暴跌约 10 个百分点（51.7%~56.9%），证明模型脱离渲染器无法在隐空间内精准脑补三维网格。"
+  ],
+  "mechanism_result_map": [
+    "Blender 5.0 废弃 Auto-smooth、重构 BSDF 导致模型大量报错 -> 解释了为什么 Gemini 2.5 Pro 等单轮失败率超过 90%。",
+    "Traceback 提供了精准行号与异常类型（如 KeyError 'Specular'） -> 解释了为什么 2 轮无状态重试能将可执行率从 69.2% 拉升到 97.2%。",
+    "Harness 只有 run_blender.sh 退出码和 stderr 作为反馈 -> 解释了为什么 Agent 能够在修复语法后立刻终止，未能优化深层几何拓扑。",
+    "SigLIP-2 具有密集特征与语义对齐能力 -> 解释了多视角渲染与人类在整体外形结构上的高评价相关性（r=0.964）。",
+    "Image-to-3D 基线渲染已接近无纹理相似度上限（0.78-0.81） -> 解释了自反思轻微调整网格便会导致视觉损失（win/loss 0.58-0.78）。"
+  ],
+  "comparative_positioning": [
+    "相对 MeshCoder：MeshCoder 局限于从粗糙点云或浅层提示提取网格代码或特定宏定义，3DCodeBench 评测的是完整掌控工业级 Blender 5.0 API、Geometry Nodes 与 bmesh 参数化建模的代码智能体。",
+    "相对 Code2Worlds：Code2Worlds 侧重于宏观场景编排与四维物理模拟（利用 Infinigen 现有工厂并由 Agent 调参），3DCodeBench 则直击从零撰写复杂单体程序化几何资产的基石能力，为多智能体世界模拟提供资产底层生成支持。",
+    "相对 P3D-Bench / Proc3D：Proc3D 等通过简化 DSL 或中间程序图降低 API 门槛，3DCodeBench 坚持评测原生 Python/Blender API，直面真实世界工业生产流水线的复杂性与残酷断层。",
+    "相对纯神经 3D 生成（InstantMesh, TripoSR, Hunyuan3D）：程序化代码输出拓扑清晰、零模糊、完全参数化可编辑且无缝对接渲染引擎，但当前在复杂语义泛化上显著受制于模型的空间常识缺陷。"
+  ],
+  "reuse_takeaways": [
+    "构建 3D 代码智能体时，必须在 Execution Sandbox 中将编译/渲染退出状态与视觉多视角渲染/几何点云统一打包成综合多模态反馈，绝不能仅依赖 stderr 退出码。",
+    "面对 API 频繁升级的工业软件环境（如 Blender 4.x -> 5.0），智能体系统必须配备动态 API 文档/经验库检索模块（Experience Library），否则模型极易陷入先验知识断层导致的语法死循环。",
+    "针对图像重建任务的视觉反思必须引入 Revert-on-break 机制与更严格的几何连续性约束，避免模型在微观轮廓调优时引入致命破坏。",
+    "评估 3D 代码模型时，务必将条件均值（Conditional Mean）与惩罚均值（Penalized Mean）并列展示，严防模型依靠'只做最简单特例'而刷高条件分数的统计陷阱。"
+  ],
+  "followup_questions": [
+    "如何设计轻量且高保真的 3D 几何表征，使 VLM 能够在代码生成前显式进行'空间思维链（Spatial CoT）'草图构建，消除部件浮空与脱节？",
+    "能否将 Blender 交互式会话转化为类似 Web 浏览器的交互式 3D 环境（如实时视口抓取 + 局部顶点拖动 API），让 Agent 从单次粗暴重写转变为局部可微/增量微调？",
+    "如何有效利用 3DCodeBench 开源的 1.3 万个高质量程序化工厂代码对开源代码模型（如 Qwen2.5-Coder、DeepSeek-Coder）进行定向三维程序化微调？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "论文标题、作者机构、发表时间、链接与核心标签。"
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "忠实传达原文摘要关于程序化代码建模、3DCodeBench、3DCodeArena 与智能体迭代的核心结论。"
+    },
+    {
+      "section": "创新点",
+      "focus": "归纳五大带加粗导言的创新维度（首个复杂程序化代码基准、双重多模态流水线、人机协同清洗体系、3DCodeArena 偏好对战、系统性 Agent 诊断）。"
+    },
+    {
+      "section": "一句话总结",
+      "focus": "直击核心价值与本质瓶颈。"
+    },
+    {
+      "section": "研究问题",
+      "focus": "深度剖析为何程序化代码建模是连接 VLM 与 3D 产业的核心断层，阐释几何离散性、API 漂移与物理常识缺失。"
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "系统定义 (c, f*, M*) 三元组，212 类资产分布，代码规模分布，执行沙盒与严格机器契约，全套自动化评测指标与聚合公式。"
+    },
+    {
+      "section": "方法主线",
+      "focus": "详解 Agentic Curation 流水线、Skills Library、Experience Library、3DCodeArena 机制与多模态反思工具链。"
+    },
+    {
+      "section": "关键结果",
+      "focus": "呈现 12 款前沿大模型主基准表、多轮 Traceback 修复表、Coding Harness 表现表、单轮消融曲线与定性网格对比。"
+    },
+    {
+      "section": "深度分析",
+      "focus": "剖析代码作为中间表示的深层价值、为什么主流模型'能跑却浮空'、Harness 为何未能提升形态质量、复现中的系统环境陷阱。"
+    },
+    {
+      "section": "局限",
+      "focus": "客观指出 Blender 5.0 API 截止期、单物体评估、缺乏材质网络与物理约束等边界。"
+    },
+    {
+      "section": "我的笔记",
+      "focus": "横向连接 MeshCoder、Code2Worlds、P3D-Bench、SimWorld Studio，定位其在 3D Agent 演进树中的座标。"
+    },
+    {
+      "section": "引用",
+      "focus": "提供标准 BibTeX 与关键参考文献。"
+    }
+  ]
+}

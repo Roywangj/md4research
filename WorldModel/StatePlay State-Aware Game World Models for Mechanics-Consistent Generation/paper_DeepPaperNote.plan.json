@@ -1,0 +1,15 @@
+{
+  "paper": "StatePlay: State-Aware Game World Models for Mechanics-Consistent Generation",
+  "source_pages": 12,
+  "note_file": "paper_DeepPaperNote.md",
+  "sections": [
+    {"section":"核心信息","purpose":"锁定问题、数据规模和主结果"},
+    {"section":"数据与任务定义","purpose":"解释状态变量、动作空间和类别平衡"},
+    {"section":"方法主线","purpose":"追踪双分支、joint attention 与两种损失"},
+    {"section":"关键结果","purpose":"报告主表、消融和定性证据"},
+    {"section":"深度分析","purpose":"区分真实贡献、机制原因和过度解读"},
+    {"section":"局限","purpose":"记录域窄、评审器依赖、复现缺口"},
+    {"section":"可迁移洞见","purpose":"抽象可迁移的 state-aware world-model 设计模板"}
+  ],
+  "evidence_targets": ["Fig. 2", "Fig. 3", "Table 1", "Table 2", "Fig. 4", "Table 5", "Appendix D prompt"]
+}

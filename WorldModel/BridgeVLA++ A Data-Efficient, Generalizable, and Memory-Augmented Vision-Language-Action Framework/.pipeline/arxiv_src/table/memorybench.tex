@@ -1,0 +1,37 @@
+% Single-column float: declared right after the (also single-column) GemBench
+% summary and before the [p] per-task gallery, so the in-order float queue
+% places both small tables on the same text page instead of deferring this
+% one past the gallery backlog.
+\begin{table}[!t]
+\centering
+\caption{\textbf{Results on MemoryBench.}
+Success rates (\%) on the three MemoryBench
+tasks~\cite{fang2025sam2act}.
+Baselines are quoted from~\cite{fang2025sam2act} (mean$\pm$std over
+four runs; the Avg.\ deviation is the spread across the three tasks);
+\method\ and \memmethod\ are mean$\pm$std over five evaluation seeds
+(Appendix~\ref{app:eval_protocol}).
+Best result per task in bold.}
+\label{tab:memorybench}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+& \textbf{Avg.} & \textbf{Reopen} & \textbf{Put Block} & \textbf{Rearrange} \\
+\multirow{-2}{*}{\textbf{Method}} & \textbf{SR (\%) $\uparrow$} & \textbf{Drawer} & \textbf{Back} & \textbf{Block} \\
+\midrule
+RVT-2~\cite{goyal2024rvt}        & 54.0$\pm$5.3  & 60.0$\pm$0.0 & 50.0$\pm$2.3  & 52.0$\pm$3.3 \\
+SAM2Act~\cite{fang2025sam2act}   & 55.0$\pm$24.3 & 48.0$\pm$0.0 & 35.0$\pm$3.8  & 82.0$\pm$2.3 \\
+SAM2Act+~\cite{fang2025sam2act}  & 94.3$\pm$9.0  & 84.0$\pm$0.0 & \textbf{100.0$\pm$0.0} & \textbf{99.0$\pm$2.0} \\
+\midrule
+\textbf{\method\ (ours)}         & 11.3$\pm$0.8  & 29.6$\pm$4.3 & 2.8$\pm$1.8   & 1.6$\pm$2.6 \\
+\textbf{\memmethod\ (ours)}      & \textbf{99.7$\pm$0.3} & \textbf{100.0$\pm$0.0} & 99.8$\pm$0.4 & \textbf{99.2$\pm$1.1} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

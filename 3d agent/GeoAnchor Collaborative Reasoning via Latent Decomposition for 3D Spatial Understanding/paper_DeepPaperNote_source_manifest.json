@@ -1,0 +1,1348 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "doi:10.48550/arxiv.2607.13454",
+  "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+    "total_pages": 23,
+    "text_pages_extracted": 23,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 23,
+    "text_max_pages": null,
+    "text_pages_extracted": 23,
+    "text_pages_scanned": 23,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 12
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1830,
+      "text_hash_sha256": "2537bf5e602abd1a2c05c1ee7479d910ac8b8c5419478bcd23df9f96eb4453f5"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 10968,
+      "text_hash_sha256": "c46d2e9557d9a9205af2c8b51fee34b6840cbb9736f33b8353b81c4a62f26456"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 3,
+      "page_end": 6,
+      "char_count": 8027,
+      "text_hash_sha256": "401ce4040040698cf2488220cca47d0e511f80495bef43af549a6ca38f7c28ff"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 6,
+      "page_end": 8,
+      "char_count": 7303,
+      "text_hash_sha256": "0a24521d7bb05eea1ee8bf09852b5ba8e32f6417e0e8c5b29ba190cce38f0995"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 2504,
+      "text_hash_sha256": "9703ba73a274a014ba7de8b69e308854cedddd0a42c91a94d4a8cf3d26de006b"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 2176,
+      "text_hash_sha256": "bf8cd9decc4b8289af224be4dd513d26f184faff35f9b0aa62c5328f99695d50"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 11,
+      "char_count": 9047,
+      "text_hash_sha256": "883f2dcd6f26c158ecefc26405299ba99fe3c6fd69e5f8fc49c70f58e138bfa8"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 11,
+      "page_end": 12,
+      "char_count": 852,
+      "text_hash_sha256": "0d8b137a073cc36d7ce65d92e1769bee3e2d34c7ed9bf0290fe041417da3a2b3"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 12,
+      "page_end": 22,
+      "char_count": 34114,
+      "text_hash_sha256": "f6a4a6bc8d34d94e8e0eb6726caff07613d4bb126b8cb6f0f52ec48a3d3c275c"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 22,
+      "page_end": 23,
+      "char_count": 3391,
+      "text_hash_sha256": "91bd53c1ab56fb503787fd4d3a841b08efc7ca96425ffbab90c492f95df70556"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4162,
+      "section_ids": [
+        "sec:preamble",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4624,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4370,
+      "section_ids": [
+        "sec:introduction",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3260,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 3994,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 2985,
+      "section_ids": [
+        "sec:method",
+        "sec:model"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4604,
+      "section_ids": [
+        "sec:model"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4733,
+      "section_ids": [
+        "sec:model",
+        "sec:model-2",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4541,
+      "section_ids": [
+        "sec:experiment",
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3214,
+      "section_ids": [
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 2524,
+      "section_ids": [
+        "sec:model-3",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4286,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4277,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 4392,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 2022,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3943,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3471,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 3024,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 3294,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2389,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 2119,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 3054,
+      "section_ids": [
+        "sec:references",
+        "sec:model-4"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 1654,
+      "section_ids": [
+        "sec:model-4"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Existing methods suffer from information loss due to verbalization or limited interpretability from entangled",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of GeoAnchor. We organize spatial reasoning into two components: (i) obtaining local atomic 3D",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of the collaborative training framework of GeoAnchor. The model is trained in a coarse-to-fine manner,",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Ablation study on the effectiveness of Stage 3.",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Comparison of the top text attention weights assigned by the final answer under different reasoning paradigms.",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "GeoAnchor focuses more precisely on the visual regions relevant to the queried spatial target when",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Visual attention comparison on the final answer",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Visualization of text, image, VGGT, and global",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "Prompt used for object extraction and referring-",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Prompt used for the self-consistency verification",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Evaluation Results on Spatial Reasoning Benchmarks. For each metric, bold numbers indicate the best",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:model"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation study on the effectiveness of latent reasoning.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Ablation results on the collaborative training",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation of local token interpretability",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Ablation of VGGT alignment strategies for supervising the",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Task definitions and sample counts of the SPAR-Bench subset used in our experiments.",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Task definitions and sample counts of the SPBench-SI subset used in our experiments.",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Task definitions and sample counts of the ViewSpatial-Bench subset used in our experiments.",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Mapping from grouped metric abbreviations to the original tasks.",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 5",
+        "caption": "reports the verification results. Across 10,000 images, 47,663 object annotations are automatically",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Statistics of the self-consistency verification step",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Comparison between 3D object coordinates recov-",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 9",
+        "caption": "",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Statistics of 3D Grounding Dataset used in Stage 1.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Statistics for Spatial Reasoning datasets from SPAR.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Statistics for Spatial Reasoning datasets from SpatialLadder-26K.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Implementation details of GeoAnchor.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 11",
+        "caption": "Task regrouping into Position, Direction, and Mixed categories for ablation study of local token interpretability.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 12",
+        "caption": "Ablation study on different base models. GeoAnchor is instantiated on Qwen2.5-VL-3B, with comparisons",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 13",
+        "caption": "Ablation study on the latent length. We demon-",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Table 14",
+        "caption": "Ablation study of pooling resolution for VGGT",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:model-4"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "O = t1 ⊕z1 ⊕· · · ⊕zk−1 ⊕tk,",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "where t = {t1, . . . , tk} denotes the sequence of text tokens, and z = {z1, . . . , zk−1} represents the sequence of",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "of M continuous hidden states, i.e., zi = {hi,1, hi,2, . . . , hi,M}, where each hi,j ∈Rd resides in the model’s",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "hi,j = f hidden",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "(Q, I, O<zi, hi,1:j−1),",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "where O<zi denotes the entire reasoning trajectory generated before zi, and hi,1:j−1 denotes the internal",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "projected continuous embedding ei,j ∈Rd is computed as:",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "ei,j = P(hi,j) = LayerNorm",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "zpos = {hpos",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "zdir = {hdir",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "∈RD are the hidden states at the j-th internal step, and lpos and ldir denote the numbers",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "ˆp = Wpos",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "ˆd = Wdir",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "where Wpos, Wdir ∈R3×D are projection heads, while ˆp ∈R3 and ˆd ∈R3 denote the predicted position and",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Lpos =",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "if |ˆp −p| < 1.0",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": ", Ldir = 1 −",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "scales are concatenated to form the coarse-grained VGGT feature map V ∈Rlvggt×D, where lvggt = PL",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "l=1 r2",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "…<pos>…<dir>…",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "<answer>C</answer>",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "…<pos>…<dir>…<geo>…",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "<answer>A</answer>",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "𝐴𝑐𝑐$ = 𝑛$",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "%&''(%$ + 𝜅𝐴𝑐𝑐$",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": ")*+$",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "𝑛$ + 𝜅",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": ", 𝑡∈{𝐴, 𝐵}",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "𝑟= 𝑟,&'-.$ + 𝑟.%% + 𝑟/.$$('0 ⋅𝟏[𝑡= 𝑡∗]",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "𝑡∗= 𝑎𝑟𝑔max",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "$∈{4,6} 𝐴𝑐𝑐$",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "In parallel, the global token zgeo is projected into geometry tokens G ∈Rlgeo×D via a linear layer, where lgeo",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "Ai,j = ⟨vi, gj⟩",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "uj =",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "j′=1 exp(Ai,j′)",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "where vi ∈RD is the i-th coarse-grained VGGT feature and gj ∈RD is the j-th geometry token, τ represents",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "Lgeo = −",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "Lstage1 = λtLNTP + λl (Lpos + Ldir) ,",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "Lstage2 = λtLNTP + λl(Lpos + Ldir) + λgLgeo.",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "t ∈{local, local+global}, its effectiveness is estimated as:",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "Acct = ncorrect",
+      "section_id": "sec:model",
+      "page_start": 6,
+      "page_end": 8
+    },
+    {
+      "text": "lpos = ldir = 2 and global token length lgeo = 8. Stage 1 is trained on the grounding dataset for one epoch",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "λt = λl = 1 and λg = 0.1. For global geometry supervision, the VGGT feature map is pooled at L = 3, with",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "{r1, r2, r3} = {1, 2, 4}. In the RL stage, 8 rollouts are performed per question with a sampling temperature of",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "t =",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "l = 1,",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "g = 0.1)",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "t =",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "l = 0.1,",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "g = 0.01)",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "<latent>",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "<latent>",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "<latent>",
+      "section_id": "sec:model-3",
+      "page_start": 9,
+      "page_end": 11
+    },
+    {
+      "text": "Qwen Team. Qwen3.5: Towards native multimodal agents, February 2026. URL https://qwen.ai/blog?id=qwen3.5.",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "object with bounding box bi = [x(1)",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "ui = (x(1)",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "i )/2 and vi = (y(1)",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "zi =",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "(u,v)∈Ωi",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "Given the camera intrinsic matrix K and pose (R, t), where R ∈R3×3 and t ∈R3, the object position in the",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "i = ziK−1 \u0002ui, vi, 1\u0003T ,",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "i = Rpc",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "∆ij = pw",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "F = {f1, . . . , flf } ∈Rlf ×D,",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "lf = H × W,",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "G = {g1, . . . , glgeo} ∈Rlgeo×D,",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "lpos = ldir = 2",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "lgeo = 8",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "λt = 1",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "λl = 1",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "λg = 0.1",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "L = 3",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "{r1, r2, r3} = {1, 2, 4}",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "λbal = 0.05",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "N = 8",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "rpattern = 0.5",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "β = 0.01",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "κ = 8",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "µ = 0.2",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "For the latter two baselines, let ˜F = { ˜f1, . . . , ˜flgeo} ∈Rlgeo×D denote the resampled VGGT sequence obtained",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "Ldense =",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:references",
+      "page_start": 12,
+      "page_end": 22
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "79de5921b02086bb9bb61a714a27dc9ae33a32c954a6ce6c2724ae312938eb74",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "schema_version": 2,
+    "paper_id": "doi:10.48550/arxiv.2607.13454",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "translated_title": "",
+      "authors": [
+        "Li et al."
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2607.13454",
+      "arxiv_id": "2607.13454",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "year": "2026",
+      "venue": "",
+      "source_url": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+      "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "accepted_metadata": {
+      "status": "ok",
+      "script": "resolve_paper.py",
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "translated_title": "",
+      "authors": [
+        "Li et al."
+      ],
+      "affiliations": [],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2607.13454",
+      "arxiv_id": "2607.13454",
+      "source_url": "https://doi.org/10.48550/arxiv.2607.13454",
+      "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+      "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "zotero_key": "",
+      "abstract": "Although multimodal large language models (MLLMs) have achieved remarkable progress, understanding 3D spatial relationships from 2D images remains a critical challenge. Existing methods primarily rely on symbolic text tokens, which inherently lack the fidelity to represent continuous geometric information. While recent methods use latent representations to enhance reasoning, relying on a single latent type cannot adapt to the diversity of spatial tasks, leading to misalignment in complex geometric scenarios. To address these limitations, we propose GeoAnchor, an interleaved text-latent reasoning framework. GeoAnchor decomposes 3D spatial information into three complementary components: position latents for object grounding, direction latents for relational orientation, and geometry latents for scene structure. These components are recombined in a structured space to construct local evidence while capturing global context, enabling dynamic and interpretable reasoning. Furthermore, we introduce a collaborative training strategy that guides the model from local spatial perception to comprehensive 3D understanding. Extensive experiments on diverse and complex 3D reasoning tasks demonstrate that GeoAnchor outperforms the state of the art, validating its effectiveness and generalization capabilities.",
+      "source_type": "pdf-text",
+      "metadata_sources": [
+        "seed_record",
+        "openalex",
+        "arxiv"
+      ],
+      "paper_id": "doi:10.48550/arxiv.2607.13454",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2607.13454v2",
+      "published": "2026-07-15T05:27:37Z",
+      "identity_confidence": "high",
+      "identity_confidence_reasons": [
+        "doi_present",
+        "arxiv_id_present"
+      ]
+    },
+    "bound_sources": [
+      {
+        "kind": "local_pdf",
+        "value": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+        "provider": "pdf-text",
+        "binding_reason": "trusted_input"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454.pdf",
+        "provider": "openalex",
+        "binding_reason": "accepted_identifier_derived"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454v2",
+        "provider": "arxiv",
+        "binding_reason": "shared_identifier"
+      }
+    ],
+    "field_provenance": {
+      "title": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "authors": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "year": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "local_pdf_path": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "venue": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "doi": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "source_url": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "arxiv_id": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "abstract": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "pdf_url": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      }
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2607.13454",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2607.13454",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454v2",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "https://doi.org/10.48550/arxiv.2607.13454",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "title_author_or_abstract_supports_equivalence",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+          "work_value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        },
+        {
+          "kind": "leading_author",
+          "status": "match",
+          "source_value": "Li et al.",
+          "work_value": "Li et al."
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+    "year": "2026",
+    "venue": "",
+    "source_url": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+    "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "doi": "",
+    "arxiv_id": "",
+    "zotero_key": ""
+  }
+}

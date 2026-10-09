@@ -1,0 +1,1019 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "doi:10.48550/arxiv.2602.15922",
+  "title": "World Action Models are Zero-shot Policies",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/World Action Models are Zero-shot Policies/.pipeline/wam_zero_shot_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/World Action Models are Zero-shot Policies/.pipeline/wam_zero_shot_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WZ3FYLNE/Ye 等 - 2026 - World Action Models are Zero-shot Policies.pdf",
+    "total_pages": 36,
+    "text_pages_extracted": 36,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 36,
+    "text_max_pages": null,
+    "text_pages_extracted": 36,
+    "text_pages_scanned": 36,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 30
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 1628,
+      "text_hash_sha256": "5475113c99337a715cbf778ace0681999b68987a609e0513e93d4cc071de6273"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 2,
+      "page_end": 2,
+      "char_count": 1270,
+      "text_hash_sha256": "2378060ae29d13bc95660e8a30d61a94c53c16195a706f988d92177da5446844"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 2,
+      "page_end": 4,
+      "char_count": 7702,
+      "text_hash_sha256": "42b99151f82e6ed22ba690aef5f9549250c5c3e08ba100b71f1eb4464c8f30d9"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2. Related Work",
+      "page_start": 4,
+      "page_end": 8,
+      "char_count": 17996,
+      "text_hash_sha256": "d81fddd89276ddd192e48be922f95a01c7125d86894a669553720f84e5d90eea"
+    },
+    {
+      "section_id": "sec:future-work",
+      "kind": "conclusion",
+      "title": "future work.",
+      "page_start": 8,
+      "page_end": 13,
+      "char_count": 13820,
+      "text_hash_sha256": "366fa69fbee81a341d193813a3543e48be49e52573950b99efdac0e71099193c"
+    },
+    {
+      "section_id": "sec:experimental-results",
+      "kind": "experiment",
+      "title": "5. Experimental Results",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 1828,
+      "text_hash_sha256": "db6eff4e09bba50dcfc423b56ac43550b881b4cac0f2cc3cb77cc3b93e2ccff5"
+    },
+    {
+      "section_id": "sec:data",
+      "kind": "data",
+      "title": "data.",
+      "page_start": 13,
+      "page_end": 16,
+      "char_count": 6524,
+      "text_hash_sha256": "d952e7c1b92f15b3c6c07a092d69908151ccb44d313b9ac12d6cd8637b6a4879"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 16,
+      "page_end": 17,
+      "char_count": 3630,
+      "text_hash_sha256": "08b55bc2fd53898c5634ace006381ce67d637e7ba9dae0fb0f8f9928bc65cee9"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 17,
+      "page_end": 17,
+      "char_count": 672,
+      "text_hash_sha256": "d550991be2ec5409e55492d64bd1d4094ba226afe1aed9d4675109395c977914"
+    },
+    {
+      "section_id": "sec:data-2",
+      "kind": "data",
+      "title": "Data",
+      "page_start": 17,
+      "page_end": 30,
+      "char_count": 39117,
+      "text_hash_sha256": "4508e268a44710ce91fbe154df0ed773f356160f0c0bf9faad66b471b9b1685e"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 30,
+      "page_end": 36,
+      "char_count": 24456,
+      "text_hash_sha256": "0672f21f11acf0db99328f6a83c5d9cd93aab3a13830ff13b6f24e67983f0218"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 1587,
+      "section_ids": [
+        "sec:preamble"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4513,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3630,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3349,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4570,
+      "section_ids": [
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3019,
+      "section_ids": [
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4363,
+      "section_ids": [
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4088,
+      "section_ids": [
+        "sec:related-work",
+        "sec:future-work"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3699,
+      "section_ids": [
+        "sec:future-work"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3372,
+      "section_ids": [
+        "sec:future-work"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 2614,
+      "section_ids": [
+        "sec:future-work"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3049,
+      "section_ids": [
+        "sec:future-work"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3123,
+      "section_ids": [
+        "sec:future-work",
+        "sec:experimental-results",
+        "sec:data"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 2912,
+      "section_ids": [
+        "sec:data"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 2550,
+      "section_ids": [
+        "sec:data"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 2954,
+      "section_ids": [
+        "sec:data",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3061,
+      "section_ids": [
+        "sec:method",
+        "sec:method-2",
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 4278,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 2743,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2742,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 3196,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 2848,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 3996,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 3558,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 1263,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 5345,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 5268,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 2841,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 552,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 4005,
+      "section_ids": [
+        "sec:data-2",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 3860,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 3388,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 3488,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 34,
+      "char_count": 3587,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 35,
+      "char_count": 3414,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 36,
+      "char_count": 2788,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Joint Video and Action Prediction. DreamZero jointly generates video and action. We observe",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Free-form Evaluation. DreamZero performs a diverse range of tasks when conditioned on natural",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Model Architecture of DreamZero. The model takes three inputs: visual context (encoded via a",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Decoupled Noise Schedules. DreamZero (blue) uses coupled noise for video and action (both",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Distribution statistics for the AgiBot pretraining corpus: episode durations, subtask density, and",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "AgiBot Evaluation Set-up. We are first-citizens of generalization evals, where the default setting is",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Seen Task Evaluation. DreamZero effectively learns from diverse data and generalizes to new",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "evaluates generalization to 10 tasks entirely absent from the pretraining distribution, including untying",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Posttraining Results. WAMs enable stronger post-training results across three tasks, indicating that",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "from-scratch baselines fail to learn accurate motions to grasp the target objects; this means that from-",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Cross-Embodiment Transfer. We explore robot-to-robot (YAM →AgiBot) and human-to-robot",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Few-shot Embodiment Adaptation. We explore few-shot embodiment adaptation by post-training",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Bidirectional vs. Autoregressive WAMs. When the sampling point falls mid-task (T=20), bidirec-",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "illustrates a key challenge for bidirectional WAMs when training closed-loop systems. Given a language",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Attention startegy of DreamZero. (a) QKV Self-Attention mask for DreamZero training. Y-axis",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "DreamZero Training (Flow Matching)",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "DreamZero Inference (Closed-Loop",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Data Collection Environments. We collect teleoperation data across 22 diverse real-world environ-",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Illustration of generated and executed pair. We illustrate the generated video and action execution",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:data-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "summarizes cumulative speedups. System and implementation optimizations yield ∼9× speedup on",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Cumulative inference speedups. Each row",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:future-work"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Cross-Embodiment Transfer Results. Average task progress on unseen tasks (± standard error).",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:data"
+      },
+      {
+        "id": "Table 3",
+        "caption": "DreamZero-Flash Evaluation. Task progress on table bussing with varying denoising steps (±",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Model and Data Ablations. Task progress on PnP Easy tasks (± standard error). AR = autoregressive,",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Seen Tasks Evaluation Setup for AgiBot G1",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Unseen Tasks Evaluation Setup for AgiBot G1",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:data-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "where 𝐻> 0 is a fixed horizon and 𝑙is a random index sampled from a trajectory. Note that joint prediction of",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "= 𝜋0(o𝑙:𝑙+𝐻| o0:𝑙, c, q𝑙)",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Formally, given a chunk index 𝑘> 0 and the denoising timestep 𝑡𝑘∈[0, 1], we denote the corresponding noisy",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "𝑡𝑘= 𝑡𝑘z𝑘",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "𝑡𝑘= 𝑡𝑘a𝑘",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "respectively. Thus, the clean context from the previous chunks can be denoted as 𝒞𝑘= {(z𝑗",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "𝑗=1.",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "ℒ(𝜃) = Ez,a,{𝑡𝑘}",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "𝑘=1",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "where 𝑤(𝑡𝑘) > 0 is a predefined weight function for 𝑡𝑘, c is the text condition, q𝑘is the proprioceptive states of",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "𝑘-th chunk, and the velocity v𝑘:= [z𝑘",
+      "section_id": "sec:related-work",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "= 1",
+      "section_id": "sec:future-work",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "= 1 −𝜂, where",
+      "section_id": "sec:future-work",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "𝜂∼Beta(𝛼, 𝛽) with 𝛼> 𝛽. In practice, we use Beta(7, 1) as an example configuration, yielding E[𝑡video",
+      "section_id": "sec:future-work",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "] = 0.125",
+      "section_id": "sec:future-work",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "On AgiBot G1, from-scratch VLAs achieve near-zero task progress (< 1%), while DreamZero reaches 39.5%",
+      "section_id": "sec:data",
+      "page_start": 13,
+      "page_end": 16
+    },
+    {
+      "text": "Table 4: Model and Data Ablations. Task progress on PnP Easy tasks (± standard error). AR = autoregressive,",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "BD = bidirectional. All models trained with 50K steps and batch size 32.",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "T=0",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "T=30",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "T=20",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "Figure 13: Bidirectional vs. Autoregressive WAMs. When the sampling point falls mid-task (T=20), bidirec-",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "task—not just the beginning. When the sampling point falls mid-task (e.g., T=20 in Figure 13), subsampling",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "as 𝐾= 2 latent frames. From preliminary results, we have observed that 𝐾= 2 outperforms 𝐾= 1 empirically.",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "We set the number of chunks 𝑀= 4 by default. If the trajectory length is shorter than 𝑀= 4, 𝑀can be smaller",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "action horizon of 𝐻= 48. Therefore, the video and action span 1.6 seconds per chunk. For DROID training, the",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "video is sampled at 5FPS ratio and action is sampled at 15Hz. We use the action horizon of 𝐻= 24. Therefore,",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "for 𝑘= 1, . . . , 𝑀do",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "𝑗=1 ◁",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "Target vel. v𝑘:= [z𝑘",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "4: // 1. Prefill Cache (Context Phase, 𝑡= 0)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "𝑡= 0, update=True)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "Sample x0 = [z0, a0] ∼𝒩(0, I)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "𝑡= 0",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "for 𝑖= 0 . . . 𝑁−1 do",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "if vprev ̸= ∅and CosSim(vprev, vlast) > 𝜖",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "𝑡𝑖, update=False)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "◁Clean Action 𝑡= 1",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "// Critical: Inject Ground Truth (𝑡= 0)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "𝑡= 0, update=True)",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "and Python execution. We employ torch.compile with CUDA Graphs (mode=\"reduce-overhead\") and enforce",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "full graph capture (fullgraph=True) to eliminate graph breaks. In addition to reducing CPU overhead,",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "enforce static shapes (dynamic=False), which results in multiple recompilations during the first inference",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "Dot-Product Attention (SDPA), requiring PyTorch version ≥2.9. Earlier versions of the Transformer Engine",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 𝑡action",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 𝑡𝑘,",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 1 −𝜂,",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "where 𝛼> 𝛽(e.g., 𝛼= 7, 𝛽= 1). Since Beta(𝛼, 𝛽) with 𝛼> 𝛽concentrates mass near 𝜂≈1, the transformed",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 1 −𝜂is biased toward 0, corresponding to high-noise video states. The noisy samples become:",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 𝑡video",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "= 𝑡action",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "For Beta(7, 1), E[𝜂] = 0.875, yielding E[𝑡video",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "] = 0.125 compared to 0.5 in the coupled setting. This exposes",
+      "section_id": "sec:data-2",
+      "page_start": 17,
+      "page_end": 30
+    },
+    {
+      "text": "https://openreview.net/forum?id=9pKtcJcMP3. 5",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "2025. URL https://openreview.net/forum?id=3CnxNqmklv. 5",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "Representations, 2024. URL https://openreview.net/forum?id=Mhb5fpA1T0. 5",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "Annual Conference on Robot Learning, 2024. URL https://openreview.net/forum?id=InT87E5sr4. 5",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "forum?id=NxoFmGgWC9. 5",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "Conference on Learning Representations, 2024. URL https://openreview.net/forum?id=sFyTZEqmUY.",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "on Learning Representations, 2025. URL https://openreview.net/forum?id=VYOe2eBQeh. 4",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    },
+    {
+      "text": "Processing Systems, 2023. URL https://openreview.net/forum?id=hrkmlPhp1u. 23",
+      "section_id": "sec:references",
+      "page_start": 30,
+      "page_end": 36
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "e569a0af9194dd7bcb42d1cf374246eae463f835b4d8f1ce646b2fc30fecc74b"
+}

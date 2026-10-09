@@ -1,0 +1,35 @@
+# Translation Notes
+
+- **Source Format Detected:** Selectable-text PDF (`pdf-text`), 14 pages total.
+- **Source Material Path:** `/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AKPPJA6W/Pan 等 - 2026 - SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control.pdf`
+- **Output Artifacts Generated:**
+  - `detailed_paper.md`: Full paragraph-level Chinese-English bilingual reader.
+  - `paper.md`: Exact byte-for-byte identical copy of `detailed_paper.md`.
+  - `source_map.json`: Complete structural block and asset inventory.
+  - `translation_notes.md`: Methodological notes, extraction scope, and verification record.
+- **Extraction Scope & Coverage:**
+  - Complete coverage across all 14 pages.
+  - Main text: Section 1 (Introduction), Section 2 (Related Work), Section 3 (Method: 3.1 Problem Formulation, 3.2 Modality-Specialized MoT, 3.3 Training and Inference), Section 4 (Experiments: Implementation Details, Benchmarks, Main Results, Action-Conditioned Future Prediction, Component Ablation, Inference Efficiency), Section 5 (Conclusion), Acknowledgements.
+  - Appendices: Appendix A (Implementation and Reproducibility Details: Training Instance Construction, Video Prompts, Temporal Sampling and Multi-View Preprocessing, Configuration, Datasets and Splits), Appendix B (Extended RoboTwin Evaluation: Evaluation Protocol, Task-Level Results, Future-Video Fidelity Protocol), Appendix C (Action Sensitivity and Controlled Rollouts: WorldArena Metrics, Directional Action Perturbation, Continuous Action Interpolation), Appendix D (Consistency of the Clean and Noisy Action Paths), Appendix E (Real Robot Experimental Details: Platform and Data, RobotSeg Mask Generation, Real-Robot Evaluation Details), Appendix F (Limitations and Future Work).
+  - References: All 32 bibliographic references preserved in searchable English format.
+- **Figures and Tables:**
+  - All 7 figures (`assets/figure_1.png` to `figure_4.png`, `figure_s1.png` to `figure_s3.png`) embedded with complete bilingual captions.
+  - All 9 tables (`assets/table_1.png` to `table_5.png`, `table_s1.png` to `table_s4.png`) embedded with local crops, complete bilingual captions, and fully transcribed searchable Markdown tables (including all 50 tasks + average in Table S4).
+- **Mathematical Formats:**
+  - Display equations rendered in standalone `$$...$$` blocks outside blockquotes with equation numbering matching the paper: (1), (2), (3), (4), (5), (6), (7), (S1), (S2), (S3), (S4), (S5), parameter interpolation equation, and NRMSE definition equation.
+- **Key Terminology Alignment:**
+  - *World Action Model (WAM)*: 世界—动作模型
+  - *Self-Grounded / Self-Grounding*: 自身锚定 / 自锚定（指将未来预测显式锚定在机器人自身可见本体与动作诱导运动上）
+  - *Mixture-of-Transformers (MoT)*: Transformer 混合架构
+  - *Clean-Action Conditioning*: 干净动作条件化
+  - *Robot Self-Mask*: 机器人本体掩码
+  - *Action Chunk*: 动作块
+  - *Action-Only Inference*: 纯动作推理
+  - *Target Leakage*: 目标泄露
+  - *Action Following*: 动作跟随度
+  - *NRMSE*: 归一化均方根误差
+- **Validation:**
+  - Verified with `validate_detailed_paper.py`: 0 errors, 0 warnings, identical SHA256 between `detailed_paper.md` and `paper.md`, 83 bilingual paragraph pairs, 16 caption pairs, 16 local images resolved.
+- **Caveats:**
+  - The arXiv side-stamp on page 1 and running headers/footers were excluded from the reading flow.
+  - Pretrained model identifiers (`WAN2.2-5B`, `RobotSeg`, `SAM 2`, `DINO`, `CLIP`, `AdamW`, `CUDA 12.8`, `NVIDIA A800`, `NVIDIA H200`) and benchmark names (`RoboTwin 2.0`, `WorldArena`, `AgileX ALOHA`, `Cobot Magic`) were retained in original technical forms.

@@ -1,0 +1,102 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Language-Conditioned Visuomotor Policies}
+
+Most language-conditioned visuomotor policies employ transformers to process
+2D visual inputs and directly generate 3D actions for manipulation
+\cite{brohan2022rt,brohan2023rt,kimopenvla,black2024pi_0,
+li2023vision}.
+Among these approaches, developing large vision-language-action (VLA)
+models, most often by leveraging pre-trained vision-language models (VLMs),
+has become increasingly popular because of their effectiveness in learning
+complex manipulation skills
+\cite{brohan2023rt,kimopenvla,li2023vision,black2024pi_0,
+pertsch2025fast,intelligence2025pi_06star,intelligence2026pi_07,
+generalist2025gen0,generalist2026gen1,genesis2026gene265,
+sunday2026act2preview}.
+However, such 2D image-based policies typically require substantial
+data-collection effort, often relying on large trajectory datasets to
+generalize effectively across tasks~\cite{o2024open}.
+In contrast, 3D manipulation policies have demonstrated strong potential for
+data-efficient learning by exploiting the spatial structure inherent in 3D
+observations.
+One line of work directly processes point clouds
+\cite{chen2023polarnet,yuan2023m2t2,yang2025fp3,gervet2023act3d,
+3d-da,garcia2024towards}.
+For example, Act3D~\cite{gervet2023act3d} constructs a 3D feature cloud by
+lifting image features onto the observed point cloud and predicts
+translational actions by classifying candidate 3D points in the workspace.
+Another line of work represents the observation space using voxels and
+predicts translational actions within the same voxel space, thereby aligning
+input observations and output actions in a shared spatial representation
+\cite{shridhar2023perceiver,james2022coarse}.
+More recently, RVT~\cite{goyal2023rvt} and
+RVT-2~\cite{goyal2024rvt} leverage orthographic projections of 3D point
+clouds to convert 3D signals into 2D images, avoiding the high computational
+cost of directly processing native 3D representations.
+Unlike the above methods, our base framework, \method, seeks to unify the
+semantic effectiveness of VLA models with the data efficiency of 3D
+manipulation policies within a single cohesive framework.
+
+
+\subsection{3D Vision-Language-Action (VLA) Models}
+
+While 2D VLA models have been extensively studied, 3D VLA models
+\cite{zhen20243d,yang2025fp3,li2025pointvla,
+qu2025spatialvla} remain relatively underexplored.
+Zhen \textit{et al.}~\cite{zhen20243d} build 3D-VLA on top of a 3D-based large
+language model (LLM) and train it to perform 3D reasoning, multimodal goal
+generation, and robot planning.
+Lift3D~\cite{jia2024lift3d} enhances 2D foundation models
+(\eg, DINOv2~\cite{oquab2023dinov2}) with implicit and explicit 3D robotic
+representations for learning 3D manipulation policies.
+FP3~\cite{yang2025fp3} employs a transformer to fuse information from point
+clouds, proprioceptive states, and language instructions.
+PointVLA~\cite{li2025pointvla} uses a VLM and a point-cloud encoder to process
+2D images and 3D point clouds, respectively, and injects the resulting 3D
+features additively into a few selected blocks of an otherwise frozen action
+expert, thereby avoiding retraining of the pre-trained VLA.
+SpatialVLA~\cite{qu2025spatialvla} introduces Ego3D positional encoding to
+inject 3D information into 2D visual observations and adopts adaptive action
+grids to represent robot motions in a more transferable manner.
+In contrast to these architectural modifications, \method incorporates 3D
+spatial priors without introducing a dedicated 3D encoder or modifying the
+core architecture of the VLM: it projects 3D point clouds into multi-view
+orthographic images~\cite{goyal2023rvt,goyal2024rvt} and formulates action
+prediction as 2D spatial heatmap estimation, thereby keeping both inputs
+and outputs within the native 2D domain of the pre-trained VLM.
+A concurrent work, OG-VLA~\cite{singh2025ogvla}, explores a similar
+orthographic-projection design, albeit generating heatmaps with an
+auxiliary image-diffusion decoder.
+However, these 3D VLA models operate without any form of memory, which
+motivates the line of work on memory-dependent manipulation reviewed next.
+
+
+
+\subsection{Memory-Dependent Manipulation}
+Most of the above-mentioned VLA models and 3D manipulation policies,
+including our \method, adopt a strictly Markovian formulation, predicting
+actions solely from the current observation.
+Such a formulation becomes inadequate when a task requires temporal
+context, or when critical spatial geometry is occluded during execution.
+On the one hand, to incorporate \emph{temporal context}, early approaches
+attended to the entire observation history~\cite{guhur2023instruction},
+resulting in computational costs that scaled poorly with episode length.
+Recent methods instead maintain bounded or structured memory through
+mechanisms such as explicit memory banks
+(\eg, SAM2Act+~\cite{fang2025sam2act}), generative
+world models~\cite{li2026lingbotva,yang2026wla,yang2026memorywam},
+hierarchical planners~\cite{chen2026rmbench}, visual
+traces~\cite{zheng2024tracevla}, or specialized cognitive or gated memory
+modules~\cite{lei2025robomemory,shi2026memoryvla,gao2026gatedmemory}.
+On the other hand, to address \emph{spatial occlusion}, existing solutions
+typically track object poses explicitly over time~\cite{zhou2024yoso} or
+maintain persistent geometric representations of the
+workspace~\cite{zheng2026memworld}.
+In contrast to the above methods, \memmethod offers a simple yet effective
+solution to both challenges.
+By jointly designing temporal memory for retaining historical context and
+spatial memory for recovering occluded geometry, \memmethod achieves strong
+performance on memory-dependent manipulation tasks using only a lightweight
+attention module.

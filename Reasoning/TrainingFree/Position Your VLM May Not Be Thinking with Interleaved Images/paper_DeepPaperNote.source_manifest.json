@@ -1,0 +1,543 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "title:8cc41398b86f",
+  "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/8TG39CQY/Position Your VLM May Not Be Thinking with Interleaved Images.pdf",
+    "total_pages": 13,
+    "text_pages_extracted": 13,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 13,
+    "text_max_pages": null,
+    "text_pages_extracted": 13,
+    "text_pages_scanned": 13,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": null
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 110,
+      "text_hash_sha256": "b047cab8b78677808d4dc8eaba76e54397294fa5aebcfe83c114c9effeafce5e"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1240,
+      "text_hash_sha256": "544731ebe063afcf5c4da76bd2851936930205d07818800f69f705d743d683b5"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 4534,
+      "text_hash_sha256": "fac393f3b0b17f88701e0847c5774382ac938e78ee71d18e28723a40c86f3a22"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2. Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 5954,
+      "text_hash_sha256": "478c8233ebbdb69eec1285b5f65ff71167ea940acc474c54c1e4095b4e4e0493"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "3. Preliminaries",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 3447,
+      "text_hash_sha256": "98c94d23e5e0a351fcffc981ce19c8e3a961f1feb4e771ed015c05b78b4bb9c7"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 379,
+      "text_hash_sha256": "9cbad0ef5a66d24a53fa5a84968ef1cecd3d1f9c1cc44b445963ef94593b5792"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 2433,
+      "text_hash_sha256": "f71f7da78d664677b402f9b03299cabbf192d624e108e4056e0ca96c6d07e0e1"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 6829,
+      "text_hash_sha256": "46f0e921d3d21e8567751af14c3f455eccbf8352f074e3ac8cf01cbf52f09ca9"
+    },
+    {
+      "section_id": "sec:method-4",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 113,
+      "text_hash_sha256": "1d708b16cba20695a121b70310f6f6e70a63e8b5761f27320f50d95db86446d2"
+    },
+    {
+      "section_id": "sec:method-5",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 122,
+      "text_hash_sha256": "aa37d5fabd34b806bf42b4613b4a26f0bdb5c7d466529e31ebe85fe58748d0cc"
+    },
+    {
+      "section_id": "sec:method-6",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 1604,
+      "text_hash_sha256": "3da426b71c33df448f2d90828b7e3197a158a21a7e30131f86f3f1fc6125adf5"
+    },
+    {
+      "section_id": "sec:method-7",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 6926,
+      "text_hash_sha256": "11aaa078e4ea36bb79ff3d664710bf2276788675c3cfae883b6334f19c5a6b35"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "8. Conclusion",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 873,
+      "text_hash_sha256": "50f1092563bf432cb460b08f3ea1bfb8844400ad216a682b5643f6f5cc68b90e"
+    },
+    {
+      "section_id": "sec:acknowledgments",
+      "kind": "acknowledgments",
+      "title": "Acknowledgments",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 227,
+      "text_hash_sha256": "077063af5cd31337276900a6824737f6dae8ed5357dea0165443b405fa39824e"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix.",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 194,
+      "text_hash_sha256": "1c21096fb4f8c5d6ba3002355febc1f39e20ef2d48c58a9b637aa28826e9fcbb"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 8,
+      "page_end": 13,
+      "char_count": 19580,
+      "text_hash_sha256": "621914f262a8daf801ec7ee2f5ceacfb74076d226084509238f4d3a289822f2b"
+    },
+    {
+      "section_id": "sec:method-8",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 2696,
+      "text_hash_sha256": "a3c0124b5af2681aacce523f55e459f7251dbaa2a665efbfb9f0f06759aedeed"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3804,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5998,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5256,
+      "section_ids": [
+        "sec:related-work",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4114,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:method",
+        "sec:method-2",
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2693,
+      "section_ids": [
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4765,
+      "section_ids": [
+        "sec:method-3",
+        "sec:method-4",
+        "sec:method-5",
+        "sec:method-6"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4616,
+      "section_ids": [
+        "sec:method-6",
+        "sec:method-7"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5292,
+      "section_ids": [
+        "sec:method-7",
+        "sec:conclusion",
+        "sec:acknowledgments",
+        "sec:appendix",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4646,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 5220,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4870,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3162,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3088,
+      "section_ids": [
+        "sec:references",
+        "sec:method-8"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Illustration of the “Thinking with Images” frame-",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method-3"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on HRBench (Wang et al., 2025c). Qwen3-VL",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Effectiveness of vanilla SFT. DeepEyes-7B is the “Think-",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method-3"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Results on V∗(Wu & Xie, 2024) with masked images.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-6"
+      },
+      {
+        "id": "Table 1",
+        "caption": "are easy to implement, as one need only sup-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-6"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "Wenjie Yang <yangago668@gmail.com>, Zengfeng Huang",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "<huangzf@fudan.edu.cn>.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "the previous history St = (z1, . . . , zt−1). Let T denote the",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where zt ∈T ∪I. We refer to the subset {zt|zt ∈I}",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "rollouts S = {S1, S2, · · · , SG} from the old policy πold and",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "LGRPO(θ) = E",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where rt(θ) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "πθ(Si,t|(I,Q),Si,<t)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "πold(Si,t|(I,Q),Si,<t) is the ratio function,",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "ˆAi,t = ri−mean(r)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "the rewards r = {r1, r2, · · · , rG}, ϵ and β are hyperparam-",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "˜A(li) = A(li)A(li−1) . . . A(l0),",
+      "section_id": "sec:method-3",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i.e., A(li) = 0.5W(li) + 0.5I and I is the identity matrix.",
+      "section_id": "sec:method-3",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "LSFT(θ) = E(I,Q,ST )∼D[−log πθ(ST |I, Q)],",
+      "section_id": "sec:method-3",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where D = {(I, Q, ST )} denotes the finetuning data. Cru-",
+      "section_id": "sec:method-3",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "openreview.net/forum?id=mB3vxfrQZM.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "net/forum?id=yDKawwfJ5O.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "id=dHng2O0Jjr.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "id=VeZkY3JjWV.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "//openreview.net/forum?id=QWTCcxMpPA.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "//openreview.net/forum?id=Idst6X6gmy.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "forum?id=DgaY5mDdmT.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "//openreview.net/forum?id=k5VHHgsRbi.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "net/forum?id=gCWLkqK45O.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    },
+    {
+      "text": "forum?id=xUyMXkI958.",
+      "section_id": "sec:references",
+      "page_start": 8,
+      "page_end": 13
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "98784268e49cb4f810155732e63da74329ec39558f80c3bfcf1b3d3e42f2040d"
+}

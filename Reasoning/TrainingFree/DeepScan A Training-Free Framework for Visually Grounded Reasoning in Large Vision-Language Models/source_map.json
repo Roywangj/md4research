@@ -1,0 +1,1691 @@
+{
+  "paper": {
+    "title": "DeepScan: A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models",
+    "venue": "CVPR 2026; arXiv:2603.03857v1",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/563SEVQR/Li 等 - 2026 - DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models.pdf",
+    "page_count": 18
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "section": "Abstract",
+      "order": 1,
+      "original_text": "Humans can robustly localize visual evidence and provide grounded answers even in noisy environments by identifying critical cues and then relating them to the full context in a bottom-up manner. Inspired by this, we propose DeepScan, a training-free framework that combines Hierarchical Scanning, Refocusing, and Evidence-Enhanced Reasoning for visually grounded reasoning in Large Vision-Language Models (LVLMs). Unlike existing methods that pursue one-shot localization of complete evidence, Hierarchical Scanning performs local cue exploration and multi-scale evidence extraction to recover evidence in a bottom-up manner, effectively mitigating the impacts of distractive context. Refocusing then optimizes the localized evidence view through collaboration of LVLMs and visual experts. Finally, Evidence-Enhanced Reasoning aggregates multi-granular views via a hybrid evidence memory and yields accurate and interpretable answers. Experimental results demonstrate that DeepScan significantly boosts LVLMs in diverse visual tasks, especially in fine-grained visual understanding. It achieves 90.6% overall accuracy on V* when integrated with Qwen2.5-VL-7B. Moreover, DeepScan provides consistent improvements for LVLMs across various architectures and model scales without additional adaptation cost. The code will be open-source at DeepScan.",
+      "translation": "人类即使处在噪声环境中，也能先识别关键线索，再以自底向上的方式把线索关联回完整语境，从而稳健地定位视觉证据并给出有依据的答案。受此启发，作者提出 DeepScan：一个将分层扫描、再聚焦与证据增强推理结合起来的免训练框架，用于提升大型视觉语言模型（LVLM）的视觉落地推理。不同于一次性定位完整证据的现有方法，分层扫描通过局部线索探索和多尺度证据提取，自底向上地恢复证据，从而减弱干扰上下文的影响；再聚焦通过 LVLM 与视觉专家协作优化已定位证据的视图；证据增强推理则借助混合证据记忆聚合多粒度视图，产生准确且可解释的答案。实验表明，DeepScan 在多类视觉任务，尤其是细粒度视觉理解上显著增强 LVLM；与 Qwen2.5-VL-7B 结合时，V* 总体准确率达到 90.6%，且无需额外适配即可跨架构、跨模型规模稳定提升性能。代码将开源于 DeepScan 项目。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": null
+    },
+    {
+      "id": "C001",
+      "page": 1,
+      "type": "caption",
+      "section": "1. Introduction",
+      "order": 2,
+      "original_text": "Comparison of grounding pipelines in existing methods and the proposed DeepScan. (a) Existing methods depend on one-shot localization of evidence regions, making them sensitive to noisy contexts. (b) DeepScan uses local cue exploration to identify discriminative cues and recovers evidence from these cues in a bottom-up manner, robustly localizing critical visual content even in challenging scenes.",
+      "translation": "现有方法与 DeepScan 的落地流程对比。(a) 现有方法依赖一次性定位证据区域，因此对噪声上下文敏感；(b) DeepScan 先通过局部线索探索识别有判别力的线索，再从这些线索自底向上恢复证据，即使在困难场景中也能稳健定位关键视觉内容。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F001"
+      ],
+      "insert_after": "S001"
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction",
+      "order": 3,
+      "original_text": "Humans excel at grounding critical visual information and reasoning based on the located evidence, which is a hallmark of intelligence recognized in cognitive and vision science [38, 40, 41]. While this is natural to humans, it remains challenging for LVLMs to replicate this behavior, leading to suboptimal performance in complex visual tasks [16, 34, 39, 42].",
+      "translation": "人类擅长把关键视觉信息落到具体位置，并基于已定位的证据推理；认知科学与视觉科学将这种能力视为智能的重要标志 [38, 40, 41]。这种行为对人类很自然，但 LVLM 仍难以稳定复现，因此在复杂视觉任务中表现欠佳 [16, 34, 39, 42]。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S001"
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction",
+      "order": 4,
+      "original_text": "To reproduce this ability in LVLMs, some approaches employ reinforcement learning with visually supervised rewards such as IoU, or context engineering, enabling active perception and evidence localization during reasoning [31, 35, 42, 46, 50, 52]. Other work augments LVLM grounding with auxiliary modules [4, 26, 45, 51], while recent studies integrate external visual experts such as GroundingDINO and LangSAM and use agreement between experts and LVLMs to localize evidence [2, 13, 20, 21, 24, 27].",
+      "translation": "为把这种能力引入 LVLM，一类方法使用带视觉监督奖励（如 IoU）的强化学习或上下文工程，使模型在推理过程中主动感知并定位证据 [31, 35, 42, 46, 50, 52]；另一类方法加入辅助模块 [4, 26, 45, 51]。近期工作还引入 GroundingDINO、LangSAM 等外部视觉专家，通过专家与 LVLM 的一致性来定位证据 [2, 13, 20, 21, 24, 27]。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S002"
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction",
+      "order": 5,
+      "original_text": "Despite these advances, most existing methods follow a top-down grounding paradigm: they first perform an image-level search for coarse-grained proxies, such as region proposals, detection boxes, or textual descriptions, and then refine them into fine-grained evidence. This requires one-shot localization of complete evidence regions from the entire image and is easily affected by noisy context, attention sinks, or semantically similar objects. The LVLM may then refuse to answer or guess from incorrect evidence. Humans instead use a bottom-up routine in difficult visual tasks: in a spot-the-difference puzzle, for example, they scan local patches for subtle discrepancies and verify those cues at image level to recover the target while suppressing distractors.",
+      "translation": "尽管已有进展，多数方法仍采用自顶向下的落地范式：先在整幅图像上搜索区域提议、检测框或文本描述等粗粒度代理，再将其细化为证据。这要求模型从全图一次性找准完整证据，容易受到噪声上下文、注意力汇聚陷阱和语义相似物体的影响；随后 LVLM 可能拒答，或依据错误证据猜测。人类在困难任务中更常采用自底向上的过程：例如玩“找不同”时，先扫描局部图块中的细微差异，再回到图像层面核验线索、恢复目标并抑制干扰项。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S003"
+    },
+    {
+      "id": "C002",
+      "page": 2,
+      "type": "caption",
+      "section": "1. Introduction",
+      "order": 6,
+      "original_text": "Performance of LVLMs and visually grounded reasoning variants on V*. DeepScan achieves highly competitive results.",
+      "translation": "LVLM 与视觉落地推理方法在 V* 上的性能。DeepScan 取得了极具竞争力的结果。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ],
+      "insert_after": "S004"
+    },
+    {
+      "id": "S005",
+      "page": 2,
+      "type": "paragraph",
+      "section": "1. Introduction",
+      "order": 7,
+      "original_text": "Inspired by this human behavior, DeepScan comprises Hierarchical Scanning, Refocusing, and Evidence-Enhanced Reasoning. Hierarchical Scanning combines patch-wise cue exploration with image-level evidence extraction; Refocusing refines the surrounding context through collaboration between visual experts and LVLMs; and Evidence-Enhanced Reasoning supplies multi-granular views through a Hybrid Evidence Memory. As a training-free framework, DeepScan scales to larger backbones such as Qwen2.5-VL-72B without adaptation.",
+      "translation": "DeepScan 由三个环节组成：分层扫描把图块级线索探索与图像级证据提取结合起来；再聚焦通过视觉专家与 LVLM 协作，重新校准证据周围的上下文；证据增强推理则使用混合证据记忆向 LVLM 提供多粒度视图。由于不需要训练，该框架可直接扩展到 Qwen2.5-VL-72B 等更大主干。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S004"
+    },
+    {
+      "id": "S006",
+      "page": 2,
+      "type": "paragraph",
+      "section": "1. Introduction",
+      "order": 8,
+      "original_text": "The contributions are fourfold: (1) DeepScan explicitly localizes, recalibrates, and integrates evidence before answering; (2) Hierarchical Scanning introduces a bottom-up grounding paradigm based on local cue exploration and multi-scale evidence extraction; (3) Refocusing recalibrates evidence views through interaction between LVLMs and external visual experts; and (4) comprehensive experiments show average improvements of 16.3% on V* and 5.5% on TreeBench for Qwen2.5-VL-7B, with ablations across architectures and scales supporting generalizability.",
+      "translation": "论文的四项贡献是：(1) 在回答前显式定位、校准并整合证据；(2) 提出基于局部线索探索和多尺度证据提取的自底向上分层扫描；(3) 提出由 LVLM 与外部视觉专家交互完成证据视图校准的再聚焦；(4) 完整实验显示，基于 Qwen2.5-VL-7B 时在 V* 和 TreeBench 上平均提升 16.3% 与 5.5%，跨架构和跨规模消融也支持其泛化性。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S005"
+    },
+    {
+      "id": "S007",
+      "page": 2,
+      "type": "paragraph",
+      "section": "2. Related Work",
+      "order": 9,
+      "original_text": "Early LVLMs such as Flamingo and BLIP-2 integrated visual features into an LLM through cross-attention, whereas LLaVA projected features from a frozen vision encoder into the LLM semantic space with a lightweight MLP. Subsequent work scaled LVLMs to OCR, general VQA, and latent visual reasoning. High-resolution input became a critical frontier: LLaVA-NeXT and InternVL1.5 support arbitrary resolutions, while Qwen2-VL and Qwen2.5-VL use mRoPE for resolution generality. Yet current LVLMs lack an explicit mechanism to perceive and localize task-relevant evidence, causing hallucinations especially in high-resolution scenes. DeepScan addresses this gap by coupling LVLMs with external experts.",
+      "translation": "Flamingo、BLIP-2 等早期 LVLM 通过交叉注意力把视觉特征接入 LLM；LLaVA 则用轻量 MLP 将冻结视觉编码器的特征映射到 LLM 语义空间。后续研究把能力扩展到 OCR、通用 VQA 和潜在视觉推理，高分辨率输入也成为关键前沿：LLaVA-NeXT、InternVL1.5 支持任意分辨率，Qwen2-VL 与 Qwen2.5-VL 通过 mRoPE 提升分辨率泛化。然而，现有 LVLM 通常缺少显式感知并定位任务相关证据的机制，在高分辨率场景中尤其容易产生幻觉。DeepScan 通过耦合外部专家填补这一缺口。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S006"
+    },
+    {
+      "id": "S008",
+      "page": 2,
+      "type": "paragraph",
+      "section": "2. Related Work",
+      "order": 10,
+      "original_text": "Agents with “think-with-images” capabilities dynamically manipulate images during inference to localize and emphasize critical content. Subsequent work uses supervised fine-tuning, reinforcement learning with visual rewards, curiosity-driven objectives, explicit evidence localization, and visual memory. These approaches are costly and difficult to generalize across architectures and model scales. Training-free alternatives use external experts, tree search, or self-refinement for grounding-then-answering, but most still rely on a coarse-to-fine strategy sensitive to noisy context and similar objects. Hierarchical Scanning instead progressively recovers evidence from local cues through point-based proxies.",
+      "translation": "具备“以图思考”能力的智能体会在推理时动态操作图像，以定位和强调关键视觉内容。后续工作采用监督微调、视觉奖励强化学习、好奇心目标、显式证据定位和视觉记忆，但这些方案代价较高，也难以跨架构、跨模型规模泛化。免训练替代方案会借助外部专家、树搜索或自我细化执行“先落地、后回答”，但多数仍依赖容易受噪声与相似物体影响的由粗到细策略。分层扫描则通过点式代理，从局部线索出发逐步恢复视觉证据。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S007"
+    },
+    {
+      "id": "C003",
+      "page": 3,
+      "type": "caption",
+      "section": "3. Methodology",
+      "order": 11,
+      "original_text": "Overall architecture of DeepScan. Hierarchical Scanning progressively recovers visual evidence from in-patch cues formulated as point-based proxies using Local Cue Exploration and Multi-Scale Evidence Extraction. Refocusing further refines the surrounding context for the fused evidence via interactions between LVLMs and visual experts. Evidence-Enhanced Reasoning leverages a Hybrid Evidence Memory to provide multi-granular information to the LVLM.",
+      "translation": "DeepScan 总体架构。分层扫描通过局部线索探索与多尺度证据提取，将图块内线索表示为点式代理并逐步恢复视觉证据；再聚焦通过 LVLM 与视觉专家交互，为融合证据细化周围语境；证据增强推理利用混合证据记忆向 LVLM 提供多粒度信息。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ],
+      "insert_after": "S008"
+    },
+    {
+      "id": "S009",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.1 Overview",
+      "order": 12,
+      "original_text": "DeepScan localizes, recalibrates, and integrates visual evidence to produce more accurate and interpretable answers. It augments an LVLM with two plug-and-play models: a search expert and a visual expert. Given an image $I \\in \\mathbb{R}^{H\\times W\\times 3}$ and a question $q$, the search expert highlights potential cues in a local patch $p \\in I$ through a Grad-CAM attention map $S$.",
+      "translation": "DeepScan 通过定位、重新校准并整合视觉证据，生成更准确、可解释的答案。它为 LVLM 加入两个即插即用模型：搜索专家和视觉专家。给定图像 $I \\in \\mathbb{R}^{H\\times W\\times 3}$ 与问题 $q$，搜索专家用 Grad-CAM 注意图 $S$ 在局部图块 $p \\in I$ 中突出潜在线索。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S008"
+    },
+    {
+      "id": "S010",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.1 Overview",
+      "order": 13,
+      "original_text": "The visual expert exposes two image-level primitives: segmentation from a point prompt $c=(x,y)\\in I$, and detection conditioned on the question. Here $m$ is an evidence mask and $\\mathcal{B}$ is the union of evidence bounding boxes. The LVLM can answer using regions enclosed by either $m$ or $\\mathcal{B}$. Because these modules are used only at inference, the pipeline remains general and training-free.",
+      "translation": "视觉专家提供两个图像级原语：由点提示 $c=(x,y)\\in I$ 驱动的分割，以及由问题条件化的检测。其中 $m$ 是证据掩码，$\\mathcal{B}$ 是证据框的并集。LVLM 可使用 $m$ 或 $\\mathcal{B}$ 包围的区域回答问题；这些模块仅在推理时调用，因此流程保持通用且无需训练。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S009"
+    },
+    {
+      "id": "S011",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 14,
+      "original_text": "A natural way to suppress irrelevant content is to partition the image into patches and extract evidence patch by patch. The difficulty is that evidence may span multiple patches, while conventional proxies such as region proposals, boxes, or textual descriptions poorly represent incomplete evidence. Hierarchical Scanning therefore connects patch-wise Local Cue Exploration and image-level Multi-Scale Evidence Extraction through point-based proxies, producing a bottom-up grounding pipeline.",
+      "translation": "抑制无关视觉内容的一种自然方法是切分图像并逐块提取证据。难点在于目标证据可能跨越多个图块，而区域提议、检测框或文本描述等传统代理很难表达不完整证据。分层扫描因此用点式代理连接“图块级局部线索探索”与“图像级多尺度证据提取”，形成自底向上的落地流程。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S010"
+    },
+    {
+      "id": "S012",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 15,
+      "original_text": "In Local Cue Exploration, for each patch $p$ and question $q$, the search expert produces an attention map $S_p$. Otsu thresholding converts it into a binary high-response mask $S_p^+$, whose connected components are candidate cue regions.",
+      "translation": "在局部线索探索中，搜索专家针对图块 $p$ 与问题 $q$ 产生注意图 $S_p$。Otsu 阈值法将其变为二值高响应掩码 $S_p^+$，其中的连通分量构成候选线索区域。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S011"
+    },
+    {
+      "id": "S013",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 16,
+      "original_text": "Each cue is represented by an interior point derived from geometry and semantics. The geometric term is the Euclidean distance from a candidate point to the cue boundary. Because geometry alone can yield multiple candidates for complex shapes such as U-shaped regions, the method multiplies normalized boundary distance by normalized semantic attention and selects the maximum, while filtering tiny components with threshold $\\tau$.",
+      "translation": "每个线索都由一个同时考虑几何与语义的内部点表示。几何项是候选点到线索边界的欧氏距离；但对 U 形等复杂区域，仅凭几何可能产生多个候选，因此方法将归一化边界距离与归一化语义注意相乘，选择乘积最大的点，并用阈值 $\\tau$ 去除过小连通域。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S012"
+    },
+    {
+      "id": "S014",
+      "page": 3,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 17,
+      "original_text": "The in-patch proxies are lifted to image coordinates. For each lifted proxy $c'_p$, the visual expert performs point-prompt segmentation on the original image, recovering an image-level evidence mask $m$.",
+      "translation": "选出的图块内点被提升到原图坐标。视觉专家随后以每个 $c'_p$ 为点提示，在原图上执行分割，恢复图像级证据掩码 $m$。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S013"
+    },
+    {
+      "id": "C004",
+      "page": 3,
+      "type": "caption",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 18,
+      "original_text": "Illustration of morphological post-processing. “+” marks point-based proxies; $m$ and $m^+$ denote evidence masks before and after post-processing, showing improved robustness.",
+      "translation": "形态学后处理示意。“+”表示点式代理；$m$ 与 $m^+$ 分别是处理前后的证据掩码，后处理提升了掩码完整性与鲁棒性。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ],
+      "insert_after": "S014"
+    },
+    {
+      "id": "S015",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 19,
+      "original_text": "A single-point mask can contain interior holes or omit surrounding context. DeepScan applies morphological closing with a flat kernel $\\mathcal{K}$ and dilation with disk kernel $S_r$ to form $m^+$. It then removes proxies already covered by $m^+$, crops the evidence from the minimal enclosing box, and asks the LVLM for a binary evidence judgment before adding the candidate to the evidence set $\\mathcal{E}$.",
+      "translation": "单点提示得到的掩码可能有内部孔洞，或缺失周边语境。DeepScan 使用平坦核 $\\mathcal{K}$ 做闭运算，再用圆盘核 $S_r$ 膨胀得到 $m^+$；随后移除已落入 $m^+$ 的代理，从最小包围框裁出证据，并由 LVLM 做二元证据判断，确认后才加入证据集合 $\\mathcal{E}$。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S014"
+    },
+    {
+      "id": "S016",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 20,
+      "original_text": "A global visited mask is maintained by masking examined evidence from the image, reducing redundant computation. For acceleration, candidates are pre-filtered by area and only the $k$ smallest regions are evaluated by the LVLM. The rationale is that large salient evidence is often already detectable without explicit grounding, whereas localizing less salient evidence yields larger gains.",
+      "translation": "方法还在全图上维护访问掩码，把已检查证据从后续扫描中屏蔽，减少重复计算。为加速推理，候选按面积预筛，只让 LVLM 判断最小的 $k$ 个区域。其依据是：大而显著的证据通常无需额外落地即可被 LVLM 识别，真正带来增益的是不显著的小证据。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S015"
+    },
+    {
+      "id": "C005",
+      "page": 4,
+      "type": "caption",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 21,
+      "original_text": "Analysis of performance gain with respect to target area ratio and the performance-latency trade-off on V*. The infinity mark denotes no explicit truncation of candidate count $k$.",
+      "translation": "V* 上目标面积比例与性能增益的关系，以及性能—时延权衡。无穷符号表示不显式截断候选数量 $k$。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ],
+      "insert_after": "S016"
+    },
+    {
+      "id": "S017",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.2 Hierarchical Scanning",
+      "order": 22,
+      "original_text": "Empirically, even $k=1$ preserves about 96% of the maximum achievable performance while yielding roughly a $2\\times$ speedup. This heuristic bounds the number of LVLM evaluations and reduces visual-token cost.",
+      "translation": "实验上，即使只保留 $k=1$，仍可保持约 96% 的最高可达性能，同时获得约 $2\\times$ 加速。该启发式规则直接限制 LVLM 判断次数并降低视觉 token 成本。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S016"
+    },
+    {
+      "id": "C006",
+      "page": 4,
+      "type": "caption",
+      "section": "3.3 Refocusing",
+      "order": 23,
+      "original_text": "Illustration of Refocusing, where $V^*$ denotes the selected result. Refocusing recalibrates proxy misalignment by adaptively completing or further amplifying evidence.",
+      "translation": "再聚焦示意，$V^*$ 表示最终选中的视图。再聚焦通过自适应补全证据上下文或进一步放大目标，修正点式代理错位造成的问题。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ],
+      "insert_after": "S017"
+    },
+    {
+      "id": "S018",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.3 Refocusing",
+      "order": 24,
+      "original_text": "Precise proxy placement is difficult when multiple elements are adjacent, so the recovered view may contain too little or too much context. Refocusing integrates the LVLM and visual expert to search for an evidence-centric view with an appropriate context window. It initializes from $V_1=\\operatorname{CROP}(I,b_m)$, where $b_m$ is the minimum box enclosing all evidence.",
+      "translation": "当多个视觉元素彼此邻近时，点代理很难精确落位，恢复的视图可能缺少语境，也可能包含过多干扰。再聚焦联合 LVLM 与视觉专家，搜索上下文范围合适的“证据中心视图”。初始视图为 $V_1=\\operatorname{CROP}(I,b_m)$，其中 $b_m$ 是包围全部证据的最小框。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S017"
+    },
+    {
+      "id": "S019",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.3 Refocusing",
+      "order": 25,
+      "original_text": "Two actions generate successor states. Zoom-In crops a view to the union of detections conditioned on the question; Zoom-Out isotropically expands the view around its center by scale $s>1$.",
+      "translation": "状态转移使用两个动作：Zoom-In 按问题条件化检测结果的并集进一步裁剪视图；Zoom-Out 以视图中心为基准，按尺度 $s>1$ 各向同性扩大上下文。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S018"
+    },
+    {
+      "id": "S020",
+      "page": 4,
+      "type": "paragraph",
+      "section": "3.3 Refocusing",
+      "order": 26,
+      "original_text": "The selection policy prefers the smallest view that still contains all evidence needed for the answer. Its LVLM-based reward is an evidence-completeness indicator multiplied by the inverse area ratio. A view receives zero if the LVLM judges it incomplete; otherwise smaller complete views score higher.",
+      "translation": "选择策略偏好“仍包含全部必要证据的最小视图”。基于 LVLM 的奖励由证据完整性指示量乘以反面积比构成：若 LVLM 判断视图不完整，得分为零；若完整，则越小的视图分数越高。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S019"
+    },
+    {
+      "id": "S021",
+      "page": 5,
+      "type": "paragraph",
+      "section": "3.3 Refocusing",
+      "order": 27,
+      "original_text": "Because Hierarchical Scanning provides a good initialization, the search need not cover the whole image. Zoom-In is empirically idempotent at $V_1$; repeated Zoom-Out operations compose multiplicatively; and a Zoom-Out after a complete Zoom-In cannot improve the size-regularized reward. If the Zoom-In view is incomplete, any context restored by Zoom-Out can be restored directly from $V_1$. Therefore the branch $\\operatorname{OUT}(\\operatorname{IN}(V_1,q),s)$ can be omitted without losing the global optimum under these assumptions.",
+      "translation": "由于分层扫描提供了良好初始化，搜索无需覆盖整图。论文指出：在 $V_1$ 上 Zoom-In 经验上具有幂等性；连续 Zoom-Out 可合成为尺度相乘的一次操作；若 Zoom-In 后证据已完整，再 Zoom-Out 不会提高带面积正则的奖励。若 Zoom-In 后不完整，那么 Zoom-Out 能补回的上下文也可直接从 $V_1$ 补回。因此在这些假设下，可以删除 $\\operatorname{OUT}(\\operatorname{IN}(V_1,q),s)$ 分支而不损失全局最优解。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S020"
+    },
+    {
+      "id": "S022",
+      "page": 5,
+      "type": "paragraph",
+      "section": "3.3 Refocusing",
+      "order": 28,
+      "original_text": "The resulting behaviorally complete search set has only four states: the initial view, its Zoom-In, its Zoom-Out, and the Zoom-In of the Zoom-Out. The scale is set to $s=1.5$ by grid search. States are traversed depth-first and the best-scoring view is selected greedily.",
+      "translation": "最终搜索空间只有四个在行为上完备的状态：初始视图、初始视图的 Zoom-In、初始视图的 Zoom-Out，以及 Zoom-Out 结果的 Zoom-In。尺度经网格搜索设为 $s=1.5$；算法按深度优先顺序遍历并贪心选择最高分视图。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S021"
+    },
+    {
+      "id": "S023",
+      "page": 5,
+      "type": "paragraph",
+      "section": "3.4 Evidence-Enhanced Reasoning",
+      "order": 29,
+      "original_text": "The preceding stages build a Hybrid Evidence Memory $\\mathcal{H}$ containing fine-grained evidence from Hierarchical Scanning and the selected coarse-grained view from Refocusing. It is materialized as an ordered multi-image prompt $[e_1,\\ldots,V^*]$.",
+      "translation": "前两阶段构建混合证据记忆 $\\mathcal{H}$：既保存分层扫描得到的细粒度证据，也保存再聚焦选出的粗粒度视图。它最终被组织成有序多图提示 $[e_1,\\ldots,V^*]$。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S022"
+    },
+    {
+      "id": "S024",
+      "page": 5,
+      "type": "paragraph",
+      "section": "3.4 Evidence-Enhanced Reasoning",
+      "order": 30,
+      "original_text": "Fine-grained evidence supports object-attribute recognition, while the coarse view preserves relationships and context. The LVLM therefore produces the final answer as $A=\\operatorname{REASON}(\\mathcal{H},q)$ with both detailed and comprehensive visual support.",
+      "translation": "细粒度证据用于辨认对象属性，粗粒度视图保留对象关系与语境。因此 LVLM 以 $A=\\operatorname{REASON}(\\mathcal{H},q)$ 生成最终答案，同时兼顾细节与整体关系。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S023"
+    },
+    {
+      "id": "C007",
+      "page": 5,
+      "type": "caption",
+      "section": "4.1 Experimental Settings",
+      "order": 31,
+      "original_text": "Comparisons on V* Bench and HR-Bench. All baselines are developed from Qwen2.5-VL-7B; RL-based methods are shaded gray; dagger results are self-collected.",
+      "translation": "V* Bench 与 HR-Bench 对比。所有基线均基于 Qwen2.5-VL-7B；灰色为强化学习方法；带 † 的结果由作者复现。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T001"
+      ],
+      "insert_after": "S024"
+    },
+    {
+      "id": "S025",
+      "page": 5,
+      "type": "paragraph",
+      "section": "4.1 Experimental Settings",
+      "order": 32,
+      "original_text": "V* Bench contains 191 high-resolution images and emphasizes extremely small targets with mean area below 0.05%. It covers Direct Attribute recognition (115 samples) and Spatial Relationship reasoning (76 samples), evaluated by multiple-choice accuracy. HR-Bench provides 4K and 8K versions, each with 200 images split evenly into Single-Instance and Cross-Instance perception, evaluated by cyclic-permutation multiple-choice accuracy. TreeBench contains 405 images and tests traceable evidence localization, subtle-target perception, and second-order reasoning, reporting both accuracy and mIoU.",
+      "translation": "V* Bench 含 191 张高分辨率图像，目标平均面积小于 0.05%，包括 115 个直接属性样本和 76 个空间关系样本，以选择题准确率评估。HR-Bench 有 4K、8K 两个版本，每版 200 张图像，平均分为单实例与跨实例感知，采用循环置换选择题协议。TreeBench 含 405 张图像，评估可追踪证据定位、细微目标感知和二阶推理，同时报告准确率与 mIoU。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S024"
+    },
+    {
+      "id": "S026",
+      "page": 5,
+      "type": "paragraph",
+      "section": "4.1 Experimental Settings",
+      "order": 33,
+      "original_text": "Baselines include RL-based methods, training-free methods, private models, and open-source general LVLMs. DeepScan uses BLIP-ITM base as the search expert and LangSAM as the visual expert. The default candidate count is $k=10$. It is evaluated with LLaVA-1.5-7B, Qwen2-VL-7B, and Qwen2.5-VL at 7B, 32B, and 72B scales.",
+      "translation": "基线涵盖强化学习方法、免训练方法、闭源模型和开源通用 LVLM。DeepScan 以 BLIP-ITM base 为搜索专家、LangSAM 为视觉专家，默认候选数 $k=10$；评估主干包括 LLaVA-1.5-7B、Qwen2-VL-7B，以及 7B、32B、72B 三种规模的 Qwen2.5-VL。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S025"
+    },
+    {
+      "id": "S027",
+      "page": 5,
+      "type": "paragraph",
+      "section": "4.1 Experimental Settings",
+      "order": 34,
+      "original_text": "The LVLM first classifies whether a question involves a single object or multiple objects. Patch size is set dynamically to $576\\times576$ for single-object scenes and $768\\times768$ for multi-object scenes. Main experiments run on four NVIDIA L20 GPUs; detailed hyperparameters are given in the supplement.",
+      "translation": "LVLM 先判断问题涉及单对象还是多对象；单对象场景使用 $576\\times576$ 图块，多对象场景使用 $768\\times768$ 图块。主实验在 4 张 NVIDIA L20 GPU 上完成，详细超参数见补充材料。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S026"
+    },
+    {
+      "id": "C008",
+      "page": 6,
+      "type": "caption",
+      "section": "4.1 Experimental Settings",
+      "order": 35,
+      "original_text": "Comparison with state-of-the-art alternatives on TreeBench. Baselines use Qwen2.5-VL-7B; RL-based methods are shaded; dagger results are self-collected.",
+      "translation": "TreeBench 上与先进方法的比较。基线以 Qwen2.5-VL-7B 为主干；灰色为强化学习方法；† 表示作者自行复现。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T002"
+      ],
+      "insert_after": "S027"
+    },
+    {
+      "id": "S028",
+      "page": 6,
+      "type": "paragraph",
+      "section": "4.2 Main Results",
+      "order": 36,
+      "original_text": "On fine-grained visual understanding, DeepScan improves vanilla Qwen2.5-VL-7B across all benchmarks, including a 16.3-point overall gain on V*. It surpasses several 70B general models on perception subsets and outperforms all training-free baselines. Relative to DyFo, overall gains are 6.3, 3.6, and 2.6 points on V*, HR-Bench-4K, and HR-Bench-8K, respectively. It remains competitive with RL-based methods without fine-tuning the LVLM.",
+      "translation": "在细粒度视觉理解上，DeepScan 在全部基准上都显著增强原始 Qwen2.5-VL-7B，其中 V* 总体提升 16.3 个百分点；它在感知子任务上超过多个 70B 通用模型，并优于所有免训练基线。与 DyFo 相比，V*、HR-Bench-4K、HR-Bench-8K 的总体增益分别为 6.3、3.6、2.6 个百分点，且无需微调 LVLM 即可与强化学习方法竞争。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S027"
+    },
+    {
+      "id": "S029",
+      "page": 6,
+      "type": "paragraph",
+      "section": "4.2 Main Results",
+      "order": 37,
+      "original_text": "On TreeBench, RL-based and training-free methods are broadly comparable. RL methods lead on complex perception tasks such as physical state and OCR but provide small gains on second-order reasoning tasks. The authors hypothesize that RL biases LVLMs toward perception behavior rather than fundamentally strengthening visual reasoning. DeepScan exceeds DeepEyes, PixelReasoner, and TreeVGR by 7.3, 1.6, and 5.5 mIoU, and by 5.0, 3.5, and 1.5 points in overall score.",
+      "translation": "在 TreeBench 上，强化学习与免训练方法总体接近。强化学习在物理状态、OCR 等复杂感知任务上占优，但在二阶推理任务上的收益较小。作者由此推测，RL 主要让 LVLM 更偏向感知行为，而非从根本上增强视觉推理。DeepScan 相比 DeepEyes、PixelReasoner、TreeVGR 的 mIoU 分别高 7.3、1.6、5.5，整体分数分别高 5.0、3.5、1.5 个百分点。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S028"
+    },
+    {
+      "id": "C009",
+      "page": 6,
+      "type": "caption",
+      "section": "4.2 Main Results",
+      "order": 38,
+      "original_text": "Ablations of DeepScan across LVLMs on V*. The y-axis is average performance, the x-axis is latency, and shaded regions show deviation across subsets.",
+      "translation": "DeepScan 在不同 LVLM 上的消融。纵轴为平均性能，横轴为时延，阴影表示子集间的性能偏差。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F007"
+      ],
+      "insert_after": "S029"
+    },
+    {
+      "id": "C010",
+      "page": 7,
+      "type": "caption",
+      "section": "4.3 Ablation Study",
+      "order": 39,
+      "original_text": "Ablation of external experts on V*. Memory is the footprint of each variant; time is average per-sample latency.",
+      "translation": "V* 上外部专家消融。Mem 为显存占用，Time 为平均单样本推理时延。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T003"
+      ],
+      "insert_after": "S029"
+    },
+    {
+      "id": "S030",
+      "page": 6,
+      "type": "paragraph",
+      "section": "4.3 Ablation Study",
+      "order": 40,
+      "original_text": "Across architectures and scales, all three stages contribute. Hierarchical Scanning is the main driver, Refocusing adds further gains while maintaining a favorable performance-latency trade-off, and Evidence-Enhanced Reasoning contributes additional improvements with negligible overhead. Expert size has little effect on performance, memory, or latency.",
+      "translation": "三个阶段在不同架构、不同规模下均有贡献：分层扫描是主要驱动力；再聚焦在保持较好性能—时延权衡的同时继续增益；证据增强推理以几乎可忽略的额外开销进一步提升。专家模型大小对性能、显存和时延影响都较小。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S029"
+    },
+    {
+      "id": "C011",
+      "page": 7,
+      "type": "caption",
+      "section": "4.3 Ablation Study",
+      "order": 41,
+      "original_text": "Ablation of Hierarchical Scanning on V*.",
+      "translation": "V* 上分层扫描消融。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T004"
+      ],
+      "insert_after": "S030"
+    },
+    {
+      "id": "S031",
+      "page": 7,
+      "type": "paragraph",
+      "section": "4.3 Ablation Study",
+      "order": 42,
+      "original_text": "Hierarchical Scanning substantially outperforms the detection-based grounding used in DyFo, particularly on Attribute. Morphological post-processing fills mask holes, improves accuracy, and accelerates inference by preventing repeated processing of the same evidence.",
+      "translation": "分层扫描明显优于 DyFo 使用的检测式落地，在属性子集上尤其突出。形态学后处理填补掩码孔洞，不仅提高准确率，也通过防止同一证据被重复处理而加速推理。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S030"
+    },
+    {
+      "id": "C012",
+      "page": 7,
+      "type": "caption",
+      "section": "4.3 Ablation Study",
+      "order": 43,
+      "original_text": "Ablation of Local Cue Exploration on V*. Left: proxy type, where S and T denote semantic and topological information. Right: patch size for single- and multi-object scenes.",
+      "translation": "V* 上局部线索探索消融。左：点代理类型，S/T 表示语义/拓扑信息；右：单对象与多对象场景的图块大小。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T005"
+      ],
+      "insert_after": "S031"
+    },
+    {
+      "id": "S032",
+      "page": 7,
+      "type": "paragraph",
+      "section": "4.3 Ablation Study",
+      "order": 44,
+      "original_text": "Centroid proxies can lie outside U-shaped cues. Attention peaks and Chebyshev centers offer complementary gains, while the combined semantic-geometric proxy in Eq. (5) performs best. Smaller patches suppress context more effectively in single-object scenes; larger patches are better for multi-object scenes because spatial relations require context.",
+      "translation": "质心代理可能落到 U 形线索之外。注意峰和 Chebyshev 中心分别在不同场景中占优，而式 (5) 融合语义与几何后最好。单对象场景中小图块更能抑制上下文；多对象场景则需要较大图块保留空间关系。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S031"
+    },
+    {
+      "id": "C013",
+      "page": 7,
+      "type": "caption",
+      "section": "4.3 Ablation Study",
+      "order": 45,
+      "original_text": "Ablation of the Zoom-Out scale on V*. The left y-axis is evidence-detection Hit@1; the right y-axis is DeepScan accuracy.",
+      "translation": "V* 上 Zoom-Out 尺度消融。左纵轴是证据检测 Hit@1，右纵轴是 DeepScan 准确率。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F008"
+      ],
+      "insert_after": "S032"
+    },
+    {
+      "id": "C014",
+      "page": 7,
+      "type": "caption",
+      "section": "4.3 Ablation Study",
+      "order": 46,
+      "original_text": "Left: effects of Zoom-In and Zoom-Out actions. Right: search length under MCTS, A*, and the proposed search-space design.",
+      "translation": "左：Zoom-In 与 Zoom-Out 动作效果；右：MCTS、A* 与本文搜索空间设计的搜索长度。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T006"
+      ],
+      "insert_after": "S032"
+    },
+    {
+      "id": "S033",
+      "page": 7,
+      "type": "paragraph",
+      "section": "4.3 Ablation Study",
+      "order": 47,
+      "original_text": "Refocusing requires both Zoom-In and Zoom-Out. Under the same depth-2 expansion budget, the proposed four-state space reaches the oracle-optimal state in fewer expansions than MCTS and A*, supporting both the completeness assumptions and the efficiency of the selection policy. A moderate Zoom-Out scale improves evidence Hit@1 and task accuracy; excessive expansion reintroduces noisy context.",
+      "translation": "再聚焦同时需要 Zoom-In 和 Zoom-Out。在相同的深度 2 扩展预算下，本文四状态空间比 MCTS 与 A* 用更少扩展即可到达 oracle 最优状态，支持其搜索完备性假设与选择策略效率。适中的 Zoom-Out 能提高证据 Hit@1 和任务准确率，过度扩大则会重新引入噪声。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S032"
+    },
+    {
+      "id": "C015",
+      "page": 8,
+      "type": "caption",
+      "section": "4.4 In-depth Analysis",
+      "order": 48,
+      "original_text": "Case study of grounding results and model responses of GPT-4o, DyFo, and DeepScan. Panels (a-b) are from V*; panels (c-d) are from TreeBench. Correct and incorrect responses are highlighted in blue and red; ground truth, DyFo evidence, and DeepScan evidence use white, red, and blue boxes.",
+      "translation": "GPT-4o、DyFo 与 DeepScan 的落地结果和回答案例。(a-b) 来自 V*，(c-d) 来自 TreeBench。蓝/红文字表示正确/错误回答，白/红/蓝框分别表示真值、DyFo 证据与 DeepScan 证据。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F009"
+      ],
+      "insert_after": "S033"
+    },
+    {
+      "id": "S034",
+      "page": 7,
+      "type": "paragraph",
+      "section": "4.4 In-depth Analysis",
+      "order": 49,
+      "original_text": "In qualitative cases, GPT-4o and DyFo suffer from attention drift, producing mis-localization and incorrect answers, whereas DeepScan localizes the evidence and produces interpretable answers. It also grounds ultra-subtle targets with area below 1‰ and handles long, compositional TreeBench questions.",
+      "translation": "在案例中，GPT-4o 与 DyFo 会因注意力漂移而错定位、错回答；DeepScan 则先找准证据，再给出可解释答案。它还能定位面积低于 1‰ 的极细小目标，并处理 TreeBench 中较长、组合性更强的问题。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S033"
+    },
+    {
+      "id": "C016",
+      "page": 8,
+      "type": "caption",
+      "section": "4.4 In-depth Analysis",
+      "order": 50,
+      "original_text": "Qualitative analysis of grounding paradigms using the search expert's attention map for Fig. 9(a).",
+      "translation": "使用图 9(a) 中搜索专家注意图，对两类落地范式进行定性分析。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F010"
+      ],
+      "insert_after": "S034"
+    },
+    {
+      "id": "C017",
+      "page": 8,
+      "type": "caption",
+      "section": "4.4 In-depth Analysis",
+      "order": 51,
+      "original_text": "Quantitative comparison of one-shot and bottom-up localization on V*.",
+      "translation": "V* 上一次性定位与自底向上定位的定量比较。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T007"
+      ],
+      "insert_after": "S034"
+    },
+    {
+      "id": "S035",
+      "page": 8,
+      "type": "paragraph",
+      "section": "4.4 In-depth Analysis",
+      "order": 52,
+      "original_text": "The one-shot variant exhibits errors similar to DyFo even though the experts differ, suggesting that attention sink and drift are paradigm-level problems. Bottom-up localization suppresses distractions and aligns attention with the correct target. Quantitatively, it improves V* from 83.8 to 90.6, with comparable numbers of LVLM judgments because evidence candidates are filtered before evaluation.",
+      "translation": "尽管外部专家不同，一次性变体仍出现与 DyFo 相似的错误，说明注意力汇聚与漂移更像范式层问题。自底向上定位能抑制干扰并把注意力拉回正确目标；定量上，V* 从 83.8 提升到 90.6。由于证据候选会先过滤，两种范式的 LVLM 判断次数大致相当。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S034"
+    },
+    {
+      "id": "C018",
+      "page": 8,
+      "type": "caption",
+      "section": "4.4 In-depth Analysis",
+      "order": 53,
+      "original_text": "Performance of the Qwen2.5-VL series under varying grounding precision, measured by IoU, on V*.",
+      "translation": "V* 上 Qwen2.5-VL 系列在不同落地精度（以 IoU 衡量）下的性能。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F011"
+      ],
+      "insert_after": "S035"
+    },
+    {
+      "id": "S036",
+      "page": 8,
+      "type": "paragraph",
+      "section": "4.4 In-depth Analysis",
+      "order": 54,
+      "original_text": "More aggressive grounding is not always better. Raising IoU toward 1 can remove essential context and degrade reasoning; the reward in Eq. (11) therefore combines size regularization with LVLM completeness feedback. Under precise grounding, perception performance converges across model scales, while spatial reasoning gaps remain. This suggests using a small LVLM for evidence judgment and reserving a large LVLM for Evidence-Enhanced Reasoning.",
+      "translation": "落地更激进不一定更好。把 IoU 推近 1 可能删除必要上下文并损害推理，因此式 (11) 将面积正则与 LVLM 完整性反馈结合。精确落地下，不同规模模型的感知性能趋于收敛，空间推理差距却仍明显；这提示可以用小 LVLM 判断证据，把大 LVLM 留给最终的证据增强推理。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S035"
+    },
+    {
+      "id": "S037",
+      "page": 8,
+      "type": "paragraph",
+      "section": "5. Conclusion",
+      "order": 55,
+      "original_text": "DeepScan is a training-free framework for visually grounded reasoning that explicitly localizes, recalibrates, and integrates evidence before answering. Bottom-up Hierarchical Scanning mitigates noisy context and localizes critical content; Refocusing optimizes the evidence view; and experiments show improvements across visual tasks, LVLM architectures, and parameter scales. Ablations and analyses further characterize where the gains arise.",
+      "translation": "DeepScan 是一个免训练视觉落地推理框架，在回答前显式定位、校准并整合证据。自底向上的分层扫描减轻噪声上下文并定位关键内容，再聚焦优化证据视图；实验显示它能跨任务、跨 LVLM 架构与参数规模稳定提升。消融与深入分析进一步解释了增益来源。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S036"
+    },
+    {
+      "id": "S038",
+      "page": 9,
+      "type": "paragraph",
+      "section": "Acknowledgments",
+      "order": 56,
+      "original_text": "This work was supported by the National Natural Science Foundation of China (62176091) and the Natural Science Foundation of Chongqing (CSTB2024NSCQ-MSX0877).",
+      "translation": "本研究得到国家自然科学基金（62176091）和重庆市自然科学基金（CSTB2024NSCQ-MSX0877）资助。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S037"
+    },
+    {
+      "id": "C019",
+      "page": 11,
+      "type": "caption",
+      "section": "A. Discussions",
+      "order": 57,
+      "original_text": "Case study of grounding failure.",
+      "translation": "落地失败案例。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F012"
+      ],
+      "insert_after": "S038"
+    },
+    {
+      "id": "S039",
+      "page": 11,
+      "type": "paragraph",
+      "section": "A. Discussions",
+      "order": 58,
+      "original_text": "DeepScan failures mainly fall into two categories. In grounding failure, multiple visually similar objects remain in the evidence neighborhood; experts may propose the wrong object, and the LVLM may accept it, leading to an answer grounded in incorrect evidence.",
+      "translation": "DeepScan 的失败主要分两类。第一类是落地失败：证据邻域中仍有多个外观相似对象，专家可能提出错误对象，LVLM 又可能把它接受为证据，最终得到“有证据但证据错了”的答案。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S038"
+    },
+    {
+      "id": "C020",
+      "page": 11,
+      "type": "caption",
+      "section": "A. Discussions",
+      "order": 59,
+      "original_text": "Case study of reasoning failure.",
+      "translation": "推理失败案例。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F013"
+      ],
+      "insert_after": "S039"
+    },
+    {
+      "id": "S040",
+      "page": 11,
+      "type": "paragraph",
+      "section": "A. Discussions",
+      "order": 60,
+      "original_text": "In reasoning failure, spatial-relation questions require multiple pieces of evidence. DeepScan forms a merged view using the minimum box enclosing all localized evidence. When evidence is far apart, this crop includes substantial inter-evidence noise, possibly containing distractors that conflict with the answer. A promising direction is generative composition that reassembles localized evidence into a compact layout while preserving attributes and spatial relations.",
+      "translation": "第二类是推理失败：空间关系问题需要多处证据，DeepScan 当前用包围全部证据的最小框形成合并视图。若证据相距很远，裁剪会夹带大量证据间噪声，甚至包含与正确答案冲突的干扰物。作者建议未来使用生成式合成，把已定位证据重排为紧凑布局，同时保留属性与空间关系。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S039"
+    },
+    {
+      "id": "S041",
+      "page": 11,
+      "type": "paragraph",
+      "section": "A. Discussions",
+      "order": 61,
+      "original_text": "DeepScan has higher inference latency than one-shot evidence detection. The trade-off can be controlled through patch size and proposal count, but the current implementation uses relatively small patches even for easy scenes with salient evidence. Future work should adapt patch size within each grounding process using stronger priors such as evidence saliency.",
+      "translation": "与一次性证据检测相比，DeepScan 推理时延更高。图块大小和候选数量可调节性能—效率权衡，但当前实现即使对证据显著的简单场景也使用较小图块，造成浪费。未来可利用证据显著性等更强先验，在每次落地过程中自适应分配图块大小。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S040"
+    },
+    {
+      "id": "S042",
+      "page": 11,
+      "type": "paragraph",
+      "section": "A. Discussions",
+      "order": 62,
+      "original_text": "By tying answers to concrete evidence and making context extent explicit, DeepScan may benefit GUI agents, embodied manipulation, and autonomous driving under clutter and occlusion. Risks include inherited biases from LVLMs and experts, automation errors in safety-critical settings, and extra test-time compute that may limit edge or mobile deployment.",
+      "translation": "DeepScan 把答案绑定到具体证据，并显式控制上下文范围，因此可能用于 GUI 智能体、具身操作和遮挡环境下的自动驾驶。风险包括继承 LVLM 与视觉专家的偏见、在安全关键场景中的自动化错误，以及额外测试时计算限制边缘或移动部署。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S041"
+    },
+    {
+      "id": "C021",
+      "page": 12,
+      "type": "caption",
+      "section": "B. Methodological Details",
+      "order": 63,
+      "original_text": "System prompt and three user prompts for evidence decomposition, evidence judgment, and view-completeness justification.",
+      "translation": "系统提示词，以及用于证据分解、证据判断和视图完整性判断的三个用户提示词。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F014"
+      ],
+      "insert_after": "S042"
+    },
+    {
+      "id": "S043",
+      "page": 12,
+      "type": "paragraph",
+      "section": "B. Methodological Details",
+      "order": 64,
+      "original_text": "Evidence Decomposition asks the LVLM to list objects mentioned in the question. Evidence Judgment asks whether a candidate image contains clues sufficient to answer the question and requests a justification. View Completeness Justification asks whether every target object is fully contained within the frame, with bounding boxes or region descriptions for present objects and names of missing objects.",
+      "translation": "证据分解要求 LVLM 列出问题中提到的对象；证据判断要求模型判断候选图像是否包含足够线索，并给出理由；视图完整性判断要求确认所有目标是否完整位于画面内，若在则给出框或区域描述，若不在则列出缺失对象。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S042"
+    },
+    {
+      "id": "C022",
+      "page": 12,
+      "type": "caption",
+      "section": "B. Methodological Details",
+      "order": 65,
+      "original_text": "Pseudocode for Hierarchical Scanning with candidate filtering, morphological post-processing, overlap removal, and LVLM evidence judgment.",
+      "translation": "分层扫描伪代码：包含候选过滤、形态学后处理、重叠移除和 LVLM 证据判断。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F015"
+      ],
+      "insert_after": "S043"
+    },
+    {
+      "id": "C023",
+      "page": 12,
+      "type": "caption",
+      "section": "B. Methodological Details",
+      "order": 66,
+      "original_text": "Pseudocode for Refocusing over the four-state view set.",
+      "translation": "在四状态视图集合上执行再聚焦的伪代码。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F016"
+      ],
+      "insert_after": "S043"
+    },
+    {
+      "id": "S044",
+      "page": 12,
+      "type": "paragraph",
+      "section": "B. Methodological Details",
+      "order": 67,
+      "original_text": "The noisy-cue area threshold is 50 pixels. Morphological processing uses a $5\\times5$ flat kernel and a disk radius of 20. Similar evidence is filtered at IoU 0.3. The default candidate count is $k=10$. Detection boxes used by Refocusing are padded by 28 pixels on all sides, and Zoom-Out scale is 1.5. Maximum output length is 50 tokens for the three auxiliary prompts and 1024 for final reasoning. Inference uses temperature 0 and random seed 13; beam search and top-$k$ sampling are disabled.",
+      "translation": "噪声线索面积阈值为 50 像素；形态学处理使用 $5\\times5$ 平坦核和半径 20 的圆盘；相似证据以 IoU 0.3 过滤；默认候选数 $k=10$。再聚焦把检测框四周各扩 28 像素，Zoom-Out 尺度为 1.5。三个辅助提示最大输出 50 token，最终推理 1024 token；温度为 0、随机种子为 13，默认关闭 beam search 与 top-$k$ 采样。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S043"
+    },
+    {
+      "id": "S045",
+      "page": 13,
+      "type": "paragraph",
+      "section": "B. Methodological Details",
+      "order": 68,
+      "original_text": "In the pseudocode, Prompt1-3 instantiate the templates above; LIFTTOIMAGE maps patch coordinates to image coordinates; CLOSE and DILATE are morphological closing and dilation; and $\\odot$ denotes element-wise multiplication.",
+      "translation": "伪代码中的 Prompt1-3 对应上述模板；LIFTTOIMAGE 把图块坐标映射到原图坐标；CLOSE、DILATE 分别表示形态学闭运算与膨胀；$\\odot$ 表示逐元素乘法。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S044"
+    },
+    {
+      "id": "C024",
+      "page": 13,
+      "type": "caption",
+      "section": "C. Additional Results",
+      "order": 69,
+      "original_text": "Comparison of DeepScan with existing visually grounded reasoning approaches in scalability, external experts, search strategy, grounding paradigm, evidence granularity, and latency.",
+      "translation": "从可扩展性、外部专家、搜索策略、落地范式、证据粒度与时延等维度比较 DeepScan 和现有视觉落地推理方法。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T008"
+      ],
+      "insert_after": "S045"
+    },
+    {
+      "id": "S046",
+      "page": 13,
+      "type": "paragraph",
+      "section": "C. Additional Results",
+      "order": 70,
+      "original_text": "Learned localization modules and RL decision controllers generally require retraining when the LVLM backbone is upgraded. DyFo and ZoomRefine scale more readily, but retain coarse-to-fine grounding. DeepScan is also easy to scale and introduces bottom-up hierarchical scanning, context-optimal refocusing, and hybrid evidence memory.",
+      "translation": "带学习式定位模块或强化学习决策控制器的方法，升级 LVLM 主干时通常需要重训。DyFo、ZoomRefine 更容易扩展，但仍采用由粗到细落地。DeepScan 同样易扩展，并引入自底向上分层扫描、上下文最优再聚焦和混合证据记忆。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S045"
+    },
+    {
+      "id": "C025",
+      "page": 13,
+      "type": "caption",
+      "section": "C. Additional Results",
+      "order": 71,
+      "original_text": "Additional V* results. Dagger results were reproduced with official code.",
+      "translation": "V* 补充结果。带 † 的结果使用官方代码复现。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T009"
+      ],
+      "insert_after": "S046"
+    },
+    {
+      "id": "S047",
+      "page": 13,
+      "type": "paragraph",
+      "section": "C. Additional Results",
+      "order": 72,
+      "original_text": "DeepScan reaches 90.6% with $k=10$ and 91.1% with $k=\\infty$ on Qwen2.5-VL-7B, surpassing ZoomRefine, DyFo, and several RL-based methods. With Qwen2.5-VL-72B it reaches 94.2% overall and 93.4% on Spatial, 9.4 points above the vanilla 72B model overall.",
+      "translation": "基于 Qwen2.5-VL-7B 时，DeepScan 在 $k=10$ 与 $k=\\infty$ 下分别达到 90.6% 和 91.1%，超过 ZoomRefine、DyFo 以及多种强化学习方法。使用 Qwen2.5-VL-72B 时，总体达到 94.2%，空间子集 93.4%，总体比原始 72B 模型高 9.4 个百分点。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S046"
+    },
+    {
+      "id": "C026",
+      "page": 14,
+      "type": "caption",
+      "section": "C. Additional Results",
+      "order": 73,
+      "original_text": "Qualitative analysis of grounding paradigms with the search expert's attention map.",
+      "translation": "使用搜索专家注意图对落地范式进行更多定性分析。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F017"
+      ],
+      "insert_after": "S047"
+    },
+    {
+      "id": "S048",
+      "page": 15,
+      "type": "paragraph",
+      "section": "C. Additional Results",
+      "order": 74,
+      "original_text": "For direct attributes, one-shot grounding often locks onto globally salient but irrelevant regions. Bottom-up local cue exploration recenters attention on the true evidence. For spatial relations, one-shot grounding often misses one of the two targets, while bottom-up scanning progressively aligns to both; Refocusing then retains the surrounding context needed for the relation.",
+      "translation": "在直接属性问题中，一次性落地常锁定全局显著但无关区域；自底向上局部探索会把注意力重新拉回真正证据。在空间关系问题中，一次性落地常漏掉两个目标之一，而自底向上扫描逐步对齐两者；再聚焦随后保留关系判断所需的周边语境。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S047"
+    },
+    {
+      "id": "C027",
+      "page": 15,
+      "type": "caption",
+      "section": "C. Additional Results",
+      "order": 75,
+      "original_text": "Performance-efficiency comparison on V*. End-to-end latency includes evidence decomposition, expert calls, post-processing, and evidence judgments.",
+      "translation": "V* 上性能—效率比较。端到端时延包含证据分解、专家调用、后处理与证据判断等全部辅助步骤。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "T010"
+      ],
+      "insert_after": "S048"
+    },
+    {
+      "id": "S049",
+      "page": 14,
+      "type": "paragraph",
+      "section": "C. Additional Results",
+      "order": 76,
+      "original_text": "The original nested-loop implementation under Hugging Face Transformers suffers from sequential computation and frequent communication between the visual expert and LVLM. Because DeepScan uses deterministic rather than MCTS sampling, attention-map computation, top-$k$ judgments, view justification, and post-processing can be batched or parallelized. Migrating to vLLM with PagedAttention and optimized CUDA kernels yields about an $8\\times$ speedup.",
+      "translation": "原始 Hugging Face Transformers 实现采用嵌套循环，受顺序计算以及视觉专家与 LVLM 频繁通信限制。DeepScan 使用确定性采样而非 MCTS，因此注意图计算、top-$k$ 判断、视图完整性判断和后处理均可批处理或并行化；迁移到带 PagedAttention 和优化 CUDA 内核的 vLLM 后，获得约 $8\\times$ 加速。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S048"
+    },
+    {
+      "id": "S050",
+      "page": 15,
+      "type": "paragraph",
+      "section": "C. Additional Results",
+      "order": 77,
+      "original_text": "After optimization, DeepScan reaches 90.1% with 3.1-second latency and 8.4k tokens, versus DeepEyes at 89.0%, 6.9 seconds, and 13k tokens. It is 0.7 seconds slower than DyFo but 6.3 points more accurate; Hierarchical Scan alone is both faster and more accurate than DyFo. The authors argue that deterministic compute scaling to maximize local visual signal-to-noise ratio is more efficient than heuristic search-tree expansion.",
+      "translation": "优化后，DeepScan 以 3.1 秒和 8.4k token 达到 90.1%；DeepEyes 为 6.9 秒、13k token、89.0%。它比 DyFo 慢 0.7 秒但准确率高 6.3 个百分点，且仅分层扫描阶段就比 DyFo 更快、更准。作者据此主张：以确定性计算提升局部视觉信噪比，比启发式扩展搜索树更高效。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S049"
+    },
+    {
+      "id": "C028",
+      "page": 16,
+      "type": "caption",
+      "section": "D. Example Model Outputs",
+      "order": 78,
+      "original_text": "The target cap occupies only 0.004% of the image. GPT-4o fails to see the man and refuses the multiple-choice answer.",
+      "translation": "目标帽子仅占图像 0.004%。GPT-4o 未发现人物，因而拒绝在选项中作答。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F018"
+      ],
+      "insert_after": "S050"
+    },
+    {
+      "id": "C029",
+      "page": 17,
+      "type": "caption",
+      "section": "D. Example Model Outputs",
+      "order": 79,
+      "original_text": "Qwen3-VL-235B-A22B similarly concludes that no man is present.",
+      "translation": "Qwen3-VL-235B-A22B 同样判断图中没有人物。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F019"
+      ],
+      "insert_after": "S050"
+    },
+    {
+      "id": "C030",
+      "page": 18,
+      "type": "caption",
+      "section": "D. Example Model Outputs",
+      "order": 80,
+      "original_text": "ZoomRefine returns N/A; DyFo grounds the wrong region and answers black; DeepScan first scans the tiny person, refocuses on the cap, and answers white correctly.",
+      "translation": "ZoomRefine 返回 N/A；DyFo 定位到错误区域并回答黑色；DeepScan 先扫描到极小人物，再聚焦到帽子，正确回答白色。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [
+        "F020"
+      ],
+      "insert_after": "S050"
+    },
+    {
+      "id": "S051",
+      "page": 15,
+      "type": "paragraph",
+      "section": "D. Example Model Outputs",
+      "order": 81,
+      "original_text": "The supplement compares DeepScan with GPT-5, GPT-4o, Qwen3-VL-235B-A22B, ZoomRefine, and DyFo. For fair training-free comparison, ZoomRefine, DyFo, and DeepScan all use Qwen2.5-VL-72B. The examples are intended to show that evidence localization, rather than backbone size alone, determines whether an answer is visually grounded.",
+      "translation": "补充材料将 DeepScan 与 GPT-5、GPT-4o、Qwen3-VL-235B-A22B、ZoomRefine、DyFo 比较；为保证免训练方法公平，后三者均使用 Qwen2.5-VL-72B。案例要说明的是：答案能否真正基于视觉证据，取决于证据定位，而不仅是主干规模。",
+      "bbox": [],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S050"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "C001",
+        "S002",
+        "S003",
+        "S004",
+        "F001"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "C002",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "F002"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "C003",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "C004",
+        "F003",
+        "F004"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S015",
+        "S016",
+        "C005",
+        "S017",
+        "C006",
+        "S018",
+        "S019",
+        "S020",
+        "F005",
+        "F006"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S021",
+        "S022",
+        "S023",
+        "S024",
+        "C007",
+        "S025",
+        "S026",
+        "S027",
+        "T001"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "C008",
+        "S028",
+        "S029",
+        "C009",
+        "S030",
+        "T002",
+        "F007"
+      ]
+    },
+    {
+      "page": 7,
+      "block_ids": [
+        "C010",
+        "C011",
+        "S031",
+        "C012",
+        "S032",
+        "C013",
+        "C014",
+        "S033",
+        "S034",
+        "T003",
+        "T004",
+        "T005",
+        "F008",
+        "T006"
+      ]
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "C015",
+        "C016",
+        "C017",
+        "S035",
+        "C018",
+        "S036",
+        "S037",
+        "F009",
+        "F010",
+        "T007",
+        "F011"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": [
+        "S038"
+      ]
+    },
+    {
+      "page": 10,
+      "block_ids": []
+    },
+    {
+      "page": 11,
+      "block_ids": [
+        "C019",
+        "S039",
+        "C020",
+        "S040",
+        "S041",
+        "S042",
+        "F012",
+        "F013"
+      ]
+    },
+    {
+      "page": 12,
+      "block_ids": [
+        "C021",
+        "S043",
+        "C022",
+        "C023",
+        "S044",
+        "F014",
+        "F015",
+        "F016"
+      ]
+    },
+    {
+      "page": 13,
+      "block_ids": [
+        "S045",
+        "C024",
+        "S046",
+        "C025",
+        "S047",
+        "T008",
+        "T009"
+      ]
+    },
+    {
+      "page": 14,
+      "block_ids": [
+        "C026",
+        "S049",
+        "F017"
+      ]
+    },
+    {
+      "page": 15,
+      "block_ids": [
+        "S048",
+        "C027",
+        "S050",
+        "S051",
+        "T010"
+      ]
+    },
+    {
+      "page": 16,
+      "block_ids": [
+        "C028",
+        "F018"
+      ]
+    },
+    {
+      "page": 17,
+      "block_ids": [
+        "C029",
+        "F019"
+      ]
+    },
+    {
+      "page": 18,
+      "block_ids": [
+        "C030",
+        "F020"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 1,
+      "caption_id": "C001",
+      "image_path": "assets/fig1.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S001",
+      "alt_text": "Fig. 1",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F002",
+      "page": 2,
+      "caption_id": "C002",
+      "image_path": "assets/fig2.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S004",
+      "alt_text": "Fig. 2",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F003",
+      "page": 3,
+      "caption_id": "C003",
+      "image_path": "assets/fig3.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S008",
+      "alt_text": "Fig. 3",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F004",
+      "page": 3,
+      "caption_id": "C004",
+      "image_path": "assets/fig4.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S014",
+      "alt_text": "Fig. 4",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F005",
+      "page": 4,
+      "caption_id": "C005",
+      "image_path": "assets/fig5.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S016",
+      "alt_text": "Fig. 5",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F006",
+      "page": 4,
+      "caption_id": "C006",
+      "image_path": "assets/fig6.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S017",
+      "alt_text": "Fig. 6",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T001",
+      "page": 5,
+      "caption_id": "C007",
+      "image_path": "assets/table1.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S024",
+      "alt_text": "Table 1",
+      "kind": "table"
+    },
+    {
+      "id": "T002",
+      "page": 6,
+      "caption_id": "C008",
+      "image_path": "assets/table2.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S027",
+      "alt_text": "Table 2",
+      "kind": "table"
+    },
+    {
+      "id": "F007",
+      "page": 6,
+      "caption_id": "C009",
+      "image_path": "assets/fig7.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S029",
+      "alt_text": "Fig. 7",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T003",
+      "page": 7,
+      "caption_id": "C010",
+      "image_path": "assets/table3.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S029",
+      "alt_text": "Table 3",
+      "kind": "table"
+    },
+    {
+      "id": "T004",
+      "page": 7,
+      "caption_id": "C011",
+      "image_path": "assets/table4.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S030",
+      "alt_text": "Table 4",
+      "kind": "table"
+    },
+    {
+      "id": "T005",
+      "page": 7,
+      "caption_id": "C012",
+      "image_path": "assets/table5.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S031",
+      "alt_text": "Table 5",
+      "kind": "table"
+    },
+    {
+      "id": "F008",
+      "page": 7,
+      "caption_id": "C013",
+      "image_path": "assets/fig8.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S032",
+      "alt_text": "Fig. 8",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T006",
+      "page": 7,
+      "caption_id": "C014",
+      "image_path": "assets/table6.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S032",
+      "alt_text": "Table 6",
+      "kind": "table"
+    },
+    {
+      "id": "F009",
+      "page": 8,
+      "caption_id": "C015",
+      "image_path": "assets/fig9.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S033",
+      "alt_text": "Fig. 9",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F010",
+      "page": 8,
+      "caption_id": "C016",
+      "image_path": "assets/fig10.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S034",
+      "alt_text": "Fig. 10",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T007",
+      "page": 8,
+      "caption_id": "C017",
+      "image_path": "assets/table7.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S034",
+      "alt_text": "Table 7",
+      "kind": "table"
+    },
+    {
+      "id": "F011",
+      "page": 8,
+      "caption_id": "C018",
+      "image_path": "assets/fig11.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S035",
+      "alt_text": "Fig. 11",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F012",
+      "page": 11,
+      "caption_id": "C019",
+      "image_path": "assets/fig12.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S038",
+      "alt_text": "Fig. 12",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F013",
+      "page": 11,
+      "caption_id": "C020",
+      "image_path": "assets/fig13.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S039",
+      "alt_text": "Fig. 13",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F014",
+      "page": 12,
+      "caption_id": "C021",
+      "image_path": "assets/prompts.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S042",
+      "alt_text": "Prompt templates",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F015",
+      "page": 12,
+      "caption_id": "C022",
+      "image_path": "assets/algorithm1.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S043",
+      "alt_text": "Algorithm 1",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F016",
+      "page": 12,
+      "caption_id": "C023",
+      "image_path": "assets/algorithm2.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S043",
+      "alt_text": "Algorithm 2",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T008",
+      "page": 13,
+      "caption_id": "C024",
+      "image_path": "assets/table8.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S045",
+      "alt_text": "Table 8",
+      "kind": "table"
+    },
+    {
+      "id": "T009",
+      "page": 13,
+      "caption_id": "C025",
+      "image_path": "assets/table9.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S046",
+      "alt_text": "Table 9",
+      "kind": "table"
+    },
+    {
+      "id": "F017",
+      "page": 14,
+      "caption_id": "C026",
+      "image_path": "assets/fig14.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S047",
+      "alt_text": "Fig. 14",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "T010",
+      "page": 15,
+      "caption_id": "C027",
+      "image_path": "assets/table10.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S048",
+      "alt_text": "Table 10",
+      "kind": "table"
+    },
+    {
+      "id": "F018",
+      "page": 16,
+      "caption_id": "C028",
+      "image_path": "assets/example1_gpt4o.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S050",
+      "alt_text": "Example 1 GPT-4o",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F019",
+      "page": 17,
+      "caption_id": "C029",
+      "image_path": "assets/example1_qwen3.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S050",
+      "alt_text": "Example 1 Qwen3",
+      "kind": "figure_or_visual"
+    },
+    {
+      "id": "F020",
+      "page": 18,
+      "caption_id": "C030",
+      "image_path": "assets/example1_comparison.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S050",
+      "alt_text": "Example 1 comparison",
+      "kind": "figure_or_visual"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "visually grounded reasoning",
+      "translation": "视觉落地推理",
+      "note": "answers tied to localized visual evidence"
+    },
+    {
+      "term": "Hierarchical Scanning",
+      "translation": "分层扫描",
+      "note": "bottom-up cue-to-evidence recovery"
+    },
+    {
+      "term": "Refocusing",
+      "translation": "再聚焦",
+      "note": "context-window recalibration"
+    },
+    {
+      "term": "Hybrid Evidence Memory",
+      "translation": "混合证据记忆",
+      "note": "fine- and coarse-grained evidence views"
+    },
+    {
+      "term": "point-based proxy",
+      "translation": "点式代理",
+      "note": "semantic-geometric interior cue point"
+    },
+    {
+      "term": "attention sink / drift",
+      "translation": "注意力汇聚陷阱 / 注意力漂移",
+      "note": "salient distractor or similar-object misalignment"
+    }
+  ]
+}

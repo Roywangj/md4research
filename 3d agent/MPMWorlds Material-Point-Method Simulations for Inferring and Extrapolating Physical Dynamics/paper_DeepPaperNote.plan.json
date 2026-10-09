@@ -1,0 +1,173 @@
+{
+  "paper_type": "benchmark_or_dataset",
+  "paper_type_rationale": "论文的核心交付是 MPMWorlds 数据集与评测协议，用 2D MPM 物理仿真系统性比较代码生成式 VLM 和像素空间 VDM 在物理推理与长时序外推中的能力边界；模型训练和 gating 是为了分析 benchmark 的诊断价值。",
+  "dominant_domain": "physical dynamics benchmark and executable simulation world modeling",
+  "must_cover": [
+    "MPMWorlds 的问题设定：从短视频前缀和可选场景信息中重建物理动态，并外推未来视频。",
+    "数据构成：每个样本同时包含 Taichi MPM 仿真代码、结构化 YAML 场景配置和渲染视频。",
+    "数据生成层级：35 个手写 seed，LLM 扩展为约 1k Parent，再修改为约 9k Child，最终 95,805 个渲染仿真。",
+    "四种输入条件：Frames Only、Full Configuration、No Materials、No Positions，用来诊断视觉、物性和几何状态推断。",
+    "两条模型路线：Qwen2.5-VL-7B-Instruct 生成可执行 MPM 程序，14B LongCat VDM 直接做视频续写。",
+    "指标体系：mIoU、Object Collapse Score、W-MAE、CTV、Temporal Anomaly Rate，以及补充 SEMD/MSE。",
+    "主结果：VLM 长时序稳定性更强但依赖显式场景信息；VDM 几何重叠更好但容易发生物体消失、漂移和异常跳变。",
+    "Prefix-quality threshold gate 显示两类模型互补，前缀重建质量可预测该信任 VLM 还是 VDM。",
+    "边界：2D 合成仿真、自然视频迁移未证明、可能偏向代码生成路线，尚未覆盖 3D 与真实复杂材料。"
+  ],
+  "key_numbers": [
+    "数据集包含 95,805 个渲染仿真和 9,204 个 Scene Templates。",
+    "作者描述核心模板约为 10k，其中约 1k Parent 和 9k Child。",
+    "初始 seed simulation 数量为 35。",
+    "渲染设置为 512×512、30 FPS、10 秒；训练时缩放到 256×256、15 FPS。",
+    "场景对象数中位数为 3，均值为 2.9。",
+    "22.5% 场景包含至少两种材料，5.3% 场景包含三种或更多材料。",
+    "动态体材料计数大致为液体 3,736、弹性 3,537、雪 2,620、黏塑性 594、沙 327。",
+    "对象类型计数大致为动态体 10,884、静态碰撞体 7,457、运动碰撞体 6,058、发射器 2,343。",
+    "测试时 VLM 每个样本采样 15 个候选程序，VDM 采样 1 个视频，VDM 使用 50 个去噪步。",
+    "Full Config 下 VLM 的 W-MAE/CTV/Anomaly/Collapse/mIoU 为 0.254/0.188/0.371/0.163/0.512。",
+    "Full Config 下 VDM 的 W-MAE/CTV/Anomaly/Collapse/mIoU 为 0.298/0.251/0.862/0.366/0.611。",
+    "Frames Only 下 VLM 与 VDM 的 mIoU 分别为 0.316 和 0.578，显示 VDM 在粗几何重叠上更强。",
+    "Threshold Gate 在 Full Config 下将 W-MAE 从 VLM 0.254、VDM 0.298 降到 0.144，将 anomaly 从 0.371、0.862 降到 0.001。",
+    "Gate 在 mIoU 上多数选择 VDM，例如 Full Config 只有 23% 样本选择 VLM，Frames Only 为 0% 样本选择 VLM。"
+  ],
+  "real_comparisons": [
+    "代码生成式 VLM 与视频扩散式 VDM 的路线比较。",
+    "Frames Only、Full Configuration、No Materials、No Positions 四种输入条件比较。",
+    "不同材料族：液体、弹性/塑性、雪、沙的难度比较。",
+    "held-out Parent test split 与 modification validation split 的泛化难度比较。",
+    "单一路线输出与 Prefix-quality threshold gate 的混合输出比较。",
+    "mIoU 与 W-MAE、CTV、anomaly、collapse 等物理稳定性指标之间的结论差异。"
+  ],
+  "central_claims": [
+    {
+      "claim": "MPMWorlds 把物理推理评测从短时刚体或感知合理性扩展到多材料、可执行仿真和长时序外推。",
+      "supporting_evidence": ["sec:abstract", "sec:introduction"],
+      "what_it_actually_proves": "论文构建了包含代码、结构化配置和视频的 MPM 仿真数据，并覆盖液体、雪、沙、弹性体、运动碰撞体和发射器等动态元素。",
+      "what_it_does_not_prove": "它仍是二维合成仿真，不证明模型已经能处理真实三维世界、自然视频或完整材料物理。"
+    },
+    {
+      "claim": "代码生成式 VLM 与视频扩散式 VDM 的强项互补：前者更稳定，后者更善于保留粗几何。",
+      "supporting_evidence": ["sec:models", "sec:materials", "sec:discussion"],
+      "what_it_actually_proves": "在测试集上，VLM 在 W-MAE、CTV、anomaly 和 collapse 等长时序稳定性指标上更好，VDM 在 mIoU 上更好。",
+      "what_it_does_not_prove": "结果不说明代码生成路线整体优于视频生成路线；VLM 依赖显式场景配置与 best-of-N 选择，且在视觉状态估计上明显脆弱。"
+    },
+    {
+      "claim": "显式场景信息对 VLM 更关键，而 VDM 对文本化物理信息利用不足。",
+      "supporting_evidence": ["sec:introduction", "sec:models", "sec:materials"],
+      "what_it_actually_proves": "移除材料或位置会显著削弱 VLM，尤其影响运动和外观指标；VDM 在不同输入条件下变化较小，表明它更多依赖像素前缀。",
+      "what_it_does_not_prove": "这不排除更强的多模态视频模型能利用结构化配置，也不说明视觉前缀本身足以恢复全部物理参数。"
+    },
+    {
+      "claim": "前缀重建质量可作为混合系统选择 VLM 或 VDM 的有效信号。",
+      "supporting_evidence": ["sec:materials", "sec:discussion", "sec:references"],
+      "what_it_actually_proves": "简单 threshold gate 在多项指标上优于单独 VLM 或 VDM，特别在稳定性指标上大幅降低异常和坍缩。",
+      "what_it_does_not_prove": "这只是后验/诊断式 gating 原型，不等同于端到端可部署的物理世界模型，也依赖可计算的前缀重建误差。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文题目中的 worlds 是二维 MPM 仿真世界，不是完整三维交互环境。",
+    "VLM 路线的输出是 Taichi MPM 程序，稳定性来自物理仿真器约束，但前提是程序逻辑、材料和几何被正确生成。",
+    "VDM 的优势主要体现在像素空间几何重叠和材料外观模式，不代表它拥有显式物理状态。",
+    "Best-of-N 只用可见前缀选择 VLM 程序，测试后缀不泄露给选择器，但它仍增加了 VLM 推理预算。",
+    "数据由仿真代码生成，天然更贴近代码生成路线，迁移到自然视频可能削弱该路线优势。",
+    "Table 2/3 位于附录和参考之后的提取段落中，正文讨论仍以 Figure 4、Table 1 和 Figure 12/13 为主要证据。"
+  ],
+  "negative_or_limiting_results": [
+    "VLM 在 Frames Only 和 No Positions 下 mIoU 明显下降，说明视觉状态估计与几何定位仍是短板。",
+    "VDM 在 anomaly 和 object collapse 上显著差，长时序视频续写容易物体消失、漂移或突变。",
+    "沙材料对 VLM 最难，弹性/塑性高动态对象对 VDM 更难。",
+    "VDM 在提供显式材料信息后没有稳定收益，甚至在材料移除实验中略有改善，说明文本化物理信息没有被有效利用。",
+    "数据集局限于二维、合成、可控渲染，不包含头发、布料、高刚度物体等真实世界复杂材料。",
+    "基准可能偏向代码生成模型，因为所有视频本身由 ground-truth simulation code 产生。"
+  ],
+  "mechanism_result_map": [
+    "代码、配置和视频三元组的数据设计，使作者可以同时测程序重建、状态估计和未来外推，而不只测视频观感。",
+    "四种输入条件的消融设计解释了为什么 VLM 的问题主要暴露在材料、位置和参数恢复，而 VDM 的问题主要暴露在长时序动力学。",
+    "VLM 生成程序并在 MPM 引擎内执行，解释了其在 object permanence、collapse 和 anomaly 上的稳定性优势。",
+    "VDM 直接用像素前缀续写，解释了其 mIoU 和粗几何保留优势，也解释了远期 motion drift 与 collapse。",
+    "Best-of-N 通过前缀误差选择候选程序，解释了 VLM 推理端稳定性高于单次程序采样。",
+    "Threshold gate 利用前缀重建误差在 VLM 与 VDM 之间路由，解释了为什么混合结果同时改善稳定性和几何指标。"
+  ],
+  "comparative_positioning": [
+    "相对于 PHYRE、Physion 和 Physion++，这篇更强调生成式未来外推，而不是离散物理问答或短时接触判断。",
+    "相对于 VideoPhy、LikePhys、PhyWorldBench 等视频生成评测，它提供 paired executable simulation code 和 structured scene representation，因此能分析模型究竟缺材料、位置还是动力学。",
+    "相对于 PhysCodeBench 或 VisPhyWorld，MPMWorlds 不只看代码是否生成，还用 rollout 视频与长时序物理指标比较代码路线和视频路线。",
+    "相对于 Code2Worlds，这篇更像可控基准和诊断工具，而不是面向开放文本提示的世界生成系统；两者都把代码作为物理世界表示。"
+  ],
+  "reuse_takeaways": [
+    "如果要做 3D/4D agent 世界模型评测，可以借用这种 side information ablation，把视觉状态估计、材料推断和动力学外推拆开测。",
+    "物理视频评估不能只看像素相似或 CLIP/VLM 主观分数，应加入 collapse、motion activity、temporal anomaly 等长时序稳定性指标。",
+    "程序化仿真路线适合提供可执行中间表示，但必须补强视觉到参数的状态估计，否则会在无特权信息条件下退化。",
+    "视频扩散路线适合保留粗几何和外观，但需要显式或结构化动力学状态，否则长 rollout 容易视觉合理但物理错误。",
+    "简单 gating 已经显出混合路线潜力，后续可考虑视觉状态估计器加可执行动力学模型的端到端混合架构。"
+  ],
+  "followup_questions": [
+    "如果把 MPMWorlds 扩展到 3D MPM 或真实 RGB-D 视频，VLM 的程序稳定性优势是否还成立？",
+    "能否训练一个专门的视觉状态估计模块，把 VDM 的几何优势转成 VLM 可用的结构化配置？",
+    "Best-of-N 和 threshold gate 的收益有多少来自额外计算预算，有多少来自可执行表示本身？",
+    "指标中的 anomaly、collapse、W-MAE 与人类对物理合理性的排序是否一致？",
+    "如果用更强的视频模型或显式多模态 token 对齐，VDM 是否能利用 YAML 场景信息？",
+    "这个 benchmark 是否会过度奖励与 Taichi MPM 代码风格相似的生成器，而低估其他物理表示？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "记录题名、作者、arXiv、项目页、数据资源和论文类型，不加入额外判断。",
+      "evidence_sources": ["sec:preamble", "sec:abstract"]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "忠实翻译摘要，保留 VLM、VDM、MPM 等术语与作者的主要结论。",
+      "evidence_sources": ["sec:abstract"]
+    },
+    {
+      "section": "创新点",
+      "focus": "概括数据集、代码/视频双路线对照、输入条件消融、长时序指标和混合 gating 的实际创新。",
+      "evidence_sources": ["sec:introduction", "sec:models", "sec:materials"]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "用一句批判性判断说明它是物理世界推理基准，而不是单纯世界生成模型。",
+      "evidence_sources": ["sec:abstract", "sec:discussion"]
+    },
+    {
+      "section": "研究问题",
+      "focus": "解释从短视频前缀恢复物理动态并外推未来的任务，以及为什么 3D/agent 研究需要这种物理世界模型诊断。",
+      "evidence_sources": ["sec:introduction"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "展开 MPMWorlds 的样本三元组、生成层级、规模统计、输入条件和评价指标。",
+      "evidence_sources": ["sec:introduction", "sec:models", "sec:references"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按基准构建和评测协议说明 VLM 程序生成、VDM 视频续写、训练推理和 gating 机制。",
+      "evidence_sources": ["sec:introduction", "sec:models", "sec:materials"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用 Figure 4、Table 1、Table 2、Table 3 解释 VLM/VDM 的主差异、材料族差异、split 差异和 gate 收益。",
+      "evidence_sources": ["sec:models", "sec:materials", "sec:references"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析真正贡献、为何 VLM 稳定但几何弱、VDM 几何强但动力学弱，以及对混合架构的启发。",
+      "evidence_sources": ["sec:materials", "sec:discussion", "sec:limitations", "sec:references"]
+    },
+    {
+      "section": "局限",
+      "focus": "明确二维合成数据、自然视频迁移、仿真器偏置、指标偏差和复现成本等边界。",
+      "evidence_sources": ["sec:limitations", "sec:models", "sec:discussion"]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "整理给后续 3D agent、Code2Worlds 和物理世界模型研究可复用的想法。",
+      "evidence_sources": ["sec:discussion", "sec:limitations"]
+    },
+    {
+      "section": "引用",
+      "focus": "给出论文链接、项目页、PDF 来源和本地 Zotero/Obsidian 文件关系。",
+      "evidence_sources": ["sec:preamble", "sec:abstract"]
+    }
+  ]
+}

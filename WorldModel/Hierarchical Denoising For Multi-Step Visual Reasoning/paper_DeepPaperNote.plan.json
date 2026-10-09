@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "paper": {
+    "title": "Hierarchical Denoising For Multi-Step Visual Reasoning",
+    "authors": ["Zezhong Qian", "Xiaowei Chi", "Chak-Wing Mak", "Tianze Zhou", "Ruibin Yuan", "Yuhan Rui", "Hengzhe Sun", "Zhuoqun Wu", "Yuming Li", "Siyuan Qian", "Sirui Han", "Shanghang Zhang"],
+    "year": 2026,
+    "venue": "NeurIPS 2026",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EI8L4DXZ/Qian 等 - 2026 - Hierarchical Denoising For Multi-Step Visual Reasoning.pdf"
+  },
+  "deliverable": "paper_DeepPaperNote.md",
+  "language": "zh-CN",
+  "planned_sections": [
+    {"section": "核心信息", "evidence": ["pp.1-7", "Fig.1-2", "Table 1-2"]},
+    {"section": "原文摘要翻译", "evidence": ["p.1 Abstract"]},
+    {"section": "创新点", "evidence": ["pp.3-6", "pp.15-16", "pp.19-20"]},
+    {"section": "一句话总结", "evidence": ["pp.2-6"]},
+    {"section": "研究问题", "evidence": ["pp.2-4", "Appendix D"]},
+    {"section": "数据与任务定义", "evidence": ["p.6", "pp.17-18 Appendix B"]},
+    {"section": "方法主线", "evidence": ["pp.4-6", "Fig.2", "Eq.3-6", "Appendix A/C/D"]},
+    {"section": "关键结果", "evidence": ["Table 1-3", "Fig.5-7", "Table 5"]},
+    {"section": "深度分析", "evidence": ["cross-section synthesis"]},
+    {"section": "局限", "evidence": ["reported setup and missing controls"]},
+    {"section": "我的笔记", "evidence": ["grounded extrapolation"]},
+    {"section": "引用", "evidence": ["p.1 metadata"]}
+  ],
+  "required_topics": {
+    "hierarchical_latent_tree": true,
+    "layer_wise_flow_matching": true,
+    "entropy_matched_schedule": true,
+    "SHAP": true,
+    "HDR_WAM": true,
+    "tables_1_to_5": true,
+    "latency_0_70s": true,
+    "success_34_22_to_60_29": true,
+    "progress_76_00_to_89_56": true,
+    "two_percent_data_82_9_percent": true,
+    "robot_maze": true,
+    "RoboDojo": true,
+    "positioning": true,
+    "reproduction": true,
+    "limitations_and_overclaim": true,
+    "research_inspiration": true
+  },
+  "appendix_inventory": [
+    "A HDR-WAM Details (pp.15-16)",
+    "B Benchmark and Eval Details (pp.16-18)",
+    "C Entropy-Matched versus Fully Denoised Hierarchies (p.19 and Table 5 on p.20)",
+    "D Time Complexity Analysis (p.20)"
+  ]
+}

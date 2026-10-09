@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/59DCWCTW/Li 等 - 2026 - Perceptual Flow Network for Visually Grounded Reasoning.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/59DCWCTW/Li 等 - 2026 - Perceptual Flow Network for Visually Grounded Reasoning.pdf",
+  "title": "Perceptual Flow Network for Visually Grounded Reasoning",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2605.02730",
+  "paper_id": "arxiv:2605.02730",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2605.02730v1",
+  "abstract": "Despite the success of Large-Vision Language Models (LVLMs), general optimization objectives (e.g., standard MLE) fail to constrain visual trajectories, leading to language bias and hallucination. To mitigate this, current methods introduce geometric priors from visual experts as additional supervision. However, we observe that such supervision is typically suboptimal: it is biased toward geometric precision and offers limited reasoning utility. To bridge this gap, we propose Perceptual Flow Network (PFlowNet), which eschews rigid alignment with the expert priors and achieves interpretable yet more effective visual reasoning. Specifically, PFlowNet decouples perception from reasoning to establish a self-conditioned generation process. Based on this, it integrates multi-dimensional rewards with vicinal geometric shaping via variational reinforcement learning, thereby facilitating reasoning-oriented perceptual behaviors while preserving visual reliability. PFlowNet delivers a provable performance guarantee and competitive empirical results, particularly setting new SOTA records on V* Bench (90.6%) and MME-RealWorld-lite (67.0%).",
+  "authors": [
+    "Yangfu Li",
+    "Yuning Gong",
+    "Hongjian Zhan",
+    "Teng Li",
+    "Yuanhuiyi Lyu",
+    "Tianyi Chen",
+    "Qi Liu",
+    "Ziyuan Huang",
+    "Zhihang Zhong",
+    "Dandan Zheng",
+    "Yue Lu"
+  ],
+  "published": "2026-05-04T15:31:11Z",
+  "year": "2026",
+  "pdf_url": "https://arxiv.org/pdf/2605.02730v1",
+  "doi": "10.48550/arXiv.2605.02730",
+  "script": "collect_metadata.py"
+}

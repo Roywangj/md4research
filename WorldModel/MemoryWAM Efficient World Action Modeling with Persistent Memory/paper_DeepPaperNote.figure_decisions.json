@@ -1,0 +1,64 @@
+{
+  "artifact": "paper_DeepPaperNote.figure_decisions.json",
+  "status": "passed",
+  "all_numbered_visuals_reviewed": true,
+  "decisions": [
+    {
+      "source": "F001 Figure 1",
+      "decision": "skip",
+      "reason": "overview duplicates architecture and result content selected separately"
+    },
+    {
+      "source": "F002 Figure 2",
+      "decision": "insert",
+      "target": "images/figure_2_architecture.png",
+      "placement": "方法主线",
+      "identity_match": true,
+      "visual_usable": true
+    },
+    {
+      "source": "F003 Figure 3",
+      "decision": "insert",
+      "target": "images/figure_3_attention_mask.png",
+      "placement": "Gist token 如何形成持久状态",
+      "identity_match": true,
+      "visual_usable": true
+    },
+    {
+      "source": "F004 Figure 4",
+      "decision": "insert",
+      "target": "images/figure_4_memory_comparison.png",
+      "placement": "记忆机制受控比较",
+      "identity_match": true,
+      "visual_usable": true
+    },
+    {
+      "source": "F005 Figure 5",
+      "decision": "skip",
+      "reason": "task photographs add less mechanism evidence than selected figures"
+    },
+    {
+      "source": "F006 Figure 6",
+      "decision": "skip",
+      "reason": "hardware photo described textually"
+    },
+    {
+      "source": "T001 Table 1",
+      "decision": "markdown_transcription",
+      "placement": "主结果",
+      "rows": 10
+    },
+    {
+      "source": "T002 Table 2",
+      "decision": "markdown_transcription",
+      "placement": "现实世界结果",
+      "rows": 2
+    },
+    {
+      "source": "T003 Table 3",
+      "decision": "markdown_transcription",
+      "placement": "消融",
+      "rows": 3
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "status": "passed",
+  "note": "paper_DeepPaperNote.md",
+  "gates": {
+    "passes_required_structure": true,
+    "passes_abstract_translation": true,
+    "passes_innovation_position": true,
+    "passes_mechanism_depth": true,
+    "passes_quantitative_tables": true,
+    "passes_critical_analysis": true,
+    "passes_page_coverage": true,
+    "passes_figure_coverage": true,
+    "passes_table_coverage": true,
+    "passes_equation_coverage": true,
+    "passes_appendix_coverage": true,
+    "passes_style_gate": true,
+    "passes_json_parse_gate": true,
+    "passes_image_link_gate": true,
+    "passes_unrequested_file_gate": true
+  },
+  "expected_artifacts": [
+    "paper_DeepPaperNote.md",
+    "paper_DeepPaperNote.plan.json",
+    "paper_DeepPaperNote.grounding.json",
+    "paper_DeepPaperNote.lint.json",
+    "paper_DeepPaperNote.figure_decisions.json",
+    "images/"
+  ],
+  "forbidden_artifacts": ["paper.md", "source_map.json", "translation_notes.md", "assets/"],
+  "review": {
+    "quality_review": "passed: evidence chain, settings, numbers, mechanisms, comparisons, proven/unproven boundaries, and reusable takeaways are present",
+    "readability_review": "passed: Chinese-first prose, stable English proper nouns retained, tables used for central quantitative comparisons",
+    "material_caveats": [
+      "Figure 6 and Figure 9 are tall multi-frame crops; fine details are best inspected in the source PDF.",
+      "Table 4 and Table 5 share one crop but are each fully transcribed in Markdown.",
+      "The note distinguishes 0.9 Hz visual planning from 9 Hz effective action throughput."
+    ]
+  }
+}

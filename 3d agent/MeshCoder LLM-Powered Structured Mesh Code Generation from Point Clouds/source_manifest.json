@@ -1,0 +1,1011 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "doi:10.48550/arXiv.2508.14879",
+  "title": "MeshCoder: LLM-Powered Structured Mesh Code Generation from Point Clouds",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/meshcoder/meshcoder_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/meshcoder/meshcoder_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QTP5L65W/Dai 等 - 2025 - MeshCoder LLM-Powered Structured Mesh Code Generation from Point Clouds.pdf",
+    "total_pages": 28,
+    "text_pages_extracted": 28,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 28,
+    "text_max_pages": null,
+    "text_pages_extracted": 28,
+    "text_pages_scanned": 28,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 13,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 782,
+      "text_hash_sha256": "7d4f691717c8e15ef2e1a9fed7808e0e32568a9053c68913551717e9ba11531e"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 1492,
+      "text_hash_sha256": "8ad841440abb5e99046de904487f6e8eae0b1e4ebc08e04dc92331571934782b"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 5835,
+      "text_hash_sha256": "99d92a3f871455b6985e2fe286d1f6f5fde86b247ee5bd74dbb64da356478cf7"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 2753,
+      "text_hash_sha256": "485e95dc8510457c81743b16a7748375cd4006e1964913d4e84565b1c3ad7d8d"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "Methodology",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 11389,
+      "text_hash_sha256": "ea5ef98f06769e1e24b6603d1b30024f1203d00379f1444f3bdddac5254add36"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 3,
+      "text_hash_sha256": "e979952da01e58fd4bfe9684a16ab22397e28f92ceed1c6bb16f93520a3e2134"
+    },
+    {
+      "section_id": "sec:datasets",
+      "kind": "data",
+      "title": "Datasets",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 3538,
+      "text_hash_sha256": "aa14d44c4a4f28780ee3861a8d49e706b9cb712a5b726340b052706d7281b32d"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 2978,
+      "text_hash_sha256": "b00f926de472b3e34520c308695b1c7f9baa71a80373211437e14f779ad1d228"
+    },
+    {
+      "section_id": "sec:limitations",
+      "kind": "conclusion",
+      "title": "Limitations",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 370,
+      "text_hash_sha256": "adcf6e44f2045520e1a39ba52ca823a456c1f49d0d661b21aae9f55b8d710ab4"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 1017,
+      "text_hash_sha256": "28883f41090d5ac9586c2d650663de77fb83727578e25741a98fef57db26dabd"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 10,
+      "page_end": 13,
+      "char_count": 8336,
+      "text_hash_sha256": "c8faac974126ca109219b466f0fab22d1f3172b1781961e8453ab11e32839846"
+    },
+    {
+      "section_id": "sec:appendix-of-meshcoder-llm-powered-structured-mesh-code",
+      "kind": "appendix",
+      "title": "Appendix of MeshCoder: LLM-Powered Structured Mesh Code",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 32,
+      "text_hash_sha256": "6b2bedabc0ee397f8c675fd0a57d6081e6588c92f1cd7a0701862ef57e10ca32"
+    },
+    {
+      "section_id": "sec:datasets-2",
+      "kind": "data",
+      "title": "Datasets",
+      "page_start": 13,
+      "page_end": 28,
+      "char_count": 20310,
+      "text_hash_sha256": "070704602a46dead758a2c8fad9cbe7ed2f684e165dfa3e9de0231410357acd6"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 1139,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4812,
+      "section_ids": [
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3907,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4747,
+      "section_ids": [
+        "sec:related-work",
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2786,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4014,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2649,
+      "section_ids": [
+        "sec:methodology",
+        "sec:experiment",
+        "sec:datasets"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3261,
+      "section_ids": [
+        "sec:datasets",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2736,
+      "section_ids": [
+        "sec:method",
+        "sec:limitations",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3566,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3509,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 1513,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 2119,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix-of-meshcoder-llm-powered-structured-mesh-code",
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 1936,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 2712,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 916,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3959,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 2593,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 4573,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 384,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 93,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 91,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 68,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 64,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 446,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 225,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 152,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 130,
+      "section_ids": [
+        "sec:datasets-2"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "(a) MeshCoder can predict codes and reconstruct 41 categories of objects. (b) MeshCoder",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of MeshCoder. The input point cloud is first encoded into shape tokens via a",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Visualization of basic geometric shape types and their corresponding code. For each shape",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Architecture of the shape tokenizer. We first project the point cloud into the triplane and",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Pipeline of object-level code dataset construction using the part-to-code inference model.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Qualitative comparison of reconstruction performance between MeshCoder and baselines.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:datasets"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Parameter modification in the code conveniently to alter the geometric shape. Left: Change",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Mesh resolution adjustment by modifying the resolution parameters in the code. The figure",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Additional results and details are given",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "A schematic illustration of the principles of Translation and Bridge Loop. In the Translation",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "The Fill Grid type, Spoon type and Fork type in basic shape code library",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Examples of Primitive and complete code. And the code corresponds to the first two",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Examples of Translation and complete code. And the code corresponds to the first two",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Examples of Boolean and complete code. And the code corresponds to the first two",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Examples of Bridge Loop and complete code. And the code corresponds to the first two",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Examples of Array and complete code. And the code corresponds to the first two objects",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "A complete code example of converting part codes into a full object program.",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 18",
+        "caption": "Detailed configuration of the shape tokenizer.",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 19",
+        "caption": "Experiments on how GPT-4o can understand shape through given dishwasher code.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 20",
+        "caption": "Experiments on how GPT-4o can understand shape through given office chair code.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 21",
+        "caption": "Experiments on how GPT-4o can understand shape through given cell shelf code.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 22",
+        "caption": "Implementation of the function for creating primitives",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 23",
+        "caption": "Implementation of the function for creating curves",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 24",
+        "caption": "An example of sofa. The input is a point cloud of a sofa, and the figure shows the code",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 25",
+        "caption": "An example of bathtub. The input is a point cloud of a bathtub, and the figure shows",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 26",
+        "caption": "An example of toilet. The input is a point cloud of a toilet, and the figure shows the code",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 27",
+        "caption": "By modifying the scale parameters of the leg and arm parts, we adjust their thickness.",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Figure 28",
+        "caption": "By modifying the resolution parameter, we change its resolution. The highlighted",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:datasets-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Quantitative comparison of reconstruction performance between MeshCoder and baselines.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:datasets"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Comparison of reconstruction metrics across all categories. Chamfer Distance (CD) and IoU",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Comparison of standard deviation of reconstruction metrics across all categories.",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:datasets-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Quantitative evaluation of the part-to-code inference model across different part categories.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:datasets-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "create_primitive(name='leg_1',",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "primitive_type='cylinder', location=[-0.19, -0.25,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "0.21], scale=[0.03, 0.03, 0.25], rotation=[0.31,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "create_primitive(name='leg decoration_5',",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "primitive_type='cylinder', location=[-0.16, -0.22,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "-0.0], scale=[0.03, 0.03, 0.21], rotation=[0.24,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "create_curve(name=‘seat_11’, control_points=[[-0.0,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "handle_type=[0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "fill_grid(name='seat_11', thickness=0.0796)",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "bevel(name='seat_11', width=0.04, segments=1)",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "create_primitive(name='back decoration_14',",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "primitive_type='cube', location=[-0.0, 0.45, -",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "0.25], scale=[0.15, 0.05, 0.03], rotation=[0.0, -",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "bevel(name='back decoration_14', width=0.21,",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "segments=2)",
+      "section_id": "sec:introduction",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "torus. Each primitive is parameterized by three attributes: location (location ∈R3), rotation",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "(rotation ∈H), and scale (scale ∈R3), where H denotes the space of unit quaternions. The",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "After constructing the dataset of paired code y and mesh M, we sample a point cloud x ∈RN×3",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "takes in the point cloud x and outputs a set of fixed length tokens z ∈RL×D, where L is the number",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "shown in Figure 4, the shape tokenizer model transforms a point cloud x ∈RN×3 to a set of fixed",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "length tokens z ∈RL×D. We first project the point cloud x to a triplane and obtain triplane feature",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "u ∈R3×H×W ×D1, where H, W are the height and width of the planes, and D1 is the dimension of",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "and reshape it into a 1D sequence v ∈R(3·H/f·W/f)×D1, where f is the patch size. We then feed",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "the sequence v to a set of transformer blocks and outputs v′ ∈R(3·H/f·W/f)×D1. Next, to compress",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "the number of tokens fed into the LLM, we use a learnable set of tokens w ∈RL×D2 to aggregate",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "we obtain tokens w′ ∈RL×D2 that contain information about the point cloud x. Finally, we use an",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "MLP to transform the dimension of w′ from D2 to D and obtain shape tokens z ∈RL×D, where D",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "a dataset of objects, in which each object O is separated into its constituent parts O = {qi|i =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "i = h(q′",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "y = {yi|i = 1, 2, · · · , M}. When concatenating the code, we sort each part based on its spatial",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "create_primitive(name='wheel_1', …",
+      "section_id": "sec:method",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "create_primitive(name=‘wheel_4’, …",
+      "section_id": "sec:method",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "CD(P, Q) =",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    },
+    {
+      "text": "x∈P",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    },
+    {
+      "text": "y∈Q ∥x −y∥2",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    },
+    {
+      "text": "y∈Q",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    },
+    {
+      "text": "x∈P ∥y −x∥2",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    },
+    {
+      "text": "IoU = |Vpred ∩Vgt|",
+      "section_id": "sec:datasets-2",
+      "page_start": 13,
+      "page_end": 28
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 13,
+    "sections": [
+      {
+        "title": "a value x from the range [−2, 2], and then set the corresponding scale as 10x. To determine the",
+        "page": 14
+      },
+      {
+        "title": "a uniform distribution. Once the orientation is fixed, we scale the shape uniformly along all three",
+        "page": 14
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 10",
+        "caption": "A schematic illustration of the principles of Translation and Bridge Loop. In the Translation",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "The Fill Grid type, Spoon type and Fork type in basic shape code library",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Examples of Primitive and complete code. And the code corresponds to the first two",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Examples of Translation and complete code. And the code corresponds to the first two",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Examples of Boolean and complete code. And the code corresponds to the first two",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Examples of Bridge Loop and complete code. And the code corresponds to the first two",
+        "page_hint": "p.15"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Examples of Array and complete code. And the code corresponds to the first two objects",
+        "page_hint": "p.15"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "A complete code example of converting part codes into a full object program.",
+        "page_hint": "p.16"
+      },
+      {
+        "id": "Figure 18",
+        "caption": "Detailed configuration of the shape tokenizer.",
+        "page_hint": "p.16"
+      },
+      {
+        "id": "Figure 19",
+        "caption": "Experiments on how GPT-4o can understand shape through given dishwasher code.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 20",
+        "caption": "Experiments on how GPT-4o can understand shape through given office chair code.",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 21",
+        "caption": "Experiments on how GPT-4o can understand shape through given cell shelf code.",
+        "page_hint": "p.22"
+      },
+      {
+        "id": "Figure 22",
+        "caption": "Implementation of the function for creating primitives",
+        "page_hint": "p.23"
+      },
+      {
+        "id": "Figure 23",
+        "caption": "Implementation of the function for creating curves",
+        "page_hint": "p.24"
+      },
+      {
+        "id": "Figure 24",
+        "caption": "An example of sofa. The input is a point cloud of a sofa, and the figure shows the code",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Figure 25",
+        "caption": "An example of bathtub. The input is a point cloud of a bathtub, and the figure shows",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Figure 26",
+        "caption": "An example of toilet. The input is a point cloud of a toilet, and the figure shows the code",
+        "page_hint": "p.26"
+      },
+      {
+        "id": "Figure 27",
+        "caption": "By modifying the scale parameters of the leg and arm parts, we adjust their thickness.",
+        "page_hint": "p.27"
+      },
+      {
+        "id": "Figure 28",
+        "caption": "By modifying the resolution parameter, we change its resolution. The highlighted",
+        "page_hint": "p.28"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 2",
+        "caption": "Comparison of reconstruction metrics across all categories. Chamfer Distance (CD) and IoU",
+        "page_hint": "p.18"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Comparison of standard deviation of reconstruction metrics across all categories.",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Quantitative evaluation of the part-to-code inference model across different part categories.",
+        "page_hint": "p.20"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "d11c45ae2d85642e3baf33171d1fe1e209eb11713ec1ebc61cfc7561d897f016"
+}

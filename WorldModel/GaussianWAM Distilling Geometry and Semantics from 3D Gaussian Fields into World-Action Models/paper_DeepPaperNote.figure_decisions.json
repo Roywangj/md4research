@@ -1,0 +1,464 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2608.24714",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Comparison of WAM enhancement paradigms. (a) Conventional WAMs learn world-action representations",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "研究问题",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_002_fig_figure_1.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "8b3f1040f204b44d8a27ec0989170a969e81b67ef5ac54a4fe3d84b31c7e994b",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_002_fig_figure_1.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_002_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 2,
+        "caption": "Comparison of WAM enhancement paradigms. (a) Conventional WAMs learn world-action representations",
+        "bbox_pt": [
+          66.86599731445312,
+          59.78019714355469,
+          545.1358032226562,
+          213.72601318359375
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.07548,
+          0.890745,
+          0.269856
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "8b3f1040f204b44d8a27ec0989170a969e81b67ef5ac54a4fe3d84b31c7e994b",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_002_fig_figure_1.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_002_fig_figure_1.png"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of GaussianWAM. (a) A 3D Gaussian teacher is constructed from synchronized multi-view",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_004_fig_figure_2.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "8b8f8ee89998c5841eb56e1c9b1d3de6e82c360f8660efc95a3593c96c122d3d",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_004_fig_figure_2.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_004_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 4,
+        "caption": "Overview of GaussianWAM. (a) A 3D Gaussian teacher is constructed from synchronized multi-view",
+        "bbox_pt": [
+          66.86599731445312,
+          59.77943420410156,
+          545.134033203125,
+          255.8270263671875
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.075479,
+          0.890742,
+          0.323014
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "8b8f8ee89998c5841eb56e1c9b1d3de6e82c360f8660efc95a3593c96c122d3d",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_004_fig_figure_2.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_004_fig_figure_2.png"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Real-world evaluation and success rates. The left panel shows two bimanual tasks under standard, layout,",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_009_fig_figure_3.png",
+      "relative_markdown_embed": "![](images/page_009_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_009_fig_figure_3.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "ad8181a13a4d78ea205d53f307fa6fc4db2bc3d7bb9c65365c3835f713e32a71",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_009_fig_figure_3.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_009_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 9,
+        "caption": "Real-world evaluation and success rates. The left panel shows two bimanual tasks under standard, layout,",
+        "bbox_pt": [
+          66.86599731445312,
+          61.430084228515625,
+          547.7958374023438,
+          207.8599853515625
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.077563,
+          0.895091,
+          0.262449
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "ad8181a13a4d78ea205d53f307fa6fc4db2bc3d7bb9c65365c3835f713e32a71",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_009_fig_figure_3.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_009_fig_figure_3.png"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Frozen-backbone depth probing of WAM visual",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "placeholder",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "materialization_status": "not_materialized",
+      "visual_review": {
+        "status": "fail",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [
+          "complete visual body"
+        ],
+        "notes": "Candidate inspected and not inserted because it is incomplete or unusable as a visual-body crop.",
+        "failure_reason": "scientific_content_missing",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "t-SNE visualization of final-layer visual-",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_010_fig_figure_5.png",
+      "relative_markdown_embed": "![](images/page_010_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_010_fig_figure_5.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "73684fd8677413b9fa2c97330520a899919d26015c92f55d86f3c67612d37d83",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_010_fig_figure_5.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_010_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 10,
+        "caption": "t-SNE visualization of final-layer visual-",
+        "bbox_pt": [
+          66.86601257324219,
+          176.78433227539062,
+          545.1333618164062,
+          351.5140075683594
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.223213,
+          0.890741,
+          0.443831
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "73684fd8677413b9fa2c97330520a899919d26015c92f55d86f3c67612d37d83",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_010_fig_figure_5.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_010_fig_figure_5.png"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Main results on LIBERO and LIBERO-Plus. We report success rate (%). All models are trained on",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_1.png",
+      "relative_markdown_embed": "![](images/page_007_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_007_fig_table_1.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "90c9a3cae8e2590528dc1aec33175cb52b95bef430a35b0eddd268a4db67640c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_007_fig_table_1.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_007_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 7,
+        "caption": "Main results on LIBERO and LIBERO-Plus. We report success rate (%). All models are trained on",
+        "bbox_pt": [
+          64.86599731445312,
+          124.84744262695312,
+          543.9672241210938,
+          308.4166564941406
+        ],
+        "normalized_bbox": [
+          0.10599,
+          0.157636,
+          0.888835,
+          0.389415
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "90c9a3cae8e2590528dc1aec33175cb52b95bef430a35b0eddd268a4db67640c",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_007_fig_table_1.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_007_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Results on the 15-task RoboTwin 2.0 Clean-",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_2.png",
+      "relative_markdown_embed": "![](images/page_008_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_008_fig_table_2.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "c7dae2c9742df3bdd430babf7d15448f0a00941f9cd0f32ab540aafc952df13a",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_008_fig_table_2.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_008_preview.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+        "source_page": 8,
+        "caption": "Results on the 15-task RoboTwin 2.0 Clean-",
+        "bbox_pt": [
+          70.85374450683594,
+          558.59521484375,
+          296.619873046875,
+          671.4447631835938
+        ],
+        "normalized_bbox": [
+          0.115774,
+          0.705297,
+          0.484673,
+          0.847784
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "c7dae2c9742df3bdd430babf7d15448f0a00941f9cd0f32ab540aafc952df13a",
+        "preserved_scientific_elements": [
+          "complete visual body",
+          "internal labels",
+          "panel/table structure"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity and visual usability inspected; complete caption-free visual body retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialized_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_008_fig_table_2.png",
+      "materialized_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models/images/page_008_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation of Gaussian-field unification and su-",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "materialization_status": "not_materialized",
+      "visual_review": {
+        "status": "fail",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [
+          "complete visual body"
+        ],
+        "notes": "Candidate inspected and not inserted because it is incomplete or unusable as a visual-body crop.",
+        "failure_reason": "scientific_content_missing",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Ablation of supervision depth on LIBERO-Plus",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "materialization_status": "not_materialized",
+      "visual_review": {
+        "status": "fail",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [
+          "complete visual body"
+        ],
+        "notes": "Candidate inspected and not inserted because it is incomplete or unusable as a visual-body crop.",
+        "failure_reason": "asset_candidate_missing",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 9,
+    "by_decision": {
+      "insert": 6,
+      "placeholder": 3
+    },
+    "frozen": true,
+    "freeze_note": "Visual review completed before final note plan; insert entries are bound to materialized SHA-256 assets."
+  },
+  "contract_status": "frozen"
+}

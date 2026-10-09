@@ -1,0 +1,51 @@
+{
+  "paper": {
+    "title": "MLLM-4D: Towards Visual-based Spatial-Temporal Intelligence",
+    "arxiv": "2603.00515v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/94RFW2XM/Yin 等 - 2026 - MLLM-4D Towards Visual-based Spatial-Temporal Intelligence.pdf",
+    "pages": 21
+  },
+  "coverage_definition": "An important factual or quantitative claim is covered when the note states a recoverable PDF page/section/figure/table/equation anchor and the claim is represented by a claim record below. Interpretive claims are labeled as interpretation and linked to the evidence they interpret.",
+  "evidence_coverage": {"important_claims_total": 29, "anchored_claims": 29, "percentage": 100.0},
+  "claims": [
+    {"id":"C001","claim":"The paper identity is MLLM-4D: Towards Visual-based Spatial-Temporal Intelligence, arXiv:2603.00515v1, by Yin, Li, Chang, Pun, and Cun.","support":"direct","anchors":["p.1 title/byline","p.1 arXiv margin"]},
+    {"id":"C002","claim":"The paper frames visual 4D spatial-temporal intelligence as understanding the evolution of 3D space over time from visual input.","support":"author_claim","anchors":["p.1 Fig.1 caption","pp.1-2 Abstract/Introduction"]},
+    {"id":"C003","claim":"The framework creates MLLM4D-2M and MLLM4D-R1-30k and uses them for SFT and RFT respectively.","support":"author_claim","anchors":["p.1 Abstract","p.4 Sec.3","p.12 Sec.8.2"]},
+    {"id":"C004","claim":"MLLM4D-Bench covers Independent Object Motion, Camera Ego-Motion, and Object-Camera Dynamics, expanded into six QA categories.","support":"direct","anchors":["p.3 Sec.3","p.3 Fig.2","p.4 Sec.3"]},
+    {"id":"C005","claim":"Stereo4D metadata includes per-frame camera poses, metric 3D object points, and frame-level descriptions.","support":"direct","anchors":["p.4 Fig.3 and Sec.3","p.12 Sec.8.2"]},
+    {"id":"C006","claim":"Camera center is computed as Center_i=-R_i^T t_i and camera absolute distance is the L2 distance between centers.","support":"direct","anchors":["p.12 Sec.8.2, Camera Absolute Distance"]},
+    {"id":"C007","claim":"Camera relative direction uses d_cam_rel_dir=R_i^T(t_j-t_i) with +X right, +Y down, +Z forward.","support":"direct","anchors":["p.4 Sec.3","p.12 Sec.8.2, Camera Relative Direction"]},
+    {"id":"C008","claim":"Object absolute distance uses the L2 distance between mean object-point centroids.","support":"direct","anchors":["p.12 Sec.8.2, Object Absolute Distance"]},
+    {"id":"C009","claim":"Object-camera absolute distance is the minimum point-to-camera-center distance across object points.","support":"direct","anchors":["p.12 Sec.8.2, Object-Camera Absolute Distance"]},
+    {"id":"C010","claim":"Object-camera relative distance thresholds the change in nearest object-camera distance into farther, closer, or not moving.","support":"direct","anchors":["pp.12-13 Sec.8.2, Object-Camera Relative Distance"]},
+    {"id":"C011","claim":"Object-camera relative direction is determined after transforming object points to camera coordinates and comparing lateral/depth changes.","support":"direct","anchors":["p.13 Sec.8.2, Object-Camera Relative Direction"]},
+    {"id":"C012","claim":"Entity extraction uses Gemini-2.5-Flash, GroundedSAM2, and PixelRefer; the pipeline then applies a physics-based spatial-temporal solver.","support":"direct","anchors":["pp.3-4 Fig.3/Sec.3","pp.12-13 Sec.8.2 and Fig.6"]},
+    {"id":"C013","claim":"SFT uses LoRA and cross-entropy over the reasoning-answer trajectory.","support":"direct","anchors":["p.5 Sec.4.1 Eq.(1)","p.12 Sec.8.1"]},
+    {"id":"C014","claim":"ST-CoT has five stages: objective/temporal anchoring, start-frame state parsing, temporal progression, end-frame verification, and evidence-based synthesis.","support":"direct","anchors":["p.6 Sec.4.2","p.15 Fig.11"]},
+    {"id":"C015","claim":"The final ST-CoT answer is conditioned on object information, start/end spatial states, motion trajectory, and video evidence.","support":"direct","anchors":["p.6 Sec.4.2 Eq.(2)"]},
+    {"id":"C016","claim":"Accuracy reward is binary, format reward checks structural and coordinate formats, and ST-reward combines camera and object coordinate alignment.","support":"direct","anchors":["pp.6-7 Sec.4.3 Eqs.(4)-(7)","p.15 Fig.10"]},
+    {"id":"C017","claim":"Coordinate alignment reward uses an exponential of mean Euclidean error, and total reward combines accuracy, format, and ST components.","support":"direct","anchors":["p.7 Sec.4.3 Eqs.(6)-(8)"]},
+    {"id":"C018","claim":"GRPO uses group outputs, normalized group advantages, clipping, and KL regularization against a frozen reference model.","support":"direct","anchors":["p.7 Sec.4.3 Eq.(3)"]},
+    {"id":"C019","claim":"The main backbones are Qwen3-VL-8B-Instruct and Qwen2.5-VL-7B-Instruct; LoRA rank is 128 and alpha is 256.","support":"direct","anchors":["p.12 Sec.8.1"]},
+    {"id":"C020","claim":"The appendix reports one-epoch SFT, about 30K SFT steps, peak learning rate 2e-5, warmup 0.01, global batch size 8, 12 rollouts per RFT question, and about 15K RFT steps.","support":"direct","anchors":["p.12 Sec.8.1"]},
+    {"id":"C021","claim":"Training used 8 NVIDIA H100 GPUs; SFT/cold start took about 12 hours and RFT about 50 hours.","support":"direct","anchors":["p.12 Sec.8.1"]},
+    {"id":"C022","claim":"On MLLM4D-Bench, MLLM-4D Qwen3-VL-8B reports 73.4, 71.9, 76.3, 74.3, 69.2, 70.9 across the six columns and 72.7 average.","support":"direct","anchors":["p.7 Table 1"]},
+    {"id":"C023","claim":"On VLM4D, the Qwen3-VL-8B model reports 61.0 overall and the table lists VG-LLM at 57.1 overall.","support":"direct","anchors":["p.8 Table 2"]},
+    {"id":"C024","claim":"Table 3 reports 35.3/52.1 for baseline, 59.9/56.2 for SFT without Sec.3 data, 70.1/59.7 for SFT with data, 70.5/61.4 for GRPO without ST-reward, and 72.7/63.1 for GRPO with ST-reward.","support":"direct","anchors":["p.8 Table 3"]},
+    {"id":"C025","claim":"Figure 5 reports SFT scaling from 52.1 at 10K to 59.7 at 2M, with 57.7 at 200K; RFT scaling reaches 63.1 at 30K.","support":"direct","anchors":["p.8 Fig.5 and Sec.5.3"]},
+    {"id":"C026","claim":"Figures 12-17 show qualitative cases where MLLM-4D writes start/end states and temporal evidence while baselines make spatial or temporal mistakes.","support":"direct","anchors":["pp.16-21 Figs.12-17"]},
+    {"id":"C027","claim":"The authors identify long video/context limits and monocular depth ambiguity as future-work or limitation concerns.","support":"author_claim","anchors":["p.14 Sec.8.4-8.5"]},
+    {"id":"C028","claim":"On the final qualitative pages, MLLM-4D matches the displayed answers in Figure 15 (D, swan not spinning), Figure 16 (A, boy direction), and Figure 17 (C, person holding girl staying in place), while VG-LLM and/or Qwen3-VL select incorrect alternatives.","support":"direct","anchors":["p.19 Fig.15","p.20 Fig.16","p.21 Fig.17"]},
+    {"id":"C029","claim":"Figure 16 contains a visible intermediate-explanation mismatch: MLLM-4D's prose says the evidence supports 'towards the camera', while the selected final option is A and the displayed option A is 'left'.","support":"direct","anchors":["p.20 Fig.16"]}
+  ],
+  "interpretation_anchors": [
+    {"id":"I001","interpretation":"The largest reported gain is associated with the data-plus-SFT recipe, while ST-reward adds a smaller but consistent final increment.","based_on":["C024"],"note_location":"关键结果/消融；深度分析/为什么结果可能成立"},
+    {"id":"I002","interpretation":"The contribution is best described as state-trajectory supervision for a video MLLM, not a complete 4D perception or embodied-control solution.","based_on":["C014","C016","C022","C026","C027"],"note_location":"真正贡献是什么；局限"},
+    {"id":"I003","interpretation":"The comparison is a full-system comparison and is not a matched-budget causal test of ST-reward alone.","based_on":["C019","C020","C024"],"note_location":"研究问题；消融；容易误读的地方"}
+  ],
+  "limitations_of_grounding": [
+    "The source PDF was visually inspected page-by-page; restricted local tooling prevented extraction of original raster crops, so linked SVG assets are explanatory redraws rather than source-image copies.",
+    "The note does not use external web evidence; code availability and released-data status are not independently verified.",
+    "The paper's qualitative examples are treated as examples, not as population-level error statistics."
+  ]
+}

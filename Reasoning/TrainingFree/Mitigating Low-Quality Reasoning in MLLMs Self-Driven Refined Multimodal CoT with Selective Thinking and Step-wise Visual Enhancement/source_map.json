@@ -1,0 +1,145 @@
+{
+  "paper": {
+    "title": "Mitigating Low-Quality Reasoning in MLLMs: Self-Driven Refined Multimodal CoT with Selective Thinking and Step-wise Visual Enhancement",
+    "authors": [
+      "Chongjun Tu",
+      "Peng Ye",
+      "Dongzhan Zhou",
+      "Tao Chen",
+      "Wanli Ouyang"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TTWS8WL8/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinkin.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "95JR5SU4",
+    "doi": "10.1609/aaai.v40i12.37919",
+    "paper_id": "title:8d98ae569727"
+  },
+  "notes": {
+    "reading_mode": "faithful reader-style bilingual translation with source-grounded analytical compression",
+    "figure_policy": "Complete figures and tables are embedded near their first analytical use. Figure 4 is described in prose because the automatic crop did not produce a clean standalone asset.",
+    "bibliography_policy": "References are summarized by scope rather than translated line by line."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "source_section_id": "sec:abstract",
+      "summary": "The abstract defines low-quality reasoning in MLLMs and introduces SDR-MCoT with Selective Thinking and Step-wise Visual Enhancement."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-3",
+      "source_section_id": "sec:introduction",
+      "summary": "The introduction motivates overthinking, insufficient visual use, and the need for a training-free self-driven multimodal CoT framework."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Related Work",
+      "pages": "3-4",
+      "source_section_id": "sec:related-work",
+      "summary": "Related work covers multimodal large language models and multimodal chain-of-thought reasoning."
+    },
+    {
+      "id": "S004",
+      "type": "equations",
+      "section": "Method",
+      "pages": "4-5",
+      "source_section_id": "sec:method",
+      "summary": "Selective Thinking computes the entropy of the first generated answer token and routes easy and difficult samples differently."
+    },
+    {
+      "id": "S005",
+      "type": "equations",
+      "section": "Method",
+      "pages": "5-6",
+      "source_section_id": "sec:method",
+      "summary": "Step-wise Visual Enhancement computes relative attention, removes isolated attention sinks, selects high-attention patches, and amplifies their attention."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Experiments",
+      "pages": "6-7",
+      "source_section_id": "sec:experiments",
+      "summary": "Experiments cover eight benchmarks, several MLLM backbones, and comparisons with No CoT, CoT, MMCoT, DDCoT, CCoT, and ICoT."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "7-8",
+      "source_section_id": "sec:conclusion",
+      "summary": "The conclusion restates that SDR-MCoT mitigates unnecessary reasoning and improves visual grounding without training."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "summary": "Figure 1 shows that simple queries can be answered directly, while difficult queries benefit from visually enhanced step-by-step reasoning.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "2",
+      "summary": "Figure 2 compares unnecessary CoT with the SDR-MCoT route on low- and high-difficulty examples.",
+      "asset": "assets/page_002_fig_figure_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Method",
+      "pages": "4",
+      "summary": "Figure 3 gives the SDR-MCoT framework with entropy-based route selection and step-wise visual enhancement.",
+      "asset": "assets/page_004_fig_figure_3.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure_placeholder",
+      "section": "Method",
+      "pages": "4",
+      "summary": "Figure 4 reports the negative relation between first-token entropy and M3CoT accuracy; no clean standalone crop was available."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Method",
+      "pages": "5",
+      "summary": "Figure 5 visualizes option-aware attention, option-free attention, and relative attention for visual focus.",
+      "asset": "assets/page_005_fig_figure_5.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "6",
+      "summary": "Table 1 compares main benchmark accuracy and generated-token consumption.",
+      "asset": "assets/page_006_fig_table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "7",
+      "summary": "Table 2 ablates Selective Thinking and Visual Enhancement.",
+      "asset": "assets/page_007_fig_table_2.png"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_004_fig_figure_3.png",
+    "assets/page_005_fig_figure_5.png",
+    "assets/page_006_fig_table_1.png",
+    "assets/page_007_fig_table_2.png"
+  ]
+}

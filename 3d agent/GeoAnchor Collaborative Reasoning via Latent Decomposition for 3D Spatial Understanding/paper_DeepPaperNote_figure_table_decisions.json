@@ -1,0 +1,738 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2607.13454",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Existing methods suffer from information loss due to verbalization or limited interpretability from entangled",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of GeoAnchor. We organize spatial reasoning into two components: (i) obtaining local atomic 3D",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "review_pending",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2_review.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_004_fig_figure_2_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "52d423b07f933333572c8d915b5c8d24802c275eebb08ba6681f228d0f5e71ad",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_004_fig_figure_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 4,
+        "caption": "Overview of GeoAnchor. We organize spatial reasoning into two components: (i) obtaining local atomic 3D",
+        "bbox_pt": [
+          56.89049530029297,
+          38.894744873046875,
+          557.8120727539062,
+          316.0049133300781
+        ],
+        "normalized_bbox": [
+          0.092958,
+          0.04911,
+          0.911458,
+          0.398996
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Overview of the collaborative training framework of GeoAnchor. The model is trained in a coarse-to-fine manner,",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "review_pending",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_006_fig_figure_3_review.png",
+      "relative_markdown_embed": "![Figure 3](images/page_006_fig_figure_3_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_006_fig_figure_3_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "642cb79c07d5d30094cf9de024215625b88bf6f4909e3ec9fbe99f0208d49760",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_006_fig_figure_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_006.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 6,
+        "caption": "Overview of the collaborative training framework of GeoAnchor. The model is trained in a coarse-to-fine manner,",
+        "bbox_pt": [
+          17.51245880126953,
+          43.342926025390625,
+          589.78125,
+          324.6229248046875
+        ],
+        "normalized_bbox": [
+          0.028615,
+          0.054726,
+          0.963695,
+          0.409877
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Ablation study on the effectiveness of Stage 3.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:model-3",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_figure_4_review.png",
+      "relative_markdown_embed": "![Figure 4](images/page_010_fig_figure_4_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_010_fig_figure_4_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "2a0f40f569b43ec74bcc59e4c450952eff189fc9887a73790722cb0cf4c055d2",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_010_fig_figure_4_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 10,
+        "caption": "Ablation study on the effectiveness of Stage 3.",
+        "bbox_pt": [
+          66.86599731445312,
+          61.77107238769531,
+          545.1362915039062,
+          248.54901123046875
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.077994,
+          0.890746,
+          0.313825
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Comparison of the top text attention weights assigned by the final answer under different reasoning paradigms.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:model-3",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_figure_5_review.png",
+      "relative_markdown_embed": "![Figure 5](images/page_010_fig_figure_5_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_010_fig_figure_5_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "5a4d74c70fe5e35b7b832e5069253c59d8c195ce8ec92ee201cdc4fdd6040187",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_010_fig_figure_5_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 10,
+        "caption": "Comparison of the top text attention weights assigned by the final answer under different reasoning paradigms.",
+        "bbox_pt": [
+          66.86599731445312,
+          273.4244384765625,
+          545.1354370117188,
+          375.89886474609375
+        ],
+        "normalized_bbox": [
+          0.109258,
+          0.345233,
+          0.890744,
+          0.47462
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "GeoAnchor focuses more precisely on the visual regions relevant to the queried spatial target when",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:model-3",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Visualization of text, image, VGGT, and global",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:model-3",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Evaluation Results on Spatial Reasoning Benchmarks. For each metric, bold numbers indicate the best",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:model",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_table_1_review.png",
+      "relative_markdown_embed": "![Table 1](images/page_016_fig_table_1_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_016_fig_table_1_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "33f4e1157e5d77967315701c40e3f0c9d7a0ef37bf2cc6a767a542881598e474",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_016_fig_table_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_016.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 16,
+        "caption": "Evaluation Results on Spatial Reasoning Benchmarks. For each metric, bold numbers indicate the best",
+        "bbox_pt": [
+          67.8550033569336,
+          353.0619201660156,
+          544.145751953125,
+          456.8099365234375
+        ],
+        "normalized_bbox": [
+          0.110874,
+          0.445785,
+          0.889127,
+          0.57678
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Task definitions and sample counts of the SPBench-SI subset used in our experiments.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Task definitions and sample counts of the ViewSpatial-Bench subset used in our experiments.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Mapping from grouped metric abbreviations to the original tasks.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Ablation of VGGT alignment strategies for supervising the",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiment",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_table_5_review.png",
+      "relative_markdown_embed": "![Table 5](images/page_009_fig_table_5_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_009_fig_table_5_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "463714af2f2c3319a409c32106da0b3e1100b36e5371fb4a78c5190feaaac5b4",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_009_fig_table_5_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 9,
+        "caption": "Ablation of VGGT alignment strategies for supervising the",
+        "bbox_pt": [
+          235.19224548339844,
+          244.4250030517578,
+          547.1001586914062,
+          307.8084411621094
+        ],
+        "normalized_bbox": [
+          0.384301,
+          0.308617,
+          0.893955,
+          0.388647
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Comparison between 3D object coordinates recov-",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:references",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Statistics for Spatial Reasoning datasets from SpatialLadder-26K.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Statistics of 3D Grounding Dataset used in Stage 1.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:references",
+      "decision": "review_pending",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_020_fig_table_7_review.png",
+      "relative_markdown_embed": "![Table 7](images/page_020_fig_table_7_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_020_fig_table_7_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "2507d29bd125447262fb8bedf1e0d76fb5781b79ebef8d75ad4e4b85fd9a3e56",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_020_fig_table_7_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_020.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 20,
+        "caption": "Statistics of 3D Grounding Dataset used in Stage 1.",
+        "bbox_pt": [
+          216.4199981689453,
+          83.68689727783203,
+          345.9686584472656,
+          164.80406188964844
+        ],
+        "normalized_bbox": [
+          0.353627,
+          0.105665,
+          0.565308,
+          0.208086
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Statistics for Spatial Reasoning datasets from SPAR.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "Implementation details of GeoAnchor.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "review_pending",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_021_fig_table_10_review.png",
+      "relative_markdown_embed": "![Table 10](images/page_021_fig_table_10_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_021_fig_table_10_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "b564c983e06156aae7ba21e397b478c877fbefe38b2e6a02aacf94dcde523b74",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_021_fig_table_10_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_021.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 21,
+        "caption": "Implementation details of GeoAnchor.",
+        "bbox_pt": [
+          159.75599670410156,
+          198.4189453125,
+          347.5221252441406,
+          511.34649658203125
+        ],
+        "normalized_bbox": [
+          0.261039,
+          0.250529,
+          0.567847,
+          0.64564
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 11",
+      "source_id": "Table 11",
+      "kind": "table",
+      "label": "Table 11",
+      "caption": "Task regrouping into Position, Direction, and Mixed categories for ablation study of local token interpretability.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:references",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 12",
+      "source_id": "Table 12",
+      "kind": "table",
+      "label": "Table 12",
+      "caption": "Ablation study on different base models. GeoAnchor is instantiated on Qwen2.5-VL-3B, with comparisons",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:references",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_022_fig_table_12_review.png",
+      "relative_markdown_embed": "![Table 12](images/page_022_fig_table_12_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_022_fig_table_12_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "f1ec0bb154c620ff00d93188a68a2618e1f1ffd8d43e46d58735cb4ff3ac28b9",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_022_fig_table_12_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_022.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 22,
+        "caption": "Ablation study on different base models. GeoAnchor is instantiated on Qwen2.5-VL-3B, with comparisons",
+        "bbox_pt": [
+          64.86599731445312,
+          373.4177551269531,
+          542.0098266601562,
+          535.9215087890625
+        ],
+        "normalized_bbox": [
+          0.10599,
+          0.471487,
+          0.885637,
+          0.676669
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 13",
+      "source_id": "Table 13",
+      "kind": "table",
+      "label": "Table 13",
+      "caption": "Ablation study on the latent length. We demon-",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:model-4",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 14",
+      "source_id": "Table 14",
+      "kind": "table",
+      "label": "Table 14",
+      "caption": "Ablation study of pooling resolution for VGGT",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:model-4",
+      "decision": "review_pending",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_023_fig_table_14_review.png",
+      "relative_markdown_embed": "![Table 14](images/page_023_fig_table_14_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_023_fig_table_14_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "e4d3b85cc2a5c5b46561a28e4a76ec62cc3290be6551f3759d649115cc11392f",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/images/page_023_fig_table_14_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/assets/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding/page_previews/page_023.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+        "source_page": 23,
+        "caption": "Ablation study of pooling resolution for VGGT",
+        "bbox_pt": [
+          272.9547119140625,
+          127.07536315917969,
+          542.0685424804688,
+          197.85255432128906
+        ],
+        "normalized_bbox": [
+          0.446004,
+          0.160449,
+          0.885733,
+          0.249814
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 21,
+    "by_decision": {
+      "insert": 0,
+      "low_priority": 8,
+      "placeholder": 3,
+      "review_pending": 10,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

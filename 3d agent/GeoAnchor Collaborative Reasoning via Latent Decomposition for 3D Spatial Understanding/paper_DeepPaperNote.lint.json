@@ -1,0 +1,287 @@
+{
+  "status": "ok",
+  "script": "lint_note.py",
+  "paper_id": "doi:10.48550/arxiv.2607.13454",
+  "input_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote.md",
+  "headers": [
+    "GeoAnchor：通过潜在分解协作推理实现 3D 空间理解",
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "训练数据",
+    "评测集与指标",
+    "方法主线",
+    "机制流程",
+    "三类潜在 token",
+    "四阶段协作训练",
+    "关键结果",
+    "主结果与强基线",
+    "消融到底说明了什么",
+    "机制证据与失败案例边界",
+    "深度分析",
+    "真正贡献是什么",
+    "为什么结果可能成立",
+    "容易误读的地方",
+    "复现注意点",
+    "局限",
+    "我的笔记",
+    "与 3D agent 研究地图的关系",
+    "可继续追问的研究方向",
+    "引用"
+  ],
+  "missing_sections": [],
+  "warnings": [
+    "planning_required_fields_missing",
+    "section_honest_missing_not_allowed",
+    "no_figure_markers",
+    "mixed_language_lines_present",
+    "mechanical_translation_artifacts_present"
+  ],
+  "mixed_language_issues": [
+    {
+      "line_number": 37,
+      "line": "4. **用 coverage 而非 token-to-token 对齐监督全局几何。** 多尺度池化后的 VGGT 特征只要求被若干 geometry token 覆盖，并用平衡项避免 token 塌缩，适合把高分辨率几何压缩为少量 latent。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 40,
+      "line": "GeoAnchor 的真正贡献不是“使用 latent reasoning”本身，而是为不同空间证据规定了可组合的 latent 角色，并用 coarse-to-fine 训练让模型学会按问题选择局部或局部加全局路径；在作者的设置中，这使 2B 模型在 SPAR-Bench、SPBench 和 ViewSpatial 上分别达到 68.4%、69.7% 和 47.0% 平均准确率。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 43,
+      "line": "论文针对一个明确的表示错配：二维图像中的深度、距离、方向和视角变化是连续几何量，但 MLLM 的自然推理轨迹主要由离散文本 token 构成。文本 CoT 可以说出“物体在左边”或生成数字，却不保证中间状态保留了可靠的几何证据；另一方面，已有 latent spatial reasoning 通常用单一 latent 或单一深度图监督，难以同时表达局部目标关系和全局布局。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 49,
+      "line": "- **Stage 1 grounding 数据。** 从 ScanNet 的 1,500+ scans、超过 250 万个视图中采样 10k 个场景。Qwen3-VL-32B 为每张图最多提取 5 个显著物体、指代表达和 2D 框；用 Depth Anything v3 估计深度和相机姿态，再通过反投影得到 3D 坐标，并由坐标差得到方向。最终保留 549,440 个样本：224,990 个单位置问题、159,530 个多位置问题、164,920 个方向问题。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 51,
+      "line": "- **伪深度质量。** 附录报告，伪深度恢复坐标相对 ground-truth depth 的平均/中位欧氏误差为 0.09 m/0.04 m，Acc@0.5m 为 98.0%，Acc@0.2m 为 92.9%。grounding 自一致性过滤后，47,663 个候选标注中 44,998 个通过，保留率 94.41%，平均/中位 IoU 为 0.787/0.856。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 58,
+      "line": "1. **交错生成。** 给定图像 $I$ 和问题 $Q$，模型生成文本与 latent 交错的轨迹 $O=t_1\\oplus z_1\\oplus\\cdots\\oplus z_{k-1}\\oplus t_k$。文本承担语义规划和逻辑表达，latent 保留连续 3D 证据。",
+      "english_word_count": 11,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 59,
+      "line": "2. **生成并回灌 latent。** 每个 latent 是长度为 $M$ 的连续 hidden-state 序列。输出 hidden state 经过 projector $P(h)=\\mathrm{LayerNorm}(h)+\\mathrm{MLP}(\\mathrm{LayerNorm}(h))$ 后回灌输入 embedding 空间，避免输出流形与输入流形不一致造成 latent drift。",
+      "english_word_count": 20,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 60,
+      "line": "3. **构造局部—全局证据。** 位置 latent 解码为 3D 坐标，方向 latent 解码为 3D 向量；geometry latent 投影为少量 geometry tokens，与多尺度池化的 VGGT 特征做 soft coverage 对齐。",
+      "english_word_count": 9,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 61,
+      "line": "4. **按问题选择路径并回答。** 模型可执行 local-only 或 local-plus-global 模式；GRPO 的 pattern reward 根据组内平滑准确率鼓励更适合当前问题的路径，最终文本 token 读取 latent 证据完成答案。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 64,
+      "line": "位置与方向 latent 分别定义为 $z_{pos}=\\{h^{pos}_j\\}_{j=1}^{l_{pos}}$、$z_{dir}=\\{h^{dir}_j\\}_{j=1}^{l_{dir}}$。对序列平均后用独立线性头映射到 $\\hat p,\\hat d\\in\\mathbb R^3$：",
+      "english_word_count": 18,
+      "function_word_hits": [
+        "in"
+      ]
+    },
+    {
+      "line_number": 66,
+      "line": "位置用 Smooth L1 loss，方向用余弦损失 $L_{dir}=1-\\frac{\\hat d\\cdot d}{\\|\\hat d\\|\\|d\\|}$。这种监督很重要：它让“第一个局部 latent”不只是模型内部的任意连续向量，而是有可检查的坐标/方向语义。",
+      "english_word_count": 13,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 68,
+      "line": "geometry latent 不进行密集的一一对应。VGGT 最后一层特征图经分辨率 ${1,2,4}$ 的多尺度平均池化并展平，得到 $V\\in\\mathbb R^{l_{vggt}\\times D}$；geometry latent 经线性层得到 $G=\\{g_j\\}_{j=1}^{l_{geo}}$。对每个 VGGT feature，计算与每个 geometry token 的相似度并 softmax，使每个 VGGT 区域至少被一个 token 覆盖；同时加入 token 使用均衡项，防止所有信息集中在单个 geometry token。该设计承认高分辨率特征与紧凑 latent 的粒度不可能严格相等。",
+      "english_word_count": 26,
+      "function_word_hits": [
+        "in"
+      ]
+    },
+    {
+      "line_number": 71,
+      "line": "- **S1：局部感知 warm-up。** 目标为 $L_{S1}=\\lambda_tL_{NTP}+\\lambda_l(L_{pos}+L_{dir})$。以 3D grounding 先建立可靠的对象级空间锚点。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 72,
+      "line": "- **S2：空间 latent reasoning。** 在 105k 空间推理样本上同时训练文本、位置、方向和几何损失：$L_{S2}=\\lambda_tL_{NTP}+\\lambda_l(L_{pos}+L_{dir})+\\lambda_gL_{geo}$。模型开始按问题组合局部与全局证据。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 74,
+      "line": "- **S4：自适应 latent RL。** 用 GRPO 对 local-only 与 local-plus-global 两种 pattern 采样。除格式和准确率奖励外，组内按 EMA 平滑准确率选出表现更好的 pattern，额外加 $r_{pattern}$。这不是单纯追求更多 latent，而是将“调用全局信息的代价”转化为可学习的选择行为。",
+      "english_word_count": 11,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 86,
+      "line": "GeoAnchor 在 SPAR-Bench 比基线高 36.0 个百分点，在 SPBench 高 16.8 个百分点，在 ViewSpatial 高 9.8 个百分点（论文正文概括为 10.7% gain，按表中 37.2→47.0 是 9.8 个百分点；这一处应以表格原始数值为准，避免混用相对提升与百分点）。它还超过 GPT-4o 和 Gemini-2.5-Flash 的平均分，但并非所有子任务都绝对领先：SpatialLadder 在 SPBench 的 Abs. 指标略高，说明 GeoAnchor 的优势主要是整体和跨任务稳健性，而非每个数值子任务都占优。",
+      "english_word_count": 11,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 99,
+      "line": "连续几何 latent 的收益大于单纯 text CoT，且分解设计比“latent”这一标签本身更关键：local-only 与 local+global 的提升说明位置/方向证据可单独工作，但完整组合在三项 benchmark 上最好。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 101,
+      "line": "协作训练的平均分从仅 S1+S2 的 60.9，加入 S3 后达到 61.7；直接延长 S2 并不能复制这一收益。GRPO 无 pattern reward 时为 SPAR/SPBench/ViewSpatial = 67.8/69.2/46.2；加入 pattern reward 后为 68.4/69.7/47.0。论文还报告 Stage 1、2、3 相对增益分别为 5.0%、14.6%、23.0%，但这些是作者的增益概括，需结合 Table 3 的具体配置理解，不能当作统一的百分点定义。",
+      "english_word_count": 14,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 103,
+      "line": "局部 token 可解释性消融中，position-only 在 Position/Direction/Mixed 上为 65.2/36.5/55.8，direction-only 为 62.9/38.7/53.5，完整 local tokens 为 66.4/39.4/57.0；这支持两种局部证据各自有专门语义。VGGT 对齐中，提出的 soft coverage + multi-scale pooling 达到 68.4/69.7/47.0，优于 mean pooling 的 59.9/66.8/45.5、adaptive pooling 的 66.9/66.5/44.4 和 linear interpolation 的 53.7/60.2/37.3。",
+      "english_word_count": 19,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 106,
+      "line": "注意力分析显示，GeoAnchor 的最终答案 token 更关注 latent token，且 local latent 在不同位置上分别关注对应的目标区域；Text CoT 的注意力更多落到语义较弱的数字/符号。t-SNE 中 geometry token 位于 VGGT 与 text token 之间，支持 S3 使其兼顾几何和语言流形的解释。",
+      "english_word_count": 15,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 112,
+      "line": "工程组件包括 Qwen3-VL、VGGT、Depth Anything v3、ScanNet 派生数据和 GRPO；论文的核心研究贡献在于**把 latent 的语义角色显式化，并将角色选择纳入训练目标**。这比给模型加一个深度 latent 更有解释力：position 是“在哪里”，direction 是“朝哪里/相对谁”，geometry 是“场景整体怎样组织”。模型可以在同一个文本—latent 序列里组合这些证据，而不是把全部几何压成一个无名向量。",
+      "english_word_count": 13,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 116,
+      "line": "2. geometry 的 soft coverage 避免了将高分辨率 VGGT 特征硬塞到 8 个 token 的不适定一一对齐，同时 balance loss 防止表示塌缩。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 126,
+      "line": "- 基座为 Qwen3-VL-2B，local length $l_{pos}=l_{dir}=2$，global length $l_{geo}=8$；作者使用 8 张 NVIDIA A800。",
+      "english_word_count": 10,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 127,
+      "line": "- S1 一轮，batch size 64，学习率 $10^{-4}$；S2/S3 各一轮，batch size 32，学习率 $2\\times10^{-5}$；$\\lambda_t=\\lambda_l=1,\\lambda_g=0.1$。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 128,
+      "line": "- VGGT 使用 3 个池化尺度 ${1,2,4}$，$\\lambda_{bal}=0.05$。RL 每题 8 次 rollout，temperature 1.0，pattern reward 0.5，KL 系数 0.01，学习率 $5\\times10^{-7}$，EMA 参数 $\\kappa=8,\\mu=0.2$。",
+      "english_word_count": 12,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 129,
+      "line": "- 数据再现并不只需要论文中的 105k QA：还需要 Qwen3-VL-32B 的 object extraction prompt、Depth Anything v3 的深度和姿态、VGGT 特征抽取、IoU 自一致性过滤及相机反投影实现。ViewSpatial 的相关训练集未公开，论文只使用其评测集。",
+      "english_word_count": 11,
+      "function_word_hits": []
+    }
+  ],
+  "mechanical_translation_artifact_issues": [
+    {
+      "line_number": 31,
+      "line": "尽管多模态大语言模型（MLLM）已经取得显著进展，但从二维图像理解三维空间关系仍然是一个关键挑战。现有方法主要依赖符号化文本 token，而文本 token 天然缺乏表达连续几何信息所需的保真度。近期方法开始使用潜在表示增强推理，但依赖单一潜在类型无法适应空间任务的多样性，因而会在复杂几何场景中产生错位。为解决这些问题，我们提出 GeoAnchor，一种交错式文本—潜在推理框架。GeoAnchor 将三维空间信息分解为三个互补成分：用于目标物体定位的位置潜变量、用于关系朝向的方向潜变量，以及用于场景结构的几何潜变量。这些成分在结构化空间中重新组合，以构造局部证据并捕获全局上下文，从而实现动态且可解释的推理。此外，我们提出协作式训练策略，引导模型从局部空间感知逐步发展到完整的三维理解。在多样且复杂的三维推理任务上的大量实验表明，GeoAnchor 超越了当前最优方法，验证了其有效性和泛化能力。",
+      "artifact": "本 token"
+    },
+    {
+      "line_number": 37,
+      "line": "4. **用 coverage 而非 token-to-token 对齐监督全局几何。** 多尺度池化后的 VGGT 特征只要求被若干 geometry token 覆盖，并用平衡项避免 token 塌缩，适合把高分辨率几何压缩为少量 latent。",
+      "artifact": "非 token"
+    },
+    {
+      "line_number": 43,
+      "line": "论文针对一个明确的表示错配：二维图像中的深度、距离、方向和视角变化是连续几何量，但 MLLM 的自然推理轨迹主要由离散文本 token 构成。文本 CoT 可以说出“物体在左边”或生成数字，却不保证中间状态保留了可靠的几何证据；另一方面，已有 latent spatial reasoning 通常用单一 latent 或单一深度图监督，难以同时表达局部目标关系和全局布局。",
+      "artifact": "本 token"
+    },
+    {
+      "line_number": 61,
+      "line": "4. **按问题选择路径并回答。** 模型可执行 local-only 或 local-plus-global 模式；GRPO 的 pattern reward 根据组内平滑准确率鼓励更适合当前问题的路径，最终文本 token 读取 latent 证据完成答案。",
+      "artifact": "本 token"
+    },
+    {
+      "line_number": 63,
+      "line": "### 三类潜在 token",
+      "artifact": "在 token"
+    },
+    {
+      "line_number": 68,
+      "line": "geometry latent 不进行密集的一一对应。VGGT 最后一层特征图经分辨率 ${1,2,4}$ 的多尺度平均池化并展平，得到 $V\\in\\mathbb R^{l_{vggt}\\times D}$；geometry latent 经线性层得到 $G=\\{g_j\\}_{j=1}^{l_{geo}}$。对每个 VGGT feature，计算与每个 geometry token 的相似度并 softmax，使每个 VGGT 区域至少被一个 token 覆盖；同时加入 token 使用均衡项，防止所有信息集中在单个 geometry token。该设计承认高分辨率特征与紧凑 latent 的粒度不可能严格相等。",
+      "artifact": "个 token"
+    },
+    {
+      "line_number": 101,
+      "line": "协作训练的平均分从仅 S1+S2 的 60.9，加入 S3 后达到 61.7；直接延长 S2 并不能复制这一收益。GRPO 无 pattern reward 时为 SPAR/SPBench/ViewSpatial = 67.8/69.2/46.2；加入 pattern reward 后为 68.4/69.7/47.0。论文还报告 Stage 1、2、3 相对增益分别为 5.0%、14.6%、23.0%，但这些是作者的增益概括，需结合 Table 3 的具体配置理解，不能当作统一的百分点定义。",
+      "artifact": "合 Table"
+    },
+    {
+      "line_number": 103,
+      "line": "局部 token 可解释性消融中，position-only 在 Position/Direction/Mixed 上为 65.2/36.5/55.8，direction-only 为 62.9/38.7/53.5，完整 local tokens 为 66.4/39.4/57.0；这支持两种局部证据各自有专门语义。VGGT 对齐中，提出的 soft coverage + multi-scale pooling 达到 68.4/69.7/47.0，优于 mean pooling 的 59.9/66.8/45.5、adaptive pooling 的 66.9/66.5/44.4 和 linear interpolation 的 53.7/60.2/37.3。",
+      "artifact": "部 token"
+    },
+    {
+      "line_number": 106,
+      "line": "注意力分析显示，GeoAnchor 的最终答案 token 更关注 latent token，且 local latent 在不同位置上分别关注对应的目标区域；Text CoT 的注意力更多落到语义较弱的数字/符号。t-SNE 中 geometry token 位于 VGGT 与 text token 之间，支持 S3 使其兼顾几何和语言流形的解释。",
+      "artifact": "案 token"
+    },
+    {
+      "line_number": 115,
+      "line": "1. S1 的坐标/方向损失提供了比答案 token 更密集的几何学习信号，降低了空间任务对语言记忆的依赖。",
+      "artifact": "案 token"
+    },
+    {
+      "line_number": 116,
+      "line": "2. geometry 的 soft coverage 避免了将高分辨率 VGGT 特征硬塞到 8 个 token 的不适定一一对齐，同时 balance loss 防止表示塌缩。",
+      "artifact": "个 token"
+    }
+  ],
+  "linebreak_issues": [],
+  "code_math_issues": [],
+  "math_render_issues": [],
+  "figure_structure_issues": [],
+  "core_info_structure_issues": [],
+  "reference_hygiene_issues": [],
+  "substantive_content_issues": [
+    {
+      "section": "局限",
+      "reason": "section_honest_missing_not_allowed",
+      "severity": "error",
+      "snippet": "1. **监督链条含伪标签误差。** 2D 框由 Qwen3-VL-32B 生成、深度由 Depth Anything v3 估计，虽有自一致性和误差统计，但不是人工逐点 3D 标注。 2. **数据与 benchmark 共享场景来源。** ScanNet 同时出现在 grounding、SPAR 和部分评测中，跨数"
+    }
+  ],
+  "planning_artifact_found": true,
+  "planning_artifact_issues": [
+    "planning_required_fields_missing"
+  ],
+  "passes_basic_structure": true,
+  "passes_style_gate": false,
+  "passes_math_gate": true,
+  "passes_figure_gate": true,
+  "passes_reference_hygiene_gate": true,
+  "passes_plan_gate": false,
+  "passes_substantive_content": false
+}

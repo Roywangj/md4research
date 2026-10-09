@@ -1,0 +1,101 @@
+{
+  "paper": {
+    "title": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+    "authors": [
+      "Shouwei Ruan",
+      "Bin Wang",
+      "Zhenyu Wu",
+      "Qihui Zhu",
+      "Yuxiang Zhang",
+      "Hang Su",
+      "Yubin Wang"
+    ],
+    "year": 2026,
+    "venue": "arXiv:2603.09774v1 [cs.AI]",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+    "reader_file": "paper.md",
+    "pages": 6
+  },
+  "notes": {
+    "reading_order": "Reconstructed from a two-column selectable-text PDF using page renders to verify order.",
+    "paragraph_policy": "Major-section counters restart at Para. 1; figure-trace prompt text is transcribed and translated.",
+    "references_policy": "All 36 bibliography entries are retained in English and not translated line by line.",
+    "appendix_status": "No appendix or supplementary section appears in the supplied PDF.",
+    "known_source_issue": "The MindCube analysis says Tab. 1 in the source, but the corresponding results are Table 2. The reader uses Table 2."
+  },
+  "blocks": [
+    {"id":"S001","page":1,"pages":"1","type":"paragraph","section":"Abstract","order":1,"summary":"Problem, training-free toolkit, AST, three-stage reasoning chain, and reported gains.","confidence":"high","refs":[]},
+    {"id":"S002","page":1,"pages":"1","type":"paragraph","section":"1. Introduction","order":2,"summary":"MFM spatial reasoning gap and over-reliance on egocentric observations.","confidence":"high","refs":[]},
+    {"id":"S003","page":1,"pages":"1","type":"paragraph","section":"1. Introduction","order":3,"summary":"Training-based, explicit-3D, and tool-based prior paradigms and limitations.","confidence":"high","refs":[]},
+    {"id":"S004","page":1,"pages":"1","type":"paragraph","section":"1. Introduction","order":4,"summary":"Biological cognitive maps as motivation for allocentric representation.","confidence":"high","refs":[]},
+    {"id":"S005","page":1,"pages":"1-2","type":"paragraph","section":"1. Introduction","order":5,"summary":"World2Mind geometry-semantic pipeline and two cognitive-map outputs.","confidence":"high","refs":["F001"]},
+    {"id":"S006","page":2,"pages":"2","type":"paragraph","section":"1. Introduction","order":6,"summary":"AST graph structure and ellipse-based spatial footprints.","confidence":"high","refs":["F001"]},
+    {"id":"S007","page":2,"pages":"2","type":"paragraph","section":"1. Introduction","order":7,"summary":"Three-stage spatial reasoning chain for reconstruction/vision conflicts.","confidence":"high","refs":["F001"]},
+    {"id":"S008","page":2,"pages":"2","type":"paragraph","section":"1. Introduction","order":8,"summary":"Claimed benchmark gains and text-only reasoning enabled by AST.","confidence":"high","refs":[]},
+    {"id":"S009","page":2,"pages":"2","type":"paragraph","section":"2. Method Overview","order":9,"summary":"Method overview pointer to Figure 1.","confidence":"high","refs":["F001"]},
+    {"id":"S010","page":2,"pages":"2","type":"paragraph","section":"2.1 Geometry-Semantic Alignment Pipeline","order":10,"summary":"Input video/multi-view images and robust 3D semantic representation objective.","confidence":"high","refs":[]},
+    {"id":"S011","page":2,"pages":"2-3","type":"paragraph","section":"2.1 Geometry-Semantic Alignment Pipeline","order":11,"summary":"Depth Anything V3, SAM3, confidence map, and dual-level validity filtering.","confidence":"high","refs":[]},
+    {"id":"S012","page":3,"pages":"3","type":"equation","section":"2.1 Geometry-Semantic Alignment Pipeline","order":12,"summary":"Equation 1 defines pixel/frame confidence validity mask.","confidence":"high","refs":[]},
+    {"id":"S013","page":3,"pages":"3","type":"paragraph","section":"2.1 Geometry-Semantic Alignment Pipeline","order":13,"summary":"Definitions of global confidence, indicator, and thresholds.","confidence":"high","refs":[]},
+    {"id":"S014","page":3,"pages":"3","type":"paragraph","section":"2.1 Geometry-Semantic Alignment Pipeline","order":14,"summary":"Point-cloud back-projection and KNN density filtering.","confidence":"high","refs":[]},
+    {"id":"S015","page":3,"pages":"3","type":"paragraph","section":"2.2 Allocentric Cognitive Mapping","order":15,"summary":"Point cloud distilled into two abstract cognitive maps.","confidence":"high","refs":[]},
+    {"id":"S016","page":3,"pages":"3","type":"paragraph","section":"2.2 Allocentric Cognitive Mapping","order":16,"summary":"Landmark map, AST, DBSCAN instances, ellipse parameters, and YAML output.","confidence":"high","refs":[]},
+    {"id":"S017","page":3,"pages":"3","type":"paragraph","section":"2.2 Allocentric Cognitive Mapping","order":17,"summary":"Route map construction, traversability grid, and camera trajectory.","confidence":"high","refs":[]},
+    {"id":"S018","page":3,"pages":"3","type":"paragraph","section":"2.3 Geometry-Semantics Interwoven Reasoning","order":18,"summary":"Motivation for resolving errors and contradictions across 2D and 3D cues.","confidence":"high","refs":[]},
+    {"id":"S019","page":4,"pages":"4","type":"paragraph","section":"2.3 Geometry-Semantics Interwoven Reasoning","order":19,"summary":"Stage 1 tool-invocation judgement.","confidence":"high","refs":[]},
+    {"id":"S020","page":4,"pages":"4","type":"paragraph","section":"2.3 Geometry-Semantics Interwoven Reasoning","order":20,"summary":"Stage 2 modality-decoupled cue collection.","confidence":"high","refs":[]},
+    {"id":"S021","page":4,"pages":"4","type":"paragraph","section":"2.3 Geometry-Semantics Interwoven Reasoning","order":21,"summary":"Stage 3 conflict resolution and cross-validation.","confidence":"high","refs":[]},
+    {"id":"S022","page":4,"pages":"4","type":"paragraph","section":"3.1 Experimental Setup","order":22,"summary":"Benchmarks and evaluated frontier model families.","confidence":"high","refs":["T001","T002"]},
+    {"id":"S023","page":4,"pages":"4","type":"paragraph","section":"3.2 Main Results and Analysis","order":23,"summary":"VSI-Bench gains, especially allocentric-prior-heavy tasks.","confidence":"high","refs":["T001"]},
+    {"id":"S024","page":4,"pages":"4","type":"paragraph","section":"3.2 Main Results and Analysis","order":24,"summary":"MindCube results and Rotation improvement.","confidence":"high","refs":["T002"]},
+    {"id":"S025","page":4,"pages":"4-5","type":"paragraph","section":"3.3 Ablation and Case Study","order":25,"summary":"Text-only blind ablation and AST structured-text findings.","confidence":"high","refs":["F002"]},
+    {"id":"S026","page":5,"pages":"5","type":"paragraph","section":"3.3 Ablation and Case Study","order":26,"summary":"Reasoning-trace robustness and interpretability claim.","confidence":"high","refs":["F003"]},
+    {"id":"S027","page":4,"pages":"4","type":"paragraph","section":"Figure 3 prompt and trace","order":27,"summary":"Chair-length question, initial reasoning, and first World2Mind call.","confidence":"high","refs":["F003"]},
+    {"id":"S028","page":4,"pages":"4","type":"paragraph","section":"Figure 3 prompt and trace","order":28,"summary":"AST map clues for two chair instances and visualization call.","confidence":"high","refs":["F003"]},
+    {"id":"S029","page":4,"pages":"4","type":"paragraph","section":"Figure 3 prompt and trace","order":29,"summary":"Visualization cross-validation and final answer of 95 cm.","confidence":"high","refs":["F003"]},
+    {"id":"S030","page":5,"pages":"5-6","type":"bibliography","section":"References","order":30,"summary":"Complete reference list [1]-[36], retained in English.","confidence":"high","refs":[]},
+    {"id":"S031","page":6,"pages":"6","type":"note","section":"Appendix / Supplementary Material Status","order":31,"summary":"No appendix or supplementary section in supplied PDF.","confidence":"high","refs":[]},
+    {"id":"C001","page":2,"pages":"2","type":"caption","section":"Figure 1","order":32,"summary":"World2Mind pipeline overview caption.","confidence":"high","refs":["F001"]},
+    {"id":"C002","page":3,"pages":"3","type":"caption","section":"Table 1","order":33,"summary":"VSI-Bench Tiny main-results caption.","confidence":"high","refs":["T001"]},
+    {"id":"C003","page":3,"pages":"3","type":"caption","section":"Table 2","order":34,"summary":"MindCube-Tiny results caption.","confidence":"high","refs":["T002"]},
+    {"id":"C004","page":4,"pages":"4","type":"caption","section":"Figure 2","order":35,"summary":"Blind text-only comparison caption.","confidence":"high","refs":["F002"]},
+    {"id":"C005","page":4,"pages":"4","type":"caption","section":"Figure 3","order":36,"summary":"Complete World2Mind reasoning trace caption.","confidence":"high","refs":["F003"]}
+  ],
+  "pages": [
+    {"page":1,"block_ids":["S001","S002","S003","S004","S005"]},
+    {"page":2,"block_ids":["F001","C001","S005","S006","S007","S008","S009","S010","S011"]},
+    {"page":3,"block_ids":["T001","C002","T002","C003","S011","S012","S013","S014","S015","S016","S017","S018"]},
+    {"page":4,"block_ids":["F002","C004","F003","C005","S019","S020","S021","S022","S023","S024","S025","S027","S028","S029"]},
+    {"page":5,"block_ids":["S025","S026","S030"]},
+    {"page":6,"block_ids":["S030","S031"]}
+  ],
+  "figures": [
+    {"id":"F001","page":2,"caption_id":"C001","image_path":"assets/figure_1.png","bbox":[125,150,1235,560],"bbox_space":"160-dpi page render (1360x1760 px)","placement_hint":"near_first_mention","placed_after":"S005","alt_text":"World2Mind pipeline from egocentric input through tool calls and cognitive maps to interwoven reasoning."},
+    {"id":"F002","page":4,"caption_id":"C004","image_path":"assets/figure_2.png","bbox":[125,140,665,365],"bbox_space":"160-dpi page render (1360x1760 px)","placement_hint":"near_ablation_discussion","placed_after":"S024","alt_text":"Bar chart comparing blind models with World2Mind across VSI-Bench subtasks."},
+    {"id":"F003","page":4,"caption_id":"C005","image_path":"assets/figure_3.png","bbox":[700,140,1230,560],"bbox_space":"160-dpi page render (1360x1760 px)","placement_hint":"near_case_study","placed_after":"S029","alt_text":"Complete chair-length reasoning trace with tool results and cross-validation."}
+  ],
+  "tables": [
+    {"id":"T001","page":3,"caption_id":"C002","image_path":"assets/table_1.png","bbox":[125,145,1230,505],"bbox_space":"160-dpi page render (1360x1760 px)","placement_hint":"before_main_results_analysis","placed_after":"S022","transcribed_in_markdown":true,"alt_text":"VSI-Bench Tiny results with and without World2Mind."},
+    {"id":"T002","page":3,"caption_id":"C003","image_path":"assets/table_2.png","bbox":[125,525,665,865],"bbox_space":"160-dpi page render (1360x1760 px)","placement_hint":"before_main_results_analysis","placed_after":"T001","transcribed_in_markdown":true,"alt_text":"MindCube-Tiny results with and without World2Mind."}
+  ],
+  "glossary": [
+    {"term":"World2Mind","translation":"World2Mind","note":"Training-free spatial cognition toolkit."},
+    {"term":"Multimodal Foundation Model (MFM)","translation":"多模态基础模型（MFM）","note":"Expand at first use."},
+    {"term":"allocentric","translation":"非自我中心式","note":"Contrasted with egocentric."},
+    {"term":"Allocentric-Spatial Tree (AST)","translation":"非自我中心空间树（AST）","note":"Directed acyclic graph with geometric instance attributes."},
+    {"term":"Landmark Cognitive Map","translation":"地标认知地图","note":"Object topology representation."},
+    {"term":"Route Cognitive Map","translation":"路径认知地图","note":"Passability and trajectory representation."},
+    {"term":"geometry-semantics interwoven reasoning","translation":"几何—语义交织推理","note":"Three-stage cross-modal reasoning process."}
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/table_1.png",
+    "assets/table_2.png"
+  ]
+}

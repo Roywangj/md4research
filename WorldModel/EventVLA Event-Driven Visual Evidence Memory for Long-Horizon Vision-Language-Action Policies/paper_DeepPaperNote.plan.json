@@ -1,0 +1,126 @@
+{
+  "paper_id": "arXiv:2606.20092v2",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "EventVLA 是面向长时程非马尔可夫机器人操作的端到端视觉-语言-动作策略；主张依靠基础视觉锚点与前瞻驱动的关键帧证据记忆（KEM）实现稀疏因果事件级写入，摆脱稠密视频回放与隐式向量压缩的双重瓶颈。",
+  "dominant_domain": "embodied AI / robot manipulation / memory-augmented VLA",
+  "must_cover": [
+    "非马尔可夫瞬态交互挑战与马尔可夫假设破裂",
+    "基础视觉锚点 (At) 与动态关键帧证据记忆 (Et)",
+    "自回归隐状态前瞻预测未来关键帧概率向量",
+    "升余弦核软标签与 Qwen3-VL 离线打标管道",
+    "1D NMS 峰值检测与时间冷却后处理",
+    "RoboTwin-MeM 复杂度参数化 n=[1,5] 与 8 任务体系",
+    "RMBench 协议审计与基础视觉锚点充分性反思",
+    "ARX ACONE 双臂真机 4 任务评估与量化对比",
+    "消融分析（显式图像 vs 隐式记忆库、软硬标签、NMS、前瞻时域）",
+    "推理延迟与吞吐量实测剖析"
+  ],
+  "key_numbers": [
+    "RoboTwin-MeM 平均成功率：EventVLA (VA+KEM) 75.2% vs VA only 18.0% vs π0.5 7.8% vs MemoryVLA 10.8%",
+    "RMBench 平均成功率：EventVLA (VA only) 67.8% vs Mem-0 42.0% vs MemoryVLA 41.7%",
+    "ARX ACONE 真机四任务平均成功率：EventVLA 78.8% vs π0.5 5.0% vs π_MEM 37.5%",
+    "消融落差：隐式记忆库降至 24.9%，硬标签降至 48.8%，无 NMS 降至 53.4%，Nmax=2 降至 32.0%，chunk size=15 骤降至 13.6%",
+    "推理速度：全模型延迟 1.09 s/chunk (0.94 Hz)，相比无记忆 QwenOFT 仅微增 0.13 s"
+  ],
+  "real_comparisons": [
+    "仿真诊断：RoboTwin-MeM 上 EventVLA 对比 π0.5, QwenOFT, MemER, Mem-0, MemoryVLA",
+    "传统基准：RMBench 上仅用视觉锚点对比 DP, ACT, π0.5, X-VLA, Mem-0, MemoryVLA",
+    "真机对比：ARX ACONE 4 任务对比反应式 π0.5 与多尺度记忆 π_MEM",
+    "内部消融：VA+KEM 对比 VA only、隐式记忆库、硬标签、无 NMS、小容量 Nmax=2、缩小时域 chunk=30/15"
+  ],
+  "central_claims": [
+    {
+      "claim": "稀疏视觉证据记忆（视觉锚点 + KEM）在非马尔可夫长时程操作中大幅超越既有反应式与记忆策略。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "Table 2",
+        "Figure 4"
+      ],
+      "what_it_actually_proves": "在 RoboTwin-MeM 8 任务上达成 75.2% 平均成功率，在真机 4 任务达成 78.8%，相对基线净提升 40% 以上。",
+      "what_it_does_not_prove": "在未定义清晰瞬态事件的开域自由长任务或超长轨迹（>10分钟）中未给出收敛保证。"
+    },
+    {
+      "claim": "传统长时程记忆基准（RMBench）在很大程度上可以通过静态初始锚点解决，而非马尔可夫瞬态交互必须依赖动态关键帧捕获。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "Table 1",
+        "Table 2",
+        "Table 8"
+      ],
+      "what_it_actually_proves": "仅用视觉锚点的 EventVLA (VA only) 在 RMBench 上达 67.8%（SOTA），但在 RoboTwin-MeM 上仅有 18.0%，激活 KEM 后暴增至 75.2%。",
+      "what_it_does_not_prove": "RMBench 的所有任务均无瞬态特征（如 Press Button 仍需记忆数字，VA only 仅 3%）。"
+    },
+    {
+      "claim": "自回归隐状态具备动作前瞻能力，前瞻预测优于反应式实时检测，且显式图像拼接优于隐式潜特征池化。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "Table 2 消融",
+        "Table 9"
+      ],
+      "what_it_actually_proves": "将 chunk size 从 50 降至 15 时成功率从 75.2% 坠至 13.6%；隐式潜向量库导致性能崩至 24.9%。",
+      "what_it_does_not_prove": "前瞻能力在跨不同动作分块粒度或不同底层物理控制器下的外推边界。"
+    }
+  ],
+  "claim_boundaries": [
+    "源论文共 23 页（含附录），含 48 条参考文献，9 张表格与 8 组图表。",
+    "真机实验每任务各 20 次独立评估，样本量有限，未提供置信区间分布。",
+    "事件缓存最大容量硬编码为 Nmax=5，针对任务 intermediate keyframes n<=5 设计。",
+    "前瞻机制依赖 50 步 action chunking，不适用于单步控制策略。"
+  ],
+  "negative_or_limiting_results": [
+    "Press Button Keyframe 在 n=5 时成功率仅 48%，说明长序列计数与按压逻辑仍具挑战。",
+    "隐式记忆库变体仅 24.9%，证明当前架构对原始高分辨率视觉 Token 的高度依赖与算力权衡。",
+    "Nmax=2 时成功率仅 32.0%，若超长任务事件密度过高将遭遇 FIFO 早熟淘汰。"
+  ],
+  "mechanism_result_map": [
+    "KEM 前瞻调度对应 chunk size 从 15 (13.6%)、30 (31.1%) 到 50 (75.2%) 的显著收益。",
+    "升余弦软标签对应硬标签消融中 48.8% 至 75.2% 的增益。",
+    "1D NMS 与时间冷却对应无 NMS 时 53.4% 至 75.2% 的防洪增益。",
+    "无损原始像素对应隐式潜变量库 24.9% 至 75.2% 的信息无损增益。"
+  ],
+  "comparative_positioning": [
+    "与 MemoryWAM 对比：MemoryWAM 用 Gist Tokens 压缩长程历史与全历史 KV Cache，EventVLA 则坚持保留高保真原始图像但做到极端时间稀疏。",
+    "与 DIM-WAM 对比：DIM-WAM 用多银行特征管理与质量加权合并，EventVLA 用端到端自回归前瞻概率与 1D NMS 峰值滤波。",
+    "与 Harness VLA 对比：Harness VLA 是高层 LLM 规划器编排冻结 VLA 与解析基元，EventVLA 是底层策略内部自回归表征内化前瞻记忆。"
+  ],
+  "reuse_takeaways": [
+    "非马尔可夫具身任务应区分静态场景锚点（初始帧）与动态瞬态事件，前者用低成本规则维护，后者用前瞻网络触发。",
+    "动作分块（Action Chunking）模型的深层隐状态是极佳的物理意图前瞻特征源，可用于超前调度。",
+    "离散事件打标必须引入物理时间模糊性建模（如升余弦核软标签），避免刚性二值惩罚导致梯度震荡。"
+  ],
+  "followup_questions": [
+    "当任务跨度扩展到数千步、关键事件超过 10 个时，如何从 FIFO 升级为基于重要度的自适应证据置换策略？",
+    "KEM 前瞻头能否直接迁移到扩散世界模型（WAM）以指导视频潜变量的稀疏缓存？",
+    "离线大模型伪标签在少样本或零样本未知任务上的域泛化边界如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "剖析非马尔可夫长时程交互中的瞬态证据消失难题，指出既有双系统、循环压缩与密集回放的致命缺陷。"
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "揭露 RMBench 的初始帧漏洞，详细介绍 RoboTwin-MeM 8 任务的 n 参数化设计与长时程特征。"
+    },
+    {
+      "section": "方法主线",
+      "focus": "详解视觉锚点、KEM 自回归前瞻预测头、升余弦软标签、退火课程与 1D NMS 延迟写入机制。"
+    },
+    {
+      "section": "关键结果",
+      "focus": "全量转录并剖析 RoboTwin-MeM、RMBench、RoboTwin 2.0 及 ARX ACONE 真机结果。"
+    },
+    {
+      "section": "深度分析",
+      "focus": "从稀疏性胜过稠密、前瞻优于事后、工程误读与复现注意点等维度进行批判性学术推演。"
+    },
+    {
+      "section": "局限",
+      "focus": "指明 Nmax=5 容量硬顶、FIFO 淘汰风险、Action Chunking 强耦合等边界。"
+    },
+    {
+      "section": "我的笔记",
+      "focus": "深度对比 MemoryWAM、DIM-WAM 与 Harness VLA，提出具身记忆体系三层收敛架构。"
+    }
+  ]
+}

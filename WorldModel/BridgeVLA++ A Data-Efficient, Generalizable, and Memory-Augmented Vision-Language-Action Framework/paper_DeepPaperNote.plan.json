@@ -1,0 +1,131 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出 BridgeVLA 的二维输入—输出对齐与热图预训练，并在期刊扩展中加入粗阶段时间记忆、细阶段空间记忆和双臂共享机制；核心证据来自五个仿真基准、两个真实平台及结构消融。",
+  "dominant_domain": "3D vision-language-action、机器人操作、时空记忆、低样本泛化",
+  "must_cover": [
+    "BridgeVLA 与 BridgeVLA++ 的贡献边界：前者来自 NeurIPS 2025，后者是本版新增",
+    "为何把三维点云和三维平移动作都桥接到二维正交视图/热图",
+    "RoboPoint 120K 热图预训练与 PaliGemma 输入—输出对齐",
+    "粗到细动作解码及平移、旋转、夹爪、避碰四类输出",
+    "时间记忆的初始锚点、两帧邻近窗口和自适应子目标槽位",
+    "空间记忆的初始点云、按当前 waypoint 重渲染和视图对齐注意力",
+    "双臂共享骨干/记忆与手臂专属动作头",
+    "RLBench、COLOSSEUM、GemBench、RMBench、MemoryBench 和真实机器人协议",
+    "热图、三维输入、预训练、旋转、时间记忆和空间记忆消融",
+    "子目标标注依赖、初始场景假设、长时程规划和统计协议边界"
+  ],
+  "key_numbers": [
+    "RLBench：BridgeVLA 90.5±1.1，BridgeVLA++ 93.7±0.6，SAM2Act 86.8±0.5",
+    "热图解码消融 90.5→31.4；加入显式 3D 位置输入 90.5→56.2",
+    "COLOSSEUM：64.0→65.2；全部扰动 18.7→38.9；Distractor 51.8→61.6",
+    "GemBench：BridgeVLA 50.0、BridgeVLA++ 51.1；L4 为 0.0→8.2，仍低于 3D-LOTUS++ 17.4",
+    "RMBench：BridgeVLA 18.9、BridgeVLA++ 96.0、MemoryWAM 83.0；去时间记忆为 21.3",
+    "MemoryBench：BridgeVLA 11.3±0.8、BridgeVLA++ 99.7±0.3、SAM2Act+ 94.3±9.0",
+    "Franka 13 任务：10 条示范 96.9%，3 条示范 95.4%，RVT-2 90.0%，π0.5 20.0%",
+    "Dobot 记忆依赖 Basic：BridgeVLA++ 93.3%，SAM2Act+ 30.0%，BridgeVLA 20.0%",
+    "记忆参数 269.77M，为 2.92B 骨干的 9.2%；RTX 4090 延迟 0.35→0.57 秒",
+    "RMBench K=12：两帧邻近记忆+最多十个子目标槽；每缓存帧 3.0 MiB，总 39 MiB"
+  ],
+  "real_comparisons": [
+    "同 PaliGemma 骨干的 BridgeVLA 与 π0.5 在 Franka 十示范设置中的接口对照",
+    "BridgeVLA/BridgeVLA++ 与 SAM2Act、RVT-2 在 RLBench 的均值和逐任务精密操作差异",
+    "BridgeVLA++ 与 MemoryWAM、LingBot-VA、Mem-0 在 RMBench 的短期/长期记忆差异",
+    "BridgeVLA++ 与 SAM2Act+ 在 MemoryBench 和 Dobot 真实记忆任务的记忆管理差异",
+    "BridgeVLA 与 BridgeVLA++ 在 COLOSSEUM/GemBench 上检验记忆是否损害原有泛化",
+    "参数匹配的热图解码与直接三维位置回归消融",
+    "时间/空间记忆的 2×2 因子消融和任务选择性",
+    "BridgeVLA 与 RVT-2 在真实六种泛化扰动中的差异"
+  ],
+  "central_claims": [
+    {
+      "claim":"二维输入—输出对齐是 BridgeVLA 数据效率和稳健泛化的主要来源。",
+      "supporting_evidence":[{"section_id":"sec:data-2","pages":[4,6]},{"section_id":"sec:results-2","pages":[11,14]}],
+      "what_it_actually_proves":"热图解码和三维输入消融都产生大幅退化；同骨干 π0.5 在十示范真实任务中明显落后。",
+      "what_it_does_not_prove":"多个设计同时变化，未提供完全同训练预算、同动作专家容量的单变量 VLA 对照。"
+    },
+    {
+      "claim":"时间记忆解决依赖已完成子目标和过往尝试的动作歧义。",
+      "supporting_evidence":[{"section_id":"sec:data-2","pages":[6,8]},{"section_id":"sec:appendix-o-we-attribute-the-gap-instead-to-a-residual","pages":[19,21]}],
+      "what_it_actually_proves":"RMBench 去时间记忆由 96.0 降至 21.3，MemoryBench 无记忆模型也接近失败。",
+      "what_it_does_not_prove":"自适应长期记忆只在有语言分段标注的 RMBench 开启，尚未证明无标注数据上的通用长期记忆。"
+    },
+    {
+      "claim":"空间记忆通过重渲染初始点云改善遮挡下的精定位。",
+      "supporting_evidence":[{"section_id":"sec:data-2","pages":[7,8]},{"section_id":"sec:method-9","pages":[13,14]}],
+      "what_it_actually_proves":"RLBench 总体 93.7→92.0，Sort Shape 72.0→60.8；RMBench 几乎不变，体现任务选择性。",
+      "what_it_does_not_prove":"未测试初始场景自身被遮挡、物体大幅位移或点云漂移时的失效边界。"
+    },
+    {
+      "claim":"记忆模块可以在获得记忆能力的同时保留基础模型的数据效率与 OOD 泛化。",
+      "supporting_evidence":[{"section_id":"sec:results-2","pages":[9,13]},{"section_id":"sec:appendix-p-the-comparison-here-runs-across-all-five-settings","pages":[17,19]}],
+      "what_it_actually_proves":"BridgeVLA++ 在 COLOSSEUM/GemBench 和 Dobot 无记忆任务上持平或超过 BridgeVLA。",
+      "what_it_does_not_prove":"只覆盖有限基准与两个桌面机器人，不等于跨所有本体和开放世界条件无性能代价。"
+    },
+    {
+      "claim":"框架在低样本真实操作、双臂记忆任务和多类分布偏移上形成强综合结果。",
+      "supporting_evidence":[{"section_id":"sec:experiments","pages":[8,9]},{"section_id":"sec:results-2","pages":[11,14]},{"section_id":"sec:appendix","pages":[16,17]}],
+      "what_it_actually_proves":"当前训练/评估协议下的多个任务套件和两种硬件均有竞争力。",
+      "what_it_does_not_prove":"RMBench 逐任务选最好 checkpoint 且无多种子方差，真实任务每格仅十次试验。"
+    }
+  ],
+  "claim_boundaries": [
+    "BridgeVLA 的对齐与热图预训练来自先前 NeurIPS 2025 工作，本期刊扩展的新增重点是时空记忆、双臂和扩展实验。",
+    "RMBench 的子目标门控正样本依赖语言分段末帧标注；其他无标注基准关闭门控，仅使用锚点和两帧邻近记忆。",
+    "空间记忆固定保存初始点云，默认它比当前观测遮挡更少且仍具参考价值。",
+    "GemBench L4 的 8.2 并不代表通用长时程规划，且低于 3D-LOTUS++ 的 17.4。",
+    "RMBench 每任务独立训练并选择最佳 checkpoint，报告单次 100-episode 结果而非多随机种子。",
+    "真实机器人每指令仅十次试验，成功率步长为 10 个百分点。",
+    "完整记忆增加一次单臂骨干前向和 62.9% 预测延迟（0.35→0.57 秒），不能称为零成本。",
+    "Category 仍是明显短板；保留目标定位热图不等于完成正交机器人域中的操作关键点泛化。"
+  ],
+  "negative_or_limiting_results": [
+    "BridgeVLA 在 GemBench L4 为 0.0，BridgeVLA++ 仅 8.2。",
+    "COLOSSEUM Distractor 上 BridgeVLA 51.8，低于 RVT-2 的 60.8；需要记忆后才提高到 61.6。",
+    "无时间记忆的 RMBench 只有 21.3，说明主要记忆能力集中在时间分支。",
+    "空间记忆对 RMBench 几乎无帮助，总体 96.0 与去空间记忆 95.4 接近。",
+    "未见类别真实泛化仍会忽略目标物体，作者归因于第三人称预训练和正交机器人渲染之间的域差异。",
+    "SAM2Act+ 固定窗口易被近重复帧稀释，但论文没有与更多检索式长记忆做同骨干对照。",
+    "没有独立安全、碰撞率、跨回合记忆或初始场景失效研究。"
+  ],
+  "mechanism_result_map": [
+    "二维热图中间表示与密集监督对应 RLBench 90.5→31.4 的直接回归退化。",
+    "不向 VLM 输入显式三维位置以保持预训练域，对应 90.5→56.2 的三维输入消融。",
+    "RoboPoint 热图预训练对语言条件目标定位的迁移，对应 Combination/Category 中去预训练的显著下降。",
+    "锚点+邻近帧+子目标里程碑的时间记忆，对应 RMBench 21.3→96.0 和 MemoryBench 11.3→99.7。",
+    "初始点云重渲染的空间记忆对应 Sort Shape 60.8→72.0 等遮挡重任务增益。",
+    "共享场景记忆与手臂专属头对应 RMBench 九项双臂任务 96.0%。"
+  ],
+  "comparative_positioning": [
+    "相对动作 token 化 3D VLA，BridgeVLA 用二维热图保留观测—动作空间对应，但需要已标定 RGB-D 和点云重建。",
+    "相对直接点云/体素策略，BridgeVLA 不新增专门三维骨干，而借正交渲染复用二维 VLM 语义先验。",
+    "相对 SAM2Act+ 的逐帧保存与固定窗口，BridgeVLA++ 显式区分锚点、邻近帧和选择后的子目标里程碑。",
+    "相对 MemWorld 式持续空间表示，本文只保存一个初始点云并按需重渲染，更简单但对动态场景的更新能力有限。",
+    "相对规划增强的 3D-LOTUS++，本文在一般定位与低样本操作更强，但长时程 L4 仍弱。"
+  ],
+  "reuse_takeaways": [
+    "基础模型迁移时，应同时对齐输入域、监督接口和下游输出结构，而不是只添加更多几何通道。",
+    "操作记忆可以按决策功能拆分：粗阶段记任务进度，细阶段记几何参考。",
+    "有界记忆不应仅依赖最近窗口；锚点、短期邻居和稀疏里程碑的三时间尺度组合更稳健。",
+    "固定初始点云重渲染是一种低成本遮挡补全基线，但必须显式测试场景变化和初始遮挡。",
+    "消融应关注任务选择性：空间记忆只应在遮挡任务增益，时间记忆只应在历史歧义任务大幅增益。",
+    "低样本结果最好用同骨干不同接口的对照来隔离架构贡献。"
+  ],
+  "followup_questions": [
+    "若没有语言分段或子目标标签，能否用新颖度、预测误差或进度估计自监督训练长期记忆门控？",
+    "初始点云中的物体被移动后，空间记忆何时变成误导信号，是否需要置信度或可更新地图？",
+    "在相同 PaliGemma 骨干和动作头容量下，热图、离散动作 token、flow matching 的控制变量比较如何？",
+    "RMBench 多随机种子、最后 checkpoint 与平均 checkpoint 的结果是否仍保持 96.0？",
+    "时间记忆能否跨 episode 保存并避免把旧任务状态错误迁移到新场景？",
+    "长时程 L4 需要更强规划器、语言子目标生成，还是只需更好的记忆检索？",
+    "空间记忆的 0.22 秒额外延迟能否通过缓存多尺度参考 token 或轻量编码器降低？",
+    "跨移动底盘、灵巧手和非刚性物体时，二维热图接口还能覆盖多少动作自由度？"
+  ],
+  "section_plan": [
+    {"section":"研究问题","weight":"high","focus":"把样本效率、OOD 泛化和记忆歧义统一到对齐问题，并区分先前 BridgeVLA 与新增 BridgeVLA++。","subsections":["为什么 3D VLA 仍不数据高效","当前帧为什么不足","本文真正新增了什么"],"evidence_sources":[{"section_id":"sec:approach","pages":[1,2]},{"section_id":"sec:background","pages":[2,3]}]},
+    {"section":"数据与任务定义","weight":"high","focus":"输入输出、关键帧控制、RoboPoint 预训练与五个仿真/两个真实平台协议。","subsections":["动作与观测接口","预训练数据","仿真与真实任务矩阵"],"evidence_sources":[{"section_id":"sec:data-2","pages":[4,8]},{"section_id":"sec:experiments","pages":[8,9]},{"section_id":"sec:results-2","pages":[11,14]}]},
+    {"section":"方法主线","weight":"highest","focus":"二维对齐、粗到细解码、时间/空间记忆、双臂与训练推理。","subsections":["机制流程","二维热图桥接","时间记忆","空间记忆","训练和双臂扩展"],"evidence_sources":[{"section_id":"sec:data-2","pages":[4,8]}]},
+    {"section":"关键结果","weight":"highest","focus":"主结果、强基线、同骨干低样本对照及任务选择性消融。","subsections":["主结果与强基线","低样本和泛化","消融到底说明了什么","负结果与统计边界"],"evidence_sources":[{"section_id":"sec:experiments","pages":[8,9]},{"section_id":"sec:method-2","pages":[9,10]},{"section_id":"sec:results-2","pages":[11,14]},{"section_id":"sec:appendix-o-we-attribute-the-gap-instead-to-a-residual","pages":[19,21]}]},
+    {"section":"深度分析","weight":"high","focus":"为何对齐有效、记忆模块的真实贡献、成本、可复现性和不可外推边界。","subsections":["真正贡献是什么","为什么结果成立","容易误读的地方","复现注意点"],"evidence_sources":[{"section_id":"sec:appendix","pages":[16,17]},{"section_id":"sec:appendix-p-the-comparison-here-runs-across-all-five-settings","pages":[17,19]},{"section_id":"sec:appendix-o-we-attribute-the-gap-instead-to-a-residual","pages":[19,21]}]},
+    {"section":"局限","weight":"high","focus":"标注依赖、初始点云假设、L4、统计协议、成本与安全缺口。","subsections":["方法假设","证据边界","部署边界"],"evidence_sources":[{"section_id":"sec:method-9","pages":[13,14]},{"section_id":"sec:appendix","pages":[16,17]},{"section_id":"sec:background-5","pages":[25,36]}]}
+  ]
+}

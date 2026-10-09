@@ -1,0 +1,60 @@
+{
+  "artifact": "paper_DeepPaperNote.grounding.json",
+  "status": "passed",
+  "claims_checked": 18,
+  "unsupported_claims": 0,
+  "important_claims": [
+    {
+      "claim": "cache has anchor, recent, gist components",
+      "evidence": [
+        "Eq. 4",
+        "pp.4-5",
+        "Appendix p.14"
+      ],
+      "status": "grounded"
+    },
+    {
+      "claim": "120 visual tokens and 8 gist tokens yield d=15",
+      "evidence": [
+        "Eq. 6",
+        "p.5",
+        "p.6 implementation"
+      ],
+      "status": "grounded"
+    },
+    {
+      "claim": "RMBench average 83.0 versus LingBot-VA 78.2",
+      "evidence": [
+        "Table 1",
+        "p.8"
+      ],
+      "status": "grounded"
+    },
+    {
+      "claim": "full attention and hybrid both 87 on Press Button",
+      "evidence": [
+        "Figure 4c",
+        "p.7"
+      ],
+      "status": "grounded"
+    },
+    {
+      "claim": "video generation disabled at inference but video DiT runs once per observation",
+      "evidence": [
+        "Eqs. 2-3",
+        "Fig. 2",
+        "Appendix p.14"
+      ],
+      "status": "grounded"
+    },
+    {
+      "claim": "main table has task-specific pretraining/action-history exceptions",
+      "evidence": [
+        "Appendix A.1 p.14"
+      ],
+      "status": "grounded"
+    }
+  ],
+  "analysis_labels_checked": true,
+  "cross_paper_boundary": "FastWAM relation is paper-supported; Light-WAM and ImageWAM are explicitly marked unsupported/not experimentally compared."
+}

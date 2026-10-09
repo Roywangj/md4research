@@ -1,0 +1,128 @@
+Phase I: Multi-Domain Video Filtering
+(a) Rule-based Coarse Filter
+(b) Agent-based Fine Filtering
+Rich
+Information
+Phase II: Visual Search and VQA Generation 
+CLIP Score
+Phase III: Trajectory Generation
+Simulated Filtering
+4 times
+Tested
+System
+Video 
+Datasets
+Social
+Media
+Low-Quality
+Solid-Color
+Overly Long 
+Duration
+Overly Short 
+Duration
+Discard
+(a) Keyframe Selection
+(c) Image Search
+Input Videos
+Meta Data
+NBC Emmy Award
+actor Girls5Eva
+Candidate
+Images
+(d) VQA Generation and Verification
+Single-entity 
+Multi-entity
+What 2024 musical fantasy film 
+did the man wearing a baseball cap 
+appear in?
+Wicked
+(b) Entity Extraction
+Did the two actresses 
+collaborate for the first time?
+Yes
+Benchmark Construction
+Select_Keyframe
+(a) Visual Perception
+Crop_Search
+(b) Web Exploration
+Select_Keyframe
+Crop_Search
+Image Search
+Search
+Visit
+Input Videos
+Page Visit
+Web Search
+Text-based Queries
+Cross-Frame 
+Cross-Entity
+Synthesized 
+VQA 
+Input 
+Videos
+(c) Reject Sampling
+Expand
+Action Space
+Rollout
+Annotators
+No? Discard
+Seed VQA Pairs
+What is the name of the 
+man wearing a baseball cap? 
+Bowen Yang.
+Drafting 
+Agent
+What is his profession?
+What is his nationality?
+Who’s the male comedian who co-
+hosts Las Culturistas with him?
+Bowen Yang
+actor
+American 
+comedian
+…
+Generation 
+Agent
+Multi-hop Question
+Filter out
+Ranking Agent
+Scores 
+Validated Questions
+Highest 
+Score
+Keywords
+Figure 3: Overview of VIDEO-DEEPRESEARCH. Phase I: Raw videos from diverse sources are filtered via
+rule-based and agent-based stages. Phase II: Keyframes are selected, entities are cropped for visual search, and
+VQA pairs are synthesized through single- and multi-entity patterns with parametric-leakage filtering. Phase III:
+Trajectories are constructed via a decoupled perception-exploration pipeline: the agent first grounds entities across
+frames using Select_Keyframe and Crop_Search, then the action space expands to Search and Visit for web
+exploration; only correct trajectories survive reject sampling.
+Wang and Yang, 2026) and real-world streaming
+platforms1. These videos subsequently undergo a
+two-stage filtering process. First, a rule-based filter
+discards instances falling outside predefined dura-
+tion thresholds. Second, we introduce an agentic
+filtering stage where Qwen3.5-35B-A3B (Team,
+2026) assesses content complexity, eliminating
+videos that are uninformative or overly simplistic.
+Subsequently, this curated dataset is partitioned
+into a training set for constructing training trajec-
+tories and a test set for establishing the evaluation
+benchmark.
+Step 1: Keyframe Selection and Visual Search.
+1YouTube
+We subsequently initiate an agent-driven metadata
+curation process.
+Specifically, after proposing
+candidate frames via CLIP-based inter-frame sim-
+ilarity, we deploy Qwen3.5-397B-A17B (Team,
+2026) to finalize the selection of keyframes vt.
+For each vt, the same model predicts bounding
+boxes B to localize distinct entities e. These en-
+tities are then cropped and used to execute visual
+search queries. To ensure data fidelity, a secondary
+model (Qwen3.5-35B-A3B) verifies the semantic
+alignment between the cropped region and the re-
+trieved results. Upon successful verification, we
+compile the video metadata, structured as a tuple:
+⟨vt, B, entity name, search summary⟩.

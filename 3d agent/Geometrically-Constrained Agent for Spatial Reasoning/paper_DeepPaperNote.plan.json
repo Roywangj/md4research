@@ -1,0 +1,153 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文核心是提出一个训练-free 的几何约束代理范式，用形式化任务约束把 VLM 的语义理解与工具/代码中的确定性几何计算分离；实验用于验证该方法在多种空间推理基准上的有效性。",
+  "dominant_domain": "3D spatial reasoning and tool-augmented VLM agents",
+  "must_cover": [
+    "问题动机：VLM 的语义空间会丢失高保真几何信息，形成语义到几何的鸿沟。",
+    "现有训练方法有 oracle paradox，现有工具方法约束最终计算但没有约束 VLM 规划。",
+    "Ctask 如何由参考系约束 CR 和目标约束 CO 组成，并作为几何桥梁。",
+    "Fformalize 与 Fcompute 的两阶段角色切分，以及工具调用、反馈消歧、知识增强代码生成。",
+    "主结果、形式化消融、组件消融、任务约束消融、泛化结果和错误归因。",
+    "局限：计算成本、图像工具箱边界、动态参考系、抽象区域参考系和工具误差。"
+  ],
+  "key_numbers": [
+    "GCA 在多个空间推理基准上报告平均准确率约 64.8%，表格平均列为 65.1。",
+    "GCA 相对最强基础 VLM Gemini-2.5-Pro 提升约 12%，相对 SpatialLadder 提升约 27%，相对 TIGeR 提升约 38%。",
+    "MMSI-Bench 上 GCA 达到 47.6%，相对 Gemini-2.5-Pro 有约 28% 相对提升。",
+    "MindCube-tiny 上 GCA 总体为 64.2%。",
+    "形式化消融中 Baseline CoT 为 32.6，Tool Unconstrained 为 40.1，Tool Prompt 为 41.9，GCA 为 47.6，人工标注约束 Oracle 为 49.5。",
+    "跨 VLM 泛化中，GCA 平均带来约 37% 相对提升；Gemini-2.5-Pro 从 36.9 提升到 55.0。",
+    "组件消融中 CoT 为 32.6，加入工具为 36.8，再加入 KACG 为 38.7，再加入反馈为 40.1，加入 Ctask 后为 47.6。",
+    "任务约束消融中完整 Ctask 为 47.6，去掉目标约束为 46.4，去掉参考系约束为 41.0，只把 Ctask 当提示且无工具为 33.5。",
+    "错误归因中形式化阶段约占 30% 错误，计算阶段约占 70%；其中感知错误约 24%，Python 工具错误约 25%，其他约 21%。",
+    "稳定性分析中 MMSI-Bench 十次运行结果为 47.6 ± 0.3。"
+  ],
+  "real_comparisons": [
+    "基础 VLM、训练-based 方法、tool-integrated agent 与 GCA 在 MMSI-Bench、MindCube-tiny、OmniSpatial、SPBench、CV-Bench 上的比较。",
+    "CoT-only、unconstrained tool integration、prompted tool integration、GCA、human-annotated oracle 的形式化消融。",
+    "Tool Integration、KACG、Feedback、Ctask 四个组件的逐步消融。",
+    "参考系约束 CR 与目标约束 CO 的子组件消融。",
+    "GLM-4.5V、GPT-4o、Qwen3-VL-Thinking、Gemini-2.5-Pro 等不同 VLM 上的泛化结果。",
+    "错误归因中 Fformalize 与 Fcompute 的失败来源比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "VLM 空间推理的主要失败来自语义表示与高保真几何之间的错位，而不是单纯缺少更多推理文字。",
+      "supporting_evidence": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "约束化后的工具/代码计算显著超过 CoT 和弱提示工具方案，说明把问题转为可验证几何约束是有效干预。",
+      "what_it_does_not_prove": "论文没有证明 VLM 内部真的形成了更准确的几何表征；它证明的是外部约束和工具流程可以绕开这部分短板。"
+    },
+    {
+      "claim": "Ctask 是连接语义和几何的关键桥梁，其中 CR 比 CO 更重要。",
+      "supporting_evidence": [
+        "sec:methodology",
+        "sec:experiments",
+        "sec:references"
+      ],
+      "what_it_actually_proves": "形式化消融和任务约束消融显示，去掉参考系约束降幅明显大于去掉目标约束。",
+      "what_it_does_not_prove": "它不说明当前三类参考系可以覆盖所有动态、抽象或开放世界空间任务。"
+    },
+    {
+      "claim": "训练-free 的几何约束代理可以泛化到多种 VLM 和基准。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "sec:conclusion"
+      ],
+      "what_it_actually_proves": "GCA 在多种基础模型和多个空间推理基准上有一致提升。",
+      "what_it_does_not_prove": "这不等于真实机器人、长视频导航或室外开放场景已经解决。"
+    }
+  ],
+  "claim_boundaries": [
+    "GCA 仍依赖外部视觉基础模型和工具接口，VGGT、检测、分割或朝向估计出错会直接污染几何变量。",
+    "当前工具箱主要面向图像输入，尚未充分覆盖长视频、持续导航和运动跟踪。",
+    "形式化阶段仍有约 30% 错误，复杂语义、跨图歧义和隐含参照仍会失败。",
+    "主方法计算成本高于纯 CoT，但作者把它定位为可验证路径和未来监督信号来源。"
+  ],
+  "negative_or_limiting_results": [
+    "Fcompute 阶段占 70% 错误，说明即使规划被约束，工具编排和代码计算仍是主要瓶颈。",
+    "VGGT 不能接受文本旋转序列，导致某些相机顺序和重建基础错误。",
+    "Python 工具常因坐标变换遗忘或主方向判断不足而失败。",
+    "仅把 Ctask 当作文本提示且不使用工具，只比 CoT 多约 0.9 点，说明约束必须绑定到计算阶段。"
+  ],
+  "mechanism_result_map": [
+    "把用户查询转成 Ctask，解释了为什么弱提示不足而正式约束有效。",
+    "CR 锚定坐标系，解释了为什么参考系消融降分最大。",
+    "CO 定义待测目标，解释了为什么目标约束也有价值但通常比 CR 更容易由上下文恢复。",
+    "KACG 把几何公式库注入代码生成，解释了为什么它比单纯工具集成进一步提升。",
+    "反馈消歧让 VLM 处理多个检测候选，解释了为什么工具输出不能直接等同于最终几何变量。"
+  ],
+  "comparative_positioning": [
+    "相对训练-based 方法，GCA 不从可能错误的 oracle 学空间逻辑，而是在测试时生成约束并计算。",
+    "相对 TIGeR 或 SpatialAgent，GCA 不让 VLM 直接把问题翻译成工具序列，而先约束 what-to-solve。",
+    "相对普通 CoT，GCA 把几何推理外包给可验证工具和代码，而不是让模型在语义空间中想象坐标。"
+  ],
+  "reuse_takeaways": [
+    "处理空间推理时，优先显式确定参考系，再谈左右、前后、远近。",
+    "工具增强 agent 的计划阶段也需要约束；只约束最后计算不够。",
+    "代码生成前应注入固定公式库，减少几何公式幻觉。",
+    "错误分析要分开看任务形式化、感知变量绑定、代码计算和预算/参数传递。"
+  ],
+  "followup_questions": [
+    "能否把 CR 扩展成随时间变化的 CR(t)，支持连续导航和动作序列？",
+    "抽象区域如客厅、厨房的参考系是否能由 VLM 直接标注图像点对来定义？",
+    "如果视觉工具换成更强的 3D 重建或文本条件重建模型，Fcompute 错误会下降多少？",
+    "GCA 生成的 Ctask 能否作为监督数据训练一个更快的端到端空间 VLM？",
+    "不同 benchmark 的空间语言是否会诱导不同形式化偏差？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释语义到几何鸿沟、oracle paradox，以及工具规划不受约束的问题。",
+      "evidence_sources": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "列清 benchmark、输入类型、工具箱、主要 VLM 与评价边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "解释 Ctask、CR、CO、Fformalize、Fcompute、工具编排和 KACG。",
+      "evidence_sources": [
+        "sec:methodology",
+        "sec:discussion"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "主结果、形式化消融、组件消融、任务约束消融、泛化和稳定性数字。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "解释为什么 CR 是核心、为什么 Ctask 不是提示词、为什么错误仍集中在 Fcompute。",
+      "evidence_sources": [
+        "sec:methodology",
+        "sec:experiments",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "明确动态参考系、抽象区域、图像工具箱、计算成本和工具误差边界。",
+      "evidence_sources": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    }
+  ]
+}

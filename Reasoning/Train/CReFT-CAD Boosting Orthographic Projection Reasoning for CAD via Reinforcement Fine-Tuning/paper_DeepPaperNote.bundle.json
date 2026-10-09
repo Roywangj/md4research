@@ -1,0 +1,3991 @@
+{
+  "status": "ok",
+  "script": "build_synthesis_bundle.py",
+  "paper_id": "title:1b6efc9f4e56",
+  "title": "CReFT-CAD: Boosting Orthographic Projection",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "title:1b6efc9f4e56",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "CReFT-CAD: Boosting Orthographic Projection",
+      "translated_title": "",
+      "authors": [],
+      "year": "",
+      "venue": "",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "CReFT-CAD: Boosting Orthographic Projection",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "pdf_url": "",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "title",
+        "value": "CReFT-CAD: Boosting Orthographic Projection",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "minor_title_variation_only",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "CReFT-CAD: Boosting Orthographic Projection",
+          "work_value": "CReFT-CAD: Boosting Orthographic Projection"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_metadata.json"
+    }
+  },
+  "metadata": {
+    "title": "CReFT-CAD: Boosting Orthographic Projection",
+    "translated_title": "",
+    "authors": [],
+    "affiliations": [],
+    "year": "",
+    "venue": "",
+    "doi": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+    "abstract": "",
+    "arxiv_id": "",
+    "zotero_key": "",
+    "metadata_sources": [
+      "local_pdf"
+    ],
+    "identity_confidence": "low",
+    "identity_confidence_reasons": [
+      "first_page_title_used"
+    ]
+  },
+  "evidence_quality": "medium",
+  "coverage": {
+    "language_hint": "en",
+    "section_extraction_coverage": {
+      "coverage_status": "good",
+      "recognized_sections": [
+        "preamble",
+        "abstract",
+        "introduction",
+        "method",
+        "experiment",
+        "references",
+        "conclusion"
+      ],
+      "core_sections_found": [
+        "introduction",
+        "method",
+        "experiment"
+      ],
+      "missing_core_sections": [],
+      "section_text_chars": {
+        "preamble": 351,
+        "abstract": 1617,
+        "introduction": 10050,
+        "method": 18711,
+        "experiment": 26894,
+        "references": 10832,
+        "conclusion": 7700
+      },
+      "fallback_sections": []
+    },
+    "pdf_coverage": {
+      "total_pages": 23,
+      "text_max_pages": null,
+      "text_pages_extracted": 23,
+      "text_pages_scanned": 23,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 10,
+      "section_stop_reason": "",
+      "section_stop_page": null
+    },
+    "source_coverage": {
+      "total_pages": 23,
+      "text_max_pages": null,
+      "text_pages_extracted": 23,
+      "text_pages_scanned": 23,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 10
+    },
+    "source_manifest": {
+      "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_raw_sections.jsonl",
+      "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_full_text.md",
+      "section_count": 13,
+      "page_count": 23,
+      "text_hash_sha256": "6b93b08559261e69c078114d9eee1ec471e8bc2053686dbe4f0fa06caea9ca3a"
+    },
+    "appendix_evidence_counts": {
+      "ablation": 0,
+      "implementation_details": 0,
+      "dataset_details": 0,
+      "extra_results": 0,
+      "qualitative_examples": 0
+    },
+    "extraction_failures": [],
+    "asset_coverage": {
+      "total_pages": 23,
+      "asset_max_pages": 40,
+      "asset_pages_scanned": 23,
+      "truncated_due_to_asset_page_limit": false
+    },
+    "figure_quality_summary": {
+      "usable": 8,
+      "review": 0,
+      "reject": 1,
+      "unknown": 0
+    },
+    "truncation_warnings": [],
+    "identity_confidence": "low",
+    "identity_confidence_reasons": [
+      "first_page_title_used"
+    ]
+  },
+  "source_manifest": {
+    "paper_id": "title:1b6efc9f4e56",
+    "title": "CReFT-CAD: Boosting Orthographic Projection",
+    "source_kind": "pdf_text",
+    "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_full_text.md",
+    "pdf": {
+      "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "total_pages": 23,
+      "text_pages_extracted": 23,
+      "text_max_pages": null,
+      "text_truncated": false
+    },
+    "coverage": {
+      "total_pages": 23,
+      "text_max_pages": null,
+      "text_pages_extracted": 23,
+      "text_pages_scanned": 23,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 10
+    }
+  },
+  "source_index": {
+    "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_full_text.md",
+    "sections": [
+      {
+        "section_id": "sec:preamble",
+        "kind": "preamble",
+        "title": "preamble",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 351,
+        "text_hash_sha256": "58639b6a34aa947c74e875dfc8335f08d47e409bd6c99c29ac27c00d84a33b2f"
+      },
+      {
+        "section_id": "sec:abstract",
+        "kind": "abstract",
+        "title": "Abstract",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 1617,
+        "text_hash_sha256": "69b0710a5b97d92b154a9c969ed6f1db223421a150b903194f8b3cfb2f893868"
+      },
+      {
+        "section_id": "sec:introduction",
+        "kind": "introduction",
+        "title": "Introduction",
+        "page_start": 1,
+        "page_end": 3,
+        "char_count": 5574,
+        "text_hash_sha256": "697a01f567cd7da753f3110c2e3b5068cf074d810f603fd64cf5b66d9d587d43"
+      },
+      {
+        "section_id": "sec:related-work",
+        "kind": "introduction",
+        "title": "Related Work",
+        "page_start": 3,
+        "page_end": 4,
+        "char_count": 4475,
+        "text_hash_sha256": "50820e0fba8c585da23e15687d35fa59e093f44e1a90f95c539a847b344608a0"
+      },
+      {
+        "section_id": "sec:model",
+        "kind": "method",
+        "title": "3-D Model",
+        "page_start": 4,
+        "page_end": 4,
+        "char_count": 1211,
+        "text_hash_sha256": "18829e97d3626ac89f854fb9a535a4afe1e64067fad8ead433b1387962ee928a"
+      },
+      {
+        "section_id": "sec:model-2",
+        "kind": "method",
+        "title": "3D Model",
+        "page_start": 4,
+        "page_end": 4,
+        "char_count": 74,
+        "text_hash_sha256": "fc6f63194c634659177f13181cbdadc008529931783740954ee7d62894e3ba14"
+      },
+      {
+        "section_id": "sec:model-3",
+        "kind": "method",
+        "title": "model.",
+        "page_start": 4,
+        "page_end": 5,
+        "char_count": 4300,
+        "text_hash_sha256": "bfd770d4dd48157c60942de09104907c235b3209774940cba874dcabe542b631"
+      },
+      {
+        "section_id": "sec:methodology",
+        "kind": "method",
+        "title": "Methodology",
+        "page_start": 5,
+        "page_end": 7,
+        "char_count": 9662,
+        "text_hash_sha256": "35a7c1279d9c75e0ecdbd47d0ac410294d26e3e7e02e35133f0b241c5253e612"
+      },
+      {
+        "section_id": "sec:experiments",
+        "kind": "experiment",
+        "title": "Experiments",
+        "page_start": 7,
+        "page_end": 9,
+        "char_count": 6108,
+        "text_hash_sha256": "8aa94396cf6d9b2ff59885ee0d0856940391aa3fc6ad9e7d8a38333a33103162"
+      },
+      {
+        "section_id": "sec:method",
+        "kind": "method",
+        "title": "METHOD",
+        "page_start": 9,
+        "page_end": 10,
+        "char_count": 3460,
+        "text_hash_sha256": "bd81dc681e1885e1c6358d96f902d96c4cf55f8a059e3c7819ee3317acc27d9a"
+      },
+      {
+        "section_id": "sec:references",
+        "kind": "references",
+        "title": "References",
+        "page_start": 10,
+        "page_end": 13,
+        "char_count": 10832,
+        "text_hash_sha256": "244abb17b2747121fc88f4cc7694f81e89ec3d180302726fe1041dd3f840fd27"
+      },
+      {
+        "section_id": "sec:limitations",
+        "kind": "conclusion",
+        "title": "2. Limitations",
+        "page_start": 13,
+        "page_end": 15,
+        "char_count": 7700,
+        "text_hash_sha256": "945fd5fa1fbab1b08ca57a359c01f7cdeb672642735b4295f8a1ade1515d87c2"
+      },
+      {
+        "section_id": "sec:results",
+        "kind": "experiment",
+        "title": "results?",
+        "page_start": 15,
+        "page_end": 23,
+        "char_count": 20785,
+        "text_hash_sha256": "dc8506bfc2c8a48340b15f51f1f32254570f8ec14b9123b6145cdda896cf77c5"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "char_count": 3009,
+        "section_ids": [
+          "sec:preamble",
+          "sec:abstract",
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 2,
+        "char_count": 4560,
+        "section_ids": [
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 3,
+        "char_count": 4185,
+        "section_ids": [
+          "sec:introduction",
+          "sec:related-work"
+        ]
+      },
+      {
+        "page": 4,
+        "char_count": 3229,
+        "section_ids": [
+          "sec:related-work",
+          "sec:model",
+          "sec:model-2",
+          "sec:model-3"
+        ]
+      },
+      {
+        "page": 5,
+        "char_count": 4246,
+        "section_ids": [
+          "sec:model-3",
+          "sec:methodology"
+        ]
+      },
+      {
+        "page": 6,
+        "char_count": 4447,
+        "section_ids": [
+          "sec:methodology"
+        ]
+      },
+      {
+        "page": 7,
+        "char_count": 3917,
+        "section_ids": [
+          "sec:methodology",
+          "sec:experiments"
+        ]
+      },
+      {
+        "page": 8,
+        "char_count": 4250,
+        "section_ids": [
+          "sec:experiments"
+        ]
+      },
+      {
+        "page": 9,
+        "char_count": 4351,
+        "section_ids": [
+          "sec:experiments",
+          "sec:method"
+        ]
+      },
+      {
+        "page": 10,
+        "char_count": 4233,
+        "section_ids": [
+          "sec:method",
+          "sec:references"
+        ]
+      },
+      {
+        "page": 11,
+        "char_count": 4147,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 12,
+        "char_count": 2371,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 13,
+        "char_count": 3234,
+        "section_ids": [
+          "sec:references",
+          "sec:limitations"
+        ]
+      },
+      {
+        "page": 14,
+        "char_count": 3695,
+        "section_ids": [
+          "sec:limitations"
+        ]
+      },
+      {
+        "page": 15,
+        "char_count": 3241,
+        "section_ids": [
+          "sec:limitations",
+          "sec:results"
+        ]
+      },
+      {
+        "page": 16,
+        "char_count": 2885,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 17,
+        "char_count": 3392,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 18,
+        "char_count": 2948,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 19,
+        "char_count": 790,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 20,
+        "char_count": 2827,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 21,
+        "char_count": 4224,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 22,
+        "char_count": 1132,
+        "section_ids": [
+          "sec:results"
+        ]
+      },
+      {
+        "page": 23,
+        "char_count": 1074,
+        "section_ids": [
+          "sec:results"
+        ]
+      }
+    ],
+    "captions": {
+      "figures": [
+        {
+          "id": "Figure 1",
+          "caption": "(a) (b) show the results of parameterization tasks of orthographic projection reasoning",
+          "page": 2,
+          "pages": [
+            2
+          ],
+          "section_id": "sec:introduction"
+        },
+        {
+          "id": "Figure 2",
+          "caption": "Constraint-driven synthesis pipeline for TriView2CAD.",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section_id": "sec:related-work"
+        },
+        {
+          "id": "Figure 3",
+          "caption": "Examples of Real-World",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section_id": "sec:related-work"
+        },
+        {
+          "id": "Figure 4",
+          "caption": "Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+          "page": 5,
+          "pages": [
+            5
+          ],
+          "section_id": "sec:model-3"
+        },
+        {
+          "id": "Figure 5",
+          "caption": "Four sets of failure cases. Each set consists of three parts: the left part shows the",
+          "page": 22,
+          "pages": [
+            22
+          ],
+          "section_id": "sec:results"
+        }
+      ],
+      "tables": [
+        {
+          "id": "Table 1",
+          "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+          "page": 8,
+          "pages": [
+            8
+          ],
+          "section_id": "sec:experiments"
+        },
+        {
+          "id": "Table 2",
+          "caption": "Ablation study results.",
+          "page": 9,
+          "pages": [
+            9
+          ],
+          "section_id": "sec:experiments"
+        },
+        {
+          "id": "Table 3",
+          "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+          "page": 20,
+          "pages": [
+            20
+          ],
+          "section_id": "sec:results"
+        },
+        {
+          "id": "Table 4",
+          "caption": "Performance comparison of training-free model, SFT model,and our GRPO-based model on",
+          "page": 21,
+          "pages": [
+            21
+          ],
+          "section_id": "sec:results"
+        }
+      ]
+    },
+    "math_index": [
+      {
+        "text": "Given the top view < >, and front view < >, which one < > is the",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 3
+      },
+      {
+        "text": "Given the <image>, is the Pier Column Cross-Bridge",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 3
+      },
+      {
+        "text": "The right side view is < >.",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 3
+      },
+      {
+        "text": "Given the front, top, and side views<image>, what is the quantity of",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 3
+      },
+      {
+        "text": "constraints (e.g., “Cross-Bridge Pier Spacing” < “Cap Beam",
+        "section_id": "sec:model-3",
+        "page_start": 4,
+        "page_end": 5
+      },
+      {
+        "text": "<mask>, .., 356 C... D ...",
+        "section_id": "sec:model-3",
+        "page_start": 4,
+        "page_end": 5
+      },
+      {
+        "text": "n follows a uniform distribution N ∼Uniform(a, b), where a = 1 and b = 15.",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "RP1 =",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "RP2 =",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "if Sselected = Scorrect",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "if Sselected ⊆Scorrect but Sselected ̸= Scorrect",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "if (Sselected ∩Scorrect ̸= ∅) and (Sselected ∩Sincorrect ̸= ∅)",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "if Sselected = Sincorrect",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "Where SSelected = Scorrect means the model selects only the correct parameter value lists; SSelected ⊇",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "Scorrect but SSelected ̸= Scorrect means the model selects all correct lists but fails to select all of them;",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "SSelected ∩Scorrect ̸= ∅and SSelected ∩Sincorrect ̸= ∅means the model selects both correct and incorrect",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "parameter value lists; SSelected = Sincorrect means the model selects incorrect parameter value lists.",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      },
+      {
+        "text": "RP3 =",
+        "section_id": "sec:methodology",
+        "page_start": 5,
+        "page_end": 7
+      }
+    ],
+    "appendix_index": {
+      "appendix_detected": false,
+      "start_page": null,
+      "sections": [],
+      "figure_captions": [],
+      "table_captions": []
+    },
+    "language_hint": "en",
+    "text_hash_sha256": "6b93b08559261e69c078114d9eee1ec471e8bc2053686dbe4f0fa06caea9ca3a"
+  },
+  "references": {
+    "candidates": []
+  },
+  "figure_plan": {
+    "paper_id": "title:1b6efc9f4e56",
+    "figures": [
+      {
+        "id": "Figure 2",
+        "caption": "Constraint-driven synthesis pipeline for TriView2CAD.",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_figure_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+          "width": 1064,
+          "height": 558,
+          "size_bytes": 101336,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.159021,
+            "visual_rect_count": 24,
+            "visual_body_ratio": 0.686365,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 63,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "figure 2",
+              "constraint-driven",
+              "synthesis",
+              "pipeline",
+              "triview"
+            ],
+            "snippet": "ties separating Execute Front Side Top Orthographic Projection Expert Knowledge 3-D Model Figure 2: Constraint-driven synthesis pipeline for TriView2CAD. TriView2CAD comprises 200,000 synt",
+            "images": [
+              {
+                "filename": "page_004_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 2179
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+                "width": 1064,
+                "height": 558,
+                "size_bytes": 101336,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.159021,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.686365,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 63,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+                "width": 525,
+                "height": 745,
+                "size_bytes": 83380,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104671,
+                  "visual_rect_count": 7,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1414,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 75,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "constraint-driven",
+              "synthesis",
+              "pipeline",
+              "triview"
+            ],
+            "snippet": "ark tailored to industrial CAD pipelines. Leveraging real-world design archives, we use a constraint-driven synthesis pipeline to generate 200,000 synthetic and 3,000 real-world three- view sets, e",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 1,
+            "matched_terms": [
+              "triview"
+            ],
+            "snippet": "p from parameter sampling to editable, simulation-ready CAD geometries. 3.2 Evaluation of TriView2CAD We benchmark seven leading vision–language models on TriView2CAD to assess their high",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+                "width": 1169,
+                "height": 322,
+                "size_bytes": 69715,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.100816,
+                  "visual_rect_count": 19,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 342,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 87,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "(a) (b) show the results of parameterization tasks of orthographic projection reasoning",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+          "width": 1122,
+          "height": 651,
+          "size_bytes": 137445,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.19558,
+            "visual_rect_count": 55,
+            "visual_body_ratio": 0.556124,
+            "paragraph_text_chars": 703,
+            "table_body_rows": 0,
+            "caption_text_chars": 243,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "show",
+              "parameterization",
+              "tasks",
+              "orthographic",
+              "projection"
+            ],
+            "snippet": "the full lifecycle of industrial design—from design and manufacturing to simulation (see Fig. 1). It consists of a two-stage paradigm integrating reinforcement learning and supervised t",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "show",
+              "tasks",
+              "orthographic",
+              "projection"
+            ],
+            "snippet": "erved exclusively for testing. The synthetic test set evaluates in-domain performance. As shown in Fig. 3, real-world images typically feature more complex structures—primarily due to",
+            "images": [
+              {
+                "filename": "page_004_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 2179
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+                "width": 1064,
+                "height": 558,
+                "size_bytes": 101336,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.159021,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.686365,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 63,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+                "width": 525,
+                "height": 745,
+                "size_bytes": 83380,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104671,
+                  "visual_rect_count": 7,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1414,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 75,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 3,
+            "matched_terms": [
+              "parameterization",
+              "tasks",
+              "orthographic",
+              "projection"
+            ],
+            "snippet": "Training Tasks Dichotomous choice task Multiple choice task Parameterization task based on CoT Input Prompt Response Yes/NO A/B/C/D 2*82+2*188+148, 2*398+160, ..., 22",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+                "width": 1169,
+                "height": 322,
+                "size_bytes": 69715,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.100816,
+                  "visual_rect_count": 19,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 342,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 87,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_table_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+          "width": 1154,
+          "height": 487,
+          "size_bytes": 108661,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.150473,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 766,
+            "table_body_rows": 13,
+            "caption_text_chars": 91,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "performance",
+              "comparison",
+              "various",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "Table 1: Performance comparison of various VLMs on orthographic projection reasoning tasks. PROMP",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+                "width": 1154,
+                "height": 487,
+                "size_bytes": 108661,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.150473,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 766,
+                  "table_body_rows": 13,
+                  "caption_text_chars": 91,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "various",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "y, and task-specific SFT often induces pattern memorization and out-of-distribution (OOD) performance degradation rather than fostering deeper reasoning [16]. Inspired by DeepSeek R1-Zero’s G",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "l elements, and computing composite parameters. 2) Different prompt formats influence the performance. In both the Without Reasoning Guidance and With Reasoning Guidance settings, different p",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png",
+                "width": 496,
+                "height": 236,
+                "size_bytes": 23092,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.031488,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1067,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 32,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation study results.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_009_fig_table_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png",
+          "width": 496,
+          "height": 236,
+          "size_bytes": 23092,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "table_text_contamination_suspected"
+            ],
+            "page_coverage_ratio": 0.031488,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 1067,
+            "table_body_rows": 5,
+            "caption_text_chars": 32,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 9,
+            "score": 6,
+            "matched_terms": [
+              "table 2",
+              "ablation"
+            ],
+            "snippet": "and deliver substantial performance gains on complex real-world data. 5.3 Abalation study Table 2: Ablation study results. METHOD w/o CoTwith CoT Task3 46.16 74.15 Task1 + Task3 46.05 77.",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png",
+                "width": 496,
+                "height": 236,
+                "size_bytes": 23092,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.031488,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1067,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 32,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_020_fig_table_3.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_020_fig_table_3.png",
+          "width": 1106,
+          "height": 404,
+          "size_bytes": 84201,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.119684,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 536,
+            "table_body_rows": 10,
+            "caption_text_chars": 91,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 20,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "performance",
+              "comparison",
+              "various",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "parameter set with necessary constraints. B Further analysis regarding the three findings Table 3: Performance comparison of various VLMs on orthographic projection reasoning tasks. PROMP",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_020_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_020_fig_table_3.png",
+                "width": 1106,
+                "height": 404,
+                "size_bytes": 84201,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.119684,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 536,
+                  "table_body_rows": 10,
+                  "caption_text_chars": 91,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "various",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "y, and task-specific SFT often induces pattern memorization and out-of-distribution (OOD) performance degradation rather than fostering deeper reasoning [16]. Inspired by DeepSeek R1-Zero’s G",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "comparison",
+              "various",
+              "vlms",
+              "orthographic"
+            ],
+            "snippet": "Table 1: Performance comparison of various VLMs on orthographic projection reasoning tasks. PROMPTS Without Re",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+                "width": 1154,
+                "height": 487,
+                "size_bytes": 108661,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.150473,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 766,
+                  "table_body_rows": 13,
+                  "caption_text_chars": 91,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Performance comparison of training-free model, SFT model,and our GRPO-based model on",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_021_fig_table_4.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+          "width": 1134,
+          "height": 281,
+          "size_bytes": 57846,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.085438,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 294,
+            "table_body_rows": 5,
+            "caption_text_chars": 134,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 21,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "performance",
+              "comparison",
+              "training-free",
+              "model",
+              "grpo-based"
+            ],
+            "snippet": "o advance orthographic projection CAD reasoning. C More performance on in-domain test set Table 4: Performance comparison of training-free model, SFT model,and our GRPO-based model on ort",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+                "width": 1134,
+                "height": 281,
+                "size_bytes": 57846,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.085438,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 294,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 134,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "comparison",
+              "model"
+            ],
+            "snippet": "Table 1: Performance comparison of various VLMs on orthographic projection reasoning tasks. PROMPTS Without Re",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+                "width": 1154,
+                "height": 487,
+                "size_bytes": 108661,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.150473,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 766,
+                  "table_body_rows": 13,
+                  "caption_text_chars": 91,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "performance",
+              "model"
+            ],
+            "snippet": "y, and task-specific SFT often induces pattern memorization and out-of-distribution (OOD) performance degradation rather than fostering deeper reasoning [16]. Inspired by DeepSeek R1-Zero’s G",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Examples of Real-World",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_figure_3.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+          "width": 525,
+          "height": 745,
+          "size_bytes": 83380,
+          "label": "Figure 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.104671,
+            "visual_rect_count": 7,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 1414,
+            "table_body_rows": 0,
+            "caption_text_chars": 75,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 7,
+            "matched_terms": [
+              "fig. 3",
+              "examples",
+              "real-world"
+            ],
+            "snippet": "lusively for testing. The synthetic test set evaluates in-domain performance. As shown in Fig. 3, real-world images typically feature more complex structures—primarily due to redundant a",
+            "images": [
+              {
+                "filename": "page_004_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 2179
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+                "width": 1064,
+                "height": 558,
+                "size_bytes": 101336,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.159021,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.686365,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 63,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+                "width": 525,
+                "height": 745,
+                "size_bytes": 83380,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104671,
+                  "visual_rect_count": 7,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1414,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 75,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "real-world"
+            ],
+            "snippet": "iew2CAD, the first large-scale benchmark tailored to industrial CAD pipelines. Leveraging real-world design archives, we use a constraint-driven synthesis pipeline to generate 200,000 synthe",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 1,
+            "matched_terms": [
+              "real-world"
+            ],
+            "snippet": "n reasoning capabilities. The evaluation results are presented in Sec. 3.2. Aligning with real-world CAD workflows, we design three complementary evaluation tasks to rigorously test a model’",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+                "width": 1169,
+                "height": 322,
+                "size_bytes": 69715,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.100816,
+                  "visual_rect_count": 19,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 342,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 87,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_005_fig_figure_4.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+          "width": 1169,
+          "height": 322,
+          "size_bytes": 69715,
+          "label": "Figure 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.100816,
+            "visual_rect_count": 19,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 342,
+            "table_body_rows": 0,
+            "caption_text_chars": 87,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 5,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "diagram",
+              "design",
+              "three",
+              "tasks",
+              "curriculum-driven"
+            ],
+            "snippet": "e numeric values of the following parameters in this exact order..., separated by commas. Figure 4: Diagram design of three tasks in curriculum-driven reinforcement fine-tuning. model into",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+                "width": 1169,
+                "height": 322,
+                "size_bytes": 69715,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.100816,
+                  "visual_rect_count": 19,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 342,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 87,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "design",
+              "three",
+              "tasks",
+              "curriculum-driven"
+            ],
+            "snippet": "ing interactive orthographic projection reasoning across the full lifecycle of industrial design—from design and manufacturing to simulation (see Fig. 1). It consists of a two-stage para",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 3288
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+                "width": 353,
+                "height": 451,
+                "size_bytes": 14199
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+                "width": 456,
+                "height": 442,
+                "size_bytes": 15615
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 651,
+                "size_bytes": 137445,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.19558,
+                  "visual_rect_count": 55,
+                  "visual_body_ratio": 0.556124,
+                  "paragraph_text_chars": 703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 243,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "design",
+              "three",
+              "tasks"
+            ],
+            "snippet": "formats (STEP and B-Rep). This comprehensive modality suite supports tasks spanning early design to downstream manufacturing and simulation. As shown in Fig. 5, we adopt a constraint-dri",
+            "images": [
+              {
+                "filename": "page_004_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 2179
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+                "width": 1064,
+                "height": 558,
+                "size_bytes": 101336,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.159021,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.686365,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 63,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+                "width": 525,
+                "height": 745,
+                "size_bytes": 83380,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104671,
+                  "visual_rect_count": 7,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1414,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 75,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Four sets of failure cases. Each set consists of three parts: the left part shows the",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_022_fig_figure_5.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_fig_figure_5.png",
+          "width": 1122,
+          "height": 1550,
+          "size_bytes": 424647,
+          "label": "Figure 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.465093,
+            "visual_rect_count": 21,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 246,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 21,
+            "score": 8,
+            "matched_terms": [
+              "fig. 5",
+              "four",
+              "failure",
+              "cases",
+              "each"
+            ],
+            "snippet": "ple and compositional inference scenarios. D Failure cases and analysis As illustrated in Fig. 5, we present four distinct failure cases, each highlighting different types of errors that",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+                "width": 1134,
+                "height": 281,
+                "size_bytes": 57846,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.085438,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 294,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 134,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 22,
+            "score": 8,
+            "matched_terms": [
+              "fig. 5",
+              "four",
+              "sets",
+              "failure",
+              "cases",
+              "each"
+            ],
+            "snippet": "3D model construction, and the right part illustrates the correctly constructed 3D model. Fig. 5(a) demonstrates the error induced by incorrect dimensional parameters. Specifically, due",
+            "images": [
+              {
+                "filename": "page_022_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_01.jpeg",
+                "width": 315,
+                "height": 234,
+                "size_bytes": 27695
+              },
+              {
+                "filename": "page_022_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_02.jpeg",
+                "width": 395,
+                "height": 503,
+                "size_bytes": 32376
+              },
+              {
+                "filename": "page_022_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_03.jpeg",
+                "width": 277,
+                "height": 289,
+                "size_bytes": 23824
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_figure_5.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_fig_figure_5.png",
+                "width": 1122,
+                "height": 1550,
+                "size_bytes": 424647,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.465093,
+                  "visual_rect_count": 21,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 246,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 7,
+            "matched_terms": [
+              "fig. 5",
+              "sets",
+              "each"
+            ],
+            "snippet": "ports tasks spanning early design to downstream manufacturing and simulation. As shown in Fig. 5, we adopt a constraint-driven synthesis pipeline, with detailed steps outlined below: Top",
+            "images": [
+              {
+                "filename": "page_004_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 216
+              },
+              {
+                "filename": "page_004_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+                "width": 200,
+                "height": 200,
+                "size_bytes": 2179
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+                "width": 1064,
+                "height": 558,
+                "size_bytes": 101336,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.159021,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.686365,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 63,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+                "width": 525,
+                "height": 745,
+                "size_bytes": 83380,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104671,
+                  "visual_rect_count": 7,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1414,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 75,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  },
+  "figure_table_manifest": {
+    "decisions_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/Reasoning/Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning/plan/creft_cad_figure_table_decisions.json",
+    "decisions": [
+      {
+        "item_id": "figure:Figure 1",
+        "source_id": "Figure 1",
+        "kind": "figure",
+        "label": "Figure 1",
+        "caption": "(a) (b) show the results of parameterization tasks of orthographic projection reasoning",
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_002_fig_figure_1.png",
+        "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 2",
+        "source_id": "Figure 2",
+        "kind": "figure",
+        "label": "Figure 2",
+        "caption": "Constraint-driven synthesis pipeline for TriView2CAD.",
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work",
+        "decision": "insert",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 1,
+        "target_section": "机制流程",
+        "plan_kind": "method_overview",
+        "source_image_filename": "page_004_fig_figure_2.png",
+        "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 3",
+        "source_id": "Figure 3",
+        "kind": "figure",
+        "label": "Figure 3",
+        "caption": "Examples of Real-World",
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work",
+        "decision": "insert",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_004_fig_figure_3.png",
+        "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 4",
+        "source_id": "Figure 4",
+        "kind": "figure",
+        "label": "Figure 4",
+        "caption": "Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+        "pages": [
+          5
+        ],
+        "section_id": "sec:model-3",
+        "decision": "insert",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "数据与任务定义",
+        "plan_kind": "data_or_task",
+        "source_image_filename": "page_005_fig_figure_4.png",
+        "relative_markdown_embed": "![Figure 4](images/page_005_fig_figure_4.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 5",
+        "source_id": "Figure 5",
+        "kind": "figure",
+        "label": "Figure 5",
+        "caption": "Four sets of failure cases. Each set consists of three parts: the left part shows the",
+        "pages": [
+          22
+        ],
+        "section_id": "sec:results",
+        "decision": "insert",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_022_fig_figure_5.png",
+        "relative_markdown_embed": "![Figure 5](images/page_022_fig_figure_5.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_fig_figure_5.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 1",
+        "source_id": "Table 1",
+        "kind": "table",
+        "label": "Table 1",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_008_fig_table_1.png",
+        "relative_markdown_embed": "![Table 1](images/page_008_fig_table_1.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 2",
+        "source_id": "Table 2",
+        "kind": "table",
+        "label": "Table 2",
+        "caption": "Ablation study results.",
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments",
+        "decision": "visual_defect",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "visual_quality_gate_rejected_candidate",
+        "visual_quality_status": "reject_visual_quality",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_009_fig_table_2.png",
+        "relative_markdown_embed": "![Table 2](images/page_009_fig_table_2.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png"
+      },
+      {
+        "item_id": "table:Table 3",
+        "source_id": "Table 3",
+        "kind": "table",
+        "label": "Table 3",
+        "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "pages": [
+          20
+        ],
+        "section_id": "sec:results",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_020_fig_table_3.png",
+        "relative_markdown_embed": "![Table 3](images/page_020_fig_table_3.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_020_fig_table_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 4",
+        "source_id": "Table 4",
+        "kind": "table",
+        "label": "Table 4",
+        "caption": "Performance comparison of training-free model, SFT model,and our GRPO-based model on",
+        "pages": [
+          21
+        ],
+        "section_id": "sec:results",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_021_fig_table_4.png",
+        "relative_markdown_embed": "![Table 4](images/page_021_fig_table_4.png)",
+        "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+        "materialization_status": "pending"
+      }
+    ],
+    "caption_counts": {
+      "figures": 5,
+      "tables": 4
+    },
+    "planned_items": 9,
+    "requires_full_decision_table": true
+  },
+  "pdf_assets": {
+    "asset_root": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection",
+    "images_dir": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images",
+    "page_assets": [
+      {
+        "page_number": 1,
+        "searchable_text_chars": 3009,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "CReFT-CAD: Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning Ke Niu∗, Zhuofan Chen∗, Haiyang YuB, Yuwen Chen, Teng Fu, Mengyang Zhao, Bin LiB, Xiangyang XueB College of Computer Science and Artificial Intellig"
+      },
+      {
+        "page_number": 2,
+        "searchable_text_chars": 4560,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 8,
+        "text_preview": "(e) CReFT-CAD for View Matching (a) Qwen2.5-VL (without tuning) for Full Parameter List Output Given the front, top, and side views, please output the numeric values of the following parameters in this exact order ..., separated by commas. "
+      },
+      {
+        "page_number": 3,
+        "searchable_text_chars": 4185,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "2 Related Work 2.1 Orthographic projection reasoning for CAD Understanding and reasoning with orthographic projection is a fundamental and longstanding chal- lenge in CAD-related tasks [18–20]. With the development of 3D reconstruction meth"
+      },
+      {
+        "page_number": 4,
+        "searchable_text_chars": 3229,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 14,
+        "text_preview": "Drawing Constraints Text Inter-/Intra-View Constraints Parameter Space ezdxf Step 2: 2D Drawing and Raster Image Generation Step 3: 3D Model Generation Step 1: Constraint-Guided Parameter Sampling Rendering Layers separating Entities separa"
+      },
+      {
+        "page_number": 5,
+        "searchable_text_chars": 4246,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Training Tasks Dichotomous choice task Multiple choice task Parameterization task based on CoT Input Prompt Response Yes/NO A/B/C/D 2*82+2*188+148, 2*398+160, ..., 222 Given the front, top, and side views, please refer to the required field"
+      },
+      {
+        "page_number": 6,
+        "searchable_text_chars": 4447,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Data engine. We utilize 160,000 image–text instruction pairs from the synthetic training set of TriView2CAD, where each prompt includes an orthographic projection and all 15 parameter key-value pairs (see Fig. 4).To ensure a balanced traini"
+      },
+      {
+        "page_number": 7,
+        "searchable_text_chars": 3917,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "is defined as: RP2 =        1 if Sselected = Scorrect 0.2 if Sselected ⊆Scorrect but Sselected ̸= Scorrect 0 if (Sselected ∩Scorrect ̸= ∅) and (Sselected ∩Sincorrect ̸= ∅) 0 if Sselected = Sincorrect (2) Where SSelected = Scorrect me"
+      },
+      {
+        "page_number": 8,
+        "searchable_text_chars": 4250,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Table 1: Performance comparison of various VLMs on orthographic projection reasoning tasks. PROMPTS Without Reasoning Guidance Reasoning Guidance Test Img+Reference+Answered +Attribute Test Img+Reference+Answered +Attribute Img Pair Explana"
+      },
+      {
+        "page_number": 9,
+        "searchable_text_chars": 4351,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "not only reading textual dimensions and visual features, but also matching annotations to geometry primitives, counting structural elements, and computing composite parameters. 2) Different prompt formats influence the performance. In both "
+      },
+      {
+        "page_number": 10,
+        "searchable_text_chars": 4233,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "real-world samples, each annotated with precise dimensions and accompanied by six interoperable data modalities. In conclusion, this work lays the groundwork for more robust, scalable solutions to CAD-related challenges, providing both a no"
+      },
+      {
+        "page_number": 11,
+        "searchable_text_chars": 4147,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "[16] Martin Arjovsky. Out of distribution generalization in machine learning. PhD thesis, New York University, 2020. [17] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi,"
+      },
+      {
+        "page_number": 12,
+        "searchable_text_chars": 2371,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "[36] An Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan Li, Dayiheng Liu, Fei Huang, Haoran Wei, et al. Qwen2. 5 technical report. arXiv preprint arXiv:2412.15115, 2024. [37] Marah Abdin, Jyoti Aneja, Hany Awad"
+      },
+      {
+        "page_number": 13,
+        "searchable_text_chars": 3234,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "NeurIPS Paper Checklist 1. Claims Question: Do the main claims made in the abstract and introduction accurately reflect the paper’s contributions and scope? Answer: [Yes] Justification: We have detailed the contributions accurately in the a"
+      },
+      {
+        "page_number": 14,
+        "searchable_text_chars": 3695,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Justification: This work does not include theoretical results. Guidelines: • The answer NA means that the paper does not include theoretical results. • All the theorems, formulas, and proofs in the paper should be numbered and cross- refere"
+      },
+      {
+        "page_number": 15,
+        "searchable_text_chars": 3241,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Answer: [No] Justification: We will release all resources upon acceptance. Guidelines: • The answer NA means that paper does not include experiments requiring code. • Please see the NeurIPS code and data submission guidelines (https://nips."
+      },
+      {
+        "page_number": 16,
+        "searchable_text_chars": 2885,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "• It is OK to report 1-sigma error bars, but one should state it. The authors should preferably report a 2-sigma error bar than state that they have a 96% CI, if the hypothesis of Normality of errors is not verified. • For asymmetric distri"
+      },
+      {
+        "page_number": 17,
+        "searchable_text_chars": 3392,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "• The conference expects that many papers will be foundational research and not tied to particular applications, let alone deployments. However, if there is a direct path to any negative applications, the authors should point it out. For ex"
+      },
+      {
+        "page_number": 18,
+        "searchable_text_chars": 2948,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "• If this information is not available online, the authors are encouraged to reach out to the asset’s creators. 13. New assets Question: Are new assets introduced in the paper well documented and is the documentation provided alongside the "
+      },
+      {
+        "page_number": 19,
+        "searchable_text_chars": 790,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Question: Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research? Note that if the LLM is used only for writing, editing, or formatting purposes and does not"
+      },
+      {
+        "page_number": 20,
+        "searchable_text_chars": 2827,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "A The complete reasoning guidance for each input format For the Test Image-Only format: • Identify all annotated numbers in the orthographic projection, including dimensions, spacing, and height. • Interpret their meanings based on position"
+      },
+      {
+        "page_number": 21,
+        "searchable_text_chars": 4224,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "none of the off-the-shelf models fully masters this composite task. Qwen2.5-VL [46] achieves the highest accuracy—38.88% under reasoning guidance with the Test Image + Attribute Explanation prompt. This improvement stems primarily from its "
+      },
+      {
+        "page_number": 22,
+        "searchable_text_chars": 1132,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 20,
+        "text_preview": "(a) Failure cases due to incorrect dimensions (b) Failure cases due to incorrect counting (c) Failure cases of component stacking (d) Failure cases exceeding the physical boundaries Figure 5: Four sets of failure cases. Each set consists of"
+      },
+      {
+        "page_number": 23,
+        "searchable_text_chars": 1074,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "reflects the direct impact that improper counting and recognition of geometric elements can have on the success of the 3D reconstruction. In Fig. 5(c), we observe a stacking issue caused by errors in the calculation of composite parameters."
+      }
+    ],
+    "image_assets": [
+      {
+        "page_number": 2,
+        "image_index": 1,
+        "xref": 5,
+        "filename": "page_002_img_01.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_01.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 3288,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 2,
+        "xref": 6,
+        "filename": "page_002_img_02.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_02.png",
+        "ext": "png",
+        "width": 353,
+        "height": 451,
+        "colorspace": 3,
+        "size_bytes": 14199,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 3,
+        "xref": 7,
+        "filename": "page_002_img_03.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_03.png",
+        "ext": "png",
+        "width": 456,
+        "height": 442,
+        "colorspace": 3,
+        "size_bytes": 15615,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 4,
+        "xref": 8,
+        "filename": "page_002_img_04.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_04.png",
+        "ext": "png",
+        "width": 448,
+        "height": 573,
+        "colorspace": 3,
+        "size_bytes": 43303,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 5,
+        "xref": 9,
+        "filename": "page_002_img_05.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_05.png",
+        "ext": "png",
+        "width": 272,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 3295,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 6,
+        "xref": 10,
+        "filename": "page_002_img_06.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_06.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 216,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 7,
+        "xref": 11,
+        "filename": "page_002_img_07.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_07.png",
+        "ext": "png",
+        "width": 271,
+        "height": 401,
+        "colorspace": 3,
+        "size_bytes": 8861,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 2,
+        "image_index": 8,
+        "xref": 4,
+        "filename": "page_002_img_08.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_img_08.png",
+        "ext": "png",
+        "width": 57,
+        "height": 57,
+        "colorspace": 3,
+        "size_bytes": 4460,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 1,
+        "xref": 35,
+        "filename": "page_004_img_01.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_01.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 216,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 2,
+        "xref": 36,
+        "filename": "page_004_img_02.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_02.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 216,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 3,
+        "xref": 37,
+        "filename": "page_004_img_03.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_03.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 2179,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 4,
+        "xref": 38,
+        "filename": "page_004_img_04.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_04.png",
+        "ext": "png",
+        "width": 401,
+        "height": 454,
+        "colorspace": 3,
+        "size_bytes": 21666,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 5,
+        "xref": 39,
+        "filename": "page_004_img_05.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_05.png",
+        "ext": "png",
+        "width": 628,
+        "height": 509,
+        "colorspace": 3,
+        "size_bytes": 22476,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 6,
+        "xref": 40,
+        "filename": "page_004_img_06.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_06.png",
+        "ext": "png",
+        "width": 425,
+        "height": 481,
+        "colorspace": 3,
+        "size_bytes": 16495,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 7,
+        "xref": 41,
+        "filename": "page_004_img_07.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_07.png",
+        "ext": "png",
+        "width": 597,
+        "height": 447,
+        "colorspace": 3,
+        "size_bytes": 39212,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 8,
+        "xref": 32,
+        "filename": "page_004_img_08.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_08.png",
+        "ext": "png",
+        "width": 288,
+        "height": 213,
+        "colorspace": 3,
+        "size_bytes": 37110,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 9,
+        "xref": 33,
+        "filename": "page_004_img_09.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_09.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 2056,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 10,
+        "xref": 34,
+        "filename": "page_004_img_10.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_10.png",
+        "ext": "png",
+        "width": 200,
+        "height": 200,
+        "colorspace": 3,
+        "size_bytes": 216,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 11,
+        "xref": 69,
+        "filename": "page_004_img_11.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_11.jpeg",
+        "ext": "jpeg",
+        "width": 1547,
+        "height": 1866,
+        "colorspace": 3,
+        "size_bytes": 200541,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 12,
+        "xref": 70,
+        "filename": "page_004_img_12.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_12.png",
+        "ext": "png",
+        "width": 778,
+        "height": 1478,
+        "colorspace": 3,
+        "size_bytes": 86670,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 13,
+        "xref": 67,
+        "filename": "page_004_img_13.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_13.png",
+        "ext": "png",
+        "width": 497,
+        "height": 626,
+        "colorspace": 3,
+        "size_bytes": 9732,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 4,
+        "image_index": 14,
+        "xref": 68,
+        "filename": "page_004_img_14.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_img_14.png",
+        "ext": "png",
+        "width": 1251,
+        "height": 1454,
+        "colorspace": 3,
+        "size_bytes": 98217,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 1,
+        "xref": 123,
+        "filename": "page_022_img_01.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 315,
+        "height": 234,
+        "colorspace": 3,
+        "size_bytes": 27695,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 2,
+        "xref": 132,
+        "filename": "page_022_img_02.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_02.jpeg",
+        "ext": "jpeg",
+        "width": 395,
+        "height": 503,
+        "colorspace": 3,
+        "size_bytes": 32376,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 3,
+        "xref": 133,
+        "filename": "page_022_img_03.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_03.jpeg",
+        "ext": "jpeg",
+        "width": 277,
+        "height": 289,
+        "colorspace": 3,
+        "size_bytes": 23824,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 4,
+        "xref": 134,
+        "filename": "page_022_img_04.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_04.jpeg",
+        "ext": "jpeg",
+        "width": 205,
+        "height": 230,
+        "colorspace": 3,
+        "size_bytes": 16746,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 5,
+        "xref": 135,
+        "filename": "page_022_img_05.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_05.jpeg",
+        "ext": "jpeg",
+        "width": 276,
+        "height": 272,
+        "colorspace": 3,
+        "size_bytes": 31444,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 6,
+        "xref": 136,
+        "filename": "page_022_img_06.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_06.jpeg",
+        "ext": "jpeg",
+        "width": 414,
+        "height": 481,
+        "colorspace": 3,
+        "size_bytes": 29585,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 7,
+        "xref": 137,
+        "filename": "page_022_img_07.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_07.jpeg",
+        "ext": "jpeg",
+        "width": 366,
+        "height": 509,
+        "colorspace": 3,
+        "size_bytes": 30860,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 8,
+        "xref": 138,
+        "filename": "page_022_img_08.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_08.jpeg",
+        "ext": "jpeg",
+        "width": 294,
+        "height": 223,
+        "colorspace": 3,
+        "size_bytes": 17721,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 9,
+        "xref": 139,
+        "filename": "page_022_img_09.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_09.jpeg",
+        "ext": "jpeg",
+        "width": 242,
+        "height": 165,
+        "colorspace": 3,
+        "size_bytes": 12370,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 10,
+        "xref": 140,
+        "filename": "page_022_img_10.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_10.jpeg",
+        "ext": "jpeg",
+        "width": 370,
+        "height": 344,
+        "colorspace": 3,
+        "size_bytes": 34793,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 11,
+        "xref": 141,
+        "filename": "page_022_img_11.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_11.jpeg",
+        "ext": "jpeg",
+        "width": 437,
+        "height": 460,
+        "colorspace": 3,
+        "size_bytes": 29758,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 12,
+        "xref": 124,
+        "filename": "page_022_img_12.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_12.jpeg",
+        "ext": "jpeg",
+        "width": 315,
+        "height": 234,
+        "colorspace": 3,
+        "size_bytes": 20946,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 13,
+        "xref": 142,
+        "filename": "page_022_img_13.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_13.jpeg",
+        "ext": "jpeg",
+        "width": 457,
+        "height": 468,
+        "colorspace": 3,
+        "size_bytes": 30250,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 14,
+        "xref": 125,
+        "filename": "page_022_img_14.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_14.jpeg",
+        "ext": "jpeg",
+        "width": 277,
+        "height": 234,
+        "colorspace": 3,
+        "size_bytes": 26257,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 15,
+        "xref": 126,
+        "filename": "page_022_img_15.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_15.jpeg",
+        "ext": "jpeg",
+        "width": 488,
+        "height": 468,
+        "colorspace": 3,
+        "size_bytes": 34139,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 16,
+        "xref": 127,
+        "filename": "page_022_img_16.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_16.jpeg",
+        "ext": "jpeg",
+        "width": 575,
+        "height": 457,
+        "colorspace": 3,
+        "size_bytes": 38112,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 17,
+        "xref": 128,
+        "filename": "page_022_img_17.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_17.jpeg",
+        "ext": "jpeg",
+        "width": 340,
+        "height": 261,
+        "colorspace": 3,
+        "size_bytes": 28526,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 18,
+        "xref": 129,
+        "filename": "page_022_img_18.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_18.jpeg",
+        "ext": "jpeg",
+        "width": 336,
+        "height": 261,
+        "colorspace": 3,
+        "size_bytes": 20681,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 19,
+        "xref": 130,
+        "filename": "page_022_img_19.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_19.jpeg",
+        "ext": "jpeg",
+        "width": 270,
+        "height": 261,
+        "colorspace": 3,
+        "size_bytes": 16144,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 22,
+        "image_index": 20,
+        "xref": 131,
+        "filename": "page_022_img_20.jpeg",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_img_20.jpeg",
+        "ext": "jpeg",
+        "width": 419,
+        "height": 509,
+        "colorspace": 3,
+        "size_bytes": 33208,
+        "extraction_level": "xref"
+      }
+    ],
+    "figure_assets": [
+      {
+        "filename": "page_002_fig_figure_1.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+        "page_number": 2,
+        "label": "Figure 1",
+        "kind": "figure",
+        "caption_text": "Figure 1: (a) (b) show the results of parameterization tasks of orthographic projection reasoning using Qwen2.5-VL and Deepseek without tuning. (c)–(f) illustrate CReFT-CAD’s capabilities across various orthographic projection reasoning tasks.",
+        "width": 1122,
+        "height": 651,
+        "size_bytes": 137445,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.19558,
+          "visual_rect_count": 55,
+          "visual_body_ratio": 0.556124,
+          "paragraph_text_chars": 703,
+          "table_body_rows": 0,
+          "caption_text_chars": 243,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_figure_2.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+        "page_number": 4,
+        "label": "Figure 2",
+        "kind": "figure",
+        "caption_text": "Figure 2: Constraint-driven synthesis pipeline for TriView2CAD.",
+        "width": 1064,
+        "height": 558,
+        "size_bytes": 101336,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.159021,
+          "visual_rect_count": 24,
+          "visual_body_ratio": 0.686365,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 63,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_figure_3.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+        "page_number": 4,
+        "label": "Figure 3",
+        "kind": "figure",
+        "caption_text": "Figure 3: Examples of Real-World Orthographic Projections and its 3D model.",
+        "width": 525,
+        "height": 745,
+        "size_bytes": 83380,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.104671,
+          "visual_rect_count": 7,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 1414,
+          "table_body_rows": 0,
+          "caption_text_chars": 75,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_005_fig_figure_4.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+        "page_number": 5,
+        "label": "Figure 4",
+        "kind": "figure",
+        "caption_text": "Figure 4: Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+        "width": 1169,
+        "height": 322,
+        "size_bytes": 69715,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.100816,
+          "visual_rect_count": 19,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 342,
+          "table_body_rows": 0,
+          "caption_text_chars": 87,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_008_fig_table_1.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+        "page_number": 8,
+        "label": "Table 1",
+        "kind": "table",
+        "caption_text": "Table 1: Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "width": 1154,
+        "height": 487,
+        "size_bytes": 108661,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.150473,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 766,
+          "table_body_rows": 13,
+          "caption_text_chars": 91,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_009_fig_table_2.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png",
+        "page_number": 9,
+        "label": "Table 2",
+        "kind": "table",
+        "caption_text": "Table 2: Ablation study results.",
+        "width": 496,
+        "height": 236,
+        "size_bytes": 23092,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "table_text_contamination_suspected"
+          ],
+          "page_coverage_ratio": 0.031488,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 1067,
+          "table_body_rows": 5,
+          "caption_text_chars": 32,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_020_fig_table_3.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_020_fig_table_3.png",
+        "page_number": 20,
+        "label": "Table 3",
+        "kind": "table",
+        "caption_text": "Table 3: Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+        "width": 1106,
+        "height": 404,
+        "size_bytes": 84201,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.119684,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 536,
+          "table_body_rows": 10,
+          "caption_text_chars": 91,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_021_fig_table_4.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+        "page_number": 21,
+        "label": "Table 4",
+        "kind": "table",
+        "caption_text": "Table 4: Performance comparison of training-free model, SFT model,and our GRPO-based model on orthographic projection reasoning tasks.",
+        "width": 1134,
+        "height": 281,
+        "size_bytes": 57846,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.085438,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 294,
+          "table_body_rows": 5,
+          "caption_text_chars": 134,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_022_fig_figure_5.png",
+        "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_fig_figure_5.png",
+        "page_number": 22,
+        "label": "Figure 5",
+        "kind": "figure",
+        "caption_text": "Figure 5: Four sets of failure cases. Each set consists of three parts: the left part shows the orthographic projection, the middle part presents the failed 3D model construction, and the right part illustrates the correctly constructed 3D model.",
+        "width": 1122,
+        "height": 1550,
+        "size_bytes": 424647,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.465093,
+          "visual_rect_count": 21,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 246,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      }
+    ],
+    "ocr_available": false
+  },
+  "writing_contract": {
+    "language": "zh-CN",
+    "contract_role": "manifest_quality_contract",
+    "canonical_source": "SKILL.md defines the workflow; scripts/contracts.py defines machine-checkable contract data.",
+    "must_include_sections": [
+      "核心信息",
+      "原文摘要翻译",
+      "创新点",
+      "一句话总结",
+      "研究问题",
+      "数据与任务定义",
+      "方法主线",
+      "关键结果",
+      "深度分析",
+      "局限",
+      "我的笔记",
+      "引用"
+    ],
+    "note_plan_contract": {
+      "required_fields": [
+        "paper_type",
+        "paper_type_rationale",
+        "dominant_domain",
+        "must_cover",
+        "key_numbers",
+        "real_comparisons",
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions",
+        "section_plan"
+      ],
+      "field_types": {
+        "paper_type": "string",
+        "paper_type_rationale": "string",
+        "dominant_domain": "string",
+        "must_cover": "array",
+        "key_numbers": "array",
+        "real_comparisons": "array",
+        "central_claims": "array",
+        "claim_boundaries": "array",
+        "negative_or_limiting_results": "array",
+        "mechanism_result_map": "array",
+        "comparative_positioning": "array",
+        "reuse_takeaways": "array",
+        "followup_questions": "array",
+        "section_plan": "array"
+      },
+      "required_field_checks": {
+        "string": {
+          "non_empty": true
+        },
+        "array": {
+          "non_empty": true
+        }
+      },
+      "artifact_preference": "short_json_planning_file",
+      "grounding_field": "section_plan[*].evidence_sources",
+      "analysis_coverage_field": "central_claims[*]"
+    },
+    "paper_type_selection": {
+      "source_of_truth": "note_plan.paper_type",
+      "suggested_paper_type_role": "none",
+      "allowed_paper_types": [
+        "AI_method",
+        "benchmark_or_dataset",
+        "clinical_or_psychology_empirical",
+        "humanities_or_social_science",
+        "survey_or_review"
+      ]
+    },
+    "contracts_by_paper_type": {
+      "AI_method": {
+        "paper_type": "AI_method",
+        "reader_lens": "面向能复现方法机制的技术读者",
+        "section_focus": [
+          "问题设置",
+          "方法机制",
+          "训练/推理流程",
+          "关键公式",
+          "比较基线",
+          "消融与失败边界"
+        ],
+        "required_checks": [
+          "需要说明机制流程、关键公式、实验设计、消融含义和失败边界。"
+        ],
+        "formula_rules": [
+          "仅保留理解方法必需的 1 到 3 个关键公式，并解释其工程含义。"
+        ],
+        "avoid_rules": [
+          "不要把非 AI_method 论文强行改写成模型架构。"
+        ],
+        "boundary_questions": [
+          "核心机制的收益由哪个实验或消融支撑，而不是只由主结果暗示？",
+          "哪些比较只能证明在当前数据、基线、算力或协议下有效，不能外推到通用场景？",
+          "论文是否给出失败、退化、不稳定或成本上升的证据；如果没有，结论边界是什么？"
+        ],
+        "section_semantics": {
+          "研究问题": "方法要解决的具体技术问题和现有方法短板。",
+          "数据与任务定义": "数据集、输入输出、评测任务和实验设置。",
+          "方法主线": "模型、算法、训练或推理机制。",
+          "关键结果": "主结果、强基线、消融和关键数字。",
+          "深度分析": "方法为什么有效、何处脆弱、复现和扩展代价。"
+        },
+        "recommended_subsections": {
+          "方法主线": [
+            "机制流程",
+            "模型结构",
+            "训练目标",
+            "推理与采样链路",
+            "关键实现细节"
+          ],
+          "关键结果": [
+            "主结果与强基线",
+            "消融到底说明了什么",
+            "失败或不稳定设置"
+          ],
+          "深度分析": [
+            "为什么有效",
+            "复杂度与扩展性",
+            "复现注意点"
+          ]
+        },
+        "mechanism_flow_contract": {
+          "apply_when_paper_type_in": [
+            "AI_method"
+          ],
+          "required_step_count": "3_to_4",
+          "required_step_fields": [
+            "input",
+            "operation",
+            "output_destination"
+          ]
+        }
+      },
+      "benchmark_or_dataset": {
+        "paper_type": "benchmark_or_dataset",
+        "reader_lens": "面向要判断 benchmark/dataset 可用性和偏差边界的研究者",
+        "section_focus": [
+          "任务拆分",
+          "数据来源与构建流程",
+          "标注协议",
+          "评测指标",
+          "覆盖范围与偏差",
+          "样本统计与数据开放限制"
+        ],
+        "required_checks": [
+          "需要说明数据来源、构建/标注流程、评测指标、基线表现、样本统计、数据开放或隐私限制和适用边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心评测指标、采样规则或划分定义。"
+        ],
+        "avoid_rules": [
+          "不要把数据构建流程写成模型 pipeline。"
+        ],
+        "boundary_questions": [
+          "这个 benchmark/dataset 实际测量的构念是什么，哪些能力只是间接近似？",
+          "任务、标签、采样、过滤或评测协议会引入哪些覆盖缺口或偏差？",
+          "基线结果证明了评测集有区分度，还是只证明某类模型适应该协议？",
+          "样本时长、语料长度、人口统计、类别分布、数据可访问性或隐私限制如何影响复现和外推？"
+        ],
+        "section_semantics": {
+          "研究问题": "这个 benchmark/dataset 想补足的评测或数据缺口。",
+          "数据与任务定义": "数据来源、任务拆分、标签/题目定义、样本范围。",
+          "方法主线": "数据构建、筛选、标注和评测协议，不写成模型 pipeline。",
+          "关键结果": "基线表现、难度分布、覆盖范围和偏差。",
+          "深度分析": "它真正测到了什么，以及不能代表什么。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "数据来源",
+            "任务拆分",
+            "标注/筛选协议"
+          ],
+          "方法主线": [
+            "构建流程",
+            "评测协议",
+            "Baseline 设置"
+          ],
+          "关键结果": [
+            "基线表现",
+            "难度分布",
+            "覆盖与偏差"
+          ],
+          "深度分析": [
+            "benchmark 真正测到了什么",
+            "适用边界"
+          ]
+        }
+      },
+      "clinical_or_psychology_empirical": {
+        "paper_type": "clinical_or_psychology_empirical",
+        "reader_lens": "面向关注临床/心理学样本、变量关系和外推边界的研究读者",
+        "section_focus": [
+          "样本来源",
+          "纳排标准",
+          "变量或量表",
+          "分析管线",
+          "效应量与不确定性",
+          "样本统计、伦理和数据可访问性"
+        ],
+        "required_checks": [
+          "需要区分相关、预测、组间差异和因果解释，说明样本统计、伦理/隐私约束与外推边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心统计模型、效应量、置信区间或量表定义。"
+        ],
+        "avoid_rules": [
+          "不要把相关性、预测性能或组间差异写成未经证明的因果结论。"
+        ],
+        "boundary_questions": [
+          "样本来源、纳排标准、测量工具和标注流程如何限制外推？",
+          "结果支持相关、预测、组间差异还是因果解释；不要越过论文设计能证明的范围。",
+          "临床或心理学意义是否依赖未观测混杂、量表阈值、文本/语音缺失或场景约束？",
+          "样本构成、数据缺失、隐私限制或材料不可公开会怎样限制复现与再分析？"
+        ],
+        "section_semantics": {
+          "研究问题": "临床、心理学或行为科学中的研究问题、假设或变量关系。",
+          "数据与任务定义": "样本来源、纳排标准、变量/量表、测量方式。",
+          "方法主线": "研究设计、分组、测量流程和统计分析路径。",
+          "关键结果": "主要效应、相关性、组间差异、不确定性或显著性。",
+          "深度分析": "结果解释、因果边界、临床/心理学意义和外推限制。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "样本与纳排标准",
+            "变量与量表",
+            "测量流程"
+          ],
+          "方法主线": [
+            "研究设计",
+            "分析模型",
+            "主要比较"
+          ],
+          "关键结果": [
+            "主要效应",
+            "不确定性与显著性",
+            "临床或心理学解释"
+          ],
+          "深度分析": [
+            "因果解释边界",
+            "外推限制"
+          ]
+        }
+      },
+      "humanities_or_social_science": {
+        "paper_type": "humanities_or_social_science",
+        "reader_lens": "面向关注理论框架、材料解释和论证结构的研究读者",
+        "section_focus": [
+          "研究对象",
+          "材料来源",
+          "理论框架",
+          "论证路径",
+          "概念贡献",
+          "解释边界"
+        ],
+        "required_checks": [
+          "需要区分作者论证、材料证据、规范性判断和实验事实。"
+        ],
+        "formula_rules": [
+          "通常不强行保留公式；仅保留核心形式化定义或编码规则。"
+        ],
+        "avoid_rules": [
+          "不要把规范性判断、文本解释或案例分析写成实验事实。"
+        ],
+        "boundary_questions": [
+          "作者的解释依赖哪些材料、案例或理论前提？",
+          "是否存在同样能解释材料的替代解释，论文如何排除或没有排除？",
+          "哪些结论是概念贡献或规范性判断，而不是可直接当作经验事实？"
+        ],
+        "section_semantics": {
+          "研究问题": "作者要解释的社会、文化、历史、制度或理论问题。",
+          "数据与任务定义": "材料、案例、文本、访谈、档案或语料范围，不写成 ML task。",
+          "方法主线": "理论框架、概念区分和论证路径。",
+          "关键结果": "核心解释性发现、概念贡献或对既有观点的修正。",
+          "深度分析": "论证强度、材料边界、解释替代性和可迁移性。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "材料范围",
+            "选择标准",
+            "案例或语料边界"
+          ],
+          "方法主线": [
+            "理论框架",
+            "概念区分",
+            "论证路径"
+          ],
+          "关键结果": [
+            "核心解释性发现",
+            "概念贡献"
+          ],
+          "深度分析": [
+            "论证强度",
+            "替代解释",
+            "材料边界"
+          ]
+        }
+      },
+      "survey_or_review": {
+        "paper_type": "survey_or_review",
+        "reader_lens": "面向需要梳理综述脉络、分类体系和证据边界的研究读者",
+        "section_focus": [
+          "综述范围",
+          "纳入排除标准",
+          "主题分类",
+          "方法谱系",
+          "共识与分歧",
+          "开放问题"
+        ],
+        "required_checks": [
+          "需要说明综述范围、文献选择、分类体系、共识分歧和开放问题。"
+        ],
+        "formula_rules": [
+          "仅保留分类轴、纳入排除准则、证据汇总规则或 meta-analysis 统计量。"
+        ],
+        "avoid_rules": [
+          "不要把综述中的代表性结论写成作者自己完成的单项实验结果。"
+        ],
+        "boundary_questions": [
+          "检索范围、纳入排除标准或分类轴会遗漏哪些研究路线？",
+          "综述给出的是领域共识、作者分类，还是尚未解决的分歧？",
+          "哪些趋势结论来自覆盖范围内的文献分布，不能直接当作技术成熟度判断？"
+        ],
+        "section_semantics": {
+          "研究问题": "综述试图整理的领域问题、争议或知识缺口。",
+          "数据与任务定义": "纳入文献范围、检索/筛选标准和综述对象。",
+          "方法主线": "分类体系、综述组织方式和证据综合逻辑，不写成单篇方法架构。",
+          "关键结果": "领域共识、分歧、趋势、代表性方向和开放问题。",
+          "深度分析": "综述覆盖的盲区、分类体系的解释力和未来研究机会。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "综述范围",
+            "纳入/排除标准",
+            "文献覆盖"
+          ],
+          "方法主线": [
+            "分类体系",
+            "方法谱系",
+            "证据组织方式"
+          ],
+          "关键结果": [
+            "代表性方向",
+            "共识与分歧",
+            "开放问题"
+          ],
+          "深度分析": [
+            "分类体系的局限",
+            "未覆盖区域",
+            "后续研究机会"
+          ]
+        }
+      }
+    },
+    "grounding_contract": {
+      "source_of_truth": "source_manifest",
+      "source_index_source_of_truth": "source_manifest",
+      "truncation_source_of_truth": "source_manifest.coverage_or_pdf",
+      "partial_reading_acceptance_owner": "note_plan_or_grounding",
+      "accepted_reference_forms": [
+        "section_id",
+        "pages"
+      ],
+      "required_sections": [
+        "研究问题",
+        "数据与任务定义",
+        "方法主线",
+        "关键结果",
+        "深度分析",
+        "局限"
+      ],
+      "note_plan_depth_requirements": {
+        "required_section_focus_min_chars": 20,
+        "required_section_focus_fields": [
+          "focus",
+          "reading_goal",
+          "purpose"
+        ],
+        "generic_focus_phrases": [
+          "use the raw source to explain",
+          "paper-specific role of",
+          "explain the paper-specific role",
+          "explain this section",
+          "summarize this section"
+        ]
+      },
+      "excluded_model_input_fields": [
+        "evidence",
+        "evidence_pack",
+        "candidate_chunks",
+        "section_texts",
+        "summary",
+        "summary_hints"
+      ],
+      "reject_old_references": [
+        "synthesis_bundle.evidence",
+        "bundle.evidence",
+        "synthesis_bundle.candidate_chunks",
+        "synthesis_bundle.section_texts",
+        "synthesis_bundle.summary",
+        "bundle.candidate_chunks",
+        "bundle.section_texts",
+        "bundle.summary"
+      ],
+      "lint_command": "scripts/lint_grounding.py --note-plan ... --source-manifest ... --bundle-json ... --figure-decisions ..."
+    },
+    "figure_table_contract": {
+      "placeholder_first": true,
+      "visual_quality_gate": "fail_closed",
+      "decision_table_required": true,
+      "decision_values": [
+        "insert",
+        "placeholder",
+        "low_priority",
+        "visual_defect",
+        "skip"
+      ],
+      "usable_insert_candidate": {
+        "kinds": [
+          "figure",
+          "table"
+        ],
+        "visual_quality_status": "usable_candidate",
+        "requires_source_image_path": true
+      },
+      "allowed_usable_placeholder_reasons": [
+        "visual_defect",
+        "materialization_blocked"
+      ],
+      "manual_visual_review_required_statuses": [
+        "usable_candidate",
+        "needs_visual_quality_check",
+        "review"
+      ],
+      "automatic_fail_closed_visual_statuses": [
+        "reject_visual_quality",
+        "asset_candidate_missing"
+      ],
+      "manual_review_claim_requires_image_inspection": true
+    },
+    "analysis_coverage_contract": {
+      "central_claim_fields": [
+        "claim",
+        "supporting_evidence",
+        "what_it_actually_proves",
+        "what_it_does_not_prove"
+      ],
+      "central_claim_field_types": {
+        "claim": "string",
+        "supporting_evidence": "array",
+        "what_it_actually_proves": "string",
+        "what_it_does_not_prove": "string"
+      },
+      "central_claim_required_field_checks": {
+        "string": {
+          "non_empty": true
+        },
+        "array": {
+          "non_empty": true
+        }
+      },
+      "required_plan_fields": [
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions"
+      ],
+      "final_quality_review_checks": [
+        "central_claims_are_supported_by_raw_sections_or_pages",
+        "key_experimental_settings_and_numbers_are_present",
+        "mechanisms_or_protocol_choices_are_mapped_to_results",
+        "comparisons_explain_positioning_against_alternatives",
+        "discussion_or_limitation_claims_are_explained_mechanistically",
+        "proven_claims_are_separated_from_unproven_or_unvalidated_claims",
+        "research_or_engineering_takeaways_are_specific_and_reusable",
+        "followup_questions_are_specific_to_replication_or_extension"
+      ]
+    }
+  }
+}

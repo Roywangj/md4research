@@ -1,0 +1,103 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "这是一个以冻结 VLA、固定原语接口、记忆和闭环执行为核心的机器人操作方法论文，主证据来自方法机制、跨 benchmark 对比和机制分析。",
+  "dominant_domain": "embodied AI / agentic robot manipulation",
+  "must_cover": [
+    "冻结 VLA 作为可重试接触原语的职责划分",
+    "Task Specific Memory 与 Global Memory 的差异",
+    "RGB-D/world-map 重新定位和 JSON 文件媒介闭环",
+    "LIBERO、LIBERO-Pro、RoboCasa365、RoboTwin C2R 的协议与冻结后端",
+    "主结果、planner backbone 对照、VLA 调用与 primitive attribution 分析",
+    "zero-shot/few-shot 语义边界、复现条件和仿真限制"
+  ],
+  "key_numbers": [
+    "标准 LIBERO：Harness VLA (CC) 96.0%（384/400），冻结 πRLinf 95.3%",
+    "LIBERO-Pro overall：RATS 43.8%，πRLinf 50.0%，Harness VLA (Codex) 72.1%，Harness VLA (CC) 82.4%",
+    "RoboCasa365：RLDX-1 weighted overall 30.0%，Harness VLA (Codex) 55.4%，Harness VLA (CC) 48.6%",
+    "LIBERO-Pro GOAL zero-shot：Pos-S 31.0%，Task-T 79.0%",
+    "RoboTwin C2R：LingBot-VLA 50.4%，Harness VLA (CC) 58.4%",
+    "VLA ACT primitive usage：LIBERO 15.8%，RoboCasa365 35.3%，RoboTwin C2R 47.4%"
+  ],
+  "real_comparisons": [
+    "Harness VLA (CC) vs πRLinf on standard LIBERO and LIBERO-Pro",
+    "Harness VLA (Codex/CC) vs RATS and Cap-X on LIBERO-Pro",
+    "Harness VLA (Codex/CC) vs RLDX-1 and prior rows on RoboCasa365",
+    "direct LingBot-VLA vs Harness VLA on RoboTwin C2R",
+    "few-shot memory vs zero-shot no-target-memory on LIBERO-Pro GOAL"
+  ],
+  "central_claims": [
+    {
+      "claim": "把冻结 VLA 限制为局部富接触原语，并把语义绑定、运输、导航、释放和恢复交给规划器，可以显著提升分布偏移下的操作成功率。",
+      "supporting_evidence": [
+        {"section_id": "sec:introduction", "pages": {"start": 2, "end": 7}},
+        {"section_id": "sec:method-2", "pages": {"start": 8, "end": 9}},
+        {"section_id": "sec:method-3", "pages": {"start": 9, "end": 10}}
+      ],
+      "what_it_actually_proves": "在论文报告的四类仿真 benchmark、固定原语和指定 VLA 后端下，harness 在多种扰动设置中比相关 baseline 获得更高成功率。",
+      "what_it_does_not_prove": "不能证明所有 VLA 或真实机器人都能获得同样幅度的提升，也不能把收益归因于单一模块。"
+    },
+    {
+      "claim": "Task Specific Memory 是可重新 grounding 的程序结构先验，而不是参考轨迹的坐标 replay。",
+      "supporting_evidence": [
+        {"section_id": "sec:introduction", "pages": {"start": 2, "end": 7}},
+        {"section_id": "sec:references", "pages": {"start": 17, "end": 31}},
+        {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}
+      ],
+      "what_it_actually_proves": "论文的 prompt、JSON/JSONL 说明和 GOAL zero-shot 对照共同支持任务结构与当前几何分离。",
+      "what_it_does_not_prove": "没有给出独立去掉 trace、只保留 audit 或只保留 Global Memory 的完整因果消融。"
+    },
+    {
+      "claim": "VLA retry 和 analytic scaffold 的组合把接触失败局部化，并使 VLA 调用保持稀疏。",
+      "supporting_evidence": [
+        {"section_id": "sec:method-4", "pages": {"start": 10, "end": 13}},
+        {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}
+      ],
+      "what_it_actually_proves": "调用次数曲线、失败 rollout 图示和 primitive usage statistics 与该职责分工一致。",
+      "what_it_does_not_prove": "没有报告每次 retry 的边际成本、独立随机重复或完整的 no-retry 对照。"
+    }
+  ],
+  "claim_boundaries": [
+    "RoboTwin C2R 的 zero-shot 是 clean-to-randomized transfer，仍依赖 clean seed memory；LIBERO/RoboCasa 的主结果还依赖 seed 0 探索。",
+    "冻结的是评测期 VLA；LingBot-VLA 已经经过 RoboTwin 后训练，其他后端也是既有 checkpoint。",
+    "38.6 个百分点是 LIBERO-Pro 相对 RATS 的 headline gap，25.4 个百分点是 RoboCasa365 Codex 版本相对 RLDX-1 weighted overall 的 gap。",
+    "四个 benchmark 都是仿真，跨 planner backbone 的差异说明高层模型与 prompt 仍是重要变量。"
+  ],
+  "negative_or_limiting_results": [
+    "LIBERO-Pro GOAL 去掉目标设置记忆后，Goal-S 从 few-shot 87.0% 降到 zero-shot 31.0%。",
+    "RoboCasa365 Composite-Unseen 仍只有 13.8%（Codex）和 15.0%（CC），远低于 Atomic-Seen。",
+    "论文没有完整代码、LLM 成本、置信区间或多随机 planner 重复。",
+    "作者明确指出缺少联合环境奖励/人类偏好微调和细粒度图像 captioning。"
+  ],
+  "mechanism_result_map": [
+    "语义重定向 T：planner 从当前 RGB-D 重新解析目标，解释 LIBERO-Pro T cell 的提升。",
+    "位置换位 S：world-map grounding、staging 与任务特定原语顺序解释 few-shot Goal-S 高于 zero-shot Goal-S。",
+    "局部接触不稳定：analytic re-staging + repeated VLA ACT 解释 Figure 4 的前几次调用快速增益。",
+    "长距离运输与释放：analytic primitive attribution 和 LIBERO 的 84.2% analytic call share 支持职责隔离。"
+  ],
+  "comparative_positioning": [
+    "相对端到端 VLA，本文不改变 VLA 参数，而是把语义、空间和长时程组合外移。",
+    "相对 Code-as-Policies，本文输出固定 JSON primitive calls，不生成新控制程序。",
+    "相对可扩展 skill discovery，本文刻意保持 primitive vocabulary 固定，研究记忆引导的编排。",
+    "相对 world model，本文不预测未来状态；world map 只服务当前观测的度量 grounding。"
+  ],
+  "reuse_takeaways": [
+    "设计统一 primitive contract 时，应区分接触、非接触、终止 predicate 和诊断日志。",
+    "记忆应同时保存可迁移的调用结构和跨任务失败规则，且禁止 literal coordinate replay。",
+    "评测 agentic manipulation 时同时报告成功率、primitive calls、VLA calls、步数和 planner cost。",
+    "真实部署前应先验证 empty grasp、false success、重新定位和 staging 的可观测性。"
+  ],
+  "followup_questions": [
+    "只去掉 Task Specific Memory、只去掉 Global Memory、只去掉 retry 时，四类 benchmark 的成功率和成本如何变化？",
+    "固定 planner 后比较不同冻结 VLA 的 contact operating range，能否分离 harness gain 与 backend quality？",
+    "world model 的接触可行性预测能否减少无效 VLA calls，而不增加 false success？",
+    "把 Global Memory 变为带证据和适用条件的可撤销数据库后，跨 embodiment 迁移是否更稳？"
+  ],
+  "section_plan": [
+    {"section": "研究问题", "focus": "解释端到端 VLA 在语义、布局和长时程扰动下的失败断点，以及固定原语 harness 要验证的职责划分。", "reading_goal": "区分论文要解决的部署问题与泛泛的 LLM 控制问题。", "purpose": "建立后续方法与实验的因果问题。", "evidence_sources": [{"section_id": "sec:introduction", "pages": {"start": 2, "end": 7}}]},
+    {"section": "数据与任务定义", "focus": "说明 RGB-D 观测、完成谓词、四类 benchmark、seed 记忆协议和冻结 VLA 后端。", "reading_goal": "判断主结果是 few-shot、zero-shot 还是 clean-to-randomized transfer。", "purpose": "限定数字和泛化结论的实验边界。", "evidence_sources": [{"section_id": "sec:introduction", "pages": {"start": 2, "end": 7}}, {"section_id": "sec:references", "pages": {"start": 17, "end": 31}}, {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}]},
+    {"section": "方法主线", "focus": "重构 planner、固定 primitive library、VLA ACT、两种记忆和探索到部署的闭环执行链。", "reading_goal": "明确哪些步骤由 VLA 完成，哪些由解析式 controller 和 planner 完成。", "purpose": "给出可复现的机制流程、接口和关键公式。", "evidence_sources": [{"section_id": "sec:introduction", "pages": {"start": 2, "end": 7}}, {"section_id": "sec:method", "pages": {"start": 8, "end": 8}}, {"section_id": "sec:method-2", "pages": {"start": 8, "end": 9}}, {"section_id": "sec:references", "pages": {"start": 17, "end": 31}}]},
+    {"section": "关键结果", "focus": "比较标准 LIBERO、LIBERO-Pro、RoboCasa365 和 RoboTwin C2R 的强基线、planner backbone、zero-shot memory 和 primitive usage 证据。", "reading_goal": "把 headline gains 与真实 baseline、评测协议和机制分析绑定。", "purpose": "判断收益是稳健、协议特定还是 planner/backend 依赖。", "evidence_sources": [{"section_id": "sec:experiments", "pages": {"start": 7, "end": 8}}, {"section_id": "sec:method-2", "pages": {"start": 8, "end": 9}}, {"section_id": "sec:method-3", "pages": {"start": 9, "end": 10}}, {"section_id": "sec:method-4", "pages": {"start": 10, "end": 13}}, {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}]},
+    {"section": "深度分析", "focus": "解释分布偏移为何被分层消化、记忆为何能迁移，以及结果不能证明的真实世界和跨 embodiment 结论。", "reading_goal": "区分实证支持的机制、工程装配和未验证的外推。", "purpose": "形成复现、扩展与本地 world-model 研究可复用的判断。", "evidence_sources": [{"section_id": "sec:method-4", "pages": {"start": 10, "end": 13}}, {"section_id": "sec:related-work", "pages": {"start": 13, "end": 16}}, {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}]},
+    {"section": "局限", "focus": "逐项说明 planner 反馈成本、无联合微调、感知表达、固定词汇、仿真外推和消融完整性限制。", "reading_goal": "把作者明确承认的限制与由实验协议推导出的 caveat 分开。", "purpose": "防止把仿真 benchmark 的成功率写成通用可靠性。", "evidence_sources": [{"section_id": "sec:related-work", "pages": {"start": 13, "end": 16}}, {"section_id": "sec:evaluations", "pages": {"start": 31, "end": 39}}]}
+  ]
+}

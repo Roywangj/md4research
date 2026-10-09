@@ -1,0 +1,21 @@
+{
+  "status": "pass_with_caveat",
+  "paper": "MLLM-4D: Towards Visual-based Spatial-Temporal Intelligence",
+  "checks": {
+    "structure": {"status":"pass","required_sections_present":["核心信息","原文摘要翻译","创新点","一句话总结","研究问题","数据与任务定义","方法主线","训练、数据与评测设置","关键结果","深度分析","局限","我的笔记","引用"],"missing_sections":[]},
+    "evidence": {"status":"pass","important_claims_total":29,"anchored_claims":29,"coverage_percent":100.0,"unsupported_important_claims":0,"numerical_mismatch_findings":0,"note":"Coverage follows the definition in grounding.json; interpretive claims are separately labeled and linked to evidence."},
+    "markdown_math": {"status":"pass","reader_delimiters":"$ and $$ only","control_character_findings":0},
+    "links": {"status":"pass","markdown_image_links":4,"broken_image_links":0,"external_links_not_checked":1,"external_link":"https://github.com/GVCLab/MLLM-4D"},
+    "images": {"status":"pass_with_caveat","files_checked":["images/mllm4d_overview.svg","images/mllm4d_data_pipeline.svg","images/mllm4d_rft.svg","images/scaling.svg"],"missing_files":0,"source_crop_count":0,"caveat":"Linked images are local explanatory SVG redraws, not original PDF raster crops."},
+    "json": {"status":"pass_with_caveat","files_checked":["paper_DeepPaperNote.plan.json","paper_DeepPaperNote.grounding.json","paper_DeepPaperNote.figure_decisions.json","paper_DeepPaperNote.lint.json"],"parse_errors":0,"note":"Content is valid JSON by structural inspection; an independent parser command was unavailable under the restricted execution permission."},
+    "source_boundary": {"status":"pass","source_pdf_modified":false,"source_pdf_copied_to_output":false,"outside_whitelist_outputs":false},
+    "external_reviewer_or_codex": {"status":"not_used","reason":"Explicit no-Codex/no-external-reviewer boundary; local page-by-page PDF inspection and artifact checks used instead."}
+  },
+  "warnings": [
+    "Original source figure crops were not extractable in the restricted tool environment; the note labels all linked SVGs as redraws and records skip decisions.",
+    "GitHub code/data/weights availability was not independently checked.",
+    "Table and equation claims are grounded to the local PDF, but no independent reproduction was run.",
+    "Figure 16 contains a source-example consistency caveat: the MLLM-4D prose says 'towards the camera' while final option A is labeled 'left'; the note records rather than silently resolves this mismatch."
+  ],
+  "lint_counts": {"errors":0,"warnings":4,"broken_links":0,"missing_images":0,"invalid_json":0,"unsupported_important_claims":0}
+}

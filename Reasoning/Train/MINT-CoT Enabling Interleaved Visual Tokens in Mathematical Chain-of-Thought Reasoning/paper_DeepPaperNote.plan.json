@@ -1,0 +1,185 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes MINT-CoT, a trained mathematical multimodal reasoning method that inserts selected visual tokens into chain-of-thought reasoning through an Interleave Token and a three-stage SFT plus RL recipe.",
+  "dominant_domain": "Mathematical multimodal reasoning, interleaved visual tokens, chain-of-thought training, token selection, reinforcement learning.",
+  "must_cover": [
+    "MINT-CoT targets mathematical figure reasoning where text-only CoT and box-shaped visual regions are insufficient.",
+    "The Interleave Token selects visual tokens by comparing projected hidden states with visual token embeddings.",
+    "The dataset contains 54K mathematical problems with reasoning steps aligned to grid-indexed visual regions.",
+    "Training has three stages: text-only CoT SFT, interleaved CoT SFT, and interleaved CoT RL.",
+    "MINT-CoT-7B improves over the Qwen2-VL baseline on MathVista-Math, GeoQA, and MMStar-Math.",
+    "Ablations show that original-image interleaving is harmful and token-level selection is better than coarse alternatives."
+  ],
+  "key_numbers": [
+    "MINT-CoT dataset contains 54K samples.",
+    "MINT-CoT-7B reaches 73.70 on MathVista-Math All, compared with 41.11 for Qwen2-VL-7B-Instruct baseline.",
+    "MINT-CoT-7B reaches 64.72 on GeoQA, compared with 37.80 for the baseline.",
+    "MINT-CoT-7B reaches 69.6 on MMStar-Math, compared with 46.4 for the baseline.",
+    "Stage ablation: text-only CoT SFT reaches 64.07 on MathVista-Math All, interleaved CoT SFT reaches 67.78, and interleaved CoT RL reaches 73.70.",
+    "Interleaving method ablation: original image CoT SFT drops to 40.37 on MathVista-Math All, while interleaved CoT SFT reaches 67.78.",
+    "MINT-CoT-7B outperforms the best listed open-source model by +1.11 on MathVista-Math All, +5.72 on GeoQA, and +1.2 on MMStar-Math."
+  ],
+  "real_comparisons": [
+    "Compared with text-only CoT, MINT-CoT inserts visual token sets before reasoning steps.",
+    "Compared with box-shaped visual CoT, MINT-CoT can select arbitrary token shapes inside mathematical figures.",
+    "Compared with original-image interleaving, MINT-CoT avoids injecting excessive unrelated visual tokens.",
+    "Compared with PatchCue, MINT-CoT focuses on mathematical visual token alignment rather than general patch-bbox cues."
+  ],
+  "central_claims": [
+    {
+      "claim": "Interleave Token based visual token selection improves mathematical multimodal reasoning.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6, 7]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [8]
+        }
+      ],
+      "what_it_actually_proves": "The method and main tables show large improvements over the Qwen2-VL baseline on mathematical subsets.",
+      "what_it_does_not_prove": "It does not prove that the selected visual tokens are always causally necessary for every answer."
+    },
+    {
+      "claim": "The three-stage training strategy is necessary for strong performance.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:model-4",
+          "pages": [9]
+        }
+      ],
+      "what_it_actually_proves": "Stage ablation shows text-only SFT, interleaved SFT, and RL each adds performance on key benchmarks.",
+      "what_it_does_not_prove": "It does not fully separate the effects of dataset quality and objective design."
+    },
+    {
+      "claim": "Fine-grained token selection is better than simply inserting the original image at every reasoning step.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:model-5",
+          "pages": [9, 10]
+        }
+      ],
+      "what_it_actually_proves": "Original-image CoT SFT performs much worse than interleaved token selection on MathVista-Math.",
+      "what_it_does_not_prove": "It does not rule out stronger retrieval or attention-based image reinsertion methods."
+    }
+  ],
+  "claim_boundaries": [
+    "The paper is focused on mathematical visual reasoning, not general open-world VQA.",
+    "The dataset construction uses GPT-4o, PaddleOCR, and grid-indexed images.",
+    "The reported gains are strongest against the authors' Qwen2-VL baseline.",
+    "The paper evaluates selected mathematical subsets rather than every ability axis of the benchmarks."
+  ],
+  "negative_or_limiting_results": [
+    "Original-image CoT SFT drops MathVista-Math All to 40.37, below text-only CoT SFT.",
+    "Bounding Box CoT SFT is below Interleaved CoT SFT on GeoQA and MathVista-Math All.",
+    "TQA is not the strongest subtask for MINT-CoT; it matches but does not exceed the baseline after final RL.",
+    "Several appendix figure/table crops were partial and are transcribed rather than used as primary images."
+  ],
+  "mechanism_result_map": [
+    "Interleave Token similarity maps to arbitrary-shaped token selection inside math figures.",
+    "Grid images and OCR maps to token-index annotations for mathematical symbols and regions.",
+    "Text-only CoT SFT maps to learning the reasoning format before visual interleaving.",
+    "Interleaved CoT SFT maps to learning visual token insertion and alignment.",
+    "Interleaved CoT RL maps to additional gains from answer-level optimization."
+  ],
+  "comparative_positioning": [
+    "MINT-CoT is a Train-line counterpart to ICoT and DaP-ICoT, but it learns visual token insertion from data.",
+    "Compared with PatchCue, MINT-CoT uses token-level selection for math figures instead of patch-bbox cue labels.",
+    "Compared with Qwen-LA, it inserts visual tokens before reasoning steps rather than at reflection moments.",
+    "Compared with DeepEyes, it relies on structured supervised data instead of emergent active perception."
+  ],
+  "reuse_takeaways": [
+    "For 3D agents, define interleave tokens over view tokens, point tokens, or object tokens rather than raw pixels.",
+    "Original-image reinsertion can add noise; selection must be sparse and step-specific.",
+    "Stage-wise training is useful when the final behavior combines reasoning style and visual alignment.",
+    "Math-like 3D tasks may need symbol-region alignment before RL."
+  ],
+  "followup_questions": [
+    "How robust is the Interleave Token threshold across different visual encoders?",
+    "Would diversity-aware token selection improve over simple similarity thresholding?",
+    "Can the 54K dataset construction be reproduced without GPT-4o?",
+    "Would causal removal of selected tokens reduce accuracy in the predicted reasoning step?"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "Explain why mathematical diagrams need step-specific visual evidence beyond text-only CoT and box-shaped regions.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Cover the 54K MINT-CoT dataset, grid indexing, OCR, keyword extraction, and visual index annotation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6, 7]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Describe Interleave Token similarity scoring, visual token insertion, SFT objectives, and GRPO objective.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6, 7]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Report MathVista-Math, GeoQA, MMStar-Math, stage ablation, and interleaving method ablation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [7, 8]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [8]
+        },
+        {
+          "section_id": "sec:model-4",
+          "pages": [9]
+        },
+        {
+          "section_id": "sec:model-5",
+          "pages": [9, 10]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Interpret MINT-CoT as step-level visual token routing for math symbols and geometry relations.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:model-5",
+          "pages": [9, 10]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [10, 11]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "Discuss task narrowness, generated dataset dependence, selected-subset evaluation, and visual-token causality gaps.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [10, 11]
+        },
+        {
+          "pages": [18, 19, 20, 21, 22]
+        }
+      ]
+    }
+  ]
+}

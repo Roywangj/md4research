@@ -1,0 +1,4624 @@
+{
+  "status": "ok",
+  "script": "build_synthesis_bundle.py",
+  "paper_id": "arxiv:2603.05869",
+  "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+  "metadata": {
+    "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+    "translated_title": "",
+    "authors": [
+      "Yukun Qi",
+      "Pei Fu",
+      "Hang Li",
+      "Yuhan Liu",
+      "Chao Jiang",
+      "Bin Qin",
+      "Zhenbo Luo",
+      "Jian Luan"
+    ],
+    "affiliations": [],
+    "year": "2026",
+    "venue": "Open MIND",
+    "doi": "10.48550/arxiv.2603.05869",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+    "abstract": "Vision-Language Models (VLMs) have achieved remarkable progress on a wide range of challenging multimodal understanding and reasoning tasks. However, existing reasoning paradigms, such as the classical Chain-of-Thought (CoT), rely solely on textual information and often underutilize important visual cues. While prior work has incorporated pixel-level visual cues, these representations require precise spatial localization, introducing additional learning complexity. To address this, we propose PatchCue, a novel patch-based visual cue paradigm designed to significantly enhance the visual reasoning capabilities of VLMs. By partitioning images into patches and representing cues at the patch level, PatchCue aligns better with human perceptual habits and leverages the patch-tokenized input of modern VLMs. We train VLMs using a two-stage approach: cold-start supervised fine-tuning to output patch-level cues, followed by reinforcement learning with a process-supervised cue reward that guides intermediate visual reasoning steps. Extensive experiments on multiple VLMs and diverse benchmarks, including general visual question answering, complex reasoning, and document understanding, demonstrate that PatchCue consistently improves overall model performance. Our results show that patch-level cues outperform both pixel-level bounding boxes and point-based cues, providing a more effective and cognitively aligned visual reasoning paradigm.",
+    "arxiv_id": "2603.05869",
+    "zotero_key": "",
+    "metadata_sources": [
+      "local_pdf",
+      "arxiv",
+      "openalex"
+    ],
+    "identity_confidence": "high",
+    "identity_confidence_reasons": [
+      "arxiv_id_present",
+      "pdf_metadata_title_used",
+      "local_pdf_artifact_title",
+      "doi_present"
+    ]
+  },
+  "evidence_quality": "high",
+  "coverage": {
+    "language_hint": "en",
+    "section_extraction_coverage": {
+      "coverage_status": "good",
+      "recognized_sections": [
+        "preamble",
+        "introduction",
+        "method",
+        "experiment",
+        "conclusion"
+      ],
+      "core_sections_found": [
+        "introduction",
+        "method",
+        "experiment"
+      ],
+      "missing_core_sections": [],
+      "section_text_chars": {
+        "preamble": 1726,
+        "introduction": 8642,
+        "method": 13154,
+        "experiment": 8187,
+        "conclusion": 2941
+      },
+      "fallback_sections": []
+    },
+    "pdf_coverage": {
+      "total_pages": 27,
+      "text_max_pages": 32,
+      "text_pages_scanned": 27,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 16,
+      "section_stop_reason": "references",
+      "section_stop_page": 16
+    },
+    "source_coverage": {
+      "total_pages": 27,
+      "text_max_pages": null,
+      "text_pages_extracted": 27,
+      "text_pages_scanned": 27,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 16
+    },
+    "source_manifest": {
+      "raw_sections_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+      "full_text_md_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_full_text.md",
+      "section_count": 11,
+      "page_count": 27,
+      "text_hash_sha256": "8b4f8f99093188171a631c56af6506379e35f75c592e2b26e452a0c90aaf0c7f"
+    },
+    "appendix_evidence_counts": {
+      "ablation": 0,
+      "implementation_details": 0,
+      "dataset_details": 0,
+      "extra_results": 0,
+      "qualitative_examples": 0
+    },
+    "extraction_failures": [],
+    "asset_coverage": {
+      "total_pages": 27,
+      "asset_max_pages": 40,
+      "asset_pages_scanned": 27,
+      "truncated_due_to_asset_page_limit": false
+    },
+    "figure_quality_summary": {
+      "usable": 14,
+      "review": 0,
+      "reject": 3,
+      "unknown": 0
+    },
+    "truncation_warnings": [],
+    "identity_confidence": "high",
+    "identity_confidence_reasons": [
+      "arxiv_id_present",
+      "pdf_metadata_title_used",
+      "local_pdf_artifact_title",
+      "doi_present"
+    ]
+  },
+  "source_manifest": {
+    "paper_id": "arxiv:2603.05869",
+    "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+    "source_kind": "pdf_text",
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_full_text.md",
+    "pdf": {
+      "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+      "total_pages": 27,
+      "text_pages_extracted": 27,
+      "text_max_pages": null,
+      "text_truncated": false
+    },
+    "coverage": {
+      "total_pages": 27,
+      "text_max_pages": null,
+      "text_pages_extracted": 27,
+      "text_pages_scanned": 27,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": 16
+    }
+  },
+  "source_index": {
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_full_text.md",
+    "sections": [
+      {
+        "section_id": "sec:preamble",
+        "kind": "preamble",
+        "title": "preamble",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 1726,
+        "text_hash_sha256": "eda5334100eae5134288baebfb33650cd66ff11ee2dbaac667091521ce874b26"
+      },
+      {
+        "section_id": "sec:introduction",
+        "kind": "introduction",
+        "title": "Introduction",
+        "page_start": 1,
+        "page_end": 3,
+        "char_count": 5796,
+        "text_hash_sha256": "b466c9c4ba6e2327cee742f9f24611d96a7b14709802577cb54dd0e06c4f02cc"
+      },
+      {
+        "section_id": "sec:related-work",
+        "kind": "introduction",
+        "title": "Related Work",
+        "page_start": 3,
+        "page_end": 4,
+        "char_count": 2845,
+        "text_hash_sha256": "f39d74202b34eee1d1e9cd466c895127a6ec40326f84382adb5cdf9881254236"
+      },
+      {
+        "section_id": "sec:method",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 4,
+        "page_end": 9,
+        "char_count": 10602,
+        "text_hash_sha256": "074388971cf92a573b051c73437e9219d2b36bbd0431174a8738284fd73c4e27"
+      },
+      {
+        "section_id": "sec:experiment",
+        "kind": "experiment",
+        "title": "Experiment",
+        "page_start": 9,
+        "page_end": 10,
+        "char_count": 3510,
+        "text_hash_sha256": "244ffbbfa25aa1dfb558c946200714f095fcef461a24f8b63db11c31d4f096e9"
+      },
+      {
+        "section_id": "sec:analysis",
+        "kind": "experiment",
+        "title": "Analysis",
+        "page_start": 10,
+        "page_end": 12,
+        "char_count": 4676,
+        "text_hash_sha256": "fd2360ec6e73534fc2122c12d58bcf3e9722aa8f933f149412af4ccf55cb22ce"
+      },
+      {
+        "section_id": "sec:model",
+        "kind": "method",
+        "title": "Model",
+        "page_start": 12,
+        "page_end": 13,
+        "char_count": 1064,
+        "text_hash_sha256": "57ae406e57e31eac524bc91a7f7d72e7d5ef664889cc0bde015d419ef4723212"
+      },
+      {
+        "section_id": "sec:method-2",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 13,
+        "page_end": 13,
+        "char_count": 1486,
+        "text_hash_sha256": "5521c7ae9792fc4c52f1ffa4bd51e248b037bbe17e3c7c9c4e674b70a317d351"
+      },
+      {
+        "section_id": "sec:discussion",
+        "kind": "conclusion",
+        "title": "Discussion",
+        "page_start": 13,
+        "page_end": 14,
+        "char_count": 2246,
+        "text_hash_sha256": "be39feebf14490f40fc0a9df222b19dc0ad13ff87d7ea5f92271fa40bc779b1f"
+      },
+      {
+        "section_id": "sec:conclusion",
+        "kind": "conclusion",
+        "title": "Conclusion",
+        "page_start": 14,
+        "page_end": 16,
+        "char_count": 694,
+        "text_hash_sha256": "be3cce12f961d53bc031182709166b51f96f121194b5c36166b8acda5d146225"
+      },
+      {
+        "section_id": "sec:references",
+        "kind": "references",
+        "title": "References",
+        "page_start": 16,
+        "page_end": 27,
+        "char_count": 23697,
+        "text_hash_sha256": "44904ecb4edc87bd9d8c95069abb7c5c41dbf14c4f81950a879c82c30c280b2b"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "char_count": 2345,
+        "section_ids": [
+          "sec:preamble",
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 2,
+        "char_count": 2541,
+        "section_ids": [
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 3,
+        "char_count": 2979,
+        "section_ids": [
+          "sec:introduction",
+          "sec:related-work"
+        ]
+      },
+      {
+        "page": 4,
+        "char_count": 3108,
+        "section_ids": [
+          "sec:related-work",
+          "sec:method"
+        ]
+      },
+      {
+        "page": 5,
+        "char_count": 2185,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 6,
+        "char_count": 2277,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 7,
+        "char_count": 2009,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 8,
+        "char_count": 2735,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 9,
+        "char_count": 2226,
+        "section_ids": [
+          "sec:method",
+          "sec:experiment"
+        ]
+      },
+      {
+        "page": 10,
+        "char_count": 2744,
+        "section_ids": [
+          "sec:experiment",
+          "sec:analysis"
+        ]
+      },
+      {
+        "page": 11,
+        "char_count": 2937,
+        "section_ids": [
+          "sec:analysis"
+        ]
+      },
+      {
+        "page": 12,
+        "char_count": 1967,
+        "section_ids": [
+          "sec:analysis",
+          "sec:model"
+        ]
+      },
+      {
+        "page": 13,
+        "char_count": 2520,
+        "section_ids": [
+          "sec:model",
+          "sec:method-2",
+          "sec:discussion"
+        ]
+      },
+      {
+        "page": 14,
+        "char_count": 1859,
+        "section_ids": [
+          "sec:discussion",
+          "sec:conclusion"
+        ]
+      },
+      {
+        "page": 15,
+        "char_count": 375,
+        "section_ids": [
+          "sec:conclusion"
+        ]
+      },
+      {
+        "page": 16,
+        "char_count": 3262,
+        "section_ids": [
+          "sec:conclusion",
+          "sec:references"
+        ]
+      },
+      {
+        "page": 17,
+        "char_count": 3642,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 18,
+        "char_count": 3560,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 19,
+        "char_count": 3392,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 20,
+        "char_count": 1875,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 21,
+        "char_count": 2107,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 22,
+        "char_count": 1306,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 23,
+        "char_count": 330,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 24,
+        "char_count": 1246,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 25,
+        "char_count": 628,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 26,
+        "char_count": 832,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 27,
+        "char_count": 1621,
+        "section_ids": [
+          "sec:references"
+        ]
+      }
+    ],
+    "captions": {
+      "figures": [
+        {
+          "id": "Fig 1",
+          "caption": "Comparison of reasoning with different cue types: (a) Text-only: rea-",
+          "page": 2,
+          "pages": [
+            2
+          ],
+          "section_id": "sec:introduction"
+        },
+        {
+          "id": "Fig 2",
+          "caption": "Overview of PatchCue. We divide images into fixed-size patches in order to",
+          "page": 5,
+          "pages": [
+            5
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Fig 3",
+          "caption": "Data Pipeline. Starting from the collected original data, we filter to obtain",
+          "page": 6,
+          "pages": [
+            6
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Fig 4",
+          "caption": "Data Distribution. In the left figure, we show the distribution of the number",
+          "page": 7,
+          "pages": [
+            7
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Fig 5",
+          "caption": "Case Study. We compare the model’s outputs before and after PatchCue",
+          "page": 14,
+          "pages": [
+            14
+          ],
+          "section_id": "sec:discussion"
+        },
+        {
+          "id": "Fig 6",
+          "caption": "Successful examples where visual cues effectively guide the model to conduct",
+          "page": 23,
+          "pages": [
+            23
+          ],
+          "section_id": "sec:references"
+        },
+        {
+          "id": "Fig 7",
+          "caption": "Common failure cases of cue-based reasoning, including flawed reasoning despite",
+          "page": 23,
+          "pages": [
+            23
+          ],
+          "section_id": "sec:references"
+        },
+        {
+          "id": "Fig 8",
+          "caption": "Cue Extraction Prompt",
+          "page": 24,
+          "pages": [
+            24
+          ],
+          "section_id": "sec:references"
+        },
+        {
+          "id": "Fig 9",
+          "caption": "Cue Grounding Prompt",
+          "page": 25,
+          "pages": [
+            25
+          ],
+          "section_id": "sec:references"
+        },
+        {
+          "id": "Fig 10",
+          "caption": "Reasoning Construction Prompt.",
+          "page": 27,
+          "pages": [
+            27
+          ],
+          "section_id": "sec:references"
+        }
+      ],
+      "tables": [
+        {
+          "id": "Table 1",
+          "caption": "Main results across multiple benchmarks. We evaluate the performance",
+          "page": 10,
+          "pages": [
+            10
+          ],
+          "section_id": "sec:experiment"
+        },
+        {
+          "id": "Table 2",
+          "caption": "Performance comparison across different forms of visual cues. We",
+          "page": 11,
+          "pages": [
+            11
+          ],
+          "section_id": "sec:analysis"
+        },
+        {
+          "id": "Table 3",
+          "caption": "Performance comparison under different training data setups. We",
+          "page": 12,
+          "pages": [
+            12
+          ],
+          "section_id": "sec:analysis"
+        },
+        {
+          "id": "Table 4",
+          "caption": "Ablation of cue reward. We compare the performance differences between",
+          "page": 12,
+          "pages": [
+            12
+          ],
+          "section_id": "sec:analysis"
+        },
+        {
+          "id": "Table 5",
+          "caption": "Performance comparison of different methods on multimodal benchmarks. We",
+          "page": 13,
+          "pages": [
+            13
+          ],
+          "section_id": "sec:model"
+        },
+        {
+          "id": "Table 6",
+          "caption": "Hyperparameters for SFT Training.",
+          "page": 21,
+          "pages": [
+            21
+          ],
+          "section_id": "sec:references"
+        },
+        {
+          "id": "Table 7",
+          "caption": "Hyperparameters for GRPO Training",
+          "page": 22,
+          "pages": [
+            22
+          ],
+          "section_id": "sec:references"
+        }
+      ]
+    },
+    "math_index": [
+      {
+        "text": "\\lfloor \\frac {y}{h} \\right \\rfloor , \\quad c = \\left \\lfloor \\frac {x}{w} \\right \\rfloor",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "{y_1}{h} \\right \\rfloor , \\left \\lfloor \\frac {x_1}{w} \\right \\rfloor \\right ), \\quad (r_2, c_2) = \\left (\\left \\lfloor \\frac {y_2}{h} \\right \\rfloor , \\left \\lfloor \\frac {x_2}{w} \\right \\rfloor \\right )",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "visual cues, and final answer are correctly enclosed within the <think></think>,",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "<cue></cue>, and <answer></answer> tags, respectively.",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "\\ma thc al {S} ( r_1, c_ 1 ,r _ 2 , c_2 ) = \\ {(i,j) \\mid r_1 \\le i \\le r_2,\\, c_1 \\le j \\le c_2\\},",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "} = |\\ m athc",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "al {S} _ p \\cap \\mathcal {S}_g|, \\quad \\text {FP} = |\\mathcal {S}_p \\setminus \\mathcal {S}_g|, \\quad \\text {FN} = |\\mathcal {S}_g \\setminus \\mathcal {S}_p|,",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "= \\ fra",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "xt {TP}}{\\text {TP} + \\text {FP}}, \\quad Rec = \\frac {\\text {TP}}{\\text {TP} + \\text {FN}},",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "F _ 1 = \\ fra",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "C _ { i j} =",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "a successful match (default τ = 0.5). Let k denote the number of successful",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "text {cue}} = \\frac {k}{|\\mathcal {S}_g|}",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "e} } = \\ b egi n {c a se",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "} | \\mat h cal {S}_p| = 0 \\text { and } |\\mathcal {S}_g| = 0, \\\\ 0, & \\text {if } |\\mathcal {S}_p| > |\\mathcal {S}_g|, \\\\ \\frac {k}{n_{\\text {GT}}}, & \\text {if } 0 < |\\mathcal {S}_p| \\le |\\mathcal {S}_g|, \\end {cases}",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "\\lab e l {eq:f i nal_reward} R = R_{\\text {acc}} + R_{\\text {format}} +R_{\\text {cue}}",
+        "section_id": "sec:method",
+        "page_start": 4,
+        "page_end": 9
+      },
+      {
+        "text": "ability in vision-language models with less than $3. https://github.com/Deep-",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "out module generates a group of trajectories \\ifmmode \\lbrace \\else \\textbraceleft \\fi o_i\\}_{i=1}^{G}",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label></label>, without any bounding box information.",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>row with stem = 4</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>row with stem = 8</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "Extracted cues: <label>heater</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>10 flowers in the first row</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>9 flowers in the first column</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>three empty spots in the last row</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "Your extracted visual cues (text only, wrapped in <label>):",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "box, in the format: <bbox>[x_min, y_min, x_max, y_max]</bbox>. Output",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>heater</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>light switch</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.235, 0.345, 0.521, 0.876]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.120, 0.400,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.300, 0.520]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "Your extracted bounding boxes (wrapped in <bbox>):",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "– Each visual cue contains two components: a <label> describing the visual",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "content, and a <bbox> specifying the corresponding bounding box.",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "include its corresponding <bbox> using the <bbox></bbox> tag.",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<image>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>10 flowers in the first row</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.0, 0.0,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.909, 0.120]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>9 flowers in the first column</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.0, 0.0,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.120, 0.916]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>three empty spots in the last row</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.621,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.832, 0.910, 0.916]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "angular pattern. The first row has over ten flowers <bbox>[0.0, 0.0, 0.909,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.120]</bbox>, meaning each row has over ten flowers. The first column",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "has nine flowers <bbox>[0.0, 0.0, 0.120, 0.916]</bbox>, meaning each col-",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.621, 0.832, 0.910, 0.916]</bbox>, so the final number of flowers",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "is 9 × 10 - 3 = 87. The final answer is (A) 87.",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<image>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>the longest bar</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.194, 0.062, 0.851,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.141]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<label>Keylor Navas</label>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "<bbox>[0.107, 0.062, 0.194,",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "0.141]</bbox>",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "players. The longest bar <bbox>[0.194, 0.062, 0.851, 0.141]</bbox> rep-",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      },
+      {
+        "text": "Navas\" <bbox>[0.107, 0.062, 0.194, 0.141]</bbox>. Therefore, the most",
+        "section_id": "sec:references",
+        "page_start": 16,
+        "page_end": 27
+      }
+    ],
+    "appendix_index": {
+      "appendix_detected": false,
+      "start_page": null,
+      "sections": [],
+      "figure_captions": [],
+      "table_captions": []
+    },
+    "language_hint": "en",
+    "text_hash_sha256": "8b4f8f99093188171a631c56af6506379e35f75c592e2b26e452a0c90aaf0c7f"
+  },
+  "references": {
+    "candidates": [
+      {
+        "raw_text": "1. Bai, S., Chen, K., Liu, X., Wang, J., Ge, W., Song, S., Dang, K., Wang, P., Wang, S., Tang, J., et al.: Qwen2. 5-vl technical report. arXiv preprint arXiv:2502.13923 (2025)",
+        "display_text": "Bai, S., Chen, K., Liu, X., Wang, J., Ge, W., Song, S., Dang, K., Wang, P., Wang, S., Tang, J., et al.: Qwen2. 5-vl technical report. arXiv preprint arXiv:2502.13923 (2025)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "2502.13923",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "2. Chen, L., Li, L., Zhao, H., Song, Y., Vinci: R1-v: Reinforcing super generalization ability in vision-language models with less than $3. https://github.com/Deep- Agent/R1-V (2025), accessed: 2025-02-02",
+        "display_text": "Chen, L., Li, L., Zhao, H., Song, Y., Vinci: R1-v: Reinforcing super generalization ability in vision-language models with less than $3. https://github.com/Deep- Agent/R1-V (2025), accessed: 2025-02-02",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "3. Chen, L., Li, J., Dong, X., Zhang, P., He, C., Wang, J., Zhao, F., Lin, D.: Sharegpt4v: Improving large multi-modal models with better captions. In: Eu- ropean Conference on Computer Vision. pp. 370–387. Springer (2024)",
+        "display_text": "Chen, L., Li, J., Dong, X., Zhang, P., He, C., Wang, J., Zhao, F., Lin, D.: Sharegpt4v: Improving large multi-modal models with better captions. In: Eu- ropean Conference on Computer Vision. pp. 370–387. Springer (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "4. Chen, L., Li, J., Dong, X., Zhang, P., Zang, Y., Chen, Z., Duan, H., Wang, J., Qiao, Y., Lin, D., et al.: Are we on the right way for evaluating large vision- language models? Advances in Neural Information Processing Systems 37, 27056– 27087 (2024)",
+        "display_text": "Chen, L., Li, J., Dong, X., Zhang, P., Zang, Y., Chen, Z., Duan, H., Wang, J., Qiao, Y., Lin, D., et al.: Are we on the right way for evaluating large vision- language models? Advances in Neural Information Processing Systems 37, 27056– 27087 (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "5. Chen, L., Wei, X., Li, J., Dong, X., Zhang, P., Zang, Y., Chen, Z., Duan, H., Tang, Z., Yuan, L., et al.: Sharegpt4video: Improving video understanding and genera- tion with better captions. Advances in Neural Information Processing Systems 37, 19472–19495 (2024)",
+        "display_text": "Chen, L., Wei, X., Li, J., Dong, X., Zhang, P., Zang, Y., Chen, Z., Duan, H., Tang, Z., Yuan, L., et al.: Sharegpt4video: Improving video understanding and genera- tion with better captions. Advances in Neural Information Processing Systems 37, 19472–19495 (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "6. Chen, X., Zhang, R., Jiang, D., Zhou, A., Yan, S., Lin, W., Li, H.: Mint-cot: Enabling interleaved visual tokens in mathematical chain-of-thought reasoning. arXiv preprint arXiv:2506.05331 (2025)",
+        "display_text": "Chen, X., Zhang, R., Jiang, D., Zhou, A., Yan, S., Lin, W., Li, H.: Mint-cot: Enabling interleaved visual tokens in mathematical chain-of-thought reasoning. arXiv preprint arXiv:2506.05331 (2025)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "2506.05331",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "7. Chen, Z., Zhao, R., Luo, C., Sun, M., Yu, X., Kang, Y., Huang, R.: Sifthinker: Spatially-aware image focus for visual reasoning. arXiv preprint arXiv:2508.06259 (2025)",
+        "display_text": "Chen, Z., Zhao, R., Luo, C., Sun, M., Yu, X., Kang, Y., Huang, R.: Sifthinker: Spatially-aware image focus for visual reasoning. arXiv preprint arXiv:2508.06259 (2025)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "2508.06259",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "8. Chen, Z., Wu, J., Wang, W., Su, W., Chen, G., Xing, S., Zhong, M., Zhang, Q., Zhu, X., Lu, L., et al.: Internvl: Scaling up vision foundation models and aligning for generic visual-linguistic tasks. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. pp. 24185–24198 (2024)",
+        "display_text": "Chen, Z., Wu, J., Wang, W., Su, W., Chen, G., Xing, S., Zhong, M., Zhang, Q., Zhu, X., Lu, L., et al.: Internvl: Scaling up vision foundation models and aligning for generic visual-linguistic tasks. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. pp. 24185–24198 (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "9. Comanici, G., Bieber, E., Schaekermann, M., Pasupat, I., Sachdeva, N., Dhillon, I., Blistein, M., Ram, O., Zhang, D., Rosen, E., et al.: Gemini 2.5: Pushing the frontier with advanced reasoning, multimodality, long context, and next generation agentic capabilities. arXiv preprint arXiv:2507.06261 (2025)",
+        "display_text": "Comanici, G., Bieber, E., Schaekermann, M., Pasupat, I., Sachdeva, N., Dhillon, I., Blistein, M., Ram, O., Zhang, D., Rosen, E., et al.: Gemini 2.5: Pushing the frontier with advanced reasoning, multimodality, long context, and next generation agentic capabilities. arXiv preprint arXiv:2507.06261 (2025)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "2507.06261",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "10. DeepSeek-AI: Deepseek-r1: Incentivizing reasoning capability in llms via reinforce- ment learning (2025), https://arxiv.org/abs/2501.12948",
+        "display_text": "DeepSeek-AI: Deepseek-r1: Incentivizing reasoning capability in llms via reinforce- ment learning (2025), https://arxiv.org/abs/2501.12948",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "2501.12948",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "11. Duan, H., Yang, J., Qiao, Y., Fang, X., Chen, L., Liu, Y., Dong, X., Zang, Y., Zhang, P., Wang, J., et al.: Vlmevalkit: An open-source toolkit for evaluating large multi-modality models. In: Proceedings of the 32nd ACM international conference on multimedia. pp. 11198–11201 (2024)",
+        "display_text": "Duan, H., Yang, J., Qiao, Y., Fang, X., Chen, L., Liu, Y., Dong, X., Zang, Y., Zhang, P., Wang, J., et al.: Vlmevalkit: An open-source toolkit for evaluating large multi-modality models. In: Proceedings of the 32nd ACM international conference on multimedia. pp. 11198–11201 (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "12. Fang, Y., Wang, W., Xie, B., Sun, Q., Wu, L., Wang, X., Huang, T., Wang, X., Cao, Y.: Eva: Exploring the limits of masked visual representation learning at scale. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. pp. 19358–19369 (2023)",
+        "display_text": "Fang, Y., Wang, W., Xie, B., Sun, Q., Wu, L., Wang, X., Huang, T., Wang, X., Cao, Y.: Eva: Exploring the limits of masked visual representation learning at scale. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. pp. 19358–19369 (2023)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "13. Fu, X., Hu, Y., Li, B., Feng, Y., Wang, H., Lin, X., Roth, D., Smith, N.A., Ma, W.C., Krishna, R.: Blink: Multimodal large language models can see but not per- ceive. In: European Conference on Computer Vision. pp. 148–166. Springer (2024)",
+        "display_text": "Fu, X., Hu, Y., Li, B., Feng, Y., Wang, H., Lin, X., Roth, D., Smith, N.A., Ma, W.C., Krishna, R.: Blink: Multimodal large language models can see but not per- ceive. In: European Conference on Computer Vision. pp. 148–166. Springer (2024)",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "14. Gao, J., Li, Y., Cao, Z., Li, W.: Interleaved-modal chain-of-thought. In: Proceedings of the Computer Vision and Pattern Recognition Conference. pp. 19520–19529 (2025) PatchCue 17",
+        "display_text": "Gao, J., Li, Y., Cao, Z., Li, W.: Interleaved-modal chain-of-thought. In: Proceedings of the Computer Vision and Pattern Recognition Conference. pp. 19520–19529 (2025) PatchCue 17",
+        "page_hint": "p. 16",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "15. Guan, T., Liu, F., Wu, X., Xian, R., Li, Z., Liu, X., Wang, X., Chen, L., Huang, F., Yacoob, Y., et al.: Hallusionbench: an advanced diagnostic suite for entan- gled language hallucination and visual illusion in large vision-language models.",
+        "display_text": "Guan, T., Liu, F., Wu, X., Xian, R., Li, Z., Liu, X., Wang, X., Chen, L., Huang, F., Yacoob, Y., et al.: Hallusionbench: an advanced diagnostic suite for entan- gled language hallucination and visual illusion in large vision-language models.",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "16. Guo, D., Yang, D., Zhang, H., Song, J., Zhang, R., Xu, R., Zhu, Q., Ma, S., Wang, P., Bi, X., et al.: Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. arXiv preprint arXiv:2501.12948 (2025)",
+        "display_text": "Guo, D., Yang, D., Zhang, H., Song, J., Zhang, R., Xu, R., Zhu, Q., Ma, S., Wang, P., Bi, X., et al.: Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. arXiv preprint arXiv:2501.12948 (2025)",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "2501.12948",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "17. Hu, Y., Shi, W., Fu, X., Roth, D., Ostendorf, M., Zettlemoyer, L., Smith, N.A., Krishna, R.: Visual sketchpad: Sketching as a visual chain of thought for multi- modal language models. Advances in Neural Information Processing Systems 37, 139348–139379 (2024)",
+        "display_text": "Hu, Y., Shi, W., Fu, X., Roth, D., Ostendorf, M., Zettlemoyer, L., Smith, N.A., Krishna, R.: Visual sketchpad: Sketching as a visual chain of thought for multi- modal language models. Advances in Neural Information Processing Systems 37, 139348–139379 (2024)",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "18. Huang, W., Jia, B., Zhai, Z., Cao, S., Ye, Z., Zhao, F., Xu, Z., Hu, Y., Lin, S.: Vision-r1: Incentivizing reasoning capability in multimodal large language models. arXiv preprint arXiv:2503.06749 (2025)",
+        "display_text": "Huang, W., Jia, B., Zhai, Z., Cao, S., Ye, Z., Zhao, F., Xu, Z., Hu, Y., Lin, S.: Vision-r1: Incentivizing reasoning capability in multimodal large language models. arXiv preprint arXiv:2503.06749 (2025)",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "2503.06749",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "19. Huang, W., Zeng, Y., Wang, Q., Fang, Z., Cao, S., Chu, Z., Yin, Q., Chen, S., Yin, Z., Chen, L., et al.: Vision-deepresearch: Incentivizing deepresearch capability in multimodal large language models. arXiv preprint arXiv:2601.22060 (2026)",
+        "display_text": "Huang, W., Zeng, Y., Wang, Q., Fang, Z., Cao, S., Chu, Z., Yin, Q., Chen, S., Yin, Z., Chen, L., et al.: Vision-deepresearch: Incentivizing deepresearch capability in multimodal large language models. arXiv preprint arXiv:2601.22060 (2026)",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "2601.22060",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "20. Hurst, A., Lerer, A., Goucher, A.P., Perelman, A., Ramesh, A., Clark, A., Os- trow, A., Welihinda, A., Hayes, A., Radford, A., et al.: Gpt-4o system card. arXiv preprint arXiv:2410.21276 (2024)",
+        "display_text": "Hurst, A., Lerer, A., Goucher, A.P., Perelman, A., Ramesh, A., Clark, A., Os- trow, A., Welihinda, A., Hayes, A., Radford, A., et al.: Gpt-4o system card. arXiv preprint arXiv:2410.21276 (2024)",
+        "page_hint": "p. 17",
+        "doi": "",
+        "arxiv_id": "2410.21276",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      }
+    ]
+  },
+  "figure_plan": {
+    "paper_id": "arxiv:2603.05869",
+    "figures": [
+      {
+        "id": "Fig 2",
+        "caption": "Overview of PatchCue. We divide images into fixed-size patches in order to",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_005_fig_fig_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+          "width": 982,
+          "height": 656,
+          "size_bytes": 511942,
+          "label": "Fig. 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.172659,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.629121,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 510,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 5,
+            "score": 8,
+            "matched_terms": [
+              "fig. 2",
+              "patchcue",
+              "divide",
+              "images",
+              "into",
+              "fixed-size"
+            ],
+            "snippet": "PatchCue 5 Fig. 2: Overview of PatchCue. We divide images into fixed-size patches in order to represent imp",
+            "images": [
+              {
+                "filename": "page_005_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_img_01.jpeg",
+                "width": 6079,
+                "height": 2677,
+                "size_bytes": 1313181
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_fig_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+                "width": 982,
+                "height": 656,
+                "size_bytes": 511942,
+                "label": "Fig. 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.172659,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.629121,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 510,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 3,
+            "matched_terms": [
+              "patchcue",
+              "divide",
+              "images",
+              "into"
+            ],
+            "snippet": "14 Y. Qi et al. Fig. 5: Case Study. We compare the model’s outputs before and after PatchCue training. After training, the model can generate visual cues during reasoning, improving",
+            "images": [
+              {
+                "filename": "page_014_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_img_01.jpeg",
+                "width": 9832,
+                "height": 3579,
+                "size_bytes": 2613745
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_fig_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_fig_fig_5.png",
+                "width": 982,
+                "height": 492,
+                "size_bytes": 421255,
+                "label": "Fig. 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.129386,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.694039,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 236,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "images",
+              "into"
+            ],
+            "snippet": ": (1) Externally-Guided Reasoning, emulating how humans rely on external tools to inspect images [17,29,44,68,71]. These methods train models to invoke tools such as object detectors, cr",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Fig 3",
+        "caption": "Data Pipeline. Starting from the collected original data, we filter to obtain",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_006_fig_fig_3.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+          "width": 983,
+          "height": 419,
+          "size_bytes": 87035,
+          "label": "Fig. 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.110221,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.539509,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 232,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 8,
+            "matched_terms": [
+              "fig. 3",
+              "data",
+              "pipeline",
+              "starting",
+              "collected",
+              "original"
+            ],
+            "snippet": "6 Y. Qi et al. Fig. 3: Data Pipeline. Starting from the collected original data, we filter to obtain challengin",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_img_01.png",
+                "width": 3114,
+                "height": 1052,
+                "size_bytes": 228173
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_fig_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+                "width": 983,
+                "height": 419,
+                "size_bytes": 87035,
+                "label": "Fig. 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.110221,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.539509,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 232,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 2,
+            "matched_terms": [
+              "data",
+              "pipeline"
+            ],
+            "snippet": "tability and overall performance. visual cues. In Section 3.3, we describe the visual cue data construction pipeline, which identifies key visual regions from multimodal datasets, gene",
+            "images": [
+              {
+                "filename": "page_005_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_img_01.jpeg",
+                "width": 6079,
+                "height": 2677,
+                "size_bytes": 1313181
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_fig_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+                "width": 982,
+                "height": 656,
+                "size_bytes": 511942,
+                "label": "Fig. 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.172659,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.629121,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 510,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 2,
+            "matched_terms": [
+              "data",
+              "original"
+            ],
+            "snippet": "PatchCue 7 Fig. 4: Data Distribution. In the left figure, we show the distribution of the number of cues per samp",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_img_01.png",
+                "width": 1400,
+                "height": 600,
+                "size_bytes": 72246
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_fig_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+                "width": 982,
+                "height": 522,
+                "size_bytes": 79661,
+                "label": "Fig. 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.137461,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.55577,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 330,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Fig 1",
+        "caption": "Comparison of reasoning with different cue types: (a) Text-only: rea-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_fig_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+          "width": 983,
+          "height": 586,
+          "size_bytes": 356486,
+          "label": "Fig. 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.154119,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.58714,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 509,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "comparison",
+              "reasoning",
+              "different",
+              "types",
+              "text-only"
+            ],
+            "snippet": "2 Y. Qi et al. Fig. 1: Comparison of reasoning with different cue types: (a) Text-only: rea- soning based solel",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 27,
+            "score": 6,
+            "matched_terms": [
+              "fig. 1",
+              "reasoning"
+            ],
+            "snippet": "rocess the following: Question: question Answer: answer Visual Cues: clues Your response: Fig. 10: Reasoning Construction Prompt.",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_027_fig_fig_10.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png",
+                "width": 982,
+                "height": 1585,
+                "size_bytes": 209272,
+                "label": "Fig. 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "large_text_block_suspected"
+                  ],
+                  "page_coverage_ratio": 0.416622,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1530,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 39,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 11,
+            "score": 3,
+            "matched_terms": [
+              "comparison",
+              "reasoning",
+              "different",
+              "text-only"
+            ],
+            "snippet": "PatchCue 11 Table 2: Performance comparison across different forms of visual cues. We compare the impact of different visual cue form",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+                "width": 994,
+                "height": 761,
+                "size_bytes": 151648,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.202475,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 699,
+                  "table_body_rows": 22,
+                  "caption_text_chars": 375,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Main results across multiple benchmarks. We evaluate the performance",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_010_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+          "width": 994,
+          "height": 755,
+          "size_bytes": 151053,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.200838,
+            "visual_rect_count": 8,
+            "visual_body_ratio": 0.054672,
+            "paragraph_text_chars": 615,
+            "table_body_rows": 24,
+            "caption_text_chars": 296,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 10,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "main",
+              "across",
+              "multiple",
+              "benchmarks",
+              "evaluate"
+            ],
+            "snippet": "10 Y. Qi et al. Table 1: Main results across multiple benchmarks. We evaluate the performance of various VLMs tra",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+                "width": 994,
+                "height": 755,
+                "size_bytes": 151053,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200838,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 0.054672,
+                  "paragraph_text_chars": 615,
+                  "table_body_rows": 24,
+                  "caption_text_chars": 296,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 13,
+            "score": 7,
+            "matched_terms": [
+              "table 1",
+              "across",
+              "benchmarks"
+            ],
+            "snippet": "hCue, we compare it with several other methods for incorporating visual cues, as shown in Table 1. Since the experimental details of different methods vary, for example, CogCom [35] uses",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_table_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+                "width": 994,
+                "height": 356,
+                "size_bytes": 61547,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.094771,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 291,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 7,
+            "matched_terms": [
+              "table 1",
+              "multiple",
+              "benchmarks"
+            ],
+            "snippet": "bbox visual cue framework, some base models show suboptimal performance on certain tasks (Table 1). In comparison, point- based cues at either the pixel or patch level achieve better resu",
+            "images": [
+              {
+                "filename": "page_014_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_img_01.jpeg",
+                "width": 9832,
+                "height": 3579,
+                "size_bytes": 2613745
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_fig_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_fig_fig_5.png",
+                "width": 982,
+                "height": 492,
+                "size_bytes": 421255,
+                "label": "Fig. 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.129386,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.694039,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 236,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Performance comparison across different forms of visual cues. We",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_011_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+          "width": 994,
+          "height": 761,
+          "size_bytes": 151648,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.202475,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 699,
+            "table_body_rows": 22,
+            "caption_text_chars": 375,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 11,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "performance",
+              "comparison",
+              "across",
+              "different",
+              "forms"
+            ],
+            "snippet": "PatchCue 11 Table 2: Performance comparison across different forms of visual cues. We compare the impact of d",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+                "width": 994,
+                "height": 761,
+                "size_bytes": 151648,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.202475,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 699,
+                  "table_body_rows": 22,
+                  "caption_text_chars": 375,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "comparison",
+              "different"
+            ],
+            "snippet": "visual information; (e) SFT training comparison shows that patch-based cues improve model performance more effectively than pixel-bbox or pixel-point cues. reasoning steps [35, 40, 68, 71]. S",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 10,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "across",
+              "different"
+            ],
+            "snippet": "10 Y. Qi et al. Table 1: Main results across multiple benchmarks. We evaluate the performance of various VLMs trained with our PatchCue paradigm, demonstrating consistent im- provemen",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+                "width": 994,
+                "height": 755,
+                "size_bytes": 151053,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200838,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 0.054672,
+                  "paragraph_text_chars": 615,
+                  "table_body_rows": 24,
+                  "caption_text_chars": 296,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison under different training data setups. We",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_012_fig_table_3.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+          "width": 994,
+          "height": 498,
+          "size_bytes": 76776,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.13247,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 6,
+            "caption_text_chars": 335,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 11,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "performance",
+              "comparison",
+              "under",
+              "different",
+              "training"
+            ],
+            "snippet": "under different ratio settings and compare the resulting model performances. As shown in Table 3, models trained solely on non-cue data achieve only marginal improvements, indicating tha",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+                "width": 994,
+                "height": 761,
+                "size_bytes": 151648,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.202475,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 699,
+                  "table_body_rows": 22,
+                  "caption_text_chars": 375,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "performance",
+              "comparison",
+              "under",
+              "different",
+              "training"
+            ],
+            "snippet": "12 Y. Qi et al. Table 3: Performance comparison under different training data setups. We evaluate the impact of t",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+                "width": 994,
+                "height": 498,
+                "size_bytes": 76776,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13247,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 335,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_012_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+                "width": 994,
+                "height": 422,
+                "size_bytes": 69293,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.112239,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 378,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "comparison",
+              "different",
+              "training"
+            ],
+            "snippet": "visual information; (e) SFT training comparison shows that patch-based cues improve model performance more effectively than pixel-bbox or pixel-point cues. reasoning steps [35, 40, 68, 71]. S",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation of cue reward. We compare the performance differences between",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_012_fig_table_4.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+          "width": 994,
+          "height": 422,
+          "size_bytes": 69293,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.112239,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 4,
+            "caption_text_chars": 378,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "ablation",
+              "reward",
+              "compare",
+              "performance",
+              "differences"
+            ],
+            "snippet": "appropriate balance with general data is necessary to maintain overall model robustness. Table 4: Ablation of cue reward. We compare the performance differences between RL training with",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+                "width": 994,
+                "height": 498,
+                "size_bytes": 76776,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13247,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 335,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_012_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+                "width": 994,
+                "height": 422,
+                "size_bytes": 69293,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.112239,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 378,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "reward",
+              "compare",
+              "performance"
+            ],
+            "snippet": "ities. Findings 3: Process rewards can play an effective role in perceptual reasoning. In Table 4, we present a comparison of GRPO training results with and without the incorporation of p",
+            "images": [
+              {
+                "filename": "page_014_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_img_01.jpeg",
+                "width": 9832,
+                "height": 3579,
+                "size_bytes": 2613745
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_fig_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_fig_fig_5.png",
+                "width": 982,
+                "height": 492,
+                "size_bytes": 421255,
+                "label": "Fig. 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.129386,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.694039,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 236,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 11,
+            "score": 3,
+            "matched_terms": [
+              "ablation",
+              "compare",
+              "performance"
+            ],
+            "snippet": "fectiveness and generalizability as a superior visual cue for multimodal reasoning tasks. Ablation study on data composition. During the SFT training stage, we incorporate a portion of non",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+                "width": 994,
+                "height": 761,
+                "size_bytes": 151648,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.202475,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 699,
+                  "table_body_rows": 22,
+                  "caption_text_chars": 375,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Performance comparison of different methods on multimodal benchmarks. We",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_013_fig_table_5.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+          "width": 994,
+          "height": 356,
+          "size_bytes": 61547,
+          "label": "Table 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.094771,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 128,
+            "table_body_rows": 4,
+            "caption_text_chars": 291,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 13,
+            "score": 8,
+            "matched_terms": [
+              "table 5",
+              "performance",
+              "comparison",
+              "different",
+              "methods",
+              "multimodal"
+            ],
+            "snippet": "PatchCue 13 Table 5: Performance comparison of different methods on multimodal benchmarks. We sample ∼12K ins",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_table_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+                "width": 994,
+                "height": 356,
+                "size_bytes": 61547,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.094771,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 291,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "comparison",
+              "different",
+              "methods",
+              "multimodal"
+            ],
+            "snippet": "visual information; (e) SFT training comparison shows that patch-based cues improve model performance more effectively than pixel-bbox or pixel-point cues. reasoning steps [35, 40, 68, 71]. S",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 10,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "different",
+              "multimodal"
+            ],
+            "snippet": "10 Y. Qi et al. Table 1: Main results across multiple benchmarks. We evaluate the performance of various VLMs trained with our PatchCue paradigm, demonstrating consistent im- provemen",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+                "width": 994,
+                "height": 755,
+                "size_bytes": 151053,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200838,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 0.054672,
+                  "paragraph_text_chars": 615,
+                  "table_body_rows": 24,
+                  "caption_text_chars": 296,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Hyperparameters for SFT Training.",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_021_fig_table_6.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+          "width": 546,
+          "height": 475,
+          "size_bytes": 40562,
+          "label": "Table 6",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.069584,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 157,
+            "table_body_rows": 8,
+            "caption_text_chars": 42,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 21,
+            "score": 7,
+            "matched_terms": [
+              "table 6",
+              "hyperparameters",
+              "training"
+            ],
+            "snippet": "phase, we perform full-model fine-tuning, with the relevant hyperparameters listed in the Table 6 below. All other parameters not listed are kept consistent with Swift’s official document",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_table_6.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+                "width": 546,
+                "height": 475,
+                "size_bytes": 40562,
+                "label": "Table 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069584,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 157,
+                  "table_body_rows": 8,
+                  "caption_text_chars": 42,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 22,
+            "score": 2,
+            "matched_terms": [
+              "hyperparameters",
+              "training"
+            ],
+            "snippet": "22 Y. Qi et al. Table 7: Hyperparameters for GRPO Training Hyperparameter Settings Beta 0.001 Torch Dtype bfloat16 Learning Rate 1",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_table_7.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+                "width": 780,
+                "height": 768,
+                "size_bytes": 59245,
+                "label": "Table 7",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.160288,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 224,
+                  "table_body_rows": 9,
+                  "caption_text_chars": 42,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "training"
+            ],
+            "snippet": "cues represented as patch-level regions to capture localized visual information; (e) SFT training comparison shows that patch-based cues improve model performance more effectively than pi",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Hyperparameters for GRPO Training",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_022_fig_table_7.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+          "width": 780,
+          "height": 768,
+          "size_bytes": 59245,
+          "label": "Table 7",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.160288,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 224,
+            "table_body_rows": 9,
+            "caption_text_chars": 42,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 21,
+            "score": 8,
+            "matched_terms": [
+              "table 7",
+              "hyperparameters",
+              "grpo",
+              "training"
+            ],
+            "snippet": "rain the model using the GRPO algorithm, with the corresponding hyperparameters listed in Table 7. All other parameters not listed are kept consistent with Swift’s official documentation.",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_table_6.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+                "width": 546,
+                "height": 475,
+                "size_bytes": 40562,
+                "label": "Table 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069584,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 157,
+                  "table_body_rows": 8,
+                  "caption_text_chars": 42,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 22,
+            "score": 8,
+            "matched_terms": [
+              "table 7",
+              "hyperparameters",
+              "grpo",
+              "training"
+            ],
+            "snippet": "22 Y. Qi et al. Table 7: Hyperparameters for GRPO Training Hyperparameter Settings Beta 0.001 Torch Dtype bfloat1",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_table_7.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+                "width": 780,
+                "height": 768,
+                "size_bytes": 59245,
+                "label": "Table 7",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.160288,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 224,
+                  "table_body_rows": 9,
+                  "caption_text_chars": 42,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 2,
+            "matched_terms": [
+              "grpo",
+              "training"
+            ],
+            "snippet": "the reasoning process and image content, we apply RL on the cold-started model using the GRPO algorithm [41]. To maximize the effective- ness of GRPO training, we first refine the tra",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_img_01.png",
+                "width": 1400,
+                "height": 600,
+                "size_bytes": 72246
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_fig_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+                "width": 982,
+                "height": 522,
+                "size_bytes": 79661,
+                "label": "Fig. 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.137461,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.55577,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 330,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Fig 10",
+        "caption": "Reasoning Construction Prompt.",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_027_fig_fig_10.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png",
+          "width": 982,
+          "height": 1585,
+          "size_bytes": 209272,
+          "label": "Fig. 10",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "large_text_block_suspected"
+            ],
+            "page_coverage_ratio": 0.416622,
+            "visual_rect_count": 2,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 1530,
+            "table_body_rows": 0,
+            "caption_text_chars": 39,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 27,
+            "score": 8,
+            "matched_terms": [
+              "fig. 10",
+              "reasoning",
+              "construction",
+              "prompt"
+            ],
+            "snippet": "rocess the following: Question: question Answer: answer Visual Cues: clues Your response: Fig. 10: Reasoning Construction Prompt.",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_027_fig_fig_10.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png",
+                "width": 982,
+                "height": 1585,
+                "size_bytes": 209272,
+                "label": "Fig. 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "large_text_block_suspected"
+                  ],
+                  "page_coverage_ratio": 0.416622,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1530,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 39,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "reasoning",
+              "prompt"
+            ],
+            "snippet": "2 Y. Qi et al. Fig. 1: Comparison of reasoning with different cue types: (a) Text-only: rea- soning based solely on textual information;",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+                "width": 8906,
+                "height": 3268,
+                "size_bytes": 1753660
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_fig_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+                "width": 983,
+                "height": 586,
+                "size_bytes": 356486,
+                "label": "Fig. 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.154119,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.58714,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 509,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 2,
+            "matched_terms": [
+              "reasoning",
+              "construction"
+            ],
+            "snippet": "d-size patches in order to represent important regions as visual cues. During the model’s reasoning process, it is essential not only to identify which patches are relevant to the given que",
+            "images": [
+              {
+                "filename": "page_005_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_img_01.jpeg",
+                "width": 6079,
+                "height": 2677,
+                "size_bytes": 1313181
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_fig_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+                "width": 982,
+                "height": 656,
+                "size_bytes": 511942,
+                "label": "Fig. 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.172659,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.629121,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 510,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Fig 4",
+        "caption": "Data Distribution. In the left figure, we show the distribution of the number",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_fig_4.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+          "width": 982,
+          "height": 522,
+          "size_bytes": 79661,
+          "label": "Fig. 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.137461,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.55577,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 330,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "fig. 4",
+              "data",
+              "distribution",
+              "left",
+              "show",
+              "number"
+            ],
+            "snippet": "PatchCue 7 Fig. 4: Data Distribution. In the left figure, we show the distribution of the number of cues pe",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_img_01.png",
+                "width": 1400,
+                "height": 600,
+                "size_bytes": 72246
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_fig_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+                "width": 982,
+                "height": 522,
+                "size_bytes": 79661,
+                "label": "Fig. 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.137461,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.55577,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 330,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "data",
+              "left",
+              "show"
+            ],
+            "snippet": "6 Y. Qi et al. Fig. 3: Data Pipeline. Starting from the collected original data, we filter to obtain challenging samp",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_img_01.png",
+                "width": 3114,
+                "height": 1052,
+                "size_bytes": 228173
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_fig_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+                "width": 983,
+                "height": 419,
+                "size_bytes": 87035,
+                "label": "Fig. 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.110221,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.539509,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 232,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 27,
+            "score": 3,
+            "matched_terms": [
+              "left",
+              "show",
+              "number"
+            ],
+            "snippet": "r <bbox>[0.194, 0.062, 0.851, 0.141]</bbox> rep- resents the highest market value. To its left, the associated label is \"Keylor Navas\" <bbox>[0.107, 0.062, 0.194, 0.141]</bbox>. Theref",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_027_fig_fig_10.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png",
+                "width": 982,
+                "height": 1585,
+                "size_bytes": 209272,
+                "label": "Fig. 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "large_text_block_suspected"
+                  ],
+                  "page_coverage_ratio": 0.416622,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1530,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 39,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  },
+  "figure_table_manifest": {
+    "decisions_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_figure_table_decisions.json",
+    "decisions": [
+      {
+        "item_id": "figure:Fig 1",
+        "source_id": "Fig 1",
+        "kind": "figure",
+        "label": "Fig 1",
+        "caption": "Comparison of reasoning with different cue types: (a) Text-only: rea-",
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_002_fig_fig_1.png",
+        "relative_markdown_embed": "![Fig 1](images/page_002_fig_fig_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Fig 2",
+        "source_id": "Fig 2",
+        "kind": "figure",
+        "label": "Fig 2",
+        "caption": "Overview of PatchCue. We divide images into fixed-size patches in order to",
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 1,
+        "target_section": "机制流程",
+        "plan_kind": "method_overview",
+        "source_image_filename": "page_005_fig_fig_2.png",
+        "relative_markdown_embed": "![Fig 2](images/page_005_fig_fig_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Fig 3",
+        "source_id": "Fig 3",
+        "kind": "figure",
+        "label": "Fig 3",
+        "caption": "Data Pipeline. Starting from the collected original data, we filter to obtain",
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 1,
+        "target_section": "机制流程",
+        "plan_kind": "method_overview",
+        "source_image_filename": "page_006_fig_fig_3.png",
+        "relative_markdown_embed": "![Fig 3](images/page_006_fig_fig_3.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Fig 4",
+        "source_id": "Fig 4",
+        "kind": "figure",
+        "label": "Fig 4",
+        "caption": "Data Distribution. In the left figure, we show the distribution of the number",
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "数据与任务定义",
+        "plan_kind": "data_or_task",
+        "source_image_filename": "page_007_fig_fig_4.png",
+        "relative_markdown_embed": "![Fig 4](images/page_007_fig_fig_4.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Fig 5",
+        "source_id": "Fig 5",
+        "kind": "figure",
+        "label": "Fig 5",
+        "caption": "Case Study. We compare the model’s outputs before and after PatchCue",
+        "pages": [
+          14
+        ],
+        "section_id": "sec:discussion",
+        "decision": "low_priority",
+        "reason": "caption_detected_but_not_selected_by_figure_plan",
+        "skip_reason": "",
+        "visual_quality_status": "",
+        "priority": 99,
+        "target_section": ""
+      },
+      {
+        "item_id": "figure:Fig 6",
+        "source_id": "Fig 6",
+        "kind": "figure",
+        "label": "Fig 6",
+        "caption": "Successful examples where visual cues effectively guide the model to conduct",
+        "pages": [
+          23
+        ],
+        "section_id": "sec:references",
+        "decision": "low_priority",
+        "reason": "caption_detected_but_not_selected_by_figure_plan",
+        "skip_reason": "",
+        "visual_quality_status": "",
+        "priority": 99,
+        "target_section": ""
+      },
+      {
+        "item_id": "figure:Fig 7",
+        "source_id": "Fig 7",
+        "kind": "figure",
+        "label": "Fig 7",
+        "caption": "Common failure cases of cue-based reasoning, including flawed reasoning despite",
+        "pages": [
+          23
+        ],
+        "section_id": "sec:references",
+        "decision": "low_priority",
+        "reason": "caption_detected_but_not_selected_by_figure_plan",
+        "skip_reason": "",
+        "visual_quality_status": "",
+        "priority": 99,
+        "target_section": ""
+      },
+      {
+        "item_id": "figure:Fig 8",
+        "source_id": "Fig 8",
+        "kind": "figure",
+        "label": "Fig 8",
+        "caption": "Cue Extraction Prompt",
+        "pages": [
+          24
+        ],
+        "section_id": "sec:references",
+        "decision": "low_priority",
+        "reason": "caption_detected_but_not_selected_by_figure_plan",
+        "skip_reason": "",
+        "visual_quality_status": "",
+        "priority": 99,
+        "target_section": ""
+      },
+      {
+        "item_id": "figure:Fig 9",
+        "source_id": "Fig 9",
+        "kind": "figure",
+        "label": "Fig 9",
+        "caption": "Cue Grounding Prompt",
+        "pages": [
+          25
+        ],
+        "section_id": "sec:references",
+        "decision": "low_priority",
+        "reason": "caption_detected_but_not_selected_by_figure_plan",
+        "skip_reason": "",
+        "visual_quality_status": "",
+        "priority": 99,
+        "target_section": ""
+      },
+      {
+        "item_id": "figure:Fig 10",
+        "source_id": "Fig 10",
+        "kind": "figure",
+        "label": "Fig 10",
+        "caption": "Reasoning Construction Prompt.",
+        "pages": [
+          27
+        ],
+        "section_id": "sec:references",
+        "decision": "visual_defect",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "visual_quality_gate_rejected_candidate",
+        "visual_quality_status": "reject_visual_quality",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_027_fig_fig_10.png",
+        "relative_markdown_embed": "![Fig 10](images/page_027_fig_fig_10.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png"
+      },
+      {
+        "item_id": "table:Table 1",
+        "source_id": "Table 1",
+        "kind": "table",
+        "label": "Table 1",
+        "caption": "Main results across multiple benchmarks. We evaluate the performance",
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiment",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_010_fig_table_1.png",
+        "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 2",
+        "source_id": "Table 2",
+        "kind": "table",
+        "label": "Table 2",
+        "caption": "Performance comparison across different forms of visual cues. We",
+        "pages": [
+          11
+        ],
+        "section_id": "sec:analysis",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_011_fig_table_2.png",
+        "relative_markdown_embed": "![Table 2](images/page_011_fig_table_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 3",
+        "source_id": "Table 3",
+        "kind": "table",
+        "label": "Table 3",
+        "caption": "Performance comparison under different training data setups. We",
+        "pages": [
+          12
+        ],
+        "section_id": "sec:analysis",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_012_fig_table_3.png",
+        "relative_markdown_embed": "![Table 3](images/page_012_fig_table_3.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 4",
+        "source_id": "Table 4",
+        "kind": "table",
+        "label": "Table 4",
+        "caption": "Ablation of cue reward. We compare the performance differences between",
+        "pages": [
+          12
+        ],
+        "section_id": "sec:analysis",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_012_fig_table_4.png",
+        "relative_markdown_embed": "![Table 4](images/page_012_fig_table_4.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 5",
+        "source_id": "Table 5",
+        "kind": "table",
+        "label": "Table 5",
+        "caption": "Performance comparison of different methods on multimodal benchmarks. We",
+        "pages": [
+          13
+        ],
+        "section_id": "sec:model",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_013_fig_table_5.png",
+        "relative_markdown_embed": "![Table 5](images/page_013_fig_table_5.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 6",
+        "source_id": "Table 6",
+        "kind": "table",
+        "label": "Table 6",
+        "caption": "Hyperparameters for SFT Training.",
+        "pages": [
+          21
+        ],
+        "section_id": "sec:references",
+        "decision": "insert",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "table_result",
+        "source_image_filename": "page_021_fig_table_6.png",
+        "relative_markdown_embed": "![Table 6](images/page_021_fig_table_6.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 7",
+        "source_id": "Table 7",
+        "kind": "table",
+        "label": "Table 7",
+        "caption": "Hyperparameters for GRPO Training",
+        "pages": [
+          22
+        ],
+        "section_id": "sec:references",
+        "decision": "insert",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "table_result",
+        "source_image_filename": "page_022_fig_table_7.png",
+        "relative_markdown_embed": "![Table 7](images/page_022_fig_table_7.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+        "materialization_status": "pending"
+      }
+    ],
+    "caption_counts": {
+      "figures": 10,
+      "tables": 7
+    },
+    "planned_items": 12,
+    "requires_full_decision_table": true
+  },
+  "pdf_assets": {
+    "asset_root": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues",
+    "images_dir": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images",
+    "page_assets": [
+      {
+        "page_number": 1,
+        "searchable_text_chars": 2345,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues Yukun Qi, Pei Fu, Hang Li, Yuhan Liu, Chao Jiang, Bin Qin, Zhenbo Luo⋆, and Jian Luan MiLM Plus, Xiaomi Inc. {qiyukun, luozhenbo}@xiaomi.com Abstract. Vision-L"
+      },
+      {
+        "page_number": 2,
+        "searchable_text_chars": 2541,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "2 Y. Qi et al. Fig. 1: Comparison of reasoning with different cue types: (a) Text-only: rea- soning based solely on textual information; (b) Pixel-bbox: cues represented as precise pixel-level bounding boxes; (c) Pixel-point: cues indicated"
+      },
+      {
+        "page_number": 3,
+        "searchable_text_chars": 2979,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 3 To investigate this question, we analyze several representative visual cue forms, as illustrated in Figure 1. The text-only paradigm reflects reasoning oc- curring purely in the mind after initial observation, without iterative i"
+      },
+      {
+        "page_number": 4,
+        "searchable_text_chars": 3108,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "4 Y. Qi et al. evaluation protocols [4,36,64,69], and novel training objectives and architectural designs [12, 26, 27, 52]. Unlike text-only reasoning, which treats visual informa- tion as a static initial context [10,46,53], the “thinking "
+      },
+      {
+        "page_number": 5,
+        "searchable_text_chars": 2185,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "PatchCue 5 Fig. 2: Overview of PatchCue. We divide images into fixed-size patches in order to represent important regions as visual cues. During the model’s reasoning process, it is essential not only to identify which patches are relevant "
+      },
+      {
+        "page_number": 6,
+        "searchable_text_chars": 2277,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "6 Y. Qi et al. Fig. 3: Data Pipeline. Starting from the collected original data, we filter to obtain challenging samples. Then extract and ground the key visual cues in the images, and finally construct new reasoning sequences based on thes"
+      },
+      {
+        "page_number": 7,
+        "searchable_text_chars": 2009,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "PatchCue 7 Fig. 4: Data Distribution. In the left figure, we show the distribution of the number of cues per sample, where most cue data are concentrated between 2 and 5 cues; in the right figure, we show the distribution of the proportion "
+      },
+      {
+        "page_number": 8,
+        "searchable_text_chars": 2735,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "8 Y. Qi et al. Samples that the model consistently answers correctly or fails to answer are ex- cluded, resulting in a curated set of 15K samples for GRPO training. GRPO then performs policy gradient optimization within each sample group, e"
+      },
+      {
+        "page_number": 9,
+        "searchable_text_chars": 2226,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 9 A matched pair (i, j) is considered successful if F_1 (\\ ma th c al {S}_p^i, \\mathcal {S}_g^j) \\ge \\tau , (8) where τ is a tunable hyperparameter controlling the minimum F1 required for a successful match (default τ = 0.5). Let k"
+      },
+      {
+        "page_number": 10,
+        "searchable_text_chars": 2744,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "10 Y. Qi et al. Table 1: Main results across multiple benchmarks. We evaluate the performance of various VLMs trained with our PatchCue paradigm, demonstrating consistent im- provements over baseline models across diverse datasets. The nota"
+      },
+      {
+        "page_number": 11,
+        "searchable_text_chars": 2937,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 11 Table 2: Performance comparison across different forms of visual cues. We compare the impact of different visual cue formats on model performance under the same data scale and reasoning paradigm, where “Baseline” denotes the ori"
+      },
+      {
+        "page_number": 12,
+        "searchable_text_chars": 1967,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "12 Y. Qi et al. Table 3: Performance comparison under different training data setups. We evaluate the impact of training data composition on model performance. “Baseline” denotes the original Qwen2.5-VL-7B results. Other rows indicate train"
+      },
+      {
+        "page_number": 13,
+        "searchable_text_chars": 2520,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 13 Table 5: Performance comparison of different methods on multimodal benchmarks. We sample ∼12K instances from VisualCoT, CogCom, and MINI-CoT, and fine-tune the same backbone (Qwen2.5-VL-7B) with an identical SFT protocol for a f"
+      },
+      {
+        "page_number": 14,
+        "searchable_text_chars": 1859,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "14 Y. Qi et al. Fig. 5: Case Study. We compare the model’s outputs before and after PatchCue training. After training, the model can generate visual cues during reasoning, improving both its perception and the interpretability of its reason"
+      },
+      {
+        "page_number": 15,
+        "searchable_text_chars": 375,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 15 enables models to generate and leverage visual cues more effectively during in- terleaved visual-text reasoning. Experiments across multiple VLMs and bench- marks show that patch-bbox cues consistently improve performance, indic"
+      },
+      {
+        "page_number": 16,
+        "searchable_text_chars": 3262,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "16 Y. Qi et al. References 1. Bai, S., Chen, K., Liu, X., Wang, J., Ge, W., Song, S., Dang, K., Wang, P., Wang, S., Tang, J., et al.: Qwen2. 5-vl technical report. arXiv preprint arXiv:2502.13923 (2025) 2. Chen, L., Li, L., Zhao, H., Song, "
+      },
+      {
+        "page_number": 17,
+        "searchable_text_chars": 3642,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 17 15. Guan, T., Liu, F., Wu, X., Xian, R., Li, Z., Liu, X., Wang, X., Chen, L., Huang, F., Yacoob, Y., et al.: Hallusionbench: an advanced diagnostic suite for entan- gled language hallucination and visual illusion in large vision"
+      },
+      {
+        "page_number": 18,
+        "searchable_text_chars": 3560,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "18 Y. Qi et al. 31. Masry, A., Long, D.X., Tan, J.Q., Joty, S., Hoque, E.: Chartqa: A benchmark for question answering about charts with visual and logical reasoning. arXiv preprint arXiv:2203.10244 (2022) 32. Mathew, M., Karatzas, D., Jawa"
+      },
+      {
+        "page_number": 19,
+        "searchable_text_chars": 3392,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 19 48. Wang, J., Kang, Z., Wang, H., Jiang, H., Li, J., Wu, B., Wang, Y., Ran, J., Liang, X., Feng, C., et al.: Vgr: Visual grounded reasoning. arXiv preprint arXiv:2506.11991 (2025) 49. Wang, K., Pan, J., Shi, W., Lu, Z., Ren, H.,"
+      },
+      {
+        "page_number": 20,
+        "searchable_text_chars": 1875,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "20 Y. Qi et al. 64. Zeng, Y., Huang, W., Fang, Z., Chen, S., Shen, Y., Cai, Y., Wang, X., Yin, Z., Chen, L., Chen, Z., et al.: Vision-deepresearch benchmark: Rethinking visual and tex- tual search for multimodal large language models. arXiv"
+      },
+      {
+        "page_number": 21,
+        "searchable_text_chars": 2107,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "PatchCue 21 6 Supplementary 6.1 Theoretical Details of GRPO The complete policy optimization objective for GRPO training is as follows: \\resiz e b o x {\\lin ewidth }{!}{$\\begin {aligned} \\mathcal {J}_{\\text {GRPO}}(\\theta ) & =\\mathbb {E}\\!"
+      },
+      {
+        "page_number": 22,
+        "searchable_text_chars": 1306,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "22 Y. Qi et al. Table 7: Hyperparameters for GRPO Training Hyperparameter Settings Beta 0.001 Torch Dtype bfloat16 Learning Rate 1e-6 Warmup Ratio 0.05 Num Generations 8 Epoch 3 DeepSpeed Stage 3 Temperature 1.0 Top-p 1.0 Top-k 80 Repetitio"
+      },
+      {
+        "page_number": 23,
+        "searchable_text_chars": 330,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 2,
+        "text_preview": "PatchCue 23 Fig. 6: Successful examples where visual cues effectively guide the model to conduct accurate and interpretable reasoning. Fig. 7: Common failure cases of cue-based reasoning, including flawed reasoning despite reasonable cues, "
+      },
+      {
+        "page_number": 24,
+        "searchable_text_chars": 1246,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "24 Y. Qi et al. Cue Extraction Prompt You will receive an image, a question related to the image, and the final answer to that question. Your task: – Extract the key visual cues from the image that are directly related to answering the ques"
+      }
+    ],
+    "image_assets": [
+      {
+        "page_number": 2,
+        "image_index": 1,
+        "xref": 547,
+        "filename": "page_002_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 8906,
+        "height": 3268,
+        "colorspace": 3,
+        "size_bytes": 1753660,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 1,
+        "xref": 567,
+        "filename": "page_005_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 6079,
+        "height": 2677,
+        "colorspace": 3,
+        "size_bytes": 1313181,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 6,
+        "image_index": 1,
+        "xref": 568,
+        "filename": "page_006_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_img_01.png",
+        "ext": "png",
+        "width": 3114,
+        "height": 1052,
+        "colorspace": 3,
+        "size_bytes": 228173,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 7,
+        "image_index": 1,
+        "xref": 569,
+        "filename": "page_007_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_img_01.png",
+        "ext": "png",
+        "width": 1400,
+        "height": 600,
+        "colorspace": 3,
+        "size_bytes": 72246,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 14,
+        "image_index": 1,
+        "xref": 592,
+        "filename": "page_014_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 9832,
+        "height": 3579,
+        "colorspace": 3,
+        "size_bytes": 2613745,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 23,
+        "image_index": 1,
+        "xref": 603,
+        "filename": "page_023_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_023_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 8815,
+        "height": 4915,
+        "colorspace": 3,
+        "size_bytes": 2498844,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 23,
+        "image_index": 2,
+        "xref": 605,
+        "filename": "page_023_img_02.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_023_img_02.jpeg",
+        "ext": "jpeg",
+        "width": 8699,
+        "height": 5238,
+        "colorspace": 3,
+        "size_bytes": 3417757,
+        "extraction_level": "xref"
+      }
+    ],
+    "figure_assets": [
+      {
+        "filename": "page_002_fig_fig_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+        "page_number": 2,
+        "label": "Fig. 1",
+        "kind": "figure",
+        "caption_text": "Fig. 1: Comparison of reasoning with different cue types: (a) Text-only: rea- soning based solely on textual information; (b) Pixel-bbox: cues represented as precise pixel-level bounding boxes; (c) Pixel-point: cues indicated by single pixel points high- lighting key regions; (d) Patch-bbox: cues represented as patch-level regions to capture localized visual information; (e) SFT training comparison shows that patch-based cues improve model performance more effectively than pixel-bbox or pixel-point cues.",
+        "width": 983,
+        "height": 586,
+        "size_bytes": 356486,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.154119,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.58714,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 509,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_005_fig_fig_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+        "page_number": 5,
+        "label": "Fig. 2",
+        "kind": "figure",
+        "caption_text": "Fig. 2: Overview of PatchCue. We divide images into fixed-size patches in order to represent important regions as visual cues. During the model’s reasoning process, it is essential not only to identify which patches are relevant to the given question but also to accurately reference and integrate these cues throughout each reasoning step. This structured use of patch-level cues helps the model ground its intermediate reasoning in the visual content, improving both interpretability and overall performance.",
+        "width": 982,
+        "height": 656,
+        "size_bytes": 511942,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.172659,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.629121,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 510,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_006_fig_fig_3.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+        "page_number": 6,
+        "label": "Fig. 3",
+        "kind": "figure",
+        "caption_text": "Fig. 3: Data Pipeline. Starting from the collected original data, we filter to obtain challenging samples. Then extract and ground the key visual cues in the images, and finally construct new reasoning sequences based on these cues.",
+        "width": 983,
+        "height": 419,
+        "size_bytes": 87035,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.110221,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.539509,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 232,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_007_fig_fig_4.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+        "page_number": 7,
+        "label": "Fig. 4",
+        "kind": "figure",
+        "caption_text": "Fig. 4: Data Distribution. In the left figure, we show the distribution of the number of cues per sample, where most cue data are concentrated between 2 and 5 cues; in the right figure, we show the distribution of the proportion of cue regions, with the majority of samples having cue regions occupying less than 40% of the image.",
+        "width": 982,
+        "height": 522,
+        "size_bytes": 79661,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.137461,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.55577,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 330,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_010_fig_table_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+        "page_number": 10,
+        "label": "Table 1",
+        "kind": "table",
+        "caption_text": "Table 1: Main results across multiple benchmarks. We evaluate the performance of various VLMs trained with our PatchCue paradigm, demonstrating consistent im- provements over baseline models across diverse datasets. The notation “+PC\" indicates models trained with our patch-bbox visual cue data.",
+        "width": 994,
+        "height": 755,
+        "size_bytes": 151053,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.200838,
+          "visual_rect_count": 8,
+          "visual_body_ratio": 0.054672,
+          "paragraph_text_chars": 615,
+          "table_body_rows": 24,
+          "caption_text_chars": 296,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_011_fig_table_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+        "page_number": 11,
+        "label": "Table 2",
+        "kind": "table",
+        "caption_text": "Table 2: Performance comparison across different forms of visual cues. We compare the impact of different visual cue formats on model performance under the same data scale and reasoning paradigm, where “Baseline” denotes the original results of Qwen2.5-VL 7B. The other columns show the results after SFT training using the cue data corresponding to each representation type.",
+        "width": 994,
+        "height": 761,
+        "size_bytes": 151648,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.202475,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 699,
+          "table_body_rows": 22,
+          "caption_text_chars": 375,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_012_fig_table_3.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+        "page_number": 12,
+        "label": "Table 3",
+        "kind": "table",
+        "caption_text": "Table 3: Performance comparison under different training data setups. We evaluate the impact of training data composition on model performance. “Baseline” denotes the original Qwen2.5-VL-7B results. Other rows indicate training on different combinations of general (Gen) and patch-bbox cue (Cue) data, with ratios specified as Gen:Cue.",
+        "width": 994,
+        "height": 498,
+        "size_bytes": 76776,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.13247,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 6,
+          "caption_text_chars": 335,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_012_fig_table_4.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+        "page_number": 12,
+        "label": "Table 4",
+        "kind": "table",
+        "caption_text": "Table 4: Ablation of cue reward. We compare the performance differences between RL training with and without the use of Rcue. “Baseline” denotes the original Qwen2.5- VL-7B results, “+SFT” represents the results after SFT training, “+RL (w/o Rcue)” indicates RL training based on the SFT model without applying Rcue, and “+RL” denotes RL training with the incorporation of Rcue.",
+        "width": 994,
+        "height": 422,
+        "size_bytes": 69293,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.112239,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 4,
+          "caption_text_chars": 378,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_013_fig_table_5.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+        "page_number": 13,
+        "label": "Table 5",
+        "kind": "table",
+        "caption_text": "Table 5: Performance comparison of different methods on multimodal benchmarks. We sample ∼12K instances from VisualCoT, CogCom, and MINI-CoT, and fine-tune the same backbone (Qwen2.5-VL-7B) with an identical SFT protocol for a fair comparison across methods with different original settings.",
+        "width": 994,
+        "height": 356,
+        "size_bytes": 61547,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.094771,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 128,
+          "table_body_rows": 4,
+          "caption_text_chars": 291,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_014_fig_fig_5.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_014_fig_fig_5.png",
+        "page_number": 14,
+        "label": "Fig. 5",
+        "kind": "figure",
+        "caption_text": "Fig. 5: Case Study. We compare the model’s outputs before and after PatchCue training. After training, the model can generate visual cues during reasoning, improving both its perception and the interpretability of its reasoning process.",
+        "width": 982,
+        "height": 492,
+        "size_bytes": 421255,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.129386,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.694039,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 236,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_021_fig_table_6.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+        "page_number": 21,
+        "label": "Table 6",
+        "kind": "table",
+        "caption_text": "Table 6: Hyperparameters for SFT Training.",
+        "width": 546,
+        "height": 475,
+        "size_bytes": 40562,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.069584,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 157,
+          "table_body_rows": 8,
+          "caption_text_chars": 42,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_022_fig_table_7.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+        "page_number": 22,
+        "label": "Table 7",
+        "kind": "table",
+        "caption_text": "Table 7: Hyperparameters for GRPO Training",
+        "width": 780,
+        "height": 768,
+        "size_bytes": 59245,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.160288,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 224,
+          "table_body_rows": 9,
+          "caption_text_chars": 42,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_023_fig_fig_6.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_023_fig_fig_6.png",
+        "page_number": 23,
+        "label": "Fig. 6",
+        "kind": "figure",
+        "caption_text": "Fig. 6: Successful examples where visual cues effectively guide the model to conduct accurate and interpretable reasoning.",
+        "width": 982,
+        "height": 647,
+        "size_bytes": 432032,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.170242,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.808053,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 122,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_023_fig_fig_7.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_023_fig_fig_7.png",
+        "page_number": 23,
+        "label": "Fig. 7",
+        "kind": "figure",
+        "caption_text": "Fig. 7: Common failure cases of cue-based reasoning, including flawed reasoning despite reasonable cues, incorrect cue localization, and localization deviations that mislead the final prediction.",
+        "width": 982,
+        "height": 720,
+        "size_bytes": 570381,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.18949,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.783873,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 195,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_024_fig_fig_8.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_024_fig_fig_8.png",
+        "page_number": 24,
+        "label": "Fig. 8",
+        "kind": "figure",
+        "caption_text": "Fig. 8: Cue Extraction Prompt",
+        "width": 982,
+        "height": 1385,
+        "size_bytes": 162807,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "large_text_block_suspected"
+          ],
+          "page_coverage_ratio": 0.364154,
+          "visual_rect_count": 2,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 1043,
+          "table_body_rows": 0,
+          "caption_text_chars": 29,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_025_fig_fig_9.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_025_fig_fig_9.png",
+        "page_number": 25,
+        "label": "Fig. 9",
+        "kind": "figure",
+        "caption_text": "Fig. 9: Cue Grounding Prompt",
+        "width": 982,
+        "height": 766,
+        "size_bytes": 83288,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "large_text_block_suspected"
+          ],
+          "page_coverage_ratio": 0.20147,
+          "visual_rect_count": 2,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 475,
+          "table_body_rows": 0,
+          "caption_text_chars": 28,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_027_fig_fig_10.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png",
+        "page_number": 27,
+        "label": "Fig. 10",
+        "kind": "figure",
+        "caption_text": "Fig. 10: Reasoning Construction Prompt.",
+        "width": 982,
+        "height": 1585,
+        "size_bytes": 209272,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "large_text_block_suspected"
+          ],
+          "page_coverage_ratio": 0.416622,
+          "visual_rect_count": 2,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 1530,
+          "table_body_rows": 0,
+          "caption_text_chars": 39,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      }
+    ],
+    "ocr_available": false
+  },
+  "writing_contract": {
+    "language": "zh-CN",
+    "contract_role": "manifest_quality_contract",
+    "canonical_source": "SKILL.md defines the workflow; scripts/contracts.py defines machine-checkable contract data.",
+    "must_include_sections": [
+      "核心信息",
+      "原文摘要翻译",
+      "创新点",
+      "一句话总结",
+      "研究问题",
+      "数据与任务定义",
+      "方法主线",
+      "关键结果",
+      "深度分析",
+      "局限",
+      "我的笔记",
+      "引用"
+    ],
+    "note_plan_contract": {
+      "required_fields": [
+        "paper_type",
+        "paper_type_rationale",
+        "dominant_domain",
+        "must_cover",
+        "key_numbers",
+        "real_comparisons",
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions",
+        "section_plan"
+      ],
+      "artifact_preference": "short_json_planning_file",
+      "grounding_field": "section_plan[*].evidence_sources",
+      "analysis_coverage_field": "central_claims[*]"
+    },
+    "paper_type_selection": {
+      "source_of_truth": "note_plan.paper_type",
+      "suggested_paper_type_role": "none",
+      "allowed_paper_types": [
+        "AI_method",
+        "benchmark_or_dataset",
+        "clinical_or_psychology_empirical",
+        "humanities_or_social_science",
+        "survey_or_review"
+      ]
+    },
+    "contracts_by_paper_type": {
+      "AI_method": {
+        "paper_type": "AI_method",
+        "reader_lens": "面向能复现方法机制的技术读者",
+        "section_focus": [
+          "问题设置",
+          "方法机制",
+          "训练/推理流程",
+          "关键公式",
+          "比较基线",
+          "消融与失败边界"
+        ],
+        "required_checks": [
+          "需要说明机制流程、关键公式、实验设计、消融含义和失败边界。"
+        ],
+        "formula_rules": [
+          "仅保留理解方法必需的 1 到 3 个关键公式，并解释其工程含义。"
+        ],
+        "avoid_rules": [
+          "不要把非 AI_method 论文强行改写成模型架构。"
+        ],
+        "boundary_questions": [
+          "核心机制的收益由哪个实验或消融支撑，而不是只由主结果暗示？",
+          "哪些比较只能证明在当前数据、基线、算力或协议下有效，不能外推到通用场景？",
+          "论文是否给出失败、退化、不稳定或成本上升的证据；如果没有，结论边界是什么？"
+        ],
+        "section_semantics": {
+          "研究问题": "方法要解决的具体技术问题和现有方法短板。",
+          "数据与任务定义": "数据集、输入输出、评测任务和实验设置。",
+          "方法主线": "模型、算法、训练或推理机制。",
+          "关键结果": "主结果、强基线、消融和关键数字。",
+          "深度分析": "方法为什么有效、何处脆弱、复现和扩展代价。"
+        },
+        "recommended_subsections": {
+          "方法主线": [
+            "机制流程",
+            "模型结构",
+            "训练目标",
+            "推理与采样链路",
+            "关键实现细节"
+          ],
+          "关键结果": [
+            "主结果与强基线",
+            "消融到底说明了什么",
+            "失败或不稳定设置"
+          ],
+          "深度分析": [
+            "为什么有效",
+            "复杂度与扩展性",
+            "复现注意点"
+          ]
+        },
+        "mechanism_flow_contract": {
+          "apply_when_paper_type_in": [
+            "AI_method"
+          ],
+          "required_step_count": "3_to_4",
+          "required_step_fields": [
+            "input",
+            "operation",
+            "output_destination"
+          ]
+        }
+      },
+      "benchmark_or_dataset": {
+        "paper_type": "benchmark_or_dataset",
+        "reader_lens": "面向要判断 benchmark/dataset 可用性和偏差边界的研究者",
+        "section_focus": [
+          "任务拆分",
+          "数据来源与构建流程",
+          "标注协议",
+          "评测指标",
+          "覆盖范围与偏差",
+          "样本统计与数据开放限制"
+        ],
+        "required_checks": [
+          "需要说明数据来源、构建/标注流程、评测指标、基线表现、样本统计、数据开放或隐私限制和适用边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心评测指标、采样规则或划分定义。"
+        ],
+        "avoid_rules": [
+          "不要把数据构建流程写成模型 pipeline。"
+        ],
+        "boundary_questions": [
+          "这个 benchmark/dataset 实际测量的构念是什么，哪些能力只是间接近似？",
+          "任务、标签、采样、过滤或评测协议会引入哪些覆盖缺口或偏差？",
+          "基线结果证明了评测集有区分度，还是只证明某类模型适应该协议？",
+          "样本时长、语料长度、人口统计、类别分布、数据可访问性或隐私限制如何影响复现和外推？"
+        ],
+        "section_semantics": {
+          "研究问题": "这个 benchmark/dataset 想补足的评测或数据缺口。",
+          "数据与任务定义": "数据来源、任务拆分、标签/题目定义、样本范围。",
+          "方法主线": "数据构建、筛选、标注和评测协议，不写成模型 pipeline。",
+          "关键结果": "基线表现、难度分布、覆盖范围和偏差。",
+          "深度分析": "它真正测到了什么，以及不能代表什么。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "数据来源",
+            "任务拆分",
+            "标注/筛选协议"
+          ],
+          "方法主线": [
+            "构建流程",
+            "评测协议",
+            "Baseline 设置"
+          ],
+          "关键结果": [
+            "基线表现",
+            "难度分布",
+            "覆盖与偏差"
+          ],
+          "深度分析": [
+            "benchmark 真正测到了什么",
+            "适用边界"
+          ]
+        }
+      },
+      "clinical_or_psychology_empirical": {
+        "paper_type": "clinical_or_psychology_empirical",
+        "reader_lens": "面向关注临床/心理学样本、变量关系和外推边界的研究读者",
+        "section_focus": [
+          "样本来源",
+          "纳排标准",
+          "变量或量表",
+          "分析管线",
+          "效应量与不确定性",
+          "样本统计、伦理和数据可访问性"
+        ],
+        "required_checks": [
+          "需要区分相关、预测、组间差异和因果解释，说明样本统计、伦理/隐私约束与外推边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心统计模型、效应量、置信区间或量表定义。"
+        ],
+        "avoid_rules": [
+          "不要把相关性、预测性能或组间差异写成未经证明的因果结论。"
+        ],
+        "boundary_questions": [
+          "样本来源、纳排标准、测量工具和标注流程如何限制外推？",
+          "结果支持相关、预测、组间差异还是因果解释；不要越过论文设计能证明的范围。",
+          "临床或心理学意义是否依赖未观测混杂、量表阈值、文本/语音缺失或场景约束？",
+          "样本构成、数据缺失、隐私限制或材料不可公开会怎样限制复现与再分析？"
+        ],
+        "section_semantics": {
+          "研究问题": "临床、心理学或行为科学中的研究问题、假设或变量关系。",
+          "数据与任务定义": "样本来源、纳排标准、变量/量表、测量方式。",
+          "方法主线": "研究设计、分组、测量流程和统计分析路径。",
+          "关键结果": "主要效应、相关性、组间差异、不确定性或显著性。",
+          "深度分析": "结果解释、因果边界、临床/心理学意义和外推限制。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "样本与纳排标准",
+            "变量与量表",
+            "测量流程"
+          ],
+          "方法主线": [
+            "研究设计",
+            "分析模型",
+            "主要比较"
+          ],
+          "关键结果": [
+            "主要效应",
+            "不确定性与显著性",
+            "临床或心理学解释"
+          ],
+          "深度分析": [
+            "因果解释边界",
+            "外推限制"
+          ]
+        }
+      },
+      "humanities_or_social_science": {
+        "paper_type": "humanities_or_social_science",
+        "reader_lens": "面向关注理论框架、材料解释和论证结构的研究读者",
+        "section_focus": [
+          "研究对象",
+          "材料来源",
+          "理论框架",
+          "论证路径",
+          "概念贡献",
+          "解释边界"
+        ],
+        "required_checks": [
+          "需要区分作者论证、材料证据、规范性判断和实验事实。"
+        ],
+        "formula_rules": [
+          "通常不强行保留公式；仅保留核心形式化定义或编码规则。"
+        ],
+        "avoid_rules": [
+          "不要把规范性判断、文本解释或案例分析写成实验事实。"
+        ],
+        "boundary_questions": [
+          "作者的解释依赖哪些材料、案例或理论前提？",
+          "是否存在同样能解释材料的替代解释，论文如何排除或没有排除？",
+          "哪些结论是概念贡献或规范性判断，而不是可直接当作经验事实？"
+        ],
+        "section_semantics": {
+          "研究问题": "作者要解释的社会、文化、历史、制度或理论问题。",
+          "数据与任务定义": "材料、案例、文本、访谈、档案或语料范围，不写成 ML task。",
+          "方法主线": "理论框架、概念区分和论证路径。",
+          "关键结果": "核心解释性发现、概念贡献或对既有观点的修正。",
+          "深度分析": "论证强度、材料边界、解释替代性和可迁移性。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "材料范围",
+            "选择标准",
+            "案例或语料边界"
+          ],
+          "方法主线": [
+            "理论框架",
+            "概念区分",
+            "论证路径"
+          ],
+          "关键结果": [
+            "核心解释性发现",
+            "概念贡献"
+          ],
+          "深度分析": [
+            "论证强度",
+            "替代解释",
+            "材料边界"
+          ]
+        }
+      },
+      "survey_or_review": {
+        "paper_type": "survey_or_review",
+        "reader_lens": "面向需要梳理综述脉络、分类体系和证据边界的研究读者",
+        "section_focus": [
+          "综述范围",
+          "纳入排除标准",
+          "主题分类",
+          "方法谱系",
+          "共识与分歧",
+          "开放问题"
+        ],
+        "required_checks": [
+          "需要说明综述范围、文献选择、分类体系、共识分歧和开放问题。"
+        ],
+        "formula_rules": [
+          "仅保留分类轴、纳入排除准则、证据汇总规则或 meta-analysis 统计量。"
+        ],
+        "avoid_rules": [
+          "不要把综述中的代表性结论写成作者自己完成的单项实验结果。"
+        ],
+        "boundary_questions": [
+          "检索范围、纳入排除标准或分类轴会遗漏哪些研究路线？",
+          "综述给出的是领域共识、作者分类，还是尚未解决的分歧？",
+          "哪些趋势结论来自覆盖范围内的文献分布，不能直接当作技术成熟度判断？"
+        ],
+        "section_semantics": {
+          "研究问题": "综述试图整理的领域问题、争议或知识缺口。",
+          "数据与任务定义": "纳入文献范围、检索/筛选标准和综述对象。",
+          "方法主线": "分类体系、综述组织方式和证据综合逻辑，不写成单篇方法架构。",
+          "关键结果": "领域共识、分歧、趋势、代表性方向和开放问题。",
+          "深度分析": "综述覆盖的盲区、分类体系的解释力和未来研究机会。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "综述范围",
+            "纳入/排除标准",
+            "文献覆盖"
+          ],
+          "方法主线": [
+            "分类体系",
+            "方法谱系",
+            "证据组织方式"
+          ],
+          "关键结果": [
+            "代表性方向",
+            "共识与分歧",
+            "开放问题"
+          ],
+          "深度分析": [
+            "分类体系的局限",
+            "未覆盖区域",
+            "后续研究机会"
+          ]
+        }
+      }
+    },
+    "grounding_contract": {
+      "source_of_truth": "source_manifest",
+      "accepted_reference_forms": [
+        "section_id",
+        "pages"
+      ],
+      "required_sections": [
+        "研究问题",
+        "数据与任务定义",
+        "方法主线",
+        "关键结果",
+        "深度分析",
+        "局限"
+      ],
+      "note_plan_depth_requirements": {
+        "required_section_focus_min_chars": 20,
+        "required_section_focus_fields": [
+          "focus",
+          "reading_goal",
+          "purpose"
+        ],
+        "generic_focus_phrases": [
+          "use the raw source to explain",
+          "paper-specific role of",
+          "explain the paper-specific role",
+          "explain this section",
+          "summarize this section"
+        ]
+      },
+      "reject_old_references": [
+        "synthesis_bundle.evidence",
+        "bundle.evidence",
+        "synthesis_bundle.candidate_chunks",
+        "synthesis_bundle.section_texts",
+        "synthesis_bundle.summary",
+        "bundle.candidate_chunks",
+        "bundle.section_texts",
+        "bundle.summary"
+      ],
+      "lint_command": "scripts/lint_grounding.py --note-plan ... --source-manifest ... --bundle-json ..."
+    },
+    "figure_table_contract": {
+      "placeholder_first": true,
+      "visual_quality_gate": "fail_closed",
+      "decision_table_required": true,
+      "decision_values": [
+        "insert",
+        "placeholder",
+        "low_priority",
+        "visual_defect",
+        "skip"
+      ],
+      "usable_insert_candidate": {
+        "kinds": [
+          "figure",
+          "table"
+        ],
+        "visual_quality_status": "usable_candidate",
+        "requires_source_image_path": true
+      },
+      "allowed_usable_placeholder_reasons": [
+        "visual_defect",
+        "materialization_blocked"
+      ],
+      "manual_visual_review_required_statuses": [
+        "usable_candidate",
+        "needs_visual_quality_check",
+        "review"
+      ],
+      "automatic_fail_closed_visual_statuses": [
+        "reject_visual_quality",
+        "asset_candidate_missing"
+      ],
+      "manual_review_claim_requires_image_inspection": true
+    },
+    "analysis_coverage_contract": {
+      "central_claim_fields": [
+        "claim",
+        "supporting_evidence",
+        "what_it_actually_proves",
+        "what_it_does_not_prove"
+      ],
+      "required_plan_fields": [
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions"
+      ],
+      "final_quality_review_checks": [
+        "central_claims_are_supported_by_raw_sections_or_pages",
+        "key_experimental_settings_and_numbers_are_present",
+        "mechanisms_or_protocol_choices_are_mapped_to_results",
+        "comparisons_explain_positioning_against_alternatives",
+        "discussion_or_limitation_claims_are_explained_mechanistically",
+        "proven_claims_are_separated_from_unproven_or_unvalidated_claims",
+        "research_or_engineering_takeaways_are_specific_and_reusable",
+        "followup_questions_are_specific_to_replication_or_extension"
+      ]
+    }
+  }
+}

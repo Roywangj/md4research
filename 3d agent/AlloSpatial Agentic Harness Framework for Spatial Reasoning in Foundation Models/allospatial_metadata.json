@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+  "title": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2606.08952",
+  "paper_id": "arxiv:2606.08952",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "script": "collect_metadata.py",
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2606.08952v1",
+  "abstract": "Multimodal Foundation Models (MFMs) have made substantial progress, yet remain fragile in spatial reasoning over the physical world. A key bottleneck lies in their inability to transform local egocentric observations into a global allocentric spatial representation. To address this, we propose AlloSpatial, an agentic framework for allocentric spatial cognition in foundation models. AlloSpatial introduces World2Mind, a plug-and-play cognitive mapping sandbox that converts egocentric observations into structured allocentric priors, including Allocentric-Spatial Trees and route maps that support querying object topology, geometric relations, passability, and trajectories. To utilize these priors reliably under noisy reconstruction and ambiguous visual evidence, AlloSpatial introduces a Spatial Reasoning Harness for tool-use judgment, modality-decoupled cue collection, and geometry-semantic arbitration. We further internalize this process in Qwen3-VL through cold-start reinforcement learning with a harness-gated trajectory-level reward. Experiments on VSI-Bench and MindCube show that AlloSpatial improves proprietary models by 5%-18% in a training-free setting, while ASTs alone support strong spatial reasoning even when visual inputs are removed. The trained AlloSpatial agents further outperform larger general-purpose models and competitive spatial baselines, suggesting that structured allocentric representations, active tool use, and verifiable reasoning offer a promising route toward spatially capable foundation models.",
+  "authors": [
+    "Shouwei Ruan",
+    "Bin Wang",
+    "Zhenyu Wu",
+    "Qihui Zhu",
+    "Yuxiang Zhang",
+    "Jingzhi Li",
+    "Yubin Wang",
+    "Xingxing Wei"
+  ],
+  "published": "2026-06-08T02:55:05Z",
+  "year": "2026",
+  "pdf_url": "https://arxiv.org/pdf/2606.08952v1",
+  "venue": "arXiv (Cornell University)",
+  "doi": "10.48550/arxiv.2606.08952",
+  "title_corrected_from_external_metadata": true
+}

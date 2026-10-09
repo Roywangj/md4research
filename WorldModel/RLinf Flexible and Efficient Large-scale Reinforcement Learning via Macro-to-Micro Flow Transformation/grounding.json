@@ -1,0 +1,565 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2509.15965v2",
+  "title": "Yu 等 - 2025 - RLinf Flexible and Efficient Large-scale Reinforcement Learning via Macro-to-Micro Flow Transformat",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/dev/null",
+  "full_text_md_path": "",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/STKQ8SYL/Yu 等 - 2025 - RLinf Flexible and Efficient Large-scale Reinforcement Learning via Macro-to-Micro Flow Transformat.pdf",
+    "total_pages": 16,
+    "text_pages_extracted": 16,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 16,
+    "text_max_pages": null,
+    "text_pages_extracted": 16,
+    "text_pages_scanned": 16,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 13
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 696,
+      "text_hash_sha256": "c100666d7165dba9dc390b324891ad351ee3897acb51a6bd207b9a153d08de32"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1240,
+      "text_hash_sha256": "049fc5a22a55474b09923dbe57262cd193fdcdb52e38a3b44cb248c2a2027855"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 9,
+      "char_count": 41092,
+      "text_hash_sha256": "903597787f4218eb113a4746a3a449b1698f3286fed805687bde8f3a31f794c8"
+    },
+    {
+      "section_id": "sec:evaluation",
+      "kind": "experiment",
+      "title": "Evaluation",
+      "page_start": 9,
+      "page_end": 12,
+      "char_count": 12617,
+      "text_hash_sha256": "19088280795b97b07c55bacc0e658e93a275a22fd1290521136bbed93a039e36"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 492,
+      "text_hash_sha256": "9d07818af2a24d866ad6ebd06189fb46300abe2051258a37ff0a5c3ba0ef5e6b"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 1852,
+      "text_hash_sha256": "fd78e453852defa780da3e32bf5b6e6c93856d49d875e45b955cf08a14fa9f41"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 2510,
+      "text_hash_sha256": "9df7954f8ac58bde74e73d496e6de21a304e7a9c8d82390e68b3568e332f4c57"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 649,
+      "text_hash_sha256": "4d513b840fac4111c634e54848bd0fbd22f713964ac7d8a03977ba97759dcaa7"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 13,
+      "page_end": 16,
+      "char_count": 13632,
+      "text_hash_sha256": "e05d0dfeaea70687d99349a2f5299ec277d55e23e3e0465486b306074f946c05"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 5046,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5250,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5224,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4638,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4934,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 5357,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 5030,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5973,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5250,
+      "section_ids": [
+        "sec:introduction",
+        "sec:evaluation"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 5201,
+      "section_ids": [
+        "sec:evaluation"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4000,
+      "section_ids": [
+        "sec:evaluation"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4983,
+      "section_ids": [
+        "sec:evaluation",
+        "sec:model",
+        "sec:model-2",
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4332,
+      "section_ids": [
+        "sec:model-3",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 4702,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 4585,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 699,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Diverse RL workflows in various scenarios.",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "The distribution of response lengths and the number",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "The execution time of generation and simualtor with",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "The architecture of RLinf.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "RLinf workflow programming interface.",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 5a",
+        "caption": "demonstrates a typical worker implementation",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "The M2Flow execution logic.",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Spatial and temporal scheduling of workers.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "shows how M2Flow man-",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Worker scheduling policy.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "also shows that veRL scales poorly as GPU num-",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Latency breakdown of Qwen2.5 7B model training.",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "PPO training throughput of Qwen2.5 on RLinf and",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "presents the performance breakdown. Spatial",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Latency breakdown of Qwen2.5",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "RL training through-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Latency breakdown of Qwen3-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "End-to-end throughput of RLinf and SimpleVLA-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Latency breakdown of ManiSkill and LIBERO.",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "(a) The real and predicted latency in different cases.",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:evaluation"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Evaluation scores of RLinf-math-1.5B/7B and open-",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Table 2",
+        "caption": "OpenVLA model success rate results on ManiSkill3.",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:evaluation"
+      },
+      {
+        "id": "Table 3",
+        "caption": "OpenVLA-OFT success rate after RL on LIBERO.",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:evaluation"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "tion remains low (i.e., <24%), while its memory usage grows",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "size, while keeping GPU cores highly utilized (i.e., >70%).",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "batch_size = 0",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "while batch_size < self.total_batch_size:",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "batch = in_channel.get()",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "res = self.model.gen(batch)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "batch_size += batch.size",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "cluster = Cluster(num_nodes=4, devices_per_node=8)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "self.rollout_group = RolloutWorker.launch(cluster)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "self.actor_group = ActorWorker.launch(cluster)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "self.data_ch = Channel.create(\"Data\")",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "self.rollout_ch = Channel.create(\"Rollout\")",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "in_channel=self.data_ch,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "out_channel=self.rollout_ch",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "h=training(ch2,None)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "if Tbest > Ts +Tt then",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "if Tbest >PipeliningTime (Ts,Tt) then",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 9
+    },
+    {
+      "text": "(<5%), mainly due to response-length variability that causes",
+      "section_id": "sec:evaluation",
+      "page_start": 9,
+      "page_end": 12
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "706edffd886c8fa989e2c4ca44ab04ecbdd6d0ec256192e472fab77e305e02f3"
+}

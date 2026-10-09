@@ -1,0 +1,408 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.15768",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Latency–success trade-off on LIBERO.",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_001_fig_figure_1.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：散点图与图注完整清晰，身份匹配 Figure 1，已物化到 images/page_001_fig_figure_1.png。"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of LaWAM. Stage 1 learns a latent-action-conditioned world model from visual",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "方法主线",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_002_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_002_fig_figure_2.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：两阶段总览图与图注完整清晰，已物化到 images/page_002_fig_figure_2.png。"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Subgoal-guided chunk execution. The top row shows observations within one executed",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Representative real-world rollouts for pick-and-place, drawer opening, and towel folding",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Cross-embodiment open-loop LaWM rollouts from shared latent actions. (a) We",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Component ablations on LIBERO. The results",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-3",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_008_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/assets/page_008_fig_figure_6.png",
+      "manual_review": "人工查看确认缺陷：裁切混入左侧正文段落，顶部图例文字被切断；消融结论在笔记正文定性转写，保留占位。"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Mixed-frequency training results on LIBERO. Joint training across 5/10/20 Hz versions",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_016_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/assets/page_016_fig_figure_7.png",
+      "manual_review": "人工查看：图体与图注本身完整，但自动质量门为 reject_visual_quality，按 fail-closed 契约不插入；数值趋势在正文转写，保留占位。"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Qualitative LIBERO examples showing LaWAM action execution together with latent",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Real-world robot setups. (a) A Franka Emika Panda robot with an external RGB camera",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Post-chunk observations for the real-world drawer-opening task on the Franka Emika",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_018_fig_fig_12.png",
+      "relative_markdown_embed": "![Figure 12](images/page_018_fig_fig_12.png)",
+      "source_image_path": null,
+      "manual_review": "原临时构建路径已移除；该候选未在最终包中物化。"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Average LaWM rollout results over 500 LIBERO trajectories. Curves show feature",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_019_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_019_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_019_fig_figure_10.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：曲线图与图注完整清晰，已物化到 images/page_019_fig_figure_10.png。"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Post-chunk observations for the real-world pick-and-place task with a toy duck on",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_020_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_020_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_020_fig_figure_11.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：真机抓放逐 chunk 可视化完整（观测/相似度热图/子目标 PCA 三行），已物化到 images/page_020_fig_figure_11.png。"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Post-chunk observations for the real-world towel-folding task on the Quanta X1",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_021_fig_figure_13.png",
+      "relative_markdown_embed": "![Figure 13](images/page_021_fig_figure_13.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_021_fig_figure_13.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：真机叠毛巾逐 chunk 可视化完整（观测/相似度热图/子目标 PCA），支撑长时程可变形体结果与延迟归因论证，已物化到 images/page_021_fig_figure_13.png。"
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Single-arm cross-embodiment rollout.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_022_fig_figure_14.png",
+      "relative_markdown_embed": "![Figure 14](images/page_022_fig_figure_14.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_022_fig_figure_14.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：单臂跨 embodiment rollout 网格完整清晰，已物化到 images/page_022_fig_figure_14.png。"
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Dual-arm cross-embodiment rollout. Panels (e)–(j) show unseen scenes; panels (f)–(j)",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_023_fig_figure_15.png",
+      "relative_markdown_embed": "![Figure 15](images/page_023_fig_figure_15.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/images/page_023_fig_figure_15.png",
+      "materialization_status": "materialized",
+      "manual_review": "人工查看：双臂跨 embodiment rollout 网格完整清晰，(e)-(j) 未见场景面板直接支撑泛化性讨论，已物化到 images/page_023_fig_figure_15.png。"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "LIBERO benchmark results over 50 trials per task. Latency is model-only wall-clock time",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "人工图像检查发现裁切截断（表体不完整），fail-closed 保留占位并在笔记中转写数值",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/assets/page_006_fig_table_1.png",
+      "materialization_status": "skipped",
+      "manual_review": "人工查看确认缺陷：裁切在 WAMS IN PIXEL SPACE 分组处被截断，缺失全部 WAM 行与 LaWAM 行，表体不完整；完整数值已从 PDF 原文转写为 Markdown 表格，保留占位。"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "RoboTwin benchmark results over 100 trials per task. Fast-WAM and LingBot-VA are",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "人工图像检查发现裁切截断（表体不完整），fail-closed 保留占位并在笔记中转写数值",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_006_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies/assets/page_006_fig_table_2.png",
+      "materialization_status": "skipped",
+      "manual_review": "人工查看确认缺陷：裁切只含前 5 个任务行，底部（含 Average 行）被截断，表体不完整；均值行已从 PDF 原文转写为 Markdown 表格，保留占位。"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Real-world SR over 30 trials per task (%).",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Per-task success rates on RoboTwin under clean and randomized evaluation settings.",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    }
+  ],
+  "summary": {
+    "total_items": 19,
+    "by_decision": {
+      "insert": 7,
+      "low_priority": 7,
+      "visual_defect": 5
+    }
+  },
+  "manual_visual_review": "所有 insert 候选与 visual_defect 项均经人工逐图查看（见各项 manual_review 字段）。"
+}

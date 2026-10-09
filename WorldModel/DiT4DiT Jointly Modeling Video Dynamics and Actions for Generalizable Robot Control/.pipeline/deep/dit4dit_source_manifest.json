@@ -1,0 +1,682 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.10448",
+  "title": "DiT4DiT: Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/DiT4DiT Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control/.pipeline/deep/dit4dit_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/DiT4DiT Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control/.pipeline/deep/dit4dit_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KWEE8R4V/Ma 等 - 2026 - DiT4DiT Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control.pdf",
+    "total_pages": 22,
+    "text_pages_extracted": 22,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 22,
+    "text_max_pages": null,
+    "text_pages_extracted": 22,
+    "text_pages_scanned": 22,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 19,
+    "references_start_page": 15
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 246,
+      "text_hash_sha256": "65ae5ad9891fdc9f2bb397857a2a79523f47db8b2babf9c34b3cb29debe373a4"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1685,
+      "text_hash_sha256": "e95c1bafc02310260e4f0a6a7fe03766412ea279368ff80b819cb86a25997809"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 3259,
+      "text_hash_sha256": "c8f71e1c2e09354b7c135efbab0271dcdc25333cb5bc54f1216f6cac5d03b9b8"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "models.",
+      "page_start": 2,
+      "page_end": 5,
+      "char_count": 10425,
+      "text_hash_sha256": "8ea54f1b63af2023a7d24df417b8a149a26df504ba1217143668e0a5bf68eb59"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "PRELIMINARIES",
+      "page_start": 5,
+      "page_end": 8,
+      "char_count": 13453,
+      "text_hash_sha256": "92d6e3e8dad1018d207e9ad54eb6822c29f727395c53c8e8d0fe74ef1e3ad8ae"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "EXPERIMENTS",
+      "page_start": 8,
+      "page_end": 12,
+      "char_count": 12306,
+      "text_hash_sha256": "a9e2c99453098314c5d98066aa109d94338e9618d84233d6632fa532621a17f6"
+    },
+    {
+      "section_id": "sec:framework",
+      "kind": "method",
+      "title": "framework.",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 4968,
+      "text_hash_sha256": "6beddfd5ca18d7f95bbb8b352bba3fcfb7d9c29d2b0e77377cca017fdfb0eaef"
+    },
+    {
+      "section_id": "sec:ablations",
+      "kind": "experiment",
+      "title": "ABLATIONS",
+      "page_start": 13,
+      "page_end": 15,
+      "char_count": 6204,
+      "text_hash_sha256": "835cc2b5d8a75fe6494289843d8107a9fe55c8eca0c3c9374022c47722f550b9"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "CONCLUSION",
+      "page_start": 15,
+      "page_end": 15,
+      "char_count": 1068,
+      "text_hash_sha256": "ff86898c855ed9e1c2c2d834c4abbb1c4f194afe92566889e1f6365e15da3732"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "REFERENCES",
+      "page_start": 15,
+      "page_end": 19,
+      "char_count": 13251,
+      "text_hash_sha256": "d63f697210f40f25a429a84fb2eae882c68f8a901ba5ca02829fde029480741c"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "APPENDIX",
+      "page_start": 19,
+      "page_end": 20,
+      "char_count": 3600,
+      "text_hash_sha256": "998a1dd4faeae39eb5e6959ce8df8d5f81815e4582fa7864b67b9b05ba35444d"
+    },
+    {
+      "section_id": "sec:dataset",
+      "kind": "data",
+      "title": "Dataset",
+      "page_start": 20,
+      "page_end": 22,
+      "char_count": 3100,
+      "text_hash_sha256": "bf2789ce5d445fac63e4a953e75651353ace825f615e5585d69b4b75d9fb78c8"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3787,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4441,
+      "section_ids": [
+        "sec:introduction",
+        "sec:models"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4595,
+      "section_ids": [
+        "sec:models"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 2840,
+      "section_ids": [
+        "sec:models"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 3520,
+      "section_ids": [
+        "sec:models",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3989,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3276,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3268,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2655,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4585,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4157,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 2673,
+      "section_ids": [
+        "sec:experiments",
+        "sec:framework"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3831,
+      "section_ids": [
+        "sec:framework",
+        "sec:ablations"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 4503,
+      "section_ids": [
+        "sec:ablations"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3489,
+      "section_ids": [
+        "sec:ablations",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3864,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 4016,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 3710,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 1647,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2975,
+      "section_ids": [
+        "sec:appendix",
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 2136,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 57,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Proxy objectives for scalable robot policy learning. Left: Comparison of three representative",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of the proposed DiT4DiT framework. Top: Given the current observation and language",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:models"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Asymmetric tri-timestep design. We decouple the diffusion timesteps to optimize joint video-action",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Joint Training of Video and Action DiT",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "DiT4DiT Inference",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Real-world evaluation suite on the Unitree G1 humanoid robot. The selected tasks evaluate",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Real-world evaluation results on the Unitree G1 robot. Success rates are reported across seven",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Qualitative rollouts of real-world generalization tasks. We evaluate the policy’s zero-shot ro-",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Quantitative results of zero-shot generalization. (Left) Success rates in the simulated RoboCasa-",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:framework"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Ablation studies on the DiT4DiT architecture. (a) Feature extraction layer: Success rate across",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:ablations"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Visualization of the robot system setups. The experimental platform consists of a Unitree G1",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Future video rollouts generated by DiT4DiT.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:dataset"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Success rates (%) on the four evaluation suites of the LIBERO simulation benchmark. Bold",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "RoboCasa-GR1 tabletop tasks evaluation results (success rate (%)). Bold numbers indicate the",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Deployment efficiency comparison. We report the trainable parameter count and real-world de-",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:ablations"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Model & training configurations",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Details of the used datasets. We report the episode count, embodiment type, and degrees of freedom.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": ">10x",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "(up to > 10×), faster convergence (up to 7×), and more favorable scaling trends across data regimes, with",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "transports samples along a probability path between a noise distribution p1 = N(0, I) and the data",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "xτ = (1 −τ) · x0 + τ · z,",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "τ ∈[0, 1],",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "where x0 ∼pdata and z ∼N(0, I). Under this formulation, τ = 0 corresponds to the clean data",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "point x0, while τ = 1 denotes pure Gaussian noise z. The target velocity (ground truth flow) that",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "v∗(xτ, τ) = dxτ",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "dτ = z −x0.",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "LFM = Ex0,z,τ",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "involves integrating vθ starting from the noise distribution at τ = 1 toward the data distribution at",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "τ = 0:",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "dτ = vθ(x, τ),",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "N sampling steps and a constant step size ∆τ = 1/N, the iterative update rule is formulated as:",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "xτ−∆τ = xτ −∆τ · vθ(xτ, τ).",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "Let ot ∈RTcond×3×H×W denote the observation frames (conditional input, Tcond denote the num-",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "ber of condition frames) and ot+1 ∈RTv×3×H×W denote the ground truth future frames, where Tv",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "= H",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "(τa = 1 −σ, where σ ∼Beta(α, β)). This biased continuous-time sampling strategy allocates more",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "= Eτa,ϵ",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "1: // ===== Video DiT Forward =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "10: // ===== Extract Hidden States =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "14: // ===== Action DiT Forward =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "21: // ===== Backward =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "1: // ===== Video DiT Sampling =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "5: for i = 0, 1, . . . , Nv −1 do",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "11: // ===== Action DiT Sampling =====",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "16: for i = 0, 1, . . . , Na −1 do",
+      "section_id": "sec:preliminaries",
+      "page_start": 5,
+      "page_end": 8
+    },
+    {
+      "text": "Score=0.09",
+      "section_id": "sec:ablations",
+      "page_start": 13,
+      "page_end": 15
+    },
+    {
+      "text": "Score=0.17",
+      "section_id": "sec:ablations",
+      "page_start": 13,
+      "page_end": 15
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 19,
+    "sections": [
+      {
+        "title": "a strictly fair evaluation against baseline methods in simulation as we do not have access to all",
+        "page": 20
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 9",
+        "caption": "Visualization of the robot system setups. The experimental platform consists of a Unitree G1",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Future video rollouts generated by DiT4DiT.",
+        "page_hint": "p.22"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 4",
+        "caption": "Model & training configurations",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Details of the used datasets. We report the episode count, embodiment type, and degrees of freedom.",
+        "page_hint": "p.20"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "83b8719f18a236cbd19757d69e5a712baea42744b6b4aab5967a5637be0d4cfc"
+}

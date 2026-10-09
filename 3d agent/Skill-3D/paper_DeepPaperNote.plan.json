@@ -1,0 +1,147 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文核心不是提出一个新数据集，而是提出面向 3D 空间推理代理的场景感知技能学习、检索、工具规划和后训练框架；benchmark 结果用于证明该方法有效。",
+  "dominant_domain": "多模态代理与 3D 空间推理",
+  "must_cover": [
+    "问题动机：现有工具增强代理在 3D 场景中使用统一工具策略，导致工具偏置和证据错配。",
+    "Scene Memory 与 Skill Library 如何从成功轨迹和失败轨迹共同演化。",
+    "Skill-guided inference 的场景任务识别、技能检索、技能选择和工具工作流。",
+    "Agentic SFT 与 GRPO 如何把技能引导行为蒸馏进紧凑开源模型。",
+    "主实验、ETU、模块消融、效率、跨 benchmark 迁移和局限。"
+  ],
+  "key_numbers": [
+    "闭源模型平均 VSI-Bench 从 w/o Tools 的 42.9 提升到 Skill-3D 的 64.5，相对提升 50.3%。",
+    "ETU 在 VSI-Bench 从 39.2% 提升到 78.7%，BLINK 从 36.4% 到 79.2%，CV-3D 从 31.8% 到 87.5%，MMSI-Bench 从 30.5% 到 80.3%。",
+    "Gemini-3-Flash 在 MMSI-Bench PR 从 32.7 提升到 54.8，相对提升约 67%。",
+    "Qwen3-VL-4B 的 VSI-Bench 代表任务分数整体大幅提升；论文报告 VSI-Bench 相对提升 59.7%。",
+    "Qwen3-VL-8B 的 VSI-Bench 相对提升 60.3%，代表性 PR 从 31.0 提升到 42.8。",
+    "模块消融中去掉 skill retrieval 平均分从 69.9 降到 64.1，下降 5.8；去掉 MLLM skill selection 下降 4.4。",
+    "效率分析中 Skill-3D 平均调用 2.6 个工具，ETU 78.7%，运行 20.8 秒，VSI Avg. 70.0；Think3D 运行 35.1 秒，VSI Avg. 64.7。"
+  ],
+  "real_comparisons": [
+    "w/o Tools、w/ Tools、Think3D、Skill-3D 在四个闭源模型上的主结果。",
+    "Qwen3-VL-4B/8B 的无工具、直接工具、Think3D、Skill-3D 后训练版本比较。",
+    "Full Pipeline 与去掉 failure lessons、dynamic skills、static skills、MLLM skill selection、skill retrieval 的消融。",
+    "direct tool use、Think3D、Skill-3D 在平均工具调用、ETU、运行时间和 VSI 分数上的效率比较。",
+    "动态技能来自单一 benchmark 或 all benchmarks 时的跨 benchmark transfer。"
+  ],
+  "central_claims": [
+    {
+      "claim": "3D 空间推理代理的关键瓶颈不是有没有工具，而是能否按场景和任务选择合适证据链。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "直接工具使用只带来有限收益，而 Skill-3D 在同一工具池上显著提升主结果和 ETU，支持“工具选择与证据使用质量”是核心变量。",
+      "what_it_does_not_prove": "这些结果不证明所有 3D 或机器人场景都能靠同一套技能库解决，也不证明工具本身的误差可被完全消除。"
+    },
+    {
+      "claim": "成功轨迹、失败 lessons、静态技能和动态技能共同构成有效的技能库。",
+      "supporting_evidence": [
+        "sec:method",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "消融显示去掉 failure lessons、dynamic skills、static skills 都会降分，说明这些组件互补。",
+      "what_it_does_not_prove": "论文没有证明技能管理策略在更大规模持续学习中不会出现冲突、遗忘或污染。"
+    },
+    {
+      "claim": "技能引导轨迹可以通过 SFT 与 GRPO 被紧凑模型内化。",
+      "supporting_evidence": [
+        "sec:method",
+        "sec:experiments",
+        "sec:dataset"
+      ],
+      "what_it_actually_proves": "Qwen3-VL-4B/8B 在后训练后获得显著提升，GRPO 目标把答案正确性、格式和工具效率联合优化。",
+      "what_it_does_not_prove": "论文没有充分分离 teacher distillation、工具质量、技能库规模和 RL 奖励设计各自贡献。"
+    }
+  ],
+  "claim_boundaries": [
+    "评测集中在室内 3D 空间推理，不能直接外推到室外、导航、实时机器人交互或安全约束强的任务。",
+    "Skill-3D 依赖外部工具质量和工具接口，若深度、分割、重建或朝向估计出错，技能只能改善调度，不能保证证据正确。",
+    "训练数据来自 benchmark 训练拆分和 GPT-5.4 teacher，存在 teacher 偏置与 benchmark 风格适配风险。",
+    "ETU 衡量工具输出是否有效且被使用，但不能完整衡量最终答案的因果可靠性。"
+  ],
+  "negative_or_limiting_results": [
+    "在线更新动态技能库 during GRPO 引入非平稳性，训练奖励低于离线冻结方案。",
+    "去掉 SFT cold start 直接做 GRPO 会早期退化且收敛更慢。",
+    "没有 skill retrieval 时平均分下降 5.8，说明单靠通用工具或手写流程不足。",
+    "论文自己的 limitation 明确指出当前只评估室内 3D 空间推理。"
+  ],
+  "mechanism_result_map": [
+    "场景任务上下文识别把问题映射到所需证据类型，解释了为什么深度、方向、边界和多视图任务会选择不同工具。",
+    "成功轨迹蒸馏为动态技能，解释跨 benchmark transfer 中 all benchmarks 技能库表现最佳。",
+    "失败轨迹作为 lessons 与 fallback rule，解释去掉 failure lessons 后平均分下降。",
+    "冻结技能库加 SFT cold start 减少策略和检索对象同时变化，解释 GRPO 训练更稳定。"
+  ],
+  "comparative_positioning": [
+    "相对 w/ Tools，Skill-3D 不只是增加工具调用，而是提升有效工具使用比例。",
+    "相对 Think3D，Skill-3D 不把 Pi3 重建作为默认路径，而按任务选择深度、检测、分割、朝向或重建。",
+    "相对一般 memory-based agents，Skill-3D 不存原始轨迹给模型翻阅，而把轨迹压缩成可检索、可修补的场景感知技能。"
+  ],
+  "reuse_takeaways": [
+    "做工具增强 MLLM 时，应把“工具调用是否产生并被使用的有效证据”作为单独指标，而不是只看最终准确率。",
+    "可复用技能最好记录触发条件、所需证据、工具顺序、关键参数和失败 lessons，而不是保存冗长交互日志。",
+    "RL 阶段如果检索库在线变化，容易把策略学习和记忆更新耦合成非平稳问题；先冻结库更稳。"
+  ],
+  "followup_questions": [
+    "如果把 Scene Memory 扩展到真实机器人导航，技能触发条件需要加入哪些安全和时序状态？",
+    "ETU 是否能被更严格地替换为基于反事实工具移除的证据贡献度？",
+    "动态技能长期更新时，如何防止错误 failure lesson 污染已有技能？",
+    "如果不用 GPT-5.4 teacher，仅用开源 teacher 或自举数据，提升幅度会降低多少？",
+    "同一技能库能否迁移到室外场景、物体操作或 embodied QA？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释工具增强 3D 代理为什么会因统一工具策略产生证据错配。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:analysis-2"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "列清四个 benchmark、输入输出、训练测试拆分和评价指标边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method-2",
+        "sec:dataset"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "重构 Scene Memory、Skill Library、skill-guided inference 和 post-training 的信息流。",
+      "evidence_sources": [
+        "sec:method",
+        "sec:dataset"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "保留主结果、ETU、消融、效率和跨 benchmark transfer 的核心数字。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method-2"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析为什么技能库能改善工具使用、哪些证据支持机制、哪些结论仍未证明。",
+      "evidence_sources": [
+        "sec:method",
+        "sec:experiments",
+        "sec:method-2",
+        "sec:dataset"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "明确室内场景、工具质量、teacher 偏置、持续学习和评价指标的边界。",
+      "evidence_sources": [
+        "sec:limitations",
+        "sec:experiments",
+        "sec:dataset"
+      ]
+    }
+  ]
+}

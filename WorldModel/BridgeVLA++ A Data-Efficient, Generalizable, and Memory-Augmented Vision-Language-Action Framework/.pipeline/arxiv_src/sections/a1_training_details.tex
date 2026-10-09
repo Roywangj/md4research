@@ -1,0 +1,319 @@
+\subsection{Network and Memory Architecture}
+\label{app:arch_details}
+
+Each memory injection block of Sec.~\ref{sec:memmethod:integration}
+(Fig.~\ref{fig:bridgevla_arch}) stacks $L{=}2$ layers with 8 attention heads of dimension 128 and a
+feed-forward expansion factor of 2, and operates in the
+2048-dimensional patch-token space of the backbone.
+The temporal memory uses two such blocks, one for the initial anchor
+views and one for the dynamic keyframe bank, and the spatial memory a
+third (Fig.~\ref{fig:anchor_memory}); the anchor block concatenates the three views so that attention
+can track scene changes across views, whereas the other two blocks
+restrict each view's tokens to the corresponding memory view.
+
+\subsection{Pre-Training}
+\label{app:pretrain_details}
+
+All fine-tuning runs in this article warm-start from a single
+2D-heatmap pre-training run that instantiates
+Sec.~\ref{sec:bridgevla:pretrain} on the 120K object-detection split
+of RoboPoint~\cite{yuan2024robopoint}; Fig.~\ref{fig:pretrain_dataset}
+illustrates how the ground-truth heatmaps are rendered from the
+detection boxes, and Fig.~\ref{fig:real_heatmaps} the predictions the
+fine-tuned model still produces on such data.
+The memory injection blocks and the sub-goal gate of
+Sec.~\ref{sec:memmethod} are not pre-trained and are instead trained
+from scratch during fine-tuning.
+Whenever a stage has nothing to read, the injection block gates all
+residual contributions of masked memory to zero, so the memory-free
+\method\ forward pass is recovered exactly.
+
+\subsection{Fine-Tuning Details}
+\label{app:finetune_hparams}
+
+\begin{table*}[t]
+\centering
+\caption{\textbf{Per-benchmark fine-tuning configuration.}
+Fine-tuning is two-phase: during the initial freeze epochs the
+PaliGemma backbone is frozen and only the modules outside it are
+trained (the convex-upsampling modules, the action heads, and the
+memory modules); the backbone is then unfrozen for the remaining
+epochs, and the learning-rate warmup applies per phase.}
+\label{tab:hyperparams}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Setting} & \textbf{RLBench} & \textbf{COLOSSEUM} & \textbf{GemBench} & \textbf{RMBench} & \textbf{MemoryBench} \\
+\midrule
+Epochs / freeze epochs & 130 / 4 & 200 / 4 & 200 / 2 & $\sim$320 (per task) / 5 & 160 / 20 \\
+Warmup steps (per phase) & 1,500 & 1,500 & 1,000 & 1,000 & 1,000 \\
+Optimizer & \multicolumn{5}{c}{AdamW, $(\beta_1, \beta_2) = (0.9, 0.95)$} \\
+Learning rate & $8{\times}10^{-5}$ & $8{\times}10^{-5}$ & $5{\times}10^{-5}$ & $5{\times}10^{-5}$ & $5{\times}10^{-5}$ \\
+Weight decay & $10^{-2}$ & $10^{-2}$ & $10^{-3}$ & $10^{-3}$ & $10^{-3}$ \\
+Batch size per GPU & 4 & 4 & 4 & 4 & 4 \\
+GPUs & 32 & 32 & 32 & 8 & 8 \\
+\midrule
+SE(3) aug.\ (trans.\ / yaw) & 0.125 / $45^{\circ}$ & 0.125 / $45^{\circ}$ & 0.125 / $45^{\circ}$ & 0.03 / $30^{\circ}$ & 0.125 / $45^{\circ}$ \\
+Stage-2 zoom jitter & 0.05 & 0.05 & 0.05 & 0.005 & 0.05 \\
+\midrule
+Slot budget $K$ & 2 & 2 & 2 & 12 & 2 \\
+Neighboring keyframes $n$ & 2 & 2 & 2 & 2 & 2 \\
+Gate $\lambda_{\mathrm{check}}$ / pos.\ wt.\ / thr. & -- & -- & -- & 1.0 / 5.5 / 0.5 & -- \\
+\midrule
+Rotation head & \multicolumn{5}{c}{continuous 6D~\cite{zhou2019continuity}} \\
+Collision head & on & on & off & off & off \\
+Arms & 1 & 1 & 1 & 2 & 1 \\
+Demonstrations per task & 100 & 100 & 100 (per variation) & 50 & 100 \\
+\midrule
+Input cameras (resolution) & 4 ($128^2$) & 4 ($128^2$) & 4 ($256^2$) & 4 ($224^2$) & 4 ($128^2$) \\
+Ortho.\ window scale & 2.0 & 2.0 & 2.0 & 0.8 & 2.0 \\
+Splat radius (coarse / fine) & 0.012 / 0.012 & 0.012 / 0.012 & 0.012 / 0.012 & 0.004 / 0.012 & 0.012 / 0.012 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Table~\ref{tab:hyperparams} lists the per-benchmark fine-tuning
+configuration; the paragraphs below cover the settings the table
+cannot express.
+
+\paragraph{Two-phase schedule}
+During the initial freeze epochs of Table~\ref{tab:hyperparams}, the
+PaliGemma backbone is frozen and gradients reach only the modules
+outside it: the convex-upsampling modules, the MLP action heads, and
+the memory injection blocks and sub-goal gate.
+This first phase lets the modules that the pre-training of
+Appendix~\ref{app:pretrain_details} does not cover adapt to the
+manipulation data before the backbone is touched.
+In the second phase the backbone is unfrozen and trained jointly with
+these modules, except for the SigLIP vision encoder and the
+language-token embedding, which remain frozen throughout fine-tuning.
+The optimizer is re-initialized at the phase boundary, so the warmup
+steps of Table~\ref{tab:hyperparams} apply to each phase.
+
+\paragraph{Memory-specific settings}
+Whenever memory is enabled, random in-plane 2D image augmentation is
+disabled and the workspace cube is centered on fixed scene bounds
+rather than on the per-frame cloud mean, since either perturbation
+would break the pixel correspondence between the current observation
+and the cached memory tokens.
+The SE(3) augmentation of Table~\ref{tab:hyperparams}, whose
+translation is a fraction of the workspace extent and whose rotation
+perturbs yaw only, is instead applied jointly to the current, anchor,
+and history point clouds (Sec.~\ref{sec:memmethod:training}); the
+stage-2 zoom jitter perturbs the ground-truth waypoint the fine stage
+zooms to during training.
+
+\paragraph{Slot budgets}
+On RMBench the budget $K{=}12$ holds the two neighboring keyframes and
+up to ten sub-goal slots.
+Every executed keyframe occupies a neighboring slot regardless of the
+gate, and a gated keyframe enters a sub-goal slot only when it leaves
+the neighboring window two steps later; when the sub-goal slots are
+full, the oldest is evicted.
+The other benchmarks carry no sub-goal annotations, so the gate is
+disabled and the budget holds only the two neighboring keyframes,
+$K{=}2$; the temporal memory there reduces to the neighboring
+keyframes and the initial anchor, which suits the shorter horizons of
+these tasks.
+
+\paragraph{Rendering}
+Every point cloud is rendered into three $224 \times 224$ orthographic
+views regardless of the sensor resolution listed in
+Table~\ref{tab:hyperparams}.
+The orthographic window scale sets the extent of the rendered viewport
+relative to the workspace, with values below one zooming in.
+
+\paragraph{Ablation configurations}
+Among the design-ablation rows of Table~\ref{tab:rlbench}
+(Sec.~\ref{sec:exp:ablation}), \emph{w/ discretized rotation} replaces
+the continuous 6D rotation head with per-axis Euler angles quantized
+into $5^{\circ}$ bins and supervised with cross-entropy, as in our
+conference version.
+Beyond its resolution ceiling, this representation is ill-conditioned
+near the gimbal-lock singularities of the Euler decomposition, where
+the roll and yaw axes degenerate and orientations that are close in
+$SO(3)$ may fall into distant bins, making the per-axis cross-entropy
+targets discontinuous.
+The continuous 6D parameterization is free of such singularities.
+\emph{w/ 3D position input} adds a 3D convolutional module that encodes
+per-pixel 3D positions and fuses them with the 2D image features fed to
+the backbone.
+\emph{w/o heatmap decoding} replaces the convex-upsampling module, of
+309M parameters, with a similarly sized Transformer decoder of 303M
+parameters that regresses the target positions directly under an MSE
+loss, leaving all other modules unchanged.
+
+\subsection{Training Data Preparation}
+\label{app:keyframe_selection}
+
+\paragraph{Keyframe selection}
+Demonstrations are converted into consecutive-keyframe training
+transitions with the keyframe-selection strategy of
+PerAct~\cite{shridhar2023perceiver} in all single-arm experiments: a
+time step is labeled a keyframe if the robot is stationary, if the
+gripper state changes, or if it is the final step of the episode.
+RMBench demonstrations instead use a bimanual variant of this
+heuristic, which keeps the last frame of every segment in which both
+arms are still.
+
+\paragraph{Sub-goal labels}
+\label{app:gate_labels}
+The sub-goal gate of Sec.~\ref{sec:memmethod:gate} is supervised by
+labels derived from the RMBench demonstrations, whose keyframes carry
+per-segment language annotations.
+The last keyframe of each language segment marks the completion of a
+sub-goal and is labeled positive; all other keyframes are negatives.
+Repeated identical language segments are kept separate rather than
+merged by text identity, so every repetition of an instruction, such
+as each press in \emph{Press Button}, contributes its own sub-goal
+frame.
+The resulting positives cover 9--15\% of keyframes depending on the
+task, which the binary cross-entropy compensates with the
+positive-class weight of Table~\ref{tab:hyperparams}.
+
+\subsection{Evaluation Protocol}
+\label{app:eval_protocol}
+
+This appendix states the training data, trial counts, step budgets,
+and reporting statistics used for each benchmark.
+
+\paragraph{RLBench}
+Training uses the 100 demonstrations per task provided by the
+benchmark, over the 18 tasks of Fig.~\ref{fig:RLBench_VIS}.
+Each configuration is evaluated over 25 episodes per task under a
+25-keyframe-step budget, except \emph{Place Cups} and \emph{Stack
+Blocks}, which receive 35 steps.
+We report means and standard deviations over five independent
+evaluation runs, except for the two design-ablation variants that
+replace the heatmap head or inject 3D position input, which are
+evaluated over three runs.
+
+\paragraph{COLOSSEUM}
+Policies are trained on the unperturbed RLBench data of the 20
+benchmark tasks, 100 demonstrations per task, and evaluated under the
+14 settings of Table~\ref{tab:colosseum}, visualized in
+Fig.~\ref{fig:vis_colosseum}, with 25 trials per task and setting.
+\method, \memmethod, and RVT-2 are our own training and evaluation
+runs, reported as mean and variance over three test repetitions
+(Tables~\ref{tab:results_bridgevla},
+\ref{tab:results_bridgevla_plus},
+and~\ref{tab:results_rvt2}); the remaining baseline numbers are quoted
+from the benchmark release~\cite{pumacay2024colosseum}.
+
+\paragraph{GemBench}
+Policies are trained on the 16-task training split, 31 variations, and
+evaluated on the 44 test tasks, 92 variations, of the four levels
+L1--L4 shown in Fig.~\ref{fig:vis_gembench}.
+Following the benchmark protocol~\cite{garcia2024towards}, \method\ and
+\memmethod\ are each evaluated over five random seeds with 20 trials
+per task variation, and Tables~\ref{tab:gembench}
+and~\ref{tab:gembench_sota_cmpr_l1_detail}--\ref{tab:gembench_sota_cmpr_l4_detail}
+report means over the five seeds.
+Baseline numbers are quoted from~\cite{garcia2024towards}.
+
+\paragraph{RMBench}
+The benchmark is built within RoboTwin~2.0~\cite{chen2025robotwin2} and
+simulated in SAPIEN~\cite{xiang2020sapien}; its nine dual-arm tasks are
+shown in Fig.~\ref{fig:vis_rmbench}.
+Following the benchmark protocol, policies are trained on 50 expert
+demonstrations per task; \memmethod\ emits one action tuple per arm at
+every keyframe step (Sec.~\ref{sec:bridgevla:problem}), and the
+collision flag is dropped.
+Every reported number is a single 100-episode evaluation under a
+per-task keyframe-step limit scaled to the task horizon.
+The numbers in Tables~\ref{tab:rmbench_main}
+and~\ref{tab:rmbench_ablation} are obtained by training one model per
+task and selecting the best-performing checkpoint of each task's training run.
+
+\paragraph{MemoryBench}
+Policies are trained on 100 demonstrations per task following the
+protocol of~\cite{fang2025sam2act}.
+One evaluation covers all nine task variants of the three tasks of
+Fig.~\ref{fig:vis_memorybench} under a 25-step budget, and we report mean$\pm$std over five evaluation seeds.
+
+\paragraph{Real robot}
+Each of the 13 Franka tasks of Figs.~\ref{fig:basic_task1}
+and~\ref{fig:basic_task2} is trained with 10 kinesthetic-teaching
+demonstrations, reduced to 3 in the low-data variant of
+Table~\ref{tab:app:real_episode}, and every method is evaluated over 10
+trials per task in the Basic setting.
+Each test scene is photographed and manually aligned across methods.
+A single multi-task model is trained jointly on all tasks, and the
+same checkpoint is evaluated on every task.
+The six generalization settings compare \method\ and RVT-2, the two
+methods that perform well in the Basic setting; their definitions are
+given in Appendix~\ref{app:real_settings_vis} and the four
+visual-disturbance ones are visualized in Fig.~\ref{fig:real_settings}.
+
+The Dobot suite of Appendix~\ref{app:real_dobot} follows the same
+protocol at the granularity of the language instruction rather than the
+task: its five tasks, three memory-dependent and two memory-free,
+comprise seven instructions, each trained with 10 kinesthetic-teaching
+demonstrations, for 70 demonstrations in total.
+All methods share this training set, and \method\ and \memmethod\ are
+each trained jointly on all seven instructions as a single model whose
+one checkpoint is evaluated on every instruction, as on the Franka
+platform.
+Every instruction is evaluated
+over 10 trials in each of the Basic, Distractor, Background, Height,
+and Lighting settings, the last four illustrated in
+Fig.~\ref{fig:dobot_settings} and defined as in the Franka suite
+(Appendix~\ref{app:real_settings_vis}).
+The comparison here runs across all five
+settings and against two baselines, the memory-free \method\ and the
+memory-augmented SAM2Act+~\cite{fang2025sam2act}, so that the effect of
+memory is separated from that of the backbone: \method\ shares
+\memmethod's backbone but has no memory, whereas SAM2Act+ has memory
+but a different backbone and retrieval scheme.
+Figs.~\ref{fig:dobot_rollouts1} and~\ref{fig:dobot_rollouts2} show
+\memmethod\ rollouts on the memory-dependent and memory-free
+instructions, respectively.
+
+\subsection{Computational Cost}
+\label{app:compute_resources}
+
+The running times below are those of the runs behind the reported
+results.
+The 2D-heatmap pre-training of Appendix~\ref{app:pretrain_details}
+takes about 2 hours on 8 NVIDIA A100 GPUs.
+For fine-tuning, \method\ and \memmethod\ train on 32 H20 GPUs on
+RLBench, COLOSSEUM, and GemBench, as do the ablation rows of
+Table~\ref{tab:rlbench}; RMBench trains one model per task on 8 H20
+GPUs each, and MemoryBench trains on 8 A100 GPUs.
+Real-world fine-tuning takes about 1.5 hours on 8 A100 GPUs.
+
+Evaluation uses a single GPU per run: RMBench, GemBench, MemoryBench,
+and COLOSSEUM are evaluated on one A100, and RLBench on one H20.
+For real-world deployment, both models run on a machine with a single
+NVIDIA RTX 4090 GPU.
+Averaged over 100 trials, the end-to-end latency from point-cloud input
+to action output is 0.35 seconds per prediction step for \method\ and
+0.57 seconds for the full \memmethod\
+(Sec.~\ref{sec:memmethod:training}).
+Both figures are small relative to the remainder of the control loop:
+in real-world deployment, transmitting the multi-camera observations
+and physically executing the planned motion between keyframes dominate
+the total time per step.
+
+\paragraph{Memory overhead}
+The totals of Sec.~\ref{sec:memmethod:training} decompose as follows.
+Each of the three memory injection blocks holds 83.95M parameters and
+the sub-goal gate a further 17.91M, for 269.77M in total, or 9.2\% of
+the 2.92B-parameter backbone.
+A cached memory entry is a single bf16 coarse-stage token grid of
+3.0\,MiB, so a full memory at the RMBench budget of $K{=}12$ frames
+plus the anchor occupies 39\,MiB.
+Because entries are stored already encoded, the cache is the only
+stored quantity that grows with $K$; the cross-attention cost of the
+injection block also grows linearly in $K$ but remains negligible next
+to a backbone forward pass, and the number of forward passes per step
+is independent of $K$.
+Per step, the memory-free policy runs two backbone forwards, coarse and
+fine, and the full \memmethod\ three, the additional pass encoding the
+fine-stage geometric reference.
+Dual-arm deployments, whose fine stage runs once per arm on a shared
+coarse trunk (Sec.~\ref{sec:memmethod:bimanual}), accordingly run five.

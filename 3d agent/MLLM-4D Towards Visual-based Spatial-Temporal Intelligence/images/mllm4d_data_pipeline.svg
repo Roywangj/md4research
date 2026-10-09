@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+<rect width="1200" height="540" fill="#fffdf8"/><text x="600" y="38" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#17324d">MLLM4D 数据自动构造管线（重绘示意）</text>
+<g font-family="Arial" font-size="16" fill="#17324d" text-anchor="middle">
+<rect x="35" y="92" width="180" height="105" rx="14" fill="#dbeafe" stroke="#3676b5" stroke-width="2"/><text x="125" y="128" font-weight="700">Stereo4D 视频</text><text x="125" y="157">左目帧序列</text><text x="125" y="181">相机运动 + 场景变化</text>
+<rect x="270" y="65" width="235" height="160" rx="14" fill="#fff0d5" stroke="#db8b28" stroke-width="2"/><text x="387" y="101" font-weight="700">视觉前处理</text><text x="387" y="132">Gemini-2.5-Flash</text><text x="387" y="158">GroundedSAM2</text><text x="387" y="184">PixelRefer</text><text x="387" y="210">实体名 / mask / 描述</text>
+<rect x="560" y="92" width="220" height="105" rx="14" fill="#dcfce7" stroke="#3b9562" stroke-width="2"/><text x="670" y="128" font-weight="700">4D 元数据</text><text x="670" y="157">Cᵢ=[Rᵢ|tᵢ]、3D 点云</text><text x="670" y="181">逐帧语义描述</text>
+<rect x="835" y="65" width="320" height="160" rx="14" fill="#e9d5ff" stroke="#8250ad" stroke-width="2"/><text x="995" y="101" font-weight="700">物理约束时空关系求解器</text><text x="995" y="132">相机绝对/相对运动</text><text x="995" y="158">物体绝对运动</text><text x="995" y="184">物体—相机距离与方向</text><text x="995" y="210">模板化多选 QA</text>
+</g><g stroke="#17324d" stroke-width="3" fill="none"><path d="M215 145H270"/><path d="M505 145H560"/><path d="M780 145H835"/></g>
+<rect x="100" y="295" width="1000" height="150" rx="18" fill="#f3f6f8" stroke="#9aaebb" stroke-width="2"/><g font-family="Arial" font-size="18" fill="#17324d"><text x="130" y="333" font-weight="700">关键计算：</text><text x="130" y="370">相机中心：Centerᵢ = −Rᵢᵀtᵢ；相对位移：Δt = tⱼ − tᵢ；相机局部方向：d = RᵢᵀΔt</text><text x="130" y="407">物体中心：P̄ᵢ = (1/M)ΣₘPᵢ,ₘ；距离由中心差或点集最小距离得到</text></g><text x="600" y="500" text-anchor="middle" font-family="Arial" font-size="18" fill="#17324d">证据：Stereo4D 的几何标签 + 视频模型的实体/语义标签 → 可扩展的 4D 指令数据</text>
+</svg>

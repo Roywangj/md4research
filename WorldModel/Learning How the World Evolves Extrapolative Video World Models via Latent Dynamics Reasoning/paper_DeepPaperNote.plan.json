@@ -1,0 +1,44 @@
+{
+  "paper": {
+    "title": "Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning",
+    "paper_id": "arxiv:2608.09926",
+    "authors": ["Haodong Li", "Shaoteng Liu", "Tianyu Wang", "Chongjian Ge", "Sihui Ji", "Jiahan Zhang", "Xin Lin", "Haolin Lu", "Zhe Lin", "Manmohan Chandraker"],
+    "year": 2026,
+    "pages": 9,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/A94M5EQ5/Li 等 - 2026 - Learning How the World Evolves Extrapolative Video World Models via Latent Dynamics Reasoning.pdf",
+    "note_file": "paper_DeepPaperNote.md"
+  },
+  "scope": "独立 WJ 精读；覆盖研究问题、相对 video/world model 定位、LDR 数据流与公式、训练与实现、主结果、消融、定性证据、效率、局限、复现缺口、WAM/latent dynamics 关系和可迁移洞见。未修改翻译代理负责的文件。",
+  "section_plan": [
+    {"section": "核心信息", "weight": "high", "focus": "先给出真实贡献、关键数值和证据边界", "evidence_sources": [{"pages": [1, 3, 5, 6, 7]}]},
+    {"section": "原文摘要翻译", "weight": "medium", "focus": "忠实转述作者摘要并标出 first-claim 范围", "evidence_sources": [{"pages": [1]}]},
+    {"section": "研究问题", "weight": "high", "focus": "区分视觉逼真拟合与动力学捕获，定义 ID/OOD 外推问题", "evidence_sources": [{"pages": [1, 2]}]},
+    {"section": "数据与任务定义", "weight": "high", "focus": "PhyWorld 五任务、ID/OOD 范围、三帧到 29 帧、pos/rad/gap 指标", "evidence_sources": [{"pages": [2, 5, 6]}]},
+    {"section": "方法主线", "weight": "high", "focus": "SL 编码、有限差分初始化、高阶 residual、固定积分、warp 解码和训练损失", "subsections": ["机制流程", "结构化 latent", "初始化", "Kinematics Integration", "训练目标与课程"], "evidence_sources": [{"pages": [3, 4]}]},
+    {"section": "训练数据和实现细节", "weight": "high", "focus": "optimizer、步数、硬件、分辨率、MLP、从头训练和 baseline", "evidence_sources": [{"pages": [5, 6]}]},
+    {"section": "关键结果", "weight": "high", "focus": "256²主结果、128²趋势、消融、定性、严重 shift、效率", "subsections": ["主结果与强基线", "分辨率与 scaling 行为", "消融到底说明了什么", "定性证据", "效率"], "evidence_sources": [{"pages": [1, 4, 5, 6, 7]}]},
+    {"section": "深度分析", "weight": "high", "focus": "解释结果成立原因，区分机制贡献与工程组装，定位到 WAM/视频 world model/latent dynamics", "subsections": ["真正贡献是什么", "为什么结果可能成立", "与 WAM、视频 world model、latent dynamics 的关系", "容易误读的地方", "复现注意点与缺口"], "evidence_sources": [{"pages": [2, 3, 4, 6, 7]}]},
+    {"section": "局限", "weight": "high", "focus": "作者明确局限、单次运行、表示表达力和评测外推边界", "evidence_sources": [{"pages": [2, 7, 8]}]},
+    {"section": "我的笔记", "weight": "medium", "focus": "可迁移设计原则和后续实验", "evidence_sources": [{"pages": [3, 5, 7]}]}
+  ],
+  "must_cover": [
+    "研究问题与背景",
+    "相对现有 world/video model 的定位",
+    "LDR 逐步数据流、公式、损失和架构",
+    "训练数据与实现细节",
+    "主结果、消融、定性和效率",
+    "证据强度、过度主张、局限与复现缺口",
+    "与 WAM、视频 world model、latent dynamics 的关系",
+    "可迁移研究洞见"
+  ],
+  "key_numbers_to_verify": [
+    "256² single-task Avg pos gap: DiT-S 0.300, LDR 0.013",
+    "256² joint Avg pos gap: DiT-S 0.506, LDR 0.018",
+    "256² LDR average gap ratios: 23.9× single-task and 27.7× joint",
+    "Parameters: DiT-S 106.1114M, LDR 4.0933M",
+    "Latency @256²: DiT-S 5.2069s, LDR 0.0363s, ratio 143.4×",
+    "Three conditioning frames, 29 predicted future frames, T=31",
+    "ID v∈[1,4], r∈[0.7,1.4], looming |ṙ|∈[0,0.03]; OOD v∈[0.05,6], r∈[0.6,2], |ṙ|∈[0.05,0.09]",
+    "AdamW lr 1e-4, weight decay 0.01, global batch 256, seed 42"
+  ]
+}

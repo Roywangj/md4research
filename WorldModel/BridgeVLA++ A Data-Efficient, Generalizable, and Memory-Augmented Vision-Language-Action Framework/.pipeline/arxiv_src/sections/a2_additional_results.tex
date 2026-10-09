@@ -1,0 +1,525 @@
+% Appendix-scoped float tuning: from here on, a two-column [t] float (no "!")
+% may claim at most 60% of a page top.  This splits the three COLOSSEUM
+% per-task tables onto consecutive text pages (one table + discussion each)
+% instead of stacking two of them over a thin strip of text.  Floats marked
+% [!t] (the two real-robot tables) and [p] (the per-task gallery) are exempt.
+% The main body is built before this point and is unaffected.
+\renewcommand{\dbltopfraction}{0.6}
+
+\subsection{Per-Task Results on COLOSSEUM}
+\label{app:colosseum_results}
+
+COLOSSEUM and GemBench, covered here and in
+Appendix~\ref{app:gembench_results}, hold the training data fixed and
+shift the test environment away from it in appearance, objects, and
+instructions.
+Because both suites probe per-frame perception rather than history, the
+base policy \method\ carries the comparison against prior work;
+\memmethod\ is reported alongside it to verify that the memory
+extension preserves this robustness.
+
+On COLOSSEUM~\cite{pumacay2024colosseum} (settings and protocol in
+Appendix~\ref{app:eval_protocol}, perturbations visualized in
+Fig.~\ref{fig:vis_colosseum}), we compare against
+R3M-MLP~\cite{nair2022r3m} and MVP-MLP~\cite{xiao2022masked}, which
+pair pre-trained 2D encoders with MLP action heads, and against the 3D
+policies PerAct~\cite{shridhar2023perceiver}, RVT~\cite{goyal2023rvt},
+and RVT-2~\cite{goyal2024rvt}.
+
+Beyond the averages reported in Sec.~\ref{sec:exp:additional}, \method\
+ranks best among prior methods in 13 of the 14 settings
+(Table~\ref{tab:colosseum}), and how that margin is distributed
+supports the alignment argument: it is widest under appearance-level
+shifts, with a lead of 11 to 15 points on table texture, table color,
+light color, and receptacle texture, which is exactly the nuisance
+variation a VLM's 2D pre-training has seen in abundance and a policy
+trained from scratch has not.
+The one setting in which \method\ trails is \emph{Distractor}, at
+51.8\% against 60.8\% for RVT-2.
+\memmethod\ improves markedly on precisely the two settings that are
+hardest for \method, reaching 38.9\% against 18.7\% under \emph{All
+Perturbations} and 61.6\% against 51.8\% under \emph{Distractor}, and
+between them the two variants rank first in every one of the 14
+settings.
+Tables~\ref{tab:results_bridgevla},
+\ref{tab:results_bridgevla_plus}, and~\ref{tab:results_rvt2} break the
+comparison down to the task level.
+
+\input{table/colosseum_ours}
+\input{table/colosseum_ours_plus}
+\input{table/colosseum_rvt2}
+
+\subsection{Per-Task Results on GemBench}
+\label{app:gembench_results}
+
+\input{table/gembench}
+% MemoryBench is declared here (as a single-column float, right after the
+% GemBench summary) so both small tables share the page that also carries
+% the COLOSSEUM RVT-2 table and the MemoryBench discussion; the per-task
+% gallery tables that follow are [p] floats and pack onto pure float pages.
+\input{table/memorybench}
+
+GemBench~\cite{garcia2024towards} grades generalization hierarchically
+over four levels, from the training tasks under changed placements
+(L1) through novel rigid (L2) and articulated (L3) objects to novel
+long-horizon compositions (L4); Fig.~\ref{fig:vis_gembench} visualizes
+the suite and Appendix~\ref{app:eval_protocol} states the protocol.
+Alongside Hiveformer~\cite{guhur2023instruction},
+PolarNet~\cite{chen2023polarnet}, 3D Diffuser Actor~\cite{3d-da}, and
+RVT-2~\cite{goyal2024rvt}, we compare against the benchmark's own
+3D-LOTUS, a language-conditioned point-cloud
+transformer~\cite{garcia2024towards,wu2024point}, and 3D-LOTUS++, which
+wraps the same controller in LLM task planning and VLM object
+grounding~\cite{garcia2024towards}.
+
+Behind the best average success rates reported in
+Sec.~\ref{sec:exp:additional}, the per-level breakdown of
+Table~\ref{tab:gembench} shows that \method\ is competitive with the
+strongest specialized 3D policies on the seen tasks of L1, leads the
+articulated-object level L3, and scores 0.0\% on L4, while \memmethod\
+attains the best L2 result at 68.9\% and lifts L4 off zero to 8.2\%,
+at the cost of a few points on L1 and L3.
+On L4, where every end-to-end baseline sits at or near zero, the gain
+of \memmethod\ comes almost entirely from \emph{PushButtons4}
+(Table~\ref{tab:gembench_sota_cmpr_l4_detail}): the neighboring
+keyframes in the temporal memory let the policy recall the button it
+has just pressed and proceed to the next, state that the current frame
+alone does not reveal.
+Tables~\ref{tab:gembench_sota_cmpr_l1_detail}--\ref{tab:gembench_sota_cmpr_l4_detail}
+report the full per-task success rates behind
+Table~\ref{tab:gembench}.
+
+\input{table/gembench_l1}
+\input{table/gembench_l2}
+\input{table/gembench_l3}
+\input{table/gembench_l4}
+
+\subsection{Per-Task Results on MemoryBench}
+\label{app:memorybench_results}
+
+MemoryBench~\cite{fang2025sam2act} repeats the memory-dependent test of
+Sec.~\ref{sec:exp:rmbench} in a single-arm setting and a different
+simulator: its three tasks extend RLBench so that pressing a button
+erases the visual evidence a later step depends on
+(Fig.~\ref{fig:vis_memorybench}).
+Table~\ref{tab:memorybench} compares against RVT-2~\cite{goyal2024rvt}
+and against SAM2Act and SAM2Act+~\cite{fang2025sam2act}, whose
+SAM2-style memory bank is the closest prior instantiation of visual
+episodic memory in a keyframe policy.
+\memmethod\ solves the benchmark almost completely, with its margin
+over SAM2Act+ concentrated on \emph{Reopen Drawer} (100\% against
+84\%), whereas the memory-free \method\ collapses to
+$11.3{\pm}0.8\%$; every seed of \memmethod\ scores at or above 99.3\%
+overall, so the spread in Table~\ref{tab:memorybench} reflects a
+handful of failed episodes rather than run-to-run instability.
+
+\subsection{Per-Task Memory Ablations on RMBench}
+\label{app:rmbench_ablation}
+
+Table~\ref{tab:rmbench_ablation} reports the per-task success rates
+behind the RMBench memory ablation of Sec.~\ref{sec:exp:ablation},
+whose four rows form the memory $2{\times}2$ factorial.
+Removing the temporal memory $\mathcal{T}$ collapses precisely the
+tasks that require tracking progress or past attempts, with \emph{Press
+Button} falling from 93\% to 0\%, \emph{Blocks Ranking Try} from 100\%
+to 1\%, and \emph{Rearrange Blocks} from 100\% to 11\%, whereas
+removing the spatial memory $\mathcal{S}$ leaves every task within a
+few points of the full model, with the largest single-task change on
+\emph{Cover Blocks} (91\% vs.\ 99\%).
+
+% --- Remaining result tables.  The RMBench ablation is a [p] float and
+%     joins the GemBench L3/L4 tables on the last pure float page; the two
+%     real-robot tables are [!t] floats that mount the top of the final
+%     appendix text page, with the real-robot discussion flowing underneath.
+%     (MemoryBench is declared earlier, after the GemBench summary.)
+\input{table/rmbench_ablation}   % RMBench ablation, simulation ([p] gallery)
+\input{table/real_episode}       % 3-vs-10 demos, real robot / Franka ([!t])
+\input{table/real_dobot_all}     % Dobot per-instruction, real robot ([!t])
+
+\subsection{General Manipulation on the Franka Platform}
+\label{app:real_franka}
+
+This appendix and
+Appendices~\ref{app:real_dobot}--\ref{app:real_settings_vis} supplement
+Sec.~\ref{sec:exp:real_world} with the per-task results, the baseline
+failure modes, and the setting definitions of both real-robot suites.
+
+\paragraph{Setup}
+The 13 tasks of the Franka suite range from simple pick-and-place to
+long-horizon drawer tasks, each spanning 3--9 keyframes
+(Table~\ref{tab:real_robot}); Figs.~\ref{fig:basic_task1}
+and~\ref{fig:basic_task2} show \method\ rollouts.
+Demonstrations are collected by kinesthetic teaching: the manipulator
+is moved to the keypoints of an expert trajectory, which are then
+played back to record the observation and action at each keypoint.
+Training and evaluation follow the protocol of
+Appendix~\ref{app:eval_protocol}, and the six generalization settings
+are defined in Appendix~\ref{app:real_settings_vis}.
+
+\paragraph{Baselines}
+The baselines span the design space laid out in
+Sec.~\ref{sec:introduction}: SpatialVLA~\cite{qu2025spatialvla}, a 3D
+VLA that injects 3D information through Ego3D position encoding,
+trained with 10 and additionally with 50 trajectories per task;
+$\pi_{0.5}$~\cite{intelligence2025pi_}, a 2D VLA whose flow-matching action
+expert sits on the same PaliGemma backbone as \method;
+ACT~\cite{zhao2023learning}, trained single-task per task; and
+RVT-2~\cite{goyal2024rvt}, the projection-based 3D policy closest in
+design to \method.
+
+\paragraph{Data efficiency}
+Among the baselines of Table~\ref{tab:real_robot}, the contrast with
+$\pi_{0.5}$ is the cleanest real-world evidence for the alignment argument
+of Sec.~\ref{sec:introduction}.
+The two models share the same pre-trained backbone and differ in the
+interface, heatmap prediction in the projected views versus action
+generation through a separate flow-matching expert, so a gap of over 75
+points at 10 demonstrations isolates the input--output alignment, not
+the backbone, as the source of sample efficiency.
+The failure modes of all baselines are recorded in
+Appendix~\ref{app:real_baselines}, and the 3-demonstration variant in
+Appendix~\ref{app:real_episode_analysis}.
+
+\paragraph{Generalization}
+Because only RVT-2 and \method\ perform well in the Basic setting, the
+six generalization settings compare these two models
+(Fig.~\ref{fig:real_results}).
+The remaining failure mode of \method\ is \emph{Category}, where the
+policy sometimes ignores the unseen target object and moves directly
+to the destination.
+This is not forgetting of the pre-trained grounding: fed samples from
+the pre-training dataset after action fine-tuning, the model still
+predicts accurate heatmaps
+(Appendix~\ref{app:real_visualize_pretrain_heatmap}).
+We attribute the gap instead to a residual domain mismatch: the 2D
+pre-training images are mostly third-person views unlike the
+orthographic robot renders, and their grounding supervision is object
+localization, whereas manipulation targets keypoints that need not lie
+on an object.
+The pre-training ablation of Sec.~\ref{sec:exp:ablation} traces this
+instruction-level generalization to the 2D-heatmap pre-training
+itself.
+
+\subsection{Memory-Dependent Manipulation on the Dobot Platform}
+\label{app:real_dobot}
+
+The Franka suite tests only the base policy: its near-saturated success
+shows that these 13 tasks are solvable from the current frame alone.
+We therefore evaluate \memmethod\ on a second, held-out embodiment, a
+6-DoF Dobot CR5A collaborative arm fitted with a ChangingTek
+CTAG2F90-C parallel-jaw electric gripper and observed, as in the Franka
+setup, by a single static ZED~2i stereo camera.
+
+The three memory-dependent tasks transplant the memory families of
+RMBench (Sec.~\ref{sec:exp:rmbench}) into the real world, each
+constructed so that the current observation underdetermines the next
+action.
+\emph{Press Button} is the counting family: the robot must press the
+blue button exactly three times and then press the yellow button once,
+a final press that requires the policy to know when the counting is
+complete.
+In \emph{Cover Blocks}, the robot first covers the two
+different-colored blocks in the workspace and must then uncover only
+the block of the instructed color, which is solvable only from the
+color-to-location bindings formed before the covers went on.
+\emph{Swap Eggplant} is the rearrangement family: two look-alike
+eggplants must each end up on the other's initial plate, using an
+initially empty third plate as a buffer, so the correct next placement
+depends on which eggplant has already been moved, which the current
+frame does not reveal.
+The two memory-free tasks, \emph{Put in Drawer} and \emph{Put on
+Shelf}, are solvable from the current frame alone and test whether the
+memory extension costs general manipulation capability.
+Training data, baselines, and the five evaluation settings are stated
+in Appendix~\ref{app:eval_protocol};
+Figs.~\ref{fig:dobot_rollouts1} and~\ref{fig:dobot_rollouts2} show
+\memmethod\ rollouts, Fig.~\ref{fig:dobot_settings} the four
+visual-disturbance settings, and Table~\ref{tab:app:real_dobot_all}
+the per-instruction counts behind Tables~\ref{tab:real_dobot_basic}
+and~\ref{tab:real_dobot_generalization}.
+
+\subsection{Real-Robot Baseline Failure Modes}
+\label{app:real_baselines}
+
+Tables~\ref{tab:real_robot} and~\ref{tab:app:real_dobot_all} aggregate
+the comparisons on the two platforms; the notes below record how each
+baseline fails.
+
+\paragraph{SpatialVLA~\cite{qu2025spatialvla}}
+Trained with 10 trajectories per task, SpatialVLA fails on nearly all
+tasks, typically without even moving toward the correct target object.
+Raising the training set to 50 trajectories per task recovers some
+performance, 28.5\% against 3.1\%, but it remains far behind \method,
+particularly on harder tasks such as \emph{Put the Giraffe in the Lower
+Drawer}.
+
+\paragraph{$\pi_{0.5}$~\cite{intelligence2025pi_}}
+$\pi_{0.5}$ achieves occasional success on simple pick-and-place tasks but
+consistently fails on more complex, long-horizon tasks, such as
+\emph{Put Zebra in Drawer}.
+We further observe that its motions are often unstable and that it tends to
+close the gripper prematurely.
+In contrast, \method performs reliably across all evaluated
+tasks.
+
+\paragraph{ACT~\cite{zhao2023learning}}
+ACT generalizes poorly in space: it succeeds in regions densely covered
+by the demonstrations but often fails when the target lies near the
+workspace boundary.
+This is consistent with its design, since ACT models actions under a
+Gaussian prior, which assigns low probability to peripheral regions.
+
+\paragraph{RVT-2~\cite{goyal2024rvt}}
+RVT-2 is the strongest baseline of the Franka suite and solves most
+tasks, but it is less robust than \method: it sometimes grasps a block
+imprecisely or places an object inaccurately, and its gap to \method\
+widens further in the generalization settings.
+
+\paragraph{SAM2Act+~\cite{fang2025sam2act}}
+The failures of SAM2Act+ on the memory-dependent Dobot tasks match the
+memory-management analysis of Sec.~\ref{sec:exp:real_world}.
+In \emph{Cover Blocks}, it cannot tell which cover hides the instructed
+block: by the time this decision is made, about 11 history steps have
+already accumulated, and its fixed-size memory window is filled with
+near-duplicate frames, so the block colors seen at the start are
+largely lost.
+In \emph{Press Button}, it has no explicit sense of how many presses
+have been completed, and keeps pressing the button endlessly.
+
+\subsection{Sample Efficiency with 3 vs.\ 10 Demonstrations}
+\label{app:real_episode_analysis}
+
+Table~\ref{tab:app:real_episode} lists the per-task success counts of
+\method\ when trained with 3 rather than 10 demonstrations per task:
+the policy stays at or above 7/10 on every task and matches the
+10-demonstration model on most of them.
+
+\subsection{Preservation of Object Grounding after Fine-Tuning}
+\label{app:real_visualize_pretrain_heatmap}
+
+Even after fine-tuning on robot action data, \method\ retains the
+object grounding installed by the 2D-heatmap pre-training.
+Fig.~\ref{fig:pretrain_dataset} illustrates how the pre-training
+targets are constructed on detection data, as truncated Gaussians
+rendered at the annotated box centers and normalized into one
+distribution (Sec.~\ref{sec:bridgevla:pretrain}).
+Fig.~\ref{fig:real_heatmaps} then visualizes the fine-tuned model's
+predictions on pre-training samples, with each input image repeated
+three times to simulate the multi-view input of fine-tuning.
+These samples are not cherry-picked, which confirms that \method\ does
+not forget its pre-training knowledge after 3D action fine-tuning.
+
+\subsection{Real-Robot Generalization Settings}
+\label{app:real_settings_vis}
+
+The six generalization settings are defined as follows.
+\emph{Distractor} adds distractor objects visually similar to at least
+one target object; \emph{Lighting} turns the lights off;
+\emph{Background} changes the tablecloth, in three variants; and
+\emph{Height} raises some objects onto a drawer or box.
+\emph{Combination} pairs objects and skills that were each seen in
+training into 13 pairings never demonstrated together, and
+\emph{Category} introduces 7 objects from categories unseen in the
+robot training data.
+Fig.~\ref{fig:real_settings} shows the four visual-disturbance
+settings, Figs.~\ref{fig:combination_within}
+and~\ref{fig:combination_across} the Combination setting, and
+Fig.~\ref{fig:category} the Category setting.
+
+% The appendix text ends on this page well short of full height; balance the
+% two columns so the page closes with two equal short columns (the standard
+% end-of-text look) instead of one full column beside an empty one.
+\balance
+
+% ------------------------------------------------- appendix float gallery
+% The gallery TABLES (XVI..XIX) are declared earlier, amid the real-robot
+% appendix text, so they pack at the tops of the text pages instead of
+% stranding on a half-empty float page here.  Everything below is the
+% FIGURE gallery.  The \clearpage flushes any pending table before the
+% figures begin, so tables and figures are never interleaved on one page.
+% Heights noted per figure are approximate natural heights incl.\ caption
+% against a 696pt text height.
+\clearpage
+
+% --- Figures follow (no table shares a page with a figure) ---
+% Franka + Dobot disturbance settings paired on one page: both are
+% variant/disturbance-setting overviews, shrunk to 0.72\tw so their combined
+% height (~656pt incl. captions) fits a single float page.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.72\textwidth]{figures/real_perturbation_settings.pdf}
+  \caption{\textbf{The Distractor, Lighting, Background, and Height
+  Settings.}
+  Visualization of the four visual-disturbance settings of the
+  real-robot evaluation (Appendix~\ref{app:real_franka}).}
+  \label{fig:real_settings}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.72\textwidth]{figures/dobot_perturbation_settings.pdf}
+  \caption{\textbf{The Distractor, Lighting, Background, and Height
+  Settings on the Dobot Platform.}
+  Initial scene of every instruction of the Dobot suite (columns, named
+  as in Table~\ref{tab:app:real_dobot_all}) under each of the four
+  visual-disturbance settings (rows;
+  Appendix~\ref{app:real_dobot}).
+  Frames in the \emph{Lighting} row are gamma-darkened for display
+  where the camera's auto-exposure compensated for the reduced
+  illumination; the policy receives the raw frames.}
+  \label{fig:dobot_settings}
+\end{figure*}
+
+% Franka rollouts I (~585pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/real_rollouts_1.pdf}
+  \caption{\textbf{Real-Robot Rollouts (I).}
+  \method\ rollouts on the real-robot task suite of
+  Appendix~\ref{app:real_franka}.}
+  \label{fig:basic_task1}
+\end{figure*}
+
+% Franka rollouts II (~535pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/real_rollouts_2.pdf}
+  \caption{\textbf{Real-Robot Rollouts (II).}
+  \method\ rollouts on the real-robot task suite of
+  Appendix~\ref{app:real_franka}.}
+  \label{fig:basic_task2}
+\end{figure*}
+
+% Combination setting I (~645pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/combination_within.pdf}
+  \caption{\textbf{The Combination Setting (I).}
+  During training, the manipulated objects and skills are seen, but
+  their combinations are unseen.}
+  \label{fig:combination_within}
+\end{figure*}
+
+% p7: Combination setting II (~420pt) + 3-vs-10-demonstration table (~130pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/combination_across.pdf}
+  \caption{\textbf{The Combination Setting (II).}
+  During training, the manipulated objects and skills are seen, but
+  their combinations are unseen.}
+  \label{fig:combination_across}
+\end{figure*}
+
+% Category setting (~535pt at 0.85\textwidth)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/category_setting.pdf}
+  \caption{\textbf{The Category Setting.}
+  In total, we evaluate on 7 objects from categories that are unseen
+  during training.}
+  \label{fig:category}
+\end{figure*}
+
+% Dobot rollouts I + II paired on one page: both shrunk to 0.62\tw so their
+% combined height (~660pt incl. captions) fits a single float page.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.62\textwidth]{figures/dobot_rollouts_1.pdf}
+  \caption{\textbf{Dobot Rollouts (I): Memory-Dependent Tasks.}
+  \memmethod\ rollouts on the three memory-dependent instructions of
+  the Dobot suite (Appendix~\ref{app:real_dobot}) in the Basic
+  setting; each strip shows five keyframes of one successful episode.}
+  \label{fig:dobot_rollouts1}
+\end{figure*}
+
+% p10: Dobot rollouts II (~560pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.62\textwidth]{figures/dobot_rollouts_2.pdf}
+  \caption{\textbf{Dobot Rollouts (II): Memory-Free Tasks.}
+  \memmethod\ rollouts on the four memory-free instructions of the
+  Dobot suite in the Basic setting, laid out as in
+  Fig.~\ref{fig:dobot_rollouts1}.}
+  \label{fig:dobot_rollouts2}
+\end{figure*}
+
+% Pre-training heatmap figures: placed after the real-robot figures and
+% before the simulation task grids (both are ~one full page, solo).
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/pretrain_dataset.pdf}
+  \caption{\textbf{Ground-Truth Heatmap Construction on Detection
+  Data.}
+  For each sample: the original image (\emph{left}), the bounding
+  boxes of the objects of interest (\emph{middle}), and the
+  ground-truth heatmap rendered from the box centers (\emph{right}).}
+  \label{fig:pretrain_dataset}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.72\textwidth]{figures/pred_heatmap.pdf}
+  \caption{\textbf{Predictions on Pre-Training Data after
+  Fine-Tuning.}
+  Each input image is repeated three times to mimic the multi-view
+  input format of fine-tuning.
+  Rows per sample: input image, predicted heatmaps, ground truth.
+  Samples are not cherry-picked.}
+  \label{fig:real_heatmaps}
+\end{figure*}
+
+% --- Simulation task grids ---
+% RLBench task grid (~400pt) + RMBench task grid (~195pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/rlbench_task_grid.pdf}
+  \caption{\textbf{The 18 RLBench Tasks.}
+  Visualization of the 18 RLBench~\cite{james2020rlbench} tasks used in
+  Sec.~\ref{sec:exp:rlbench}.}
+  \label{fig:RLBench_VIS}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/rmbench_task_grid.pdf}
+  \caption{\textbf{The Nine RMBench Tasks.}
+  One evaluation rollout per task of RMBench~\cite{chen2026rmbench},
+  shown as three frames in temporal order; the dual-arm tasks span the
+  short-term $M(1)$ and long-term $M(n)$ memory regimes.}
+  \label{fig:vis_rmbench}
+\end{figure*}
+
+% p13: COLOSSEUM perturbations (~620pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/colosseum_perturbations.pdf}
+  \caption{\textbf{Perturbations in COLOSSEUM~\cite{pumacay2024colosseum}.}
+  All perturbation axes are shown except the original-RLBench variation
+  setting.}
+  \label{fig:vis_colosseum}
+\end{figure*}
+
+% p14: GemBench task grid (~415pt) + MemoryBench task grid (~205pt)
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.88\textwidth]{figures/gembench_task_grid.pdf}
+  \caption{\textbf{The GemBench Task Suite.}
+  One representative variation of every task of
+  GemBench~\cite{garcia2024towards}, shown as the first and final
+  frame of an evaluation rollout.
+  Border colors denote the generalization level: \emph{L1} (blue,
+  novel placements), \emph{L2} (green, novel rigid objects), \emph{L3}
+  (orange, novel articulated objects), and \emph{L4} (pink, novel
+  long-horizon tasks).}
+  \label{fig:vis_gembench}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/memorybench_task_grid.pdf}
+  \caption{\textbf{The Three MemoryBench Tasks.}
+  Two variants of each MemoryBench~\cite{fang2025sam2act} task, each
+  shown as three rollout frames in which the robot's own intervention
+  erases the evidence a later step depends on.}
+  \label{fig:vis_memorybench}
+\end{figure*}

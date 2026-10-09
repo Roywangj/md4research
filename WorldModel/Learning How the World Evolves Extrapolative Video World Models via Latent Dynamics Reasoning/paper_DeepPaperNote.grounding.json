@@ -1,0 +1,76 @@
+{
+  "status": "ok",
+  "paper_id": "arxiv:2608.09926",
+  "source": {
+    "type": "selectable-text PDF",
+    "pages": 9,
+    "inventory": {
+      "figures": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Figure 5"],
+      "tables": ["Table 1", "Table 2", "Table 3", "Table 4", "Table 5"],
+      "algorithms": ["Algorithm 1"],
+      "main_sections": ["Abstract", "Introduction", "Related Works", "Method", "Structured Latent", "Optimization", "Experiments", "Summary", "Limitation", "References"]
+    }
+  },
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "LDR reduces the 256² average position ID-OOD gap from 0.300 to 0.013 in single-task training and from 0.506 to 0.018 in joint five-task training.",
+      "source": "Table 1 and Table 2",
+      "pages": [5],
+      "evidence_level": "direct quantitative",
+      "what_supported": "Within the stated PhyWorld protocol, LDR has substantially smaller gap than DiT-S.",
+      "not_supported": "Does not establish superiority on natural videos or arbitrary world models."
+    },
+    {
+      "id": "C02",
+      "claim": "LDR uses 4.0933M parameters versus DiT-S 106.1114M and is 143.4× faster at 256² in Table 5.",
+      "source": "Table 5",
+      "pages": [7],
+      "evidence_level": "direct measurement",
+      "what_supported": "The reported implementation and hardware show a large efficiency difference.",
+      "not_supported": "Not an end-to-end robot latency or cross-hardware guarantee."
+    },
+    {
+      "id": "C03",
+      "claim": "Explicit dynamics reasoning is the decisive ablation component.",
+      "source": "Ablation Study and Tables 1–4",
+      "pages": [5, 6, 7],
+      "evidence_level": "controlled ablation",
+      "what_supported": "Direct next-latent residual regression is worse, especially under joint training.",
+      "not_supported": "Because the SL decoder is coupled to structuralization, component effects are not perfectly orthogonal."
+    },
+    {
+      "id": "C04",
+      "claim": "LDR generalizes to severe appearance/object shifts.",
+      "source": "Figure 1 and Figure 5 plus Stress Test text",
+      "pages": [1, 7],
+      "evidence_level": "qualitative examples",
+      "what_supported": "The displayed Pikachu, blue-square/reversed-direction and earth-textured examples are consistent with geometry-conditioned decoding.",
+      "not_supported": "No broad quantitative distribution over appearances or confidence intervals is reported."
+    },
+    {
+      "id": "C05",
+      "claim": "LDR is the first video world model to extrapolate learned dynamics beyond training distribution.",
+      "source": "Abstract, Introduction, Summary",
+      "pages": [1, 2, 7],
+      "evidence_level": "author literature claim",
+      "what_supported": "This is the authors' stated novelty under their scope.",
+      "not_supported": "It is qualified by 'to our knowledge' and a footnote restricting validation to simple simulated scenarios."
+    }
+  ],
+  "numeric_audit": {
+    "status": "pass",
+    "checks": [
+      {"item": "256² single-task average pos", "values": {"DiT-S_ID": 0.069, "DiT-S_OOD": 0.369, "DiT-S_gap": 0.300, "LDR_ID": 0.044, "LDR_OOD": 0.057, "LDR_gap": 0.013}, "source": "Table 1, p.5"},
+      {"item": "256² joint average pos", "values": {"DiT-S_ID": 0.086, "DiT-S_OOD": 0.592, "DiT-S_gap": 0.506, "LDR_ID": 0.050, "LDR_OOD": 0.068, "LDR_gap": 0.018}, "source": "Table 2, p.5"},
+      {"item": "Efficiency", "values": {"DiT-S_params_M": 106.1114, "LDR_params_M": 4.0933, "DiT-S_latency_256_s": 5.2069, "LDR_latency_256_s": 0.0363, "ratio_256": 143.4}, "source": "Table 5, p.7"}
+    ]
+  },
+  "material_caveats": [
+    "PDF reports a single seed-42 run and no variance/CI.",
+    "Benchmark uses simple objects and white-box simulation; authors explicitly defer richer/real scenes.",
+    "Rad metric mostly measures rendering fidelity outside looming.",
+    "Stress-test evidence is primarily qualitative.",
+    "Several implementation details (CNN/warp architecture, latent dimensionality, sampling distributions) are omitted from the 9-page paper."
+  ]
+}

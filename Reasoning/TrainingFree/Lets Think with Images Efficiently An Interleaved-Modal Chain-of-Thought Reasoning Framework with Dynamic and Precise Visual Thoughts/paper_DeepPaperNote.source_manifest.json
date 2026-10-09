@@ -1,0 +1,412 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.21754",
+  "title": "Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with Dynamic and Precise Visual Thoughts",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.dap_icot_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.dap_icot_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VZYTSXMW/Liu 等 - 2026 - Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with.pdf",
+    "total_pages": 9,
+    "text_pages_extracted": 9,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 9,
+    "text_max_pages": null,
+    "text_pages_extracted": 9,
+    "text_pages_scanned": 9,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": null
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 571,
+      "text_hash_sha256": "38fa6e64b193e3e623a889f1b26848786105910bf091401cff5c374830f089cc"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1319,
+      "text_hash_sha256": "c9382dafedc3f9bcd9ab2d8bc29657b8016ded79f272723356d4d6386b697b5f"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 9603,
+      "text_hash_sha256": "4d46d3d40531e3168eb92b23f79d0554a805e6208ca5cf9adcdac3ca8076e7a3"
+    },
+    {
+      "section_id": "sec:analysis",
+      "kind": "experiment",
+      "title": "Analysis",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 3818,
+      "text_hash_sha256": "5c44089b58143878b8d1b437dd0d9de5f9bd2a5abb001103b11789e8048f452f"
+    },
+    {
+      "section_id": "sec:methods",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 4,
+      "page_end": 5,
+      "char_count": 5415,
+      "text_hash_sha256": "123b1fb93f6edc1cae300ad058e886f79d8f1d1fd69d36422d7de34c5f0dd37d"
+    },
+    {
+      "section_id": "sec:analysis-2",
+      "kind": "experiment",
+      "title": "Analysis",
+      "page_start": 5,
+      "page_end": 7,
+      "char_count": 9436,
+      "text_hash_sha256": "6c4f877bdc651bce831cef6cd748ac8a3759f2ef94fd4d682978bcab0481d7ba"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 1889,
+      "text_hash_sha256": "a520a3160fd0464676531a3d9c31aa1096ecbd94c06e72682e07524af03220d0"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 612,
+      "text_hash_sha256": "fd2446aa17e5dca6ac07dd588d567046aea0c0b3499159e388161a8cccb3a49c"
+    },
+    {
+      "section_id": "sec:acknowledgments",
+      "kind": "acknowledgments",
+      "title": "Acknowledgments",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 683,
+      "text_hash_sha256": "359c4861197f84fdcbbbd17947fdce068eac362b6c2688a2ea3aac18a9b9abf8"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 10028,
+      "text_hash_sha256": "d90d9a54c63ace3866e275a72f890f9e3906d2f6f82772f9d3b7d87f8a923119"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4999,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 6090,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4284,
+      "section_ids": [
+        "sec:introduction",
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3799,
+      "section_ids": [
+        "sec:analysis",
+        "sec:methods"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4565,
+      "section_ids": [
+        "sec:methods",
+        "sec:analysis-2"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4517,
+      "section_ids": [
+        "sec:analysis-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4658,
+      "section_ids": [
+        "sec:analysis-2",
+        "sec:related-work",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5944,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:acknowledgments",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4794,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "(a) Current ICoT: While supporting multimodal",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "An overview of Interleaved-modal Chain-of-Thought reasoning with Dynamic and Precise Visual Thoughts (DAP-",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Ablation Study on Qwen2-VL-7B: “w/o PVTG”",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methods"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "A comparison of the total token consumption be-",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methods"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "A comparison of image insertion frequency and",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:analysis-2"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "The proportion of samples where the confidence",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:analysis-2"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Performance comparison across the Confidence",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:analysis-2"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "The case study. Figure (a) illustrates the reasoning process of the current ICoT, where after each reasoning step, it",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:analysis-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "The main experimental results. Bold indicates the best performance. For the M3CoT and ScienceQA, Acc. is used as",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:analysis"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "δi = ℓi,w(1) −ℓi,w(2),",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "∀i ∈1, . . . , |Tt|,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Ct =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "δi =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "= Confidence",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Score τ = 0.8 High",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Score τ = 0.4",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Score τ = 0.8 High",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "It+1 =",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "if Ct < τ",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "O = O1, O2, . . . , ON,",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "date object image Oi ∈O via cross-modal attention using a",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "si = fattn(Tt, Oi),",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "ˆO = argmax",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Oi∈O",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Rt→v = Rt ⊕ˆO,",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Rt+1 = argmax",
+      "section_id": "sec:analysis",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "achieved at τ = 0.2, with 57.2% Accuracy in the 0-shot",
+      "section_id": "sec:analysis-2",
+      "page_start": 5,
+      "page_end": 7
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "c1c6887c5a53c743ea6e616b1ec8da6d6a447c924810103dbb1662a019c44927"
+}

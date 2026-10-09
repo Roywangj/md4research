@@ -1,0 +1,181 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes PatchCue, a trained vision-language reasoning method using patch-level visual cues, cold-start SFT, GRPO, and a process-supervised cue reward.",
+  "dominant_domain": "Vision-language reasoning, visual cue grounding, patch-level intermediate reasoning, supervised fine-tuning, reinforcement learning.",
+  "must_cover": [
+    "PatchCue replaces pixel-level visual cues with patch-bbox cues aligned to VLM patch tokenization.",
+    "The data pipeline filters challenging samples, extracts visual cues with GPT-4o, verifies grounding with strong VLMs, and reconstructs cue-guided reasoning.",
+    "Training uses 12K patch-cue samples plus 12K general QA samples for SFT, then 15K curated samples for GRPO.",
+    "The reward combines answer accuracy, output format, and a patch-level F1 cue reward.",
+    "Main results show consistent gains on Qwen2.5-VL-3B, Qwen2.5-VL-7B, and MiMo-VL-7B.",
+    "Ablations compare cue format, data ratio, cue reward, and prior cue-based methods."
+  ],
+  "key_numbers": [
+    "Qwen2.5-VL-7B average score improves from 70.1 to 72.1 with PatchCue.",
+    "MiMo-VL-7B average score improves from 73.9 to 75.4 with PatchCue.",
+    "Patch-bbox cue format reaches 71.6 average, higher than pixel-bbox 70.4, pixel-point 70.4, patch-point 70.4, and label-only 70.1.",
+    "Mixed SFT with Gen:Cue ratio 1:1 reaches AI2D 84.6, ChartQA 87.9, MMStar 65.6, and MMVP 78.7.",
+    "Cue-only SFT drops to AI2D 80.8, MMStar 60.3, and MMVP 68.0.",
+    "Adding cue reward in RL reaches AI2D 84.7, ChartQA 88.1, MMStar 66.2, and MMVP 79.3.",
+    "Under same backbone and about 12K SFT samples, PatchCue reaches AI2D 84.7, ChartQA 88.1, MMStar 66.2, and MMVP 79.3."
+  ],
+  "real_comparisons": [
+    "Compared with text-only CoT, PatchCue gives the model explicit visual references during intermediate reasoning.",
+    "Compared with pixel-bbox cues, patch-bbox cues are coarser but better aligned with VLM input tokens.",
+    "Compared with point cues, patch-bbox cues preserve region extent and reduce precise localization burden.",
+    "Compared with VisualCoT, CogCom, and MINI-CoT under a matched SFT protocol, PatchCue gives the strongest reported scores."
+  ],
+  "central_claims": [
+    {
+      "claim": "Patch-level visual cues are a better intermediate representation than pixel boxes or points for VLM reasoning.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:analysis",
+          "pages": [10, 11, 12]
+        }
+      ],
+      "what_it_actually_proves": "The controlled cue-format table shows patch-bbox has the highest average under the same data scale and training recipe.",
+      "what_it_does_not_prove": "It does not prove patch cues are optimal for every VLM architecture or every image resolution."
+    },
+    {
+      "claim": "PatchCue's gains come from cue-guided training rather than only generic SFT.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:analysis",
+          "pages": [11, 12]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [12, 13]
+        }
+      ],
+      "what_it_actually_proves": "Data-ratio and reward ablations show cue data and cue reward improve selected benchmarks beyond generic-only training.",
+      "what_it_does_not_prove": "It does not fully isolate the effect of GPT-4o-generated reasoning text from the visual cue labels."
+    },
+    {
+      "claim": "The framework generalizes across several VLM backbones.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiment",
+          "pages": [9, 10]
+        }
+      ],
+      "what_it_actually_proves": "The main table reports gains on Qwen2.5-VL-3B, Qwen2.5-VL-7B, and MiMo-VL-7B.",
+      "what_it_does_not_prove": "It does not establish transfer to closed-source models or non-patch-tokenized architectures."
+    }
+  ],
+  "claim_boundaries": [
+    "The cue data depends on GPT-4o and several strong VLMs for extraction and validation.",
+    "The largest gains are moderate on many general VQA metrics.",
+    "Cue-only SFT harms some benchmarks, so the method needs a general-data mixture.",
+    "The work reports trained behavior, not a training-free inference plugin."
+  ],
+  "negative_or_limiting_results": [
+    "Cue-only SFT underperforms mixed SFT on AI2D, MMStar, and MMVP.",
+    "RL without the cue reward is weaker than RL with the cue reward.",
+    "PatchCue may still fail when the cue is localized correctly but reasoning is flawed.",
+    "Figure 10 was rejected by the visual quality gate because the crop is too small for reliable note insertion."
+  ],
+  "mechanism_result_map": [
+    "Patch-bbox representation maps to stronger cue-format results by reducing coordinate precision burden.",
+    "Mixed SFT maps to better robustness because general QA data preserves instruction-following ability.",
+    "Patch-level F1 reward maps to better RL results because intermediate cue alignment is directly rewarded.",
+    "Validation by multiple VLMs maps to cleaner cue labels and fewer noisy training examples."
+  ],
+  "comparative_positioning": [
+    "PatchCue sits in the Train line because it makes visual cue generation a learned model behavior.",
+    "It is closer to MINT-CoT than to VisRef: both train intermediate visual references rather than only editing inference.",
+    "Compared with Qwen-LA, PatchCue focuses on where to look during reasoning, not on reflection-time visual token reinsertion.",
+    "Compared with DeepEyes, PatchCue supervises cue structure more explicitly and relies less on emergent tool use."
+  ],
+  "reuse_takeaways": [
+    "For 3D reasoning agents, patch-level cues suggest using voxel, view tile, or rendered-region IDs instead of raw pixel boxes.",
+    "Intermediate visual references should be evaluated with process rewards, not only final answer accuracy.",
+    "Cue data should be mixed with general data to avoid narrowing the model's response distribution.",
+    "Report cue-format ablations whenever claiming visual grounding gains."
+  ],
+  "followup_questions": [
+    "Would patch-bbox cues still dominate if the base model uses a different visual tokenizer?",
+    "How much does GPT-4o cue extraction quality determine the final performance?",
+    "Can cue reward be made self-supervised without external VLM validators?",
+    "Would 3D patch or view-tile cues improve embodied spatial reasoning tasks?"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "Explain why text-only CoT underuses visual evidence and why pixel-level cues impose unnecessary localization difficulty.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Describe the cue data pipeline, the 12K cue and 12K general SFT mix, and the 15K GRPO set.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6, 7, 8, 9]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Cover patch-bbox conversion, structured output tags, cue reward, Hungarian matching, and final reward.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6, 7, 8, 9]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Use main results and ablations to show where PatchCue helps and where the gains are limited.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiment",
+          "pages": [9, 10]
+        },
+        {
+          "section_id": "sec:analysis",
+          "pages": [10, 11, 12]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [12, 13]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Interpret PatchCue as a tokenization-aligned compromise between precise localization and usable reasoning supervision.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:discussion",
+          "pages": [13, 14]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [14, 15, 16]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "Record dependency on generated cue labels, moderate gains, cue-only degradation, and unresolved causal grounding concerns.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:analysis",
+          "pages": [10, 11, 12]
+        },
+        {
+          "section_id": "sec:discussion",
+          "pages": [13, 14]
+        }
+      ]
+    }
+  ]
+}

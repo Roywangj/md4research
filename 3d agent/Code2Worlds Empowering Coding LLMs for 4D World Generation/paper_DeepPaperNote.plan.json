@@ -1,0 +1,102 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一个由编码大模型、多智能体、程序化三维生成和显式物理仿真组成的文本到四维世界生成框架，并通过新建的 Code4D 基准验证对象、场景和动态生成能力。",
+  "dominant_domain": "language-to-simulation code generation for physics-aware 4D worlds",
+  "must_cover": [
+    "静态三维代码生成扩展到四维世界时的多尺度上下文纠缠与语义—物理执行鸿沟。",
+    "对象流如何完成动态目标选择、参数库与代码库检索、参数映射、程序化对象生成和视觉自反思。",
+    "场景流如何通过环境规划、参数解析和场景实现把稀疏指令转成可执行的 Infinigen 场景。",
+    "PostProcess Agent 与 VLM-Motion Critic 如何把静态对象和环境变成带物理约束的闭环动态仿真。",
+    "Code4D 的十条提示、三类评测指标、主结果、对象/自反思/场景组件消融。",
+    "结论边界：小规模提示集、GPT-4o 评审、手工失败率、程序库覆盖、物理正确性与实时性。"
+  ],
+  "key_numbers": [
+    "Code2Worlds 的 O-CLIP、SGS、Style-CLIP 分别为 0.2655、61.4、0.6734。",
+    "场景生成的 S-CLIP、HRS、Richness 分别为 0.2432、55.4、62.3，物理失败率为 10%。",
+    "SGS 相比最强先前结果 43.5 相对提高约 41%，Richness 相比 41.7 相对提高约 49%。",
+    "视频比较中 Motion Smoothness 为 0.9952、Temporal Flickering 指标为 0.9949、失败率为 10%。",
+    "去掉检索后 SGS 从 61.4 降到 23.5；去掉参数库后降到 48.8。",
+    "去掉 VLM-Motion Critic 后物理失败率从 10% 升到 60%，HRS 降到 47.0。",
+    "去掉场景流后 Richness 从 62.3 降到 26.4；去掉 Planner 与 Solver 后 S-CLIP 降到 0.2251。",
+    "Code4D 只列出 10 条代表性提示；自然场景渲染 240 帧、室内场景 120 帧。"
+  ],
+  "real_comparisons": [
+    "与 MeshCoder、Infinigen、3D-GPT、SceneCraft、ImmerseGen 的对象和静态场景生成比较。",
+    "与 Stable Video Diffusion、AnimateDiff、CogVideoX、Hunyuan 的视频稳定性与失败率比较。",
+    "完整对象流与去参数库、去检索、去 VLM-Critic 的组件消融。",
+    "完整动态闭环与去 VLM-Motion Critic 的物理失败率和 HRS 比较。",
+    "完整场景流与去 Planner/Solver、去场景流的语义一致性和丰富度比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "将对象细节生成和全局环境编排拆成双流，可以缓解单体代码生成中的多尺度上下文纠缠。",
+      "supporting_evidence": ["sec:introduction", "sec:model", "sec:background", "sec:appendix-for-code2worlds"],
+      "what_it_actually_proves": "在 Code4D 的十条提示上，完整系统的对象细节、场景语义和丰富度均超过列出的代码生成基线，去掉对象检索或场景流会显著退化。",
+      "what_it_does_not_prove": "消融没有严格隔离并行计算、提示长度和外部程序库规模，不能证明双流分解是所有四维生成任务的唯一最优架构。"
+    },
+    {
+      "claim": "由 VLM 观察渲染结果并迭代修改仿真参数，能够显著减少开环代码生成的物理幻觉。",
+      "supporting_evidence": ["sec:method", "sec:background"],
+      "what_it_actually_proves": "移除 VLM-Motion 后，人工检查的物理失败率由 10% 升到 60%，HRS 降到 47.0；闭环对所测场景中的明显运动错误有效。",
+      "what_it_does_not_prove": "VLM 只从视频外观判断运动，没有验证质量、摩擦、能量守恒等隐变量或仿真参数是否物理正确。"
+    },
+    {
+      "claim": "可执行仿真代码能同时提供较好的文本控制、时间稳定性和可编辑动态世界。",
+      "supporting_evidence": ["sec:experiments", "sec:method-2", "sec:background", "sec:conclusion"],
+      "what_it_actually_proves": "在论文采用的 CLIP、VBench、GPT-4o 与人工失败率指标上，系统取得较强综合结果，且输出是 Blender/Python 程序和仿真。",
+      "what_it_does_not_prove": "结果没有证明相对视频模型在感知质量上全面领先；Subject Consistency 与 Background Consistency 都不是最好，评测协议也不同于严格的物理系统识别。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文中的四维指三维场景随时间演化，不是四维几何空间。",
+    "physics-aware 表示动态由 Blender 物理系统和约束执行并经视觉反馈修正，不等于物理参数经过真实数据标定。",
+    "41% SGS 和 49% Richness 是相对提升，分别由 61.4 对 43.5、62.3 对 41.7 计算得到。",
+    "Code4D 附录只给出 10 条提示，尚未形成大规模、独立、公开可复核的评测集；作者写明将在接收后发布。",
+    "SGS、HRS、Richness 由 GPT-4o 评估，物理失败率来自人工检查，均可能受评分提示和标注协议影响。",
+    "系统使用 Gemini 3 承担全部 agent 与 critic 角色，因此不是轻量或模型无关的端到端方案。"
+  ],
+  "negative_or_limiting_results": [
+    "视频对比中 Code2Worlds 的 Subject Consistency 为 0.9415，低于 AnimateDiff 的 0.9778；Background Consistency 为 0.9710，低于 AnimateDiff 的 0.9746。",
+    "去掉检索后 SGS 只有 23.5，说明系统强依赖人工整理的参数库与参考代码库，而不是编码大模型自身泛化。",
+    "严格物理引擎与多轮 VLM 反馈造成计算瓶颈，论文明确指出无法实时生成。",
+    "程序化资产库和 Infinigen/Blender 的表达范围会限制可生成对象、材质与动力学类型。",
+    "影响声明承认大模型偏差可能传播到世界生成和仿真流程。"
+  ],
+  "mechanism_result_map": [
+    "参数库把自然语言属性映射到显式程序参数，解释了去掉 Lparam 后 SGS 从 61.4 降到 48.8。",
+    "参考代码检索提供合法程序模板，解释了直接从提示写脚本时 SGS 降到 23.5。",
+    "对象视觉批评器把渲染外观反馈给参数代理，解释了 O-CLIP 从无批评器的 0.2388 提升到 0.2655。",
+    "场景规划与参数解析将抽象环境拆成一致的参数字典，解释了完整系统 S-CLIP 高于去 Planner/Solver 版本。",
+    "场景流负责生态与大气填充，解释了去掉场景流后 Richness 从 62.3 降到 26.4。",
+    "运动批评器迭代校准物理参数，解释了物理失败率从开环的 60% 降到 10%。",
+    "确定性三维渲染维持跨帧结构，解释了 Motion Smoothness 和 Temporal Flickering 指标较高。"
+  ],
+  "comparative_positioning": [
+    "相对 3D-GPT、SceneCraft 等静态代码生成方法，Code2Worlds 增加显式时间仿真、对象/场景分流和视觉反馈。",
+    "相对 Infinigen，Code2Worlds 把程序化先验包装成可被大模型检索、参数化和编排的智能体系统。",
+    "相对视频扩散模型，Code2Worlds 输出可执行、可编辑的三维仿真状态，而不是仅生成像素序列。",
+    "相对纯神经四维表示，方法牺牲生成速度和开放域覆盖，换取程序级控制与显式物理接口。"
+  ],
+  "reuse_takeaways": [
+    "复杂生成任务可先按尺度或职责拆流，再在显式中间表示上合并，避免一个大提示同时处理局部几何、全局布局和动力学。",
+    "让大模型生成领域代码时，结构化参数文档和验证过的参考代码通常比纯提示更可靠。",
+    "视觉反馈应区分静态外观和动态运动，两类错误需要不同 critic、不同反馈变量和不同停止条件。",
+    "物理闭环除了视觉评分，还应增加数值约束、守恒量检查和仿真器日志，避免只修正看起来不自然的表象。",
+    "评测四维世界时应同时报告语义、几何、时间稳定性、物理失败率、可编辑性、延迟和成本。"
+  ],
+  "followup_questions": [
+    "能否用可微分或可校准的物理误差取代部分 VLM 主观批评，使质量、摩擦和外力参数可被真实观测约束？",
+    "参数库与代码库扩展到长尾对象后，检索冲突、版本管理和安全执行应如何处理？",
+    "双流架构能否扩展到多主体交互、因果事件链和用户在仿真中的实时干预？",
+    "在相同计算预算、相同提示集合和真人偏好协议下，程序化仿真与视频生成模型的真实差距是多少？",
+    "是否能将多轮 VLM 反馈蒸馏为轻量控制器，在保留闭环纠错的同时接近实时？"
+  ],
+  "section_plan": [
+    {"section": "研究问题", "focus": "解释多尺度上下文纠缠和语义—物理执行鸿沟。", "evidence_sources": ["sec:abstract", "sec:introduction"]},
+    {"section": "数据与任务定义", "focus": "定义文本到仿真代码任务、Code4D 提示、模型、软件、渲染和指标。", "evidence_sources": ["sec:experiments", "sec:appendix-for-code2worlds"]},
+    {"section": "方法主线", "focus": "按对象流、场景流、统一与运动闭环解释完整执行链和公式。", "evidence_sources": ["sec:model", "sec:method", "sec:background"]},
+    {"section": "关键结果", "focus": "整理能力比较、主表、三组消融和没有领先的指标。", "evidence_sources": ["sec:method-2", "sec:background", "sec:appendix-for-code2worlds"]},
+    {"section": "深度分析", "focus": "分析程序化先验、反馈闭环、可执行表示和评测有效性。", "evidence_sources": ["sec:introduction", "sec:model", "sec:background", "sec:appendix-for-code2worlds"]},
+    {"section": "局限", "focus": "明确小样本、评分偏差、库依赖、物理正确性、实时性和大模型偏差。", "evidence_sources": ["sec:conclusion", "sec:appendix-for-code2worlds"]}
+  ]
+}

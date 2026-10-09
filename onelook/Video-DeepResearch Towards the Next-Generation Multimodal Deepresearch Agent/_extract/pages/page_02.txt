@@ -1,0 +1,124 @@
+(A) Existing Text-Only & Image-Only Research
+What is the name of this actor?
+Query
+Search
+Input Frame
+Text-only shortcut
+Full-image retrieval
+(B) Our Video-Deep Research Paradigm
+t1
+t2
+t3
+t4
+Time
+Select Keyframe
+Candidate Images
+Crop
+Search
+Evidence & Knowledge
+Television series
+Forbes 30 Under 30
+Podcaster Staff Writer
+Fire Island
+Ziwe 
+Girls5Eva
+Visit
+Search
+Query
+Box Image
+Search
+Text
+Search
+Web
+Search
+Final
+Answer
+Page
+Visit
+Figure 1: Overview of the VIDEO-DEEPRESEARCH
+pipeline.
+Standard visual question-answering metrics are
+insufficient for measuring an agent’s multi-step
+strategic execution, creating an urgent need for
+multi-dimensional evaluation protocols that can ac-
+curately quantify long-term reasoning consistency
+and error-recovery behavior under continuous tem-
+poral dynamics.
+To tackle these challenges, we first conduct an
+empirical investigation into the fundamental failure
+modes of current agents when directly applied to
+Video-DR. By evaluating three representative mod-
+els on an existing benchmark (Liu et al., 2026), we
+uncover two striking findings: (i) severe modality
+bias, where even the strongest open-source model
+averages only 0.10 visual tool invocations per task
+while heavily relying on text search (1.27 calls),
+indicating a systematic aversion to active visual
+exploration; and (ii) parametric knowledge leak-
+age, where GPT-5 attains a competitive accuracy of
+57% with virtually zero tool calls, suggesting that
+existing evaluations are largely solvable through
+memorized world knowledge alone. These findings
+motivate a holistic rethinking of both the training
+and evaluation paradigms for Video-DR agents.
+Building on these insights, we propose VIDEO-
+DEEPRESEARCH, a unified framework that jointly
+addresses the data, training, and evaluation chal-
+lenges of Video-DR. Our contributions are summa-
+rized as follows:
+• A scalable data engine that produces 30K
+video-grounded QA pairs and 7K curated
+trajectories through a decoupled perception-
+exploration pipeline with stage-wise tool un-
+locking, directly countering the modality bias
+revealed in our preliminary study.
+• A two-stage training recipe combining super-
+vised fine-tuning with GRPO, enabling com-
+pact models to outperform far larger propri-
+etary systems. Our Video-DeepResearch-35B-
+A3B (64.0%) establishes a new state-of-the-
+art, surpassing Claude-4.5-Sonnet (59.0%) by
+5.0 points; the 30B variant (59.3%) achieves
+competitive performance with the proprietary
+baseline while demonstrating strong open-
+source capability.
+• VIDEODR-BENCH, a 200-instance multi-hop
+VQA benchmark built via scalable human–AI
+collaborative annotation, where every ques-
+tion provably requires both visual search and
+external knowledge reasoning.
+2
+A Naive Attempt: From Image
+DeepResearch to Video DeepResearch
+As shown in Fig. 1, we conceptualize video as a
+temporal composition of key entity trajectories.
+Consequently, our key insight is that Video-DR can
+be formulated as a sequential grounding pipeline:
+identifying critical temporal frames, performing
+localized visual search, and synthesizing findings
+via subsequent text retrieval. To operationalize this
+workflow and bridge the gap from image-centric
+research, we equip the agent with two fundamen-
+tal tools: Select_Keyframe and Crop_Search.
+Specifically, the agent first uses Select_Keyframe
+to isolate informative moments from the continuous
+stream, and then applies Crop_Search on salient
+entities to construct precise visual queries, which
+firmly anchors the downstream text-based explo-
+ration.
+Problem Formulation
+Formally, given a com-
+plex research query Q and a visual input V =
+{v1, v2, . . . , vT } (which can be either a continu-
+ous video stream or a sequence of pre-sampled
+keyframes), the goal of a Video-DR agent is to
+synthesize a comprehensive response R. We for-
+mulate this as a sequential decision-making pro-
+cess.
+At step i, the agent generates an action
+ai ∈A based on the historical trajectory Hi =
+[Q, V, a1, o1, . . . , ai−1, oi−1]:
+ai ∼πθ(a | Hi)
+(1)
+where πθ denotes the multi-modal policy and o
+is the execution observation from the environ-

@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "source": {
+    "title": "MLLM-4D: Towards Visual-based Spatial-Temporal Intelligence",
+    "arxiv": "2603.00515v1",
+    "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/94RFW2XM/Yin 等 - 2026 - MLLM-4D Towards Visual-based Spatial-Temporal Intelligence.pdf",
+    "page_count": 21,
+    "read_scope": "complete local PDF, pages 1-21"
+  },
+  "objective": "Produce a Chinese technical deep-reading note grounded in the complete paper, with recoverable anchors for factual and quantitative claims.",
+  "sections": [
+    {"id": "identity", "title": "核心信息", "evidence_targets": ["title", "authors", "affiliations", "arXiv identity", "code link"]},
+    {"id": "problem", "title": "研究问题", "evidence_targets": ["4D spatial-temporal intelligence gap", "RGB-only inference boundary"]},
+    {"id": "data", "title": "数据与任务定义", "evidence_targets": ["three task families", "six QA categories", "stereo metadata", "physical relationship equations"]},
+    {"id": "method", "title": "方法主线", "evidence_targets": ["data curation", "SFT", "ST-CoT", "ST-reward", "GRPO equations"]},
+    {"id": "setup", "title": "训练、数据与评测设置", "evidence_targets": ["backbones", "LoRA", "steps", "hardware", "datasets", "metrics"]},
+    {"id": "results", "title": "关键结果", "evidence_targets": ["Table 1", "Table 2", "Table 3", "Figure 5", "qualitative Figures 12-17"]},
+    {"id": "analysis", "title": "深度分析", "evidence_targets": ["contribution versus assembly", "causal caveat", "reproduction risks"]},
+    {"id": "limitations", "title": "局限", "evidence_targets": ["automatic-label errors", "stereo bias", "template QA", "no action loop", "long-video limitation"]},
+    {"id": "takeaways", "title": "我的笔记", "evidence_targets": ["3D-agent map", "matched-budget experiments", "continuous trajectory and action follow-up"]}
+  ],
+  "planned_anchors": [
+    "pp.1-2 Abstract/Introduction",
+    "p.3 Sec.3 and Fig.2",
+    "p.4 Fig.3 and Sec.3",
+    "pp.5-7 Sec.4 and Figs.4/10/11",
+    "pp.7-8 Tables 1-3 and Fig.5",
+    "pp.12-15 Appendix Sec.8.1-8.5",
+    "pp.16-20 Figs.12-16",
+    "p.21 Fig.17"
+  ],
+  "figure_strategy": {
+    "selected": ["Figure 1", "Figure 3", "Figure 4", "Figure 5"],
+    "policy": "Keep only figures needed to explain the data-to-training pipeline and the main scaling result.",
+    "asset_note": "Local SVGs are faithful explanatory redraws because original PDF figure raster extraction could not be performed in the restricted tool environment; the source PDF was not modified or copied."
+  },
+  "validation_targets": ["valid markdown", "all local image links exist", "all JSON parses", "anchors cover all important factual/quantitative claims", "no unsupported numerical claims"]
+}

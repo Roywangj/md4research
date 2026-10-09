@@ -1,0 +1,521 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2411.19488",
+  "title": "1School of Computer Science and Technology, Soochow University",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.icot_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.icot_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DMT6SNMT/Gao 等 - 2025 - Interleaved-Modal Chain-of-Thought.pdf",
+    "total_pages": 11,
+    "text_pages_extracted": 11,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 11,
+    "text_max_pages": null,
+    "text_pages_extracted": 11,
+    "text_pages_scanned": 11,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 11,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 340,
+      "text_hash_sha256": "cfb4ec0db6bb8a37ec68df8a6f23f8895f001744ab348946b16de39eae815bed"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1502,
+      "text_hash_sha256": "16712efc2514e049ade395a105780ca1551a51718af214073561df7ee3513b01"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 540,
+      "text_hash_sha256": "eb6a404d72b29ac225588c4fbd97012111f92b468097a5412200fa2d334e19a2"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "models",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 6579,
+      "text_hash_sha256": "e9af6a362528dd0c2009d9d8190ea61a0e42c58ce77543adcac8901e24753c31"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2. Related Work",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 2608,
+      "text_hash_sha256": "2a8a3d4315f485d5a07a143196705e4c71c6f48523b658f1d52fe6fd8e4c06ec"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "3. Methodology",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 484,
+      "text_hash_sha256": "9e3882c6600d8a785a3bd6c8bcf75febf7613c8a091854c93a859ae00f8f19c7"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "3.1. Preliminaries",
+      "page_start": 3,
+      "page_end": 5,
+      "char_count": 6655,
+      "text_hash_sha256": "8f4c9ab9266efafba52ecc344e1d2291df83da039df59863814a52ffc886f8ab"
+    },
+    {
+      "section_id": "sec:datasets",
+      "kind": "data",
+      "title": "4.1. Datasets",
+      "page_start": 5,
+      "page_end": 6,
+      "char_count": 2441,
+      "text_hash_sha256": "8148685fbd47d4469fa00dbdaab90d488b531bc846723f97e558776234fabaa2"
+    },
+    {
+      "section_id": "sec:methods",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 426,
+      "text_hash_sha256": "03421c302d6cea2140dc35ecfe54a8d9a079364125eb47beeab298e58b73a4b3"
+    },
+    {
+      "section_id": "sec:methods-2",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 6293,
+      "text_hash_sha256": "15613f9e91962a334d0d3bbcddfb79f2306a281cbc23618976f155f7504d8b44"
+    },
+    {
+      "section_id": "sec:methods-3",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 442,
+      "text_hash_sha256": "cd5f08002867d9ba568a08c1d0f80dd64396845bba4cb2310fc02afc97cd142a"
+    },
+    {
+      "section_id": "sec:dataset",
+      "kind": "data",
+      "title": "Dataset",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 219,
+      "text_hash_sha256": "209ee1c912868e771f0b5eaffec567df306529529c789ad38f7d40489e684f8b"
+    },
+    {
+      "section_id": "sec:methods-4",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 4984,
+      "text_hash_sha256": "39732a96c9bb4b00debef7b0a115eb7b5b2115e416245f960a19a49641d59c53"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "6. Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 1932,
+      "text_hash_sha256": "438ad6cec5bab565cc032358e675389c6a262769c90356908cd8819a2dcb33a2"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 11,
+      "char_count": 7272,
+      "text_hash_sha256": "e35f6524f80761356e8512d5cd05f3ec50a33474e22fe554c5635ae2a3a44228"
+    },
+    {
+      "section_id": "sec:supplementary-material",
+      "kind": "appendix",
+      "title": "Supplementary Material",
+      "page_start": 11,
+      "page_end": 11,
+      "char_count": 2992,
+      "text_hash_sha256": "8c3d5ef75dd9bea06e1d38e349b0ad13701886fd4182f1d2f79f939c00e2d0c6"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4257,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction",
+        "sec:models"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3403,
+      "section_ids": [
+        "sec:models"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5018,
+      "section_ids": [
+        "sec:models",
+        "sec:related-work",
+        "sec:methodology",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3882,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4754,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:datasets"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3968,
+      "section_ids": [
+        "sec:datasets",
+        "sec:methods",
+        "sec:methods-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4858,
+      "section_ids": [
+        "sec:methods-2",
+        "sec:methods-3",
+        "sec:dataset",
+        "sec:methods-4"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5173,
+      "section_ids": [
+        "sec:methods-4",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5654,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 1958,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3078,
+      "section_ids": [
+        "sec:references",
+        "sec:supplementary-material"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "The illustration between multimodal CoT with text-only rationales (Left) and interleaved-modal rationales (Right). Green",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:models"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Interleaved-modal CoT",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "Attention-driven Selection",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "The workflow of ADS selecting fine-grained visual ra-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Case studies between ICoT and multimodal CoT with text-only rationales on Chameleon. Three cases are selected according to",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:methods-4"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "The results of ICoT across validation sets of two datasets",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "The case of demonstration with Fine-grained Visual In-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:references"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Results of ICoT and baselines based on Chameleon and Qwen2-VL, with the highest score bold. M3CoT and ScienceQA are",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:datasets"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation studies of 1-shot ICoT on Chameleon-7B. ()",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Results comparison between copying KV Cache (KV-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Results concerning the design of demonstrations on",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Evaluation on general benchmarks",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "answer = VLM(Image, Instruction).",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "5: inputs = Initilize(fe, fv)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "next token, attention map = model(inputs )",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "if predicted tokens = S then",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Vselected= ADS(V, attention map, n)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "inputs = Update(inputs, predicted tokens)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "15: Answer = Tokenizer.decode(predicted tokens)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "r1, r2, ..., answer = VLM(Prompt, Image, Instruction).",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "r1, xv1, r2, xv2, ..., answer = VLM(Prompt, Image,",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "∈xh×w",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "do selection =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "if predicted tokens[−1] = S;",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Vselected = {fv[i]|i ∈TopK(At, n)},",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "next token = VLM(Cat(predicted tokens,",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "2Using attn implementation=“eager” when loading the model from",
+      "section_id": "sec:methods-2",
+      "page_start": 6,
+      "page_end": 7
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 11,
+    "sections": [
+      {
+        "title": "A. This is the kitchen of a restaurant",
+        "page": 11
+      },
+      {
+        "title": "B. The equipment in front has not been cleaned for a",
+        "page": 11
+      },
+      {
+        "title": "C. Someone searched in this kitchen",
+        "page": 11
+      },
+      {
+        "title": "D. All options are correct",
+        "page": 11
+      },
+      {
+        "title": "C is incorrect.",
+        "page": 11
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 4",
+        "caption": "The results of ICoT across validation sets of two datasets",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "The case of demonstration with Fine-grained Visual In-",
+        "page_hint": "p.11"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 5",
+        "caption": "Evaluation on general benchmarks",
+        "page_hint": "p.11"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "75948d1cdc6ae4050b9d2deb6d80dc8efa8b88163b051d9bbdec93f8061bffd6"
+}

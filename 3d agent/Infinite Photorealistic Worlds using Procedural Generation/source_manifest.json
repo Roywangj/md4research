@@ -1,0 +1,903 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "doi:10.48550/arXiv.2306.09310",
+  "title": "Infinite Photorealistic Worlds using Procedural Generation",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/infinigen_worlds/infinigen_worlds_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/infinigen_worlds/infinigen_worlds_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DASLWWQT/Raistrick 等 - 2023 - Infinite Photorealistic Worlds using Procedural Generation.pdf",
+    "total_pages": 49,
+    "text_pages_extracted": 49,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 49,
+    "text_max_pages": null,
+    "text_pages_extracted": 49,
+    "text_pages_scanned": 49,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 7,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 355,
+      "text_hash_sha256": "f8e5fe25d1a43813d2f41ace5b6dc1dd9847ef4f0b84ecc4acaf98db901da413"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 830,
+      "text_hash_sha256": "ada311f08cd1f4ad6f4015c5444b9b08cd68165f9f89aa174abec5738097d4d7"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 6288,
+      "text_hash_sha256": "ddd58dae00b508a3cb258e0701d00291e83a71ee844860df79ecacdabe30880b"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2. Related Work",
+      "page_start": 2,
+      "page_end": 4,
+      "char_count": 6096,
+      "text_hash_sha256": "9c00e4b730529967ed2384b778f4158a6063492750dc02293e73aa5665bf1fd0"
+    },
+    {
+      "section_id": "sec:materials",
+      "kind": "method",
+      "title": "Materials",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 1199,
+      "text_hash_sha256": "e4160b2d5592d9b7d5a2c5d130a14cf9d48a78cc4acc9e3a28bed344eaced32c"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "3. Method",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 7883,
+      "text_hash_sha256": "c23fa9ee4041a43d347ce73ab601494be2438a802226be3e121b426e5fcefed4"
+    },
+    {
+      "section_id": "sec:appendix-g-6-for-details",
+      "kind": "appendix",
+      "title": "Appendix G.6 for details.",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 3436,
+      "text_hash_sha256": "3da5e7eff14f18898f5d098b79e5f1e2c6ff43201cffc50eaaf5759d86f0b672"
+    },
+    {
+      "section_id": "sec:appendix-c-2-for-examples-of-these-issues",
+      "kind": "appendix",
+      "title": "Appendix C.2 for examples of these issues.",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 1076,
+      "text_hash_sha256": "ae3e51c0e6dee91570fd37d3408d7e74698df92ea933602465713ce0c2b77edf"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "4. Experiments",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 1601,
+      "text_hash_sha256": "9148046a286e9b330458048d3745200e4da27f955faeadaf4123a2f868b57a56"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 13,
+      "char_count": 20489,
+      "text_hash_sha256": "e34aca8b862a46ca0f75a5d8ae79d574ff78c15f4471707a50563ec74c3d92cb"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 13,
+      "page_end": 19,
+      "char_count": 11407,
+      "text_hash_sha256": "0243693971a273f73202ba5fa8cc60330f79fe2d79bb0bf36515f5b3fb1e267b"
+    },
+    {
+      "section_id": "sec:results",
+      "kind": "experiment",
+      "title": "Results",
+      "page_start": 19,
+      "page_end": 49,
+      "char_count": 80363,
+      "text_hash_sha256": "00313bc5e8605983c51460ac46069bba8bf597ba4ded3e055b7168f361221c04"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4314,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3626,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4179,
+      "section_ids": [
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4217,
+      "section_ids": [
+        "sec:related-work",
+        "sec:materials",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2068,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 2979,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3075,
+      "section_ids": [
+        "sec:method",
+        "sec:appendix-g-6-for-details"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4783,
+      "section_ids": [
+        "sec:appendix-g-6-for-details",
+        "sec:appendix-c-2-for-examples-of-these-issues",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5818,
+      "section_ids": [
+        "sec:experiments",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 5950,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 5851,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 2889,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 5042,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 170,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 170,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 170,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 170,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 5035,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 5067,
+      "section_ids": [
+        "sec:appendix",
+        "sec:results"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 4790,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 4632,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 4282,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 5309,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 5388,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 5511,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 4645,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 4949,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 5662,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 5452,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 3961,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 181,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 181,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 331,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 34,
+      "char_count": 245,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 35,
+      "char_count": 421,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 36,
+      "char_count": 927,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 37,
+      "char_count": 836,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 38,
+      "char_count": 164,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 39,
+      "char_count": 143,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 40,
+      "char_count": 330,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 41,
+      "char_count": 166,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 42,
+      "char_count": 117,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 43,
+      "char_count": 186,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 44,
+      "char_count": 309,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 45,
+      "char_count": 4065,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 46,
+      "char_count": 2645,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 47,
+      "char_count": 5102,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 48,
+      "char_count": 3969,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 49,
+      "char_count": 1446,
+      "section_ids": [
+        "sec:results"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Randomly generated, non cherry-picked images produced by our system. From top left to bottom right: Forest, River, Underwater,",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "For each image (a), we have a high-res mesh (b), which readily yields Depth (c), Surface Normals (d), Occlusion Boundaries (e),",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Our Node Transpiler converts artist-friendly Node-Graphs",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Real-time optimized assets (left) often use low res. ge-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Examples of a subset of our material generators. Columns",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Random, non cherry-picked terrain-only scenes. We sample 13 images for various natural scene types. From top left to bottom",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Random, non cherry-picked images of simulated fire,",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Random, non cherry-picked leaves, flowers, mushrooms",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Random, non cherry-picked procedural trees (left), cacti (top right) and bushes (bottom right).",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Random, non cherry-picked underwater objects.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Random, non cherry-picked surface scatters. Dense",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Creature Generation. Our system automatically generates genomes (a), parts (b), assembly (c), materials (d) and animation rigs",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Data Generation Pipeline. We procedurally compose a scene layout (a) with random camera poses. We generate all necessary",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Dynamic Resolution Scaling. We show close-up mesh",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Resource requirements to create a pair of stereo 1080p images using Infinigen.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:appendix-g-6-for-details"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Qualitative results on the Plant and Australia Mid-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:appendix-g-6-for-details"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Comparison to existing synthetic datasets or generators. Ours is entirely procedural, relying on no external assets, and can produce",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Approximate degrees of freedom, as a proxy of overall",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Bad 3.0 (%) ↓error on the Middlebury [74] validation",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:appendix-g-6-for-details"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "No ($6000)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "No ($500)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "No ($12)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "No ($12)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "Density = uniform(20,5)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "Curl = uniform(0,50°)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "Length =",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "Wrinkle = normal(1 -2,2-3)",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 4
+    },
+    {
+      "text": "of detail such that each face is < 1px in size when ren-",
+      "section_id": "sec:appendix-g-6-for-details",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "t a { \\ bf x} _ v = { \\bf x } '_v -{\\bf x}_v \\propto f_{attr} +f_{rep} +f_{grow}+f_{noise}",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "m &= \\al pha \\ arcta",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "ial A}{\\partial t} &= \\varepsilon ^2\\nabla A +A(1-A)(A-1/2+m)/\\tau \\\\ \\frac {\\partial B}{\\partial t}&=\\nabla B+ k\\frac {\\partial A}{\\partial t} \\\\",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "pa r tial t}& = r_ A \\nabla A-A^2B+f(1-A)\\\\ \\frac {\\partial B}{\\partial t}&=r_B\\nabla B-A^2B-(f+k)B\\\\",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "Corals, we choose the parameters so that f =",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "the Brain Corals. We choose the parameters so that f =",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "the attachment location. (u, v) ∈[0, 1]2 specifies a location",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "min/max euler angles, and a parameter t ∈[0, 1], specifying",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    },
+    {
+      "text": "only a single joint at t = 0. We then create animation bones",
+      "section_id": "sec:results",
+      "page_start": 19,
+      "page_end": 49
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 7,
+    "sections": [
+      {
+        "title": "a fixed number of assets of each type, and reuse them with",
+        "page": 7
+      },
+      {
+        "title": "V 13, pages 740–755. Springer, 2014. 1",
+        "page": 10
+      },
+      {
+        "title": "A high resolution 3d surface construction algorithm. ACM",
+        "page": 11
+      },
+      {
+        "title": "A generalizable learning-based vo. In Conference on Robot",
+        "page": 12
+      },
+      {
+        "title": "A. Figures Extended",
+        "page": 13
+      },
+      {
+        "title": "B. Experiments",
+        "page": 13
+      },
+      {
+        "title": "C. Dataset Generation",
+        "page": 13
+      },
+      {
+        "title": "D. Interpretable Degrees of Freedom",
+        "page": 18
+      },
+      {
+        "title": "E. Transpiler",
+        "page": 19
+      },
+      {
+        "title": "a typical programming languages, so whenever one is en-",
+        "page": 19
+      },
+      {
+        "title": "F. Scene Composition Details",
+        "page": 19
+      },
+      {
+        "title": "G. Asset Implementation Details",
+        "page": 20
+      },
+      {
+        "title": "Z coordinate.",
+        "page": 20
+      },
+      {
+        "title": "a regular fish material. Each material consists of two parts,",
+        "page": 21
+      },
+      {
+        "title": "a fish body material and a fish fin material. The fish body",
+        "page": 21
+      },
+      {
+        "title": "a set of terrain elements represented by Signed Distance",
+        "page": 22
+      },
+      {
+        "title": "a small region of the terrain or work together with Tiled",
+        "page": 22
+      },
+      {
+        "title": "a mesh circle, with its left most point chosen as the origin.",
+        "page": 23
+      },
+      {
+        "title": "a curve line together with an cylindrical geometry. The",
+        "page": 23
+      },
+      {
+        "title": "a reasonable range. Each leaf is sampled from a pool of",
+        "page": 23
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 12",
+        "caption": "Creature Generation. Our system automatically generates genomes (a), parts (b), assembly (c), materials (d) and animation rigs",
+        "page_hint": "p.7"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Data Generation Pipeline. We procedurally compose a scene layout (a) with random camera poses. We generate all necessary",
+        "page_hint": "p.7"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Dynamic Resolution Scaling. We show close-up mesh",
+        "page_hint": "p.7"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Resource requirements to create a pair of stereo 1080p images using Infinigen.",
+        "page_hint": "p.8"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Qualitative results on the Plant and Australia Mid-",
+        "page_hint": "p.8"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 3",
+        "caption": "Bad 3.0 (%) ↓error on the Middlebury [74] validation",
+        "page_hint": "p.8"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "40a69cec1fba11fb2f6e8b5452d5a8ddb993295ee7bd6dc64e760f744db5c1c8"
+}

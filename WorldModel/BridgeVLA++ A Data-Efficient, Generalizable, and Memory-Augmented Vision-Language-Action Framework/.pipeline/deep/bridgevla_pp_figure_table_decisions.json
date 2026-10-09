@@ -1,0 +1,433 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2608.05042",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig 1",
+      "caption": "Overview. BridgeVLA is a 3D VLA framework that aligns its inputs and outputs in a unified 2D image space. It is pre-trained on object grounding using",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:approach",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_fig_1.png",
+      "relative_markdown_embed": "![Fig 1](images/page_002_fig_fig_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_002_fig_fig_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig 2",
+      "caption": "Model Architecture. Top: BridgeVLA first learns language-conditioned 2D heatmap prediction from detection data and transfers the resulting",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_fig_2.png",
+      "relative_markdown_embed": "![Fig 2](images/page_004_fig_fig_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_004_fig_fig_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig 3",
+      "caption": "Occlusion-robust fine localization using spatial memory. Left: the",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:data-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig 4",
+      "caption": "Real-Robot Evaluation Setup. Top left: the general-manipulation platform—a 7-DoF Franka Research 3 arm observed by a static ZED 2i stereo",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:results-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 5",
+      "source_id": "Fig 5",
+      "kind": "figure",
+      "label": "Fig 5",
+      "caption": "Real-Robot Generalization Results. Average success rate over the",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:method-7",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_fig_5.png",
+      "relative_markdown_embed": "![Fig 5](images/page_013_fig_fig_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_013_fig_fig_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 6",
+      "source_id": "Fig 6",
+      "kind": "figure",
+      "label": "Fig 6",
+      "caption": "The Distractor, Lighting, Background, and Height Settings. Visualization of the four visual-disturbance settings of the real-robot evaluation",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:method-24",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 7",
+      "source_id": "Fig 7",
+      "kind": "figure",
+      "label": "Fig 7",
+      "caption": "The Distractor, Lighting, Background, and Height Settings on the Dobot Platform. Initial scene of every instruction of the Dobot suite (columns,",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:method-24",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 8",
+      "source_id": "Fig 8",
+      "kind": "figure",
+      "label": "Fig 8",
+      "caption": "Real-Robot Rollouts (I). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 9",
+      "source_id": "Fig 9",
+      "kind": "figure",
+      "label": "Fig 9",
+      "caption": "Real-Robot Rollouts (II). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 10",
+      "source_id": "Fig 10",
+      "kind": "figure",
+      "label": "Fig 10",
+      "caption": "The Combination Setting (I). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_028_fig_fig_10.png",
+      "relative_markdown_embed": "![Fig 10](images/page_028_fig_fig_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_028_fig_fig_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 11",
+      "source_id": "Fig 11",
+      "kind": "figure",
+      "label": "Fig 11",
+      "caption": "The Combination Setting (II). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+      "pages": [
+        29
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_029_fig_fig_11.png",
+      "relative_markdown_embed": "![Fig 11](images/page_029_fig_fig_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_029_fig_fig_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 12",
+      "source_id": "Fig 12",
+      "kind": "figure",
+      "label": "Fig 12",
+      "caption": "The Category Setting. In total, we evaluate on 7 objects from categories that are unseen during training.",
+      "pages": [
+        30
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_030_fig_fig_12.png",
+      "relative_markdown_embed": "![Fig 12](images/page_030_fig_fig_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_030_fig_fig_12.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 13",
+      "source_id": "Fig 13",
+      "kind": "figure",
+      "label": "Fig 13",
+      "caption": "Dobot Rollouts (I): Memory-Dependent Tasks. BridgeVLA++ rollouts on the three memory-dependent instructions of the Dobot suite (Appendix L)",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_031_fig_fig_13.png",
+      "relative_markdown_embed": "![Fig 13](images/page_031_fig_fig_13.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_031_fig_fig_13.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 14",
+      "source_id": "Fig 14",
+      "kind": "figure",
+      "label": "Fig 14",
+      "caption": "Dobot Rollouts (II): Memory-Free Tasks. BridgeVLA++ rollouts on the four memory-free instructions of the Dobot suite in the Basic setting, laid",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_031_fig_fig_14.png",
+      "relative_markdown_embed": "![Fig 14](images/page_031_fig_fig_14.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_031_fig_fig_14.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 15",
+      "source_id": "Fig 15",
+      "kind": "figure",
+      "label": "Fig 15",
+      "caption": "Ground-Truth Heatmap Construction on Detection Data. For each sample: the original image (left), the bounding boxes of the objects of interest",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:background-5",
+      "decision": "visual_defect",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_032_fig_fig_15.png",
+      "relative_markdown_embed": "![Fig 15](images/page_032_fig_fig_15.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_032_fig_fig_15.png"
+    },
+    {
+      "item_id": "figure:Fig 16",
+      "source_id": "Fig 16",
+      "kind": "figure",
+      "label": "Fig 16",
+      "caption": "Predictions on Pre-Training Data after Fine-Tuning. Each input image is repeated three times to mimic the multi-view input format of fine-tuning.",
+      "pages": [
+        33
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_033_fig_fig_16.png",
+      "relative_markdown_embed": "![Fig 16](images/page_033_fig_fig_16.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_033_fig_fig_16.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 17",
+      "source_id": "Fig 17",
+      "kind": "figure",
+      "label": "Fig 17",
+      "caption": "The 18 RLBench Tasks. Visualization of the 18 RLBench [13] tasks used in Sec. V-A.",
+      "pages": [
+        34
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_034_fig_fig_17.png",
+      "relative_markdown_embed": "![Fig 17](images/page_034_fig_fig_17.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_034_fig_fig_17.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 18",
+      "source_id": "Fig 18",
+      "kind": "figure",
+      "label": "Fig 18",
+      "caption": "The Nine RMBench Tasks. One evaluation rollout per task of RMBench [16], shown as three frames in temporal order; the dual-arm tasks span",
+      "pages": [
+        34
+      ],
+      "section_id": "sec:background-5",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_034_fig_fig_18.png",
+      "relative_markdown_embed": "![Fig 18](images/page_034_fig_fig_18.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/BridgeVLA_A_Data_Efficient_Generalizable_and_Memory_Augmented_Vision_Language_Action_Framework_for_3D_Manipulation/images/page_034_fig_fig_18.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 19",
+      "source_id": "Fig 19",
+      "kind": "figure",
+      "label": "Fig 19",
+      "caption": "Perturbations in COLOSSEUM [14]. All perturbation axes are shown except the original-RLBench variation setting.",
+      "pages": [
+        35
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 20",
+      "source_id": "Fig 20",
+      "kind": "figure",
+      "label": "Fig 20",
+      "caption": "The GemBench Task Suite. One representative variation of every task of GemBench [15], shown as the first and final frame of an evaluation",
+      "pages": [
+        36
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 21",
+      "source_id": "Fig 21",
+      "kind": "figure",
+      "label": "Fig 21",
+      "caption": "The Three MemoryBench Tasks. Two variants of each MemoryBench [17] task, each shown as three rollout frames in which the robot’s own",
+      "pages": [
+        36
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    }
+  ],
+  "summary": {
+    "total_items": 21,
+    "by_decision": {
+      "insert": 11,
+      "low_priority": 9,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

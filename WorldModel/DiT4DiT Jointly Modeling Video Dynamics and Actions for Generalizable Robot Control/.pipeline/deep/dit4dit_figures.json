@@ -1,0 +1,2163 @@
+{
+  "status": "ok",
+  "script": "plan_figures.py",
+  "paper_id": "arxiv:2603.10448",
+  "figure_plan": {
+    "paper_id": "arxiv:2603.10448",
+    "figures": [
+      {
+        "id": "Figure 2",
+        "caption": "Overview of the proposed DiT4DiT framework. Top: Given the current observation and language",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_figure_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+          "width": 1122,
+          "height": 989,
+          "size_bytes": 602408,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.297055,
+            "visual_rect_count": 49,
+            "visual_body_ratio": 0.797111,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 492,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "figure 2",
+              "proposed",
+              "framework",
+              "given",
+              "current",
+              "observation"
+            ],
+            "snippet": "okens ˝Place the corn in the middle drawer and close the drawer.˛ VAE Encoder VAE Decoder Figure 2: Overview of the proposed DiT4DiT framework. Top: Given the current observation and langu",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_01.jpeg",
+                "width": 1270,
+                "height": 952,
+                "size_bytes": 47960
+              },
+              {
+                "filename": "page_004_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 22297
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+                "width": 1122,
+                "height": 989,
+                "size_bytes": 602408,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.297055,
+                  "visual_rect_count": 49,
+                  "visual_body_ratio": 0.797111,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 492,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "framework",
+              "current",
+              "observation"
+            ],
+            "snippet": "backbone in timestep τf as shown in Eqn. 9. By jointly minimizing these objec- tives, the framework ensures that the generative dynamics of the visual world inherently scaffold the executio",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_algorithm_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_007_fig_algorithm_1.png",
+                "width": 1095,
+                "height": 231,
+                "size_bytes": 47974,
+                "label": "Algorithm 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "large_text_block_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.067912,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1195,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 10,
+            "score": 3,
+            "matched_terms": [
+              "proposed",
+              "framework",
+              "current"
+            ],
+            "snippet": "te reported as the primary metric. Policy Setup and Baselines. To rigorously evaluate the proposed DiT4DiT framework, we bench- mark it against a diverse set of state-of-the-art policies,",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_010_fig_table_1.png",
+                "width": 1133,
+                "height": 492,
+                "size_bytes": 104453,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.149214,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 528,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 285,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Visualization of the robot system setups. The experimental platform consists of a Unitree G1",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_020_fig_figure_9.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_020_fig_figure_9.png",
+          "width": 1122,
+          "height": 663,
+          "size_bytes": 350245,
+          "label": "Figure 9",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.198956,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.44278,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 380,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 20,
+            "score": 8,
+            "matched_terms": [
+              "fig. 9",
+              "visualization",
+              "robot",
+              "system",
+              "setups",
+              "experimental"
+            ],
+            "snippet": "t, embodiment type, and degrees of freedom. A.3 REAL-WORLD EXPERIMENT SETTING As shown in fig. 9, our real-world experimental system is built upon the Unitree G1 humanoid robot, featurin",
+            "images": [
+              {
+                "filename": "page_020_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_020_img_01.jpeg",
+                "width": 2602,
+                "height": 1968,
+                "size_bytes": 211676
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_020_fig_figure_9.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_020_fig_figure_9.png",
+                "width": 1122,
+                "height": 663,
+                "size_bytes": 350245,
+                "label": "Figure 9",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.198956,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.44278,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 380,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_020_fig_table_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_020_fig_table_5.png",
+                "width": 1133,
+                "height": 245,
+                "size_bytes": 47209,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.074291,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 223,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 108,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 2,
+            "matched_terms": [
+              "robot",
+              "experimental"
+            ],
+            "snippet": "ains consistent. We validate on 24 tabletop manipulation tasks involving the GR1 humanoid robot (Nasiriany et al., 2024; Bjorck et al., 2025) in the RoboCasa simulation. To more effecti",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_01.jpeg",
+                "width": 1270,
+                "height": 952,
+                "size_bytes": 47960
+              },
+              {
+                "filename": "page_004_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 22297
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+                "width": 1122,
+                "height": 989,
+                "size_bytes": 602408,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.297055,
+                  "visual_rect_count": 49,
+                  "visual_body_ratio": 0.797111,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 492,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 2,
+            "matched_terms": [
+              "robot",
+              "system"
+            ],
+            "snippet": "Figure 4: Real-world evaluation suite on the Unitree G1 humanoid robot. The selected tasks evaluate distinct dimensions of robotic proficiency, ranging from hig",
+            "images": [
+              {
+                "filename": "page_009_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_img_01.jpeg",
+                "width": 3544,
+                "height": 2324,
+                "size_bytes": 602590
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 874,
+                "size_bytes": 1076576,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.26229,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.808853,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 346,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Joint Training of Video and Action DiT",
+        "kind": "method_detail",
+        "section": "方法主线",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "priority": 2,
+        "anchor_text": "方法主线",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_algorithm_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_007_fig_algorithm_1.png",
+          "width": 1095,
+          "height": 231,
+          "size_bytes": 47974,
+          "label": "Algorithm 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "large_text_block_suspected",
+              "low_visual_body_ratio"
+            ],
+            "page_coverage_ratio": 0.067912,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 1195,
+            "table_body_rows": 0,
+            "caption_text_chars": 50,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "algorithm 1",
+              "joint",
+              "training",
+              "video",
+              "action"
+            ],
+            "snippet": "simultaneous modeling of latent representations for both video and action, as detailed in Algorithm 1. During training, the text encoder and visual VAE are frozen, restricting the parameter u",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_algorithm_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_007_fig_algorithm_1.png",
+                "width": 1095,
+                "height": 231,
+                "size_bytes": 47974,
+                "label": "Algorithm 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "large_text_block_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.067912,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1195,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "joint",
+              "training",
+              "video",
+              "action"
+            ],
+            "snippet": "grounded in the generative visual dynamics that govern physical interaction. To avoid disjoint multi-stage optimization, we further propose a unified joint- training paradigm based on",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "joint",
+              "training",
+              "video",
+              "action"
+            ],
+            "snippet": "former 2 Diffusion Transformer 1 Image Latents Predicted Latents Text Tokens State Tokens Joint Positions/EEF Poses Action Tokens ˝Place the corn in the middle drawer and close the draw",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_01.jpeg",
+                "width": 1270,
+                "height": 952,
+                "size_bytes": 47960
+              },
+              {
+                "filename": "page_004_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 22297
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+                "width": 1122,
+                "height": 989,
+                "size_bytes": 602408,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.297055,
+                  "visual_rect_count": 49,
+                  "visual_body_ratio": 0.797111,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 492,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "DiT4DiT Inference",
+        "kind": "method_detail",
+        "section": "方法主线",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "priority": 2,
+        "anchor_text": "方法主线",
+        "insert_mode": "placeholder",
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 1,
+            "matched_terms": [
+              "inference"
+            ],
+            "snippet": "llowing the final trajectory to be synthesized via iterative numerical integration during inference. 4.3 JOINT TRAINING OF VIDEO AND ACTION To operationalize the simultaneous modeling of la",
+            "images": [
+              {
+                "filename": "page_006_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_006_img_01.jpeg",
+                "width": 4096,
+                "height": 297,
+                "size_bytes": 211771
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_006_fig_figure_3.png",
+                "width": 1122,
+                "height": 379,
+                "size_bytes": 227246,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.113845,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 0.38676,
+                  "paragraph_text_chars": 198,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 426,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 15,
+            "score": 1,
+            "matched_terms": [
+              "inference"
+            ],
+            "snippet": "s, the LLM features remain constant and can be pre-extracted and cached to avoid repeated inference, which can further improve the effective deployment frequency. 6 CONCLUSION We present Di",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_015_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_015_fig_table_3.png",
+                "width": 1133,
+                "height": 300,
+                "size_bytes": 57561,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.091132,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 410,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 19,
+            "score": 1,
+            "matched_terms": [
+              "inference"
+            ],
+            "snippet": "eps (train) 4 Noise β (α) 1.5 Noise β (β) 1.0 Noise s 0.999 Num Timestep Buckets 1000 Num Inference Timesteps 4 Training Configurations Per Device Batch Size 8 Num of GPUs 32 Max Train Step",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_019_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_019_fig_table_4.png",
+                "width": 682,
+                "height": 628,
+                "size_bytes": 69149,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.114741,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 674,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 40,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "page-proximity-and-caption-cues"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "Proxy objectives for scalable robot policy learning. Left: Comparison of three representative",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+          "width": 1122,
+          "height": 598,
+          "size_bytes": 230859,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.179725,
+            "visual_rect_count": 24,
+            "visual_body_ratio": 0.675441,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 770,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "proxy",
+              "objectives",
+              "scalable",
+              "robot",
+              "policy"
+            ],
+            "snippet": "that video generation is a highly effective unsupervised pre-training signal. As shown in Fig. 1, our video- dynamics objective converges faster and achieves higher final success rates t",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "proxy",
+              "robot",
+              "policy"
+            ],
+            "snippet": "ction prediction. Below: Generated visual plans via video DiT (More examples are shown in Fig. 10). learnable queries and aligns the queries with latent embeddings of future observations",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_01.jpeg",
+                "width": 1270,
+                "height": 952,
+                "size_bytes": 47960
+              },
+              {
+                "filename": "page_004_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 22297
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+                "width": 1122,
+                "height": 989,
+                "size_bytes": 602408,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.297055,
+                  "visual_rect_count": 49,
+                  "visual_body_ratio": 0.797111,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 492,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 22,
+            "score": 5,
+            "matched_terms": [
+              "figure 1"
+            ],
+            "snippet": "Figure 10: Future video rollouts generated by DiT4DiT. 22",
+            "images": [
+              {
+                "filename": "page_022_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_022_img_01.jpeg",
+                "width": 256,
+                "height": 256,
+                "size_bytes": 7090
+              },
+              {
+                "filename": "page_022_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_022_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 20904
+              },
+              {
+                "filename": "page_022_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_022_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_figure_10.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_022_fig_figure_10.png",
+                "width": 1122,
+                "height": 1818,
+                "size_bytes": 2415609,
+                "label": "Figure 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.545757,
+                  "visual_rect_count": 66,
+                  "visual_body_ratio": 0.88586,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 54,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Real-world evaluation results on the Unitree G1 robot. Success rates are reported across seven",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_012_fig_figure_5.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_fig_figure_5.png",
+          "width": 1122,
+          "height": 625,
+          "size_bytes": 112947,
+          "label": "Figure 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.18776,
+            "visual_rect_count": 22,
+            "visual_body_ratio": 0.501604,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 628,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 11,
+            "score": 8,
+            "matched_terms": [
+              "fig. 5",
+              "real-world",
+              "evaluation",
+              "robot",
+              "success"
+            ],
+            "snippet": "sk results. We report the quantitative success rates across the seven real-world tasks in Fig. 5. Overall, DiT4DiT demonstrates dominant and robust performance, comprehensively outperfor",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_011_fig_table_2.png",
+                "width": 1133,
+                "height": 843,
+                "size_bytes": 202971,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.255702,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1098,
+                  "table_body_rows": 27,
+                  "caption_text_chars": 430,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "figure 5",
+              "real-world",
+              "evaluation",
+              "unitree",
+              "robot",
+              "success"
+            ],
+            "snippet": "Insert Plate 80 90 25 100 90 10 40 60 25 50 10 15 40 75 10 80 GR00T-N1.5 Qwen3DiT DiT4DiT Figure 5: Real-world evaluation results on the Unitree G1 robot. Success rates are reported across",
+            "images": [
+              {
+                "filename": "page_012_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_img_01.png",
+                "width": 1988,
+                "height": 849,
+                "size_bytes": 2105540
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_fig_figure_5.png",
+                "width": 1122,
+                "height": 625,
+                "size_bytes": 112947,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.18776,
+                  "visual_rect_count": 22,
+                  "visual_body_ratio": 0.501604,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 628,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_012_fig_figure_6.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_fig_figure_6.png",
+                "width": 1122,
+                "height": 586,
+                "size_bytes": 647626,
+                "label": "Figure 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.176035,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.635787,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 396,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "real-world",
+              "unitree",
+              "robot",
+              "success"
+            ],
+            "snippet": "tens the convergence cycle. We evaluate our method extensively across both simulation and real-world settings to demonstrate its efficacy in translating generative physical priors into preci",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Quantitative results of zero-shot generalization. (Left) Success rates in the simulated RoboCasa-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_013_fig_figure_7.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_013_fig_figure_7.png",
+          "width": 1122,
+          "height": 658,
+          "size_bytes": 125707,
+          "label": "Figure 7",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.197635,
+            "visual_rect_count": 25,
+            "visual_body_ratio": 0.67537,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 800,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "fig. 7",
+              "zero-shot",
+              "generalization",
+              "left",
+              "success"
+            ],
+            "snippet": "ects compared to the parameter-matched Qwen3DiT base- line, as shown in the left panel of Fig. 7. Across all three tasks, our approach maintains robust performance. Most notably, in the",
+            "images": [
+              {
+                "filename": "page_012_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_img_01.png",
+                "width": 1988,
+                "height": 849,
+                "size_bytes": 2105540
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_fig_figure_5.png",
+                "width": 1122,
+                "height": 625,
+                "size_bytes": 112947,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.18776,
+                  "visual_rect_count": 22,
+                  "visual_body_ratio": 0.501604,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 628,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_012_fig_figure_6.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_012_fig_figure_6.png",
+                "width": 1122,
+                "height": 586,
+                "size_bytes": 647626,
+                "label": "Figure 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.176035,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.635787,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 396,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 13,
+            "score": 8,
+            "matched_terms": [
+              "fig. 7",
+              "quantitative",
+              "zero-shot",
+              "generalization",
+              "left",
+              "success"
+            ],
+            "snippet": "ing its resistance to distractors and novel scene clutter. As shown in the right panel of Fig. 7, DiT4DiT demonstrates dominant zero-shot transfer capabil- ities in the physical world. T",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_figure_7.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_013_fig_figure_7.png",
+                "width": 1122,
+                "height": 658,
+                "size_bytes": 125707,
+                "label": "Figure 7",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.197635,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 0.67537,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 800,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "zero-shot",
+              "generalization",
+              "left",
+              "success"
+            ],
+            "snippet": "critical tasks such as Arrange Flower and Stack Cup. Furthermore, DiT4DiT exhibits robust zero-shot generalization under severe distribution shifts, successfully adapting to unseen objects,",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Ablation studies on the DiT4DiT architecture. (a) Feature extraction layer: Success rate across",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_014_fig_figure_8.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_fig_figure_8.png",
+          "width": 1123,
+          "height": 523,
+          "size_bytes": 251346,
+          "label": "Figure 8",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.157127,
+            "visual_rect_count": 6,
+            "visual_body_ratio": 0.581334,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 805,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 13,
+            "score": 8,
+            "matched_terms": [
+              "figure 8",
+              "ablation",
+              "feature",
+              "extraction"
+            ],
+            "snippet": "oBasket, FromPlacematToBowl, FromPlateToCard- boardbox, FromTrayToPot). As illustrated in Figure 8(a), the choice of extraction layer significantly influences the downstream success rate.",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_figure_7.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_013_fig_figure_7.png",
+                "width": 1122,
+                "height": 658,
+                "size_bytes": 125707,
+                "label": "Figure 7",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.197635,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 0.67537,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 800,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 8,
+            "matched_terms": [
+              "figure 8",
+              "ablation",
+              "studies",
+              "architecture",
+              "feature",
+              "extraction"
+            ],
+            "snippet": "rs (a) (b) (c) Denoise Steps SR SR Early Decouple Joint Late Middle Score=0.09 Score=0.17 Figure 8: Ablation studies on the DiT4DiT architecture. (a) Feature extraction layer: Success rate",
+            "images": [
+              {
+                "filename": "page_014_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_01.jpeg",
+                "width": 1297,
+                "height": 1075,
+                "size_bytes": 58560
+              },
+              {
+                "filename": "page_014_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_02.jpeg",
+                "width": 1038,
+                "height": 844,
+                "size_bytes": 92233
+              },
+              {
+                "filename": "page_014_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_03.jpeg",
+                "width": 1032,
+                "height": 830,
+                "size_bytes": 85735
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_figure_8.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_fig_figure_8.png",
+                "width": 1123,
+                "height": 523,
+                "size_bytes": 251346,
+                "label": "Figure 8",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.157127,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.581334,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 805,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 10,
+            "score": 3,
+            "matched_terms": [
+              "ablation",
+              "feature",
+              "extraction"
+            ],
+            "snippet": "ur approach against GR00T-N1.5 (Bjorck et al., 2025) and Qwen3DiT. To provide a stringent ablation, Qwen3DiT is subjected to the exact same pre- training and fine-tuning pipeline as DiT4Di",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_010_fig_table_1.png",
+                "width": 1133,
+                "height": 492,
+                "size_bytes": 104453,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.149214,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 528,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 285,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Success rates (%) on the four evaluation suites of the LIBERO simulation benchmark. Bold",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_010_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_010_fig_table_1.png",
+          "width": 1133,
+          "height": 492,
+          "size_bytes": 104453,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.149214,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 528,
+            "table_body_rows": 12,
+            "caption_text_chars": 285,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 10,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "success",
+              "rates",
+              "four",
+              "evaluation",
+              "suites"
+            ],
+            "snippet": "T (from scratch) 98.0 98.8 96.0 93.6 96.6 DiT4DiT (from scratch) 98.4 99.6 98.6 97.6 98.6 Table 1: Success rates (%) on the four evaluation suites of the LIBERO simulation benchmark. Bold",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_010_fig_table_1.png",
+                "width": 1133,
+                "height": 492,
+                "size_bytes": 104453,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.149214,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 528,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 285,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "success",
+              "four",
+              "evaluation",
+              "suites"
+            ],
+            "snippet": "rollouts with a maximum episode horizon of 720 envi- ronment steps. We report the average success rate (%) across rollouts for each task and the overall average across all 24 tasks. Real-",
+            "images": [
+              {
+                "filename": "page_009_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_img_01.jpeg",
+                "width": 3544,
+                "height": 2324,
+                "size_bytes": 602590
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 874,
+                "size_bytes": 1076576,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.26229,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.808853,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 346,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 11,
+            "score": 3,
+            "matched_terms": [
+              "success",
+              "rates",
+              "evaluation"
+            ],
+            "snippet": "38.0 Average 41.8 40.8 36.2 50.8 Table 2: RoboCasa-GR1 tabletop tasks evaluation results (success rate (%)). Bold numbers indicate the highest performance in each category. from scratch i",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_011_fig_table_2.png",
+                "width": 1133,
+                "height": 843,
+                "size_bytes": 202971,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.255702,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1098,
+                  "table_body_rows": 27,
+                  "caption_text_chars": 430,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "RoboCasa-GR1 tabletop tasks evaluation results (success rate (%)). Bold numbers indicate the",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_011_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_011_fig_table_2.png",
+          "width": 1133,
+          "height": 843,
+          "size_bytes": 202971,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.255702,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 1098,
+            "table_body_rows": 27,
+            "caption_text_chars": 430,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 11,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "robocasa-gr",
+              "tabletop",
+              "tasks",
+              "evaluation",
+              "success"
+            ],
+            "snippet": "34.0 42.0 36.0 46.0 FromTrayToTieredshelf 22.0 38.0 18.0 38.0 Average 41.8 40.8 36.2 50.8 Table 2: RoboCasa-GR1 tabletop tasks evaluation results (success rate (%)). Bold numbers indicate",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_011_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_011_fig_table_2.png",
+                "width": 1133,
+                "height": 843,
+                "size_bytes": 202971,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.255702,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1098,
+                  "table_body_rows": 27,
+                  "caption_text_chars": 430,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "robocasa-gr",
+              "tabletop",
+              "tasks",
+              "success"
+            ],
+            "snippet": "tric baselines. All results are reported as the average success rate over 24 tasks in the RoboCasa-GR1 tabletop benchmark (Nasiriany et al., 2024; Bjorck et al., 2025). two questions: (1) can",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "robocasa-gr",
+              "tabletop",
+              "tasks",
+              "evaluation",
+              "success"
+            ],
+            "snippet": "ntains exactly 500 demonstration trajectories, distributed evenly across 10 unique tasks. RoboCasa-GR1 tabletop benchmark. To further evaluate our approach on a more complex em- bodiment, we",
+            "images": [
+              {
+                "filename": "page_009_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_img_01.jpeg",
+                "width": 3544,
+                "height": 2324,
+                "size_bytes": 602590
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 874,
+                "size_bytes": 1076576,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.26229,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.808853,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 346,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Deployment efficiency comparison. We report the trainable parameter count and real-world de-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_015_fig_table_3.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_015_fig_table_3.png",
+          "width": 1133,
+          "height": 300,
+          "size_bytes": 57561,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.091132,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 4,
+            "caption_text_chars": 410,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 14,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "deployment",
+              "efficiency",
+              "trainable"
+            ],
+            "snippet": "pare trainable parameter count and real-world control fre- quency against core baselines (Table 3). DiT4DiT has 2.2B trainable parameters, comparable to Qwen3DiT (2.3B) and smaller than G",
+            "images": [
+              {
+                "filename": "page_014_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_01.jpeg",
+                "width": 1297,
+                "height": 1075,
+                "size_bytes": 58560
+              },
+              {
+                "filename": "page_014_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_02.jpeg",
+                "width": 1038,
+                "height": 844,
+                "size_bytes": 92233
+              },
+              {
+                "filename": "page_014_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_img_03.jpeg",
+                "width": 1032,
+                "height": 830,
+                "size_bytes": 85735
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_figure_8.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_014_fig_figure_8.png",
+                "width": 1123,
+                "height": 523,
+                "size_bytes": 251346,
+                "label": "Figure 8",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.157127,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.581334,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 805,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 15,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "deployment",
+              "efficiency",
+              "comparison",
+              "report",
+              "trainable"
+            ],
+            "snippet": "inable Param Cnt Deploy Frequency GR00T-N1.5 2.7B 13Hz Qwen3DiT 2.3B 9Hz DiT4DiT 2.2B 6Hz Table 3: Deployment efficiency comparison. We report the trainable parameter count and real-world",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_015_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_015_fig_table_3.png",
+                "width": 1133,
+                "height": 300,
+                "size_bytes": 57561,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.091132,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 410,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "deployment",
+              "efficiency",
+              "comparison",
+              "report"
+            ],
+            "snippet": "orck et al., 2025; NVIDIA et al., 2025b) by substantial margins. In real-world Unitree G1 deployments, DiT4DiT maintains clear advantages over both pre-trained (GR00T-N1.5 (Bjorck et al., 20",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Model & training configurations",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_019_fig_table_4.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_019_fig_table_4.png",
+          "width": 682,
+          "height": 628,
+          "size_bytes": 69149,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.114741,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 674,
+            "table_body_rows": 15,
+            "caption_text_chars": 40,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 19,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "model",
+              "training",
+              "configurations"
+            ],
+            "snippet": "Accumulation Steps 1 Optimizer AdamW β1, β2 (0.9, 0.95) ϵ 1 × 10−8 Weight Decay 1 × 10−8 Table 4: Model & training configurations A.2 DATASET CONFIGURATION We detail the composition and",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_019_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_019_fig_table_4.png",
+                "width": 682,
+                "height": 628,
+                "size_bytes": 69149,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.114741,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 674,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 40,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "model",
+              "training"
+            ],
+            "snippet": "gms: Grounding (object-level semantic alignment), FLARE-style (Zheng et al., 2025) latent modeling (VLM-to-future-frame feature prediction), and Video generation (learning physically pl",
+            "images": [
+              {
+                "filename": "page_002_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_01.jpeg",
+                "width": 1571,
+                "height": 977,
+                "size_bytes": 76619
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_02.jpeg",
+                "width": 283,
+                "height": 186,
+                "size_bytes": 9672
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_img_03.jpeg",
+                "width": 279,
+                "height": 185,
+                "size_bytes": 9005
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_002_fig_figure_1.png",
+                "width": 1122,
+                "height": 598,
+                "size_bytes": 230859,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.179725,
+                  "visual_rect_count": 24,
+                  "visual_body_ratio": 0.675441,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 770,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 2,
+            "matched_terms": [
+              "model",
+              "training"
+            ],
+            "snippet": "timestep; these features condition the action DiT to infer control trajectories. The two models are jointly optimized with a dual flow-matching objective for video generation and actio",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_01.jpeg",
+                "width": 1270,
+                "height": 952,
+                "size_bytes": 47960
+              },
+              {
+                "filename": "page_004_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_02.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 21278
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_img_03.jpeg",
+                "width": 640,
+                "height": 480,
+                "size_bytes": 22297
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/DiT4DiT_Jointly_Modeling_Video_Dynamics_and_Actions_for_Generalizable_Robot_Control/images/page_004_fig_figure_2.png",
+                "width": 1122,
+                "height": 989,
+                "size_bytes": 602408,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.297055,
+                  "visual_rect_count": 49,
+                  "visual_body_ratio": 0.797111,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 492,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  }
+}

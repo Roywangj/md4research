@@ -1,0 +1,25 @@
+{
+  "status": "passed_with_edits",
+  "review_type": "final_readability_review",
+  "paper_id": "arxiv:2606.08952",
+  "note_path": "paper_DeepPaperNote.md",
+  "prerequisite_quality_review": "allospatial_final_quality_review.json",
+  "checks": {
+    "full_note_reread": true,
+    "chinese_flow": true,
+    "terminology_consistency": true,
+    "stable_proper_nouns_preserved": true,
+    "ordinary_english_leftovers_rewritten": true,
+    "no_new_facts_added": true,
+    "claim_strength_preserved": true,
+    "figure_captions_readable": true,
+    "tables_interpreted_after_display": true
+  },
+  "edits": [
+    "将 MindCube 的 AROUND/AMONG 改写为周围关系/居间关系，保持指标含义不变。",
+    "将不自然的“脚手架循环写作”改为“脚手架循环为”。",
+    "将 bootstrap 改写为自助法重采样。"
+  ],
+  "requires_lint_rerun": true,
+  "passes_final_readability_review": true
+}

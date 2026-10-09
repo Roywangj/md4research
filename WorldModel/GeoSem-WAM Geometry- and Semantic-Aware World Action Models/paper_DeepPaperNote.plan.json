@@ -1,0 +1,228 @@
+{
+  "paper_id": "arxiv:2606.03188",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "该文提出训练期辅助监督扩展，并以仿真、消融和真实机器人实验验证，核心是模型机制、训练目标与推理边界。",
+  "dominant_domain": "embodied AI / world action models / robotic manipulation",
+  "must_cover": [
+    "Fast-WAM继承关系与真正新增部分",
+    "几何和语义监督的机制与互补性",
+    "训练期与推理期信息流",
+    "LIBERO、RoboTwin和真实Franka证据链",
+    "伪标签、损失平衡、梯度冲突和复现成本",
+    "即插即用主张的适用边界与arXiv v1成熟度"
+  ],
+  "key_numbers": [
+    "LIBERO平均成功率98.55%，Fast-WAM为97.60%",
+    "RoboTwin平均成功率92.52%，Fast-WAM为91.80%，LingBot-VA为92.20%",
+    "LIBERO消融：几何98.2%、语义98.1%、二者98.6%、基线97.6%",
+    "真实机器人平均成功率88.9%提升至95.4%，增益+6.6%",
+    "每个真实任务50条遥操作轨迹、50次测试；两块H800微调、RTX 4090推理",
+    "RoboTwin覆盖50个双臂任务；LIBERO每套件500条示范、10个任务"
+  ],
+  "real_comparisons": [
+    "GeoSem-WAM与Fast-WAM的直接对照",
+    "LIBERO上与VLA和WAM强基线比较",
+    "RoboTwin上与LingBot-VA、X-WAM、Motus等比较",
+    "真实机器人在背景、高度、多对象和长时程任务上的逐设置比较"
+  ],
+  "central_claims": [
+    {
+      "claim": "训练期的几何和语义密集监督可增强动作所依赖的潜在世界表征，而部署时可移除辅助头。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:methodology",
+          "pages": "3-5"
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": "8-9"
+        }
+      ],
+      "what_it_actually_proves": "方法定义明确把DPT辅助分支限制在训练期，动作推理仍从当前观测潜变量出发，不显式生成未来帧。",
+      "what_it_does_not_prove": "没有报告延迟、吞吐或显存实测，不能据此量化其与Fast-WAM完全等成本。"
+    },
+    {
+      "claim": "几何监督与语义监督在LIBERO上各自有效，联合使用的增益更大。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": "6-7"
+        }
+      ],
+      "what_it_actually_proves": "在同一LIBERO消融协议下，两个单分支均超过RGB-only基线，联合分支达到最高平均成功率。",
+      "what_it_does_not_prove": "消融没有报告方差、显著性、损失权重敏感性或梯度冲突测量，不能断言机制普遍互补或近似可加。"
+    },
+    {
+      "claim": "结构化监督的收益不仅出现在LIBERO，还覆盖RoboTwin和真实Franka泛化设置。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments",
+          "pages": "5-6"
+        },
+        {
+          "section_id": "sec:method",
+          "pages": "6-7"
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": "7-8"
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": "12-14"
+        }
+      ],
+      "what_it_actually_proves": "在论文采用的仿真和真实机器人协议中，GeoSem-WAM的汇总成功率高于Fast-WAM，并在背景和高度变化中有更大增益。",
+      "what_it_does_not_prove": "真实实验仅一个机器人平台、有限任务与每任务50次测试，尚不足以证明跨本体或开放世界泛化。"
+    },
+    {
+      "claim": "中间token包含更清晰的语义和几何信息。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments",
+          "pages": "5-6"
+        }
+      ],
+      "what_it_actually_proves": "语义聚类可视化和冻结骨干深度探针为表征变化提供定性证据。",
+      "what_it_does_not_prove": "论文未给出聚类指标或深度误差，不能量化表征提升，也不能单独建立其与动作成功率的因果联系。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文支持训练期辅助监督改善当前协议下的动作表现，但没有隔离‘未来预测’与‘多任务密集监督’各自贡献。",
+    "即插即用主要指训练头可挂接并在部署移除，不等于无需改训练数据、损失权重、显存预算或骨干接口。",
+    "RoboTwin的新SOTA优势相对LingBot-VA仅0.32个百分点，且不同方法的具身预训练条件不同。",
+    "真实机器人增益强，但仅覆盖Franka和四类核心任务及三种泛化设置。"
+  ],
+  "negative_or_limiting_results": [
+    "GeoSem-WAM在LIBERO-Long为97.0%，低于LingBot-VA的98.5%和Motus的97.6%，并非每个子套件都最优。",
+    "RoboTwin逐任务中存在明显薄弱任务，如Turn Switch为58/65、Hanging Mug为72/67、Open Microwave为75/50。",
+    "论文未报告失败或不稳定的损失权重设置、训练曲线、显存/耗时或多任务梯度冲突测量。",
+    "真实RGB-only数据需像素级标注或可能含噪的伪标签。"
+  ],
+  "mechanism_result_map": [
+    "几何L1监督约束未来潜变量保留空间结构，对应高度变化和深度探针更清晰的结果模式。",
+    "语义交叉熵约束对象级类别信息，对应中间token类别聚类及多干扰物任务提升。",
+    "两分支共享同一视频骨干并与RGB、动作目标联合优化，对应联合消融优于单分支，但也引出损失平衡和梯度冲突风险。",
+    "推理时丢弃DPT头且不展开未来视频，对应理论上的部署路径不增加辅助头计算，但论文未给出实测效率。"
+  ],
+  "comparative_positioning": [
+    "相对Fast-WAM，GeoSem-WAM保持Wan2.2-5B视频DiT、VAE/T5、动作专家和不做测试时未来想象的基本范式，只新增训练期DPT几何与语义头。",
+    "相对RGB-only WAM，该文把世界监督从外观动态扩展到空间结构和对象语义。",
+    "相对依赖具身预训练的RoboTwin强基线，GeoSem-WAM报告无需具身预训练，但跨论文训练数据和协议可比性仍需谨慎。"
+  ],
+  "reuse_takeaways": [
+    "把部署时可移除的密集预测头当作表征正则器，是改造世界模型/VLA的可复用设计模式。",
+    "应把辅助任务的收益验证拆成单分支、联合分支、表征探针和分布变化任务四层证据。",
+    "复现时必须先审计标签来源、损失尺度、梯度夹角、训练显存和推理路径，而不能只照搬总损失公式。"
+  ],
+  "followup_questions": [
+    "在固定训练计算量下，几何/语义监督是否仍优于增加RGB预测数据或扩大骨干？",
+    "不同lambda设置的Pareto曲线、梯度余弦相似度和PCGrad类方法会怎样影响成功率？",
+    "用DINO类自监督特征替代像素级深度/分割伪标签后，真实任务增益能保留多少？",
+    "收益来自预测未来几何/语义，还是只需重建当前帧的密集标签？",
+    "在不同机器人本体和相机布局上，训练期辅助头是否仍可直接接入？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "区分测试时未来想象与训练时预测监督的表征学习价值，并指出RGB-only监督缺少结构信息。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": "1-3"
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "说明LIBERO、RoboTwin与Franka任务、监督模态、成功率协议和训练测试样本规模。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": "5-6"
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": "7-8"
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": "12-14"
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "重建Wan2.2-5B/Fast-WAM骨干、动作流匹配、DPT三维密集预测头以及训练与推理信息流。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methodology",
+          "pages": "3-5"
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用紧凑表格呈现三套证据与消融，并讨论子任务退化和表征探针的证据强度。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": "5-6"
+        },
+        {
+          "section_id": "sec:method",
+          "pages": "6-7"
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": "7-8"
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": "12-14"
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析几何和语义互补机制、Fast-WAM继承关系、即插即用边界、复现成本与证据缺口。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methodology",
+          "pages": "3-5"
+        },
+        {
+          "section_id": "sec:method",
+          "pages": "6-7"
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": "8-9"
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "解释像素标注与伪标签噪声、多任务损失平衡和梯度冲突、评测范围及v1模板占位问题。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": "8-9"
+        },
+        {
+          "section_id": "sec:acknowledgments",
+          "pages": "9"
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": "12-14"
+        }
+      ]
+    }
+  ],
+  "source_coverage": {
+    "mode": "full",
+    "pages_read": "1-14",
+    "text_truncated": false
+  }
+}

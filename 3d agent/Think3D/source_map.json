@@ -1,0 +1,496 @@
+{
+  "paper_id": "think3d_2601_13029",
+  "title": "Think3D: Thinking with Space for Spatial Reasoning",
+  "zotero_item_key": "FWMHE7EV",
+  "zotero_attachment_key": "MXV9TJID",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/MXV9TJID/Zhang 等 - 2026 - Think3D Thinking with Space for Spatial Reasoning.pdf",
+  "detected_source_format": "pdf-text",
+  "metadata": {
+    "title": "Think3D: Thinking with Space for Spatial Reasoning",
+    "authors": [
+      "Zaibin Zhang",
+      "Yuhan Wu",
+      "Lianjie Jia",
+      "Yifan Wang",
+      "Zhongbo Zhang",
+      "Yijiang Li",
+      "Binghao Ran",
+      "Fuxi Zhang",
+      "Zhuohan Sun",
+      "Zhenfei Yin",
+      "Lijun Wang",
+      "Huchuan Lu"
+    ],
+    "published": "2026-01-19T13:13:54Z",
+    "year": "2026",
+    "doi": "10.48550/arxiv.2601.13029",
+    "arxiv_id": "2601.13029",
+    "url": "http://arxiv.org/abs/2601.13029v3",
+    "pdf_url": "https://arxiv.org/pdf/2601.13029v3",
+    "venue": "Open MIND",
+    "abstract": "While contemporary Vision-Language Models (VLMs) excel at 2D visual understanding, they remain constrained by a passive, 2D-centric paradigm that severely limits genuine 3D spatial reasoning. To bridge this gap, we introduce Think3D, a novel framework that equips VLM agents with interactive, 3D chain-of-thought reasoning capabilities. By integrating a suite of 3D manipulation tools, Think3D transforms passive perception into active spatial exploration, closely mirroring human geometric reasoning. We demonstrate that Think3D acts as a highly effective zero-shot plug-in for state-of-the-art closed-source models (e.g., GPT-4.1, Gemini 2.5 Pro), yielding absolute performance gains of +7.8% on BLINK Multi-view and MindCube, and +4.7% on VSI-Bench. Furthermore, to optimize tool-use in smaller open-weight models, we propose Think3D-RL, a reinforcement learning paradigm designed to autonomously learn spatial exploration strategies. When applied to Qwen3-VL-4B, Think3D-RL amplifies the performance gain from a marginal +0.7% to a substantial +10.7%. Notably, this RL formulation induces an exploration policy that qualitatively aligns with the sophisticated behavior of much larger models, entirely circumventing the need for costly operation-trajectory annotations. Ultimately, Think3D establishes tool-augmented active exploration as an effective paradigm for unlocking human-like 3D reasoning in multimodal agents. Code, models, and data are available at https://github.com/zhangzaibin/spagent."
+  },
+  "source_blocks": [
+    {
+      "source_id": "S001",
+      "section_id": "sec:preamble",
+      "title": "preamble",
+      "kind": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 2021,
+      "text_hash_sha256": "d74e8803340e489954bf502f64ccbd2c2ef3a294a938530016a00412edefb98b",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S002",
+      "section_id": "sec:introduction",
+      "title": "Introduction",
+      "kind": "introduction",
+      "page_start": 1,
+      "page_end": 4,
+      "char_count": 6270,
+      "text_hash_sha256": "a117d8a3a6b5794371386a42be8aa2c6d3da171c23b807a4f75e61a824e2a966",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S003",
+      "section_id": "sec:related-work",
+      "title": "Related Work",
+      "kind": "introduction",
+      "page_start": 4,
+      "page_end": 9,
+      "char_count": 13345,
+      "text_hash_sha256": "2bcb11136aa75c22727fd9a87a4f7877be7d734a82bc14367cb10dcd7e663d36",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S004",
+      "section_id": "sec:experiment",
+      "title": "Experiment",
+      "kind": "experiment",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 2011,
+      "text_hash_sha256": "026639fcd069bf17a471f51a5bbd43466b649bd45588e0adb067020a2de6047c",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S005",
+      "section_id": "sec:model",
+      "title": "Model",
+      "kind": "method",
+      "page_start": 10,
+      "page_end": 11,
+      "char_count": 2885,
+      "text_hash_sha256": "b42dd3b95369643b020f3824e767691d8a28b946c1ee5e087095a16451bd280f",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S006",
+      "section_id": "sec:model-2",
+      "title": "Model",
+      "kind": "method",
+      "page_start": 11,
+      "page_end": 13,
+      "char_count": 4207,
+      "text_hash_sha256": "d673cd5a8e58355fbb1ed6df21fc008d7ff163622c9d7518890c35e78cb21ca1",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S007",
+      "section_id": "sec:model-3",
+      "title": "Model",
+      "kind": "method",
+      "page_start": 13,
+      "page_end": 15,
+      "char_count": 3810,
+      "text_hash_sha256": "af6973ed76ca9d8672cdde669646423c193f69db7cf0c3c0be5f58764b6d4a62",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S008",
+      "section_id": "sec:conclusion",
+      "title": "Conclusion",
+      "kind": "conclusion",
+      "page_start": 15,
+      "page_end": 26,
+      "char_count": 27349,
+      "text_hash_sha256": "b1f29d729b92d8cde65b9c46dc97fe86d5dcea599470df5a37f6290bf9d77100",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S009",
+      "section_id": "sec:model-4",
+      "title": "Model",
+      "kind": "method",
+      "page_start": 26,
+      "page_end": 33,
+      "char_count": 18682,
+      "text_hash_sha256": "19fc86d0da0e11fedb4700bfbb1c830ea408dd4a9bcb277d93edb159d4ce9019",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    },
+    {
+      "source_id": "S010",
+      "section_id": "sec:references",
+      "title": "References",
+      "kind": "references",
+      "page_start": 33,
+      "page_end": 38,
+      "char_count": 19402,
+      "text_hash_sha256": "372f93519e412660f7077e6d6212405b27a11cdf5c9d49e32a8ca747fb40cbdc",
+      "visible_block_policy": "paper.md uses section-level bilingual reader paragraphs; full extracted text is preserved in paper_DeepPaperNote_full_text.md during the pipeline."
+    }
+  ],
+  "figures": [
+    {
+      "source_id": "F001",
+      "id": "Fig 1",
+      "caption": "Comparison between prior “think with image” [46,84] and our “think with 3D",
+      "page": 2,
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction"
+    },
+    {
+      "source_id": "F002",
+      "id": "Fig 2",
+      "caption": "The Think3D pipeline. The VLM interacts with the 3D scene through itera-",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "section_id": "sec:related-work"
+    },
+    {
+      "source_id": "F003",
+      "id": "Fig 3",
+      "caption": "Spatial exploration behavior of Think3D. The agent autonomously selects view-",
+      "page": 11,
+      "pages": [
+        11
+      ],
+      "section_id": "sec:model"
+    },
+    {
+      "source_id": "F004",
+      "id": "Fig 4",
+      "caption": "Spatial exploration patterns in viewpoint selection. Strong models concentrate",
+      "page": 13,
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model-2"
+    },
+    {
+      "source_id": "F005",
+      "id": "Fig 5",
+      "caption": "Reinforcement Learning Dynamics. As RL fine-tuning progresses, the model",
+      "page": 13,
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model-2"
+    },
+    {
+      "source_id": "F006",
+      "id": "Fig 6",
+      "caption": "The ablation of turns.",
+      "page": 14,
+      "pages": [
+        14
+      ],
+      "section_id": "sec:model-3"
+    },
+    {
+      "source_id": "F007",
+      "id": "Fig 7",
+      "caption": "Efficiency ablation on BLINK (ac-",
+      "page": 14,
+      "pages": [
+        14
+      ],
+      "section_id": "sec:model-3"
+    },
+    {
+      "source_id": "F008",
+      "id": "Fig 8",
+      "caption": "The system prompt. Instruction prompt detailing tool invocation rules and the",
+      "page": 17,
+      "pages": [
+        17
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F009",
+      "id": "Fig 12",
+      "caption": "and Fig. 13.",
+      "page": 17,
+      "pages": [
+        17
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F010",
+      "id": "Fig 9",
+      "caption": "The Pi3 Tool Prompt. The prompt specifies the tool’s capabilities, key control",
+      "page": 18,
+      "pages": [
+        18
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F011",
+      "id": "Algorithm 1",
+      "caption": "Self-Refine Inference",
+      "page": 18,
+      "pages": [
+        18
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F012",
+      "id": "Fig 10",
+      "caption": "Multi-step prompt for iterative 3D viewpoint exploration. Including angle",
+      "page": 19,
+      "pages": [
+        19
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F013",
+      "id": "Fig 11",
+      "caption": "The RL system prompt. Instruction prompt defining the constrained 3-view",
+      "page": 20,
+      "pages": [
+        20
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F014",
+      "id": "Fig 12",
+      "caption": "The RL continuation prompt used during non-final turns. Iterative-step in-",
+      "page": 21,
+      "pages": [
+        21
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F015",
+      "id": "Fig 13",
+      "caption": "The RL continuation prompt used in the final turn. Final-turn instruction",
+      "page": 22,
+      "pages": [
+        22
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F016",
+      "id": "Fig 14",
+      "caption": "The prompt without tools. Base instruction prompt for direct image-question",
+      "page": 22,
+      "pages": [
+        22
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F017",
+      "id": "Fig 15",
+      "caption": "The critique prompt and refinement prompt used in the self-refine experiment.",
+      "page": 23,
+      "pages": [
+        23
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F018",
+      "id": "Fig 16",
+      "caption": "Ego view usage ratio across different tasks. Distribution of GPT-4.1’s reliance",
+      "page": 24,
+      "pages": [
+        24
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F019",
+      "id": "Fig 17",
+      "caption": "Tool calling iteration ratio across different tasks. GPT-4.1 rarely uses tools",
+      "page": 24,
+      "pages": [
+        24
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "F020",
+      "id": "Fig 18",
+      "caption": "The Mindcube example.",
+      "page": 27,
+      "pages": [
+        27
+      ],
+      "section_id": "sec:model-4"
+    },
+    {
+      "source_id": "F021",
+      "id": "Fig 19",
+      "caption": "The Mindcube example.",
+      "page": 28,
+      "pages": [
+        28
+      ],
+      "section_id": "sec:model-4"
+    },
+    {
+      "source_id": "F022",
+      "id": "Fig 20",
+      "caption": "The BLINK example.",
+      "page": 29,
+      "pages": [
+        29
+      ],
+      "section_id": "sec:model-4"
+    },
+    {
+      "source_id": "F023",
+      "id": "Fig 21",
+      "caption": "The BLINK example.",
+      "page": 30,
+      "pages": [
+        30
+      ],
+      "section_id": "sec:model-4"
+    },
+    {
+      "source_id": "F024",
+      "id": "Fig 22",
+      "caption": "The VSI-Bench example.",
+      "page": 31,
+      "pages": [
+        31
+      ],
+      "section_id": "sec:model-4"
+    },
+    {
+      "source_id": "F025",
+      "id": "Fig 23",
+      "caption": "The VSI-Bench example.",
+      "page": 32,
+      "pages": [
+        32
+      ],
+      "section_id": "sec:model-4"
+    }
+  ],
+  "tables": [
+    {
+      "source_id": "T001",
+      "id": "Table 1",
+      "caption": "Results on VSI-Bench-tiny (%). Think3D uses up to two exploration itera-",
+      "page": 10,
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiment"
+    },
+    {
+      "source_id": "T002",
+      "id": "Table 2",
+      "caption": "Results on BLINK (Multi-view) and the MindCube subset (%). Think3D",
+      "page": 11,
+      "pages": [
+        11
+      ],
+      "section_id": "sec:model"
+    },
+    {
+      "source_id": "T003",
+      "id": "Table 3",
+      "caption": "Ablation on different 3D reasoning components. All results are reported",
+      "page": 12,
+      "pages": [
+        12
+      ],
+      "section_id": "sec:model-2"
+    },
+    {
+      "source_id": "T004",
+      "id": "Table 4",
+      "caption": "Comparison of 3D reconstruction tools on spatial benchmarks (Acc.%).",
+      "page": 15,
+      "pages": [
+        15
+      ],
+      "section_id": "sec:model-3"
+    },
+    {
+      "source_id": "T005",
+      "id": "Table 5",
+      "caption": "Training and evaluation parameters used in both the RL optimization process",
+      "page": 25,
+      "pages": [
+        25
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "T006",
+      "id": "Table 6",
+      "caption": "Effect of exploration strategies.",
+      "page": 26,
+      "pages": [
+        26
+      ],
+      "section_id": "sec:conclusion"
+    },
+    {
+      "source_id": "T007",
+      "id": "Table 7",
+      "caption": "More results on BLINK(Multi-view) and the MindCube subbset(%).",
+      "page": 26,
+      "pages": [
+        26
+      ],
+      "section_id": "sec:conclusion"
+    }
+  ],
+  "terminology": [
+    {
+      "canonical": "Think3D",
+      "cn": "Think3D",
+      "decision": "方法名，保持英文。"
+    },
+    {
+      "canonical": "think with 3D space",
+      "cn": "think with 3D space / 用 3D 空间思考",
+      "decision": "论文提出的主动 3D 探索范式，首次解释后保持英文短语。"
+    },
+    {
+      "canonical": "3D Manipulation Toolkit",
+      "cn": "3D 操作工具箱",
+      "decision": "指重建、变换与新视角渲染工具集合。"
+    },
+    {
+      "canonical": "global mode / ego mode",
+      "cn": "全局视角 / 自我中心视角",
+      "decision": "分别表示场景中心旋转和以相机为锚的第一人称视角。"
+    },
+    {
+      "canonical": "Think3D-RL",
+      "cn": "Think3D-RL",
+      "decision": "强化学习变体名，保持英文。"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "paper_claims": [
+    {
+      "claim": "Existing robot manipulation continual learning benchmarks entangle the raw speed of learning new interactions with the ability to reuse previous knowledge, which this benchmark isolates by ending each sequence with a composition task that recombines preceding primitives.",
+      "source": "Abstract & Section I & Section II",
+      "verified": true
+    },
+    {
+      "claim": "World models naturally partition into a task-agnostic backbone (encoder + dynamics) that must be learned continually and task-specific heads (reward, value, policy) that are re-initialized for each new task.",
+      "source": "Section III-C & Figure 2 & Algorithm 1",
+      "verified": true
+    },
+    {
+      "claim": "DreamerV3 consistently outperforms TD-MPC2 on both BWT and FWT across all CL methods due to its generative reconstruction objective capturing broad scene detail.",
+      "source": "Section IV-A & Figure 3 & Table III",
+      "verified": true
+    },
+    {
+      "claim": "Conventional continual learning methods trade forward transfer against backward transfer; fine-tuning forgets most, ER has highest FWT but unbounded buffer, EWC fails at reuse (negative FWT), and PackNet achieves near-zero forgetting but capacity shrinks.",
+      "source": "Section IV-A & Figure 3",
+      "verified": true
+    },
+    {
+      "claim": "Difficulty rises monotonically along the composition axis: BWT worsens from action (Dreamer: 5.94, TD-MPC2: 32.15) to perception (11.79 / 57.81) to full composition (30.12 / 68.68).",
+      "source": "Section IV-A & Table III",
+      "verified": true
+    },
+    {
+      "claim": "Under the frozen-encoder diagnostic, modular PWM reaches BWT 3.85 and FWT 36.18 against TD-MPC2's 34.97 and 38.11, nearly eliminating forgetting while matching fine-tuning speed; but without a frozen encoder, PWM is on par with TD-MPC2 due to encoder representation drift.",
+      "source": "Section IV-A & Section IV-B & Figure 3",
+      "verified": true
+    },
+    {
+      "claim": "Task-conditioned routing in PWM succeeds on Reach, Grasp, and BinPnP but struggles on temporally composed tasks (PnPBlock, DrawerPnP, PnPBoxClose) where different primitives are needed at different stages.",
+      "source": "Section IV-B & Figure 4 & Figure 5",
+      "verified": true
+    }
+  ]
+}

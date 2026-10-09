@@ -1,0 +1,215 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2607.25918",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Effect of dynamic-centric supervision and routing.",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "images/page_001_fig_figure_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of DC-WAM. DC-WAM redirects the RGB video branch toward interaction-induced dynamics through",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "images/page_003_fig_figure_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Attention responses under increasing visual perturbations. As perturbation severity increases, FastWAM-AC attention",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_004_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+      "source_image_path": "images/page_004_fig_figure_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "DynaRoute during training and inference. During",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_005_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_005_fig_figure_4.png)",
+      "source_image_path": "images/page_005_fig_figure_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Real-world task-by-condition evaluation ma-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_006_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_006_fig_figure_5.png)",
+      "source_image_path": "images/page_006_fig_figure_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Success rate (%) on LIBERO (ID) and LIBERO-Plus",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate; values transcribed in Markdown",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa098dfa69db1ace1/tmp/DeepPaperNote/assets/DC_WAM_Dynamic_Centric_Visual_Supervision_and_Reasoning_for_World_Action_Models/images/page_006_fig_table_1.png",
+      "materialization_status": "not_materialized"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Real-world success rate (%). All methods are trained",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "images/page_007_fig_table_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Ablation of dynamics-aware attention bias.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate; values transcribed in Markdown",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_007_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa098dfa69db1ace1/tmp/DeepPaperNote/assets/DC_WAM_Dynamic_Centric_Visual_Supervision_and_Reasoning_for_World_Action_Models/images/page_007_fig_table_4.png",
+      "materialization_status": "not_materialized"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation of dense and sparse dynamic supervi-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_007_fig_table_3.png)",
+      "source_image_path": "images/page_007_fig_table_3.png",
+      "materialization_status": "materialized"
+    }
+  ],
+  "summary": {
+    "total_items": 9,
+    "by_decision": {
+      "insert": 7,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

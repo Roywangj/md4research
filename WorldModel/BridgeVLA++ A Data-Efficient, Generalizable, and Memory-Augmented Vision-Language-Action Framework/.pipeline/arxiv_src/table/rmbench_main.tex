@@ -1,0 +1,45 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Results on RMBench.}
+Success rates (\%) over 100 episodes per task on the nine dual-arm
+RMBench tasks~\cite{chen2026rmbench}, grouped by task memory
+complexity.
+Baseline numbers are quoted
+from~\cite{chen2026rmbench,yang2026memorywam,yang2026wla}, with group
+averages recomputed from per-task results where a source reports none.
+Best result per task in bold; ``--'' denotes tasks not evaluated by the
+source.}
+\label{tab:rmbench_main}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l c cccccc ccccc}
+\toprule
+& & \multicolumn{6}{c}{\textbf{$M(1)$ tasks}}
+& \multicolumn{5}{c}{\textbf{$M(n)$ tasks}} \\
+\cmidrule(lr){3-8} \cmidrule(lr){9-13}
+& \textbf{Overall}
+& \textbf{Observe \&} & \textbf{Rearrange} & \textbf{Put Back} & \textbf{Swap} & \textbf{Swap} &
+& \textbf{Battery} & \textbf{Blocks} & \textbf{Cover} & \textbf{Press} & \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{Avg.}
+& \textbf{Pick Up} & \textbf{Blocks} & \textbf{Block} & \textbf{Blocks} & \textbf{T} & \multirow{-2}{*}{\textbf{\textit{Avg.}}}
+& \textbf{Try} & \textbf{Ranking Try} & \textbf{Blocks} & \textbf{Button} & \multirow{-2}{*}{\textbf{\textit{Avg.}}} \\
+\midrule
+DP~\cite{chi2024diffusionpolicy}        & 5.8  & 1  & 0   & 0   & 11  & 20 & 6.4  & 10 & 10  & 0  & 0  & 5.0  \\
+ACT~\cite{zhao2023learning}             & 5.9  & 1  & 29  & 0   & 2   & 2  & 6.8  & 19 & 0   & 0  & 0  & 4.8  \\
+$\pi_{0.5}$~\cite{intelligence2025pi_}  & 10.4 & 9  & 13  & 11  & 24  & 15 & 14.4 & 16 & 6   & 0  & 0  & 5.5  \\
+X-VLA~\cite{zheng2025xvla}              & 9.8  & 9  & 13  & 18  & 16  & 3  & 11.8 & 26 & 1   & 2  & 0  & 7.3  \\
+Mem-0~\cite{chen2026rmbench}            & 42.0 & 4  & 89  & 90  & 67  & 14 & 52.8 & 28 & 18  & 68 & 0  & 28.5 \\
+Fast-WAM~\cite{yuan2026fastwam}         & 5.9  & 0  & 0   & 0   & 0   & 7  & 1.4  & 20 & 26  & 0  & 0  & 11.5 \\
+LingBot-VA~\cite{li2026lingbotva}       & 78.2 & 13 & \textbf{100} & \textbf{100} & 99  & 88 & 80.0 & 41 & \textbf{100} & 79 & 84 & 76.0 \\
+MemoryWAM~\cite{yang2026memorywam}      & 83.0 & 27 & \textbf{100} & \textbf{100} & \textbf{100} & 94 & 84.2 & 41 & \textbf{100} & 98 & 87 & 81.5 \\
+\midrule
+\textbf{\method\ (ours)}                & 18.9 & 75 & 0   & 1   & 11 & 8  & 19.0 & 72 & 0   & 3  & 0  & 18.8 \\
+\textbf{\memmethod\ (ours)}             & \textbf{96.0} & \textbf{81} & \textbf{100} & \textbf{100} & 99 & \textbf{96} & \textbf{95.2} & \textbf{96} & \textbf{100} & \textbf{99} & \textbf{93} & \textbf{97.0} \\
+\bottomrule
+\end{tabular}
+\end{table*}

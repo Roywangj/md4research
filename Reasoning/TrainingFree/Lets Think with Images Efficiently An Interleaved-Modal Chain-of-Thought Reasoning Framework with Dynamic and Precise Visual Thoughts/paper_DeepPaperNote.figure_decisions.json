@@ -1,0 +1,213 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2603.21754",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "(a) Current ICoT: While supporting multimodal",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "visual_defect",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_001_fig_figure_1.png"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "An overview of Interleaved-modal Chain-of-Thought reasoning with Dynamic and Precise Visual Thoughts (DAP-",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_003_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Ablation Study on Qwen2-VL-7B: “w/o PVTG”",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methods",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_005_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_005_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "A comparison of the total token consumption be-",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methods",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_005_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_005_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "A comparison of image insertion frequency and",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_006_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_006_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "The proportion of samples where the confidence",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_006_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_006_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_006_fig_figure_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Performance comparison across the Confidence",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_006_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_006_fig_figure_7.png"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "The case study. Figure (a) illustrates the reasoning process of the current ICoT, where after each reasoning step, it",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_007_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_007_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_007_fig_figure_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "The main experimental results. Bold indicates the best performance. For the M3CoT and ScienceQA, Acc. is used as",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:analysis",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_004_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_004_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Lets_Think_with_Images_Efficiently_An_Interleaved_Modal_Chain_of_Thought_Reasoning_Framework_with_Dynamic_and_Precise_Visual_Thoughts/images/page_004_fig_table_1.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 9,
+    "by_decision": {
+      "insert": 7,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

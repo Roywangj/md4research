@@ -1,0 +1,92 @@
+Video-DeepResearch: Towards the Next-Generation Multimodal
+Deepresearch Agent
+Video-Deepresearch Team
+fazii@mail.ustc.edu.cn, wxhuang0616@gmail.com
+https://github.com/Osilly/Vision-DeepResearch
+Abstract
+We introduce Video-DeepResearch (Video-
+DR), extending multimodal agents from static
+images to continuous video streams, a setting
+that demands dense spatiotemporal ground-
+ing coupled with open-web exploration. Pre-
+liminary evaluations reveal two critical bottle-
+necks in current models: (1) modality bias,
+where agents bypass visual tools in favor of
+textual search, and (2) parametric knowledge
+leakage, where models rely on internal mem-
+ory rather than genuine tool-augmented execu-
+tion. To address these challenges, we propose
+VIDEO-DEEPRESEARCH, featuring a decou-
+pled perception-exploration pipeline with stage-
+wise tool unlocking that compels exhaustive
+cross-frame visual grounding prior to web re-
+trieval. Our framework adopts a two-stage train-
+ing recipe—supervised fine-tuning followed by
+Group Relative Policy Optimization (GRPO)—
+enabling autonomous exploration that breaks
+the imitation-learning ceiling. Furthermore, we
+curate VIDEODR-BENCH, a human-AI collab-
+orative benchmark comprising 200 complex,
+multi-hop VQA instances. Empirical results
+demonstrate that our Video-DeepResearch-
+35B-A3B establishes a new state-of-the-art of
+64.0% average accuracy, surpassing proprietary
+Claude-4.5-Sonnet (59.0%) by 5.0 points and
+significantly outperforming GPT-5 (52.5%) and
+Gemini 2.5 Pro (57.5%). The 30B-A3B variant
+achieves 59.3%, competitive with Claude-4.5-
+Sonnet and demonstrating the effectiveness of
+our training paradigm even at compact scale.
+1
+Introduction
+Executing long-horizon tasks through active inter-
+action marks a critical milestone in the pursuit of
+AGI, a capability epitomized by the recent rise of
+deep research agents (Li et al., 2025b; Wu et al.,
+2025a; Tao et al., 2025). Leveraging advanced
+VLMs (Bai et al., 2025; Team, 2026; Comanici
+et al., 2025), research agents have advanced into un-
+structured, vision-rich digital wildernesses (Chen
+et al., 2026; Huang et al., 2026; Ma et al., 2025;
+Wu et al., 2025b; Feng et al., 2026). This transition
+shifts the agent’s workload from processing clean
+textual inputs to decoupling critical insights from
+noisy, heavily redundant multimedia web layouts,
+redefining the complexity of autonomous explo-
+ration.
+Previous literature addressing these challenges
+generally tracks a multi-modal trajectory. Text-
+based web agents, notably WebGPT (Nakano et al.,
+2021) and AutoGPT (Yang et al., 2023), established
+the foundations of iterative knowledge synthesis
+through programmatic search. To accommodate
+rich visual layouts, subsequent paradigms shifted
+toward sensory interfaces; frameworks like Web-
+Watcher (Geng et al., 2025) introduced various
+vision tools for better search, and recent Vision-
+DeepResearch (Huang et al., 2026) expanded this
+frontier to execute multi-step, exhaustive search
+across highly dense and complex visual contexts.
+Despite these advances,
+current literature
+bypasses an ecologically valid yet far more
+formidable setting: Video-DeepResearch (Video-
+DR). This paradigm shifts the focus from iso-
+lated modalities to a holistic environment where
+text-based synthesis and dense visual tracking are
+deeply intertwined, fundamentally redefining the
+cognitive workload of autonomous agents. Pioneer-
+ing this Video-DR frontier entails two fundamen-
+tal bottlenecks that existing methodologies fail to
+address. First, on the data synthesis front, it re-
+mains largely elusive how to construct effective
+training pipelines that align with the intrinsic prop-
+erties of video-based deep research. Conventional
+video datasets focus on localized captions or short-
+term action labels; conversely, Video-DR requires
+generative data curation that couples long-horizon
+decision trajectories with dense, time-varying tex-
+tual and visual evidence. Second, from an evalua-
+tion perspective, establishing a rigorous and high-
+fidelity benchmark presents a formidable challenge.
+arXiv:2608.03979v1  [cs.CV]  4 Aug 2026

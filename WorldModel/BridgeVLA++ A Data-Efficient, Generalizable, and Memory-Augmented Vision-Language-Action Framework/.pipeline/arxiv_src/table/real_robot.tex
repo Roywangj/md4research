@@ -1,0 +1,51 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Real-Robot Results on Franka in the Basic Setting.}
+Success counts on the 13 real-robot tasks; all evaluations are our
+own, with 10 trials per task per method
+(Appendix~\ref{app:eval_protocol}).
+All methods are trained with 10 demonstrations per task, except
+SpatialVLA~(50 demos) and the \method~(3 demos) reference row; ACT is
+trained single-task, as it is not language-conditioned.
+Best result per column in bold (the 3-demonstration row is excluded
+from the comparison).}
+\label{tab:real_robot}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{l*{7}{c}}
+\toprule
+& \textbf{Avg.} & \textbf{Soda Can} & \textbf{Giraffe} & \textbf{Red Block} & \textbf{Press} & \textbf{RedBull} & \textbf{RedBull} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{SR (\%) $\uparrow$} & \textbf{Bottom Shelf} & \textbf{Lower Drawer} & \textbf{Blue Plate} & \textbf{Sanitizer} & \textbf{Top Shelf} & \textbf{Bottom Shelf} \\
+\midrule
+SpatialVLA~(50)~\cite{qu2025spatialvla} & 28.5 & 1/10 & 1/10 & 5/10 & 6/10 & 3/10 & 1/10 \\
+SpatialVLA~(10)~\cite{qu2025spatialvla} & 3.1  & 0/10 & 0/10 & 0/10 & 2/10 & 0/10 & 0/10 \\
+$\pi_{0.5}$~\cite{intelligence2025pi_}            & 20.0 & 2/10 & 1/10 & 4/10 & 4/10 & 1/10 & 1/10 \\
+ACT~\cite{zhao2023learning}             & 21.5 & 2/10 & 2/10 & 3/10 & 2/10 & 3/10 & 1/10 \\
+RVT-2~\cite{goyal2024rvt}               & 90.0   & \textbf{10/10} & 8/10 & 8/10 & \textbf{10/10} & 9/10 & \textbf{10/10} \\
+\midrule
+\method~(3 demos) & 95.4 & 9/10 & 10/10 & 10/10 & 10/10 & 9/10 & 10/10 \\
+\textbf{\method} & \textbf{96.9} & 9/10 & \textbf{9/10} & \textbf{10/10} & \textbf{10/10} & \textbf{10/10} & \textbf{10/10} \\
+\bottomrule
+\addlinespace[5pt]
+& \textbf{Coke} & \textbf{Orange Block} & \textbf{Red Block} & \textbf{Yellow Block} & \textbf{Zebra} & \textbf{Zebra} & \textbf{Wolf} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{Top Shelf} & \textbf{Green Plate} & \textbf{Purple Plate} & \textbf{Green Plate} & \textbf{Upper Drawer} & \textbf{Lower Drawer} & \textbf{Upper Drawer} \\
+\midrule
+SpatialVLA~(50)~\cite{qu2025spatialvla} & 2/10 & 6/10 & 3/10 & 5/10 & 2/10 & 0/10 & 2/10 \\
+SpatialVLA~(10)~\cite{qu2025spatialvla} & 0/10 & 1/10 & 1/10 & 0/10 & 0/10 & 0/10 & 0/10 \\
+$\pi_{0.5}$~\cite{intelligence2025pi_}           & 2/10 & 4/10 & 3/10 & 3/10 & 0/10 & 0/10 & 1/10 \\
+ACT~\cite{zhao2023learning}             & 2/10 & 2/10 & 3/10 & 4/10 & 1/10 & 2/10 & 1/10 \\
+RVT-2~\cite{goyal2024rvt}               & \textbf{10/10} & \textbf{10/10} & 9/10 & 9/10 & 7/10 & 8/10 & \textbf{9/10} \\
+\midrule
+\method~(3 demos) & 10/10 & 10/10 & 10/10 & 10/10 & 9/10 & 10/10 & 7/10 \\
+\textbf{\method} & \textbf{10/10} & \textbf{10/10} & \textbf{10/10} & \textbf{10/10} & \textbf{9/10} & \textbf{10/10} & \textbf{9/10} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

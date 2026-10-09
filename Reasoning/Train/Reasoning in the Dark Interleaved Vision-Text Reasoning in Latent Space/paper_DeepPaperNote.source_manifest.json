@@ -1,0 +1,621 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2510.12603",
+  "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EAWWASN8/Chen 等 - 2026 - Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space.pdf",
+    "total_pages": 12,
+    "text_pages_extracted": 12,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 12,
+    "text_max_pages": null,
+    "text_pages_extracted": 12,
+    "text_pages_scanned": 12,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 6,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 346,
+      "text_hash_sha256": "67fceff137691420c82801a905091b1ca8b0b62d32458d93d41f5863ccb9119f"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1467,
+      "text_hash_sha256": "9c86a19f3d030e9daee49309993357741603870f2717222fc26547b16e705669"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 5114,
+      "text_hash_sha256": "47f2ee30294bdfd51324da92c00fdf4b9a37aca2e0836c39833bdec624c8c411"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2 Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 3922,
+      "text_hash_sha256": "c8b6816e1d4f669b83d6c92fc9a6b76e3e47d69e1ec20cc06b9282e07bc72f64"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "3 Method",
+      "page_start": 3,
+      "page_end": 6,
+      "char_count": 6844,
+      "text_hash_sha256": "d4c6529341b4762efb727fc10f8eba1aa0670cbefc571f825f3d256ed0efb199"
+    },
+    {
+      "section_id": "sec:methods",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 1148,
+      "text_hash_sha256": "ee043d48403cb58012390d7c983baf43e40f3f3f12c770c069b14a2c1855d078"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "4 Experiments",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 1217,
+      "text_hash_sha256": "017f50010c46b5596573ca112f9c4edf1d729199a6c764e03b6c3b044828586a"
+    },
+    {
+      "section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with",
+      "kind": "appendix",
+      "title": "Appendix A) , a batch size of four, and train with",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 2792,
+      "text_hash_sha256": "59f56816732b2b6979ad9c7244d0c86c846dc625ad68b2dc7e268de10de12437"
+    },
+    {
+      "section_id": "sec:methods-2",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 7,
+      "page_end": 9,
+      "char_count": 7456,
+      "text_hash_sha256": "6db3691a8156d545324bcb86a4eb4e2d93ed7cbbb36fd90eac898cff7c41b73f"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "5 Conclusion",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 1332,
+      "text_hash_sha256": "631e7a95231fcd25acdb49b3eccf033e9c199df4834836faaeb27d34d8f5cf52"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 1467,
+      "text_hash_sha256": "70a4d03a5ee5be74b3d731cca3bcffa27cf38446cdfd987ca8040d9da02d135c"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "models.",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 1496,
+      "text_hash_sha256": "6f8bef6c3d4d6b1a424c3678eabe3aba1ca596cbb6cd9a1fc45c17cd768fe5a6"
+    },
+    {
+      "section_id": "sec:models-2",
+      "kind": "method",
+      "title": "models.",
+      "page_start": 10,
+      "page_end": 12,
+      "char_count": 7437,
+      "text_hash_sha256": "6154afd6dd7f85cbb7ddf20f4164b0edac1398a380dc4696e4ffd691c331f36f"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3733,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3485,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4443,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3044,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2997,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3023,
+      "section_ids": [
+        "sec:method",
+        "sec:methods",
+        "sec:experiments",
+        "sec:appendix-a-a-batch-size-of-four-and-train-with"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4449,
+      "section_ids": [
+        "sec:appendix-a-a-batch-size-of-four-and-train-with",
+        "sec:methods-2"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3700,
+      "section_ids": [
+        "sec:methods-2"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4206,
+      "section_ids": [
+        "sec:methods-2",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4933,
+      "section_ids": [
+        "sec:references",
+        "sec:models",
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 2800,
+      "section_ids": [
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 1493,
+      "section_ids": [
+        "sec:models-2"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "An example of interleaved vision-text latent",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "IVT-LR",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Accuracy comparison of IVT-LR on the length",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Attention analysis comparison between explicit",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Accuracy on M3CoT across different latent rea-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:methods-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "and 5 illustrates examples of consolidated",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:models-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "An example of consolidated rationales for clarity.",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Another example of consolidated rationales for clarity.",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "[19] introduces learnable <pause> tokens, giving",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "et al. [20] uses <plan> tokens to guide reasoning.",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "X = (x1, . . . , xI) and a set of visual embeddings",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Z = (z1, . . . , zJ) from a visual encoder, a standard",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "1:t = g(x1:t) ∈Rt×d,",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "= f (etext",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "1:t , Z) ∈Rd,",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "M(xt+1 | x1:t, Z) = softmax(W · efused",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "visual fatures, and W ∈R|V|×d is trained to project",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Et = [e1, . . . , eN, hlatent",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "= f (Et), which is projected through",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "M(xt+1 | Et) = softmax(W · efused",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "1: Input: Text input embeddings E = [e1, . . . , eI],",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Image input embeddings Z = [z1, . . . , zJ], Whole",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "input embeddings Q = E + Z = [q1, . . . , qm],",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Latent step positions L = [l1, . . . , lN], Number of",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "2: for i = 1 to N do",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "for n > i",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "denoted by the special token <latent>, beginning",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "same number of <latent> tokens are appended after",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "R =",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "j∈I Attn(Ej)",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "i∈T Attn(Ei),",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "H = −",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "pk =",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "F =",
+      "section_id": "sec:methods-2",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "A.1 Rationale for N = 4 Training Stages",
+      "section_id": "sec:models-2",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "steps (N −1 = 3). This design choice is not arbitrary;",
+      "section_id": "sec:models-2",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "distinct subtask. Therefore, setting N = 4 (three rea-",
+      "section_id": "sec:models-2",
+      "page_start": 10,
+      "page_end": 12
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 6,
+    "sections": [
+      {
+        "title": "a M3CoT",
+        "page": 8
+      },
+      {
+        "title": "b ScienceQA",
+        "page": 8
+      },
+      {
+        "title": "H = −",
+        "page": 8
+      },
+      {
+        "title": "m Attn(Em),",
+        "page": 8
+      },
+      {
+        "title": "A Training Data Construction",
+        "page": 11
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 4",
+        "caption": "Accuracy comparison of IVT-LR on the length",
+        "page_hint": "p.8"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Attention analysis comparison between explicit",
+        "page_hint": "p.9"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+        "page_hint": "p.12"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 1",
+        "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+        "page_hint": "p.6"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+        "page_hint": "p.7"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Accuracy on M3CoT across different latent rea-",
+        "page_hint": "p.8"
+      },
+      {
+        "id": "Table 4",
+        "caption": "and 5 illustrates examples of consolidated",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Table 4",
+        "caption": "An example of consolidated rationales for clarity.",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Another example of consolidated rationales for clarity.",
+        "page_hint": "p.12"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "1669b319d8720f0d6179ad00fb8f0c7a1a85b1ebf1d963aa34c2463e0933e1e2"
+}

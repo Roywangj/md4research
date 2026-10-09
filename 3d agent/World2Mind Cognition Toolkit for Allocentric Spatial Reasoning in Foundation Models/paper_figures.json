@@ -1,0 +1,1135 @@
+{
+  "status": "ok",
+  "script": "plan_figures.py",
+  "paper_id": "arxiv:2603.09774",
+  "figure_plan": {
+    "paper_id": "arxiv:2603.09774",
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview of foundation models performing allocentric spatial reasoning via the proposed World2Mind toolkit. Given ego-",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+          "width": 1397,
+          "height": 717,
+          "size_bytes": 407314,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.267952,
+            "visual_rect_count": 64,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 780,
+            "table_body_rows": 0,
+            "caption_text_chars": 773,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "foundation",
+              "models",
+              "performing",
+              "allocentric",
+              "spatial"
+            ],
+            "snippet": "This section details the technical overview of the proposed world2mind, as illustrated in Fig. 1 2.1. Geometry-Semantic Alignment Pipeline Given an egocentric video sequence or multi-vie",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 80,
+                "height": 80,
+                "size_bytes": 4320
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 4718
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 5056
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1397,
+                "height": 717,
+                "size_bytes": 407314,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.267952,
+                  "visual_rect_count": 64,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 780,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 773,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "models",
+              "allocentric",
+              "spatial"
+            ],
+            "snippet": "Table 1. Main results on the VSI-Bench [34] benchmark (Tiny subset). Models Avg. Numerical Answer (%) Multiple-Choice Answer (%) Obj. Count Abs. Dist. Obj. Size Room",
+            "images": [
+              {
+                "filename": "page_003_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_003_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_003_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+                "width": 1402,
+                "height": 310,
+                "size_bytes": 57528,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.116407,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.097512,
+                  "paragraph_text_chars": 288,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 68,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_003_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+                "width": 689,
+                "height": 267,
+                "size_bytes": 35212,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.049247,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.115165,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "foundation",
+              "models",
+              "allocentric",
+              "spatial"
+            ],
+            "snippet": "(“blind”) setting. we report the performance gap on the VSI- Bench (Tiny subset) between foundation models relying solely on commonsense reasoning and those leveraging world2mind to ac- qui",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_01.jpeg",
+                "width": 128,
+                "height": 128,
+                "size_bytes": 4516
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_02.png",
+                "width": 40,
+                "height": 40,
+                "size_bytes": 106
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_03.jpeg",
+                "width": 294,
+                "height": 224,
+                "size_bytes": 25453
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+                "width": 1385,
+                "height": 468,
+                "size_bytes": 271662,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.173747,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 306,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Performance comparison under the text-only model",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_figure_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+          "width": 1385,
+          "height": 468,
+          "size_bytes": 271662,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.173747,
+            "visual_rect_count": 25,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 1703,
+            "table_body_rows": 0,
+            "caption_text_chars": 306,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "fig. 2",
+              "performance",
+              "comparison",
+              "under",
+              "text-only",
+              "model"
+            ],
+            "snippet": "s, we follow [34] to conduct ablation studies under the text- only (“blind”) setting (see Fig. 2). When visual image in- puts are completely stripped away, foundation models that rely so",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_01.jpeg",
+                "width": 128,
+                "height": 128,
+                "size_bytes": 4516
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_02.png",
+                "width": 40,
+                "height": 40,
+                "size_bytes": 106
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_03.jpeg",
+                "width": 294,
+                "height": 224,
+                "size_bytes": 25453
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+                "width": 1385,
+                "height": 468,
+                "size_bytes": 271662,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.173747,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 306,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "performance",
+              "text-only",
+              "model"
+            ],
+            "snippet": "ons across various spatial reasoning benchmarks demonstrate that World2Mind yields stable performance improvements of 6%–18% for frontier mod- els like GPT-5.2, while maintaining exceptional",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 80,
+                "height": 80,
+                "size_bytes": 4320
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 4718
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 5056
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1397,
+                "height": 717,
+                "size_bytes": 407314,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.267952,
+                  "visual_rect_count": 64,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 780,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 773,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 1,
+            "matched_terms": [
+              "model"
+            ],
+            "snippet": "Table 1. Main results on the VSI-Bench [34] benchmark (Tiny subset). Models Avg. Numerical Answer (%) Multiple-Choice Answer (%) Obj. Count Abs. Dist. Obj. Size Roo",
+            "images": [
+              {
+                "filename": "page_003_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_003_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_003_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+                "width": 1402,
+                "height": 310,
+                "size_bytes": 57528,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.116407,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.097512,
+                  "paragraph_text_chars": 288,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 68,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_003_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+                "width": 689,
+                "height": 267,
+                "size_bytes": 35212,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.049247,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.115165,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Main results on the VSI-Bench [34] benchmark (Tiny subset).",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_003_fig_table_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+          "width": 1402,
+          "height": 310,
+          "size_bytes": 57528,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.116407,
+            "visual_rect_count": 5,
+            "visual_body_ratio": 0.097512,
+            "paragraph_text_chars": 288,
+            "table_body_rows": 6,
+            "caption_text_chars": 68,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 3,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "main",
+              "vsi-bench",
+              "benchmark",
+              "tiny",
+              "subset"
+            ],
+            "snippet": "Table 1. Main results on the VSI-Bench [34] benchmark (Tiny subset). Models Avg. Numerical Answer",
+            "images": [
+              {
+                "filename": "page_003_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_003_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_003_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+                "width": 1402,
+                "height": 310,
+                "size_bytes": 57528,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.116407,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.097512,
+                  "paragraph_text_chars": 288,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 68,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_003_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+                "width": 689,
+                "height": 267,
+                "size_bytes": 35212,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.049247,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.115165,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "main",
+              "vsi-bench",
+              "benchmark",
+              "tiny",
+              "subset"
+            ],
+            "snippet": "i, given their exceptional proficiency in tool invocation and instruction-following. 3.2. Main Results and Analysis Evaluation on VSI-Bench. As shown in Tab. 1, the seam- less integrat",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_01.jpeg",
+                "width": 128,
+                "height": 128,
+                "size_bytes": 4516
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_02.png",
+                "width": 40,
+                "height": 40,
+                "size_bytes": 106
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_03.jpeg",
+                "width": 294,
+                "height": 224,
+                "size_bytes": 25453
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+                "width": 1385,
+                "height": 468,
+                "size_bytes": 271662,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.173747,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 306,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "main",
+              "benchmark"
+            ],
+            "snippet": "ields stable performance improvements of 6%–18% for frontier mod- els like GPT-5.2, while maintaining exceptional efficiency and reasoning interpretability. Astonishingly, leveraging t",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 80,
+                "height": 80,
+                "size_bytes": 4320
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 4718
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 5056
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1397,
+                "height": 717,
+                "size_bytes": 407314,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.267952,
+                  "visual_rect_count": 64,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 780,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 773,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on the MindCube-Tiny [18] benchmark.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_003_fig_table_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+          "width": 689,
+          "height": 267,
+          "size_bytes": 35212,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.049247,
+            "visual_rect_count": 5,
+            "visual_body_ratio": 0.115165,
+            "paragraph_text_chars": 128,
+            "table_body_rows": 5,
+            "caption_text_chars": 53,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 3,
+            "score": 7,
+            "matched_terms": [
+              "table 2",
+              "mindcube-tiny",
+              "benchmark"
+            ],
+            "snippet": ".1) 36.8 (↑4.7) 57.7 (↓13.5) 62.6 (↑7.6) 62.0 (↑8.0) 67.7 (↑22.9) 65.3 (↑8.2) 83.7 (↑4.1) Table 2. Results on the MindCube-Tiny [18] benchmark. Models Avg. Around Among Rotation Frontier",
+            "images": [
+              {
+                "filename": "page_003_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_003_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_003_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+                "width": 1402,
+                "height": 310,
+                "size_bytes": 57528,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.116407,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.097512,
+                  "paragraph_text_chars": 288,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 68,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_003_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+                "width": 689,
+                "height": 267,
+                "size_bytes": 35212,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.049247,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.115165,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "benchmark"
+            ],
+            "snippet": "yield reliable spatial decisions. Extensive evaluations across various spatial reasoning benchmarks demonstrate that World2Mind yields stable performance improvements of 6%–18% for frontie",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 80,
+                "height": 80,
+                "size_bytes": 4320
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 4718
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 5056
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1397,
+                "height": 717,
+                "size_bytes": 407314,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.267952,
+                  "visual_rect_count": 64,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 780,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 773,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 1,
+            "matched_terms": [
+              "benchmark"
+            ],
+            "snippet": "ent 3.1. Experimental Setup We conduct evaluations on two challenging spatial reason- ing benchmarks: VSI-Bench [34], which focuses on video- based reasoning in real-world physical scenes,",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_01.jpeg",
+                "width": 128,
+                "height": 128,
+                "size_bytes": 4516
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_02.png",
+                "width": 40,
+                "height": 40,
+                "size_bytes": 106
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_03.jpeg",
+                "width": 294,
+                "height": 224,
+                "size_bytes": 25453
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+                "width": 1385,
+                "height": 468,
+                "size_bytes": 271662,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.173747,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 306,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Complete reasoning trace under World2Mind.",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "figure 3",
+              "complete",
+              "reasoning",
+              "trace",
+              "under",
+              "world"
+            ],
+            "snippet": "ith smaller vertical extent, so I trust chair_02. Final Answer: 95 cm GPT-5.2 Tool Result Figure 3. Complete reasoning trace under World2Mind. els. Specifically, GPT-5.2 achieves a 7.3% im",
+            "images": [
+              {
+                "filename": "page_004_img_01.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_01.jpeg",
+                "width": 128,
+                "height": 128,
+                "size_bytes": 4516
+              },
+              {
+                "filename": "page_004_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_02.png",
+                "width": 40,
+                "height": 40,
+                "size_bytes": 106
+              },
+              {
+                "filename": "page_004_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_img_03.jpeg",
+                "width": 294,
+                "height": 224,
+                "size_bytes": 25453
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+                "width": 1385,
+                "height": 468,
+                "size_bytes": 271662,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.173747,
+                  "visual_rect_count": 25,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1703,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 306,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "reasoning",
+              "trace",
+              "world"
+            ],
+            "snippet": "istance between the door and the telephone (in meters)? ” Step1: Tool Invocation Judgment Reasoning Trace Step2: Modality-Decoupled Cue Collection Visual Clues: From the visual input, I can",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 80,
+                "height": 80,
+                "size_bytes": 4320
+              },
+              {
+                "filename": "page_002_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 4718
+              },
+              {
+                "filename": "page_002_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.jpeg",
+                "width": 120,
+                "height": 68,
+                "size_bytes": 5056
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1397,
+                "height": 717,
+                "size_bytes": 407314,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.267952,
+                  "visual_rect_count": 64,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 780,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 773,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 2,
+            "matched_terms": [
+              "reasoning",
+              "world"
+            ],
+            "snippet": "assability and the human observer’s motion trajectory. 2.3. Geometry-Semantics Interwoven Reasoning In physical scenarios, 2D visual observations are suscepti- ble to occlusions and adverse",
+            "images": [
+              {
+                "filename": "page_003_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_003_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_003_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+                "width": 1402,
+                "height": 310,
+                "size_bytes": 57528,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.116407,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.097512,
+                  "paragraph_text_chars": 288,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 68,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_003_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+                "width": 689,
+                "height": 267,
+                "size_bytes": 35212,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.049247,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.115165,
+                  "paragraph_text_chars": 128,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "page-proximity-and-caption-cues"
+      }
+    ]
+  }
+}

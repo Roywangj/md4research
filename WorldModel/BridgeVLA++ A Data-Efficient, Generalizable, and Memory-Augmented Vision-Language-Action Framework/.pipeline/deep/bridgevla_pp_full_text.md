@@ -1,0 +1,5756 @@
+# BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation
+
+## sec:preamble preamble
+_Pages 1-1_
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+BridgeVLA++: A Data-Efficient, Generalizable, and
+Memory-Augmented Vision-Language-Action
+Framework for 3D Manipulation
+Peiyan Li*, Yuze Zhu*, Yixiang Chen, Qisen Ma, Yuan Xu, Jiabing Yang, He Guan
+Yan Huang†, Hongtao Wu, Xiao Ma, Tao Kong, Liang Wang, Fellow, IEEE, Tieniu Tan, Fellow, IEEE
+Abstract—Leveraging
+pre-trained
+vision-language
+
+## sec:models models
+_Pages 1-1_
+
+(VLMs) to construct vision-language-action (VLA) models has
+emerged as a promising paradigm for 3D robot manipulation.
+However, existing 3D VLA methods remain data-hungry, exhibit
+limited generalization under distribution shifts, and lack explicit
+memory of past observations. These limitations hinder their
+application to data-scarce, open-world, and memory-dependent
+manipulation scenarios. Our previous work, BridgeVLA, im-
+proves data efficiency and generalization by preserving the
+input–output alignment of a pre-trained VLM during 3D action
+learning: raw point clouds are projected into multi-view images,
+and intermediate heatmaps are predicted before generating robot
+actions. In this work, we develop BridgeVLA++ by equipping
+BridgeVLA with a unified spatio-temporal memory architecture
+that models persistent spatial context and temporal interaction
+history. The resulting memory-augmented framework can reason
+over observation histories while preserving BridgeVLA’s data
+efficiency and generalization capabilities. Extensive experiments
+show that our framework achieves strong performance on spa-
+tial manipulation tasks while exhibiting robust generalization.
+BridgeVLA++ further achieves state-of-the-art performance on
+two challenging memory-dependent manipulation benchmarks
+without sacrificing the data efficiency and generalization of
+the original BridgeVLA. In addition, BridgeVLA++ performs
+effectively in bimanual manipulation settings and is validated
+on an additional real-world robotic platform, demonstrating its
+scalability across tasks, environments, and robotic platforms.
+These results establish BridgeVLA++ as a unified 3D vision-
+language-action framework that simultaneously supports data-
+efficient learning, robust generalization, and effective memory-
+aware robot manipulation.1
+Index Terms—Vision-language-action models, 3D Manipula-
+tion Learning, Memory-Augmented Policies.
+
+## sec:introduction I. INTRODUCTION
+_Pages 1-1_
+
+EVERAGING
+pre-trained
+vision-language
+
+## sec:models-2 models
+_Pages 1-1_
+
+(VLMs)
+construct
+vision-language-action
+(VLA)
+
+## sec:models-3 models
+_Pages 1-1_
+
+has
+become
+promising
+
+## sec:approach approach
+_Pages 1-2_
+
+learning
+* Equal Contribution.
+† Corresponding Author.
+Peiyan Li, Yuze Zhu, Yixiang Chen, Qisen Ma, Yuan Xu, Jiabing Yang, Yan
+Huang, Liang Wang and Tieniu Tan are with the New Laboratory of Pattern
+Recognition (NLPR), Institute of Automation, Chinese Academy of Sciences,
+Beijing, China, and with the School of Artificial Intelligence, University of
+Chinese Academy of Sciences, Beijing, China.
+He Guan is with FiveAges, Beijing, China. Yan Huang is also with
+FiveAges.
+Hongtao Wu, Xiao Ma, and Tao Kong contribute to this work when they
+were with ByteDance Seed.
+1Project website: https://bridgevla-plus.github.io/.
+generalizable and robust robot manipulation policies [1]–
+[5]. However, most VLA models operate on 2D images
+and require large amounts of robot data. In contrast, 3D
+manipulation policies exploit geometric structure and achieve
+higher sample efficiency [6]–[10]. This raises a question: can
+a unified 3D VLA model combine the semantic generalization
+of pre-trained VLMs with the geometric efficiency of 3D
+manipulation policies?
+Existing attempts to build 3D VLAs do not fully resolve
+this challenge [11], [12]. Many methods encode actions as
+token sequences and predict them autoregressively, thereby
+discarding the spatial correspondence between 3D observa-
+tions and actions that underlies the efficiency of prior 3D
+policies. Moreover, introducing 3D inputs into a VLM creates
+a modality gap from its 2D image pre-training. The resulting
+misalignment limits both the transfer of VLM priors and the
+exploitation of explicit 3D structure.
+Beyond data efficiency and generalization, memory presents
+an additional challenge. Most VLA and 3D manipulation poli-
+cies predict each action primarily from the current observation.
+They therefore struggle when the correct action depends on
+previous interactions or when task-relevant geometry observed
+earlier becomes occluded during execution. A capable 3D
+VLA should retain both temporal task context and persistent
+spatial information while preserving its original data efficiency
+and generalization ability.
+To address the first two challenges, our previous work
+introduced BridgeVLA, a 3D VLA framework based on input–
+output alignment. BridgeVLA projects point-cloud observa-
+tions into multi-view orthographic images [9], [10] and pro-
+cesses them with a pre-trained VLM. Instead of predicting
+actions as tokens, it predicts a 2D translational heatmap for
+each view and back-projects the heatmap maxima into a 3D
+end-effector position. A scalable object-grounding pre-training
+stage further teaches the VLM to predict language-conditioned
+heatmaps before robot-policy fine-tuning. As a result, both pre-
+training and downstream manipulation are performed in the
+same 2D visual-localization space, enabling data-efficient and
+generalizable 3D action learning.
+In this article, we extend BridgeVLA into BridgeVLA++
+by introducing a unified spatio-temporal memory architecture.
+The temporal memory maintains selected historical obser-
+vations, allowing the policy to distinguish visually similar
+situations occurring at different task stages and to determine
+what to do next. The spatial memory preserves geometric
+arXiv:2608.05042v1 [cs.RO] 5 Aug 2026
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Prev. SOTA
+Ours
+2D Finetune
+2D Pretrain
+Real World
+Simulation
+BridgeVLA++
+Heatmap
+Images
+Instructions
+Projection
+3D actions
+Our framework
+VLM
+BridgeVLA++
+...
+"Find all
+instances
+of frock"
+...
+...
+“Put the ring
+on the maroon
+spoke"
+...
+...
+Reshape & Upsample
+...
+...
+Reshape & Upsample
+3D Actions
+Real-World Generalization with ≤ 10 Trajectories
+
+## sec:background Background
+_Pages 2-3_
+
+Lighting
+Distractor
+Combination
+Height
+Previous framework
+VLM
+Previous
+3D-VLA
+...
+...
+...
+Language
+...
+...
+...
+3D Actions
+...
+...
+...
+...
+3D info
+Text
+Token
+2D Image
+Token
+3D Scene
+Token
+1D Feature
+Token
+"Find all
+instances
+of frock"
+“Put the ring
+on the maroon
+spoke"
+>>>>
+>>>>
+>>>>
+>>>>
+...
+51.1
+RMBench
+MemoryBench
+RLBench
+COLOSSEUM
+GemBench
+93.7
+96.0
+99.7
+65.2
+83.0
+86.8
+94.3
+48.0
+56.7
+Category
+Fig. 1. Overview. BridgeVLA is a 3D VLA framework that aligns its inputs and outputs in a unified 2D image space. It is pre-trained on object grounding using
+2D heatmaps and fine-tuned on action prediction for 3D manipulation. BridgeVLA++ extends BridgeVLA with a unified spatio-temporal memory architecture
+in which temporal memory preserves interaction history to determine what to do next, whereas spatial memory restores previously observed geometry to
+determine where exactly to act. Experiments in both simulated and real-world settings demonstrate that BridgeVLA++ effectively handles memory-dependent
+and memory-free tasks while preserving BridgeVLA’s data efficiency and generalization capabilities.
+information from an earlier, less-occluded observation and re-
+renders the stored scene, recovering target regions that may
+be hidden by the robot or manipulated objects and helping
+the policy determine where exactly to act. Such scene-level
+memory representation can also be shared across two arms,
+enabling a natural extension to bimanual manipulation with a
+common backbone and arm-specific action heads.
+We evaluate BridgeVLA and BridgeVLA++ on five sim-
+ulation benchmarks. The original BridgeVLA achieves state-
+of-the-art performance on RLBench [13], COLOSSEUM [14],
+and GemBench [15], demonstrating strong sample efficiency
+and out-of-distribution generalization. With the proposed
+memory architecture, BridgeVLA++ establishes state-of-the-
+art results on two memory-dependent benchmarks, RMBench
+[16] and MemoryBench [17]. BridgeVLA++ matches or im-
+proves upon BridgeVLA on the original benchmarks, showing
+that memory-dependent reasoning is gained without sacrificing
+its original performance.
+We further validate the framework on two real-world robot
+embodiments, Franka Research 3 and Dobot CR5A, covering
+both memory-independent and memory-dependent tasks. On
+memory-independent tasks, BridgeVLA outperforms a strong
+baseline by 32% on average and remains robust under visual
+perturbations, unseen object categories, and unseen instruc-
+tions. On memory-dependent tasks, BridgeVLA++ improves
+the average success rate from 20.0% to 93.3% over Bridge-
+VLA. These results demonstrate that the proposed extension
+has cross-embodiment scalability while preserving the data
+efficiency and generalization ability of the original framework.
+The main contributions of this article are summarized as
+follows:
+• We present BridgeVLA, a data-efficient and generalizable
+3D VLA framework that aligns VLM pre-training and 3D
+manipulation learning in a shared 2D heatmap space.
+• We introduce a scalable language-conditioned heatmap
+pre-training
+strategy
+that
+transfers
+object-grounding
+knowledge to downstream robot action prediction.
+• We propose BridgeVLA++, a unified spatio-temporal
+memory architecture that combines temporal interaction
+history and persistent spatial information to determine
+both what to do next and where exactly to act.
+• We conduct extensive experiments on five simula-
+tion benchmarks and two real-world robot embodi-
+ments, demonstrating state-of-the-art performance, strong
+data efficiency and generalization, bimanual manipula-
+tion, effective memory-dependent reasoning, and cross-
+embodiment scalability.
+This article is an extension to our NeurIPS 2025 conference
+paper [18]. The major extensions are:
+• a unified spatio-temporal memory architecture that equips
+BridgeVLA with explicit memory-dependent reasoning;
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+• evaluation on two additional memory-dependent bench-
+marks, RMBench and MemoryBench;
+• an extension from single-arm to bimanual manipulation;
+• new real-world experiments on different embodiments
+and tasks, together with additional analyses showing that
+the memory extension preserves the data efficiency and
+generalization ability of the original framework.
+The remainder of this article is organized as follows. Sec. II
+reviews related work. Sec. III introduces the original Bridge-
+VLA framework, and Sec. IV presents the proposed Bridge-
+VLA++ architecture. Sec. V reports simulation and real-world
+experiments together with ablation studies. Finally, Sec. VI
+concludes the article. Implementation and evaluation details
+are provided in Appendices A–F, and the full experimental
+results in Appendices G–P.
+
+## sec:related-work II. RELATED WORK
+_Pages 3-4_
+
+A. Language-Conditioned Visuomotor Policies
+Most language-conditioned visuomotor policies employ
+transformers to process 2D visual inputs and directly gen-
+erate 3D actions for manipulation [1], [4], [5], [19], [20].
+Among these approaches, developing large vision-language-
+action (VLA) models, most often by leveraging pre-trained
+vision-language models (VLMs), has become increasingly
+popular because of their effectiveness in learning complex
+manipulation skills [1], [4], [5], [20]–[27]. However, such
+2D image-based policies typically require substantial data-
+collection effort, often relying on large trajectory datasets
+to generalize effectively across tasks [28]. In contrast, 3D
+manipulation policies have demonstrated strong potential for
+data-efficient learning by exploiting the spatial structure inher-
+ent in 3D observations. One line of work directly processes
+point clouds [7], [8], [15], [29]–[31]. For example, Act3D [8]
+constructs a 3D feature cloud by lifting image features onto
+the observed point cloud and predicts translational actions by
+classifying candidate 3D points in the workspace. Another
+line of work represents the observation space using voxels
+and predicts translational actions within the same voxel space,
+thereby aligning input observations and output actions in a
+shared spatial representation [6], [32]. More recently, RVT [9]
+and RVT-2 [10] leverage orthographic projections of 3D point
+clouds to convert 3D signals into 2D images, avoiding the
+high computational cost of directly processing native 3D rep-
+resentations. Unlike the above methods, our base framework,
+BridgeVLA, seeks to unify the semantic effectiveness of VLA
+models with the data efficiency of 3D manipulation policies
+within a single cohesive framework.
+B. 3D Vision-Language-Action (VLA) Models
+While 2D VLA models have been extensively studied,
+3D VLA models [11], [12], [31], [33] remain relatively
+underexplored. Zhen et al. [11] build 3D-VLA on top of
+a 3D-based large language model (LLM) and train it to
+perform 3D reasoning, multimodal goal generation, and robot
+planning. Lift3D [34] enhances 2D foundation models (e.g.,
+DINOv2 [35]) with implicit and explicit 3D robotic representa-
+tions for learning 3D manipulation policies. FP3 [31] employs
+a transformer to fuse information from point clouds, pro-
+prioceptive states, and language instructions. PointVLA [33]
+uses a VLM and a point-cloud encoder to process 2D images
+and 3D point clouds, respectively, and injects the resulting
+3D features additively into a few selected blocks of an
+otherwise frozen action expert, thereby avoiding retraining
+of the pre-trained VLA. SpatialVLA [12] introduces Ego3D
+positional encoding to inject 3D information into 2D visual
+observations and adopts adaptive action grids to represent
+robot motions in a more transferable manner. In contrast to
+these architectural modifications, BridgeVLA incorporates 3D
+spatial priors without introducing a dedicated 3D encoder or
+modifying the core architecture of the VLM: it projects 3D
+point clouds into multi-view orthographic images [9], [10] and
+formulates action prediction as 2D spatial heatmap estimation,
+thereby keeping both inputs and outputs within the native 2D
+domain of the pre-trained VLM. A concurrent work, OG-
+VLA [36], explores a similar orthographic-projection design,
+albeit generating heatmaps with an auxiliary image-diffusion
+decoder. However, these 3D VLA models operate without any
+form of memory, which motivates the line of work on memory-
+dependent manipulation reviewed next.
+C. Memory-Dependent Manipulation
+Most of the above-mentioned VLA models and 3D manip-
+ulation policies, including our BridgeVLA, adopt a strictly
+Markovian formulation, predicting actions solely from the
+current observation. Such a formulation becomes inadequate
+when a task requires temporal context, or when critical spatial
+geometry is occluded during execution. On the one hand,
+to incorporate temporal context, early approaches attended
+to the entire observation history [37], resulting in computa-
+tional costs that scaled poorly with episode length. Recent
+methods instead maintain bounded or structured memory
+through mechanisms such as explicit memory banks (e.g.,
+SAM2Act+ [17]), generative world models [38]–[40], hierar-
+chical planners [16], visual traces [41], or specialized cognitive
+or gated memory modules [42]–[44]. On the other hand, to
+address spatial occlusion, existing solutions typically track
+object poses explicitly over time [45] or maintain persistent
+geometric representations of the workspace [46]. In contrast to
+the above methods, BridgeVLA++ offers a simple yet effective
+solution to both challenges. By jointly designing temporal
+memory for retaining historical context and spatial memory for
+recovering occluded geometry, BridgeVLA++ achieves strong
+performance on memory-dependent manipulation tasks using
+only a lightweight attention module.
+III. BRIDGEVLA
+The key idea of BridgeVLA is to align both the input
+and output of 3D manipulation learning within a shared 2D
+space. Specifically, BridgeVLA formulates 3D manipulation
+as multi-view 2D heatmap prediction. A scalable pre-training
+stage first learns language-conditioned heatmap grounding
+from large-scale 2D data (Sec. III-B). During downstream
+policy fine-tuning, the observed 3D scene is rendered into
+multiple orthographic views, and the predicted heatmaps are
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+2D-Heatmap Pre-training
+"Find all
+instances
+of frock"
+Orthographic
+Projection
+"Put the ring on
+the maroon spoke"
+SigLIP
+Tokenizer
+Gemma
+Rearrange
+Copy
+Weights
+Convex
+Upsample
+Copy
+Weights
+Convex
+Upsample
+MLP
+Rotation
+Gripper
+Collision
+Pre-
+processing
+2D Detection
+
+## sec:data Data
+_Pages 4-4_
+
+3D Action
+
+## sec:data-2 Data
+_Pages 4-8_
+
+3D-Action Fine-tuning
+Temporal Memory
+Spatial Memory
+Zoom in
+Project
+Temporal
+(Coarse)
+Spatial
+(Fine)
+Freeze
+Weights
+Unfreeze
+Weights
+Image
+Token
+Text
+Token
+Cross-Attn
+Self-Attn
+Self-Attn
+Cross-Attn
+Cross-Attn
+Self-Attn
+Fine
+Stage
+Initial Scene Point Cloud
+Local Point Cloud Projection
+SigLIP
+Tokenizer
+Gemma
+Coarse
+Stage
+Keyframe
+Selector
+History Keyframes
+Anchor Frame
+Fig. 2.
+Model Architecture. Top: BridgeVLA first learns language-conditioned 2D heatmap prediction from detection data and transfers the resulting
+weights to 3D action fine-tuning. During a policy forward pass, the observed point cloud is rendered into orthographic views and processed with the language
+instruction by the VLM to produce multi-view visual tokens and heatmaps. The coarse heatmaps localize a 3D waypoint, around which the point cloud is
+cropped, magnified, and re-rendered for a shared-weight fine pass. The fine heatmaps determine the final translation, while global tokens and local tokens at
+the coarse waypoint are fed to an MLP to predict rotation, gripper state, and collision avoidance. Bottom: BridgeVLA++ augments this forward flow with
+temporal and spatial memories. At the coarse stage, the current tokens cross-attend to an anchor frame and selected historical keyframes to determine what to
+do next. At the fine stage, they cross-attend to view-aligned spatial tokens obtained by re-rendering the initial point cloud under the current zoom, providing
+less-occluded geometry to determine where exactly to act.
+back-projected to recover the 3D end-effector translation of the
+next keyframe (Sec. III-C). Fig. 2 provides an overview of the
+complete framework, including the spatio-temporal memory
+extension introduced in Sec. IV.
+A. Problem Formulation
+We consider language-conditioned multi-task 3D manipula-
+tion learned from a set of expert demonstrations D = {τ i}N
+i=1.
+Each demonstration is represented as
+τ i =
+li,
+ oi
+t, ai
+ Hi
+t=1
+(1)
+where li is a language instruction, oi
+t is the observation at step
+t, and ai
+t is the corresponding expert action. The observation ot
+consists of one or more RGB-D images captured by calibrated
+cameras.
+Following prior keyframe-based manipulation methods [6],
+[9], [47], the policy is queried at a sparse set of decision
+points and predicts the end-effector configuration of the next
+keyframe. For single-arm manipulation, the action is repre-
+sented as
+at = (xt, Rt, gt, ct) ,
+(2)
+where xt ∈R3 is the target end-effector translation, Rt ∈
+SO(3) is the target rotation, gt ∈{0, 1} denotes the gripper
+state, and ct ∈{0, 1} is a collision-avoidance flag used by the
+motion planner. The collision flag is omitted for benchmarks
+that do not provide this action component.
+The original BridgeVLA learns a language-conditioned pol-
+icy that predicts the next best pose from the current observa-
+tion:
+at = πB (ot, l) .
+(3)
+After each prediction, a motion planner or benchmark-specific
+low-level controller executes the target action. The observation
+is then refreshed, and the policy predicts the next keyframe.
+This process continues until task completion or a predefined
+step limit is reached.
+Equation (3) defines the memory-free formulation of
+BridgeVLA, in which each action is predicted from the
+current observation alone. Sec. IV extends this formulation by
+conditioning the policy on information retained from earlier
+interactions.
+B. 2D-Heatmap Pre-Training
+The original VLM backbone is pre-trained to generate
+token sequences, whose outputs do not directly preserve the
+spatial structure required for precise robot action prediction.
+To align VLM pre-training with downstream policy learning,
+we introduce an additional pre-training stage that teaches
+the model to ground language-specified objects through 2D
+heatmap prediction.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+We use the 120K object-detection split of RoboPoint [48]
+as the pre-training dataset. Each training sample consists of
+an image, a text prompt describing one or more objects of
+interest, and the bounding boxes of the corresponding objects.
+For each target object i, we construct a spatially truncated
+Gaussian probability map:
+Hgt
+i (x) =
+pi(x),
+pi(x) ≥pmin,
+otherwise,
+(4)
+where x = (u, v) denotes a pixel location and
+pi(x) = exp
+−∥x −bxi∥2
+2σ2
+(5)
+Here, bxi is the center of the bounding box of object i, σ
+controls the spatial extent of the Gaussian, and pmin is the
+truncation threshold.
+When multiple target objects are specified in the same
+prompt, their probability maps are averaged and normalized
+to construct the final ground-truth heatmap:
+Havg(x) =
+Nobj
+Nobj
+i=1
+Hgt
+i (x),
+(6)
+Hgt(x) =
+Havg(x)
+x′∈ΩHavg(x′),
+(7)
+where Nobj is the number of target objects and Ωdenotes the
+image domain. Examples of the resulting heatmap annotations
+are shown in Fig. 15.
+As illustrated in Fig. 2, the input image and the text prompt
+describing the objects of interest are jointly processed by the
+VLM backbone. We employ PaliGemma [49], which consists
+of a SigLIP vision encoder [50] and a Gemma transformer
+backbone [51]. PaliGemma is originally pre-trained to take
+one or more images together with a prefix text and autore-
+gressively generate a suffix text. Although causal attention is
+used for suffix-token generation, image tokens and prefix-text
+tokens interact through bidirectional attention. Consequently,
+each output image token is conditioned on both the visual
+observation and the language query.
+To recover spatial structure from these output tokens, we
+rearrange the image tokens according to their original patch
+positions, forming a two-dimensional feature grid. A convex-
+upsampling module [52] then decodes this grid into a heatmap
+with the same spatial resolution as the input image. Unlike
+fixed interpolation operations such as bilinear or nearest-
+neighbor upsampling, convex upsampling predicts spatially
+varying interpolation weights, allowing the decoder to recover
+finer localization details.
+The model is optimized using the cross-entropy loss
+Lpre = −
+x∈Ω
+Hgt(x) log bH(x),
+(8)
+where bH is the predicted heatmap after spatial softmax nor-
+malization.
+This pre-training stage changes the output interface of
+the VLM from unstructured token generation to language-
+conditioned spatial localization. Unlike 3D VLA methods that
+represent robot actions as token sequences [11], [12], our
+model produces a spatially structured 2D heatmap. The for-
+mulation is also scalable because any vision-language dataset
+whose annotations can be converted into spatial targets, such
+as object centers, keypoints, or segmentation regions, can
+in principle be used for pre-training. The resulting VLM
+backbone and heatmap decoder are subsequently transferred
+to 3D action fine-tuning.
+C. 3D Action Fine-Tuning
+During downstream policy learning, BridgeVLA preserves
+the 2D input and heatmap-output interface established during
+pre-training while using explicit 3D geometry for robot action
+prediction.
+Given RGB-D images captured by one or more calibrated
+cameras, we first reconstruct a colored point cloud of the
+observed scene. Following RVT [9] and RVT-2 [10], the
+point cloud is rendered into three orthographic projection
+images corresponding to the top, front, and right views. The
+three rendered images and the language instruction are then
+processed by the pre-trained VLM backbone to predict one
+translational heatmap for each view.
+Notably, the VLM operates purely on images and language:
+no proprioceptive signals, such as robot joint states or end-
+effector poses, are fed into its forward pass. This design
+preserves the image–language input format used during pre-
+training and reduces the distribution shift between 2D heatmap
+pre-training and 3D policy fine-tuning.
+a) Translation prediction: To recover the translational
+action, we uniformly sample candidate 3D locations within
+the robot workspace. Each candidate location is projected onto
+the three orthographic views, and its score is obtained by
+aggregating the corresponding heatmap values:
+st(x) =
+v=1
+bHt,v (Πv(x)) ,
+V = 3,
+(9)
+where Πv denotes the projection onto view v, and bHt,v is
+the predicted heatmap for that view. The candidate with the
+highest score is selected as the end-effector translation of the
+next keyframe:
+bxt = arg max
+st(x).
+(10)
+This procedure preserves the geometric correspondence be-
+tween the multi-view observations, heatmap outputs, and 3D
+translational actions.
+b) Rotation, gripper, and collision prediction: The non-
+translational action components are predicted jointly from
+multi-view features that combine global scene context with
+local evidence around the predicted translation. For each
+orthographic view, we obtain a global feature by max-pooling
+all output image tokens. We then project the predicted 3D
+translation onto the view and take the output image token at
+this 2D location as the local feature. The global and local
+features of the three views are concatenated and passed to a
+single three-layer MLP, whose output vector is split into the
+rotation, gripper, and collision-avoidance predictions. We take
+these features only from the coarse stage, described next.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+The end-effector rotation is represented in the continuous
+6D form of [53], from which the rotation matrix is recovered
+by Gram–Schmidt orthonormalization. The gripper state and
+collision-avoidance flag are each predicted by a two-class
+softmax over a pair of logits.
+c) Coarse-to-fine refinement: A prediction over the com-
+plete workspace provides global localization but may lack the
+precision required for fine-grained manipulation. Following
+prior work [10], [32], BridgeVLA adopts a coarse-to-fine
+refinement strategy.
+The first forward pass predicts a coarse translation from
+orthographic views covering the complete workspace. The
+point cloud is then cropped and magnified using a cuboid
+centered at the predicted coarse translation. A second set
+of orthographic images is rendered from this zoomed local
+point cloud and processed by the same VLM backbone. The
+translation predicted by the fine pass is used as the final end-
+effector position for execution. The coarse and fine passes
+share model parameters and differ only in the spatial range
+represented by their input projections.
+d) Fine-tuning objective: The fine-tuning objective con-
+tains four components:
+Lbase = Ltrans + Lrot + Lgripper + Lcollision.
+(11)
+The translation loss Ltrans supervises heatmap prediction
+using cross-entropy. For each orthographic view, the ground-
+truth translational heatmap is constructed using the normalized
+single-target probability map defined in Eq. (4), where bxi
+becomes the projected pixel location of the ground-truth end-
+effector translation at the next keyframe. The loss is applied
+to heatmaps predicted at both coarse and fine stages.
+The rotation loss Lrot is the squared Frobenius norm of
+the difference between the rotation matrix recovered from
+the predicted 6D representation and the ground-truth rotation
+matrix. The gripper and collision terms are two-class cross-
+entropy losses. For benchmarks that do not provide a collision-
+avoidance label, Lcollision is omitted.
+To improve geometric robustness, random rigid-body trans-
+formations are applied jointly to the input point cloud and
+ground-truth action during training. Additional implementation
+and optimization details are provided in Appendix C.
+The coarse-to-fine design not only improves spatial preci-
+sion, but also exposes two complementary stages at which
+information from earlier observations can be incorporated.
+The coarse stage reasons over the complete workspace and
+determines the next target region; it could therefore benefit
+from temporal context about previous interactions and com-
+pleted sub-goals. The fine stage performs precise localization
+within a zoomed local crop, where task-relevant geometry may
+be occluded by the robot or manipulated objects; it could
+therefore benefit from a persistent spatial reference.
+Motivated by this stage-specific decomposition, Sec. IV
+introduces BridgeVLA++, which augments the coarse-stage
+representation with temporal memory and the fine-stage rep-
+resentation with spatial memory. The resulting framework
+extends BridgeVLA from a policy conditioned only on the
+current observation to a memory-conditioned policy, while
+preserving its original heatmap-based action interface, action
+parameterization, and input–output alignment.
+IV. BRIDGEVLA++
+A. Overview
+The preceding section introduces BridgeVLA as a memory-
+free policy that predicts each action from the current obser-
+vation and language instruction. Although this formulation is
+effective for many manipulation tasks, the current observation
+alone may be insufficient when the policy must track previ-
+ously completed sub-goals or utilize task-relevant geometry
+that becomes occluded during execution.
+To address these limitations, we extend BridgeVLA to a
+memory-conditioned policy:
+at = πM (ot, l, Mt) ,
+(12)
+where Mt denotes the episode memory available at decision
+step t. We decompose the memory into two complementary
+components:
+Mt = (Tt, St) ,
+(13)
+where Tt is a temporal memory that summarizes the interaction
+history, and St is a spatial memory that preserves previously
+observed scene geometry.
+The two memories complement the coarse-to-fine action
+prediction of BridgeVLA. Temporal memory is incorporated
+at the coarse stage to help the policy determine what to do next
+from the execution history. Spatial memory is incorporated at
+the fine stage to help the policy determine where exactly to act
+when the target geometry is partially occluded. Both memories
+are represented and processed in the visual token space of the
+VLM, allowing them to be integrated without modifying the
+original heatmap-based action interface.
+B. Temporal Memory for Coarse-Stage Reasoning
+The coarse stage determines the approximate target region
+and provides the features used to predict rotation, gripper
+state, and collision avoidance. Because these decisions may
+depend on both recent interactions and overall task progress,
+we augment the coarse-stage representation with temporal
+memory. We formulate the temporal memory as
+Tt =
+ A0, Hnbr
+, Hsub
+(14)
+where A0 denotes the initial anchor views, Hnbr
+contains
+recent neighboring keyframes, and Hsub
+contains adaptively
+selected sub-goal keyframes. All three components are stored
+as coarse-stage visual tokens. Together, they provide a fixed
+reference to the initial scene, short-term context about recent
+transitions, and longer-term evidence of completed sub-goals.
+1) Initial Anchor Views: At the beginning of each episode,
+the initial point cloud is rendered into the same three ortho-
+graphic views used by the coarse stage. The resulting visual
+tokens are stored as A0. Comparing the current representation
+with A0 helps the policy identify scene changes that have
+occurred since the beginning of the episode. Because the
+coarse-stage virtual cameras remain fixed throughout execu-
+tion, the anchor views provide a consistent global reference
+for reasoning about task progress.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+2) History Keyframes: The initial anchor captures changes
+relative to the beginning of the episode, but does not describe
+the sequence of interactions that produced the current state. We
+therefore maintain a dynamic history buffer containing neigh-
+boring and sub-goal keyframes. The neighboring-keyframe
+memory Hnbr
+stores the most recent n executed keyframes,
+with n = 2 in all our experiments. It provides short-term
+context about recent state transitions. The sub-goal-keyframe
+memory Hsub
+stores representative historical observations
+selected by the adaptive module described in Sec. IV-B3.
+These observations record informative milestones and provide
+longer-term evidence of completed sub-goals. Both types of
+keyframes are cached as coarse-stage visual tokens. Together,
+they represent immediate interaction context and longer-term
+task progress. Memory capacity, frame ordering, and buffer-
+management details are provided in Appendix C.
+3) Adaptive Sub-Goal Keyframe Selection: Storing every
+historical keyframe would introduce redundancy. We therefore
+introduce a lightweight adaptive selection module Dϕ to
+determine whether the current keyframe contains informative
+evidence of task progress to be retained in Hsub
+. A learnable
+query token attends to the image tokens after temporal-
+memory integration and summarizes them into a single vector,
+from which a small MLP predicts a retention probability. A
+keyframe is retained when its predicted probability exceeds
+a predefined threshold. The selection module operates on
+the memory-conditioned tokens rather than the tokens before
+memory integration. This allows it to assess whether the
+current observation provides information that is not already
+represented in Tt, thereby preserving informative milestones
+while avoiding redundant observations.
+C. Spatial Memory for Occlusion-Robust Fine Localization
+Temporal memory helps the coarse stage identify the next
+target region, but does not directly help recover the fine-
+grained geometry required for precise localization. At the
+fine stage, the robot arm, gripper, or manipulated object may
+partially occlude the target region in the current local crop.
+For example, Fig. 3 shows a case in which the gripper and
+grasped object obscure the target receptacle.
+To provide a persistent geometric reference, we store the
+colored point cloud of the initial observation as P0. Be-
+cause this observation is captured before substantial robot
+interaction, it typically provides a less-occluded view of the
+workspace. Unlike a fixed 2D image, the stored point cloud
+can be re-rendered using the same viewpoint and zoom
+configuration as any subsequent fine-stage crop. Once the
+coarse stage predicts a waypoint bxc
+t, we apply the same zoom
+operation to the current point cloud and the stored reference
+P0. The zoomed reference is then rendered through the fine-
+stage virtual cameras and encoded into visual tokens:
+St = Φ (Render (Zoom (P0; bxc
+t))) ,
+(15)
+where Φ denotes the VLM backbone applied to the re-rendered
+views together with the language instruction, and St is the
+spatial memory associated with the current fine-stage crop.
+Because the current local observation and the re-rendered
+spatial reference share the same virtual camera configuration,
+Zoom-Aligned Geometric Reference
+Occluded Current Projection
+Fig. 3. Occlusion-robust fine localization using spatial memory. Left: the
+current zoomed observation, partially occluded by the gripper and manipu-
+lated object. Right: the stored point cloud P0 re-rendered under the same
+predicted waypoint and zoom transformation, providing a spatially aligned,
+less-occluded reference of the same local region.
+they are geometrically aligned at the view level. Accordingly,
+we let tokens from each current view attend only to memory
+tokens from the corresponding reference view. The current
+observation represents the latest state of the scene, whereas
+the spatial memory provides previously visible geometry that
+may now be occluded. Thus, the spatial memory complements
+rather than replaces the current observation. This adaptive
+zoom alignment enables a single canonical point cloud P0 to
+provide spatial references for different local regions through-
+out the episode. Because the required crop depends on the
+current coarse waypoint, St is rendered and encoded on
+demand at every decision step.
+D. Memory Integration
+After constructing the temporal and spatial memories, we
+inject them into the corresponding stages of BridgeVLA using
+compact attention modules. Temporal memory conditions the
+coarse-stage representation, whereas spatial memory condi-
+tions the fine-stage representation.
+To avoid repeatedly processing historical projection images,
+the temporal buffer stores their encoded visual tokens rather
+than the raw images. Each cached observation is represented
+by a token grid in RV ×N×d, where V is the number of
+orthographic views, N is the number of visual tokens per view,
+and d is the token dimension. These are the VLM backbone’s
+language-conditioned output image tokens, and can be reused
+throughout the episode without re-encoding.
+Let Zc
+t and Zf
+t denote the current coarse- and fine-stage
+visual tokens, respectively. We obtain the memory-conditioned
+representations as
+eZc
+t = Ftemp (Zc
+t, Tt) ,
+eZf
+t = Fspa
+ Zf
+t, St
+(16)
+where Ftemp and Fspa denote the temporal and spatial
+memory-injection modules. Each block consists of two atten-
+tion layers. Within each layer, the current visual tokens serve
+as queries, while the corresponding memory tokens serve as
+keys and values in cross-attention. The retrieved information
+is subsequently fused with the current representation through
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+self-attention and feed-forward updates. The output preserves
+the shape of the input token grid:
+eZs
+t ∈RV ×N×d,
+s ∈{c, f}.
+(17)
+Consequently, the convex-upsampling modules and action-
+prediction heads of BridgeVLA can be applied without mod-
+ification. The temporal and spatial memory-injection modules
+introduce approximately 168M and 84M parameters, respec-
+tively, while the adaptive sub-goal-selection module introduces
+approximately 18M parameters. Despite this modest architec-
+tural overhead, the memory modules substantially improve
+performance on memory-dependent tasks, as evaluated in
+Sec. V.
+E. Bimanual Extension
+The temporal and spatial memories encode the shared
+episode state and workspace geometry rather than arm-specific
+information. This scene-level formulation allows Bridge-
+VLA++ to extend naturally to bimanual manipulation with
+only lightweight modifications. Specifically, we introduce arm-
+specific action heads by duplicating the convex-upsampling
+module and the MLP-based action heads, while sharing the
+VLM backbone, temporal memory, spatial memory, and adap-
+tive selection module between the two arms. At the coarse
+stage, the arm-specific heads operate on the shared memory-
+conditioned representation and predict a separate coarse way-
+point for each arm. At the fine stage, each arm independently
+constructs a zoomed local crop around its predicted coarse
+waypoint and refines its final translation. The resulting biman-
+ual action is represented as
+abi
+t =
+aleft
+, aright
+(18)
+where each arm-specific action follows the representation
+defined in Eq. (2). This shared-trunk, arm-specific-head de-
+sign successfully supports bimanual action prediction without
+duplicating the computationally expensive VLM backbone or
+the episodic memory modules.
+F. Training and Inference Details
+1) Training:
+During training, the temporal and spatial
+memories associated with each sample are constructed from
+preceding observations in the corresponding expert demon-
+stration. The initial observation provides the temporal anchor
+views and the spatial memory reference, while neighboring
+and annotated sub-goal keyframes are selected from earlier
+execution steps.
+To preserve geometric consistency, the random rigid-body
+augmentation introduced in Sec. III-C is applied consistently to
+the current observation, the associated memory observations,
+and the ground-truth actions. The complete training objective
+L = Lbase + λcheckLcheck,
+(19)
+where Lbase is the action-prediction loss defined in Eq. (11),
+and Lcheck is a binary cross-entropy loss that supervises
+whether the current keyframe should be retained as a sub-goal
+keyframe. For bimanual tasks, Lbase includes the action losses
+of both arms, whereas the shared adaptive selection module is
+supervised once using Lcheck.
+2) Inference: At the beginning of an episode, the initial
+observation is used to construct the temporal anchor views
+and the spatial point-cloud reference P0. The remaining
+temporal-memory slots are initialized with zero padding. Af-
+ter each executed action, the encoded image tokens of the
+current observation are inserted into the temporal buffer as
+a neighboring keyframe. The adaptive selection module also
+determines whether the observation should be retained as a
+sub-goal keyframe. When the buffer exceeds its predefined
+capacity, the oldest entries are removed according to the
+memory-management strategy described in Appendix C. Be-
+cause temporal memory stores encoded image tokens rather
+than raw projection images, historical observations do not
+require repeated visual encoding. For spatial memory, we
+retain the colored point cloud of the initial observation and
+re-render and re-encode it at each decision step, since the
+required local crop depends on the dynamically predicted
+coarse waypoint. As only a single reference observation is
+processed, the resulting computational overhead remains low.
+Overall, the memory extension introduces 269.77M additional
+parameters, corresponding to a 9.2% increase over the 2.92B-
+parameter backbone. For the inference latency, BridgeVLA
+takes 0.35 seconds per prediction step and BridgeVLA++ 0.57
+seconds on a single NVIDIA RTX 4090 GPU, a gap that is
+minor compared with the observation transmission and motion
+execution that dominate each keyframe-based control step.
+
+## sec:experiments V. EXPERIMENTS
+_Pages 8-9_
+
+In this section, we conduct extensive evaluations in both
+simulation and real-world environments to assess BridgeVLA
+and its memory-augmented extension, BridgeVLA++. Specif-
+ically, our experiments are designed to answer the following
+research questions:
+Q1: How effectively do BridgeVLA and BridgeVLA++ learn
+3D manipulation compared with state-of-the-art methods
+when sufficient demonstrations are available?
+Q2: How robust are BridgeVLA and BridgeVLA++ under
+out-of-distribution conditions, including distractors, light-
+ing changes, background variations, novel object–skill
+combinations, and unseen object categories?
+Q3: How important are the proposed architectural compo-
+nents, including heatmap-based action decoding, 2D
+heatmap pre-training, and unified spatio-temporal mem-
+ory, to the overall performance?
+Q4: Can BridgeVLA and BridgeVLA++ be deployed effec-
+tively across different real-world robot platforms while
+retaining high sample efficiency, such as learning each
+task from only 10 demonstrations?
+Q5: How effectively can BridgeVLA++ address memory-
+dependent manipulation tasks?
+A. RLBench: General 3D Manipulation
+To evaluate the base model’s capacity for general 3D manip-
+ulation, we primarily evaluate BridgeVLA and BridgeVLA++
+on the RLBench benchmark.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE I
+Results and ablation studies on RLBench. Success rates (SR, %) across 18 tasks, together with the average SR and average rank (lower is better). The
+upper rows report prior methods, followed by BridgeVLA (the memory-free base policy, also referred to as Base) and BridgeVLA++; the indented rows
+below each report its architectural and memory ablations. Results are presented as mean±std over five random seeds, with 25 evaluation episodes per seed.
+w/o S and w/o T denote BridgeVLA++ without spatial and temporal memory, respectively. Evaluation protocols and training details are provided in
+
+## sec:appendices-c-and-e-the-best-result-in-each-column-is-highlighted-in-bold Appendices C and E. The best result in each column is highlighted in bold.
+_Pages 9-9_
+
+Avg.
+Avg.
+Close
+Drag
+Insert
+Meat off
+Open
+Place
+Place
+Push
+
+## sec:method Method
+_Pages 9-9_
+
+SR (%) ↑
+Rank ↓
+Jar
+Stick
+Peg
+Grill
+Drawer
+Cups
+Wine
+Buttons
+PerAct [6]
+49.4
+11.33
+55.2±4.7
+89.6±4.1
+5.6±4.1
+70.4±2.0
+88.0±5.7
+2.4±3.2
+44.8±7.8
+92.8±3.0
+Act3D [8]
+65.0
+9.17
+92.0
+92.0
+27.0
+94.0
+93.0
+3.0
+80.0
+99.0
+RVT [9]
+62.9
+9.08
+52.0±2.5
+99.2±1.6
+11.2±3.0
+88.0±2.5
+71.2±6.9
+4.0±2.5
+91.0±5.2
+100.0±0.0
+3D Diffuser Actor [7]
+81.3
+6.19
+96.0±2.5
+100.0±0.0
+65.6±4.1
+96.8±1.6
+89.6±4.1
+24.0±7.6
+93.6±4.8
+98.4±2.0
+RVT-2 [10]
+81.4
+5.97
+100.0±0.0
+99.0±1.7
+40.0±0.0
+99.0±1.7
+74.0±11.8
+38.0±4.5
+95.0±3.3
+100.0±0.0
+SAM2Act [17]
+86.8±0.5
+5.47
+99.0±2.0
+99.0±2.0
+84.0±5.7
+98.0±2.3
+83.0±6.0
+47.0±6.0
+93.0±3.8
+100.0±0.0
+BridgeVLA (ours)
+90.5±1.1
+4.75
+100.0±0.0
+97.6±3.6
+91.2±1.8
+100.0±0.0
+99.2±1.8
+58.4±4.6
+89.6±8.3
+100.0±0.0
+w/ discretized rotation
+88.2
+4.86
+100.0±0.0
+100.0±0.0
+88.0±2.8
+100.0±0.0
+100.0±0.0
+58.4±10.0
+88.0±2.8
+98.4±2.2
+w/o heatmap decoding
+31.4
+12.78
+49.3±2.3
+65.3±2.3
+0.0±0.0
+81.3±4.6
+74.7±10.1
+1.3±2.3
+32.0±14.4
+54.7±6.1
+w/ 3D position input
+56.2
+10.14
+96.0±0.0
+58.7±6.1
+26.7±2.3
+96.0±0.0
+97.3±2.3
+14.7±4.6
+81.3±8.3
+86.7±2.3
+BridgeVLA++ (ours)
+93.7±0.6
+3.64
+100.0±0.0
+98.4±2.2
+99.2±1.8
+100.0±0.0
+99.2±1.8
+76.8±11.5
+95.2±4.4
+100.0±0.0
+w/o spatial memory
+92.0±0.5
+3.81
+100.0±0.0
+100.0±0.0
+95.2±3.3
+100.0±0.0
+99.2±1.8
+74.4±3.6
+78.4±3.6
+100.0±0.0
+w/o temporal memory
+91.9±1.0
+3.81
+100.0±0.0
+99.2±1.8
+82.4±2.2
+100.0±0.0
+97.6±2.2
+57.6±7.3
+90.4±4.6
+100.0±0.0
+Put in
+Put in
+Put in
+Screw
+Slide
+Sort
+Stack
+Stack
+Sweep to
+Turn
+
+## sec:method-2 Method
+_Pages 9-10_
+
+Cupboard
+Drawer
+Safe
+Bulb
+Block
+Shape
+Blocks
+Cups
+Dustpan
+Tap
+PerAct [6]
+28.0±4.4
+51.2±4.7
+84.0±3.6
+17.6±2.0
+74.0±13.0
+16.8±4.7
+26.4±3.2
+2.4±2.0
+52.0±0.0
+88.0±4.4
+Act3D [8]
+51.0
+90.0
+95.0
+47.0
+93.0
+8.0
+12.0
+9.0
+92.0
+94.0
+RVT [9]
+49.6±3.2
+88.0±5.7
+91.2±3.0
+48.0±5.7
+81.6±5.4
+36.0±2.5
+28.8±3.9
+26.4±8.2
+72.0±0.0
+93.6±4.1
+3D Diffuser Actor [7]
+85.6±4.1
+96.0±3.6
+97.6±2.0
+82.4±2.0
+97.6±3.2
+44.0±4.4
+68.3±3.3
+47.2±8.5
+84.0±4.4
+99.2±1.6
+RVT-2 [10]
+66.0±4.5
+96.0±0.0
+96.0±2.8
+88.0±4.9
+92.0±2.8
+35.0±7.1
+80.0±2.8
+69.0±5.9
+100.0±0.0
+99.0±1.7
+SAM2Act [17]
+75.0±3.8
+99.0±2.0
+98.0±2.3
+89.0±2.0
+86.0±4.0
+64.0±4.6
+76.0±8.6
+78.0±4.0
+99.0±2.0
+96.0±5.7
+BridgeVLA (ours)
+91.2±1.8
+96.0±0.0
+95.2±3.3
+93.6±6.1
+95.2±3.3
+55.2±5.2
+84.8±9.1
+88.8±3.3
+100.0±0.0
+92.8±3.3
+w/ discretized rotation
+73.6±4.6
+99.2±1.8
+99.2±1.8
+87.2±6.6
+96.0±2.8
+60.8±7.7
+76.8±8.7
+81.6±3.6
+87.2±1.8
+92.8±3.3
+w/o heatmap decoding
+5.3±2.3
+0.0±0.0
+58.7±22.7
+2.7±2.3
+64.0±0.0
+4.0±4.0
+0.0±0.0
+0.0±0.0
+32.0±4.0
+40.0±10.6
+w/ 3D position input
+10.7±2.3
+78.7±2.3
+97.3±4.6
+16.0±4.0
+72.0±0.0
+21.3±8.3
+17.3±2.3
+4.0±4.0
+53.3±2.3
+84.0±0.0
+BridgeVLA++ (ours)
+92.0±0.0
+99.2±1.8
+92.8±5.9
+95.2±5.2
+96.0±4.0
+72.0±6.3
+85.6±4.6
+98.4±2.2
+97.6±2.2
+89.6±4.6
+w/o spatial memory
+90.4±2.2
+91.2±1.8
+96.0±4.9
+95.2±1.8
+97.6±3.6
+60.8±3.3
+91.2±3.3
+92.8±4.4
+99.2±1.8
+95.2±4.4
+w/o temporal memory
+88.8±4.4
+98.4±3.6
+92.8±3.3
+96.0±4.0
+100.0±0.0
+73.6±5.4
+88.8±3.3
+93.6±2.2
+100.0±0.0
+94.4±4.6
+a) Setup: RLBench [13] serves as a standard multi-task
+suite for evaluating manipulation policies. It implements tasks
+in CoppeliaSim [54] using a Franka Panda robot equipped
+with a parallel-jaw gripper, with observations provided by
+four RGB-D cameras (front, left shoulder, right shoulder, and
+wrist). Following previous works [6], [9], [10], we evaluate on
+18 tasks spanning non-prehensile manipulation such as Slide
+Block to Target, pick-and-place tasks like Stack Cups, and
+high-precision insertion tasks including Sort Shape. We train
+on 100 demonstrations per task and report the mean success
+rate over five evaluation runs of 25 episodes per task.
+b) Baselines: We compare BridgeVLA with state-of-the-
+art baselines encompassing both 2D and 3D methods. (1)
+PerAct [6] operates in the voxel space and predicts the action
+with a Perceiver transformer [55]. (2) Act3D [8] predicts
+the next keyframe action by selecting the point with the
+highest score from a set of randomly sampled points in the
+workspace. (3) RVT [9] uses a multi-view transformer to
+aggregate information from multiple orthographic views of the
+point cloud observation. (4) 3D Diffuser Actor [7] generates
+3D trajectories via a diffusion process conditioned on the 3D
+observation and language instruction. (5) RVT-2 [10] further
+improves the precision of its prior via a coarse-to-fine strategy.
+(6) SAM2Act [17], the previous state-of-the-art method on
+this benchmark, builds upon the multi-view transformer and
+integrates the SAM2 visual foundation model to strengthen
+scene representation.
+c) Results: Table I summarizes the performance com-
+parison. BridgeVLA achieves a 90.5% average success rate
+across the 18 tasks, outperforming SAM2Act by 3.7 abso-
+lute percentage points, establishing a new state-of-the-art and
+addressing Q1. This improvement is particularly pronounced
+in precision-critical tasks such as Stack Cups, underscoring
+the efficacy of our dense per-view heatmap representation for
+fine-grained localization. The high success rates showcase its
+strong capability in precise manipulation. The primary failure
+modes emerge in occlusion-heavy tasks, where the robot’s
+arm obscures the target during the fine-localization stage.
+These occlusions are later resolved by BridgeVLA++’s spatio-
+temporal memory, which elevates the overall success rate to
+93.7% and brings significant gains to Sort Shape (+16.8%)
+and Place Cups (+18.4%). The indented rows of Table I report
+ablated variants of both models, which we analyze in Sec. V-F.
+B. COLOSSEUM & GemBench: Generalization
+To further evaluate the robustness and generalization ca-
+pabilities of BridgeVLA and BridgeVLA++ (Q2), we conduct
+experiments on COLOSSEUM [14] and GemBench [15]. Both
+benchmarks extend RLBench to evaluate out-of-distribution
+generalization. COLOSSEUM introduces 12 perturbation axes
+that are unseen during training, including variations in object
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE II
+Results on RMBench. Success rates (%) over 100 episodes per task on the nine dual-arm RMBench tasks [16], grouped by task memory complexity.
+Baseline numbers are quoted from [16], [39], [40], with group averages recomputed from per-task results where a source reports none. Best result per task
+in bold; “–” denotes tasks not evaluated by the source.
+M(1) tasks
+M(n) tasks
+Overall
+Observe &
+Rearrange
+Put Back
+Swap
+Swap
+Battery
+Blocks
+Cover
+Press
+
+## sec:method-3 Method
+_Pages 10-10_
+
+Avg.
+Pick Up
+Blocks
+Block
+Blocks
+Avg.
+Try
+Ranking Try
+Blocks
+Button
+Avg.
+DP [56]
+5.8
+6.4
+5.0
+ACT [57]
+5.9
+6.8
+4.8
+π0.5 [2]
+10.4
+14.4
+5.5
+X-VLA [58]
+9.8
+11.8
+7.3
+Mem-0 [16]
+42.0
+52.8
+28.5
+Fast-WAM [59]
+5.9
+1.4
+11.5
+LingBot-VA [38]
+78.2
+80.0
+76.0
+MemoryWAM [40]
+83.0
+84.2
+81.5
+BridgeVLA (ours)
+18.9
+19.0
+18.8
+BridgeVLA++ (ours)
+96.0
+95.2
+97.0
+TABLE III
+Results on COLOSSEUM. Success rates (%) across the 14 COLOSSEUM evaluation settings [14]: the 12 individual perturbation axes, the original
+RLBench variations (“RLBench”), and all perturbations applied jointly (“All Perturb.”). MO and RO denote perturbations of the manipulated object and the
+receptacle object, respectively. “Avg. Rank” is the average rank across the 14 settings over all listed methods (lower is better). R3M-MLP, MVP-MLP,
+PerAct, and RVT are quoted from [14]; RVT-2, BridgeVLA, and BridgeVLA++ were trained and evaluated by us (mean±variance over three test
+repetitions; Appendix E). Best result per column in bold.
+Avg.
+Avg.
+All
+
+## sec:method-4 Method
+_Pages 10-10_
+
+SR (%) ↑
+Rank ↓
+Perturb.
+Color
+Color
+Texture
+Texture
+Size
+R3M-MLP [60]
+0.8
+6.71
+0.6
+0.4
+0.0
+0.0
+0.0
+1.8
+MVP-MLP [61]
+1.6
+6.00
+0.8
+1.2
+0.0
+0.4
+0.0
+4.44
+PerAct [6]
+27.9
+4.71
+7.2
+24.0
+29.2
+28.8
+17.71
+35.6
+RVT [9]
+35.4
+4.29
+6.4
+26.0
+31.3
+44.8
+41.1
+35.3
+RVT-2 [10]
+56.7
+2.86
+15.6±0.8
+53.0±0.9
+54.6±0.6
+59.7±0.7
+56.7±1.4
+60.9±0.9
+BridgeVLA (ours)
+64.0
+1.50
+18.7±2.2
+60.5±1.1
+63.8±0.1
+63.5±1.5
+68.4±3.3
+69.3±1.0
+BridgeVLA++ (ours)
+65.2
+1.64
+38.9±0.8
+68.7±0.7
+62.7±0.6
+65.7±0.4
+65.5±1.2
+71.5±0.3
+Light
+Table
+Table
+
+## sec:background-2 Background
+_Pages 10-10_
+
+Camera
+
+## sec:method-5 Method
+_Pages 10-11_
+
+Size
+Color
+Color
+Texture
+Distractor
+Texture
+RLBench
+Pose
+R3M-MLP [60]
+0.0
+1.0
+1.4
+0.2
+1.6
+1.2
+2.0
+0.8
+MVP-MLP [61]
+0.0
+1.6
+1.6
+1.0
+3.8
+2.2
+2.0
+2.6
+PerAct [6]
+29.3
+29.1
+30.4
+23.2
+27.1
+33.5
+39.4
+36.3
+RVT [9]
+40.5
+34.0
+30.0
+45.2
+18.8
+46.4
+53.4
+42.2
+RVT-2 [10]
+53.4±1.5
+58.0±1.1
+62.6±0.9
+56.6±0.9
+60.8±0.5
+68.7±1.1
+68.8±1.3
+64.4±0.5
+BridgeVLA (ours)
+61.7±0.8
+69.7±1.2
+75.7±0.9
+71.3±0.7
+51.8±1.5
+74.8±1.0
+73.1±0.2
+73.8±0.3
+BridgeVLA++ (ours)
+62.0±0.7
+68.2±1.0
+71.5±0.3
+69.2±0.7
+61.6±0.5
+69.5±1.2
+68.5±0.6
+68.7±0.7
+color, texture, and size, as well as changes in background,
+lighting, distractors, and camera pose. Together with the orig-
+inal RLBench setting and a combined all-perturbations setting,
+it comprises 14 evaluation conditions in total. GemBench
+evaluates hierarchical systematic generalization to novel rigid
+and articulated objects, as well as unseen object–color compo-
+sitions. As reported in Table III, BridgeVLA achieves a state-
+of-the-art average success rate of 64.0% on COLOSSEUM,
+outperforming strong recent 2D and 3D manipulation meth-
+ods, including RVT-2, 3D-LOTUS, and 3D Diffuser Actor.
+In particular, it exceeds RVT-2 by more than 7 percentage
+points. Similarly, BridgeVLA achieves a state-of-the-art av-
+erage success rate of 50.0% on GemBench, as shown in
+Table XI. These results demonstrate the strong robustness
+of BridgeVLA under diverse out-of-distribution conditions.
+Importantly, the memory-augmented BridgeVLA++ preserves
+this generalization capability. It matches or slightly improves
+upon BridgeVLA on both benchmarks, achieving 65.2% ver-
+sus 64.0% on COLOSSEUM and 51.1% versus 50.0% on
+GemBench. Thus, introducing spatio-temporal memory does
+not compromise the out-of-distribution robustness of the orig-
+inal framework. Additional baseline details and analyses are
+provided in Appendices G and H.
+C. RMBench: Memory-Dependent Bimanual Manipulation
+To answer Q5, we explicitly evaluate BridgeVLA++ on
+memory-dependent manipulation tasks, utilizing the RMBench
+suite.
+a) Setup:
+RMBench [16] is a dual-arm benchmark
+specifically designed to test episodic reasoning. Its nine tasks
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+cannot be solved from the current frame alone, requiring the
+policy to retain past observations across short-term M(1)
+and long-term M(n) horizons. This concurrently validates
+our bimanual extension (Sec. IV-E). Following the benchmark
+protocol, we train on 50 demonstrations per task and report
+success rates over 100 evaluation episodes.
+b) Baselines:
+We compare against strong memory-
+augmented manipulation methods including Mem-0, Memory-
+WAM, and several other baseline variants from the benchmark.
+We also compare against our memory-free base model, Bridge-
+VLA, to quantify the direct impact of the memory modules.
+
+## sec:results c) Results:
+_Pages 11-11_
+
+Table
+summarizes
+the
+
+## sec:results-2 results.
+_Pages 11-12_
+
+The
+memory-free base model, BridgeVLA, suffers a severe per-
+formance drop, yielding an 18.9% overall success rate, con-
+firming the necessity of episodic memory. In stark contrast,
+BridgeVLA++ achieves a near-perfect 96.0% overall success
+rate, outperforming the strongest memory-augmented base-
+line MemoryWAM by 13.0 points and the reference Mem-
+0 by 54.0 points. It ranks best or tied for best on eight of
+the nine tasks. Temporal memory T
+proves indispensable
+for these long-horizon tasks. For instance, in Battery Try,
+a trial-and-error sorting task requiring the tracking of past
+attempts, BridgeVLA++ achieves 96% success compared to
+the strongest baseline’s 41% (MemoryWAM). We dissect the
+distinct roles of the spatial and temporal memories underlying
+these gains in Sec. V-F.
+D. MemoryBench: Single-Arm Memory Validation
+additionally
+validate
+BridgeVLA++
+Memory-
+Bench [17], a suite of single-arm memory-dependent sce-
+narios. In these tasks, BridgeVLA++ achieves a 99.7±0.3%
+success rate, firmly confirming its generalized efficacy in
+handling episodic memory requirements beyond bimanual
+coordination. A detailed per-task breakdown and comparison
+against baselines are provided in Appendix I (Table XII).
+E. Real-World Experiments
+To address Q4, we deploy both models on real robotic
+hardware. We first evaluate the base BridgeVLA on general
+manipulation, probing its sample efficiency and generaliza-
+tion under diverse real-world disturbances; we then evaluate
+BridgeVLA++, validating the spatio-temporal memory in the
+physical world while verifying that the memory extension
+leaves the base manipulation competence intact.
+1) General Manipulation:
+a) Setup: We evaluate BridgeVLA on a 7-DoF Franka
+Research 3 manipulator with a parallel-jaw gripper, observed
+via a static ZED 2i depth camera (Fig. 4). The evaluation
+covers 13 tasks ranging from simple pick-and-place to com-
+plex long-horizon manipulation, with 10 expert demonstrations
+per task for training. Beyond the basic setting, we design six
+challenging generalization settings: Distractor, Lighting, Back-
+ground, Height, Combination (unseen object–skill pairings),
+and Category (unseen object categories). Full setup details,
+per-task results, and analyses are provided in Appendix K.
+b) Results: To demonstrate the advantages of Bridge-
+VLA over existing manipulation policies, we compare it
+with four representative baselines spanning different model
+categories: SpatialVLA [12], a 3D VLA model; π0.5 [2], a
+2D VLA model; ACT [57], a 2D non-VLA policy; and RVT-
+2 [10], a 3D non-VLA policy.
+We first evaluate all methods under the basic setting.
+For each task, every method is evaluated over 10 trials. To
+ensure a fair comparison, we photograph each test scene
+and manually reproduce the same scene configuration across
+methods. The results are reported in Table IV. When trained
+with only 10 trajectories per task, most baselines fail almost
+completely, whereas the two methods that explicitly exploit 3D
+spatial structure, RVT-2 and BridgeVLA, achieve substantially
+stronger performance. Notably, although SpatialVLA also in-
+corporates 3D information, it remains considerably less data-
+efficient. Even when its training set is increased to 50 tra-
+jectories per task, its success rate remains substantially lower
+than that of BridgeVLA. This result suggests that incorporating
+3D information alone is insufficient for constructing a data-
+efficient 3D VLA model; the architectural design used to align
+the observation and action spaces is also critical.
+Remarkably, when the training data are further reduced to
+only three demonstrations per task, BridgeVLA still achieves
+a success rate of 95.4%, highlighting its exceptional sample
+efficiency and directly addressing Q4. Because only RVT-2
+and BridgeVLA achieve reliable performance under the basic
+setting, we further compare these two methods across the
+remaining generalization settings. As summarized in Fig. 5,
+BridgeVLA consistently outperforms RVT-2 across all seven
+settings, with an average improvement of 32%. The gains are
+particularly pronounced under novel lighting conditions and
+unseen object–skill combinations, demonstrating that Bridge-
+VLA can effectively transfer the semantic knowledge of the
+pre-trained VLM to real-world manipulation. Additional de-
+tails on the experimental setup, baseline implementations, per-
+task results, and analyses are provided in Appendix K.
+2) Memory-Augmented Manipulation:
+a) Setup: To validate BridgeVLA++ in the real world,
+we deploy the model on a Dobot CR5A equipped with an
+external RGB-D camera to capture the workspace (Fig. 4). The
+evaluation suite pairs three memory-dependent tasks—Cover
+Blocks, Press Button, and Swap Eggplant—with two memory-
+free standard manipulation tasks, Put in Drawer and Put on
+Shelf. The former probe whether the spatio-temporal memory
+transfers to physical hardware; the latter verify that the mem-
+ory extension does not erode the policy’s general manipulation
+capability. Each memory-dependent task is driven by a single
+language instruction, while Put in Drawer and Put on Shelf
+use two instructions that differ in target height. Similar to the
+setup on the Franka platform, we train on 10 demonstrations
+per language instruction and evaluate every instruction over 10
+trials in each of five settings—Basic, Distractor, Background,
+Height, and Lighting—against memory-free BridgeVLA and
+the memory-augmented SAM2Act+ [17]. Full details are pro-
+vided in Appendix L.
+b) Results:
+Consistent with our simulation findings,
+the proposed spatio-temporal memory effectively transfers to
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Real Robot Setup
+Generalization Settings
+ZED 2i
+Franka Research 3
+
+## sec:background-3 Background
+_Pages 12-12_
+
+Lighting
+Distractor
+Combination
+Height
+Category
+Basic Setting
+Memory Setting
+DOBOT CR5A
+ZED 2i
+Prev SOTA
+BridgeVLA
+Memory-free tasks
+Prev SOTA
+BridgeVLA++
+Memory-Dependent tasks
+75.0%
+43.0%
+30.0%
+93.3%
+Fig. 4. Real-Robot Evaluation Setup. Top left: the general-manipulation platform—a 7-DoF Franka Research 3 arm observed by a static ZED 2i stereo
+camera. Top right: the memory platform—a 6-DoF Dobot CR5A arm with the same camera configuration. Bottom: the evaluation settings of the two suites.
+The bars at the top show the average gain of our models over the strongest prior method in each task group: RVT-2 across the seven Franka settings and
+SAM2Act+ in the Dobot basic setting.
+TABLE IV
+Real-Robot Results on Franka in the Basic Setting. Success counts on the 13 real-robot tasks; all evaluations are our own, with 10 trials per task per
+method (Appendix E). All methods are trained with 10 demonstrations per task, except SpatialVLA (50 demos) and the BridgeVLA (3 demos) reference
+row; ACT is trained single-task, as it is not language-conditioned. Best result per column in bold (the 3-demonstration row is excluded from the comparison).
+Avg.
+Soda Can
+Giraffe
+Red Block
+Press
+RedBull
+RedBull
+
+## sec:method-6 Method
+_Pages 12-12_
+
+SR (%) ↑
+Bottom Shelf
+Lower Drawer
+Blue Plate
+Sanitizer
+Top Shelf
+Bottom Shelf
+SpatialVLA (50) [12]
+28.5
+1/10
+1/10
+5/10
+6/10
+3/10
+1/10
+SpatialVLA (10) [12]
+3.1
+0/10
+0/10
+0/10
+2/10
+0/10
+0/10
+π0.5 [2]
+20.0
+2/10
+1/10
+4/10
+4/10
+1/10
+1/10
+ACT [57]
+21.5
+2/10
+2/10
+3/10
+2/10
+3/10
+1/10
+RVT-2 [10]
+90.0
+10/10
+8/10
+8/10
+10/10
+9/10
+10/10
+BridgeVLA (3 demos)
+95.4
+9/10
+10/10
+10/10
+10/10
+9/10
+10/10
+BridgeVLA
+96.9
+9/10
+9/10
+10/10
+10/10
+10/10
+10/10
+Coke
+Orange Block
+Red Block
+Yellow Block
+Zebra
+Zebra
+Wolf
+
+## sec:method-7 Method
+_Pages 12-13_
+
+Top Shelf
+Green Plate
+Purple Plate
+Green Plate
+Upper Drawer
+Lower Drawer
+Upper Drawer
+SpatialVLA (50) [12]
+2/10
+6/10
+3/10
+5/10
+2/10
+0/10
+2/10
+SpatialVLA (10) [12]
+0/10
+1/10
+1/10
+0/10
+0/10
+0/10
+0/10
+π0.5 [2]
+2/10
+4/10
+3/10
+3/10
+0/10
+0/10
+1/10
+ACT [57]
+2/10
+2/10
+3/10
+4/10
+1/10
+2/10
+1/10
+RVT-2 [10]
+10/10
+10/10
+9/10
+9/10
+7/10
+8/10
+9/10
+BridgeVLA (3 demos)
+10/10
+10/10
+10/10
+10/10
+9/10
+10/10
+7/10
+BridgeVLA
+10/10
+10/10
+10/10
+10/10
+9/10
+10/10
+9/10
+physical hardware. In the basic setting (Table V), Bridge-
+VLA++ achieves an average success rate of 93.3% on the three
+memory-dependent tasks, yielding a threefold improvement
+over the memory-augmented SAM2Act+ (30.0%). Conversely,
+the memory-free BridgeVLA largely fails (20.0%), confirming
+that these tasks intrinsically require episodic memory. This
+substantial performance margin over SAM2Act+ stems from
+architectural differences in memory management. Because
+SAM2Act+ indiscriminately stores every step and retrieves
+only a fixed temporal window, near-duplicate frames tend to
+dilute critical historical information. BridgeVLA++ overcomes
+this limitation via its targeted spatio-temporal memory design
+(Sec. IV). Furthermore, owing to its pre-trained VLM back-
+bone, BridgeVLA++ exhibits strong robustness against visual
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Fig. 5. Real-Robot Generalization Results. Average success rate over the
+13 Franka tasks in the basic setting and the six generalization settings; the
+w/o Pre-train bars ablate the 2D-heatmap pre-training (Sec. V-F).
+TABLE V
+Per-task success rates on the real Dobot platform in the basic setting.
+Ten trials per language instruction; Mem. marks memory-augmented
+policies. Put in Drawer and Put on Shelf are each evaluated with two
+instructions (upper and lower target) and are reported as their average;
+per-instruction counts are given in Table XIX.
+Memory-Dependent
+Memory-Free
+
+## sec:method-8 Method
+_Pages 13-13_
+
+Mem.
+Cover
+Blocks
+Press
+Button
+Swap
+Eggplant
+Put in
+Drawer
+Put on
+Shelf
+SAM2Act+ [17]
+20.0%
+0.0%
+70.0%
+60.0%
+20.0%
+BridgeVLA
+0.0%
+0.0%
+60.0%
+100.0%
+90.0%
+BridgeVLA++
+100.0% 100.0%
+80.0%
+100.0%
+100.0%
+TABLE VI
+Success rates on the real Dobot platform across all evaluation settings.
+Each entry is the mean over the three memory-dependent or two
+memory-free tasks of Table V; Avg. averages the four disturbance settings.
+Mem. marks memory-augmented policies; per-instruction counts are given in
+Table XIX.
+Visual Disturbance
+
+## sec:method-9 Method
+_Pages 13-14_
+
+Mem.
+Basic
+Distractor Background Height Lighting
+Avg.
+Memory-dependent tasks
+SAM2Act+ [17]
+30.0%
+0.0%
+0.0%
+0.0%
+3.3%
+0.8%
+BridgeVLA
+20.0%
+20.0%
+23.3%
+6.7%
+13.3%
+15.8%
+BridgeVLA++
+93.3%
+73.3%
+86.7%
+76.7%
+76.7%
+78.3%
+Memory-free tasks
+SAM2Act+ [17]
+40.0%
+0.0%
+0.0%
+0.0%
+7.5%
+1.9%
+BridgeVLA
+95.0%
+57.5%
+72.5%
+67.5%
+67.5%
+66.3%
+BridgeVLA++
+100.0%
+70.0%
+100.0%
+82.5%
+75.0%
+81.9%
+disturbances (Table VI). Importantly, this memory integra-
+tion comes at no cost to general manipulation capabilities:
+on the two memory-free tasks, BridgeVLA++ matches or
+exceeds BridgeVLA in both success rate and generalization
+across all settings. Collectively, these results demonstrate that
+BridgeVLA++ successfully acquires memory-dependent com-
+petencies in real-world scenarios while fully preserving the
+foundational manipulation skills and visual robustness of the
+base model. Per-instruction counts are detailed in Table XIX.
+F. Ablation Studies
+To address Q3, we conduct two groups of ablation studies:
+we first ablate the core architectural designs of the base model
+BridgeVLA (upper ablation rows of Table I), and then dissect
+the spatio-temporal memory of BridgeVLA++ (lower ablation
+rows of Table I and Table XVII).
+Whether we need to predict heatmaps before predicting
+actions. Replacing the convex upsampling module with a
+parameter-matched Transformer decoder that directly regresses
+target positions (Appendix C) causes the average success rate
+on RLBench to collapse from 90.5% to 31.4% (Table I). The
+ablated model is also markedly harder to optimize, demanding
+a threefold larger batch size (192 vs. 64) and careful learning-
+rate tuning. We attribute this gap to three properties of the
+heatmap as an intermediate representation: it provides denser
+supervision than sparse 3D position vectors, the 3D-to-2D
+projection injects a helpful spatial prior, and the heatmaps
+share the spatial structure of the input images, keeping input
+and output aligned.
+Whether we need to remove the 3D position input to
+the VLM backbone. Unlike typical 3D VLA models such
+as SpatialVLA, BridgeVLA feeds the backbone only RGB
+projection images. Fusing per-pixel 3D positions into the
+image features via a 3D convolutional module (Appendix C)
+injects richer spatial cues, yet degrades the success rate from
+90.5% to 56.2% (Table I), which we attribute to the resulting
+shift of the image features away from the distribution seen
+during VLM pre-training. For a pre-trained VLM, preserving
+input alignment thus outweighs adding explicit 3D inputs.
+Whether we need the 2D heatmap pre-training. Without
+the pre-training stage, BridgeVLA w/o Pre-train fails to gen-
+eralize in both language-related real-world settings and cannot
+even match RVT-2, whereas the full BridgeVLA performs best
+in both, especially in Combination (Fig. 5). We hypothesize
+that the 2D heatmap pre-training teaches the model to ground
+language semantics in image observations directly within the
+heatmap space, an ability that fine-tuning on a handful of robot
+trajectories alone cannot instill.
+Whether a continuous rotation representation outper-
+forms a discretized one. Replacing the continuous 6D rotation
+representation (Sec. III-C) with the discretized per-axis Euler-
+angle classification head from our preliminary conference
+version degrades the RLBench average from 90.5% to 88.2%
+(Table I), with the drop concentrated in tasks demanding high-
+precision end-effector orientations. The 6D representation also
+stays robust in near-vertical gripper poses, avoiding the gimbal
+lock inherent to discretized Euler angles (Appendix C).
+Whether we need the spatial memory S. Since S
+targets fine-grained geometric alignment under arm-induced
+occlusions (Sec. IV-C), we ablate it mainly on RLBench,
+whose precision tasks are exactly where such occlusions arise.
+Removing S lowers the RLBench average of BridgeVLA++
+(93.7% vs. 92.0%), and the loss concentrates exactly in
+occlusion-heavy precision tasks, e.g., Sort Shape (72.0% vs.
+60.8%, Table I); on RMBench, whose tasks stress temporal
+sequencing rather than geometric alignment, the removal is
+nearly harmless (Table XVII). This benchmark-selective effect
+indicates that S contributes complementary geometric detail
+for precise alignment rather than duplicating the temporal
+memory.
+Whether we need the temporal memory T . Removing T
+collapses the RMBench success rate of BridgeVLA++ from
+96.0% to 21.3%, close to the memory-free base model (18.9%,
+Table XVII). Notably, T also benefits RLBench (93.7% vs.
+91.9%) despite its tasks not being intrinsically memory-
+dependent: the anchor views and neighboring keyframes pro-
+vide a stable global reference and local motion cues that help
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+general manipulation (Table I).
+All the above results address Q3: heatmap-based action pre-
+diction, input alignment, and the temporal memory account for
+the largest gains; the heatmap pre-training underpins language-
+conditioned generalization; and the continuous rotation and
+the spatial memory contribute smaller, targeted gains on
+orientation-critical and occlusion-heavy tasks, respectively.
+VI. CONCLUSION AND FUTURE WORK
+This article has presented BridgeVLA, an efficient 3D
+vision-language-action model built upon a pre-trained vision-
+language model (VLM) [49], together with its memory-
+augmented extension BridgeVLA++. BridgeVLA rests on a
+single alignment principle: 3D observations are rendered as
+multi-view 2D images to match the input space of the VLM,
+actions are expressed as 2D heatmaps in the same image
+space, and a scalable pre-training stage teaches the VLM to
+predict heatmaps before it is fine-tuned for action prediction.
+BridgeVLA++ extends this principle with a unified spatio-
+temporal memory: temporal memory retains the interaction
+history to determine what to do next, while spatial memory
+re-renders previously observed geometry to determine where
+exactly to act. Extensive experiments on standard and memory-
+dependent benchmarks, in both simulation and the real world,
+show that the framework learns 3D manipulation efficiently
+and effectively, and that the memory is strictly additive to
+the base policy. Future work includes broadening pre-training
+to more diverse tasks such as semantic segmentation and
+keypoint detection, adopting more expressive action decoders,
+and replacing the annotation-dependent sub-goal gate with
+self-supervised alternatives. Moreover, since the token-space
+memory injection is agnostic to timescale, extending this
+mechanism to support cross-episode or life-long memory
+represents a promising path toward robots that continuously
+accumulate, refine, and transfer manipulation skills across long
+operational horizons.
+
+## sec:references REFERENCES
+_Pages 14-16_
+
+[1] M. J. Kim et al., “OpenVLA: An open-source vision-language-action
+model,” in Conference on Robot Learning, 2025, pp. 2679–2713.
+[2] Physical Intelligence et al., “π0.5: a vision-language-action model with
+open-world generalization,” 2025, arXiv:2504.16054.
+[3] R.
+al.,
+“WALL-OSS-0.5
+technical
+report,”
+2026,
+arXiv:2605.30877.
+[4] X. Li et al., “Vision-language foundation models as effective robot
+imitators,” in International Conference on Learning Representations
+(ICLR), 2024.
+[5] A. Brohan et al., “RT-2: Vision-language-action models transfer web
+knowledge to robotic control,” in Conference on Robot Learning.
+PMLR, 2023, pp. 2165–2183.
+[6] M. Shridhar, L. Manuelli, and D. Fox, “Perceiver-Actor: A multi-task
+transformer for robotic manipulation,” in Conference on Robot Learning.
+PMLR, 2023, pp. 785–799.
+[7] T.-W. Ke, N. Gkanatsios, and K. Fragkiadaki, “3D Diffuser Actor:
+Policy diffusion with 3D scene representations,” in Conference on Robot
+Learning, 2025, pp. 1949–1974.
+[8] T. Gervet, Z. Xian, N. Gkanatsios, and K. Fragkiadaki, “Act3D: 3D
+feature field transformers for multi-task robotic manipulation,” in Con-
+ference on Robot Learning.
+PMLR, 2023, pp. 3949–3965.
+[9] A. Goyal, J. Xu, Y. Guo, V. Blukis, Y.-W. Chao, and D. Fox, “RVT:
+Robotic view transformer for 3D object manipulation,” in Conference
+on Robot Learning.
+PMLR, 2023, pp. 694–710.
+[10] A. Goyal, V. Blukis, J. Xu, Y. Guo, Y.-W. Chao, and D. Fox, “RVT-2:
+Learning precise manipulation from few demonstrations,” in Robotics:
+Science and Systems (RSS), 2024.
+[11] H. Zhen et al., “3D-VLA: A 3D vision-language-action generative world
+model,” in International Conference on Machine Learning.
+PMLR,
+2024, pp. 61 229–61 245.
+[12] D. Qu et al., “SpatialVLA: Exploring spatial representations for visual-
+language-action models,” in Robotics: Science and Systems (RSS), 2025.
+[13] S. James, Z. Ma, D. R. Arrojo, and A. J. Davison, “RLBench: The
+robot learning benchmark & learning environment,” IEEE Robotics and
+Automation Letters, vol. 5, no. 2, pp. 3019–3026, 2020.
+[14] W. Pumacay, I. Singh, J. Duan, R. Krishna, J. Thomason, and D. Fox,
+“The Colosseum: A benchmark for evaluating generalization for robotic
+manipulation,” 2024, arXiv:2402.08191.
+[15] R. Garcia, S. Chen, and C. Schmid, “Towards generalizable vision-
+language robotic manipulation: A benchmark and LLM-guided 3D
+policy,” in 2025 IEEE International Conference on Robotics and Au-
+tomation (ICRA).
+IEEE, 2025, pp. 8996–9002.
+[16] T. Chen et al., “RMBench: Memory-dependent robotic manipulation
+benchmark with insights into policy design,” 2026. [Online]. Available:
+https://arxiv.org/abs/2603.01229
+[17] H. Fang et al., “SAM2Act: Integrating visual foundation model with a
+memory architecture for robotic manipulation,” in International Confer-
+ence on Machine Learning.
+PMLR, 2025, pp. 15 925–15 942.
+[18] P. Li et al., “BridgeVLA: Input-output alignment for efficient 3D ma-
+nipulation learning with vision-language models,” Advances in Neural
+Information Processing Systems, vol. 38, pp. 63 635–63 673, 2025.
+[19] A. Brohan et al., “RT-1: Robotics transformer for real-world control at
+scale,” in Robotics: Science and Systems (RSS), 2023.
+[20] K. Black et al., “π0: A vision-language-action flow model for general
+robot control,” in Robotics: Science and Systems (RSS), 2025.
+[21] K. Pertsch et al., “FAST: Efficient action tokenization for vision-
+language-action models,” in Robotics: Science and Systems (RSS), 2025.
+[22] Physical Intelligence et al., “π∗
+0.6: a vla that learns from experience,”
+2025, arXiv:2511.14759.
+[23] ——, “π0.7: a steerable generalist robotic foundation model with
+emergent capabilities,” 2026, arXiv:2604.15483.
+[24] Generalist Team, “GEN-0: Embodied foundation models that scale with
+physical interaction,” Generalist AI Blog, 2025. [Online]. Available:
+https://generalistai.com/blog/gen-0
+[25] ——, “GEN-1: Scaling embodied foundation models to mastery,”
+Generalist AI Blog, 2026. [Online]. Available: https://generalistai.com/
+blog/gen-1
+[26] Genesis
+Team,
+“GENE-26.5:
+Advancing
+robotic
+manipulation
+human
+level,”
+Genesis
+Blog,
+May
+2026.
+[Online].
+Available:
+https://genesis.ai/blog/
+gene-26-5-advancing-robotic-manipulation-to-human-level
+[27] Sunday Robotics, “ACT-2 preview: Generalizing reliability,” Sunday
+Robotics Blog, Jul. 2026. [Online]. Available: https://www.sunday.ai/
+blog/act-2-preview
+[28] A. O’Neill et al., “Open X-Embodiment: Robotic learning datasets and
+RT-X models,” in 2024 IEEE International Conference on Robotics and
+Automation (ICRA).
+IEEE, 2024, pp. 6892–6903.
+[29] S. Chen, R. G. Pinel, C. Schmid, and I. Laptev, “PolarNet: 3D point
+clouds for language-guided robotic manipulation,” in Conference on
+Robot Learning.
+PMLR, 2023, pp. 1761–1781.
+[30] W. Yuan, A. Murali, A. Mousavian, and D. Fox, “M2T2: Multi-task
+masked transformer for object-centric pick and place,” in Conference
+on Robot Learning.
+PMLR, 2023, pp. 3619–3630.
+[31] R. Yang, G. Chen, C. Wen, and Y. Gao, “FP3: A 3D foundation policy
+for robotic manipulation,” 2025, arXiv:2503.08950.
+[32] S. James, K. Wada, T. Laidlow, and A. J. Davison, “Coarse-to-fine Q-
+attention: Efficient learning for visual robotic manipulation via discreti-
+sation,” in Proceedings of the IEEE/CVF Conference on Computer Vision
+and Pattern Recognition, 2022, pp. 13 739–13 748.
+[33] C. Li, J. Wen, Y. Peng, Y. Peng, and Y. Zhu, “PointVLA: Injecting
+the 3D world into vision-language-action models,” IEEE Robotics and
+Automation Letters, vol. 11, no. 3, pp. 2506–2513, 2026.
+[34] Y. Jia et al., “Lift3D policy: Lifting 2D foundation models for robust
+3D robotic manipulation,” in Proceedings of the IEEE/CVF Conference
+on Computer Vision and Pattern Recognition, 2025, pp. 17 347–17 358.
+[35] M. Oquab et al., “DINOv2: Learning robust visual features without
+supervision,” Transactions on Machine Learning Research, 2024.
+[36] I. Singh, A. Goyal, S. Birchfield, D. Fox, A. Garg, and V. Blukis, “OG-
+VLA: Orthographic image generation for 3D-aware vision-language
+action model,” 2025, arXiv:2506.01196.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+[37] P.-L. Guhur, S. Chen, R. G. Pinel, M. Tapaswi, I. Laptev, and C. Schmid,
+“Instruction-driven history-aware policies for robotic manipulations,” in
+Conference on Robot Learning.
+PMLR, 2023, pp. 175–187.
+[38] L. Li et al., “Causal world modeling for robot control,” 2026,
+arXiv:2601.21998.
+[39] Y. Yang et al., “World-language-action model for unified world model-
+ing, language reasoning, and action synthesis,” 2026, arXiv:2606.05979.
+[40] S. Yang et al., “MemoryWAM: Efficient world action modeling with
+persistent memory,” 2026, arXiv:2606.20562.
+[41] R. Zheng et al., “TraceVLA: Visual trace prompting enhances spatial-
+temporal awareness for generalist robotic policies,” in International
+Conference on Learning Representations (ICLR), 2025.
+[42] M. Lei et al., “RoboMemory: A brain-inspired multi-memory agentic
+framework for interactive environmental learning in physical embodied
+systems,” 2025, arXiv:2508.01415.
+[43] H. Shi et al., “MemoryVLA: Perceptual-cognitive memory in vision-
+language-action models for robotic manipulation,” in International Con-
+ference on Learning Representations (ICLR), 2026.
+[44] Y. Gao, J. Liu, S. Li, and S. Song, “Gated memory policy,” 2026,
+arXiv:2604.18933.
+[45] L. Zhou, H. Wang, Z. Zhang, Z. Liu, F. E. Tay, and M. H. Ang, “You
+only scan once: A dynamic scene reconstruction pipeline for 6-DoF
+robotic grasping of novel objects,” in IEEE International Conference on
+Robotics and Automation (ICRA), 2024.
+[46] Z.
+Zheng
+al.,
+“Mem-World:
+Memory-augmented
+action-
+conditioned world models for persistent robot manipulation,” 2026,
+arXiv:2606.18960.
+[47] E. Johns, “Coarse-to-fine imitation learning: Robot manipulation from
+a single demonstration,” in 2021 IEEE international conference on
+robotics and automation (ICRA).
+IEEE, 2021, pp. 4613–4619.
+[48] W. Yuan et al., “RoboPoint: A vision-language model for spatial
+affordance prediction for robotics,” 2024, arXiv:2406.10721.
+[49] L. Beyer et al., “PaliGemma: A versatile 3B VLM for transfer,” 2024,
+arXiv:2407.07726.
+[50] X. Zhai, B. Mustafa, A. Kolesnikov, and L. Beyer, “Sigmoid loss
+for language image pre-training,” in Proceedings of the IEEE/CVF
+international conference on computer vision, 2023, pp. 11 975–11 986.
+[51] Gemma Team et al., “Gemma: Open models based on Gemini research
+and technology,” 2024, arXiv:2403.08295.
+[52] Z. Teed and J. Deng, “RAFT: Recurrent all-pairs field transforms
+for optical flow,” in Computer Vision–ECCV 2020: 16th European
+Conference, Glasgow, UK, August 23–28, 2020, Proceedings, Part II
+16.
+Springer, 2020, pp. 402–419.
+[53] Y. Zhou, C. Barnes, J. Lu, J. Yang, and H. Li, “On the continuity
+of rotation representations in neural networks,” in Proceedings of the
+IEEE/CVF Conference on Computer Vision and Pattern Recognition,
+2019, pp. 5745–5753.
+[54] E. Rohmer, S. P. Singh, and M. Freese, “V-REP: A versatile and
+scalable robot simulation framework,” in 2013 IEEE/RSJ international
+conference on intelligent robots and systems.
+IEEE, 2013, pp. 1321–
+1326.
+[55] A. Jaegle et al., “Perceiver IO: A general architecture for structured
+inputs & outputs,” in International Conference on Learning Represen-
+tations, 2022.
+[56] C. Chi et al., “Diffusion policy: Visuomotor policy learning via action
+diffusion,” The International Journal of Robotics Research, 2024.
+[57] T. Z. Zhao, V. Kumar, S. Levine, and C. Finn, “Learning fine-grained
+bimanual manipulation with low-cost hardware,” in Robotics: Science
+and Systems (RSS), 2023.
+[58] J. Zheng et al., “X-VLA: Soft-prompted transformer as scalable cross-
+embodiment vision-language-action model,” 2025, arXiv:2510.10274.
+[59] T. Yuan, Z. Dong, Y. Liu, and H. Zhao, “Fast-WAM: Do world action
+models need test-time future imagination?” 2026, arXiv:2603.16666.
+[60] S. Nair, A. Rajeswaran, V. Kumar, C. Finn, and A. Gupta, “R3M:
+A universal visual representation for robot manipulation,” 2022,
+arXiv:2203.12601.
+[61] T. Xiao, I. Radosavovic, T. Darrell, and J. Malik, “Masked visual pre-
+training for motor control,” 2022, arXiv:2203.06173.
+[62] T. Chen et al., “RoboTwin 2.0: A scalable data generator and benchmark
+with strong domain randomization for robust bimanual robotic manipu-
+lation,” 2025, arXiv:2506.18088.
+[63] F. Xiang et al., “SAPIEN: A simulated part-based interactive environ-
+ment,” in Proceedings of the IEEE/CVF Conference on Computer Vision
+and Pattern Recognition, 2020, pp. 11 097–11 107.
+[64] X. Wu et al., “Point transformer V3: Simpler faster stronger,” in
+Proceedings of the IEEE/CVF Conference on Computer Vision and
+Pattern Recognition, 2024, pp. 4840–4851.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE VII
+Per-benchmark fine-tuning configuration. Fine-tuning is two-phase: during the initial freeze epochs the PaliGemma backbone is frozen and only the
+modules outside it are trained (the convex-upsampling modules, the action heads, and the memory modules); the backbone is then unfrozen for the
+remaining epochs, and the learning-rate warmup applies per phase.
+Setting
+RLBench
+COLOSSEUM
+GemBench
+RMBench
+MemoryBench
+Epochs / freeze epochs
+130 / 4
+200 / 4
+200 / 2
+∼320 (per task) / 5
+160 / 20
+Warmup steps (per phase)
+1,500
+1,500
+1,000
+1,000
+1,000
+Optimizer
+AdamW, (β1, β2) = (0.9, 0.95)
+Learning rate
+8×10−5
+8×10−5
+5×10−5
+5×10−5
+5×10−5
+Weight decay
+10−2
+10−2
+10−3
+10−3
+10−3
+Batch size per GPU
+GPUs
+SE(3) aug. (trans. / yaw)
+0.125 / 45◦
+0.125 / 45◦
+0.125 / 45◦
+0.03 / 30◦
+0.125 / 45◦
+Stage-2 zoom jitter
+0.05
+0.05
+0.05
+0.005
+0.05
+Slot budget K
+Neighboring keyframes n
+Gate λcheck / pos. wt. / thr.
+1.0 / 5.5 / 0.5
+Rotation head
+continuous 6D [53]
+Collision head
+off
+off
+off
+Arms
+Demonstrations per task
+100 (per variation)
+Input cameras (resolution)
+4 (1282)
+4 (1282)
+4 (2562)
+4 (2242)
+4 (1282)
+Ortho. window scale
+2.0
+2.0
+2.0
+0.8
+2.0
+Splat radius (coarse / fine)
+0.012 / 0.012
+0.012 / 0.012
+0.012 / 0.012
+0.004 / 0.012
+0.012 / 0.012
+
+## sec:appendix APPENDIX
+_Pages 16-17_
+
+A. Network and Memory Architecture
+Each memory injection block of Sec. IV-D (Fig. 2) stacks
+L=2 layers with 8 attention heads of dimension 128 and a
+feed-forward expansion factor of 2, and operates in the 2048-
+dimensional patch-token space of the backbone. The temporal
+memory uses two such blocks, one for the initial anchor
+views and one for the dynamic keyframe bank, and the spatial
+memory a third (Fig. 3); the anchor block concatenates the
+three views so that attention can track scene changes across
+views, whereas the other two blocks restrict each view’s tokens
+to the corresponding memory view.
+B. Pre-Training
+All fine-tuning runs in this article warm-start from a single
+2D-heatmap pre-training run that instantiates Sec. III-B on
+the 120K object-detection split of RoboPoint [48]; Fig. 15
+illustrates how the ground-truth heatmaps are rendered from
+the detection boxes, and Fig. 16 the predictions the fine-tuned
+model still produces on such data. The memory injection
+blocks and the sub-goal gate of Sec. IV are not pre-trained and
+are instead trained from scratch during fine-tuning. Whenever
+a stage has nothing to read, the injection block gates all
+residual contributions of masked memory to zero, so the
+memory-free BridgeVLA forward pass is recovered exactly.
+C. Fine-Tuning Details
+Table VII lists the per-benchmark fine-tuning configuration;
+the paragraphs below cover the settings the table cannot
+express.
+a) Two-phase schedule: During the initial freeze epochs
+of Table VII, the PaliGemma backbone is frozen and gradients
+reach only the modules outside it: the convex-upsampling
+modules, the MLP action heads, and the memory injection
+blocks and sub-goal gate. This first phase lets the modules
+that the pre-training of Appendix B does not cover adapt
+to the manipulation data before the backbone is touched.
+In the second phase the backbone is unfrozen and trained
+jointly with these modules, except for the SigLIP vision
+encoder and the language-token embedding, which remain
+frozen throughout fine-tuning. The optimizer is re-initialized
+at the phase boundary, so the warmup steps of Table VII apply
+to each phase.
+b) Memory-specific settings: Whenever memory is en-
+abled, random in-plane 2D image augmentation is disabled
+and the workspace cube is centered on fixed scene bounds
+rather than on the per-frame cloud mean, since either per-
+turbation would break the pixel correspondence between the
+current observation and the cached memory tokens. The SE(3)
+augmentation of Table VII, whose translation is a fraction of
+the workspace extent and whose rotation perturbs yaw only,
+is instead applied jointly to the current, anchor, and history
+point clouds (Sec. IV-F); the stage-2 zoom jitter perturbs the
+ground-truth waypoint the fine stage zooms to during training.
+c) Slot budgets: On RMBench the budget K=12 holds
+the two neighboring keyframes and up to ten sub-goal slots.
+Every executed keyframe occupies a neighboring slot regard-
+less of the gate, and a gated keyframe enters a sub-goal slot
+only when it leaves the neighboring window two steps later;
+when the sub-goal slots are full, the oldest is evicted. The
+other benchmarks carry no sub-goal annotations, so the gate
+is disabled and the budget holds only the two neighboring
+keyframes, K=2; the temporal memory there reduces to the
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+neighboring keyframes and the initial anchor, which suits the
+shorter horizons of these tasks.
+d) Rendering: Every point cloud is rendered into three
+224 × 224 orthographic views regardless of the sensor resolu-
+tion listed in Table VII. The orthographic window scale sets
+the extent of the rendered viewport relative to the workspace,
+with values below one zooming in.
+e) Ablation configurations: Among the design-ablation
+rows of Table I (Sec. V-F), w/ discretized rotation replaces
+the continuous 6D rotation head with per-axis Euler angles
+quantized into 5◦bins and supervised with cross-entropy, as
+in our conference version. Beyond its resolution ceiling, this
+representation is ill-conditioned near the gimbal-lock singu-
+larities of the Euler decomposition, where the roll and yaw
+axes degenerate and orientations that are close in SO(3) may
+fall into distant bins, making the per-axis cross-entropy targets
+discontinuous. The continuous 6D parameterization is free of
+such singularities. w/ 3D position input adds a 3D convolu-
+tional module that encodes per-pixel 3D positions and fuses
+them with the 2D image features fed to the backbone. w/o
+heatmap decoding replaces the convex-upsampling module, of
+309M parameters, with a similarly sized Transformer decoder
+of 303M parameters that regresses the target positions directly
+under an MSE loss, leaving all other modules unchanged.
+D. Training Data Preparation
+a) Keyframe selection:
+Demonstrations are converted
+into
+consecutive-keyframe
+training
+transitions
+with
+the
+keyframe-selection strategy of PerAct [6] in all single-arm
+experiments: a time step is labeled a keyframe if the robot
+is stationary, if the gripper state changes, or if it is the final
+step of the episode. RMBench demonstrations instead use a
+bimanual variant of this heuristic, which keeps the last frame
+of every segment in which both arms are still.
+b) Sub-goal labels: The sub-goal gate of Sec. IV-B3 is
+supervised by labels derived from the RMBench demonstra-
+tions, whose keyframes carry per-segment language annota-
+tions. The last keyframe of each language segment marks the
+completion of a sub-goal and is labeled positive; all other
+keyframes are negatives. Repeated identical language segments
+are kept separate rather than merged by text identity, so every
+repetition of an instruction, such as each press in Press Button,
+contributes its own sub-goal frame. The resulting positives
+cover 9–15% of keyframes depending on the task, which
+the binary cross-entropy compensates with the positive-class
+weight of Table VII.
+E. Evaluation Protocol
+This appendix states the training data, trial counts, step
+budgets, and reporting statistics used for each benchmark.
+a) RLBench: Training uses the 100 demonstrations per
+task provided by the benchmark, over the 18 tasks of Fig. 17.
+Each configuration is evaluated over 25 episodes per task
+under a 25-keyframe-step budget, except Place Cups and Stack
+Blocks, which receive 35 steps. We report means and standard
+deviations over five independent evaluation runs, except for the
+two design-ablation variants that replace the heatmap head or
+inject 3D position input, which are evaluated over three runs.
+b) COLOSSEUM: Policies are trained on the unper-
+turbed RLBench data of the 20 benchmark tasks, 100 demon-
+strations per task, and evaluated under the 14 settings of
+Table III, visualized in Fig. 19, with 25 trials per task and
+setting. BridgeVLA, BridgeVLA++, and RVT-2 are our own
+training and evaluation runs, reported as mean and variance
+over three test repetitions (Tables VIII, IX, and X); the
+remaining baseline numbers are quoted from the benchmark
+release [14].
+c) GemBench: Policies are trained on the 16-task train-
+ing split, 31 variations, and evaluated on the 44 test tasks,
+92 variations, of the four levels L1–L4 shown in Fig. 20.
+Following the benchmark protocol [15], BridgeVLA and
+BridgeVLA++ are each evaluated over five random seeds with
+20 trials per task variation, and Tables XI and XIII–XVI
+report means over the five seeds. Baseline numbers are quoted
+from [15].
+d) RMBench:
+The
+benchmark
+built
+within
+RoboTwin 2.0 [62] and simulated in SAPIEN [63]; its
+nine dual-arm tasks are shown in Fig. 18. Following the
+benchmark protocol, policies are trained on 50 expert
+demonstrations per task; BridgeVLA++ emits one action
+tuple per arm at every keyframe step (Sec. III-A), and the
+collision flag is dropped. Every reported number is a single
+100-episode evaluation under a per-task keyframe-step limit
+scaled to the task horizon. The numbers in Tables II and XVII
+are obtained by training one model per task and selecting the
+best-performing checkpoint of each task’s training run.
+e) MemoryBench: Policies are trained on 100 demonstra-
+tions per task following the protocol of [17]. One evaluation
+covers all nine task variants of the three tasks of Fig. 21 under
+a 25-step budget, and we report mean±std over five evaluation
+seeds.
+f) Real robot: Each of the 13 Franka tasks of Figs. 8
+and 9 is trained with 10 kinesthetic-teaching demonstrations,
+reduced to 3 in the low-data variant of Table XVIII, and every
+method is evaluated over 10 trials per task in the Basic setting.
+Each test scene is photographed and manually aligned across
+methods. A single multi-task model is trained jointly on all
+tasks, and the same checkpoint is evaluated on every task.
+The six generalization settings compare BridgeVLA and RVT-
+2, the two methods that perform well in the Basic setting;
+their definitions are given in Appendix P and the four visual-
+disturbance ones are visualized in Fig. 6.
+The Dobot suite of Appendix L follows the same protocol
+at the granularity of the language instruction rather than
+the task: its five tasks, three memory-dependent and two
+memory-free, comprise seven instructions, each trained with
+10 kinesthetic-teaching demonstrations, for 70 demonstrations
+in total. All methods share this training set, and BridgeVLA
+and BridgeVLA++ are each trained jointly on all seven in-
+structions as a single model whose one checkpoint is evalu-
+ated on every instruction, as on the Franka platform. Every
+instruction is evaluated over 10 trials in each of the Basic,
+Distractor, Background, Height, and Lighting settings, the last
+four illustrated in Fig. 7 and defined as in the Franka suite
+
+## sec:appendix-p-the-comparison-here-runs-across-all-five-settings (Appendix P). The comparison here runs across all five settings
+_Pages 17-19_
+
+and against two baselines, the memory-free BridgeVLA and
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+the memory-augmented SAM2Act+ [17], so that the effect of
+memory is separated from that of the backbone: BridgeVLA
+shares BridgeVLA++’s backbone but has no memory, whereas
+SAM2Act+ has memory but a different backbone and retrieval
+scheme. Figs. 13 and 14 show BridgeVLA++ rollouts on
+the memory-dependent and memory-free instructions, respec-
+tively.
+F. Computational Cost
+The running times below are those of the runs behind the
+reported results. The 2D-heatmap pre-training of Appendix B
+takes about 2 hours on 8 NVIDIA A100 GPUs. For fine-
+tuning, BridgeVLA and BridgeVLA++ train on 32 H20 GPUs
+on RLBench, COLOSSEUM, and GemBench, as do the abla-
+tion rows of Table I; RMBench trains one model per task on 8
+H20 GPUs each, and MemoryBench trains on 8 A100 GPUs.
+Real-world fine-tuning takes about 1.5 hours on 8 A100 GPUs.
+Evaluation uses a single GPU per run: RMBench, Gem-
+Bench, MemoryBench, and COLOSSEUM are evaluated on
+one A100, and RLBench on one H20. For real-world deploy-
+ment, both models run on a machine with a single NVIDIA
+RTX 4090 GPU. Averaged over 100 trials, the end-to-end
+latency from point-cloud input to action output is 0.35 seconds
+per prediction step for BridgeVLA and 0.57 seconds for
+the full BridgeVLA++ (Sec. IV-F). Both figures are small
+relative to the remainder of the control loop: in real-world
+deployment, transmitting the multi-camera observations and
+physically executing the planned motion between keyframes
+dominate the total time per step.
+a) Memory overhead: The totals of Sec. IV-F decompose
+as follows. Each of the three memory injection blocks holds
+83.95M parameters and the sub-goal gate a further 17.91M, for
+269.77M in total, or 9.2% of the 2.92B-parameter backbone.
+A cached memory entry is a single bf16 coarse-stage token
+grid of 3.0 MiB, so a full memory at the RMBench budget
+of K=12 frames plus the anchor occupies 39 MiB. Because
+entries are stored already encoded, the cache is the only stored
+quantity that grows with K; the cross-attention cost of the
+injection block also grows linearly in K but remains negligible
+next to a backbone forward pass, and the number of forward
+passes per step is independent of K. Per step, the memory-free
+policy runs two backbone forwards, coarse and fine, and the
+full BridgeVLA++ three, the additional pass encoding the fine-
+stage geometric reference. Dual-arm deployments, whose fine
+stage runs once per arm on a shared coarse trunk (Sec. IV-E),
+accordingly run five.
+G. Per-Task Results on COLOSSEUM
+COLOSSEUM and GemBench, covered here and in Ap-
+pendix H, hold the training data fixed and shift the test envi-
+ronment away from it in appearance, objects, and instructions.
+Because both suites probe per-frame perception rather than
+history, the base policy BridgeVLA carries the comparison
+against prior work; BridgeVLA++ is reported alongside it to
+verify that the memory extension preserves this robustness.
+On COLOSSEUM [14] (settings and protocol in Ap-
+pendix E, perturbations visualized in Fig. 19), we compare
+against R3M-MLP [60] and MVP-MLP [61], which pair pre-
+trained 2D encoders with MLP action heads, and against the
+3D policies PerAct [6], RVT [9], and RVT-2 [10].
+Beyond the averages reported in Sec. V-B, BridgeVLA
+ranks best among prior methods in 13 of the 14 settings
+(Table III), and how that margin is distributed supports the
+alignment argument: it is widest under appearance-level shifts,
+with a lead of 11 to 15 points on table texture, table color, light
+color, and receptacle texture, which is exactly the nuisance
+variation a VLM’s 2D pre-training has seen in abundance and
+a policy trained from scratch has not. The one setting in which
+BridgeVLA trails is Distractor, at 51.8% against 60.8% for
+RVT-2. BridgeVLA++ improves markedly on precisely the
+two settings that are hardest for BridgeVLA, reaching 38.9%
+against 18.7% under All Perturbations and 61.6% against
+51.8% under Distractor, and between them the two variants
+rank first in every one of the 14 settings. Tables VIII, IX,
+and X break the comparison down to the task level.
+H. Per-Task Results on GemBench
+GemBench [15] grades generalization hierarchically over
+four levels, from the training tasks under changed placements
+(L1) through novel rigid (L2) and articulated (L3) objects
+to novel long-horizon compositions (L4); Fig. 20 visualizes
+the suite and Appendix E states the protocol. Alongside
+Hiveformer [37], PolarNet [29], 3D Diffuser Actor [7], and
+RVT-2 [10], we compare against the benchmark’s own 3D-
+LOTUS, a language-conditioned point-cloud transformer [15],
+[64], and 3D-LOTUS++, which wraps the same controller in
+LLM task planning and VLM object grounding [15].
+Behind the best average success rates reported in Sec. V-B,
+the per-level breakdown of Table XI shows that BridgeVLA
+is competitive with the strongest specialized 3D policies on
+the seen tasks of L1, leads the articulated-object level L3,
+and scores 0.0% on L4, while BridgeVLA++ attains the best
+L2 result at 68.9% and lifts L4 off zero to 8.2%, at the cost
+of a few points on L1 and L3. On L4, where every end-to-
+end baseline sits at or near zero, the gain of BridgeVLA++
+comes almost entirely from PushButtons4 (Table XVI): the
+neighboring keyframes in the temporal memory let the policy
+recall the button it has just pressed and proceed to the next,
+state that the current frame alone does not reveal. Tables XIII–
+XVI report the full per-task success rates behind Table XI.
+I. Per-Task Results on MemoryBench
+MemoryBench [17] repeats the memory-dependent test of
+Sec. V-C in a single-arm setting and a different simulator:
+its three tasks extend RLBench so that pressing a button
+erases the visual evidence a later step depends on (Fig. 21).
+Table XII compares against RVT-2 [10] and against SAM2Act
+and SAM2Act+ [17], whose SAM2-style memory bank is
+the closest prior instantiation of visual episodic memory in a
+keyframe policy. BridgeVLA++ solves the benchmark almost
+completely, with its margin over SAM2Act+ concentrated on
+Reopen Drawer (100% against 84%), whereas the memory-
+free BridgeVLA collapses to 11.3±0.8%; every seed of
+BridgeVLA++ scores at or above 99.3% overall, so the spread
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE VIII
+Per-Task Results of BridgeVLA on COLOSSEUM. Success rates (%) under each COLOSSEUM perturbation [14], mean±variance over three evaluation
+repetitions; “–” marks perturbation–task combinations the benchmark does not define.
+Task
+Original
+All Perturbations
+MO-COLOR
+RO-COLOR
+MO-TEXTURE
+RO-TEXTURE
+MO-SIZE
+RO-SIZE
+Light Color
+Table Color
+Table Texture
+Distractor
+Background Texture
+RLBench
+Camera Pose
+basketball in hoop
+100.0±0.0
+4.0±3.3
+94.7±1.9
+96.0±0.0
+84.0±5.7
+100.0±0.0
+68.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+37.3±1.9
+100.0±0.0
+100.0±0.0
+100.0±0.0
+close box
+100.0±0.0
+72.0±0.0
+94.7±1.9
+93.3±1.9
+100.0±0.0
+100.0±0.0
+98.7±1.9
+98.7±1.9
+100.0±0.0
+97.3±1.9
+100.0±0.0
+close laptop lid
+100.0±0.0
+11.1±15.7
+82.7±3.8
+67.9±14.6
+89.3±8.2
+92.0±0.0
+97.3±3.8
+82.7±6.8
+96.0±3.3
+100.0±0.0
+96.0±0.0
+empty dishwasher
+0.0±0.0
+0.0±0.0
+1.3±1.9
+1.3±1.9
+1.3±1.9
+4.0±3.3
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+1.3±1.9
+1.3±1.9
+0.0±0.0
+get ice from fridge
+94.7±1.9
+5.3±1.9
+86.7±1.9
+90.7±7.5
+90.7±5.0
+84.0±3.3
+73.3±1.9
+96.0±3.3
+98.7±1.9
+89.3±7.5
+56.0±8.6
+94.7±1.9
+96.0±3.3
+98.7±1.9
+hockey
+57.3±5.0
+9.3±3.8
+44.0±6.5
+50.7±8.2
+50.7±13.2
+46.7±8.2
+65.3±5.0
+45.3±1.9
+64.0±8.6
+53.3±1.9
+20.0±3.3
+56.0±5.7
+49.3±5.0
+50.7±5.0
+insert onto square peg
+93.3±3.8
+23.3±2.4
+52.0±3.3
+94.7±1.9
+76.0±8.6
+85.3±3.8
+70.7±3.8
+84.0±0.0
+88.0±3.3
+88.0±3.3
+44.0±11.8
+86.7±1.9
+77.3±5.0
+96.0±0.0
+meat on grill
+96.0±0.0
+9.3±1.9
+32.0±0.0
+88.0±5.7
+100.0±0.0
+100.0±0.0
+92.0±6.5
+90.7±1.9
+98.7±1.9
+97.3±1.9
+100.0±0.0
+100.0±0.0
+move hanger
+37.3±3.8
+2.7±3.8
+26.7±3.8
+46.7±3.8
+52.0±0.0
+84.0±0.0
+52.0±5.7
+52.0±5.7
+33.3±5.0
+42.7±1.9
+24.0±0.0
+open drawer
+96.0±0.0
+60.0±3.3
+97.3±1.9
+90.7±1.9
+88.0±3.3
+93.3±1.9
+100.0±0.0
+90.7±1.9
+100.0±0.0
+94.7±1.9
+96.0±0.0
+place wine at rack location
+88.0±5.7
+17.3±13.6
+82.7±5.0
+89.3±7.5
+92.0±6.5
+93.3±3.8
+90.7±3.8
+90.7±5.0
+97.3±1.9
+88.0±3.3
+74.7±3.8
+90.7±6.8
+92.0±3.3
+92.0±8.6
+put money in safe
+94.7±1.9
+6.7±5.0
+78.7±1.9
+74.7±1.9
+81.3±6.8
+89.3±5.0
+92.0±3.3
+37.3±12.4
+84.0±3.3
+84.0±3.3
+84.0±3.3
+89.3±1.9
+86.7±8.2
+86.7±1.9
+reach and drag
+100.0±0.0
+0.0±0.0
+89.3±3.8
+96.0±0.0
+94.7±5.0
+84.0±5.7
+94.7±1.9
+38.7±5.0
+92.0±3.3
+88.0±5.7
+78.7±3.8
+28.0±8.6
+100.0±0.0
+100.0±0.0
+94.7±3.8
+scoop with spatula
+96.0±3.3
+6.7±1.9
+94.7±1.9
+93.3±1.9
+85.3±3.8
+85.3±3.8
+78.7±3.8
+86.7±5.0
+90.7±1.9
+88.0±6.5
+77.3±1.9
+20.0±5.7
+90.7±6.8
+89.3±1.9
+93.3±1.9
+setup chess
+10.7±1.9
+0.0±0.0
+1.3±1.9
+8.0±0.0
+8.0±3.3
+13.3±1.9
+12.0±5.7
+21.3±8.2
+13.3±3.8
+5.3±1.9
+20.0±5.7
+16.0±5.7
+4.0±3.3
+slide block to target
+100.0±0.0
+24.0±3.3
+74.7±1.9
+92.0±3.3
+100.0±0.0
+100.0±0.0
+98.7±1.9
+84.0±9.8
+100.0±0.0
+100.0±0.0
+100.0±0.0
+stack cups
+58.7±3.8
+29.3±1.9
+66.7±1.9
+50.7±1.9
+44.0±3.3
+62.7±1.9
+64.0±3.3
+65.3±8.2
+26.7±7.5
+73.3±8.2
+64.0±14.2
+72.0±8.6
+straighten rope
+61.3±6.8
+8.0±5.7
+16.0±5.7
+48.0±3.3
+61.3±9.4
+65.3±1.9
+54.7±8.2
+37.3±5.0
+70.7±8.2
+66.7±7.5
+72.0±6.5
+turn oven on
+93.3±1.9
+85.3±3.8
+94.7±3.8
+90.7±1.9
+93.3±3.8
+94.7±7.5
+96.0±3.3
+96.0±3.3
+96.0±0.0
+88.0±3.3
+100.0±0.0
+wipe desk
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+Task Mean
+73.9±0.7
+18.7±2.2
+60.5±1.1
+63.8±0.1
+63.5±1.5
+68.4±3.3
+69.3±1.0
+61.7±0.8
+69.7±1.2
+75.7±0.9
+71.3±0.7
+51.8±1.5
+74.8±1.0
+73.1±0.2
+73.8±0.3
+in Table XII reflects a handful of failed episodes rather than
+run-to-run instability.
+J. Per-Task Memory Ablations on RMBench
+Table XVII reports the per-task success rates behind the
+RMBench memory ablation of Sec. V-F, whose four rows form
+the memory 2×2 factorial. Removing the temporal memory
+T collapses precisely the tasks that require tracking progress
+or past attempts, with Press Button falling from 93% to 0%,
+Blocks Ranking Try from 100% to 1%, and Rearrange Blocks
+from 100% to 11%, whereas removing the spatial memory S
+leaves every task within a few points of the full model, with
+the largest single-task change on Cover Blocks (91% vs. 99%).
+K. General Manipulation on the Franka Platform
+This appendix and Appendices L–P supplement Sec. V-E
+with the per-task results, the baseline failure modes, and the
+setting definitions of both real-robot suites.
+a) Setup: The 13 tasks of the Franka suite range from
+simple pick-and-place to long-horizon drawer tasks, each span-
+ning 3–9 keyframes (Table IV); Figs. 8 and 9 show BridgeVLA
+rollouts. Demonstrations are collected by kinesthetic teaching:
+the manipulator is moved to the keypoints of an expert trajec-
+tory, which are then played back to record the observation and
+action at each keypoint. Training and evaluation follow the
+protocol of Appendix E, and the six generalization settings
+are defined in Appendix P.
+b) Baselines: The baselines span the design space laid
+out in Sec. I: SpatialVLA [12], a 3D VLA that injects 3D
+information through Ego3D position encoding, trained with
+10 and additionally with 50 trajectories per task; π0.5 [2],
+a 2D VLA whose flow-matching action expert sits on the
+same PaliGemma backbone as BridgeVLA; ACT [57], trained
+single-task per task; and RVT-2 [10], the projection-based 3D
+policy closest in design to BridgeVLA.
+c) Data efficiency: Among the baselines of Table IV, the
+contrast with π0.5 is the cleanest real-world evidence for the
+alignment argument of Sec. I. The two models share the same
+pre-trained backbone and differ in the interface, heatmap pre-
+diction in the projected views versus action generation through
+a separate flow-matching expert, so a gap of over 75 points
+at 10 demonstrations isolates the input–output alignment, not
+the backbone, as the source of sample efficiency. The failure
+modes of all baselines are recorded in Appendix M, and the
+3-demonstration variant in Appendix N.
+d) Generalization: Because only RVT-2 and BridgeVLA
+perform well in the Basic setting, the six generalization
+settings compare these two models (Fig. 5). The remaining
+failure mode of BridgeVLA is Category, where the policy
+sometimes ignores the unseen target object and moves directly
+to the destination. This is not forgetting of the pre-trained
+grounding: fed samples from the pre-training dataset after
+action fine-tuning, the model still predicts accurate heatmaps
+
+## sec:appendix-o-we-attribute-the-gap-instead-to-a-residual (Appendix O). We attribute the gap instead to a residual
+_Pages 19-21_
+
+domain mismatch: the 2D pre-training images are mostly
+third-person views unlike the orthographic robot renders, and
+their grounding supervision is object localization, whereas
+manipulation targets keypoints that need not lie on an object.
+The pre-training ablation of Sec. V-F traces this instruction-
+level generalization to the 2D-heatmap pre-training itself.
+L. Memory-Dependent Manipulation on the Dobot Platform
+The Franka suite tests only the base policy: its near-saturated
+success shows that these 13 tasks are solvable from the current
+frame alone. We therefore evaluate BridgeVLA++ on a second,
+held-out embodiment, a 6-DoF Dobot CR5A collaborative arm
+fitted with a ChangingTek CTAG2F90-C parallel-jaw electric
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE IX
+Per-Task Results of BridgeVLA++ on COLOSSEUM. Success rates (%) under each COLOSSEUM perturbation [14], mean±variance over three
+evaluation repetitions, under the identical protocol as Table VIII; “–” marks perturbation–task combinations the benchmark does not define.
+Task
+Original
+All Perturbations
+MO-COLOR
+RO-COLOR
+MO-TEXTURE
+RO-TEXTURE
+MO-SIZE
+RO-SIZE
+Light Color
+Table Color
+Table Texture
+Distractor
+Background Texture
+RLBench
+Camera Pose
+basketball in hoop
+100.0±0.0
+41.3±3.8
+96.0±0.0
+100.0±0.0
+94.7±1.9
+100.0±0.0
+86.7±1.9
+100.0±0.0
+100.0±0.0
+100.0±0.0
+97.3±1.9
+100.0±0.0
+100.0±0.0
+100.0±0.0
+close box
+93.3±1.9
+84.0±0.0
+94.7±1.9
+96.0±0.0
+96.0±3.3
+96.0±0.0
+97.3±1.9
+94.7±5.0
+98.7±1.9
+98.7±1.9
+96.0±0.0
+close laptop lid
+100.0±0.0
+82.7±1.9
+96.0±0.0
+100.0±0.0
+100.0±0.0
+96.0±0.0
+92.0±0.0
+96.0±0.0
+92.0±0.0
+100.0±0.0
+100.0±0.0
+empty dishwasher
+10.7±1.9
+16.0±0.0
+12.0±3.3
+25.3±5.0
+20.0±5.7
+37.3±5.0
+20.0±8.6
+4.0±3.3
+10.7±1.9
+12.0±0.0
+14.7±1.9
+14.7±1.9
+6.7±5.0
+21.3±5.0
+get ice from fridge
+96.0±3.3
+22.7±6.8
+88.0±0.0
+98.7±1.9
+93.3±1.9
+94.7±1.9
+90.7±1.9
+97.3±1.9
+98.7±1.9
+98.7±1.9
+93.3±1.9
+100.0±0.0
+96.0±0.0
+97.3±3.8
+hockey
+38.7±7.5
+2.7±1.9
+48.0±5.7
+37.3±1.9
+26.7±5.0
+22.7±5.0
+28.0±3.3
+22.7±3.8
+37.3±6.8
+26.7±5.0
+16.0±0.0
+26.7±1.9
+29.3±1.9
+33.3±5.0
+insert onto square peg
+24.0±6.5
+58.7±5.0
+18.7±8.2
+41.3±1.9
+44.0±3.3
+56.0±3.3
+14.7±3.8
+25.3±1.9
+34.7±1.9
+33.3±3.8
+29.3±1.9
+36.0±3.3
+26.7±6.8
+33.3±3.8
+meat on grill
+100.0±0.0
+81.3±1.9
+97.3±1.9
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+move hanger
+20.0±0.0
+18.7±3.8
+52.0±9.8
+25.3±7.5
+26.7±8.2
+57.3±3.8
+37.3±3.8
+49.3±5.0
+24.0±5.7
+20.0±0.0
+21.3±6.8
+open drawer
+100.0±0.0
+69.3±1.9
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+74.7±5.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+place wine at rack location
+96.0±3.3
+77.3±5.0
+98.7±1.9
+100.0±0.0
+93.3±5.0
+93.3±1.9
+96.0±0.0
+96.0±3.3
+94.7±1.9
+97.3±3.8
+73.3±6.8
+89.3±5.0
+94.7±3.8
+96.0±0.0
+put money in safe
+90.7±3.8
+25.3±3.8
+86.7±5.0
+80.0±3.3
+65.3±11.5
+96.0±0.0
+89.3±3.8
+81.3±5.0
+86.7±1.9
+77.3±6.8
+78.7±5.0
+89.3±3.8
+78.7±3.8
+73.3±5.0
+reach and drag
+86.7±6.8
+5.3±1.9
+85.3±5.0
+94.7±5.0
+82.7±3.8
+88.0±0.0
+92.0±3.3
+81.3±1.9
+86.7±5.0
+80.0±5.7
+86.7±1.9
+77.3±5.0
+93.3±1.9
+89.3±1.9
+76.0±5.7
+scoop with spatula
+93.3±1.9
+21.3±1.9
+93.3±1.9
+88.0±3.3
+93.3±1.9
+90.7±5.0
+78.7±1.9
+78.7±5.0
+88.0±6.5
+96.0±3.3
+90.7±1.9
+62.7±6.8
+92.0±3.3
+93.3±1.9
+89.3±1.9
+setup chess
+18.7±9.4
+1.3±1.9
+9.3±5.0
+24.0±5.7
+17.3±5.0
+25.3±5.0
+28.0±3.3
+26.7±5.0
+28.0±3.3
+6.7±3.8
+30.7±6.8
+29.3±10.5
+28.0±3.3
+slide block to target
+100.0±0.0
+42.7±8.2
+92.0±0.0
+96.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+96.0±0.0
+100.0±0.0
+100.0±0.0
+100.0±0.0
+stack cups
+41.3±5.0
+5.3±1.9
+36.0±5.7
+44.0±3.3
+37.3±1.9
+46.7±8.2
+34.7±9.4
+36.0±6.5
+13.3±5.0
+41.3±5.0
+45.3±7.5
+40.0±3.3
+straighten rope
+69.3±1.9
+34.7±3.8
+76.0±8.6
+70.7±6.8
+68.0±5.7
+81.3±5.0
+73.3±10.5
+66.7±7.5
+69.3±14.7
+69.3±6.8
+74.7±5.0
+turn oven on
+98.7±1.9
+88.0±3.3
+94.7±1.9
+93.3±1.9
+97.3±1.9
+100.0±0.0
+97.3±1.9
+92.0±3.3
+93.3±1.9
+92.0±6.5
+93.3±5.0
+wipe desk
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+Task Mean
+68.9±0.5
+38.9±0.8
+68.7±0.7
+62.7±0.6
+65.7±0.4
+65.5±1.2
+71.5±0.3
+62.0±0.7
+68.2±1.0
+71.5±0.3
+69.2±0.7
+61.6±0.5
+69.5±1.2
+68.5±0.6
+68.7±0.7
+gripper and observed, as in the Franka setup, by a single static
+ZED 2i stereo camera.
+The three memory-dependent tasks transplant the memory
+families of RMBench (Sec. V-C) into the real world, each
+constructed so that the current observation underdetermines
+the next action. Press Button is the counting family: the
+robot must press the blue button exactly three times and then
+press the yellow button once, a final press that requires the
+policy to know when the counting is complete. In Cover
+Blocks, the robot first covers the two different-colored blocks
+in the workspace and must then uncover only the block of
+the instructed color, which is solvable only from the color-
+to-location bindings formed before the covers went on. Swap
+Eggplant is the rearrangement family: two look-alike eggplants
+must each end up on the other’s initial plate, using an initially
+empty third plate as a buffer, so the correct next placement
+depends on which eggplant has already been moved, which
+the current frame does not reveal. The two memory-free tasks,
+Put in Drawer and Put on Shelf, are solvable from the current
+frame alone and test whether the memory extension costs
+general manipulation capability. Training data, baselines, and
+the five evaluation settings are stated in Appendix E; Figs. 13
+and 14 show BridgeVLA++ rollouts, Fig. 7 the four visual-
+disturbance settings, and Table XIX the per-instruction counts
+behind Tables V and VI.
+M. Real-Robot Baseline Failure Modes
+Tables IV and XIX aggregate the comparisons on the two
+platforms; the notes below record how each baseline fails.
+a) SpatialVLA [12]: Trained with 10 trajectories per
+task, SpatialVLA fails on nearly all tasks, typically without
+even moving toward the correct target object. Raising the train-
+ing set to 50 trajectories per task recovers some performance,
+28.5% against 3.1%, but it remains far behind BridgeVLA,
+particularly on harder tasks such as Put the Giraffe in the
+Lower Drawer.
+b) π0.5 [2]: π0.5 achieves occasional success on simple
+pick-and-place tasks but consistently fails on more complex,
+long-horizon tasks, such as Put Zebra in Drawer. We further
+observe that its motions are often unstable and that it tends
+to close the gripper prematurely. In contrast, BridgeVLA
+performs reliably across all evaluated tasks.
+c) ACT [57]: ACT generalizes poorly in space: it suc-
+ceeds in regions densely covered by the demonstrations but
+often fails when the target lies near the workspace boundary.
+This is consistent with its design, since ACT models actions
+under a Gaussian prior, which assigns low probability to
+peripheral regions.
+d) RVT-2 [10]: RVT-2 is the strongest baseline of the
+Franka suite and solves most tasks, but it is less robust than
+BridgeVLA: it sometimes grasps a block imprecisely or places
+an object inaccurately, and its gap to BridgeVLA widens
+further in the generalization settings.
+e) SAM2Act+ [17]:
+The failures of SAM2Act+ on
+the memory-dependent Dobot tasks match the memory-
+management analysis of Sec. V-E. In Cover Blocks, it cannot
+tell which cover hides the instructed block: by the time
+this decision is made, about 11 history steps have already
+accumulated, and its fixed-size memory window is filled with
+near-duplicate frames, so the block colors seen at the start are
+largely lost. In Press Button, it has no explicit sense of how
+many presses have been completed, and keeps pressing the
+button endlessly.
+N. Sample Efficiency with 3 vs. 10 Demonstrations
+Table XVIII lists the per-task success counts of BridgeVLA
+when trained with 3 rather than 10 demonstrations per task:
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE X
+Per-Task Results of RVT-2 on COLOSSEUM. Success rates (%) of RVT-2 [10] under each COLOSSEUM perturbation [14], trained and evaluated by us
+under the protocol of Table VIII (mean±variance over three evaluation repetitions); “–” marks perturbation–task combinations the benchmark does not define.
+Task
+Original
+All Perturbations
+MO-COLOR
+RO-COLOR
+MO-TEXTURE
+RO-TEXTURE
+MO-SIZE
+RO-SIZE
+Light Color
+Table Color
+Table Texture
+Distractor
+Background Texture
+RLBench
+Camera Pose
+basketball in hoop
+100.0±0.0
+10.0±2.0
+99.0±1.7
+94.0±2.0
+97.0±1.7
+100.0±0.0
+86.0±3.5
+95.0±1.7
+94.0±2.0
+84.0±6.3
+89.0±3.3
+100.0±0.0
+99.0±1.7
+100.0±0.0
+close box
+93.0±4.4
+36.0±8.5
+70.0±6.6
+86.0±3.5
+99.0±1.7
+97.0±1.7
+91.0±4.4
+93.0±3.3
+97.0±1.7
+94.0±2.0
+99.0±1.7
+close laptop lid
+86.0±4.5
+40.0±0.0
+89.0±3.3
+62.0±2.0
+84.0±4.0
+92.0±0.0
+96.0±2.8
+89.0±5.2
+99.0±1.7
+87.0±3.3
+92.0±0.0
+empty dishwasher
+0.0±0.0
+0.0±0.0
+1.0±1.7
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+get ice from fridge
+95.0±1.7
+11.0±4.4
+88.0±5.7
+77.0±5.2
+89.0±1.7
+78.0±3.5
+79.0±3.3
+83.0±5.9
+89.0±1.7
+70.0±4.5
+86.0±4.5
+81.0±5.2
+96.0±2.8
+96.0±2.8
+hockey
+19.0±4.4
+0.0±0.0
+26.0±4.5
+30.0±4.5
+40.0±4.9
+24.0±2.8
+13.0±3.3
+12.0±8.5
+15.0±3.3
+9.0±3.3
+10.0±6.0
+14.0±2.0
+17.0±3.3
+19.0±3.3
+insert onto square peg
+31.0±3.3
+0.0±0.0
+13.0±1.7
+35.0±9.5
+32.0±2.8
+33.3±8.6
+21.0±1.7
+30.0±2.0
+9.0±1.7
+4.0±4.9
+9.0±3.3
+35.0±3.3
+35.0±1.7
+23.0±4.4
+meat on grill
+100.0±0.0
+89.0±1.7
+100.0±0.0
+100.0±0.0
+100.0±0.0
+99.0±1.7
+98.0±2.0
+100.0±0.0
+99.0±1.7
+100.0±0.0
+100.0±0.0
+100.0±0.0
+move hanger
+91.0±5.2
+0.0±0.0
+61.0±4.4
+83.0±18.4
+55.0±5.9
+69.0±5.9
+29.0±5.2
+92.0±2.8
+94.0±2.0
+87.0±4.4
+22.0±2.0
+open drawer
+99.0±1.7
+25.0±4.4
+63.0±4.4
+92.0±0.0
+88.0±0.0
+92.0±0.0
+99.0±1.7
+86.0±8.2
+100.0±0.0
+95.0±1.7
+95.0±1.7
+place wine at rack location
+96.0±4.9
+28.0±6.3
+74.0±4.5
+98.0±2.0
+93.0±5.2
+87.0±3.3
+90.0±6.6
+81.0±7.1
+87.0±4.4
+95.0±6.6
+83.0±3.3
+89.0±5.9
+96.0±2.8
+91.0±5.2
+put money in safe
+77.0±4.4
+9.0±1.7
+45.0±3.3
+22.0±3.5
+55.0±6.6
+73.0±3.3
+69.0±1.7
+56.0±2.8
+70.0±4.5
+72.0±6.3
+82.0±6.6
+79.0±3.3
+77.0±8.7
+62.0±6.0
+reach and drag
+86.0±6.6
+0.0±0.0
+72.0±5.7
+80.0±5.7
+60.0±6.9
+67.0±5.9
+87.0±6.6
+55.0±4.4
+68.0±2.8
+76.0±2.8
+71.0±5.2
+61.0±6.6
+88.0±2.8
+86.0±3.5
+81.0±5.9
+scoop with spatula
+89.0±5.2
+2.0±3.5
+75.0±4.4
+87.0±3.3
+84.0±4.9
+92.0±7.5
+94.0±4.5
+83.0±5.9
+54.0±2.0
+79.0±5.2
+74.0±6.0
+83.0±5.9
+92.0±2.8
+91.0±1.7
+89.0±4.4
+setup chess
+3.0±1.7
+0.0±0.0
+0.0±0.0
+4.0±2.8
+4.0±4.0
+17.0±7.1
+7.0±5.2
+7.0±3.3
+9.0±7.1
+14.0±4.5
+14.0±3.5
+16.0±8.9
+9.0±3.3
+slide block to target
+100.0±0.0
+11.0±4.4
+45.0±1.7
+97.0±1.7
+84.0±4.9
+96.0±0.0
+83.0±5.2
+82.0±8.7
+100.0±0.0
+100.0±0.0
+100.0±0.0
+stack cups
+35.0±5.2
+0.0±0.0
+47.0±5.9
+45.0±5.9
+23.0±4.4
+18.0±2.0
+16.0±4.0
+13.0±9.5
+19.0±7.7
+24.0±2.8
+43.0±9.1
+40.0±2.8
+straighten rope
+66.0±11.5
+0.0±0.0
+25.0±3.3
+66.0±10.0
+53.0±1.7
+68.0±2.8
+39.0±11.4
+42.0±7.2
+72.0±8.5
+69.0±6.6
+75.0±4.4
+turn oven on
+91.0±4.4
+50.0±10.8
+68.0±4.9
+83.0±1.7
+95.0±3.3
+97.0±1.7
+95.0±3.3
+96.0±0.0
+96.0±4.9
+89.0±7.1
+96.0±2.8
+wipe desk
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+0.0±0.0
+Task Mean
+67.8±1.5
+15.6±0.8
+53.0±0.9
+54.6±0.6
+59.7±0.7
+56.7±1.4
+60.9±0.9
+53.4±1.5
+58.0±1.1
+62.6±0.9
+56.6±0.9
+60.8±0.5
+68.7±1.1
+68.8±1.3
+64.4±0.5
+TABLE XI
+Results on GemBench. Success rates (%) on the four generalization levels
+of GemBench [15] (protocol in Appendix E). Baselines are quoted
+from [15], except the 3D Diffuser Actor average, recomputed as the mean
+of its four levels (its source prints 44.0). Our rows were trained and
+evaluated by us on keyframes only, without demo augmentation. Best result
+per column in bold.
+Avg.
+
+## sec:method-10 Method
+_Pages 21-21_
+
+SR (%) ↑Placement
+Rigid
+Articulated Long-Horizon
+Hiveformer [37]
+30.4
+60.3±1.5
+26.1±1.4
+35.1±1.7
+0.0±0.0
+PolarNet [29]
+38.4
+77.7±0.9
+37.1±1.4
+38.5±1.7
+0.1±0.2
+3D Diffuser Actor [7]
+43.1
+91.9±0.8
+43.4±2.8
+37.0±2.2
+0.0±0.0
+RVT-2 [10]
+44.0
+89.1±0.8
+51.0±2.3
+36.0±2.2
+0.0±0.0
+3D-LOTUS [15]
+45.7
+94.3±1.4
+49.9±2.2
+38.1±1.1
+0.3±0.3
+3D-LOTUS++ [15]
+48.0
+68.7±0.6
+64.5±0.9
+41.5±1.8
+17.4±0.4
+BridgeVLA (ours)
+50.0
+91.1±1.1
+65.0±1.3
+43.8±1.2
+0.0±0.0
+BridgeVLA++ (ours)
+51.1
+88.6±1.1
+68.9±1.8
+38.5±0.9
+8.2±1.0
+TABLE XII
+Results on MemoryBench. Success rates (%) on the three MemoryBench
+tasks [17]. Baselines are quoted from [17] (mean±std over four runs; the
+Avg. deviation is the spread across the three tasks); BridgeVLA and
+BridgeVLA++ are mean±std over five evaluation seeds (Appendix E). Best
+result per task in bold.
+Avg.
+Reopen
+Put Block
+Rearrange
+
+## sec:method-11 Method
+_Pages 21-22_
+
+SR (%) ↑
+Drawer
+Back
+Block
+RVT-2 [10]
+54.0±5.3
+60.0±0.0
+50.0±2.3
+52.0±3.3
+SAM2Act [17]
+55.0±24.3
+48.0±0.0
+35.0±3.8
+82.0±2.3
+SAM2Act+ [17]
+94.3±9.0
+84.0±0.0
+100.0±0.0
+99.0±2.0
+BridgeVLA (ours)
+11.3±0.8
+29.6±4.3
+2.8±1.8
+1.6±2.6
+BridgeVLA++ (ours)
+99.7±0.3
+100.0±0.0
+99.8±0.4
+99.2±1.1
+the policy stays at or above 7/10 on every task and matches
+the 10-demonstration model on most of them.
+O. Preservation of Object Grounding after Fine-Tuning
+Even after fine-tuning on robot action data, BridgeVLA
+retains the object grounding installed by the 2D-heatmap pre-
+training. Fig. 15 illustrates how the pre-training targets are
+constructed on detection data, as truncated Gaussians rendered
+at the annotated box centers and normalized into one distribu-
+tion (Sec. III-B). Fig. 16 then visualizes the fine-tuned model’s
+predictions on pre-training samples, with each input image
+repeated three times to simulate the multi-view input of fine-
+tuning. These samples are not cherry-picked, which confirms
+that BridgeVLA does not forget its pre-training knowledge
+after 3D action fine-tuning.
+P. Real-Robot Generalization Settings
+The six generalization settings are defined as follows. Dis-
+tractor adds distractor objects visually similar to at least one
+target object; Lighting turns the lights off; Background changes
+the tablecloth, in three variants; and Height raises some objects
+onto a drawer or box. Combination pairs objects and skills that
+were each seen in training into 13 pairings never demonstrated
+together, and Category introduces 7 objects from categories
+unseen in the robot training data. Fig. 6 shows the four visual-
+disturbance settings, Figs. 10 and 11 the Combination setting,
+and Fig. 12 the Category setting.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE XIII
+Per-Task Results on GemBench L1 (novel placements). Success rates (%), mean±std over five random seeds with 20 trials per task variation; columns
+are denoted task+variation. Baseline numbers are quoted from [15]. Best result per column in bold.
+
+## sec:method-12 Method
+_Pages 22-22_
+
+Avg.
+Close
+Fridge+0
+Close
+Jar+15
+Close
+Jar+16
+CloseLaptop
+Lid+0
+Close
+Microwave+0
+LightBulb
+In+17
+LightBulb
+In+19
+Open
+Box+0
+Open
+Door+0
+Open
+Drawer+0
+Hiveformer [37]
+60.3±1.5
+96±4.2
+64±13.9
+92±2.7
+90±3.5
+88±7.6
+12±4.5
+13±6.7
+4±4.2
+53±15.2
+15±12.2
+PolarNet [29]
+77.6±0.9
+99±2.2
+99±2.2
+99±2.2
+95±3.5
+98±2.7
+72±12.5
+71±6.5
+32±11.5
+69±8.9
+61±12.4
+3D Diffuser Actor [7]
+91.9±0.8
+100±0.0
+100±0.0
+100±0.0
+99±2.2
+100±0.0
+85±5.0
+88±2.7
+11±2.2
+96±4.2
+82±9.1
+RVT-2 [10]
+89.0±0.8
+77±11.0
+97±4.5
+98±2.7
+77±13.0
+100±0.0
+93±5.7
+91±8.2
+7±4.5
+98±4.5
+93±5.7
+3D-LOTUS [15]
+94.3±3.5
+96±3.7
+100±0.0
+100±0.0
+98±2.5
+98±4.0
+84±7.4
+85±9.5
+99±2.0
+77±2.5
+83±8.7
+3D-LOTUS++ [15]
+68.7±0.6
+95±0.0
+100±0.0
+99±2.0
+28±2.5
+87±5.1
+55±10.5
+45±8.9
+55±8.9
+79±9.7
+68±12.5
+BridgeVLA (ours)
+91.1±1.1
+99±2.0
+98±4.0
+100±0.0
+97±2.5
+85±5.5
+90±5.5
+87±7.5
+76±10.2
+70±12.3
+86±5.8
+BridgeVLA++ (ours)
+88.6±1.1
+98±2.4
+100±0.0
+100±0.0
+100±0.0
+93±2.4
+91±4.9
+90±4.5
+25±18.2
+90±6.3
+74±9.7
+
+## sec:method-13 Method
+_Pages 22-22_
+
+Open
+Drawer+2
+Pick&
+Lift+0
+Pick&
+Lift+2
+Pick&
+Lift+7
+PickUp
+Cup+8
+PickUp
+Cup+9
+PickUp
+Cup+11
+Push
+Button+0
+Push
+Button+3
+Push
+Button+4
+PutIn
+Cupboard+0
+Hiveformer [37]
+59±7.4
+86±4.2
+92±6.7
+93±2.7
+83±7.6
+69±12.9
+61±19.8
+84±11.9
+68±6.7
+87±7.6
+34±8.2
+PolarNet [29]
+90±7.1
+92±9.1
+84±7.4
+88±5.7
+82±7.6
+79±4.2
+72±10.4
+100±0.0
+100±0.0
+99±2.2
+52±7.6
+3D Diffuser Actor [7]
+97±4.5
+99±2.2
+99±2.2
+99±2.2
+96±2.2
+97±4.5
+98±2.7
+98±2.7
+96±4.2
+98±2.7
+85±5.0
+RVT-2 [10]
+94±4.2
+99±2.2
+98±2.7
+100±0.0
+99±2.2
+99±2.2
+99±2.2
+100±0.0
+100±0.0
+100±0.0
+88±8.4
+3D-LOTUS [15]
+93±6.0
+99±2.0
+100±0.0
+99±2.0
+97±4.0
+96±3.7
+94±4.9
+99±2.0
+99±2.0
+100±0.0
+89±5.8
+3D-LOTUS++ [15]
+75±4.5
+97±6.0
+94±3.7
+93±5.1
+86±8.0
+88±6.8
+91±4.9
+100±0.0
+100±0.0
+100±0.0
+1±2.0
+BridgeVLA (ours)
+99±2.0
+99±2.0
+100±0.0
+98±2.5
+96±2.0
+94±3.7
+99±2.0
+100±0.0
+98±4.0
+98±4.0
+74±6.6
+BridgeVLA++ (ours)
+95±3.2
+99±2.0
+98±2.4
+98±2.4
+89±3.7
+90±6.3
+91±4.9
+100±0.0
+97±2.4
+97±2.4
+82±8.7
+
+## sec:method-14 Method
+_Pages 22-22_
+
+PutIn
+Cupboard+3
+PutMoney
+InSafe+0
+PutMoney
+InSafe+1
+Reach&
+Drag+14
+Reach&
+Drag+18
+Slide
+Block+0
+Slide
+Block+1
+Stack
+Blocks+30
+Stack
+Blocks+36
+Stack
+Blocks+39
+Hiveformer [37]
+74±6.5
+85±3.5
+88±2.7
+37±5.7
+32±7.6
+99±2.2
+91±12.4
+6±5.5
+7±4.5
+6±4.2
+PolarNet [29]
+88±4.5
+93±4.5
+95±5.0
+99±2.2
+99±2.2
+100±0.0
+0±0.0
+34±10.8
+30±9.4
+36±12.9
+3D Diffuser Actor [7]
+82±11.5
+95±5.0
+98±2.7
+100±0.0
+99±2.2
+100±0.0
+89±4.2
+88±7.6
+85±6.1
+89±5.5
+RVT-2 [10]
+80±6.1
+93±8.4
+96±8.5
+85±10.0
+94±2.2
+100±0.0
+37±6.7
+88±5.7
+93±2.7
+88±11.5
+3D-LOTUS [15]
+72±11.2
+94±3.7
+99±2.0
+99±2.0
+100±0.0
+100±0.0
+100±0.0
+94±5.8
+91±6.6
+90±4.5
+3D-LOTUS++ [15]
+2±2.5
+22±6.8
+16±4.9
+94±3.7
+62±8.7
+100±0.0
+65±5.5
+86±5.8
+20±4.5
+28±13.6
+BridgeVLA (ours)
+84±6.6
+79±9.7
+86±3.7
+96±5.8
+97±4.0
+100±0.0
+90±5.5
+77±8.1
+87±4.0
+85±7.8
+BridgeVLA++ (ours)
+76±3.7
+92±6.8
+98±4.0
+85±5.5
+83±6.0
+100±0.0
+91±6.6
+77±12.1
+76±5.8
+73±10.8
+TABLE XIV
+Per-Task Results on GemBench L2 (novel rigid objects). Success rates (%), mean±std over five random seeds with 20 trials per task variation; columns
+are denoted task+variation. Baseline numbers are quoted from [15]. Best result per column in bold.
+
+## sec:method-15 Method
+_Pages 22-22_
+
+Avg.
+Push
+Button+13
+Push
+Button+15
+Push
+Button+17
+Pick&
+Lift+14
+Pick&
+Lift+16
+Pick&
+Lift+18
+PickUp
+Cup+10
+PickUp
+Cup+12
+PickUp
+Cup+13
+Hiveformer [37]
+26.1±1.4
+97±2.7
+85±10.0
+88±2.7
+21±6.5
+9±4.2
+8±6.7
+30±7.1
+22±13.5
+26±10.6
+PolarNet [29]
+37.1±1.4
+100±0.0
+100±0.0
+85±7.9
+3±4.5
+1±2.2
+0±0.0
+48±11.0
+46±8.9
+16±6.5
+3D Diffuser Actor [7]
+43.4±2.8
+87±13.0
+81±6.5
+60±9.4
+9±4.2
+18±9.1
+0±0.0
+84±5.5
+60±11.7
+62±13.0
+RVT-2 [10]
+51.0±2.3
+100±0.0
+100±0.0
+100±0.0
+47±7.6
+29±9.6
+8±4.5
+81±8.2
+59±9.6
+72±9.7
+3D-LOTUS [15]
+49.9±2.2
+99±2.0
+100±0.0
+100±0.0
+3±2.5
+18±8.7
+33±9.3
+89±3.7
+78±8.7
+57±7.5
+3D-LOTUS++ [15]
+64.5±0.9
+99±2.0
+100±0.0
+99±2.0
+94±3.7
+96±3.7
+95±3.2
+79±4.9
+89±9.7
+84±10.2
+BridgeVLA (ours)
+65.0±1.3
+100±0.0
+100±0.0
+100±0.0
+74±9.7
+89±4.9
+0±0.0
+91±3.7
+90±3.2
+90±6.3
+BridgeVLA++ (ours)
+68.9±1.8
+100±0.0
+99±2.0
+96±3.7
+78±8.1
+89±5.8
+31±8.6
+89±4.9
+86±9.7
+86±9.7
+
+## sec:method-16 Method
+_Pages 22-22_
+
+Stack
+Blocks+24
+Stack
+Blocks+27
+Stack
+Blocks+33
+Slide
+Block+2
+Slide
+Block+3
+Close
+Jar+3
+Close
+Jar+4
+LightBulb
+In+1
+LightBulb
+In+2
+Lamp
+On+0
+Hiveformer [37]
+0±0.0
+4±4.2
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+4±4.2
+0±0.0
+7±4.5
+PolarNet [29]
+1±2.2
+2±2.7
+6±8.2
+0±0.0
+0±0.0
+20±10.6
+82±5.7
+22±11.5
+17±8.4
+14±10.8
+3D Diffuser Actor [7]
+66±13.9
+82±2.7
+50±14.6
+0±0.0
+0±0.0
+23±16.8
+82±5.7
+51±17.8
+60±10.0
+7±7.6
+RVT-2 [10]
+18±4.5
+56±16.7
+45±13.7
+0±0.0
+1±2.2
+7±7.6
+77±5.7
+68±14.4
+6±6.5
+0±0.0
+3D-LOTUS [15]
+13±8.1
+40±9.5
+69±5.8
+0±0.0
+0±0.0
+71±5.8
+90±4.5
+24±4.9
+41±8.6
+0±0.0
+3D-LOTUS++ [15]
+22±9.3
+83±7.5
+59±3.7
+27±9.8
+5±3.2
+98±2.5
+96±3.7
+56±9.7
+43±7.5
+2±2.0
+BridgeVLA (ours)
+61±10.7
+51±13.2
+79±8.6
+12±9.3
+3±4.0
+66±6.6
+88±4.0
+66±8.6
+74±5.8
+7±4.0
+BridgeVLA++ (ours)
+69±10.7
+59±6.6
+73±6.8
+11±6.6
+46±5.8
+95±4.5
+90±3.2
+76±7.3
+93±5.1
+11±8.6
+
+## sec:method-17 Method
+_Pages 22-23_
+
+Reach&
+Drag+5
+Reach&
+Drag+7
+PutCube
+InSafe+0
+Pick&Lift
+Cylinder+0
+Pick&Lift
+Star+0
+Pick&Lift
+Moon+0
+Pick&Lift
+Toy+0
+PutIn
+Cupboard+7
+PutIn
+Cupboard+8
+Hiveformer [37]
+1±2.2
+0±0.0
+4±2.2
+78±5.7
+73±7.6
+88±2.7
+87±4.5
+0±0.0
+0±0.0
+PolarNet [29]
+61±8.2
+10±6.1
+40±14.1
+93±6.7
+88±8.4
+93±6.7
+90±3.5
+0±0.0
+0±0.0
+3D Diffuser Actor [7]
+0±0.0
+64±6.5
+3±2.7
+99±2.2
+43±17.9
+91±9.6
+30±9.4
+0±0.0
+3±4.5
+RVT-2 [10]
+91±2.2
+89±6.5
+6±5.5
+98±2.7
+98±4.5
+94±4.2
+78±8.4
+0±0.0
+0±0.0
+3D-LOTUS [15]
+95±4.5
+18±10.8
+25±5.5
+88±8.7
+69±6.6
+80±8.4
+96±3.7
+0±0.0
+0±0.0
+3D-LOTUS++ [15]
+94±2.0
+64±12.4
+37±5.1
+91±2.0
+94±3.7
+29±6.6
+71±2.0
+1±2.0
+0±0.0
+BridgeVLA (ours)
+94±3.7
+96±3.7
+3±2.5
+98±2.5
+99±2.0
+95±3.2
+93±5.1
+0±0.0
+0±0.0
+BridgeVLA++ (ours)
+90±7.1
+80±6.3
+4±3.7
+91±3.7
+97±2.4
+95±3.2
+96±5.8
+0±0.0
+0±0.0
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE XV
+Per-Task Results on GemBench L3 (novel articulated objects). Success rates (%), mean±std over five random seeds with 20 trials per task variation;
+columns are denoted task+variation. Baseline numbers are quoted from [15]. Best result per column in bold.
+
+## sec:method-18 Method
+_Pages 23-23_
+
+Avg.
+Close
+Door+0
+Close
+Box+0
+Close
+Fridge2+0
+CloseLaptop
+Lid2+0
+Close
+Microwave2+0
+Open
+Door2+0
+Open
+Box2+0
+Hiveformer [37]
+35.1±1.7
+0±0.0
+1±2.2
+34±9.6
+52±9.1
+15±7.1
+32±11.5
+5±3.5
+PolarNet [29]
+38.5±1.7
+0±0.0
+0±0.0
+78±5.7
+26±8.2
+74±6.5
+33±6.7
+23±8.4
+3D Diffuser Actor [7]
+37.0±2.2
+0±0.0
+0±0.0
+97±2.7
+23±6.7
+88±7.6
+86±7.4
+67±9.8
+RVT-2 [10]
+36.0±2.2
+1±2.2
+2±2.7
+72±6.7
+42±14.0
+71±8.9
+79±6.5
+5±6.1
+3D-LOTUS [15]
+38.1±1.1
+0±0.0
+58±8.1
+36±9.7
+54±10.7
+85±7.1
+42±6.8
+11±6.6
+3D-LOTUS++ [15]
+41.5±1.8
+1±2.0
+29±8.6
+93±2.5
+50±9.5
+99±2.0
+52±10.3
+16±8.0
+BridgeVLA (ours)
+43.8±1.2
+0±0.0
+1±2.0
+95±5.5
+77±4.0
+54±10.2
+68±10.8
+74±4.9
+BridgeVLA++ (ours)
+38.5±0.9
+0±0.0
+0±0.0
+97±4.0
+15±5.5
+34±9.2
+73±5.1
+30±10.5
+
+## sec:method-19 Method
+_Pages 23-23_
+
+Open
+Drawer2+0
+Open
+Drawer3+0
+OpenDrawer
+Long+0
+OpenDrawer
+Long+1
+OpenDrawer
+Long+2
+OpenDrawer
+Long+3
+Toilet
+SeatUp+0
+Open
+Fridge+0
+Hiveformer [37]
+59±11.9
+39±11.9
+78±8.4
+82±4.5
+49±4.2
+57±11.5
+6±4.2
+0±0.0
+PolarNet [29]
+91±4.2
+29±8.2
+84±11.9
+88±5.7
+63±8.4
+37±7.6
+2±2.7
+4±2.2
+3D Diffuser Actor [7]
+19±8.2
+1±2.2
+15±5.0
+35±13.7
+26±9.6
+79±12.9
+0±0.0
+7±5.7
+RVT-2 [10]
+81±11.9
+0±0.0
+84±8.2
+39±10.8
+11±8.9
+75±6.1
+7±5.7
+0±0.0
+3D-LOTUS [15]
+90±3.2
+22±8.1
+56±13.9
+33±11.2
+17±8.1
+75±6.3
+0±0.0
+4±5.8
+3D-LOTUS++ [15]
+70±5.5
+41±4.9
+72±4.0
+52±10.8
+23±8.1
+78±5.1
+8±5.1
+0±0.0
+BridgeVLA (ours)
+65±6.3
+87±6.0
+59±8.6
+34±8.0
+18±10.3
+85±8.4
+6±5.8
+7±2.5
+BridgeVLA++ (ours)
+85±9.5
+82±11.2
+52±8.7
+43±8.1
+11±9.7
+83±6.8
+1±2.0
+11±10.7
+
+## sec:method-20 Method
+_Pages 23-23_
+
+OpenLaptop
+Lid+0
+Open
+Microwave+0
+PutMoney
+InSafe+2
+Open
+Drawer+1
+Close
+Drawer+0
+Close
+Grill+0
+Hiveformer [37]
+100±0.0
+0±0.0
+0±0.0
+0±0.0
+83±5.7
+44±10.8
+PolarNet [29]
+100±0.0
+0±0.0
+1±2.2
+4±4.2
+29±11.9
+42±11.5
+3D Diffuser Actor [7]
+100±0.0
+0±0.0
+2±4.5
+0±0.0
+66±7.4
+65±13.7
+RVT-2 [10]
+93±5.7
+0±0.0
+0±0.0
+6±2.2
+78±8.4
+9±4.2
+3D-LOTUS [15]
+100±0.0
+0±0.0
+0±0.0
+0±0.0
+87±8.1
+29±6.6
+3D-LOTUS++ [15]
+86±6.6
+0±0.0
+13±8.1
+0±0.0
+69±5.8
+19±13.9
+BridgeVLA (ours)
+95±0.0
+0±0.0
+2±2.5
+0±0.0
+58±12.9
+35±12.3
+BridgeVLA++ (ours)
+100±0.0
+0±0.0
+0±0.0
+0±0.0
+51±9.7
+40±7.7
+TABLE XVI
+Per-Task Results on GemBench L4 (novel long-horizon tasks). Success rates (%), mean±std over five random seeds with 20 trials per task variation;
+columns are denoted task+variation. Baseline numbers are quoted from [15]. Best result per column in bold.
+
+## sec:method-21 Method
+_Pages 23-23_
+
+Avg.
+Push
+Buttons4+1
+Push
+Buttons4+2
+Push
+Buttons4+3
+TakeShoes
+OutOfBox+0
+PutItems
+InDrawer+0
+PutItems
+InDrawer+2
+Hiveformer [37]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+PolarNet [29]
+0.1±0.2
+1±2.2
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D Diffuser Actor [7]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+RVT-2 [10]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D-LOTUS [15]
+0.3±0.3
+3±4.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D-LOTUS++ [15]
+17.4±0.4
+76±7.4
+49±8.6
+37±8.1
+0±0.0
+0±0.0
+0±0.0
+BridgeVLA (ours)
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+BridgeVLA++ (ours)
+8.2±1.0
+68±8.1
+27±9.3
+3±2.4
+0±0.0
+0±0.0
+0±0.0
+
+## sec:method-22 Method
+_Pages 23-24_
+
+PutItems
+InDrawer+4
+Tower4+1
+Tower4+3
+Stack
+Cups+0
+Stack
+Cups+3
+PutAllGroceries
+InCupboard+0
+Hiveformer [37]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+PolarNet [29]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D Diffuser Actor [7]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+RVT-2 [10]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D-LOTUS [15]
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+3D-LOTUS++ [15]
+0±0.0
+17±10.8
+30±13.4
+0±0.0
+0±0.0
+0±0.0
+BridgeVLA (ours)
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+0±0.0
+BridgeVLA++ (ours)
+0±0.0
+0±0.0
+1±2.0
+0±0.0
+0±0.0
+0±0.0
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+TABLE XVII
+Memory ablations on RMBench. Success rates (%) over 100 episodes per task for the full BridgeVLA++ and its memory ablations: the two
+single-memory variants (indented) and the memory-free BridgeVLA.
+M(1) tasks
+M(n) tasks
+Observe &
+Rearrange
+Put Back
+Swap
+Swap
+Battery
+Blocks
+Cover
+Press
+Overall
+Variant
+Pick Up
+Blocks
+Block
+Blocks
+Avg.
+Try
+Ranking Try
+Blocks
+Button
+Avg.
+Avg.
+Full BridgeVLA++
+95.2
+97.0
+96.0
+w/o S (spatial memory)
+96.2
+94.5
+95.4
+w/o T (temporal memory)
+27.0
+14.3
+21.3
+BridgeVLA (no memory)
+19.0
+18.8
+18.9
+TABLE XVIII
+Per-Task Real-Robot Results on Franka: 3 vs. 10 Demonstrations. Success counts of BridgeVLA over 10 trials per task in the Basic setting
+
+## sec:appendix-k-when-trained-with-3-or-10-demonstrations-per-task (Appendix K) when trained with 3 or 10 demonstrations per task.
+_Pages 24-24_
+
+Task
+3 demos 10 demos
+Task
+3 demos 10 demos
+Put the RedBull can in the top shelf
+9/10
+10/10
+Place the red block in the purple plate
+10/10
+10/10
+Put the soda can in the bottom shelf
+9/10
+9/10
+Place the yellow block in the green plate
+10/10
+10/10
+Put the RedBull can in the bottom shelf
+10/10
+10/10
+Press sanitizer
+10/10
+10/10
+Put the coke can in the top shelf
+10/10
+10/10
+Put the zebra in the upper drawer
+9/10
+9/10
+Place the red block in the blue plate
+10/10
+10/10
+Put the giraffe in the lower drawer
+10/10
+9/10
+Place the orange block in the green plate
+10/10
+10/10
+Put the zebra in the lower drawer
+10/10
+10/10
+Put the wolf in the upper drawer
+7/10
+9/10
+TABLE XIX
+Per-instruction results on the real Dobot platform. Success counts over 10 trials per language instruction and setting; Tables V and VI aggregate these
+counts. Left: the three memory-dependent tasks; right: the four memory-free instructions.
+
+## sec:method-23 Method
+_Pages 24-24_
+
+Basic Distractor Background Height Lighting
+Cover Blocks
+“Put lids on the blocks, then uncover the blue block”
+SAM2Act+ [17]
+2/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA
+0/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA++
+10/10
+6/10
+10/10
+8/10
+8/10
+Press Button
+“Press the blue button three times,
+then press the yellow button”
+SAM2Act+ [17]
+0/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA
+0/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA++
+10/10
+8/10
+8/10
+8/10
+9/10
+Swap Eggplant
+“Swap the two eggplants on the plate”
+SAM2Act+ [17]
+7/10
+0/10
+0/10
+0/10
+1/10
+BridgeVLA
+6/10
+6/10
+7/10
+2/10
+4/10
+BridgeVLA++
+8/10
+8/10
+8/10
+7/10
+6/10
+
+## sec:method-24 Method
+_Pages 24-25_
+
+Basic Distractor Background Height Lighting
+Put in Drawer (upper)
+“Put the watermelon in the upper drawer”
+SAM2Act+ [17]
+7/10
+0/10
+0/10
+0/10
+2/10
+BridgeVLA
+10/10
+3/10
+6/10
+8/10
+5/10
+BridgeVLA++
+10/10
+3/10
+10/10
+8/10
+4/10
+Put in Drawer (lower)
+“Put the watermelon in the lower drawer”
+SAM2Act+ [17]
+5/10
+0/10
+0/10
+0/10
+1/10
+BridgeVLA
+10/10
+2/10
+6/10
+2/10
+4/10
+BridgeVLA++
+10/10
+5/10
+10/10
+7/10
+6/10
+Put on Shelf (upper)
+“Put the soda water in the top shelf”
+SAM2Act+ [17]
+2/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA
+10/10
+9/10
+10/10
+10/10
+10/10
+BridgeVLA++
+10/10
+10/10
+10/10
+10/10
+10/10
+Put on Shelf (lower)
+“Put the red bull in the bottom shelf”
+SAM2Act+ [17]
+2/10
+0/10
+0/10
+0/10
+0/10
+BridgeVLA
+8/10
+9/10
+7/10
+7/10
+8/10
+BridgeVLA++
+10/10
+10/10
+10/10
+8/10
+10/10
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Task
+Put the
+RedBull can in
+the top shelf
+Put the soda can
+in the bottom
+shelf
+Place the red
+block in the blue
+plate
+Place the orange
+block in the green
+plate
+Press sanitizer
+Put the zebra in
+the upper
+drawer
+Put the giraffe
+in the lower
+drawer
+Distractor
+Lighting
+Height
+
+## sec:background-4 Background
+_Pages 25-25_
+
+Fig. 6.
+The Distractor, Lighting, Background, and Height Settings. Visualization of the four visual-disturbance settings of the real-robot evaluation
+
+## sec:appendix-k (Appendix K).
+_Pages 25-25_
+
+Memory-Dependent
+Memory-Free
+Setting
+Cover Blocks
+Press Button
+Swap Eggplant
+Put in Drawer
+(upper)
+Put in Drawer
+(lower)
+Put on Shelf
+(upper)
+Put on Shelf
+(lower)
+Distractor
+Lighting
+
+## sec:background-5 Background
+_Pages 25-36_
+
+Height
+Fig. 7. The Distractor, Lighting, Background, and Height Settings on the Dobot Platform. Initial scene of every instruction of the Dobot suite (columns,
+named as in Table XIX) under each of the four visual-disturbance settings (rows; Appendix L). Frames in the Lighting row are gamma-darkened for display
+where the camera’s auto-exposure compensated for the reduced illumination; the policy receives the raw frames.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Initial Scene
+Place orange block in green plate
+Place red block in blue plate
+Initial Scene
+Initial Scene
+Place red block in purple plate
+Initial Scene
+Place yellow block in green plate
+Initial Scene
+Press sanitizer
+Initial Scene
+Put soda can in bottom shelf
+Initial Scene
+Put coke can in top shelf
+Fig. 8. Real-Robot Rollouts (I). BridgeVLA rollouts on the real-robot task suite of Appendix K.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Initial Scene
+Put Redbull can in bottom shelf
+Initial Scene
+Put Redbull can in top shelf
+Initial Scene
+Put giraffe in lower drawer
+Initial Scene
+Put wolf in upper drawer
+Initial Scene
+Put zebra in upper drawer
+Initial Scene
+Put zebra in lower drawer
+Fig. 9. Real-Robot Rollouts (II). BridgeVLA rollouts on the real-robot task suite of Appendix K.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+put the wolf in
+the lower drawer
+put the
+giraffe in the
+upper drawer
+place the
+orange block
+in the purple
+plate
+place the red
+block in the
+green plate
+place the
+orange block in
+the blue plate
+place the
+yellow block in
+the blue plate
+place the yellow
+block in the
+purple plate
+put the soda can
+in the top shelf
+Fig. 10. The Combination Setting (I). During training, the manipulated objects and skills are seen, but their combinations are unseen.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Put the red block
+in the bottom
+shelf
+Put the orange
+block in the lower
+drawer
+Put the soda can
+in the upper
+drawer
+Put the Redbull
+can in the green
+plate
+Place the zebra in
+the blue plate
+Fig. 11. The Combination Setting (II). During training, the manipulated objects and skills are seen, but their combinations are unseen.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Press the
+mouse
+Put the apple in
+the top shelf
+Put the peach in
+the bottom shelf
+Put the sneaker
+in the upper
+drawer
+Put the panda in
+the lower
+drawer
+Place the bread
+in the green
+plate
+Place the bottle
+in the blue plate
+Fig. 12. The Category Setting. In total, we evaluate on 7 objects from categories that are unseen during training.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Initial Scene
+Put lids on the blocks, then uncover the blue block
+Initial Scene
+Press the blue button three times, then press the yellow button
+Initial Scene
+Swap the two eggplants on the plate
+Fig. 13. Dobot Rollouts (I): Memory-Dependent Tasks. BridgeVLA++ rollouts on the three memory-dependent instructions of the Dobot suite (Appendix L)
+in the Basic setting; each strip shows five keyframes of one successful episode.
+Initial Scene
+Put the watermelon in the upper drawer
+Initial Scene
+Put the watermelon in the lower drawer
+Initial Scene
+Put the soda water in the top shelf
+Initial Scene
+Put the red bull in the bottom shelf
+Fig. 14. Dobot Rollouts (II): Memory-Free Tasks. BridgeVLA++ rollouts on the four memory-free instructions of the Dobot suite in the Basic setting, laid
+out as in Fig. 13.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+half eaten frosted donut behind cup
+horse in the back
+kid in glasses playing wii
+orange slice under grapes
+person taking photo
+right animal
+tractor with orange
+small lamb sitting on ground on the
+right hand side next to two others.
+the woven place matt
+white bowl with vegetables.
+white doughnut right
+white keyboard
+zebra facing out number three
+from tree
+an elephant with other two elephants
+baby
+far middle right elephant
+Find all instances of a circular frame
+with spokes
+Find all instances of a decorative
+arrangement of flowers.
+Find all garments from waist to knee
+or ankle, covering each leg separately
+Find all instances of bike
+Find all instances of boot
+Find all instances of clock tower
+Find all instances of cup
+greenest apple by banana
+Find all instances of a piece of furniture
+holding one or more electric light bulbs
+Find all instances of surfboard
+white bowl with vegetables
+Find all instances of street sign
+the woven place matt
+Fig. 15. Ground-Truth Heatmap Construction on Detection Data. For each sample: the original image (left), the bounding boxes of the objects of interest
+(middle), and the ground-truth heatmap rendered from the box centers (right).
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Find all instances of a round faster
+Find all instances of baggage
+Find all instances of cutlery
+Find all instances of mug
+Find all instances of neckwear
+Dog laying down
+Find all instances of a container
+Find all instances of a long tube made of
+metal or plastic
+Find all instances of alarm clock
+white doughnut right
+Find all instances of veil
+Find all instances of bedding
+Fig. 16. Predictions on Pre-Training Data after Fine-Tuning. Each input image is repeated three times to mimic the multi-view input format of fine-tuning.
+Rows per sample: input image, predicted heatmaps, ground truth. Samples are not cherry-picked.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+Put groceries in cupboard
+Put item in drawer
+Put money in safe
+Reach and drag
+Slide block to color target
+Stack cups
+Sweep to dustpan of size
+Turn tap
+Stack blocks
+Place shape in shape sorter
+Place wine at rack location
+Meat off grill
+Light blub in
+Close jar
+Insert onto square peg
+Open drawer
+Place cups
+Push buttons
+Fig. 17. The 18 RLBench Tasks. Visualization of the 18 RLBench [13] tasks used in Sec. V-A.
+Battery try
+Blocks ranking
+Cover blocks
+Observe and pickup
+Press button
+Put back block
+Rearrange blocks
+Swap blocks
+Swap T
+Fig. 18. The Nine RMBench Tasks. One evaluation rollout per task of RMBench [16], shown as three frames in temporal order; the dual-arm tasks span
+the short-term M(1) and long-term M(n) memory regimes.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+All Variations
+Manipulation-
+Object-Color
+Receiving-
+Object-Color
+Manipulation-
+Object-Texture
+Receiving-
+Object-Texture
+Manipulation-
+Object-Size
+Receiving-
+Object-Size
+Light-Color
+Table-Color
+Table-Texture
+Distractor
+Backgroun
+d-Texture
+Camera Pose
+Basketball in hoop
+Close box
+Close laptop lid
+Empty dishwasher
+Get ice from fridge
+Insert onto square peg
+Hockey
+Meat on grill
+Place wine at rack location
+Put money in safe
+Reach and drag
+Scoop with spatula
+Hockey
+Insert onto square peg Place wine at rack location
+Setup chess
+Turn oven on
+Wipe desk
+Basketball in hoop
+Hockey
+Insert onto square peg
+Stack cups
+Strengthen rope
+Turn oven on
+Put money in safe
+Reach and drag
+Scoop with spatula
+Close laptop lid
+Get ice from fridge
+Open drawer
+Move hanger
+Setup chess
+Slide block to target
+Basketball in hoop
+Open drawer
+Wipe desk
+Close box
+Empty dishwasher
+Setup chess
+Fig. 19. Perturbations in COLOSSEUM [14]. All perturbation axes are shown except the original-RLBench variation setting.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+L1 (train)
+Push button
+Close fridge
+Close laptop lid
+Close microwave
+Open door
+Open box
+Open drawer
+Pick and lift
+Pick up cup
+Stack blocks
+Put groceries in cupboard
+Put money in safe
+Slide block to color target
+Reach and drag
+Close jar
+Light bulb in
+Push button
+Pick and lift
+Pick up cup
+Stack blocks
+Slide block to color target
+Reach and drag
+Put cube in safe
+Close jar
+Light bulb in
+Lamp on
+Pick and lift cylinder
+Pick and lift star
+Pick and lift moon
+Pick and lift toy
+Put groceries in cupboard
+Open drawer long
+Close fridge 2
+Close laptop lid 2
+Close microwave 2
+Open door 2
+Open box 2
+Open drawer 2
+Open drawer 3
+Close door
+Close box
+Toilet seat up
+Open fridge
+Open laptop lid
+Open microwave
+Put money in safe
+Open drawer
+Close drawer
+Close grill
+Push buttons 4
+Take shoes out of box
+Put items in drawer
+Tower 4
+Stack cups
+Put all groceries in cupboard
+Fig. 20.
+The GemBench Task Suite. One representative variation of every task of GemBench [15], shown as the first and final frame of an evaluation
+rollout. Border colors denote the generalization level: L1 (blue, novel placements), L2 (green, novel rigid objects), L3 (orange, novel articulated objects), and
+L4 (pink, novel long-horizon tasks).
+Put block back
+variant 0
+variant 1
+Rearrange block
+variant 0
+variant 1
+Reopen drawer
+variant 0
+variant 1
+Fig. 21.
+The Three MemoryBench Tasks. Two variants of each MemoryBench [17] task, each shown as three rollout frames in which the robot’s own
+intervention erases the evidence a later step depends on.

@@ -1,0 +1,49 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "记忆机制对比图：直观对比语言记忆、增长式窗口因果记忆与 MaP-WAM 的架构差异、时延曲线与显存开销"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "系统总览架构图：展示记忆接地规划、WAP 执行器、KV 缓存预填充、计划—观测对齐校准与阶段跃迁闭环"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "RMBench 评测主表：展示 9 项长程记忆依赖操控任务的全面 SOTA 成功率（83.3%）"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "真实实体机械臂实测图：展示 Franka FR3 上 Find Button (88%) 与 Press Buttons (68%) 的物理实测环境与成功率"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "记忆接地视觉规划消融图：对比有无视觉记忆时世界模型生成的视觉方案保真度差异"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "进度建模消融表：揭示连续进度坐标、对齐校准与自适应跃迁对长程任务稳定性的关键支撑"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "时延与显存极限分析曲线：展示规划端与执行端随历史长度的变化趋势，证明恒定 827ms 与杜绝 OOM 优势"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "自注意力掩码矩阵结构图：深入解析 CWM 分块因果掩码与 WAP 结构化掩码的隔离特性"
+    },
+    {
+      "figure_id": "Algorithm 1",
+      "file": "images/algorithm_1.png",
+      "role": "MaP-WAM 推理全流程伪代码：详尽展示在线闭环执行、进度更新与阶段跃迁的控制逻辑"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "paper": {
+    "title": "StatePlay: State-Aware Game World Models for Mechanics-Consistent Generation",
+    "authors": ["Zijun Lin", "Zeqing Wang", "Cheston Tan", "Bihan Wen", "Yeying Jin"],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/2GC8LZER/Lin 等 - 2026 - StatePlay State-Aware Game World Models for Mechanics-Consistent Generation.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "pages": 12,
+    "arxiv": "2607.26754v1"
+  },
+  "blocks": [
+    {"id":"S001","type":"body","section":"Abstract","pages":"1","summary":"StatePlay jointly predicts visual content and game states for mechanics-consistent generation."},
+    {"id":"F001","type":"figure","section":"Abstract/Introduction","pages":"1","summary":"Failure examples and capability comparison.","asset":"assets/page_001_fig_figure_1.png"},
+    {"id":"S002","type":"body","section":"Introduction","pages":"1-2","summary":"Motivation, dataset/model perspective, and contributions."},
+    {"id":"F002","type":"figure","section":"Introduction","pages":"2","summary":"State-aware generation overview.","asset":"assets/page_002_fig_figure_2.png"},
+    {"id":"S003","type":"body","section":"Related Work","pages":"2-3","summary":"Game world models and state-aware world modeling."},
+    {"id":"S004","type":"body","section":"StatePlay/3.1 Dataset","pages":"3","summary":"SF3 recording, mechanics balancing, and NPC strategy annotation."},
+    {"id":"F003","type":"figure","section":"StatePlay/3.2 Architecture","pages":"4","summary":"MoT state and visual branches with joint attention.","asset":"assets/page_004_fig_figure_3.png"},
+    {"id":"S005","type":"equation","section":"StatePlay/3.2 Architecture","pages":"4-5","summary":"State/video perturbation, cross-modal attention, and losses; equations 1-6."},
+    {"id":"S006","type":"body","section":"Experiments/4.1-4.2","pages":"5-6","summary":"Metrics and implementation details."},
+    {"id":"T001","type":"table","section":"Experiments/4.3","pages":"6","summary":"Zero-shot and state-aware fine-tuning comparison.","asset":"assets/page_006_table_1_2.png"},
+    {"id":"S007","type":"body","section":"Experiments/4.3","pages":"6-7","summary":"Zero-shot, fine-tuning, and overall comparison analysis."},
+    {"id":"T002","type":"table","section":"Experiments/4.4","pages":"6","summary":"Coupling style and state loss ablation.","asset":"assets/page_006_table_1_2.png"},
+    {"id":"F004","type":"figure","section":"Experiments/4.5","pages":"7","summary":"Qualitative super-art and result comparisons.","asset":"assets/page_007_fig_figure_4.png"},
+    {"id":"S008","type":"body","section":"Experiments/4.4-4.5","pages":"6-7","summary":"MoT and regression rationale; qualitative findings."},
+    {"id":"S009","type":"body","section":"Conclusions and Discussions","pages":"7","summary":"Conclusions, scope limitation to SF3, and call for diverse state-aware datasets."},
+    {"id":"S010","type":"references","section":"References","pages":"8-9","summary":"37 searchable bibliography entries retained in source form."},
+    {"id":"T003","type":"table","section":"Appendix A","pages":"10","summary":"Architecture configurations.","asset":"assets/page_010_table_3_figure_5.png"},
+    {"id":"S011","type":"body","section":"Appendix A","pages":"10","summary":"Experimental model information."},
+    {"id":"T004","type":"table","section":"Appendix B.1","pages":"10","summary":"Dataset categories and criteria.","asset":"assets/page_010_table_3_figure_5.png"},
+    {"id":"F005","type":"figure","section":"Appendix B.2","pages":"10","summary":"NPC strategy annotation prompt.","asset":"assets/page_010_table_3_figure_5.png"},
+    {"id":"S012","type":"body","section":"Appendix B","pages":"10","summary":"Balancing criteria and NPC strategy annotation."},
+    {"id":"S013","type":"body","section":"Appendix C","pages":"10","summary":"Failure cases and visual degradation caveats."},
+    {"id":"F006","type":"figure","section":"Appendix D","pages":"11","summary":"Mechanics-fidelity prompt and three references.","asset":"assets/page_011_figure_6.png"},
+    {"id":"S014","type":"prompt","section":"Appendix D","pages":"11","summary":"Exact mechanics-fidelity rules, priority, and JSON schema."},
+    {"id":"T005","type":"table","section":"Appendix E","pages":"12","summary":"Broadcast versus noise state input comparison.","asset":"assets/page_012_fig_figure_7_table_5.png"},
+    {"id":"F007","type":"figure","section":"Appendix F","pages":"12","summary":"Additional qualitative comparisons.","asset":"assets/page_012_fig_figure_7_table_5.png"},
+    {"id":"S015","type":"body","section":"Appendix E-F","pages":"12","summary":"State input comparison and more qualitative results."}
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_004_fig_figure_3.png",
+    "assets/page_006_table_1_2.png",
+    "assets/page_007_fig_figure_4.png",
+    "assets/page_010_table_3_figure_5.png",
+    "assets/page_011_figure_6.png",
+    "assets/page_012_fig_figure_7_table_5.png"
+  ]
+}

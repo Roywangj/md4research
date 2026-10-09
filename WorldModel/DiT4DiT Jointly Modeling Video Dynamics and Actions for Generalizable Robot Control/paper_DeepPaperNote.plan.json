@@ -1,0 +1,111 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出由视频 Diffusion Transformer 与动作 Diffusion Transformer 级联构成的机器人控制方法，以中间去噪特征作为动态条件，并用解耦的双 flow-matching 目标联合训练。",
+  "dominant_domain": "world action models, video generation, diffusion policies, and generalizable robot manipulation",
+  "must_cover": [
+    "DiT4DiT 不依赖测试时完整未来视频，而是截取视频 DiT 的中间隐藏特征。",
+    "视频训练时间步 tau_v、特征时间步 tau_f、动作时间步 tau_a 的三时间步解耦。",
+    "Cosmos-Predict2.5-2B 视频分支、GR00T 风格动作分支及联合 flow-matching 损失。",
+    "LIBERO、RoboCasa-GR1、Unitree G1 的设置与关键数字。",
+    "第 18 层最佳、单次视频前向最佳、联合训练改善时间结构的消融。",
+    "from scratch、zero-shot、效率和硬件环境的结论边界。"
+  ],
+  "key_numbers": [
+    "LIBERO 四套件平均成功率 98.6%，Qwen3DiT 96.6%，最强列出 pretrained VLA CogVLA 97.4%。",
+    "RoboCasa-GR1 平均成功率 50.8%，GR00T-N1.5 为 41.8%，GR00T-N1.6 为 40.8%，Qwen3DiT 为 36.2%；24 项任务中 16 项最佳。",
+    "真实 Unitree G1：Arrange Flower 75%、Stack Cup 60%、Move Spoon 40%、Drawer Interaction 90%、Box Packing 50%。",
+    "仿真零样本 ToDrawer/ToCabinet/ToMicrowave 为 54.5/34.0/30.5，Qwen3DiT 为 32.0/24.5/17.0。",
+    "真机零样本 Arrange Flower 类别变化 70%，Stack Cup 数量变化 50%。",
+    "特征层第 18 层最佳；视频去噪 1 步优于 2–32 步；联合训练 silhouette score 从 0.09 提升到 0.17。",
+    "DiT4DiT 2.2B 可训练参数、6Hz；GR00T-N1.5 2.7B/13Hz，Qwen3DiT 2.3B/9Hz。",
+    "真机方案先用 241,450 条仿真 GR1 episode 预训练，再用 1,400 条真实示范微调。"
+  ],
+  "real_comparisons": [
+    "LIBERO 上与 Diffusion Policy、Dita、pi0、UniVLA、pi0.5、OpenVLA-OFT、CogVLA、GR00T-N1.5 和 Qwen3DiT 比较。",
+    "RoboCasa-GR1 的 24 项任务上与 GR00T-N1.5、GR00T-N1.6 和 Qwen3DiT 比较。",
+    "Unitree G1 七项真机任务上与 GR00T-N1.5 和 Qwen3DiT 比较。",
+    "仿真与真机零样本对象类别、实例和数量变化比较。",
+    "不同 video-DiT 层、1–32 个视频去噪步数、联合/分离训练的消融比较。",
+    "2.2B/6Hz DiT4DiT 与 2.7B/13Hz GR00T-N1.5、2.3B/9Hz Qwen3DiT 的部署比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "视频生成模型的中间去噪特征可作为比静态视觉表征更有效的机器人动力学条件。",
+      "supporting_evidence": ["sec:abstract", "sec:introduction", "sec:models", "sec:ablations"],
+      "what_it_actually_proves": "在作者选定的视频骨干、动作分支和三个评测平台中，第 18 层、单次前向的中间特征带来很强控制结果，并优于列出的 VLA 与 Qwen3DiT 基线。",
+      "what_it_does_not_prove": "不能证明任何视频生成特征都优于所有 VLA 表征，也没有完全隔离视频预训练数据、架构容量和联合损失各自的因果贡献。"
+    },
+    {
+      "claim": "完整未来视频不是动作预测的必要中间产物，过度去噪反而可能损害控制。",
+      "supporting_evidence": ["sec:preliminaries", "sec:ablations"],
+      "what_it_actually_proves": "在该模型中，视频去噪步数从 1 增加到 32 时控制性能下降；动作推理只需一次 video-DiT 前向。",
+      "what_it_does_not_prove": "该消融不能推出所有 WAM 都不需要显式想象；需要像素级规划、遮挡恢复或多假设搜索的任务可能不同。"
+    },
+    {
+      "claim": "联合训练使视频特征获得动作相关的时间结构，从而提高少样本学习和零样本泛化。",
+      "supporting_evidence": ["sec:models", "sec:experiments", "sec:framework", "sec:ablations"],
+      "what_it_actually_proves": "在受控任务变体中 DiT4DiT 的零样本成功率高于 Qwen3DiT/GR00T，t-SNE 时间阶段分离度也上升。",
+      "what_it_does_not_prove": "t-SNE 不是因果证据；零样本任务仍接近训练模板，尚未证明开放世界或跨形态的普遍泛化。"
+    }
+  ],
+  "claim_boundaries": [
+    "仿真表格中的 from scratch 指未使用当前基准之外的动作数据，不表示视频骨干随机初始化。",
+    "zero-shot 是物体类别、实例或数量的受控变化，不是任意新任务与任意新场景。",
+    "视频去噪步数消融只针对当前架构和任务分布，不能普遍否定测试时未来想象。",
+    "联合训练的 t-SNE 与 silhouette score 是表征证据，不等价于独立的任务级因果消融。",
+    "6Hz 说明完整视频生成被避免后仍存在显著计算成本，部署效率不是论文的绝对优势。",
+    "正文和附录分别出现 A100 与 RTX 4090 的运行语境，硬件对应关系没有完全写清。"
+  ],
+  "negative_or_limiting_results": [
+    "视频去噪步数越多控制性能越差，说明最终视频重建不是有效动作条件。",
+    "video DiT 最终层 24–28 的特征性能崩塌，所有层平均也略差于单独使用第 18 层。",
+    "DiT4DiT 只有 6Hz，低于 GR00T-N1.5 的 13Hz 和 Qwen3DiT 的 9Hz。",
+    "Qwen3DiT 在多数 G1 真机任务表现接近零，说明大多模态骨干本身不能代替视频动力学先验。",
+    "零样本评测仍是已知任务模板附近的变化，不能外推到开放世界控制。",
+    "单第一视角容易受遮挡影响，论文尚未证明跨差异巨大机器人形态的迁移。"
+  ],
+  "mechanism_result_map": [
+    "视频预训练提供时间动力学先验，中间隐藏状态绕开像素解码；对应少样本收敛、LIBERO 和 RoboCasa 的提升。",
+    "tau_v、tau_f、tau_a 解耦使动作分支获得稳定条件；对应联合训练的时间结构改善。",
+    "第 18 层包含动作相关语义而末层专门化到像素重建；对应 layer ablation 的中层峰值。",
+    "固定 tau_f 的单次 video-DiT forward 保留多种可行未来；对应 1-step 优于 2–32 step。",
+    "动作 DiT 将形态无关的视觉动态映射为 G1 控制；对应仿真预训练后 1,400 条真机数据的迁移。"
+  ],
+  "comparative_positioning": [
+    "相对静态 VLA，DiT4DiT 显式引入视频生成模型的时序先验。",
+    "相对完整 imagine-then-act WAM，它只读取生成过程中的隐藏特征，不在线解码未来像素。",
+    "相对 Fast-WAM，DiT4DiT 更明确地研究 layer 与 diffusion timestep 的特征接口，并联合训练独立 action DiT。",
+    "相对 DreamZero，它不是单一自回归联合 token 模型，而是两个 DiT 的级联与双 flow matching。"
+  ],
+  "reuse_takeaways": [
+    "生成模型用于下游任务时，应搜索生成过程中的 layer×timestep 接口，而不默认使用最终样本。",
+    "跨模态 flow matching 可为不同模态保留独立噪声日程，避免共享 timestep 造成训练条件漂移。",
+    "评测 world-action model 应分开报告世界模型前向、动作积分、像素解码与闭环频率。",
+    "from scratch 与 zero-shot 必须精确定义其数据和任务边界。",
+    "t-SNE 只能作机制提示，关键主张仍需任务级干预消融。"
+  ],
+  "followup_questions": [
+    "固定相同视频预训练、参数量和动作数据时，中间特征相对静态编码器的净收益是多少？",
+    "最佳 layer×timestep 是否跨 video DiT backbone、任务和机器人形态稳定？",
+    "多个含噪未来分支能否改善风险敏感控制和失败恢复？",
+    "冻结、LoRA 与全量联合微调如何影响视频动力学遗忘？",
+    "在需要像素级遮挡恢复或搜索的任务中，完整 test-time imagination 是否重新变得有用？",
+    "加入多视角、深度或触觉后，视频中间特征的贡献是否仍然显著？"
+  ],
+  "section_plan": [
+    {"section":"研究问题","focus":"解释静态 VLA 缺少动作条件动力学，以及完整视频生成的计算和表征问题。","evidence_sources":["sec:abstract","sec:introduction","sec:models"]},
+    {"section":"数据与任务定义","focus":"覆盖 LIBERO、RoboCasa-GR1、G1 真机、预训练数据和 zero-shot 口径。","evidence_sources":["sec:experiments","sec:framework","sec:dataset"]},
+    {"section":"方法主线","focus":"解释 video DiT、action DiT、hook、双 flow matching 与三时间步。","evidence_sources":["sec:preliminaries","sec:models"]},
+    {"section":"关键结果","focus":"记录仿真、真机、泛化、效率和代表性基线数字。","evidence_sources":["sec:experiments","sec:framework","sec:ablations"]},
+    {"section":"深度分析","focus":"把中间层、一次前向和联合训练机制映射到消融与泛化结果。","evidence_sources":["sec:models","sec:ablations","sec:conclusion"]},
+    {"section":"局限","focus":"界定 from scratch、zero-shot、样本量、硬件与跨形态外推边界。","evidence_sources":["sec:ablations","sec:appendix","sec:dataset"]}
+  ],
+  "figure_plan": [
+    {"asset":"images/page_004_fig_figure_2.png","role":"mechanism","placement":"方法主线之后","reason":"直接显示视频 DiT 特征如何条件化动作 DiT。"},
+    {"asset":"images/page_006_fig_figure_3.png","role":"mechanism","placement":"三时间步解释之后","reason":"解释 tau_v、tau_f、tau_a 的职责分离。"},
+    {"asset":"images/page_010_fig_table_1.png","role":"evidence","placement":"主结果","reason":"LIBERO 关键数字。"},
+    {"asset":"images/page_011_fig_table_2.png","role":"evidence","placement":"主结果","reason":"RoboCasa-GR1 逐任务比较。"},
+    {"asset":"images/page_013_fig_figure_7.png","role":"evidence","placement":"泛化分析","reason":"仿真与真机零样本结果。"},
+    {"asset":"images/page_014_fig_figure_8.png","role":"evidence","placement":"消融分析","reason":"层选择、去噪步数与联合训练证据。"}
+  ]
+}

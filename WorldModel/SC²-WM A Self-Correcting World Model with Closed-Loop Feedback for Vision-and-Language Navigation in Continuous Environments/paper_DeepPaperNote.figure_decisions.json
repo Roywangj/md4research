@@ -1,0 +1,510 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2608.07548",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Comparison of (a) conventional open-loop VLN frame-",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "placeholder",
+      "reason": "保留占位；候选裁剪含摘要/作者等周边内容，未达到独立图像的干净性要求。",
+      "skip_reason": "surrounding_prose_contamination",
+      "visual_quality_status": "visual_defect",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_001_fig_figure_1_review.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_001_fig_figure_1_review.png",
+      "materialization_status": "not_applicable",
+      "source_image_sha256": "ae8e4ad09e035e578bfa9b4ae34ce737c7a77f6466ef38db4f0c6e820ec2cfb9",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_001_fig_figure_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/page_previews/page_001.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KDMMY7WS/Yao 等 - 2026 - SC$^{2}$-WM A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigat.pdf",
+        "source_page": 1,
+        "caption": "Comparison of (a) conventional open-loop VLN frame-",
+        "bbox_pt": [
+          10.940000534057617,
+          155.0625,
+          577.27392578125,
+          317.1022033691406
+        ],
+        "normalized_bbox": [
+          0.017876,
+          0.195786,
+          0.943258,
+          0.400382
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "fail",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [
+          "三种执行范式的对比图主体"
+        ],
+        "omitted_scientific_elements": [
+          "摘要与作者周边文字"
+        ],
+        "notes": "图形身份明确但裁剪混入页面周边文字，故不插入。",
+        "failure_reason": "surrounding_prose_contamination",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of SC2-WM framework, which has two complementary self-correction modules: (i) feedback-guided plan refinement",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "已完成人工视觉复核；身份、完整性与可读性均通过。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2_review.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_004_fig_figure_2_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "19a6d19bf746c4c3b0664d704953b84ec0f8658ef587b7b8e4c2cb888995b2c6",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_004_fig_figure_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KDMMY7WS/Yao 等 - 2026 - SC$^{2}$-WM A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigat.pdf",
+        "source_page": 4,
+        "caption": "Overview of SC2-WM framework, which has two complementary self-correction modules: (i) feedback-guided plan refinement",
+        "bbox_pt": [
+          31.16449737548828,
+          14.091339111328125,
+          554.6748657226562,
+          264.059326171875
+        ],
+        "normalized_bbox": [
+          0.050922,
+          0.017792,
+          0.906331,
+          0.333408
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "19a6d19bf746c4c3b0664d704953b84ec0f8658ef587b7b8e4c2cb888995b2c6",
+        "preserved_scientific_elements": [
+          "完整图/表主体",
+          "编号与标题/图注对应关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查候选图像，科学内容完整且可独立解释。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Feedback-Guided Plan Refinement (Forward",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:appendix-for-details",
+      "decision": "placeholder",
+      "reason": "保留占位；算法块文字可由正文重构，未提取到可独立阅读的图像候选。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "visual_defect",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "materialization_status": "not_applicable"
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "Conditional World-Aware Adaptation (Test-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:appendix-for-details",
+      "decision": "visual_defect",
+      "reason": "人工视觉复核未通过；算法块候选不可稳定独立阅读。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_006_fig_algorithm_2.png",
+      "relative_markdown_embed": "![Algorithm 2](images/page_006_fig_algorithm_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_006_fig_algorithm_2.png",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "候选图像文字/边界不足以支持独立解释。"
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Qualitative results on R2R-CE unseen set. Comparison",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:model",
+      "decision": "insert",
+      "reason": "已完成人工视觉复核；身份、完整性与可读性均通过。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_figure_3_review.png",
+      "relative_markdown_embed": "![Figure 3](images/page_009_fig_figure_3_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_009_fig_figure_3_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "d6d8cafdcce9b8862dc483328337aa53c1f9a7e1af689835d784a59d5ea72355",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_009_fig_figure_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KDMMY7WS/Yao 等 - 2026 - SC$^{2}$-WM A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigat.pdf",
+        "source_page": 9,
+        "caption": "Qualitative results on R2R-CE unseen set. Comparison",
+        "bbox_pt": [
+          0.0,
+          39.721099853515625,
+          569.7676391601562,
+          182.7684326171875
+        ],
+        "normalized_bbox": [
+          0.0,
+          0.050153,
+          0.930993,
+          0.230768
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "d6d8cafdcce9b8862dc483328337aa53c1f9a7e1af689835d784a59d5ea72355",
+        "preserved_scientific_elements": [
+          "完整图/表主体",
+          "编号与标题/图注对应关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查候选图像，科学内容完整且可独立解释。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Real-world deployment on a Unitree GO2 quadruped",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:model",
+      "decision": "low_priority",
+      "reason": "作为真实世界补充展示，正文文字已覆盖其证据；在本笔记中优先保留主方法图与定量表。",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Real-world deployment of SC2-WM on a quadruped robot navigating indoor environments with natural language instructions.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:methods-6",
+      "decision": "low_priority",
+      "reason": "作为真实世界补充展示，正文文字已覆盖其证据；在本笔记中优先保留主方法图与定量表。",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Experimental results on R2R-CE dataset. Results better than base model are shown in blue. Best results for both panoramic and",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "候选裁剪未通过视觉质量门；重要数值将在正文以可搜索 Markdown 表格转录。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_007_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_007_fig_table_1.png",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "表格裁剪不适合作为独立图片，正文转录保留数值证据。"
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Experimental results on RxR-CE dataset. Results better",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:methods",
+      "decision": "visual_defect",
+      "reason": "候选裁剪未通过视觉质量门；重要数值将在正文以可搜索 Markdown 表格转录。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "表格裁剪不适合作为独立图片，正文转录保留数值证据。"
+      }
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation Study of the proposed World Model. Best results",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:methods",
+      "decision": "insert",
+      "reason": "已完成人工视觉复核；身份、完整性与可读性均通过。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_3_review.png",
+      "relative_markdown_embed": "![Table 3](images/page_008_fig_table_3_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_008_fig_table_3_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "cbc026707dd9a84eac6b5577189409b6d8d7776dd63382e2ed480a069b391379",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_008_fig_table_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KDMMY7WS/Yao 等 - 2026 - SC$^{2}$-WM A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigat.pdf",
+        "source_page": 8,
+        "caption": "Ablation Study of the proposed World Model. Best results",
+        "bbox_pt": [
+          303.8658447265625,
+          90.35525512695312,
+          545.7670288085938,
+          170.14390563964844
+        ],
+        "normalized_bbox": [
+          0.496513,
+          0.114085,
+          0.891776,
+          0.214828
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "cbc026707dd9a84eac6b5577189409b6d8d7776dd63382e2ed480a069b391379",
+        "preserved_scientific_elements": [
+          "完整图/表主体",
+          "编号与标题/图注对应关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查候选图像，科学内容完整且可独立解释。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Experimental results on R2R-CE dataset. Results better than base model are shown in blue. Best results for both panoramic and",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "候选裁剪未通过视觉质量门；重要数值将在正文以可搜索 Markdown 表格转录。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_015_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_015_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_015_fig_table_4.png",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "表格裁剪不适合作为独立图片，正文转录保留数值证据。"
+      }
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Experimental results on RxR-CE datasets. Results better than the base model are shown in blue. Best results for the panoramic",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:methods-3",
+      "decision": "visual_defect",
+      "reason": "候选裁剪未通过视觉质量门；重要数值将在正文以可搜索 Markdown 表格转录。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_016_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_016_fig_table_5.png",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "表格裁剪不适合作为独立图片，正文转录保留数值证据。"
+      }
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Ablation study of different loss functions for online model adaptation, including average time per episode. Best results are",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:methods-3",
+      "decision": "visual_defect",
+      "reason": "候选裁剪未通过视觉质量门；重要数值将在正文以可搜索 Markdown 表格转录。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_016_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_016_fig_table_6.png",
+      "materialization_status": "not_applicable",
+      "visual_review": {
+        "status": "fail",
+        "failure_reason": "unreadable_source",
+        "notes": "表格裁剪不适合作为独立图片，正文转录保留数值证据。"
+      }
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Ablation study of different memory lengths in the proposed World Model.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:methods-5",
+      "decision": "insert",
+      "reason": "已完成人工视觉复核；身份、完整性与可读性均通过。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_017_fig_table_7_review.png",
+      "relative_markdown_embed": "![Table 7](images/page_017_fig_table_7_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_017_fig_table_7_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "3f26cf1c2c0a15db6cb69cb8ec6bcde70cc5d5ee3f3047740a1c23fb77d58a5f",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/images/page_017_fig_table_7_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/tmp/DeepPaperNote/assets/SC2_WM_A_Self_Correcting_World_Model_with_Closed_Loop_Feedback_for_Vision_and_Language_Navigation_in_Continuous_Environments/page_previews/page_017.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KDMMY7WS/Yao 等 - 2026 - SC$^{2}$-WM A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigat.pdf",
+        "source_page": 17,
+        "caption": "Ablation study of different memory lengths in the proposed World Model.",
+        "bbox_pt": [
+          124.89146423339844,
+          82.6474838256836,
+          478.1264953613281,
+          193.85482788085938
+        ],
+        "normalized_bbox": [
+          0.204071,
+          0.104353,
+          0.781252,
+          0.244766
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "3f26cf1c2c0a15db6cb69cb8ec6bcde70cc5d5ee3f3047740a1c23fb77d58a5f",
+        "preserved_scientific_elements": [
+          "完整图/表主体",
+          "编号与标题/图注对应关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查候选图像，科学内容完整且可独立解释。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 14,
+    "by_decision": {
+      "placeholder": 2,
+      "insert": 4,
+      "visual_defect": 6,
+      "low_priority": 2
+    },
+    "visual_review": "人工复核已完成；insert 项身份、完整性、可读性通过。"
+  }
+}

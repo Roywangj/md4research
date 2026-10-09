@@ -1,0 +1,148 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文的中心贡献是一个面向视觉落地推理的训练框架：通过感知流表征、解耦推理以及带邻域几何塑形的变分强化微调，改变 LVLM 如何学习和探索视觉轨迹；数据构造、奖励函数、训练配方与跨尺度实验共同服务于这一训练方法主线。",
+  "dominant_domain": "visually grounded reasoning and reinforcement fine-tuning for large vision-language models",
+  "must_cover": [
+    "几何精度并不等同于推理效用，过窄的专家框会产生 tunnel vision。",
+    "感知流如何把规划状态、RoI 与证据描述组织成可优化的潜变量轨迹。",
+    "流生成与流引导推理如何解耦，并通过自条件生成把轨迹反馈给答案生成。",
+    "冷启动数据如何经随机扩框、教师合成、验证器过滤与难度切分构造。",
+    "Sub-Trajectory Balance、多维奖励与邻域几何塑形如何共同组成变分 RFT。",
+    "主结果、训练与奖励消融、跨尺度增益、效率和测试时扩展结果。",
+    "理论结论依赖的理想化假设，以及固定感知流程、专家先验和训练成本带来的边界。"
+  ],
+  "key_numbers": [
+    "PFlowNet 在 V* Bench 达到 90.6%，相对 Qwen3-VL-8B 基座的 77.5% 提升 13.1 个百分点。",
+    "TreeBench 总体准确率从 44.9% 提升到 55.3%，增加 10.4 个百分点。",
+    "MME-RealWorld-Lite 总体达到 67.0%，论文报告相对基座提升 18.4 个百分点。",
+    "在 TreeBench 与 MME-RealWorld-Lite 上，论文分别报告超过最近竞争方法 5.3 与 12.6 个百分点。",
+    "细粒度任务上，HR-Bench 4K/8K 为 80.4%/76.9%，ScreenSpot v2/Pro 为 95.1%/61.8%。",
+    "数据流水线从 95k 个问答样本出发，对 53k 个样本合成感知流，得到约 45k 冷启动样本与约 42k RFT 样本。",
+    "SFT 使用 16 张 H200、3 个 epoch、全局批量 256、峰值学习率 1e-5；RFT 同样使用 16 张 H200、5 个 epoch。",
+    "邻域几何塑形采用 lambda=4.5、epsilon=0.5；每个样本探索 8 条轨迹。",
+    "训练消融中，SFT 将 TreeBench/V*/MME-RW 从 44.9/77.5/46.0 提升到 48.3/83.7/54.2，完整方法达到 55.3/90.6/67.0。",
+    "去掉显式感知流后结果降至 TreeBench 49.2、V* 83.8、MME-RW 52.1，说明文本化轨迹是关键语义锚点。"
+  ],
+  "real_comparisons": [
+    "Qwen3-VL-8B 基座、PFlowNet、TreeVGR、DeepEyesV2、Thyme 等方法在通用与细粒度视觉推理基准上的比较。",
+    "最大似然训练、专家严格对齐式 RLVR 与 PFlowNet 邻域约束式变分 RFT 的目标差异。",
+    "仅 SFT、不同奖励分量、不同几何塑形方式、去除感知流或 RoI 特征的系统消融。",
+    "Qwen3-VL 4B、8B 与 32B 上的跨尺度训练收益。",
+    "单次推理效率、上下文长度、时延与 Pass@k 测试时扩展能力的比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "对象定位专家提供的最高几何精度框不一定具有最高推理效用，视觉落地训练需要优化任务效用而不是机械模仿专家框。",
+      "supporting_evidence": [
+        "sec:introduction",
+        {"pages": [2, 3]}
+      ],
+      "what_it_actually_proves": "V* 探测实验显示，不同扩框尺度会显著改变答案准确率，最紧的专家框经常不如包含上下文的区域；这为从严格对齐转向受控探索提供了实证动机。",
+      "what_it_does_not_prove": "该探测不能证明所有检测框都对推理有害，也不能给出每个样本的最优扩框规则。"
+    },
+    {
+      "claim": "把视觉轨迹写成感知流，并采用多维奖励与邻域几何塑形进行变分强化微调，可以兼顾推理效用与视觉可靠性。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:experiment",
+        {"pages": {"start": 4, "end": 11}}
+      ],
+      "what_it_actually_proves": "完整训练配方在多个基准上优于基座与竞争方法，相关消融显示显式感知流、质量奖励、效用奖励和几何塑形均贡献增益。",
+      "what_it_does_not_prove": "实验没有把奖励模型的判断等同于真实世界中的因果视觉证据，也没有证明所有开放域任务都能从固定邻域半径中受益。"
+    },
+    {
+      "claim": "PFlowNet 的收益并非只来自增加输出长度或代理式多轮搜索，而是来自可解释的自条件感知轨迹和训练目标。",
+      "supporting_evidence": [
+        "sec:experiment",
+        "sec:appendix-b-with-specific-adjustments-for-com",
+        {"pages": [9, 10, 11, 12]}
+      ],
+      "what_it_actually_proves": "效率曲线、Pass@k、方法对比和结构消融表明，PFlowNet 以较短上下文和较低延迟取得更好结果，并能通过采样获得进一步收益。",
+      "what_it_does_not_prove": "论文没有在所有硬件、解码策略或极长工具链上做统一成本测量，因此不能断言其普遍比所有代理方法更便宜。"
+    },
+    {
+      "claim": "在理想化支持集与可表达性假设下，邻域几何塑形可以在 MLE 与严格专家对齐之间形成可控折中，并给出相对性能保证。",
+      "supporting_evidence": [
+        "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+        "sec:preliminaries"
+      ],
+      "what_it_actually_proves": "定理 3.1 与 3.4 在作者列出的假设下给出总变差距离上界和相对改进结论，并解释 lambda 与 epsilon 的极限行为。",
+      "what_it_does_not_prove": "这些定理不保证有限模型、非全局最优训练、奖励失配或专家框严重偏置时仍获得同样改进。"
+    }
+  ],
+  "claim_boundaries": [
+    "理论分析依赖有效支持集、专家邻域覆盖、模型表达能力与全局最优等理想化假设。",
+    "教师流由 Gemini3flash 与 GPT-4o 合成，数据质量与训练收益部分依赖闭源教师和验证器。",
+    "几何塑形仍以专家 RoI 为参照；当专家先验系统性遗漏关键上下文时，邻域约束可能限制探索。",
+    "固定的规划、定位、证据描述与回答流程会给简单问题带来额外开销，并可能挤占直接求解能力。",
+    "主结果集中在图像问答、视觉搜索、高分辨率理解和 GUI grounding，未覆盖持续视频、机器人控制或真实交互环境。"
+  ],
+  "negative_or_limiting_results": [
+    "作者指出固定四阶段感知格式在简单任务和 STEM 型任务上可能产生不必要开销，当前系统缺少按题目难度自适应启用感知的机制。",
+    "超参数 lambda 与 epsilon 的最佳值依赖模型和数据分布，理论只解释方向，不能自动给出实际最优值。",
+    "Table 4 显示，仅增加外部 RoI 特征的收益有限；真正关键的是显式感知流，说明视觉裁剪本身不是充分解释。",
+    "测试时扩展虽然有效，但仍需要多次采样；Pass@k 提升不能直接转化为单次部署吞吐量。",
+    "附录失败案例表明模型仍会选错区域、遗漏上下文或生成与目标答案无关的感知链。"
+  ],
+  "mechanism_result_map": [
+    "随机扩展专家 RoI 并让教师生成规划与证据描述，缓解冷启动数据对几何精确框的直接模仿偏差。",
+    "验证器在无流和有流条件下比较可解性，把简单样本、无效流和适合强化学习的困难样本分开。",
+    "质量奖励比较 RoI 内外对证据描述的支持度，压制泛化语言先验并鼓励局部证据特异性。",
+    "效用奖励衡量感知流对正确答案似然的增益，使模型搜索对推理真正有帮助的区域。",
+    "Chamfer-IoU 邻域只惩罚远离专家支持的轨迹，保留局部探索空间；Figure 10 的超参数曲线验证了过弱或过强塑形都不理想。",
+    "SubTB 对共享前缀的子轨迹提供稠密监督，解释了 Pass@k 随采样数增长而继续提升的多样性。"
+  ],
+  "comparative_positioning": [
+    "相对标准 MLE，PFlowNet 显式建模并优化潜在视觉轨迹，而不是只监督最终答案序列。",
+    "相对严格专家对齐式 RLVR，PFlowNet 把专家框当作可靠性邻域的中心，而不是唯一正确轨迹。",
+    "相对多轮代理工具调用，PFlowNet 在单个自回归过程内生成结构化流并回注 RoI 特征，强调训练期内化而非推理期外部编排。",
+    "相对只做视觉裁剪或 zoom-in 的方法，PFlowNet 同时保留文本化规划和区域证据语义，使视觉操作可以被解释和优化。"
+  ],
+  "reuse_takeaways": [
+    "做视觉落地训练时，应把几何正确性与任务效用拆成两个奖励维度，而不是用 IoU 代替推理质量。",
+    "专家标注可以作为局部支持约束，而不必作为逐步行为克隆的唯一目标。",
+    "先合成可读的中间轨迹做 SFT，再用变分 RFT 放松到多样有效轨迹，是一种可复用的渐进训练路线。",
+    "难例筛选应比较中间证据加入前后的可解性，以避免把无效链条当作监督。",
+    "消融需要分别去掉文本轨迹、视觉 RoI 特征、质量奖励、效用奖励与几何约束，才能辨认真正的机制贡献。"
+  ],
+  "followup_questions": [
+    "能否让模型按问题难度自适应决定是否生成感知流、生成多少个 RoI？",
+    "能否用不确定性或学习到的支持估计替代固定 epsilon，使几何邻域随样本变化？",
+    "闭源教师可否被自训练、合成数据迭代或开源视觉模型替代而不损失轨迹质量？",
+    "奖励模型若与策略模型共享初始化，是否会放大共同偏差；跨模型奖励是否更稳健？",
+    "感知流能否扩展到视频时间段、3D 区域与机器人动作轨迹？",
+    "理论中的支持覆盖量 q 能否在真实数据上被估计，并用来预测超参数选择和失败风险？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "从 V* 的扩框探测出发，解释为什么最高 IoU 的专家框会造成 tunnel vision，以及 MLE 与严格专家对齐都没有直接优化推理效用。",
+      "evidence_sources": ["sec:abstract", "sec:introduction"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "交代 95k 问答数据、53k 流合成、45k 冷启动与 42k RFT 的筛选关系，并列出通用、细粒度、GUI 与高分辨率评测任务。",
+      "evidence_sources": ["sec:introduction", "sec:experiment", "sec:dataset"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "沿感知流表征、两阶段自条件推理、冷启动、SubTB 变分 RFT、多维奖励和邻域几何塑形的因果链解释训练机制。",
+      "evidence_sources": ["sec:introduction", "sec:preliminaries", {"pages": {"start": 3, "end": 8}}]
+    },
+    {
+      "section": "关键结果",
+      "focus": "报告 TreeBench、MME-RealWorld-Lite、V*、HR-Bench、ScreenSpot 的主结果，并结合 Table 4/5 说明训练配方和跨尺度收益。",
+      "evidence_sources": ["sec:experiment", {"pages": {"start": 8, "end": 11}}]
+    },
+    {
+      "section": "深度分析",
+      "focus": "区分视觉裁剪与文本感知流的贡献，连接奖励、几何邻域、效率曲线、Pass@k 和理论极限，解释结果真正支持的机制。",
+      "evidence_sources": ["sec:experiment", "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this", "sec:appendix-b-with-specific-adjustments-for-com"]
+    },
+    {
+      "section": "局限",
+      "focus": "明确理想化理论假设、固定流程开销、专家与奖励模型依赖、闭源教师、算力成本以及跨视频和交互场景的外推边界。",
+      "evidence_sources": ["sec:conclusion", "sec:preliminaries", "sec:dataset"]
+    }
+  ]
+}

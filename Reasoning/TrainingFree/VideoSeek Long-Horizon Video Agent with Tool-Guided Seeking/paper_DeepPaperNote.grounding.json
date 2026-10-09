@@ -1,0 +1,34 @@
+{
+  "claims": [
+    {
+      "claim": "VideoSeek achieves 68.4% on LVBench w/o subtitles with 92.3 frames, outperforming base GPT-5 by +8.3% while consuming 76% fewer frames.",
+      "source_table": "Table 1",
+      "page": 6
+    },
+    {
+      "claim": "With subtitles on LVBench, VideoSeek reaches 76.7% with only 27.2 frames, surpassing DVD (76.0% with 8,074 frames).",
+      "source_table": "Table 1",
+      "page": 6
+    },
+    {
+      "claim": "On LongVideoBench, VideoSeek scores 73.5% with 29.6 frames, beating DVD by +4.9% and base GPT-5 by +9.0%.",
+      "source_table": "Table 1",
+      "page": 6
+    },
+    {
+      "claim": "On Video-Holmes causal benchmark, VideoSeek leads all models with 47.3% overall accuracy using only 42.7 frames.",
+      "source_table": "Table 2",
+      "page": 7
+    },
+    {
+      "claim": "A non-thinking backbone (GPT-4.1) collapses to 53.0% (-15.4%) due to premature over-confident stopping after only 2.99 turns.",
+      "source_table": "Table 3",
+      "page": 7
+    },
+    {
+      "claim": "Removing <overview> causes a 13.3% collapse (55.1% vs 68.4%).",
+      "source_table": "Table 4",
+      "page": 7
+    }
+  ]
+}

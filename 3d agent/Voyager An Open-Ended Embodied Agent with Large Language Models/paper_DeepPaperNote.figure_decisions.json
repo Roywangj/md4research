@@ -1,0 +1,663 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2305.16291",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "VOYAGER discovers new Minecraft items and skills continually by self-driven exploration,",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "skip",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "Not necessary after selecting the core system, mechanism, result, and limitation visuals.",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "materialization_status": "not_applicable",
+      "source_image_sha256": "93877dc54a122c1a7221d68cc9392d3d27232bc55d496abc72391412ba2527ca",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/images/page_001_fig_figure_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_001.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 1,
+        "caption": "VOYAGER discovers new Minecraft items and skills continually by self-driven exploration,",
+        "bbox_pt": [
+          113.9010009765625,
+          463.99835205078125,
+          498.09332275390625,
+          691.8070068359375
+        ],
+        "normalized_bbox": [
+          0.186113,
+          0.585857,
+          0.813878,
+          0.873494
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "not_reviewed",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "Placeholder retained conceptually; no image materialized.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "VOYAGER consists of three key components: an automatic curriculum for open-ended",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:abstract",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "Figure_2_system_overview.png",
+      "relative_markdown_embed": "![Figure 2](images/Figure_2_system_overview.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_2_system_overview.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "3084fa33c89e038943942a4d255b36a4b036ab26c7477888e61672ace838b155",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_2_system_overview.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_002.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 2,
+        "caption": "VOYAGER consists of three key components: an automatic curriculum for open-ended",
+        "bbox_pt": [
+          111.83023071289062,
+          67.99797058105469,
+          507.97906494140625,
+          242.40899658203125
+        ],
+        "normalized_bbox": [
+          0.182729,
+          0.085856,
+          0.830031,
+          0.306072
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "3084fa33c89e038943942a4d255b36a4b036ab26c7477888e61672ace838b155",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Tasks proposed by the automatic curriculum. We only display the partial prompt for brevity.",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "skip",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "Not necessary after selecting the core system, mechanism, result, and limitation visuals.",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "materialization_status": "not_applicable",
+      "source_image_sha256": "7649de0d71ef6d74a341fd8b1339bdc8e26e41ec94a013a327c4793ef017d25c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/images/page_003_fig_figure_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_003.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 3,
+        "caption": "Tasks proposed by the automatic curriculum. We only display the partial prompt for brevity.",
+        "bbox_pt": [
+          104.0,
+          67.998779296875,
+          507.98602294921875,
+          226.90997314453125
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.085857,
+          0.830043,
+          0.286502
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "not_reviewed",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "Placeholder retained conceptually; no image materialized.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Skill library. Top: Adding a new skill. Each time GPT-4 generates and verifies a new",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "Figure_4_skill_library.png",
+      "relative_markdown_embed": "![Figure 4](images/Figure_4_skill_library.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_4_skill_library.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "fc4663b3bbe7d3ec80c9a790ccb048d752a7730a5f1cf14c34bb906cc3c374e4",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_4_skill_library.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 4,
+        "caption": "Skill library. Top: Adding a new skill. Each time GPT-4 generates and verifies a new",
+        "bbox_pt": [
+          89.19145965576172,
+          52.690879821777344,
+          507.99005126953125,
+          259.5648651123047
+        ],
+        "normalized_bbox": [
+          0.145738,
+          0.066529,
+          0.830049,
+          0.327733
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "fc4663b3bbe7d3ec80c9a790ccb048d752a7730a5f1cf14c34bb906cc3c374e4",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Left: Environment feedback. GPT-4 realizes it needs 2 more planks before crafting sticks.",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "Figure_5_iterative_feedback.png",
+      "relative_markdown_embed": "![Figure 5](images/Figure_5_iterative_feedback.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_5_iterative_feedback.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "21bb1049e5e4fb0b5647b4bfabff991d12567dac0c81d9635848b376bf8db39f",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_5_iterative_feedback.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_005.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 5,
+        "caption": "Left: Environment feedback. GPT-4 realizes it needs 2 more planks before crafting sticks.",
+        "bbox_pt": [
+          73.42481994628906,
+          69.70726776123047,
+          534.3413696289062,
+          312.9213562011719
+        ],
+        "normalized_bbox": [
+          0.119975,
+          0.088014,
+          0.873107,
+          0.395103
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "21bb1049e5e4fb0b5647b4bfabff991d12567dac0c81d9635848b376bf8db39f",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Self-verification examples. We only display the partial prompt for brevity. See Appendix,",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "skip",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "Not necessary after selecting the core system, mechanism, result, and limitation visuals.",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "materialization_status": "not_applicable",
+      "source_image_sha256": "e6fe7fae053bb2e0a5c3c3cf9b192965b4a2f38bb356ebd2ec7ca00c95b9b13c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/images/page_006_fig_figure_6_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_006.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 6,
+        "caption": "Self-verification examples. We only display the partial prompt for brevity. See Appendix,",
+        "bbox_pt": [
+          104.0,
+          67.99757385253906,
+          507.9847412109375,
+          236.4630126953125
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.085856,
+          0.83004,
+          0.298564
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "not_reviewed",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "Placeholder retained conceptually; no image materialized.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Map coverage: bird’s eye views of Minecraft maps. VOYAGER is able to traverse 2.3×",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "Figure_7_tech_tree.png",
+      "relative_markdown_embed": "![Figure 7](images/Figure_7_tech_tree.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_7_tech_tree.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "6dc7885defab89026891ba4f8376b1d92b2338475439359e987eddad9bf19f44",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_7_tech_tree.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 7,
+        "caption": "Map coverage: bird’s eye views of Minecraft maps. VOYAGER is able to traverse 2.3×",
+        "bbox_pt": [
+          142.35400390625,
+          211.67828369140625,
+          467.1448059082031,
+          389.66900634765625
+        ],
+        "normalized_bbox": [
+          0.232605,
+          0.267271,
+          0.763309,
+          0.492006
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "6dc7885defab89026891ba4f8376b1d92b2338475439359e987eddad9bf19f44",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Zero-shot generalization to unseen tasks. We visualize the intermediate progress of each",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:evaluation-results",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "Figure_8_zero_shot_generalization.png",
+      "relative_markdown_embed": "![Figure 8](images/Figure_8_zero_shot_generalization.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_8_zero_shot_generalization.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "604b4e9be9a9375f26b5ed25161e5edc3c8583c98097aafed4847a9f2eec7ce1",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_8_zero_shot_generalization.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 8,
+        "caption": "Zero-shot generalization to unseen tasks. We visualize the intermediate progress of each",
+        "bbox_pt": [
+          104.0,
+          192.5393829345703,
+          507.9949645996094,
+          363.86700439453125
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.243105,
+          0.830057,
+          0.459428
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "604b4e9be9a9375f26b5ed25161e5edc3c8583c98097aafed4847a9f2eec7ce1",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Left: Ablation studies for the automatic curriculum, skill library, and GPT-4. GPT-3.5",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "Figure_9_ablations.png",
+      "relative_markdown_embed": "![Figure 9](images/Figure_9_ablations.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_9_ablations.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "ccd554247a5d57b8e2977da78d91dfeeb2d89769300f9983d637dca09bb0098e",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_9_ablations.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 9,
+        "caption": "Left: Ablation studies for the automatic curriculum, skill library, and GPT-4. GPT-3.5",
+        "bbox_pt": [
+          143.5989990234375,
+          67.99382019042969,
+          468.4066162109375,
+          216.2490234375
+        ],
+        "normalized_bbox": [
+          0.234639,
+          0.085851,
+          0.76537,
+          0.273042
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "ccd554247a5d57b8e2977da78d91dfeeb2d89769300f9983d637dca09bb0098e",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "VOYAGER builds 3D structures with human feedback. The progress of building designs",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "Figure_10_human_feedback.png",
+      "relative_markdown_embed": "![Figure 10](images/Figure_10_human_feedback.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_10_human_feedback.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "3b8b40c4aba6a0e8caefd43e3296e7b05ceae3941642c742ad74f8d1441fd677",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Figure_10_human_feedback.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 9,
+        "caption": "VOYAGER builds 3D structures with human feedback. The progress of building designs",
+        "bbox_pt": [
+          104.0,
+          284.2528076171875,
+          508.0038757324219,
+          389.0
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.358905,
+          0.830072,
+          0.491162
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "3b8b40c4aba6a0e8caefd43e3296e7b05ceae3941642c742ad74f8d1441fd677",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Tech tree mastery. Fractions indicate the number of successful trials out of three total runs.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "Table_1_tech_tree_mastery.png",
+      "relative_markdown_embed": "![Table 1](images/Table_1_tech_tree_mastery.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Table_1_tech_tree_mastery.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "46482d4f3da910d637c35b613a7c8c47b26154e58bdc8c1eb250c43decf23964",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Table_1_tech_tree_mastery.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 7,
+        "caption": "Tech tree mastery. Fractions indicate the number of successful trials out of three total runs.",
+        "bbox_pt": [
+          129.1585235595703,
+          127.10940551757812,
+          482.8385009765625,
+          199.7554168701172
+        ],
+        "normalized_bbox": [
+          0.211043,
+          0.160492,
+          0.788952,
+          0.252216
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "46482d4f3da910d637c35b613a7c8c47b26154e58bdc8c1eb250c43decf23964",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Zero-shot generalization to unseen tasks. Fractions indicate the number of successful",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:evaluation-results",
+      "decision": "insert",
+      "reason": "Identity and visual usability confirmed; selected for explanatory value.",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "Table_2_zero_shot.png",
+      "relative_markdown_embed": "![Table 2](images/Table_2_zero_shot.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Table_2_zero_shot.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "527ea7ebf3f3e20fefb1617596df21079dbe9b0862a091e9941a4506af2e25f0",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/Voyager An Open-Ended Embodied Agent with Large Language Models/images/Table_2_zero_shot.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a313c8a8551609b6e/tmp/DeepPaperNote/assets/VOYAGER_An_Open_Ended_Embodied_Agent/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QISUF4TH/Wang 等 - 2023 - Voyager An Open-Ended Embodied Agent with Large Language Models.pdf",
+        "source_page": 8,
+        "caption": "Zero-shot generalization to unseen tasks. Fractions indicate the number of successful",
+        "bbox_pt": [
+          109.62644958496094,
+          127.22549438476562,
+          502.38372802734375,
+          211.83583068847656
+        ],
+        "normalized_bbox": [
+          0.179128,
+          0.160638,
+          0.820888,
+          0.267469
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "527ea7ebf3f3e20fefb1617596df21079dbe9b0862a091e9941a4506af2e25f0",
+        "preserved_scientific_elements": [
+          "captioned visual content"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Identity matches PDF caption and crop is readable at 300 dpi.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 12,
+    "by_decision": {
+      "insert": 9,
+      "skip": 3,
+      "placeholder": 0,
+      "review_pending": 0,
+      "low_priority": 0,
+      "visual_defect": 0
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/NVZK9PA9/Chen 等 - 2025 - MINT-CoT Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/NVZK9PA9/Chen 等 - 2025 - MINT-CoT Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning.pdf",
+  "title": "MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2506.05331",
+  "paper_id": "arxiv:2506.05331",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2506.05331v1",
+  "abstract": "Chain-of-Thought (CoT) has widely enhanced mathematical reasoning in Large Language Models (LLMs), but it still remains challenging for extending it to multimodal domains. Existing works either adopt a similar textual reasoning for image input, or seek to interleave visual signals into mathematical CoT. However, they face three key limitations for math problem-solving: reliance on coarse-grained box-shaped image regions, limited perception of vision encoders on math content, and dependence on external capabilities for visual modification. In this paper, we propose MINT-CoT, introducing Mathematical INterleaved Tokens for Chain-of-Thought visual reasoning. MINT-CoT adaptively interleaves relevant visual tokens into textual reasoning steps via an Interleave Token, which dynamically selects visual regions of any shapes within math figures. To empower this capability, we construct the MINT-CoT dataset, containing 54K mathematical problems aligning each reasoning step with visual regions at the token level, accompanied by a rigorous data generation pipeline. We further present a three-stage MINT-CoT training strategy, progressively combining text-only CoT SFT, interleaved CoT SFT, and interleaved CoT RL, which derives our MINT-CoT-7B model. Extensive experiments demonstrate the effectiveness of our method for effective visual interleaved reasoning in mathematical domains, where MINT-CoT-7B outperforms the baseline model by +34.08% on MathVista, +28.78% on GeoQA, and +23.2% on MMStar, respectively. Our code and data are available at https://github.com/xinyan-cxy/MINT-CoT",
+  "authors": [
+    "Xinyan Chen",
+    "Renrui Zhang",
+    "Dongzhi Jiang",
+    "Aojun Zhou",
+    "Shilin Yan",
+    "Weifeng Lin",
+    "Hongsheng Li"
+  ],
+  "published": "2025-06-05T17:59:02Z",
+  "year": "2025",
+  "pdf_url": "https://arxiv.org/pdf/2506.05331v1",
+  "venue": "ArXiv.org",
+  "doi": "10.48550/arxiv.2506.05331",
+  "script": "collect_metadata.py"
+}

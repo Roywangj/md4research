@@ -1,0 +1,965 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2606.08952",
+  "title": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/3dAgent/AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models/allospatial_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/3dAgent/AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models/allospatial_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+    "total_pages": 30,
+    "text_pages_extracted": 30,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 30,
+    "text_max_pages": null,
+    "text_pages_extracted": 30,
+    "text_pages_scanned": 30,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 11
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 312,
+      "text_hash_sha256": "ac03a6fa7cfbcdd7878502ed36dfb65e5873060f7f6867a91c93e2f9ca8a870d"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1605,
+      "text_hash_sha256": "b50cf97d4aa8c1785fe8a28a228cb6d387af3304d88ec6902594d01f7f6e0310"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 4,
+      "char_count": 12530,
+      "text_hash_sha256": "c5d86b212096a176d9080e0e7f7346fd31f5b79deff991aff0fe5416dcea5369"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "Methodology",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 7567,
+      "text_hash_sha256": "5ba9753483d0b07a9cb0e313757928122307d15bd46ca335783bd8faa186d2fd"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "Models",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 6939,
+      "text_hash_sha256": "c7d5bd2d8775c4d81801ec5fa36b061145de627f7b88c03d33076c29886dcec8"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 1588,
+      "text_hash_sha256": "4cca686203b0f1a3db419a480a537b476bf615bfac3d86597241f784c57fadcf"
+    },
+    {
+      "section_id": "sec:models-2",
+      "kind": "method",
+      "title": "Models",
+      "page_start": 8,
+      "page_end": 11,
+      "char_count": 10546,
+      "text_hash_sha256": "348d6aa97c17e8f8816432a2f8b07c59143c1c7318c67951d261c9e29e6596f3"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 11,
+      "page_end": 23,
+      "char_count": 34390,
+      "text_hash_sha256": "da83f09206f08fc3637ed2878270dee6febde3587e88fe9c1b810695c4d9fdb8"
+    },
+    {
+      "section_id": "sec:limitations",
+      "kind": "conclusion",
+      "title": "2. Limitations",
+      "page_start": 23,
+      "page_end": 30,
+      "char_count": 22551,
+      "text_hash_sha256": "68777056de65c5cfcd99fcd5ad9cd94f32729bb4c363ce07f998820e1c12ee93"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 2984,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5194,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5160,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4095,
+      "section_ids": [
+        "sec:introduction",
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4506,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4450,
+      "section_ids": [
+        "sec:methodology",
+        "sec:models"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4272,
+      "section_ids": [
+        "sec:models",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4453,
+      "section_ids": [
+        "sec:experiments",
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5550,
+      "section_ids": [
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 659,
+      "section_ids": [
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4083,
+      "section_ids": [
+        "sec:models-2",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4153,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4104,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3643,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3172,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 2332,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 1616,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 1476,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 1665,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 1524,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 1250,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1980,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 3509,
+      "section_ids": [
+        "sec:references",
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 3710,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 3711,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 3630,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 3182,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 3532,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 3146,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 1655,
+      "section_ids": [
+        "sec:limitations"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "AlloSpatial inference and training pipeline. A, At inference time, AlloSpatial takes",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "VSI-Bench performance un-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Text-only spatial reasoning",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Reasoning trace produced by AlloSpatial.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:models-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Results of AlloSpatial under the training-free setting on the VSI-Bench [41] and Mind-",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Evaluation results on the VSI-Bench benchmark (tiny split). Following the setting of",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:models"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Evaluation on the MindCube (tiny split).",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation results of AlloSpatial-4B.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:models-2"
+      },
+      {
+        "id": "Table 5",
+        "caption": "GSPO training configuration for the reported AlloSpatial checkpoints. The main paper",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "telephone_01 <Center: (-3.187, -0.371), Width: 0.109>, …",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "door_02. …… Distance = (Minimum X of door_02) - (Maximum X",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "of telephone_01) = 0.507 - (-3.1325) = 3.6395 meters. When I",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "< door >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "< telephone >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "< office desk >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "t=2",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "t=3",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "t=T",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "Given an egocentric observation sequence I = {It}T",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "t=1 and a spatial question q, our goal is to produce",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "τ =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "spatial observation ok = W(uk; I); otherwise, ok = ∅. The final answer ˆa is emitted within a",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "category set C, a requested knowledge type k ∈{landmark, route, both}, a footprint format",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "f ∈{rectangle, ellipse}, and a scene type s ∈{indoor, outdoor}, World2Mind returns M =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "We first align geometry and semantics across the egocentric sequence. For each frame It ∈RH×W ,",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "we estimates a dense depth map Dt ∈RH×W and camera pose Tt ∈SE(3) using monocular",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "t }c∈C with SAM 3 [6].",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "views, we apply a two-level confidence filter to the predicted confidence map Γt ∈[0, 1]H×W :",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Vt(u, v) = 1[Γt(u, v) > τpx] · 1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "\u0002¯Γt > τfrm",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "¯Γt =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where (u, v) indexes an image pixel, Vt(u, v) ∈{0, 1} is the validity mask, and τpx and τfrm are the",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "and colors across frames yields a global semantic point cloud P = {(pi, si, rgbi)}N",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1, where",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "pi ∈R3, si ∈C, and N is the number of retained points. To remove sparse outliers caused by",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "ρi = 1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j∈NK(i) ∥pi −pj∥−1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Landmark mapping with Allocentric-Spatial Tree. For each queried category c ∈C, World2Mind",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "node in the Allocentric-Spatial Tree (AST) T = (V, E), where V denotes landmark nodes and E",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "semantics and explicit spatial structure. For each node v ∈V, World2Mind projects its supporting",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "ϕ(v) =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "t=1, where Tt denotes the",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "(dr, ηr) = JUDGE(q, hr),",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "dr ∈{CALL, SKIP},",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Stage II: modality-decoupled cue collection. When dr = CALL, the agent generates query",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "parameters ξr = (Cr, kr, fr, sr) and obtains a structured spatial map Mr = W(I; ξr), where Cr",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "(∆r, ωr, yr) = ARBITRATE(Er),",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "yr ∈{REFINE, ANSWER},",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "channels, and yr is the next action. If yr = REFINE, the agent updates ξr and starts another cycle; if",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "yr = ANSWER, it emits the final response within the <Answer> tag. In this way, H treats external",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "R(τ) = wacc eRacc(τ) + wstrRstr(τ) + wtoolRtool(τ) + wlenRlen(τ),",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "eRacc(τ) = Racc(τ) · 1[Rstr(τ) ≥τs] ,",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "Rtool(τ) = α eRacc(τ)1[ValidCall(τ)] −γ max(0, nW(τ) −n⋆) ,",
+      "section_id": "sec:models",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "from 1.093 to 1.628 m, giving vertical extent ≈ 0.535 m.",
+      "section_id": "sec:models-2",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "vertical extent ≈ 0.951 m.",
+      "section_id": "sec:models-2",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "m = 95.1 cm. I’ll confirm chair_02 corresponds to the visible office chair (likely",
+      "section_id": "sec:models-2",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "aligner modules, and adopt ϵhigh = 0.28 with overlong-completion filtering. The training scripts are",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "is serialized as <tool_call> blocks containing a JSON object with name and arguments. Visual",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "Answer format. Wrap the final answer in <Answer></Answer> tags.",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "• Landmark knowledge (knowledge_type=landmark or both): detected instances, metric coordinates,",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "• Route knowledge (knowledge_type=route or both): traversable regions, camera trajectory, and",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "World2Mind returns a JSON tool result with success=true, scene id scene0220_01_c70da29e-5e7,",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "distance. Using rectangle half-extents, the horizontal gap is 1.444 −(0.026 + 0.462) = 0.956 m and",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "the vertical gap is 0.841 −(0.152 + 0.433) = 0.256 m. The nearest-boundary distance is therefore",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "0.9562 + 0.2562 ≈0.990 m.",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "Prediction: <Answer>0.99 m</Answer>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "Camera_Trajectory: (2, 2) --> (2, 6) --> (0, 4) --> (4, 4)",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    },
+    {
+      "text": "Prediction: <Answer>B</Answer>",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 23
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "dcd7bec902880b6e9c177c534431d696721c163e580ad5e2eab24b08cb8e7643",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2606.08952",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+      "translated_title": "",
+      "authors": [
+        "Shouwei Ruan",
+        "Bin Wang",
+        "Zhenyu Wu",
+        "Qihui Zhu",
+        "Yuxiang Zhang",
+        "Jingzhi Li",
+        "Yubin Wang",
+        "Xingxing Wei"
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2606.08952",
+      "arxiv_id": "2606.08952",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2606.08952v1",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+      "doi": "",
+      "arxiv_id": "2606.08952",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2606.08952",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2606.08952",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2606.08952v1",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2606.08952"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+          "work_value": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/3dAgent/AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models/allospatial_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/3dAgent/AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models/allospatial_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/3dAgent/AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models/allospatial_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "AlloSpatial: Agentic Harness Framework for Spatial Reasoning in Foundation Models",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2606.08952v1",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QXAH89IU/Ruan 等 - 2026 - AlloSpatial Agentic Harness Framework for Spatial Reasoning in Foundation Models.pdf",
+    "doi": "",
+    "arxiv_id": "2606.08952",
+    "zotero_key": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+  "physical_pages_reviewed": 23,
+  "extraction_note": "The PDF was reviewed as a read-only source, including physical pages 19-23 and a separate read of physical pages 21-23. Raster PDF extraction was unavailable in the local permission environment, so kept visuals are faithful, explicitly labeled SVG schematics or transcriptions rather than copied PDF crops.",
+  "decisions": [
+    {"type":"figure","number":1,"source_anchor":"PDF physical p.2, Fig.1","decision":"skip","reason":"Motivation is sufficiently explained in prose; no unique comprehension benefit over the architecture figure.","output":null},
+    {"type":"figure","number":2,"source_anchor":"PDF physical p.4, Fig.2","decision":"keep_recreated_schematic","reason":"Central architecture: distinguishes local position/direction evidence from global geometry context.","output":"images/figure_2_geoanchor_architecture.svg"},
+    {"type":"figure","number":3,"source_anchor":"PDF physical p.6, Fig.3","decision":"keep_recreated_schematic","reason":"Shows the four-stage causal training progression, essential for interpreting the ablations.","output":"images/figure_3_training_strategy.svg"},
+    {"type":"figure","number":4,"source_anchor":"PDF physical p.10, Fig.4","decision":"keep_recreated_data_chart","reason":"Makes the Stage 3 ablation and extra-Stage-2 comparison inspectable without relying on a low-resolution PDF view.","output":"images/figure_4_stage3_ablation.svg"},
+    {"type":"figure","number":5,"source_anchor":"PDF physical p.10, Fig.5","decision":"skip","reason":"Attention-bar conclusion is summarized in the note; the chart is secondary to the main quantitative tables.","output":null},
+    {"type":"figure","number":6,"source_anchor":"PDF physical p.11, Fig.6","decision":"keep_recreated_schematic","reason":"Best qualitative illustration of final-answer grounding and local-token specialization; interpretation caveat is retained.","output":"images/figure_6_attention_comparison.svg"},
+    {"type":"figure","number":7,"source_anchor":"PDF physical p.11, Fig.7","decision":"skip","reason":"t-SNE is described and critically qualified in prose; a recreation could overstate the stability of 2D embedding geometry.","output":null},
+    {"type":"table","number":1,"source_anchor":"PDF physical p.8, Table 1","decision":"transcribe_key_values","reason":"Main comparison is more searchable as Markdown; key averages and submetric caveats are retained.","output":null},
+    {"type":"table","number":2,"source_anchor":"PDF physical p.9, Table 2","decision":"transcribe","reason":"Core latent/text reasoning ablation; values included as Markdown table.","output":null},
+    {"type":"table","number":3,"source_anchor":"PDF physical p.9, Table 3","decision":"transcribe_key_values","reason":"Stage and pattern-reward results are included; unclear row formatting is not reconstructed beyond values explicitly readable in the PDF.","output":null},
+    {"type":"table","number":4,"source_anchor":"PDF physical p.9, Table 4","decision":"transcribe","reason":"Directly tests local token specialization; values included as Markdown table.","output":null},
+    {"type":"table","number":5,"source_anchor":"PDF physical p.10, Table 5; appendix physical pp.20-21, printed pp.5-6, §C.2.2","decision":"transcribe","reason":"Alignment-strategy comparison is central to the global-token analysis; C.2.2 now records how Mean Pooling, Adaptive Pooling, and Linear Interpolation differ.","output":null},
+    {"type":"table","number":6,"source_anchor":"Appendix physical p.18, printed p.3, Table 6","decision":"transcribe_key_values","reason":"Pseudo-depth quality is reported in prose and grounding JSON; no separate image needed.","output":null},
+    {"type":"table","number":7,"source_anchor":"Appendix physical p.19, printed p.4, Table 7","decision":"transcribe_key_values","reason":"Grounding dataset question-type counts are compact and searchable in prose.","output":null},
+    {"type":"table","number":8,"source_anchor":"Appendix physical p.20, printed p.5, Table 8","decision":"transcribe_key_values","reason":"SPAR source counts are summarized in prose and linked to the repaired appendix continuity.","output":null},
+    {"type":"table","number":9,"source_anchor":"Appendix physical p.21, printed p.6, Table 9","decision":"transcribe","reason":"Important correction to the approximate 5k SpatialLadder sampling claim: the table reports category counts totaling 5928.","output":null},
+    {"type":"table","number":10,"source_anchor":"Appendix physical p.21, printed p.6, Table 10","decision":"transcribe_key_values","reason":"Complete implementation table adds hardware, geometry balance, and EMA settings and corrects the pattern reward to 0.5.","output":null},
+    {"type":"table","number":11,"source_anchor":"Appendix physical p.22, printed p.7, Table 11","decision":"transcribe_key_values","reason":"Task-to-Position/Direction/Mixed mapping makes the local-token interpretability ablation reproducible.","output":null},
+    {"type":"table","number":12,"source_anchor":"Appendix physical p.22, printed p.7, Table 12; §D.1","decision":"transcribe","reason":"Additional Qwen2.5-VL-3B base-model ablation supplies detailed grouped results and improvement values.","output":null},
+    {"type":"table","number":13,"source_anchor":"Appendix physical p.23, printed p.8, Table 13; §D.2","decision":"transcribe","reason":"Latent-length ablation is central to interpreting the selected 2/8 token lengths.","output":null},
+    {"type":"table","number":14,"source_anchor":"Appendix physical p.23, printed p.8, Table 14; §D.3","decision":"transcribe","reason":"Pooling-resolution ablation verifies the selected multi-scale {1,2,4} setting.","output":null}
+  ],
+  "summary": {"figures_kept":4,"figures_skipped":3,"tables_transcribed_or_summarized":14,"local_assets":4,"appendix_tables_added":6}
+}

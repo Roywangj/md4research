@@ -1,0 +1,254 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "提出将大模型多智能体、可执行模拟代码与物理引擎闭环结合的 4D 世界生成系统。",
+  "dominant_domain": "4D world generation / physics-in-the-loop agent / embodied AI",
+  "must_cover": [
+    "自然语言到可执行 4D 物理世界的任务定义",
+    "Manager、Entity、Render 三类专门智能体及其接口",
+    "Genesis、刚体/MPM/SPH、资产、材质、相机与光照控制",
+    "NewtonGen 与复杂场景实验协议和评价指标",
+    "主结果、用户研究、错误恢复、自然语言控制、消融和骨干分析",
+    "模拟技术、基础模型自我批评、评估规模和安全边界"
+  ],
+  "key_numbers": [
+    "arXiv:2607.21522v1，2026-07-23；PDF 25 页",
+    "NewtonGen 24 个场景、12 种物理规律；另有 30 个复杂场景",
+    "Table 1：GS-Agent Video-PIS 0.71、State-PIS 0.83、Alignment 32.2、Aesthetic 47.6",
+    "Table 2：15 位参与者、270 个有效响应；物理 4.33、相机 4.32、内容 4.70、美学 3.86",
+    "Table 4：去掉多智能体 State-PIS 0.42；去掉专用接口 0.57",
+    "Table 3：gpt-5 0.83/29.9/47.6；gemini-3-pro 0.81/28.2/45.7；Qwen3.5-27B 0.62/27.1/45.3",
+    "使用 Genesis；统一 720p；默认骨干 gpt-5"
+  ],
+  "real_comparisons": [
+    "Sora2、Wan2.2 文本到视频",
+    "SWE-Agent 与 SWE-Agent w/ Visual",
+    "三代理与单体代理、去掉专用接口的消融",
+    "gpt-5、gemini-3-pro、Qwen3.5-27B",
+    "自动指标与 15 人用户研究"
+  ],
+  "central_claims": [
+    {
+      "claim": "物理引擎在环的多智能体代码生成能把自然语言转换成具有内部动力学一致性的 4D 世界。",
+      "supporting_evidence": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:method-2",
+        "sec:experiments",
+        "sec:experiments"
+      ],
+      "supporting_summary": "摘要和第 3 节定义三代理与物理引擎协作；第 4 节在 24 个 NewtonGen、30 个复杂场景和用户研究上报告结果。",
+      "what_it_actually_proves": "在作者所选场景、引擎和评估协议下，GS-Agent 比所列基线取得更高物理、文本对齐和相机控制分数。",
+      "what_it_does_not_prove": "不等于真实世界物理精确复现，也没有证明所有材料、长时间尺度或未见任务都能稳定生成。"
+    },
+    {
+      "claim": "专门化角色与结构化 Agent-Simulator Interface 是性能收益的重要来源。",
+      "supporting_evidence": [
+        "sec:method-2",
+        "sec:method-2",
+        "sec:method-2"
+      ],
+      "supporting_summary": "三代理分别负责管理、实体和渲染；表 4 显示移除多智能体或接口都会降低 State-PIS、对齐和美学。",
+      "what_it_actually_proves": "在该任务和默认骨干下，职责分解和语义化工具接口相对单体或通用接口有明显增益。",
+      "what_it_does_not_prove": "消融没有报告完整成本、调用次数或公平的上下文预算，不能把差异全部归因于角色语义。"
+    },
+    {
+      "claim": "直接从物理引擎读取状态使 State-PIS 比像素分割估计更严格。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "sec:experiments"
+      ],
+      "supporting_summary": "从每个时间步读取精确 3D 质心运动学；文本到视频模型只有像素输出，State-PIS 对后者不可用。",
+      "what_it_actually_proves": "框架可以利用引擎真值计算状态级物理一致性。",
+      "what_it_does_not_prove": "State-PIS 与 Video-PIS 不可直接当作同一指标横向比较，且 PIS 只覆盖理论不变量对应的规律。"
+    },
+    {
+      "claim": "系统具有自主调试和自然语言细粒度控制能力。",
+      "supporting_evidence": [
+        "sec:method-2",
+        "sec:method-2",
+        "sec:references"
+      ],
+      "supporting_summary": "泄漏浴缸案例展示程序修补；台球案例展示慢动作、增球和增速指令；附录说明代理循环审查图像、视频和状态。",
+      "what_it_actually_proves": "展示案例中反馈能够触发程序修改，用户指令能改变相机、实体和运动控制。",
+      "what_it_does_not_prove": "这是案例证据，不是覆盖率或失败恢复成功率统计；作者还报告确认偏差和错误归因。"
+    }
+  ],
+  "claim_boundaries": [
+    "程序化代码和确定性引擎的内部一致性不是对真实世界物理真实性的数学保证。",
+    "实验为 24+30 个场景，用户研究为 15 人，开放域、长时程和复杂接触泛化未量化。",
+    "Alignment 使用 Perception Encoder，Aesthetic 使用 VBench，均不等于完整人类判断。",
+    "Sora2 闭源且只能输出像素，State-PIS 的跨模态比较存在结构性不对称。",
+    "系统依赖 gpt-5、Genesis、BlenderKit/PolyHaven、Meshy 和工具提示细节，完整运行成本未报告。",
+    "附录报告上下文污染、失败根因误判、虚构 API 或材料约定等失败模式。"
+  ],
+  "negative_or_limiting_results": [
+    "Wan2.2 Video-PIS 0.46，SWE-Agent 0.41；带视觉反馈为 0.49，仍低于 GS-Agent。",
+    "GS-Agent Aesthetic 47.6 低于 Wan2.2 的 58.1；用户研究美学 3.86 低于 Sora2 的 4.18。",
+    "Qwen3.5-27B State-PIS 0.62，低于 gpt-5 的 0.83。",
+    "移除多智能体后 State-PIS 0.42，移除专用接口后 0.57。",
+    "附录指出代理会把初速度问题误诊成摩擦问题，并可能错误确认结果。"
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "Manager 分解任务并逐步委派",
+      "evidence": "第 3.2 节与图 2",
+      "interpretation": "把自然语言目标拆成可验证的实体、模拟和渲染子任务。"
+    },
+    {
+      "mechanism": "Entity Agent 负责资产、材质、摆放和运动",
+      "evidence": "第 3.3 节；资产检索优先，Meshy 和 primitive 回退",
+      "interpretation": "把对象创建约束在资产元数据、空间约束和求解器稳定性上。"
+    },
+    {
+      "mechanism": "Render Agent 通过显式相机/光照控制代码输出视频",
+      "evidence": "第 3.4 节",
+      "interpretation": "相机控制是对世界状态的二次编排，而不是像素后处理。"
+    },
+    {
+      "mechanism": "语义化 Agent-Simulator Interface 封装低层操作",
+      "evidence": "第 4.4 节和附录 B Table 5；表 4 接口消融",
+      "interpretation": "结构化工具空间减少语法错误、灾难性参数和引擎崩溃。"
+    },
+    {
+      "mechanism": "推进场景后获得图像、视频、边界和运行时反馈并循环修正",
+      "evidence": "第 3 节、附录 B.3、图 4",
+      "interpretation": "模拟器在环使生成失败变成可观察状态。"
+    }
+  ],
+  "comparative_positioning": [
+    "相对文本到视频模型，GS-Agent 换取显式几何、材质、动力学状态和相机程序。",
+    "相对 GPT4Motion、SceneCraft 等 LLM 写脚本方法，本文强调统一 Genesis、三代理协作和闭环自我调试。",
+    "相对纯物理模拟工作流，本文自动完成资产、参数、运动、镜头和修错，但不改变求解器上限。",
+    "在 3D Agent 目录中，它更接近可执行世界生成与具身数据合成基础设施。"
+  ],
+  "reuse_takeaways": [
+    "优先提供按职责裁剪的语义接口，而不是暴露完整模拟器 API。",
+    "把状态、渲染和运行时错误作为下一轮观察，避免只依靠模型自我复述。",
+    "评估生成世界应区分状态、视频物理、文本对齐、审美和人工偏好。",
+    "粒子级动态、深度、法线和分割可作为具身学习数据源，但需单独验证 sim-to-real。"
+  ],
+  "followup_questions": [
+    "固定调用预算和相同上下文下多代理是否仍优于单代理？",
+    "去掉图像/视频反馈后材质、相机和语义对齐损失多少？",
+    "State-PIS 与人类物理可信度评价的相关性如何？",
+    "资产检索、Meshy 和 primitive 回退分别贡献多少成功率和成本？",
+    "如何量化失败恢复覆盖率、错误归因率和上下文污染？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "固定元数据块，记录身份、来源和论文类型。",
+      "evidence_sources": [
+        "sec:preamble",
+        "sec:abstract"
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "逐意忠实翻译摘要，不加入后见判断。",
+      "evidence_sources": [
+        "sec:abstract"
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "解释物理引擎在环、多代理分工、状态级评估和可控输出。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:method-2",
+        "sec:experiments"
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "区分手工图形管线、像素生成和可执行物理世界。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "输入输出、实体定义、求解器、场景套件和指标。",
+      "evidence_sources": [
+        "sec:method-2",
+        "sec:experiments"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "四步流程说明 Manager、Entity、Render 与引擎反馈闭环。",
+      "evidence_sources": [
+        "sec:method-2",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "呈现主结果、用户研究、消融与骨干分析，并解释指标不对称。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method-2"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分离真实贡献与工程组装，解释收益来源、边界、复现和失败模式。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:discussions",
+        "sec:limitations",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "系统限制包括模拟保真度、基础模型自我批评、评估模态不对称、有限规模和安全资源边界，并区分作者明示与实验外推。",
+      "evidence_sources": [
+        "sec:limitations",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "记录对 3D Agent、具身数据合成和后续实验的启发。",
+      "evidence_sources": [
+        "sec:method-2",
+        "sec:experiments"
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "列出相关 3D/4D Agent 工作。",
+      "evidence_sources": [
+        "sec:related-work",
+        "sec:references"
+      ]
+    }
+  ],
+  "writing_contract": {
+    "figure_table_contract": {
+      "total_items": 13,
+      "inserted": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 6",
+        "Figure 7"
+      ],
+      "transcribed": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4"
+      ],
+      "placeholder": [
+        "Figure 5",
+        "Figure 8",
+        "Table 5"
+      ],
+      "reason": "关键数值表转录保证可读性；附录低优先级或裁剪质量不足项目保留占位。"
+    }
+  }
+}

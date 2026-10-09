@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+  "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2603.05869",
+  "paper_id": "arxiv:2603.05869",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2603.05869v2",
+  "abstract": "Vision-Language Models (VLMs) have achieved remarkable progress on a wide range of challenging multimodal understanding and reasoning tasks. However, existing reasoning paradigms, such as the classical Chain-of-Thought (CoT), rely solely on textual information and often underutilize important visual cues. While prior work has incorporated pixel-level visual cues, these representations require precise spatial localization, introducing additional learning complexity. To address this, we propose PatchCue, a novel patch-based visual cue paradigm designed to significantly enhance the visual reasoning capabilities of VLMs. By partitioning images into patches and representing cues at the patch level, PatchCue aligns better with human perceptual habits and leverages the patch-tokenized input of modern VLMs. We train VLMs using a two-stage approach: cold-start supervised fine-tuning to output patch-level cues, followed by reinforcement learning with a process-supervised cue reward that guides intermediate visual reasoning steps. Extensive experiments on multiple VLMs and diverse benchmarks, including general visual question answering, complex reasoning, and document understanding, demonstrate that PatchCue consistently improves overall model performance. Our results show that patch-level cues outperform both pixel-level bounding boxes and point-based cues, providing a more effective and cognitively aligned visual reasoning paradigm.",
+  "authors": [
+    "Yukun Qi",
+    "Pei Fu",
+    "Hang Li",
+    "Yuhan Liu",
+    "Chao Jiang",
+    "Bin Qin",
+    "Zhenbo Luo",
+    "Jian Luan"
+  ],
+  "published": "2026-03-06T03:44:27Z",
+  "year": "2026",
+  "pdf_url": "https://arxiv.org/pdf/2603.05869v2",
+  "venue": "Open MIND",
+  "doi": "10.48550/arxiv.2603.05869",
+  "script": "collect_metadata.py"
+}

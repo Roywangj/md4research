@@ -1,0 +1,652 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2605.07794",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Method preview. NoiseGate learns per-",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "skip",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "方法预览与 Figure 2 信息重复；保留 Figure 2 作为唯一方法总览图。",
+      "visual_quality_status": "not_reviewed",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_001_fig_figure_1.png",
+      "visual_review": {},
+      "materialization_status": "not_needed"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of NoiseGate. The unified framework figure summarizes both the joint-sequence",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_004_fig_figure_2.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "241776a0b1278d62cd5d1c399c4f17ecc6f65b22e3714026c2aef0b5fbf599c7",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_004_fig_figure_2.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 4,
+        "caption": "Overview of NoiseGate. The unified framework figure summarizes both the joint-sequence",
+        "bbox_pt": [
+          106.71600341796875,
+          67.9962158203125,
+          502.78375244140625,
+          286.8299865722656
+        ],
+        "normalized_bbox": [
+          0.174373,
+          0.085854,
+          0.821542,
+          0.362159
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "241776a0b1278d62cd5d1c399c4f17ecc6f65b22e3714026c2aef0b5fbf599c7",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Noise as masking in",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_008_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_008_fig_figure_3.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "bb7265d9bdf3c7d4cb96bf12c3ad743079c370f0b8edd372b8ecf7d2d7ff6e53",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_008_fig_figure_3.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 8,
+        "caption": "Noise as masking in",
+        "bbox_pt": [
+          104.0,
+          67.99644470214844,
+          507.9990234375,
+          180.74798583984375
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.085854,
+          0.830064,
+          0.228217
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "bb7265d9bdf3c7d4cb96bf12c3ad743079c370f0b8edd372b8ecf7d2d7ff6e53",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "therefore visualizes the full timestep trajectory of a single denoising chunk from two different",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_008_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_008_fig_figure_4.png",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "c4f3914b7ea9646a948f258dc2f32de65824f11997b3ce5df5f92d99d3473f47",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "materialization_status": "materialized",
+      "source_image_sha256": "c4f3914b7ea9646a948f258dc2f32de65824f11997b3ce5df5f92d99d3473f47",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_008_fig_figure_4.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 8,
+        "caption": "therefore visualizes the full timestep trajectory of a single denoising chunk from two different",
+        "bbox_pt": [
+          100.0,
+          60.0,
+          500.0,
+          300.0
+        ],
+        "normalized_bbox": [
+          0.1,
+          0.1,
+          0.9,
+          0.4
+        ],
+        "render_dpi": 300
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Visualization of a real test case comparing Stage-1 WAM and NoiseGate. For each",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 1,
+      "target_section": "定性结果",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_009_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_009_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_009_fig_figure_5.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "bb3f86817985fb8f79ad60a3723311385d1641b8af00f0a79b97945f9f5202dd",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_009_fig_figure_5.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 9,
+        "caption": "Visualization of a real test case comparing Stage-1 WAM and NoiseGate. For each",
+        "bbox_pt": [
+          142.35400390625,
+          67.65015411376953,
+          467.1690368652344,
+          312.8198547363281
+        ],
+        "normalized_bbox": [
+          0.232605,
+          0.085417,
+          0.763348,
+          0.394975
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "bb3f86817985fb8f79ad60a3723311385d1641b8af00f0a79b97945f9f5202dd",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Per-step GPN scheduling inside the denoising loop",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:limitations",
+      "decision": "skip",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "算法步骤已在笔记中用编号流程重建；PDF 无独立图像候选。",
+      "visual_quality_status": "not_applicable",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "visual_review": {},
+      "materialization_status": "not_needed"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Final-step residual noise by task and future-frame index. For each RoboTwin task,",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:limitations",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 3,
+      "target_section": "消融与定性结果",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_017_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_017_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_017_fig_figure_7.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "e89fa391f979b9bc816552103756f82e2607e7e454eebc80b34eb0c10c2c0f3c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_017_fig_figure_7.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_017.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 17,
+        "caption": "Final-step residual noise by task and future-frame index. For each RoboTwin task,",
+        "bbox_pt": [
+          181.9530029296875,
+          441.4695739746094,
+          427.5604248046875,
+          636.2559814453125
+        ],
+        "normalized_bbox": [
+          0.297309,
+          0.557411,
+          0.698628,
+          0.803354
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "e89fa391f979b9bc816552103756f82e2607e7e454eebc80b34eb0c10c2c0f3c",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Layer-stratified version of Fig. 3. Same binned-mean ±1 std curve of action→video",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:limitations",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "approved",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_017_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_017_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_017_fig_figure_6.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "f84624f01b2bdc4a4430b099c57ccdbb03d2acd7356507f849d23d247887646b",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models/images/page_017_fig_figure_6.png",
+        "page_preview_path": "/tmp/noisegate_pipeline/assets/page_previews/page_017.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 17,
+        "caption": "Layer-stratified version of Fig. 3. Same binned-mean ±1 std curve of action→video",
+        "bbox_pt": [
+          181.9530029296875,
+          83.21499633789062,
+          427.5540771484375,
+          357.6099853515625
+        ],
+        "normalized_bbox": [
+          0.297309,
+          0.105069,
+          0.698618,
+          0.451528
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "f84624f01b2bdc4a4430b099c57ccdbb03d2acd7356507f849d23d247887646b",
+        "preserved_scientific_elements": [
+          "图中坐标轴、曲线/散点、图例与任务标签"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查页面预览与裁剪图；科学内容完整，正文图注不混入视觉主体。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "gives the primary RoboTwin random-scene comparison, with the omitted rows expanded",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:appendix-c-gives-the-inference-algorithm",
+      "decision": "skip",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "关键数值已转录为可搜索 Markdown 表格；避免重复插入低可读性截图。",
+      "visual_quality_status": "not_needed",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_1_review.png",
+      "relative_markdown_embed": "![Table 1](images/page_007_fig_table_1_review.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_007_fig_table_1_review.png",
+      "materialization_status": "not_needed",
+      "source_image_sha256": "d15b23ca99fdc7ec9fb2a9f4674fe9c1c122d11578dbbefcff4d1fb6aa36b653",
+      "review_evidence": {
+        "candidate_path": "/private/tmp/noisegate_pipeline/assets/images/page_007_fig_table_1_review.png",
+        "page_preview_path": "/private/tmp/noisegate_pipeline/assets/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 7,
+        "caption": "gives the primary RoboTwin random-scene comparison, with the omitted rows expanded",
+        "bbox_pt": [
+          144.69400024414062,
+          121.97207641601562,
+          464.91265869140625,
+          263.450927734375
+        ],
+        "normalized_bbox": [
+          0.236428,
+          0.154005,
+          0.759661,
+          0.33264
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "isolates the role of the schedule design; the per-task breakdown is deferred to Appendix E,",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "skip",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "关键数值已转录为可搜索 Markdown 表格；避免重复插入低可读性截图。",
+      "visual_quality_status": "not_needed",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_007_fig_table_2_review.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2_review.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_007_fig_table_2_review.png",
+      "materialization_status": "not_needed",
+      "source_image_sha256": "866a21d6b3a0432ee7e94d5f79e313d17d8dd98ea137de27ad42a5e14484cf05",
+      "review_evidence": {
+        "candidate_path": "/private/tmp/noisegate_pipeline/assets/images/page_007_fig_table_2_review.png",
+        "page_preview_path": "/private/tmp/noisegate_pipeline/assets/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 7,
+        "caption": "isolates the role of the schedule design; the per-task breakdown is deferred to Appendix E,",
+        "bbox_pt": [
+          144.69400024414062,
+          260.35345458984375,
+          467.30426025390625,
+          404.14794921875
+        ],
+        "normalized_bbox": [
+          0.236428,
+          0.328729,
+          0.763569,
+          0.510288
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Removing both the GPN and independent-noise training (Shared-t) causes the largest drop",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "skip",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "关键数值已转录为可搜索 Markdown 表格；避免重复插入低可读性截图。",
+      "visual_quality_status": "not_needed",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_015_fig_table_4_review.png",
+      "relative_markdown_embed": "![Table 4](images/page_015_fig_table_4_review.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_015_fig_table_4_review.png",
+      "materialization_status": "not_needed",
+      "source_image_sha256": "02533198804a9b0d9361d604e386cef61fdba929b1a9b0d44fa4850f4e1aad5f",
+      "review_evidence": {
+        "candidate_path": "/private/tmp/noisegate_pipeline/assets/images/page_015_fig_table_4_review.png",
+        "page_preview_path": "/private/tmp/noisegate_pipeline/assets/page_previews/page_015.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 15,
+        "caption": "Removing both the GPN and independent-noise training (Shared-t) causes the largest drop",
+        "bbox_pt": [
+          102.0,
+          139.15647888183594,
+          479.052001953125,
+          366.2233581542969
+        ],
+        "normalized_bbox": [
+          0.166667,
+          0.175703,
+          0.782765,
+          0.462403
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "lists the GRPO training hyperparameters used in all experiments.",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:limitations",
+      "decision": "skip",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "关键数值已转录为可搜索 Markdown 表格；避免重复插入低可读性截图。",
+      "visual_quality_status": "not_needed",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_014_fig_table_3_review.png",
+      "relative_markdown_embed": "![Table 3](images/page_014_fig_table_3_review.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_014_fig_table_3_review.png",
+      "materialization_status": "not_needed",
+      "source_image_sha256": "ce937f4303431d3272021bdb53aeb922aeaceadd1658abb5b54c9347f3310d0a",
+      "review_evidence": {
+        "candidate_path": "/private/tmp/noisegate_pipeline/assets/images/page_014_fig_table_3_review.png",
+        "page_preview_path": "/private/tmp/noisegate_pipeline/assets/page_previews/page_014.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 14,
+        "caption": "lists the GRPO training hyperparameters used in all experiments.",
+        "bbox_pt": [
+          102.0,
+          461.48309326171875,
+          411.5220642089844,
+          660.7793579101562
+        ],
+        "normalized_bbox": [
+          0.166667,
+          0.582681,
+          0.672422,
+          0.834317
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Full 50-task RoboTwin random-scene context. All entries are success rates in percent. The",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:limitations",
+      "decision": "skip",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "关键数值已转录为可搜索 Markdown 表格；避免重复插入低可读性截图。",
+      "visual_quality_status": "not_needed",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_016_fig_table_5_review.png",
+      "relative_markdown_embed": "![Table 5](images/page_016_fig_table_5_review.png)",
+      "source_image_path": "/private/tmp/noisegate_pipeline/assets/images/page_016_fig_table_5_review.png",
+      "materialization_status": "not_needed",
+      "source_image_sha256": "4788f5a8dd0bb2190595f02501d9445becebd0ed252318e3a8f1b361baf31e30",
+      "review_evidence": {
+        "candidate_path": "/private/tmp/noisegate_pipeline/assets/images/page_016_fig_table_5_review.png",
+        "page_preview_path": "/private/tmp/noisegate_pipeline/assets/page_previews/page_016.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf",
+        "source_page": 16,
+        "caption": "Full 50-task RoboTwin random-scene context. All entries are success rates in percent. The",
+        "bbox_pt": [
+          106.09536743164062,
+          198.34408569335938,
+          505.9209899902344,
+          645.8255004882812
+        ],
+        "normalized_bbox": [
+          0.173358,
+          0.250434,
+          0.826668,
+          0.815436
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 13,
+    "by_decision": {
+      "skip": 7,
+      "insert": 6
+    }
+  }
+}

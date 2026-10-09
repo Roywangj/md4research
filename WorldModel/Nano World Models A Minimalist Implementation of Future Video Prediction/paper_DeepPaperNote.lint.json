@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "note_file": "paper_DeepPaperNote.md",
+  "checks": {
+    "non_empty_markdown": true,
+    "required_sections_present": true,
+    "method_section_present": true,
+    "experiment_section_present": true,
+    "limitations_section_present": true,
+    "json_files_parseable": true,
+    "markdown_image_links_exist": true,
+    "image_count": 5,
+    "source_pdf_page_count": 19
+  },
+  "required_sections": ["核心信息", "研究问题", "数据与任务定义", "方法主线", "关键结果", "深度分析", "局限", "可迁移研究洞见"],
+  "warnings": [
+    "Figure 6 使用 PDF p.12 页面渲染图，非独立嵌入裁剪。",
+    "正文未给出完整 forward noising、loss weighting、采样伪代码与硬件时延。"
+  ]
+}

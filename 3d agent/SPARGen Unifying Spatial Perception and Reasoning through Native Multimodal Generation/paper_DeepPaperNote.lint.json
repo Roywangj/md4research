@@ -1,0 +1,13 @@
+{
+  "passes_structure_gate": true,
+  "passes_style_gate": true,
+  "passes_evidence_gate": false,
+  "passes_figure_gate": true,
+  "evidence_coverage": "partial-but-anchored",
+  "caveat": "Core sections, equations, tables and captions are anchored, but the reader is condensed and does not duplicate the full bibliography entry-by-entry; the supplied PDF has no separately detected appendix.",
+  "translation_reader": {
+    "status": "full-page-transcribed",
+    "file": "detailed_paper.md",
+    "source_map": "source_map.json"
+  }
+}

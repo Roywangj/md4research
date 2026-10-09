@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "script": "manual_wj_deepreading_figure_check",
+  "paper_id": "arxiv:2608.07955v1",
+  "source_pages_read": "1-25",
+  "image_directory": "images/",
+  "materialized_images": [],
+  "decisions": [
+    {"label":"Figure 1","page":1,"decision":"placeholder","reason":"Motivation is described in prose; no local PDF crop materialized."},
+    {"label":"Figure 2","page":3,"decision":"placeholder","reason":"Method overview is described in the mechanism-flow section; no local PDF crop materialized."},
+    {"label":"Figure 3","page":4,"decision":"placeholder","reason":"Qualitative reasoning/evolution flow is described with the failure-repair example; no crop materialized."},
+    {"label":"Figure 4","page":4,"decision":"placeholder","reason":"Tool-Use and Geometry Skill examples are transcribed by atom name; no crop materialized."},
+    {"label":"Figure 5","page":6,"decision":"placeholder","reason":"FTCS/Python success and retained-skill findings are transcribed; no crop materialized."},
+    {"label":"Figure 6","page":7,"decision":"placeholder","reason":"Frozen comparison endpoint deltas are transcribed; no crop materialized."},
+    {"label":"Figure 7","page":16,"decision":"placeholder","reason":"MindCube input views are described in the case study; no crop materialized."},
+    {"label":"Figure 8","page":17,"decision":"placeholder","reason":"MMSI input views are described in the case study; no crop materialized."},
+    {"label":"Figure 9","page":18,"decision":"placeholder","reason":"OmniSpatial input image is described in the case study; no crop materialized."},
+    {"label":"Figure 10","page":19,"decision":"placeholder","reason":"Online skill-evolution example is described by its missing dependency and added branch; no crop materialized."},
+    {"label":"Table 1","page":5,"decision":"placeholder","reason":"Main accuracy values are transcribed, including corrected Gemini OmniSpatial Overall 70.94; no crop materialized."},
+    {"label":"Table 2","page":7,"decision":"placeholder","reason":"Ablation values and deltas are transcribed; no crop materialized."},
+    {"label":"Table 3","page":14,"decision":"placeholder","reason":"Shared settings are transcribed in reproduction notes; no crop materialized."},
+    {"label":"Table 4","page":15,"decision":"placeholder","reason":"Dataset-specific turn/wave settings are transcribed; no crop materialized."},
+    {"label":"Table 5","page":15,"decision":"placeholder","reason":"Native tools are enumerated in the note; no crop materialized."},
+    {"label":"Table 6","page":15,"decision":"placeholder","reason":"Skill-type comparison is explained in prose; no crop materialized."},
+    {"label":"Table 7","page":21,"decision":"placeholder","reason":"MindCube retained inventory is read and summarized; no crop materialized."},
+    {"label":"Table 8","page":21,"decision":"placeholder","reason":"MMSI retained inventory is read and summarized; no crop materialized."},
+    {"label":"Table 9","page":21,"decision":"placeholder","reason":"OmniSpatial retained inventory is read and summarized; no crop materialized."}
+  ],
+  "summary": {
+    "figures_total": 10,
+    "tables_total": 9,
+    "inserted": 0,
+    "placeholders": 19,
+    "skipped": 0,
+    "broken_embeds": 0,
+    "figure_gate": "pass_with_explicit_placeholders"
+  }
+}

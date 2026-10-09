@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "paper": "RynnWorld-4D: 4D Embodied World Models for Robotic Manipulation",
+  "policy": "placeholder-first; insert only when identity and readability are adequate; transcribe wide tables in Markdown",
+  "decisions": [
+    {"id": "Figure 1", "page": 2, "status": "insert", "asset": "images/figure_1_rgbdf_scene_flow.png", "reason": "central representation and scene-flow concept"},
+    {"id": "Figure 2", "page": 4, "status": "insert", "asset": "images/figure_2_dataset_composition.png", "reason": "dataset composition is central evidence"},
+    {"id": "Figure 3", "page": 5, "status": "insert", "asset": "images/figure_3_data_curation.png", "reason": "pseudo-label pipeline and bias analysis"},
+    {"id": "Figure 4", "page": 6, "status": "insert", "asset": "images/figure_4_architecture_policy.png", "reason": "tri-branch architecture and policy overview"},
+    {"id": "Figure 5", "page": 10, "status": "insert", "asset": "images/figure_5_real_robot_tasks.png", "reason": "six-task benchmark semantics"},
+    {"id": "Figure 6", "page": 12, "status": "insert", "asset": "images/figure_6_qualitative.png", "reason": "main qualitative cross-modal evidence", "caveat": "tall multi-frame crop; inspect PDF for fine detail"},
+    {"id": "Figure 7", "page": 22, "status": "insert", "asset": "images/figure_7_platform.png", "reason": "Appendix A hardware grounding"},
+    {"id": "Figure 8", "page": 23, "status": "insert", "asset": "images/figure_8_teleoperation.png", "reason": "Appendix A data collection grounding"},
+    {"id": "Figure 9", "page": 26, "status": "insert", "asset": "images/figure_9_extended_qualitative.png", "reason": "Appendix E coverage", "caveat": "large multi-frame image; used for structural reference"},
+    {"id": "Table 1", "page": 8, "status": "insert_and_transcribe", "asset": "images/table_1_latency.png", "reason": "latency semantics and 990/1106 ms bottleneck"},
+    {"id": "Table 2", "page": 9, "status": "insert_and_transcribe", "asset": "images/table_2_training_stages.png", "reason": "three-stage curriculum"},
+    {"id": "Table 3", "page": 11, "status": "insert_and_summarize", "asset": "images/table_3_real_data.png", "reason": "real-robot episode counts"},
+    {"id": "Table 4", "page": 13, "status": "combined_crop_and_full_markdown", "asset": "images/tables_4_5_results.png", "reason": "wide table; full numeric transcription is more readable"},
+    {"id": "Table 5", "page": 13, "status": "combined_crop_and_full_markdown", "asset": "images/tables_4_5_results.png", "reason": "same PDF page as Table 4; full six-task transcription prevents crop ambiguity"}
+  ],
+  "summary": {"figures_total": 9, "figures_inserted": 9, "tables_total": 5, "tables_covered": 5, "assets_materialized": 13}
+}

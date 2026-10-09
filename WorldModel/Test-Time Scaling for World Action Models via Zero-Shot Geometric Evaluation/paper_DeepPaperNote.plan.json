@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "paper_identity": {
+    "canonical_title": "Test-Time Scaling for World Action Models via Zero-Shot Geometric Evaluation",
+    "rendered_pdf_title": "Test-Time Scaling for World Action Models via Zero-Shot Geometric Verification",
+    "title_policy": "Use Zotero canonical title Evaluation for the folder and note; record the rendered-title discrepancy as provenance rather than silently normalizing it.",
+    "arxiv_id": "2607.17454v1",
+    "doi": "10.48550/arXiv.2607.17454",
+    "zotero_item_key": "2UT6H548",
+    "zotero_attachment_key": "QWZWYPV8",
+    "pdf_pages": 8,
+    "pdf_sha256": "1fa68da603965ee37506d0bb38f187bb55062132c442b42eaa8fcd226ac7959e"
+  },
+  "paper_type": "robotics method and evaluation paper",
+  "central_question": "Can a WAM use its own imagined action-future pairs to decide both when extra test-time sampling is warranted and which sampled rollout should be executed, without task labels or a learned value head?",
+  "argument_chain": [
+    "A WAM rollout exposes an action chunk plus multi-view future images.",
+    "The action-future gate cheaply tests whether projected end-effector motion agrees with image optical flow.",
+    "If inconsistent, sample up to Nmax candidates and score frozen-model cross-view depth reprojection consistency.",
+    "Execute the minimum-error candidate; evaluate fixed-budget gains, selective-compute recovery, selector diagnostics, and large-N failures."
+  ],
+  "required_mechanism_steps": 4,
+  "required_equations": [1, 2, 3, 4, 5],
+  "required_quantitative_evidence": [
+    "Table 1 five headline settings and paired confidence intervals, including X-WAM Door/Drawer 96.7 to 92.1 exception",
+    "Table 2 Nmax=8 mean 74.8% recovery and 26.2% trigger; ranges 63.6-85.7 and 14.2-34.5",
+    "Table 3 offline ER versus online success and proxy boundary",
+    "Table 4 equal-budget gate comparison",
+    "Table 5 GeoBoN versus Cosmos Policy value head",
+    "Figure 2 false low-score rates 7/10/12/32% for N=2/4/8/16"
+  ],
+  "evidence_boundaries": [
+    "simulation only; no physical robot evidence",
+    "training-free does not mean inference-free or cost-free",
+    "paired 95% CI calculation method is unspecified",
+    "consensus baseline is a reimplementation because original code is unavailable",
+    "offline ER is only a proxy and is not equivalent to online closed-loop success",
+    "selector outliers cause non-monotonic scaling with candidate count",
+    "no appendix, algorithm block, or dedicated limitations/acknowledgments/availability/impact/ethics section"
+  ],
+  "planned_sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "问题定义与研究动机",
+    "方法主线",
+    "实验设计",
+    "核心结果与证据链",
+    "失败模式与证据边界",
+    "与价值头路线的比较",
+    "复现与工程清单",
+    "WJ 研究洞察",
+    "结论"
+  ],
+  "final_reviews": {
+    "analytical": "pending until draft",
+    "readability": "pending until draft"
+  }
+}

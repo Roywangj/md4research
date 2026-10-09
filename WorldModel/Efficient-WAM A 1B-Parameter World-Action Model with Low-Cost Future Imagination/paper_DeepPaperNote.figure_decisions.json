@@ -1,0 +1,116 @@
+{
+  "status": "ok",
+  "script": "manual_full_caption_inventory_and_visual_review",
+  "paper_id": "doi:10.48550/arXiv.2606.10040",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1", "source_id": "Figure 1", "kind": "figure", "pages": [1],
+      "decision": "low_priority", "reason": "概览图包含的精度与延迟信息均由正文表格和方法图更精确覆盖。",
+      "visual_quality_status": "", "priority": 4, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查 PDF 首页；图体完整，但文字较小且与 Figure 2 信息重复。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "figure:Figure 2", "source_id": "Figure 2", "kind": "figure", "pages": [4],
+      "decision": "insert", "reason": "训练切片蒸馏、多尺度潜变量和非对称推理集中于同一核心架构图。",
+      "visual_quality_status": "usable_candidate", "priority": 1, "target_section": "方法主线",
+      "source_image_filename": "figure2_architecture.png",
+      "relative_markdown_embed": "![Figure 2：Efficient-WAM 训练与推理架构](images/figure2_architecture.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Efficient-WAM A 1B-Parameter World-Action Model with Low-Cost Future Imagination/images/figure2_architecture.png",
+      "manual_visual_review": true, "visual_observation": "实际打开检查；训练和推理两部分、模型标签、箭头和原图注完整清晰，无其他图表污染。", "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3", "source_id": "Figure 3", "kind": "figure", "pages": [7],
+      "decision": "insert", "reason": "四项真实任务直观界定真实机器人证据覆盖范围。",
+      "visual_quality_status": "usable_candidate", "priority": 2, "target_section": "数据与任务定义",
+      "source_image_filename": "figure3_real_world_tasks.png",
+      "relative_markdown_embed": "![Figure 3：真实机器人四项操作任务](images/figure3_real_world_tasks.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Efficient-WAM A 1B-Parameter World-Action Model with Low-Cost Future Imagination/images/figure3_real_world_tasks.png",
+      "manual_visual_review": true, "visual_observation": "实际打开检查；四行任务序列及英文任务名完整，图注完整，无相邻正文污染。", "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4", "source_id": "Figure 4", "kind": "figure", "pages": [8],
+      "decision": "insert", "reason": "直接展示视频与动作去噪步数的延迟—成功率帕累托关系。",
+      "visual_quality_status": "usable_candidate", "priority": 1, "target_section": "方法主线",
+      "source_image_filename": "figure4_latency_success_tradeoff.png",
+      "relative_markdown_embed": "![Figure 4：非对称去噪的延迟—成功率权衡](images/figure4_latency_success_tradeoff.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Efficient-WAM A 1B-Parameter World-Action Model with Low-Cost Future Imagination/images/figure4_latency_success_tradeoff.png",
+      "manual_visual_review": true, "visual_observation": "实际打开检查；柱线图、八种配置、数值和原文解释完整可读，未混入其他图表。", "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 5", "source_id": "Figure 5", "kind": "figure", "pages": [13],
+      "decision": "low_priority", "reason": "硬件型号与相机配置已用正文精确记录，设备示意图不增加核心机制证据。",
+      "visual_quality_status": "", "priority": 4, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查页面；设备图清晰，但只标出 Astribot S1、RealSense D401 和头部传感器。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "figure:Figure 6", "source_id": "Figure 6", "kind": "figure", "pages": [14],
+      "decision": "low_priority", "reason": "失败类型需要分析，但拼图较大；正文对错位、漏处理和碰撞的文本覆盖更适合笔记。",
+      "visual_quality_status": "", "priority": 3, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查页面；四行失败序列完整，但小尺寸嵌入时标签与帧内容不易辨认。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "figure:Figure 7", "source_id": "Figure 7", "kind": "figure", "pages": [16],
+      "decision": "low_priority", "reason": "完整 WAN 的高保真未来样例只用于与 Figure 8 对照，量化结论和画质边界已由正文覆盖。",
+      "visual_quality_status": "", "priority": 4, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查页面；两任务多帧样例可辨，但需与 Figure 8 成对插入才可解释，性价比低。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "figure:Figure 8", "source_id": "Figure 8", "kind": "figure", "pages": [16],
+      "decision": "low_priority", "reason": "实时版粗未来样例可支持画质退化，但需和 Figure 7 成对且不如核心架构与消融图信息密集。",
+      "visual_quality_status": "", "priority": 3, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查页面；模糊和重影可见，单独插入无法形成严谨对照。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "table:Table 1", "source_id": "Table 1", "kind": "table", "pages": [6],
+      "decision": "skip", "reason": "主结果已重排为可读 Markdown 表并保留强基线和参数量。",
+      "visual_quality_status": "", "priority": 1, "target_section": "关键结果", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；表格清晰，但截图会降低字号，文字重排更易比较。", "materialization_status": "represented_as_markdown_table"
+    },
+    {
+      "item_id": "table:Table 2", "source_id": "Table 2", "kind": "table", "pages": [6],
+      "decision": "skip", "reason": "四任务成功率与延迟已完整重排为 Markdown 表。",
+      "visual_quality_status": "", "priority": 1, "target_section": "关键结果", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；表体可读，重排后更便于强调小样本和速度口径。", "materialization_status": "represented_as_markdown_table"
+    },
+    {
+      "item_id": "table:Table 3", "source_id": "Table 3", "kind": "table", "pages": [7],
+      "decision": "skip", "reason": "紧凑专家与分辨率消融数值已在正文逐项解释。",
+      "visual_quality_status": "", "priority": 1, "target_section": "关键结果", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；左右两个子表均清晰，文字方式更适合机制—结果映射。", "materialization_status": "represented_in_prose"
+    },
+    {
+      "item_id": "table:Table 4", "source_id": "Table 4", "kind": "table", "pages": [12],
+      "decision": "skip", "reason": "三阶段批量、学习率、损失权重和共享优化设置已转写到训练段落。",
+      "visual_quality_status": "", "priority": 2, "target_section": "方法主线", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；表体清晰，内容少，直接文本记录更利于复现。", "materialization_status": "represented_in_prose"
+    },
+    {
+      "item_id": "table:Table 5", "source_id": "Table 5", "kind": "table", "pages": [15],
+      "decision": "skip", "reason": "配置、硬件和延迟已完整重排为 Markdown 表，便于突出 A800 与 RTX 4090 区别。",
+      "visual_quality_status": "", "priority": 1, "target_section": "关键结果", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；原表清晰，文字重排对硬件口径解释更好。", "materialization_status": "represented_as_markdown_table"
+    },
+    {
+      "item_id": "table:Table 6", "source_id": "Table 6", "kind": "table", "pages": [17],
+      "decision": "low_priority", "reason": "50 任务逐项成功率过密，平均值和评测次数已覆盖；保留全文索引但不插入。",
+      "visual_quality_status": "", "priority": 3, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；50 行×多方法双设置，页面级表格在笔记宽度下不可读。", "materialization_status": "not_selected"
+    },
+    {
+      "item_id": "table:Table 7", "source_id": "Table 7", "kind": "table", "pages": [18],
+      "decision": "low_priority", "reason": "50 任务的八种去噪配置过密，平均行和关键极端配置已写入消融分析。",
+      "visual_quality_status": "", "priority": 2, "target_section": "", "manual_visual_review": true,
+      "visual_observation": "检查 PDF；逐任务表完整但字号密集，Figure 4 与平均行更能传达核心权衡。", "materialization_status": "not_selected"
+    }
+  ],
+  "summary": {
+    "total_items": 15,
+    "figures": 8,
+    "tables": 7,
+    "insert": 3,
+    "skip_or_low_priority": 12,
+    "manually_reviewed": 15,
+    "materialized_images": 3,
+    "visual_defect_rejections": 0
+  }
+}

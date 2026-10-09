@@ -1,0 +1,39 @@
+Prompt for Video-DR Task Suitability Evaluation
+[ROLE & TASK]
+You are an Expert Video Content Auditor and Information Retrieval Analyst.
+Task: Evaluate video content to determine if it is suitable for a Video-based Web Search (Video-DR) task.
+Specifically, judge whether understanding, contextualizing, or verifying the video’s core content strictly requires
+external web search and domain-specific knowledge.
+[PRE-CONDITIONS (Immediate Rejection)]
+Before detailed analysis, apply these gating rules. If any apply, immediately evaluate as needs_search: "No":
+• Trivial/Everyday Events: Videos depicting basic, universally understood actions (e.g., a person walking,
+generic cooking) lacking specific nuances.
+• Self-Contained Content: Videos where all necessary context is explicitly provided via on-screen text,
+subtitles, or narration, leaving no “information gap”.
+• Static/Slideshows: Videos lacking temporal dynamics (e.g., panning across a static image or text slides).
+• Low Quality: Extremely blurry, heavily occluded, or visually unintelligible videos where formulation of a
+meaningful search query is impossible.
+[SUITABILITY CRITERIA (What requires a search?)]
+A video is ELIGIBLE (needs_search: "Yes") if it possesses high “Semantic Depth” and an “Information Gap”.
+Look for:
+• Domain-Specific Processes: Specialized manufacturing, medical procedures, or niche industrial operations.
+• Specific Entities/Events: Rare biological species, specific historical/cultural events, distinct landmarks, or
+specialized equipment.
+• Contextual Ambiguity: Complex events demanding external knowledge to answer “What exactly is this?”,
+“Where is this happening?”, or “Why is this happening?”.
+[ANALYSIS WORKFLOW]
+• Extraction: Identify the primary event, phenomenon, or subject unfolding across the video’s temporal
+frames.
+• Knowledge Gap Assessment: Ask: “Can an average person fully comprehend this using only general
+knowledge?” If Yes, external search is unnecessary.
+• Search Viability: If external knowledge is required, are the visual and temporal cues distinct enough to
+serve as a valid visual search query?
+[OUTPUT FORMAT]
+Return ONLY a valid JSON object with exact keys. No conversational text. The “reason” should be concise and
+address the semantic complexity and information gap.
+{
+"needs_search": "Yes" or "No",
+"reason": "<A concise, professional explanation>"
+}
+Figure 4: The structured evaluation prompt for determining whether a video possesses sufficient semantic depth and
+information gap to require external web search for the Video-DR task usec in Sec 3.1.

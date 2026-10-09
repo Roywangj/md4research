@@ -1,0 +1,59 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Results on COLOSSEUM.}
+Success rates (\%) across the 14 COLOSSEUM evaluation
+settings~\cite{pumacay2024colosseum}: the 12 individual perturbation
+axes, the original RLBench variations (``RLBench''), and all
+perturbations applied jointly (``All Perturb.'').
+MO and RO denote perturbations of the manipulated object and the
+receptacle object, respectively.
+``Avg.\ Rank'' is the average rank across the 14 settings over all
+listed methods (lower is better).
+R3M-MLP, MVP-MLP, PerAct, and RVT are quoted
+from~\cite{pumacay2024colosseum}; RVT-2, \method, and \memmethod\ were
+trained and evaluated by us (mean$\pm$variance over three test
+repetitions; Appendix~\ref{app:eval_protocol}).
+Best result per column in bold.}
+\label{tab:colosseum}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{l*{8}{c}}
+\toprule
+& \textbf{Avg.} & \textbf{Avg.} & \textbf{All} & \textbf{MO} & \textbf{RO} & \textbf{MO} & \textbf{RO} & \textbf{MO} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{SR (\%) $\uparrow$} & \textbf{Rank $\downarrow$} & \textbf{Perturb.} & \textbf{Color} & \textbf{Color} & \textbf{Texture} & \textbf{Texture} & \textbf{Size} \\
+\midrule
+R3M-MLP~\cite{nair2022r3m}          & 0.8  & 6.71 & 0.6  & 0.4  & 0.0  & 0.0  & 0.0   & 1.8 \\
+% NOTE: MVP-MLP Avg 1.6 reproduced as published; recomputation from the shown cells gives 1.5.
+% NOTE: Avg. Rank is recomputed jointly over the 7 listed methods (competition ranking, ties
+% share the better rank); the 6-method convention reproduces the published conference ranks.
+MVP-MLP~\cite{xiao2022masked}       & 1.6  & 6.00 & 0.8  & 1.2  & 0.0  & 0.4  & 0.0   & 4.44 \\
+PerAct~\cite{shridhar2023perceiver} & 27.9 & 4.71 & 7.2  & 24.0 & 29.2 & 28.8 & 17.71 & 35.6 \\
+RVT~\cite{goyal2023rvt}             & 35.4 & 4.29 & 6.4  & 26.0 & 31.3 & 44.8 & 41.1  & 35.3 \\
+RVT-2~\cite{goyal2024rvt}           & 56.7 & 2.86 & 15.6$_{\pm 0.8}$ & 53.0$_{\pm 0.9}$ & 54.6$_{\pm 0.6}$ & 59.7$_{\pm 0.7}$ & 56.7$_{\pm 1.4}$ & 60.9$_{\pm 0.9}$ \\
+\midrule
+\textbf{\method (ours)} & 64.0 & \textbf{1.50} & 18.7$_{\pm 2.2}$ & 60.5$_{\pm 1.1}$ & \textbf{63.8}$_{\pm 0.1}$ & 63.5$_{\pm 1.5}$ & \textbf{68.4}$_{\pm 3.3}$ & 69.3$_{\pm 1.0}$ \\
+\textbf{\memmethod (ours)} & \textbf{65.2} & 1.64 & \textbf{38.9}$_{\pm 0.8}$ & \textbf{68.7}$_{\pm 0.7}$ & 62.7$_{\pm 0.6}$ & \textbf{65.7}$_{\pm 0.4}$ & 65.5$_{\pm 1.2}$ & \textbf{71.5}$_{\pm 0.3}$ \\
+\bottomrule
+\addlinespace[5pt]
+& \textbf{RO} & \textbf{Light} & \textbf{Table} & \textbf{Table} & & \textbf{Background} & & \textbf{Camera} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{Size} & \textbf{Color} & \textbf{Color} & \textbf{Texture} & \multirow{-2}{*}{\textbf{Distractor}} & \textbf{Texture} & \multirow{-2}{*}{\textbf{RLBench}} & \textbf{Pose} \\
+\midrule
+R3M-MLP~\cite{nair2022r3m}          & 0.0  & 1.0  & 1.4  & 0.2  & 1.6  & 1.2  & 2.0  & 0.8 \\
+MVP-MLP~\cite{xiao2022masked}       & 0.0  & 1.6  & 1.6  & 1.0  & 3.8  & 2.2  & 2.0  & 2.6 \\
+PerAct~\cite{shridhar2023perceiver} & 29.3 & 29.1 & 30.4 & 23.2 & 27.1 & 33.5 & 39.4 & 36.3 \\
+RVT~\cite{goyal2023rvt}             & 40.5 & 34.0 & 30.0 & 45.2 & 18.8 & 46.4 & 53.4 & 42.2 \\
+RVT-2~\cite{goyal2024rvt}           & 53.4$_{\pm 1.5}$ & 58.0$_{\pm 1.1}$ & 62.6$_{\pm 0.9}$ & 56.6$_{\pm 0.9}$ & 60.8$_{\pm 0.5}$ & 68.7$_{\pm 1.1}$ & 68.8$_{\pm 1.3}$ & 64.4$_{\pm 0.5}$ \\
+\midrule
+\textbf{\method (ours)} & 61.7$_{\pm 0.8}$ & \textbf{69.7}$_{\pm 1.2}$ & \textbf{75.7}$_{\pm 0.9}$ & \textbf{71.3}$_{\pm 0.7}$ & 51.8$_{\pm 1.5}$ & \textbf{74.8}$_{\pm 1.0}$ & \textbf{73.1}$_{\pm 0.2}$ & \textbf{73.8}$_{\pm 0.3}$ \\
+\textbf{\memmethod (ours)} & \textbf{62.0}$_{\pm 0.7}$ & 68.2$_{\pm 1.0}$ & 71.5$_{\pm 0.3}$ & 69.2$_{\pm 0.7}$ & \textbf{61.6}$_{\pm 0.5}$ & 69.5$_{\pm 1.2}$ & 68.5$_{\pm 0.6}$ & 68.7$_{\pm 0.7}$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

@@ -1,0 +1,339 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes a training-free inference-time framework for multimodal chain-of-thought reasoning, combining entropy-based route selection with step-wise attention-level visual enhancement.",
+  "dominant_domain": "Multimodal reasoning, multimodal chain-of-thought, selective thinking, visual attention enhancement, training-free inference.",
+  "must_cover": [
+    "The paper defines low-quality multimodal reasoning as both overthinking on easy questions and insufficient visual use on hard questions.",
+    "Selective Thinking estimates question difficulty from the entropy of the first generated answer token and chooses direct answering or chain-of-thought reasoning.",
+    "Step-wise Visual Enhancement amplifies attention on task-related visual patches during each reasoning step without inserting extra visual tokens.",
+    "Relative attention removes option-induced or edge-biased attention and produces more relevant visual focus.",
+    "Across eight benchmarks and four backbone settings, SDR-MCoT improves accuracy while using far fewer generated tokens than standard CoT."
+  ],
+  "key_numbers": [
+    "Qwen2-VL-7B average accuracy: No CoT 59.00, CoT 57.34, MMCoT 61.75, SDR-MCoT 63.69.",
+    "Qwen2-VL-7B token consumption: No CoT 35.54, CoT 172.08, DDCoT 760.41, MMCoT 189.15, CCoT 920.35, ICoT 237.54, SDR-MCoT 67.94.",
+    "InternVL3-8B average accuracy: No CoT 70.28, CoT 65.90, MMCoT 70.89, SDR-MCoT 72.87.",
+    "LLaVA-1.5-7B average accuracy: No CoT 43.54, ICoT 44.37, SDR-MCoT 45.81.",
+    "LLaVA-1.5-13B average accuracy: No CoT 46.40, SDR-MCoT 48.57.",
+    "Ablation with Qwen2-VL-7B: no module tokens 212.91; Selective Thinking only tokens 74.07; both modules tokens 69.84.",
+    "Ablation accuracy on CoMT/MMStar/HallusionBench rises from 28.37/53.62/63.76 without modules to 32.39/56.39/69.12 with both modules.",
+    "The abstract reports more than 6% average accuracy improvement and about 60% token reduction over zero-shot CoT on Qwen2-VL-7B."
+  ],
+  "real_comparisons": [
+    "Compared with No CoT, SDR-MCoT preserves direct answering for easy cases while enabling step-by-step reasoning for difficult cases.",
+    "Compared with standard CoT, SDR-MCoT avoids forcing every sample into a long reasoning trace.",
+    "Compared with ICoT and image-insertion methods, SDR-MCoT does not add extra visual tokens; it adjusts visual attention within decoding.",
+    "Compared with MMCoT, SDR-MCoT obtains stronger average results with substantially lower token cost in the reported Qwen2-VL setting."
+  ],
+  "central_claims": [
+    {
+      "claim": "The first-token entropy of a brief direct answer is a useful signal for deciding whether a multimodal question needs long reasoning.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The experiments and Figure 4 trend show that higher entropy correlates with lower accuracy on the sampled M3CoT groups, making entropy a practical route-selection proxy.",
+      "what_it_does_not_prove": "It does not prove that entropy is calibrated across all model families, prompts, languages, or open-ended answer spaces."
+    },
+    {
+      "claim": "Visual enhancement can improve multimodal reasoning without inserting extra visual tokens.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The step-wise attention intervention improves reported accuracy and keeps generated-token cost low on the evaluated benchmarks.",
+      "what_it_does_not_prove": "It does not show the method works for architectures where attention maps or visual token internals are inaccessible."
+    },
+    {
+      "claim": "Selective Thinking and Visual Enhancement are complementary.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Table 2 shows Selective Thinking mainly reduces token use, Visual Enhancement mainly improves accuracy, and their combination gives the best tradeoff.",
+      "what_it_does_not_prove": "It does not isolate every possible interaction between threshold choice, enhancement factor, and benchmark type."
+    }
+  ],
+  "claim_boundaries": [
+    "The method is training-free for model parameters, but it still requires access to token logits and internal attention tensors.",
+    "The entropy threshold is adaptively estimated from a small subset, so deployment in a new distribution may require recalibration.",
+    "The method is evaluated on standard multimodal reasoning benchmarks; real interactive agent environments are not directly tested.",
+    "Visual enhancement changes attention weights after softmax and may depend on the model's attention implementation."
+  ],
+  "negative_or_limiting_results": [
+    "Standard CoT can underperform No CoT on Qwen2-VL-7B and InternVL3-8B, showing that longer reasoning is not automatically useful.",
+    "Selective Thinking alone has limited accuracy gain; it mainly reduces token cost.",
+    "Visual Enhancement alone does not reduce token cost and slightly increases generated tokens in the ablation.",
+    "The paper does not provide an extensive limitation section; deployment risks must be inferred from the need for logits, attention maps, and threshold calibration."
+  ],
+  "mechanism_result_map": [
+    "First-token entropy maps to the Selective Thinking route decision and the Figure 4 entropy-accuracy trend.",
+    "Relative attention maps to Figure 5, where option-aware and option-free attention are combined to reduce noise.",
+    "Morphological erosion maps to removing isolated attention-sink patches before visual token amplification.",
+    "Attention amplification maps to Table 2, where Visual Enhancement improves CoMT, MMStar, and HallusionBench accuracy."
+  ],
+  "comparative_positioning": [
+    "SDR-MCoT is closest to ICoT and DaP-ICoT in goal, but it intervenes on attention rather than reinserting image crops.",
+    "It is complementary to VisRef: VisRef reinjects selected visual tokens, while SDR-MCoT amplifies selected visual attention without token growth.",
+    "It is complementary to PRCR: PRCR reduces the system cost of visual revisiting, while SDR-MCoT decides whether and how to reason in the first place.",
+    "It sits on the TrainingFree side of the Reasoning collection because it does not add SFT or RL."
+  ],
+  "reuse_takeaways": [
+    "For 3D agent reasoning, use a cheap uncertainty signal before invoking long planning or multi-view evidence retrieval.",
+    "Separate route selection from evidence enhancement; one controls budget, the other controls grounding quality.",
+    "When using multiple-choice prompts, remove option-induced attention bias before deciding which visual evidence matters.",
+    "Report token consumption together with accuracy, because multimodal CoT methods can hide large inference costs."
+  ],
+  "followup_questions": [
+    "Can first-token entropy be replaced by a calibrated verifier when answer spaces are long or open-ended?",
+    "Does attention amplification remain reliable under grouped-query attention, flash attention, or quantized inference kernels?",
+    "Can the relative-attention idea be extended to multi-view 3D render selection?",
+    "Would combining SDR-MCoT with PRCR or VisRef yield a stronger low-token visual revisiting pipeline?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record title, authors, institutions, venue, DOI, source PDF, and TrainingFree classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the abstract around low-quality reasoning, overthinking, visual underuse, and the two-module SDR-MCoT framework.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Explain the paper's contributions: entropy-based Selective Thinking, step-wise visual enhancement, and token-efficient training-free MCoT.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Position the paper in the Reasoning map as selective, attention-level, training-free multimodal CoT.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why low-quality reasoning includes both overthinking and poor visual grounding.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "List benchmarks, model backbones, baselines, and task categories.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Walk through Selective Thinking and Step-wise Visual Enhancement with formulas and implementation logic.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Use Table 1, Table 2, and qualitative figures to summarize accuracy, token cost, and module ablation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Analyze whether the reported gains are attributable to route selection, visual attention enhancement, or token-budget changes, and interpret the complementarity and failure modes using the paper’s ablations and results.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "State inferred boundaries around threshold calibration, attention access, architecture dependence, and benchmark scope.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "和我的 3D Agent 方向的关系",
+      "focus": "Translate SDR-MCoT's route-selection and evidence-amplification ideas into multi-view 3D reasoning workflows.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "术语表",
+      "focus": "Fix bilingual terminology for the reader and future notes.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Source Anchors",
+      "focus": "Point to source manifest, bundle, figure decisions, and reader translation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

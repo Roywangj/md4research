@@ -1,0 +1,29 @@
+{
+  "paper_claims": [
+    {
+      "claim": "HyMeS improves mean CSR from 52.5% to 66.2% and TSR from 41.3% to 60.1% over pi0.5 on RoboMemArena.",
+      "source": "Abstract & Table 1",
+      "verified": true
+    },
+    {
+      "claim": "HyMeS outperforms PrediMem by 4.5 points in CSR (66.2% vs 61.7%) and 14.5 points in TSR (60.1% vs 45.6%).",
+      "source": "Abstract & Table 1",
+      "verified": true
+    },
+    {
+      "claim": "On real SO-101 robot, HyMeS achieves 7/10 on observe-and-pick-up, 11/15 on number-guided button pressing, and 2/10 on put-back block.",
+      "source": "Table 2",
+      "verified": true
+    },
+    {
+      "claim": "Rollout-driven heuristic learning improves TSR from 53.3% to 71.7% over one-shot P(0).",
+      "source": "Table 3",
+      "verified": true
+    },
+    {
+      "claim": "PACE combines proprioception and Qwen3-VL-8B multi-frame judgments with a k-of-w voting window (w=5, k=3).",
+      "source": "Section: Multimodal Progress Verification and Memory Update",
+      "verified": true
+    }
+  ]
+}

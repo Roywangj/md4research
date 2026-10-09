@@ -1,0 +1,34 @@
+{
+  "paper_claims": [
+    {
+      "claim": "MaP-WAM achieves 83.3% total average success rate on RMBench, outperforming LingBot-VA (77.1%), Mem-0 (42.0%), and pi0.5 (10.4%).",
+      "source": "Abstract & Table 1 & Section 4.2",
+      "verified": true
+    },
+    {
+      "claim": "On Swap T and Press Button tasks, MaP-WAM achieves 96% success rate on both tasks.",
+      "source": "Table 1 & Section 4.2",
+      "verified": true
+    },
+    {
+      "claim": "On real-world Franka FR3 arm, MaP-WAM achieves 88% on Find Button and 68% on Press Buttons (where baselines achieve 0%).",
+      "source": "Figure 3 & Section 4.3",
+      "verified": true
+    },
+    {
+      "claim": "MaP-WAM maintains an approximately constant ~827ms per-chunk executor inference latency regardless of history length, whereas full-context causal WAM suffers OOM at 1,700 frames (>80GB).",
+      "source": "Figure 5 & Section 4.4",
+      "verified": true
+    },
+    {
+      "claim": "Without progress calibration via plan-observation alignment, performance on Blocks Ranking Try collapses from 94% to 38%.",
+      "source": "Table 2 & Section 4.4",
+      "verified": true
+    },
+    {
+      "claim": "Without progress condition p_t, performance on Press Button collapses from 96% to 18% due to visual ambiguity between pressing and releasing.",
+      "source": "Table 2 & Section 4.4",
+      "verified": true
+    }
+  ]
+}

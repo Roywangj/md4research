@@ -1,0 +1,64 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "架构全景图：呈现单一通用世界模型中策略、视觉动态仿真与评估器的统一融合与因果流动"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "掩码设计图：展示阶段特异性因果分块注意力掩码如何保障 KV-Cache 复用并杜绝因果泄露"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "自演化与规划图：直观阐述 DiffusionNFT 相对优势流匹配与推断期 Best-of-N / MCTS 搜索机制"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "数据金字塔图：展示 13k 小时第一视角多源立体人类与真机操作数据的结构层次"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "数据配比表：量化呈现预训练各层级数据集的时长分布与激活的监督目标"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "缩放定律图：证实立体第一视角人类操作数据在世界模型保真度与下游控制精度上的幂律缩放"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "硬件平台图：展示真机多指灵巧手双臂平台、机载双目视觉与视触觉力传感阵列配置"
+    },
+    {
+      "figure_id": "Figure 8",
+      "file": "images/figure_8.png",
+      "role": "实机任务图：8 帧分解呈现剪芦苇、泡茶、托重物、手机入袋与拧螺丝等 5 大极限灵巧操作"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "实机主结果表：量化呈现 Motus2 (84%) 对比 pi0.5 (0%) 与纯视频 SFT (0%) 的代际级碾压"
+    },
+    {
+      "figure_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "MBRL 规划消融表：量化展现推断期 Best-of-N 树搜索带来的 +10% 绝对成功率提升"
+    },
+    {
+      "figure_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "时序机制消融表：证实全局因果分块自回归相比混合记忆插值在长程任务上的绝对统治力"
+    },
+    {
+      "figure_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "触觉感知消融表：揭示 50Hz 触觉专家与力预测在接触密集型任务中的 +12.5% 质变增益"
+    }
+  ]
+}

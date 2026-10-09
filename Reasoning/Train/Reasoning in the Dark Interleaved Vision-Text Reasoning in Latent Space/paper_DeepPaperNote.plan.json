@@ -1,0 +1,120 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes IVT-LR, a trained multimodal latent-reasoning method that replaces explicit vision-text CoT steps with paired latent text states and attention-selected image embeddings through progressive multi-stage training.",
+  "dominant_domain": "Multimodal latent reasoning, interleaved vision-text reasoning, efficient VQA, progressive training.",
+  "must_cover": [
+    "Each latent step combines the previous hidden state as latent text with top-k attention-selected image embeddings as latent vision.",
+    "Stage 0 learns explicit language CoT, after which stages progressively replace one explicit step at a time with latent text and latent vision.",
+    "The method is evaluated on M3CoT and ScienceQA with Qwen2-VL-7B and Chameleon-7B backbones.",
+    "Main results jointly report accuracy, autoregressive steps, and wall-clock latency.",
+    "Ablations separately remove latent text, latent vision, and the whole latent component.",
+    "Attention-ratio and inverse-entropy analyses are descriptive evidence rather than causal proof of visual grounding.",
+    "The paper uses a fixed three-step latent depth derived from rationale segmentation, which limits adaptive inference."
+  ],
+  "key_numbers": [
+    "Qwen2-VL IVT-LR reaches 71.8 on M3CoT and 94.6 on ScienceQA with 10 and 11 autoregressive steps.",
+    "On Qwen2-VL, Chain-of-Focus reaches 64.3 and 91.2 with 185.7 and 162.3 autoregressive steps.",
+    "Chameleon IVT-LR reaches 41.8 on M3CoT and 64.0 on ScienceQA.",
+    "Removing latent text drops Qwen2-VL accuracy by 19.63 points on M3CoT and 9.8 points on ScienceQA.",
+    "Removing latent vision drops accuracy by 25.19 points on M3CoT and 11.8 points on ScienceQA.",
+    "Increasing latent stages from 1 to 3 raises M3CoT total accuracy from 56.30 to 71.83.",
+    "Training uses four NVIDIA A6000 48GB GPUs, batch size four, Adam, and learning rate 4e-5.",
+    "ScienceQA rationales have mean 10.56 steps and 74.3 percent exceed three steps; M3CoT rationales have mean 9.23 steps and 92.6 percent exceed three steps."
+  ],
+  "real_comparisons": [
+    "Compared with explicit multimodal CoT, IVT-LR avoids autoregressively generating intermediate rationales.",
+    "Compared with text-only latent reasoning, IVT-LR injects selected visual embeddings at every latent step.",
+    "Compared with Chain-of-Focus, IVT-LR trades a trained fixed latent process for much fewer autoregressive steps.",
+    "Compared with No-CoT, IVT-LR is slower but substantially more accurate on the tested benchmarks."
+  ],
+  "central_claims": [
+    {
+      "claim": "Joint latent text and latent vision improve accuracy over explicit multimodal reasoning baselines while reducing autoregressive decoding.",
+      "supporting_evidence": [
+        {"section_id": "sec:methods", "pages": [6]},
+        {"section_id": "sec:experiments", "pages": [6]},
+        {"section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with", "pages": [6, 7]}
+      ],
+      "what_it_actually_proves": "Under two 7B backbones and two VQA benchmarks, the trained IVT-LR checkpoints outperform the listed baselines and decode only 10 to 11 autoregressive steps.",
+      "what_it_does_not_prove": "It does not establish that latent reasoning is universally superior across model scales, open-ended generation, or out-of-domain multimodal tasks."
+    },
+    {
+      "claim": "Both latent text and latent vision are necessary components of the full model.",
+      "supporting_evidence": [
+        {"section_id": "sec:methods-2", "pages": [7]}
+      ],
+      "what_it_actually_proves": "Component removal causes large accuracy losses on M3CoT and ScienceQA, with the largest loss occurring when latent vision is removed.",
+      "what_it_does_not_prove": "The ablation does not isolate whether each gain comes from information content, extra compute, changed sequence length, or the progressive curriculum."
+    },
+    {
+      "claim": "Progressively adding latent stages improves structured multimodal reasoning.",
+      "supporting_evidence": [
+        {"section_id": "sec:methods-2", "pages": [8]}
+      ],
+      "what_it_actually_proves": "On M3CoT, one-to-three-stage checkpoints show monotonic gains, especially in mathematics and science.",
+      "what_it_does_not_prove": "Because each stage is a separately trained curriculum checkpoint, the result does not isolate test-time reasoning depth from additional training exposure."
+    },
+    {
+      "claim": "Latent reasoning allocates attention more dynamically and focuses it more strongly than explicit reasoning.",
+      "supporting_evidence": [
+        {"section_id": "sec:methods-2", "pages": [8, 9]}
+      ],
+      "what_it_actually_proves": "The reported attention-ratio and inverse-entropy plots differ between the two modes on the authors' analysis setup.",
+      "what_it_does_not_prove": "Attention statistics alone do not prove causal visual grounding, faithful internal reasoning, or human-like evidence use."
+    }
+  ],
+  "claim_boundaries": [
+    "The evidence covers M3CoT and ScienceQA only, with Qwen2-VL-7B and Chameleon-7B backbones.",
+    "The strongest efficiency claim concerns autoregressive decoding steps; latent forward computation is not free.",
+    "Training cost rises because the curriculum uses multiple stages, but the paper does not provide total GPU-hours.",
+    "The latent depth is fixed at three reasoning steps at final inference and is not question-adaptive.",
+    "Attention visualizations are correlational diagnostics, not causal grounding tests."
+  ],
+  "negative_or_limiting_results": [
+    "No-CoT remains the lowest-latency option at roughly 0.35 seconds, so IVT-LR is not the absolute fastest inference mode.",
+    "Removing the whole latent part can outperform removing latent vision alone, showing the ablation is not an additive decomposition.",
+    "The paper gives no out-of-domain, scale-transfer, or open-ended generation evaluation.",
+    "Training uses four A6000 GPUs and repeated stages but omits total training time and GPU-hours.",
+    "The chosen fixed latent depth follows a heuristic consolidation of rationale sentences rather than a learned stopping rule."
+  ],
+  "mechanism_result_map": [
+    "Previous-step hidden states map to a compact continuous textual trajectory and remove explicit CoT decoding.",
+    "Top-k image-embedding selection maps to step-specific visual injection; removing latent vision causes the largest ablation drop.",
+    "Progressive replacement maps to monotonic gains across one, two, and three latent stages, although training exposure is confounded.",
+    "Short latent sequences map directly to 10 to 11 autoregressive steps and lower wall-clock latency.",
+    "Repeated attention-based selection maps to the observed shift from early visual emphasis toward later latent-text emphasis."
+  ],
+  "comparative_positioning": [
+    "IVT-LR is a Train-line counterpart to ICoT and DaP-ICoT: it internalizes interleaving instead of inserting visible image patches at test time.",
+    "Unlike MINT-CoT, IVT-LR does not emit explicit interleaved visual tokens in a readable CoT; it keeps both modalities hidden.",
+    "Unlike DeepEyes or Qwen Look Again, it does not learn an open-ended zoom or revisit action policy; its image-embedding selection is fixed top-k attention routing.",
+    "Its closest conceptual ancestor is continuous latent CoT, extended from text-only hidden states to paired text-vision latent units."
+  ],
+  "reuse_takeaways": [
+    "For 3D agents, a latent step could pair an agent hidden state with selected view, object, or point tokens instead of regenerating verbal scene descriptions.",
+    "The main engineering opportunity is to separate visible final answers from hidden intermediate multimodal state transitions.",
+    "A useful follow-up should add causal token deletion or replacement tests before claiming genuine visual grounding.",
+    "Adaptive depth and diversity-aware visual selection are natural extensions beyond fixed three-step top-k routing."
+  ],
+  "followup_questions": [
+    "Does performance remain after matching total forward-pass compute rather than only autoregressive token count?",
+    "How much of the stage gain comes from additional curriculum training rather than latent depth?",
+    "Do counterfactual deletion and swapping of selected visual embeddings change the predicted answer?",
+    "Can the model learn a stopping rule and a variable number of selected visual embeddings per question?",
+    "How stable are the selected embeddings across layers, random seeds, and different vision encoders?"
+  ],
+  "section_plan": [
+    {"section": "核心信息", "focus": "Record canonical metadata and resources.", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}]},
+    {"section": "原文摘要翻译", "focus": "Faithfully translate the source abstract.", "evidence_sources": [{"section_id": "sec:abstract", "pages": [1]}]},
+    {"section": "创新点", "focus": "Separate multimodal latent units, progressive training, and efficiency evaluation.", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:method", "pages": [3, 4, 5]}]},
+    {"section": "一句话总结", "focus": "State the result and mechanism compactly.", "evidence_sources": [{"section_id": "sec:abstract", "pages": [1]}, {"section_id": "sec:methods", "pages": [6]}]},
+    {"section": "研究问题", "focus": "Explain the cost and grounding limitations of explicit multimodal CoT.", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:related-work", "pages": [2, 3]}]},
+    {"section": "数据与任务定义", "focus": "Describe M3CoT, ScienceQA, metrics, backbones, and rationale consolidation.", "evidence_sources": [{"section_id": "sec:experiments", "pages": [6]}, {"section_id": "sec:models-2", "pages": [11, 12]}]},
+    {"section": "方法主线", "focus": "Reconstruct latent text, top-k latent vision, progressive training, and fixed-depth inference.", "evidence_sources": [{"section_id": "sec:method", "pages": [3, 4, 5]}]},
+    {"section": "关键结果", "focus": "Compare accuracy and efficiency, then interpret component and depth ablations.", "evidence_sources": [{"section_id": "sec:methods", "pages": [6]}, {"section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with", "pages": [6, 7]}, {"section_id": "sec:methods-2", "pages": [7, 8, 9]}]},
+    {"section": "深度分析", "focus": "Explain mechanism-result links, comparison with neighboring methods, and evidential limits.", "evidence_sources": [{"section_id": "sec:methods-2", "pages": [7, 8, 9]}, {"section_id": "sec:conclusion", "pages": [9]}]},
+    {"section": "局限", "focus": "Cover fixed depth, training-compute opacity, narrow evaluation, and attention-causality gaps.", "evidence_sources": [{"section_id": "sec:experiments", "pages": [6]}, {"section_id": "sec:methods-2", "pages": [7, 8, 9]}, {"section_id": "sec:conclusion", "pages": [9]}]},
+    {"section": "我的笔记", "focus": "Map the method to 3D agents and propose causal grounding checks.", "evidence_sources": [{"section_id": "sec:method", "pages": [3, 4, 5]}, {"section_id": "sec:methods-2", "pages": [7, 8, 9]}]},
+    {"section": "引用", "focus": "Provide the canonical citation.", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}]}
+  ]
+}

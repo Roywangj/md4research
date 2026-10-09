@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DMT6SNMT/Gao 等 - 2025 - Interleaved-Modal Chain-of-Thought.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DMT6SNMT/Gao 等 - 2025 - Interleaved-Modal Chain-of-Thought.pdf",
+  "title": "1School of Computer Science and Technology, Soochow University",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv"
+  ],
+  "local_pdf_title_source": "first_page_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2411.19488",
+  "paper_id": "arxiv:2411.19488",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "first_page_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2411.19488v2",
+  "abstract": "Chain-of-Thought (CoT) prompting elicits large language models (LLMs) to produce a series of intermediate reasoning steps before arriving at the final answer. However, when transitioning to vision-language models (VLMs), their text-only rationales struggle to express the fine-grained associations with the original image. In this paper, we propose an image-incorporated multimodal Chain-of-Thought, named \\textbf{Interleaved-modal Chain-of-Thought (ICoT)}, which generates sequential reasoning steps consisting of paired visual and textual rationales to infer the final answer. Intuitively, the novel ICoT requires VLMs to enable the generation of fine-grained interleaved-modal content, which is hard for current VLMs to fulfill. Considering that the required visual information is usually part of the input image, we propose \\textbf{Attention-driven Selection (ADS)} to realize ICoT over existing VLMs. ADS intelligently inserts regions of the input image to generate the interleaved-modal reasoning steps with ignorable additional latency. ADS relies solely on the attention map of VLMs without the need for parameterization, and therefore it is a plug-and-play strategy that can be generalized to a spectrum of VLMs. We apply ADS to realize ICoT on two popular VLMs of different architectures. Extensive evaluations of three benchmarks have shown that ICoT prompting achieves substantial performance (up to 14\\%) and interpretability improvements compared to existing multimodal CoT prompting methods.",
+  "authors": [
+    "Jun Gao",
+    "Yongqi Li",
+    "Ziqiang Cao",
+    "Wenjie Li"
+  ],
+  "published": "2024-11-29T06:06:35Z",
+  "year": "2024",
+  "pdf_url": "https://arxiv.org/pdf/2411.19488v2",
+  "doi": "10.48550/arXiv.2411.19488",
+  "script": "collect_metadata.py"
+}

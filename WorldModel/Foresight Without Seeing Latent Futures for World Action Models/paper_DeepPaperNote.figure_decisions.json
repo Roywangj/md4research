@@ -1,0 +1,293 @@
+{
+  "status": "passed",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2608.11605",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "World Action Model paradigms. (a) Cascaded WAMs first generate future observations",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_002_fig_figure_1_review.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_002_fig_figure_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "ef1d35d5356b763e7a2d2a7db9d8104dc587ea49389f7f1c2fc70f6f8a8b2e36",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_002_fig_figure_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/page_previews/page_002.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TLTWJ53P/Huang 等 - 2026 - Foresight Without Seeing Latent Futures for World Action Models.pdf",
+        "source_page": 2,
+        "caption": "World Action Model paradigms. (a) Cascaded WAMs first generate future observations",
+        "bbox_pt": [
+          104.0,
+          77.85842895507812,
+          508.00286865234375,
+          227.28802490234375
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.098306,
+          0.83007,
+          0.28698
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "ef1d35d5356b763e7a2d2a7db9d8104dc587ea49389f7f1c2fc70f6f8a8b2e36",
+        "preserved_scientific_elements": [
+          "full cropped visual with labels and values"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Model visual review passed; identity and readability confirmed.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Dynamics-conditioned Action DiT. During training, demonstrated future frames supervise",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_004_fig_figure_2_review.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_004_fig_figure_2_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "d5cc2b35636fd53ae5676d1fc65925e2ce53936fd42799b330ca3a14e38e7d3e",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_004_fig_figure_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TLTWJ53P/Huang 等 - 2026 - Foresight Without Seeing Latent Futures for World Action Models.pdf",
+        "source_page": 4,
+        "caption": "Dynamics-conditioned Action DiT. During training, demonstrated future frames supervise",
+        "bbox_pt": [
+          104.0,
+          77.86015319824219,
+          508.00677490234375,
+          319.10028076171875
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.098308,
+          0.830076,
+          0.402904
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "d5cc2b35636fd53ae5676d1fc65925e2ce53936fd42799b330ca3a14e38e7d3e",
+        "preserved_scientific_elements": [
+          "full cropped visual with labels and values"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Model visual review passed; identity and readability confirmed.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "The structured mask routes current tokens C, dynamics registers D, future-slot tokens F,",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "placeholder",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Success rate (%) on the standard LIBERO suites, evaluated with 50 rollouts per task.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_007_fig_table_1_review.png",
+      "relative_markdown_embed": "![Table 1](images/page_007_fig_table_1_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_007_fig_table_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "be3763f221539da32fb2b4cf1fdfc4cfc43e65335cad89b6a61e51579e0e8582",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_007_fig_table_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TLTWJ53P/Huang 等 - 2026 - Foresight Without Seeing Latent Futures for World Action Models.pdf",
+        "source_page": 7,
+        "caption": "Success rate (%) on the standard LIBERO suites, evaluated with 50 rollouts per task.",
+        "bbox_pt": [
+          141.25900268554688,
+          89.30292510986328,
+          470.7414855957031,
+          187.7079620361328
+        ],
+        "normalized_bbox": [
+          0.230815,
+          0.112756,
+          0.769185,
+          0.237005
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "be3763f221539da32fb2b4cf1fdfc4cfc43e65335cad89b6a61e51579e0e8582",
+        "preserved_scientific_elements": [
+          "full cropped visual with labels and values"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Model visual review passed; identity and readability confirmed.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Standalone action-generation inference latency.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Observed success rate (%) on seven LIBERO-Plus perturbation categories.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_008_fig_table_2_review.png",
+      "relative_markdown_embed": "![Table 2](images/page_008_fig_table_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_008_fig_table_2_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "5d025cb7ebfa588265e5c0e6a31da7ac8a51256e3391092ab2633356dba8fccb",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/images/page_008_fig_table_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a86631d4c59206629/tmp/DeepPaperNote/assets/Foresight_Without_Seeing_Latent_Futures_for_World_Action_Models/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TLTWJ53P/Huang 等 - 2026 - Foresight Without Seeing Latent Futures for World Action Models.pdf",
+        "source_page": 8,
+        "caption": "Observed success rate (%) on seven LIBERO-Plus perturbation categories.",
+        "bbox_pt": [
+          154.0399932861328,
+          89.30292510986328,
+          457.9564514160156,
+          187.7079620361328
+        ],
+        "normalized_bbox": [
+          0.251699,
+          0.112756,
+          0.748295,
+          0.237005
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "5d025cb7ebfa588265e5c0e6a31da7ac8a51256e3391092ab2633356dba8fccb",
+        "preserved_scientific_elements": [
+          "full cropped visual with labels and values"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Model visual review passed; identity and readability confirmed.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Overall observed success rate (%) for the LIBERO-Plus",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "placeholder",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    }
+  ],
+  "summary": {
+    "total_items": 7,
+    "by_decision": {
+      "insert": 4,
+      "placeholder": 3,
+      "review_pending": 0,
+      "skip": 0,
+      "low_priority": 0,
+      "visual_defect": 0
+    }
+  },
+  "all_numbered_visuals_reviewed": true
+}

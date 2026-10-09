@@ -1,0 +1,9 @@
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+This article has presented \method, an efficient 3D vision-language-action model built upon a pre-trained vision-language model (VLM)~\cite{beyer2024paligemma}, together with its memory-augmented extension \memmethod.
+\method rests on a single alignment principle: 3D observations are rendered as multi-view 2D images to match the input space of the VLM, actions are expressed as 2D heatmaps in the same image space, and a scalable pre-training stage teaches the VLM to predict heatmaps before it is fine-tuned for action prediction.
+\memmethod extends this principle with a unified spatio-temporal memory: temporal memory retains the interaction history to determine \emph{what to do next}, while spatial memory re-renders previously observed geometry to determine \emph{where exactly to act}.
+Extensive experiments on standard and memory-dependent benchmarks, in both simulation and the real world, show that the framework learns 3D manipulation efficiently and effectively, and that the memory is strictly additive to the base policy.
+Future work includes broadening pre-training to more diverse tasks such as semantic segmentation and keypoint detection, adopting more expressive action decoders, and replacing the annotation-dependent sub-goal gate with self-supervised alternatives.
+Moreover, since the token-space memory injection is agnostic to timescale, 
+extending this mechanism to support cross-episode or life-long memory represents a promising path toward robots that continuously accumulate, refine, and transfer manipulation skills across long operational horizons.

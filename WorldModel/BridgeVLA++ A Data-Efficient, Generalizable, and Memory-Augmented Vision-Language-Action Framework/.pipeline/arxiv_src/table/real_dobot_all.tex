@@ -1,0 +1,77 @@
+% table* with the seven instruction blocks split into two side-by-side
+% tabulars -- memory-dependent tasks left, memory-free tasks right: as a
+% single-column float this table stranded on a half-empty float column at
+% the end of the appendix; full width it closes the final table float page
+% together with the RMBench ablation and the 3-vs-10-demonstration table.
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Per-instruction results on the real Dobot platform.}
+Success counts over 10 trials per language instruction and setting;
+Tables~\ref{tab:real_dobot_basic} and~\ref{tab:real_dobot_generalization}
+aggregate these counts.
+\emph{Left:} the three memory-dependent tasks; \emph{right:} the four
+memory-free instructions.}
+\label{tab:app:real_dobot_all}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}[t]{lccccc}
+\toprule
+\textbf{Method} & \textbf{Basic} & \textbf{Distractor}
+& \textbf{Background} & \textbf{Height} & \textbf{Lighting} \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Cover Blocks}\\[1pt]
+\emph{``Put lids on the blocks, then uncover the blue block''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 2/10  & 0/10 & 0/10  & 0/10 & 0/10 \\
+\textbf{\method}               & 0/10  & 0/10 & 0/10  & 0/10 & 0/10 \\
+\textbf{\memmethod}            & 10/10 & 6/10 & 10/10 & 8/10 & 8/10 \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Press Button}\\[1pt]
+\emph{``Press the blue button three times,}\\
+\emph{then press the yellow button''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 0/10 & 0/10 & 0/10 & 0/10 & 0/10 \\
+\textbf{\method}               & 0/10 & 0/10 & 0/10 & 0/10 & 0/10 \\
+\textbf{\memmethod}            & 10/10 & 8/10 & 8/10 & 8/10 & 9/10 \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Swap Eggplant}\\[1pt]
+\emph{``Swap the two eggplants on the plate''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 7/10 & 0/10 & 0/10 & 0/10 & 1/10 \\
+\textbf{\method}               & 6/10 & 6/10 & 7/10 & 2/10 & 4/10 \\
+\textbf{\memmethod}            & 8/10 & 8/10 & 8/10 & 7/10 & 6/10 \\
+\bottomrule
+\end{tabular}
+\hspace{2.5em}
+\begin{tabular}[t]{lccccc}
+\toprule
+\textbf{Method} & \textbf{Basic} & \textbf{Distractor}
+& \textbf{Background} & \textbf{Height} & \textbf{Lighting} \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Put in Drawer} (upper)\\[1pt]
+\emph{``Put the watermelon in the upper drawer''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 7/10  & 0/10 & 0/10  & 0/10 & 2/10 \\
+\textbf{\method}               & 10/10 & 3/10 & 6/10 & 8/10 & 5/10 \\
+\textbf{\memmethod}            & 10/10 & 3/10 & 10/10 & 8/10 & 4/10 \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Put in Drawer} (lower)\\[1pt]
+\emph{``Put the watermelon in the lower drawer''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 5/10  & 0/10 & 0/10  & 0/10 & 1/10 \\
+\textbf{\method}               & 10/10 & 2/10 & 6/10 & 2/10 & 4/10 \\
+\textbf{\memmethod}            & 10/10 & 5/10 & 10/10 & 7/10 & 6/10 \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Put on Shelf} (upper)\\[1pt]
+\emph{``Put the soda water in the top shelf''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 2/10  & 0/10  & 0/10  & 0/10  & 0/10 \\
+\textbf{\method}               & 10/10 & 9/10  & 10/10 & 10/10 & 10/10 \\
+\textbf{\memmethod}            & 10/10 & 10/10 & 10/10 & 10/10 & 10/10 \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\makecell[l]{\textbf{Put on Shelf} (lower)\\[1pt]
+\emph{``Put the red bull in the bottom shelf''}}} \\
+SAM2Act+~\cite{fang2025sam2act} & 2/10  & 0/10  & 0/10  & 0/10 & 0/10 \\
+\textbf{\method}               & 8/10  & 9/10  & 7/10  & 7/10 & 8/10 \\
+\textbf{\memmethod}            & 10/10 & 10/10 & 10/10 & 8/10 & 10/10 \\
+\bottomrule
+\end{tabular}
+\end{table*}

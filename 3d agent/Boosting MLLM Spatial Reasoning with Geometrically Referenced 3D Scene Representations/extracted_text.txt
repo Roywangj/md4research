@@ -1,0 +1,1094 @@
+--- PAGE 1 ---
+Boosting MLLM Spatial Reasoning with Geometrically Referenced 3D Scene
+Representations
+Jiangye Yuan
+Gowri Kumar
+Baoyuan Wang
+Zillow Group
+Abstract
+While Multimodal Large Language Models (MLLMs) have
+achieved remarkable success in 2D visual understanding,
+their ability to reason about 3D space remains limited. To
+address this gap, we introduce geometrically referenced 3D
+scene representations (GR3D). Given a set of input images,
+GR3D annotates objects in the images with unique IDs and
+encodes their 3D geometric attributes as textual references
+indexed by these IDs. This representation enables MLLMs
+to interpret 3D cues using their advanced language-based
+skills in mathematical reasoning, while concurrently an-
+alyzing 2D visual features in a tightly coupled way. We
+present a simple yet effective approach based on GR3D,
+which requires no additional training and is readily ap-
+plicable to different MLLMs. Implemented in a zero-shot
+setting, our approach yields substantial improvements on
+challenging spatial reasoning benchmarks, boosting GPT-5
+performance by 9% on VSI-Bench and 12% on MindCube.
+Qualitative studies further demonstrate that GR3D empow-
+ers MLLMs to perform complex spatial reasoning with
+highly sparse input views.
+1. Introduction
+Understanding 3D environments is a fundamental aspect of
+human cognition. Developing models capable of interpret-
+ing such environments and interacting through natural lan-
+guage has become a central objective in the 3D scene under-
+standing community [13, 24]. Multimodal Large Language
+Models (MLLMs), trained with massive amounts of vision
+and language data, have achieved remarkable success in 2D
+visual understanding [7, 14, 31, 34]. Motivated by the suc-
+cess, they have been applied to 3D tasks in the hope that
+their 2D knowledge can be generalized to 3D cases. How-
+ever, benchmarking studies reveal that MLLMs perform far
+below human level and struggle with tasks humans accom-
+plish with ease [39].
+Since MLLMs do not natively process 3D data, a com-
+plementary line of work extends vision-language models
+with explicit 3D inputs, such as point clouds, as an addi-
+tional modality. Despite steady progress, these fine-tuned
+models do not show a clear advantage over leading MLLMs
+on spatial reasoning benchmarks [16, 42]. A key bottleneck
+lies in data availability. Since 3D scene-language datasets
+are orders of magnitude smaller than internet-scale vision-
+language corpora, fine-tuning is typically restricted to rel-
+atively small models with limited reasoning and language
+interaction capabilities. Furthermore, it remains a funda-
+mental challenge to design algorithms that enable models
+to effectively utilize and understand 3D data. As shown in
+recent studies [42], models fine-tuned with 3D data exhibit
+shallow spatial understanding, frequently failing on simple
+reversed reasoning tasks (e.g., if A is above B, determining
+what is below A).
+Recent work has analyzed MLLMs’ performance on spa-
+tial understanding tasks and examined their internal repre-
+sentations of space [39]. The findings indicate that MLLMs
+have difficulty reasoning about spatial relationship, such
+as distance, direction, and object size, and lack a holistic,
+global scene understanding. To address these limitations,
+we propose geometrically referenced 3D scene representa-
+tions (GR3D). In this representation, objects are annotated
+in images with their unique IDs, and a list of textual refer-
+ences encode object geometries in a global 3D coordinate
+space. An example is shown in Fig. 1. It can be seen that
+text and images are explicitly cross-referenced via object
+IDs. Integrated with this representation, MLLMs can ex-
+ploit their strong language-based abilities in mathematical
+and geometric reasoning [9, 25], while also flexibly access-
+ing 2D semantic cues. This leads to precise, grounded, and
+interpretable spatial reasoning.
+An overall framework of leveraging GR3D for spatial
+reasoning is illustrated in Fig. 1. GR3D generation builds
+on recent advances in neural 3D reconstruction. Methods
+such as VGGT [33] and π3 [36] can reconstruct 3D scenes
+from uncalibrated, unposed images with high accuracy and
+consistency. From reconstructed scenes, we derive object
+geometric attributes (e.g., bounding boxes, primitive types,
+and shape parameters) and convert them into structured tex-
+tual references indexed by object IDs.
+Using estimated
+camera parameters, we project object centers into images
+arXiv:2603.08592v2  [cs.CV]  26 Apr 2026
+
+
+--- PAGE 2 ---
+Geometric information extraction 
+Object geometric references  
+1.
+type: bounding box; center: [-390, -245, -130]; 
+lengths: [50, 40, 70] 
+2.
+type: bounding box; center: [-530, -220, -45]; 
+lengths: [50, 50, 20]  
+3.
+type: cylinder; center: [475, -120, -140]; radius: 
+20; height: 40  
+4.
+type: bounding box; center: [-505, -100, -65]; 
+lengths: [60, 110, 18]  
+5.
+……
+GR3D
+3D scene 
+reconstruction
+Image  
+annotation
+MLLM
+Text 
+conversion
+Prompt 
+enrichment
+Input images
+Object 
+locations
+Camera 
+parameters 
+and depth
+Point cloud
+…
+Question: what is 
+the distance from 
+the chair to the 
+stainless trash bin? 
+……
+Figure 1. An overview of GR3D framework. Given a collection of images, our method reconstructs 3D scenes, extracts object-level
+geometric attributes, and transforms them into a GR3D representation, which consists of annotated images and textual references of
+geometric attributes. Such paired text and images are provided to a MLLM to perform spatial reasoning tasks.
+and annotate projected locations with corresponding object
+IDs. The annotated images replace the original images as
+visual input for MLLMs, while textual references are com-
+bined with task-specific instructions to form text prompts.
+Our method does not require training and can work along
+with various MLLMs.
+We evaluate our approach on two challenging spatial rea-
+soning benchmarks, the Visual-Spatial Intelligence Bench-
+mark (VSI-Bench) [39] and MindCube [40]. We implement
+our method in a zero-shot manner. We neither fine-tune
+on any data that overlap with this benchmark dataset nor
+construct similar question-answer pairs for training. Nev-
+ertheless, our method achieves state-of-the-art benchmark-
+ing performance, demonstrating strong generalization and
+effectiveness. Ablation studies further confirm the critical
+role of GR3D in achieving this performance.
+Our contributions are summarized as follows:
+• We introduce GR3D, a new 3D scene representation that
+allows MLLMs to access both 2D visual cues and 3D ge-
+ometric information in a tightly linked fashion.
+• We present an effective approach that leverages GR3D to
+enhance the spatial reasoning capabilities of MLLMs.
+• Experimental results show that our approach significantly
+outperforms previous state-of-the-art models on spatial
+reasoning tasks in a zero-shot setting. We also showcase
+that GR3D enables effective spatial reasoning from very
+sparse input views, where even leading MLLMs such as
+GPT-5 tend to fail.
+2. Related Work
+Multimodal models seek to integrate vision, language, and
+other modalities within a unified framework. Early work,
+such as CLIP [28] and ALIGN [15], exploits contrastive
+learning to align image and text representations, laying the
+foundation for cross-modal reasoning. Subsequent models,
+like Flamingo [1] and BLIP-2 [19], are able to take vi-
+sual and linguistic input and perform various text gener-
+ation tasks with great zero-shot generalization. More re-
+cently, proprietary models including Gemini [32] and GPT-
+5 [14], as well as open-source alternatives (e.g., Qwen-
+VL [3], InternVL [7], and LLaVA [21]), have demonstrated
+even greater capabilities in sophisticated reasoning and in-
+teractive human-AI dialogues.
+To enhance the 3D understanding capabilities of
+MLLMs, prior work has explored various 3D scene repre-
+sentations, including point cloud features [5, 38], multi-
+view image embeddings lifted into 3D space
+[10, 11,
+44, 46], object-centric formulations [12, 13, 37].
+How-
+ever, most of these approaches require fine-tuning for mod-
+els to understand the representations, and thus suffer from
+the aforementioned issues of data scarcity and learning ef-
+fectiveness. SpatialPIN [23] estimates depth from an in-
+put image and extracts text-based 3D priors, which are
+used to interact with MLLMs. Although this approach op-
+erates without training, it is difficult for MLLMs to as-
+sociate objects 3D priors with visual features, especially
+when dealing with complex scenes captured by multiple
+images. GPT4Scene [27] proposes complementing input
+images with a Bird’s Eye View (BEV) synthesized via 3D
+
+
+--- PAGE 3 ---
+reconstruction. While BEV encodes global information, it
+is non-trivial to select a viewpoint that ensures visibility of
+all objects, and MLLMs still require fine-tuning to better
+understand such BEV images.
+In contrast, our GR3D approach provides a 3D scene
+representation that can be natively understood by MLLMs
+without any fine-tuning. The representation tightly couples
+visual features with 3D geometric information, which en-
+ables MLLMs to reason in a more precise and coherent way.
+Our approach significantly enhances MLLM performance
+on spatial reasoning tasks in complex scenes.
+3. Method
+In this section, we present the approach to leveraging GR3D
+for boosting MLLM spatial reasoning. In Sec. 3.1, we de-
+scribe the method to extract 3D geometric information from
+input images. Then, we discuss the use of textual references
+to represent geometric information in Sec. 3.2. Finally, we
+elaborate on the method to associate images with textual
+references in Sec. 3.3.
+3.1. 3D Scene Analysis
+Given a set of multi-view images, we employ neural 3D
+reconstruction models to recover 3D scenes and camera
+poses.
+Unlike traditional Structure-from-Motion (SfM)
+pipelines that rely on handcrafted keypoint matching, such
+models use dense feature correlation and neural optimiza-
+tion, yielding reconstructions that are highly robust under
+textureless regions, occlusions, and wide baseline condi-
+tions. The output consists of a dense depth map D for each
+input image along with the corresponding Camera intrinsics
+K and extrinsics (R, t). A 3D point cloud in a global co-
+ordinate system can be derived by unprojecting pixels with
+their depth values.
+To extract object-level representations, we segment the
+point cloud into clusters corresponding to candidate objects.
+Two strategies are commonly used, depending on the point
+cloud quality. One strategy is to run 2D semantic segmen-
+tation, back-project labels onto 3D points, and fuse labels
+across multiple views. This approach benefits from mature
+image segmentation models and remains effective when the
+3D point cloud is noisy. The other strategy is to apply neu-
+ral networks trained directly on point clouds [26, 30]. These
+methods produce more accurate results when dense, high-
+quality point clouds are available, though performance may
+vary across datasets.
+For each object cluster, we estimate geometric at-
+tributes that range from coarse extents to detailed structures.
+Bounding boxes provide a compact representation of ob-
+ject extents defined by their centers, orientations, and side
+lengths. In many applications, such representations provide
+an adequate approximation for geometric inference and rea-
+soning. When finer structural details are required, we fit
+analytic primitives such as cuboids, cylinders, spheres, and
+prisms. The parameters of these primitives are estimated by
+minimizing the residual distance between cluster points and
+the corresponding primitive surface. To handle noise and
+outliers, RANSAC-based fitting [29] and learning-based ap-
+proaches [20, 47] can be applied for further enhancing reli-
+ability.
+3.2. Language-Based Geometric Reasoning
+MLLMs have demonstrated high proficiency in handling
+mathematical and logic tasks [4, 17]. Recent benchmark-
+ing studies [41] show that MLLMs can effectively interpret
+textual problem statements and reason over both 2D and 3D
+geometry. This ability is particularly important for spatial
+reasoning tasks, which often require precise calculations of
+distance, direction, and other spatial relationships.
+To leverage the language-based reasoning strengths of
+MLLMs, we represent the extracted 3D geometric informa-
+tion in a text-based format. In particular, each object is as-
+signed a unique ID, and its geometric attributes are explic-
+itly expressed as a text sequence. For a 3D scene, a list of
+such object geometric descriptions is provided as contex-
+tual input along with task-specific prompts. Thanks to the
+strong language understanding abilities of MLLMs, the ex-
+act form of text sequences can be flexible, allowing models
+to handle a mixture of different geometric primitives (see
+the example in Fig. 1). The level of geometric details can
+also be easily adjusted according to task requirements and
+data availability. While previous work also extracts object-
+level 3D information, it is typically used to organize input
+tokens [12, 13] or serve as auxiliary outputs [46], where
+precisely defined geometric data are not fully utilized for
+reasoning.
+Another advantage of using languages for geometric rea-
+soning is the enhanced explainability, which is mostly ab-
+sent in smaller fine-tuned models. Modern MLLMs can
+generate chain-of-thought reasoning, in which intermediate
+steps are explicitly articulated. The step-by-step calcula-
+tion and reasoning not only reveal how a final answer is
+derived but also facilitate error analysis and model refine-
+ment. By examining intermediate steps, it becomes possi-
+ble to identify systematic mistakes, assess model reliability,
+and design targeted strategies [35, 45] to reduce errors and
+enhance performance.
+3.3. Text-Image Association
+When provided with both images and geometric descrip-
+tions, MLLMs often struggle to associate the two modal-
+ities, particularly in complex scenes containing many ob-
+jects. This challenge is evident in our experiments, as dis-
+cussed in Sec. 4.4. To address this issue, we annotate ob-
+jects on images with their IDs, which establishes a clear
+correspondence between visual and geometric information.
+
+
+--- PAGE 4 ---
+Initial projection 
+Depth map
+Depth check
+Figure 2. Object annotation with occlusion check. Left: initial
+object annotation through projection. Middle: depth map from 3D
+reconstruction. Right: object annotation after depth-based occlu-
+sion check.
+Given an object with geometric attributes, we project its ob-
+ject center C to the image by first transforming it into cam-
+era canonical coordinates:
+[x, y, z]T = RC + t,
+(1)
+and then calculating its pixel coordinates (i, j) on the image
+plane with camera intrinsics K. At the projected location
+(i, j), we place the object IDs. For each image, we anno-
+tate all the objects whose centers are mapped inside image
+bounds.
+During object center projection, no occlusion check is
+performed. As a result, occluded objects are also marked,
+leading to incorrect association. This issue is illustrated in
+the left image in Fig. 2. While one solution is to render full
+geometric shapes for an occlusion check, it significantly in-
+creases computational cost. Instead, we exploit the depth
+maps D that are output from 3D reconstruction models.
+Specifically, we do not annotate an object if z in Eq. (1)
+is larger than D(i,j), i.e., the object center is farther than the
+depth at the same location. As can be seen in Fig. 2, most
+annotations corresponding to occluded objects are removed.
+While certain semantic attributes (e.g., object category)
+can be obtained from 3D scene analysis, we deliberately ex-
+clude such semantic information from textual descriptions.
+This design encourages MLLMs to infer semantic informa-
+tion directly from images. As MLLMs are shown to be
+highly capable in visual understanding [14, 31], they can
+effectively extract task-relevant semantics.
+Furthermore,
+MLLMs dynamically attend to image regions relevant to
+a given task, which is more computationally efficient than
+precomputing and storing exhaustive semantic analysis.
+It is highly challenging to extract 3D information for ev-
+ery object in a scene, regardless of the chosen algorithm.
+Recent research [39] shows that MLLMs exhibit a strong
+understanding of relative positions of objects in close prox-
+imity, but it degrades significantly as object distance in-
+creases. Since annotated objects are registered to a global
+3D coordinate system, MLLMs can use those objects as
+spatial anchors and infer the likely positions of missing ob-
+jects based on their spatial relationships with nearby anno-
+tated ones. Therefore, our method to link objects in images
+to their geometric information allows MLLMs to tolerate
+missing detections and perform more robust and complete
+spatial reasoning.
+4. Experiments
+4.1. Benchmarks
+We evaluate our approach on VSI-Bench [39], and Mind-
+Cube [40]. VSI-Bench contains over 5,000 questions de-
+rived from 288 in-door videos. This benchmark assesses
+a broad spectrum of spatial understanding capabilities, in-
+cluding configurational tasks (object counting, relative dis-
+tance, relative direction, and route planning), measurement
+estimation tasks (object size, room size, and absolute dis-
+tance), and a spatiotemporal task of determining the order of
+appearance. MindCube focuses on spatial reasoning from
+limited input views. It contains questions on object spatial
+relationships, where each question is based on a scene cap-
+tured by 2 to 4 views, with various camera movement types.
+4.2. Implementation Details
+We adopt the π3 model [36] for reconstruction, as it
+achieves high accuracy and can predict metric scale. For
+video input, It is applied to subsampled frames. We also run
+Mask2Former [8] trained on ADE20K to obtain semantic
+segmentation for each input image. The reconstructed point
+clouds are rotated to be axis-aligned using the up direction
+estimated from floor points and the dominant direction of
+horizontal room boundaries.
+Because the point clouds are reconstructed from images,
+they are noisier than those from depth sensors, making
+existing 3D segmentation models unreliable. Instead, we
+back-project 2D semantic labels to the point cloud and ag-
+gregate them using a voxel grid, assigning each voxel the
+majority label of its points. Spatially connected voxels with
+the same label are grouped into objects, and 3D bounding
+boxes are computed using their center coordinates and side
+lengths. For objects such as round tables, we fit vertical
+cylinders by projecting voxel groups onto the xy-plane and
+fitting circles using least squares, with height determined by
+the voxel group’s z extent. Extracted geometric attributes
+are converted into compact textual references indexed by
+numeric IDs, and the IDs are placed on the images via cam-
+era projection, as described in Sec. 3.1.
+The GR3D input consists of annotated images and tex-
+tual references inserted into a prompt template.
+Fig. 3
+shows the template used in the experiments, which explains
+the structure of the representation. We observe that it is im-
+portant to specify the handedness and the upright orienta-
+tion of the coordinate system, as this allows MLLMs to cor-
+rectly apply orientation tests to solve direction-related ques-
+tions. To reduce token usage, we provide the pre-computed
+area of room boundary polygons for room size questions.
+
+
+--- PAGE 5 ---
+Prompt template 
+You are a spatial reasoning assistant. You are given 
+downsampled video frames of an indoor scene. Some objects in 
+the frames are annotated with their numeric IDs. For each 
+annotated object, its 3D geometric data are given below. Unless 
+otherwise specified, each object is represented by a 3D 
+bounding boxes defined by six numbers, center coordinates (x, 
+y, z) and lengths along the x, y, z axes. Objects may also be 
+geometric primitives described by their parameters. Units are in 
+centimeters. The coordinate system is right-handed, with the z-
+axis pointing up. 
+<List of object IDs and geometric data > 
+The room size is <calculated room size> square meters.  
+Your task is to answer questions about this scene. Follow these 
+guidelines: 
+1. For questions on distance, direction, and navigation, reason 
+in the 2D x–y plane. 
+2. For unannotated objects, estimate their coordinates based on 
+geometric data of nearby annotated objects. 
+3. To determine directions, use vector cross product calculation 
+when possible. 
+The question is: 
+<A question here>
+Figure 3. Prompt template used in evaluations.
+4.3. Evaluation Results
+Evaluation results on VSI-Bench are summarized in Tab. 1.
+For comparison, we include the benchmark scores of GPT-
+4o and Gemini-1.5 Pro, reported in [39], as well as the
+scores of InternVL2 [6], a leading open-source mid-size
+model on this benchmark. VG LLM [43] is among the few
+models fine-tuned with 3D scene data and evaluated on VSI-
+Bench. In addition, we evaluate GPT-5 on this benchmark 1.
+To assess the effectiveness of our method, we measure the
+performance of incorporating GR3D with InternVL2, GPT-
+4o and GPT-5 2.
+Among all MLLMs, GPT-5 achieves the highest overall
+score. While the fine-tuned VG LLM attains a comparable
+performance, it should be noted that its training data include
+videos overlapping with VSI-Bench and questions similar
+to those in the benchmark. When integrated with GR3D,
+all three models exhibit performance gains, where models
+with stronger reasoning capabilities show greater improve-
+ments. In particular, GPT-5 achieves a 9% increase, set-
+ting a new state of the art. This validates that our approach
+represents 3D spatial information in a form that can be ef-
+fectively utilized by MLLMs. The improvements across all
+three models demonstrate that our approach can function as
+a general plug-in mechanism for enhancing spatial reason-
+ing in MLLMs. As MLLMs continue to advance rapidly,
+our approach can immediately leverage these advancements
+without fine-tuning or retraining.
+1We set reasoning effort to low, which provides a favorable balance
+between accuracy and efficiency.
+2We follow the setting in [39], using 32 frames for InternVL2 and 16
+frames for the GPT models.
+Tab. 2 presents the MindCube results. We include mod-
+els with leading performance reported in [40]. Consistent
+with the trends observed on VSI-Bench, GR3D yields sub-
+stantial performance improvements, boosting the accuracy
+of GPT-5 by 12%. To our knowledge, this result repre-
+sents the highest accuracy achieved by zero-shot methods
+on MindCube, highlighting the effectiveness of our rep-
+resentation in scenarios with sparse input views. Overall,
+the consistent gains across both VSI-Bench and MindCube
+demonstrate the generality of our approach and its ability to
+support diverse forms of 3D spatial reasoning without task-
+specific adaptation.
+While our approach achieves strong overall perfor-
+mance, further analysis reveals that a large portion of the
+errors stem from inaccurate geometric attributes. In par-
+ticular, our current implementation mainly relies on voxel
+connectivity to separate individual object instances, which
+struggles in cluttered scenes and thus reduces the accuracy
+of object counting and size estimation. More advanced 3D
+instance segmentation models could lead to improvements.
+In addition, when point clouds are highly noisy, the cur-
+rent object detection method tends to either miss objects or
+overestimate their dimensions. This issue can be mitigated
+through more robust 3D semantic segmentation or denois-
+ing techniques.
+4.4. Ablation Study
+In this section, we conduct ablation studies. We use VSI-
+Bench and GPT-5 for all experiments. Results are summa-
+rized in Tab. 3. For brevity, we present scores of two con-
+figurational tasks and the average score of all tasks.
+Effectiveness of object annotations. We first investigate
+the role of object annotations by removing object IDs from
+images while keeping all other inputs unchanged. As shown
+in Tab. 3, the resulting performance is nearly identical to
+GPT-5 alone. This indicates that without providing explicit
+association, MLLMs are unable to effectively utilize the
+provided geometric information.
+Impact of reconstruction models. To assess the impact of
+the reconstruction component, we replace π3 with VGGT.
+As VGGT does not predict metric scales, we estimate a
+scaling factor from the ratio between the typical real-world
+heights and reconstructed heights of selected objects (e.g.,
+ceilings, countertops, and desks). As can be seen, π3 per-
+forms slightly better than VGGT, due to its improved re-
+construction accuracy. We expect that continued advances
+in reconstruction models will further improve overall per-
+formance.
+Camera parameters for implicit association. Instead of
+annotating objects in images via camera projection, we pro-
+vide the full set of camera parameters for each input image,
+including focal length, the principal point, and the extrin-
+sic matrix. These parameters allow MLLMs to compute
+
+
+--- PAGE 6 ---
+Method Name
+Obj. Count
+Abs. Dist.
+Obj. Size
+Room Size
+Rel. Dist.
+Rel. Dir.
+Route Plan
+Appr. Order
+Avg.
+InternVL2-8B [6]
+31.3
+29.0
+48.9
+44.2
+38.0
+33.4
+28.9
+46.4
+37.5
+VG LLM-8B [43]
+67.9
+37.7
+58.6
+62.0
+46.6
+40.7
+32.4
+59.2
+50.7
+Gemini-1.5 Pro [32]
+56.2
+30.9
+64.1
+43.6
+51.3
+46.3
+36.0
+34.6
+45.4
+GPT-4o-2024-08-06 [14]
+46.2
+5.3
+43.8
+38.2
+37.0
+41.3
+31.5
+28.5
+34.0
+GPT-5-2025-08-07 [14]
+39.7
+28.8
+68.9
+50.7
+42.6
+42.4
+50.0
+69.3
+50.3
+GR3D + InternVL2-8B
+33.9
+29.3
+46.2
+63.7
+37.1
+40.3
+30.1
+53.7
+42.5
+GR3D + GPT-4o-2024-08-06
+48.3
+30.7
+44.1
+66.3
+42.1
+40.7
+46.4
+44.7
+45.3
+GR3D + GPT-5-2025-08-07
+52.2
+48.2
+62.5
+72.1
+50.8
+69.5
+58.7
+66.2
+59.8
+Table 1. VSI-Bench evaluation results. GR3D combined with GPT-5 achieves state-of-the-art performance. The best result for each task
+among all models is indicated in bold.
+Method Name
+Rotation
+Among
+Around
+Overall
+LLaVA-Onevision-7B [18]
+36.5
+48.4
+44.1
+47.4
+DeepSeek-VL2-Small [22]
+37.0
+50.4
+26.9
+47.6
+GPT-5-2025-08-07 [14]
+87.5
+39.3
+66.4
+55.0
+GR3D + GPT-5-2025-08-07
+88.5
+55.7
+76.0
+66.8
+Table 2. MindCube evaluation results. Rotation, among, and around represent subsets with different camera placements. GR3D combined
+with GPT-5 achieves the highest accuracy. The best result for each subset across all models is indicated in bold.
+the mapping between 3D space and the image plane when
+needed. We observe that the performance drops compared
+with the results above. By examining the reasoning process,
+we find that while GPT-5 can occasionally perform camera
+projection calculations correctly, its behavior is inconsistent
+and often error-prone, particularly for questions that require
+multiple projections.
+Textual scene descriptions with object ID citations. Prior
+work [42] reports that replacing raw images with text de-
+scriptions generated via image captioning can improve spa-
+tial reasoning performance. Motivated by this, we experi-
+ment with a similar approach in our setting. Specifically,
+we prompt GPT-5 to produce comprehensive and spatially
+detailed scene descriptions. In order to utilize geometric
+references, the captioning input is the images with object
+annotations, and the prompt requires that, whenever an an-
+notated object is mentioned, its ID should be included next
+to the mention. This ensures that object mentions are tightly
+linked to their geometric attributes, similar to GR3D. An
+example of such scene descriptions is shown below:
+In the kitchen, a stainless steel trash bin [1] is po-
+sitioned near the entrance. A microwave [2] sits
+above the counter. ...... A flat-screen TV [13] is
+mounted on the wall above a sleek wooden desk
+[12], which has a trash bin [14] underneath. A
+white standing fan [15] is placed near the win-
+dow, ......
+Method
+Rel. Dir.
+Route Plan
+Avg.
+GR3D
+69.5
+58.7
+59.8
+No object annotation
+51.3
+52.0
+50.3
+VGGT reconstruction
+62.2
+56.7
+58.3
+Camera parameters
+42.6
+45.4
+48.8
+Scene descriptions
+51.9
+51.0
+53.4
+Table 3. Ablation study. We evaluate 1) removing object annota-
+tions in images, 2) replacing π3 with VGGT, 3) providing camera
+parameters to implicitly associate images with object geometric
+information, and 4) converting images into scene descriptions with
+object ID citations. For brevity, we show the scores of two config-
+urational tasks and the overall average.
+As reported in Tab. 3, this approach slightly outperforms
+GPT-5 alone, but it is inferior to GR3D. One possible rea-
+son is that the textual descriptions discard certain important
+visual details, particularly those related to local spatial re-
+lations. Nevertheless, this approach can be a lightweight
+alternative, especially in scenarios with a priority of data
+efficiency.
+4.5. Qualitative Examples
+To provide further insight on how GR3D improves spatial
+reasoning, we present qualitative examples that highlight its
+impact on model behavior in challenging cases. In Fig. 4,
+we present example results from two scenes in VSI-Bench,
+
+
+--- PAGE 7 ---
+Question 1: If I am sitting in the red chair facing the bed, is the 
+coffee machine on my left or right?
+GPT-5 answer: 
+- The red chair is by the window at the corner of the room. 
+- The bed is to the right of the chair when looking toward the interior. 
+- The coffee machine sits on the cabinet under the TV, along the wall with 
+the desk. 
+- From the red chair facing the bed, that TV/desk/cabinet wall is on your 
+left. Hence the coffee machine is on your left. 
+GR3D + GPT-5 answer: 
+- Red chair = object 5 at (290, -325). Bed = object 10 at (65, -285). 
+- Coffee machine sits on the cabinet under the TV (object 6) at about  
+(40, -45). 
+- From the chair, vector to the bed: (-225, 40). Vector to the coffee cabinet: 
+(-250, 280). 
+- The 2D cross product (-225,40) × (-250,280) = -53,000 < 0, meaning the 
+coffee machine is to the right of your facing direction.
+Question 2: Can I put a crib of size 70 cm × 130 cm between the 
+bed and the minibar?
+GPT-5 answer: 
+No. From the photos, the gap between the bed and the minibar/TV unit 
+looks about 70–80 cm. A 130 cm length won’t fit across that gap, and while 
+a 70 cm width could fit if you place the crib parallel to the bed, it would 
+block the walkway and minibar. 
+GR3D + GPT-5 answer: 
+Yes, if you orient it with its 130 cm side parallel to the wall/TV (x-direction). 
+- Bed (#10) footprint: x [-35, 165], y [-385, -185]. 
+- Minibar (#6) footprint: x [-35, 115], y [-75, -15]. 
+- The space directly between them is the overlap in x (150 cm wide) by the 
+gap in y (about 110 cm deep). 
+It fits with about 20 cm spare in width and 40 cm spare in depth.
+Question 1: I am standing by the kitchen island. Give me turn-by-
+turn directions to reach the foam roller.
+GPT-5 answer: 
+1) Face out of the kitchen toward the dining/living area (toward the dining 
+table and couches). 
+2) Walk straight off the tile and onto the carpet. 
+3) Keep the dining table on your right as you go forward along its long side. 
+4) At the far end of the table, turn right toward the wall with the small 
+wooden bookcase and a glowing floor lamp beside it. 
+5) Go to that bookcase. The orange foam roller is on the bottom shelf. 
+GR3D + GPT-5 answer: 
+- Stand at the island facing out toward the open living/dining area (away 
+from the sink and stove). 
+- Walk straight off the tile onto the carpet toward the dining table, about 2 m. 
+- Bear slightly left to head toward the wooden bookcase against the far wall. 
+- Continue past the table to the bookcase, about 3–4 m more. 
+- The foam roller is the orange cylinder on the bottom shelf of that 
+bookcase. Reach down to pick it up.
+Question 2: I am sitting at the dining table facing away from the 
+window, can I see the TV?
+GPT-5 answer: 
+Based on the images, if you are sitting at the dining table facing away from 
+the window, you likely cannot see the TV. The TV is positioned in the living 
+area, and the dining table is oriented such that your back would be towards 
+the TV. The TV is not directly visible from the dining table in this setup. 
+GR3D + GPT-5 answer: 
+1. The dining table (#2) is near the window (#1). If you are sitting at the table 
+facing away from the window, you are facing the interior of the room. 
+2. The TV (#10) is located on the opposite side of the room from the 
+window, as seen in the third and fourth images. 
+3. From the dining table, facing away from the window, your line of sight 
+would be directed towards the interior of the room where the TV is located. 
+The TV is positioned on a wall that is likely within your field of view.
+2
+6
+8
+10
+9
+10
+9
+2
+1
+5
+11
+5
+10
+5
+6
+87
+4
+4
+3
+2
+(b)
+(a)
+7
+8
+Figure 4. Example results of sparse view spatial reasoning. The part with incorrect reasoning is highlighted in red.
+each of which is captured by only four images subsampled
+from input videos. Four questions are posed, which require
+complex multi-step reasoning and an understanding of spa-
+tial context from an egocentric perspective. The questions
+are designed such that human can infer the answers from the
+images. We apply the same approach described in Sec. 4.2.
+For comparison, we also show the responses from GPT-5
+alone, which receives the questions and unannotated images
+as input. Based on the results, we make the following ob-
+servations:
+• Our method effectively exploits extracted geometric in-
+formation to infer correct spatial relationships, whereas
+GPT-5 alone fails due to objects appearing in widely sep-
+arated views. For example, in Fig. 4(a), our method first
+computes two vectors toward the bed and the cabinet and
+then calculates their cross product to determine direc-
+tions. In contrast, in Fig. 4(b), GPT-5 mistakenly suggests
+walking on the left side of the table to reach the bookshelf
+and confuse the relative positions of the window and TV.
+• With GR3D, locations of unannotated objects (e.g., the
+coffee table and the foam roller) are correctly inferred
+based on the geometric information of nearby annotated
+objects (e.g., the cabinet and the bookshelf).
+• Our approach leverages the advanced language reason-
+ing capabilities of MLLMs to interpret complex spatial
+queries and generate transparent, step-by-step reasoning.
+Such a capability often lacks in smaller models.
+• GR3D allows GPT-5 to perform 3D geometric reasoning
+while simultaneously leveraging its strong 2D visual un-
+derstanding. For example, it can identify uncommon ob-
+jects such as the foam roller.
+5. Conclusion
+We present a new approach to enhancing spatial reason-
+ing in MLLMs through geometrically referenced 3D scene
+representations. By encoding object-level 3D attributes as
+structured textual references and explicitly linking them to
+annotated images, our method enables MLLMs to combine
+
+
+--- PAGE 8 ---
+geometric reasoning with semantic perception in a transpar-
+ent and interpretable manner. Our experiments on the VSI-
+Bench demonstrate that integrating GR3D with MLLMs
+substantially improves spatial reasoning and establishes a
+new state of the art in a zero-shot setting. These results
+highlight the value of bridging 2D semantics and 3D geom-
+etry via structured, language-accessible formats.
+Our current pipeline consists of multiple components to
+extract geometric attributes, which are then converted into
+text-based descriptions. While this design allows each com-
+ponent to be flexibly replaced for improving performance,
+an interesting future direction is to move toward an end-
+to-end framework. Recent work such as SceneScript [2]
+demonstrates the feasibility of directly generating geomet-
+ric information in form of structured text sequences from
+visual inputs. Extending this idea to our setting could result
+in a unified, learning-based model, potentially improving
+robustness and reducing error propagation across stages.
+References
+[1] Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine
+Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch,
+Katherine Millican, Malcolm Reynolds, et al. Flamingo: a
+visual language model for few-shot learning. Adv. Neural
+Inform. Process. Syst., 35, 2022. 2
+[2] Armen Avetisyan, Christopher Xie, Henry Howard-Jenkins,
+Tsun-Yi Yang, Samir Aroudj, Suvam Patra, Fuyang Zhang,
+Duncan Frost, Luke Holland, Campbell Orme, et al. Scene-
+script: Reconstructing scenes with an autoregressive struc-
+tured language model. In Eur. Conf. Comput. Vis., 2024. 8
+[3] Jinze Bai, Shuai Bai, Shusheng Yang, Shijie Wang, Sinan
+Tan, Peng Wang, Junyang Lin, Chang Zhou, and Jingren
+Zhou. Qwen-vl: A versatile vision-language model for un-
+derstanding, localization, text reading, and beyond. arXiv
+preprint arXiv:2308.12966, 2023. 2
+[4] S´ebastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Jo-
+hannes Gehrke, Eric Horvitz, Ece Kamar, Peter Lee, Yuanzhi
+Lee, Yin Tat Li, Scott Lundberg, Harsha Nori, Hamid
+Palangi, Marco Tulio Ribeiro, and Yi Zhang. Sparks of ar-
+tificial general intelligence: Early experiments with gpt-4.
+arXiv preprint arXiv:2303.12712, 2023. 3
+[5] Sijin Chen, Xin Chen, Chi Zhang, Mingsheng Li, Gang Yu,
+Hao Fei, Hongyuan Zhu, Jiayuan Fan, and Tao Chen. Ll3da:
+Visual interactive instruction tuning for omni-3d understand-
+ing, reasoning, and planning. In IEEE Conf. Comput. Vis.
+Pattern Recog., 2024. 2
+[6] Zhe Chen, Weiyun Wang, Hao Tian, Shenglong Ye, Zhang-
+wei Gao, Erfei Cui, Wenwen Tong, Kongzhi Hu, Jiapeng
+Luo, Zheng Ma, et al. How far are we to gpt-4v? closing
+the gap to commercial multimodal models with open-source
+suites. Science China Information Sciences, 67(12):220101,
+2024. 5, 6
+[7] Zhe Chen, Jiannan Wu, Wenhai Wang, Weijie Su, Guo Chen,
+Sen Xing, Muyan Zhong, Qinglong Zhang, Xizhou Zhu,
+Lewei Lu, et al. Internvl: Scaling up vision foundation mod-
+els and aligning for generic visual-linguistic tasks. In IEEE
+Conf. Comput. Vis. Pattern Recog., 2024. 1, 2
+[8] Bowen Cheng, Ishan Misra, Alexander G. Schwing, Alexan-
+der Kirillov, and Rohit Girdhar.
+Masked-attention mask
+transformer for universal image segmentation. In IEEE Conf.
+Comput. Vis. Pattern Recog., 2022. 4
+[9] Simon Frieder, Luca Pinchetti, Ryan-Rhys Griffiths, Tom-
+maso Salvatori, Thomas Lukasiewicz, Philipp Petersen, and
+Julius Berner. Mathematical capabilities of chatgpt. Adv.
+Neural Inform. Process. Syst., 36, 2023. 1
+[10] Rao Fu, Jingyu Liu, Xilun Chen, Yixin Nie, and Wen-
+han Xiong.
+Scene-llm:
+Extending language model for
+3d visual understanding and reasoning.
+arXiv preprint
+arXiv:2403.11401, 2024. 2
+[11] Yining Hong, Haoyu Zhen, Peihao Chen, Shuhong Zheng,
+Yilun Du, Zhenfang Chen, and Chuang Gan.
+3d-llm:
+Injecting the 3d world into large language models.
+In
+Adv. Neural Inform. Process. Syst., 2023.
+arXiv preprint
+arXiv:2307.12981. 2
+[12] Haifeng Huang, Yilun Chen, Zehan Wang, Rongjie Huang,
+Runsen Xu, Tai Wang, Luping Liu, Xize Cheng, Yang Zhao,
+Jiangmiao Pang, et al. Chat-scene: Bridging 3d scene and
+large language models with object identifiers. Adv. Neural
+Inform. Process. Syst., 37, 2024. 2, 3
+[13] Jiangyong Huang, Silong Yong, Xiaojian Ma, Xiongkun
+Linghu, Puhao Li, Yan Wang, Qing Li, Song-Chun Zhu,
+Baoxiong Jia, and Siyuan Huang. An embodied generalist
+agent in 3d world. In ICML, 2024. 1, 2, 3
+[14] Aaron Hurst, Adam Lerer, Adam P Goucher, Adam Perel-
+man, Aditya Ramesh, Aidan Clark, AJ Ostrow, Akila Weli-
+hinda, Alan Hayes, Alec Radford, et al. Gpt-4o system card.
+arXiv preprint arXiv:2410.21276, 2024. 1, 2, 4, 6
+[15] Chao Jia, Yinfei Yang, Ye Xia, Yi-Ting Chen, Zarana Parekh,
+Hieu Pham, Quoc Le, Yun-Hsuan Sung, Zhen Li, and Tom
+Duerig. Scaling up visual and vision-language representation
+learning with noisy text supervision. In ICML, 2021. 2
+[16] Mengdi Jia, Zekun Qi, Shaochen Zhang, Wenyao Zhang,
+Xinqiang Yu, Jiawei He, He Wang, and Li Yi. Omnispatial:
+Towards comprehensive spatial reasoning benchmark for vi-
+sion language models.
+arXiv preprint arXiv:2506.03135,
+2025. 1
+[17] Aitor Lewkowycz,
+Anders Andreassen,
+David Dohan,
+Ethan Dyer, Gaurav Mishra, Sharan Narang Singh, Ruslan
+Salakhutdinov, Xuezhi Wang, Jason Wei, Da Zhou, et al.
+Solving quantitative reasoning problems with language mod-
+els. arXiv preprint arXiv:2206.14858, 2022. 3
+[18] Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li,
+Hao Zhang, Kaichen Zhang, Peiyuan Zhang, Yanwei Li, Zi-
+wei Liu, et al. Llava-onevision: Easy visual task transfer.
+arXiv preprint arXiv:2408.03326, 2024. 6
+[19] Junnan Li, Dongxu Li, Silvio Savarese, and Steven Hoi.
+Blip-2:
+Bootstrapping language-image pre-training with
+frozen image encoders and large language models. In ICML.
+PMLR, 2023. 2
+[20] Lingxiao Li, Minhyuk Sung, Anastasia Dubrovina, Li Yi,
+and Leonidas J Guibas. Supervised fitting of geometric prim-
+itives to 3d point clouds. In IEEE Conf. Comput. Vis. Pattern
+Recog., 2019. 3
+
+
+--- PAGE 9 ---
+[21] Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee.
+Visual instruction tuning. arXiv preprint arXiv:2304.08485,
+2023. 2
+[22] Haoyu Lu, Wen Liu, Bo Zhang, Bingxuan Wang, Kai
+Dong, Bo Liu, Jingxiang Sun, Tongzheng Ren, Zhuoshu Li,
+Hao Yang, et al. Deepseek-vl: towards real-world vision-
+language understanding. arXiv preprint arXiv:2403.05525,
+2024. 6
+[23] Chenyang Ma, Kai Lu, Ta-Ying Cheng, Niki Trigoni, and
+Andrew Markham.
+Spatialpin: Enhancing spatial reason-
+ing capabilities of vision-language models through prompt-
+ing and interacting 3d priors. In Adv. Neural Inform. Process.
+Syst., 2024. 2
+[24] Xianzheng Ma, Yash Bhalgat, Brandon Smart, Shuai Chen,
+Xinghui Li, Jian Ding, Jindong Gu, Dave Zhenyu Chen,
+Songyou Peng, Jia-Wang Bian, et al.
+When llms step
+into the 3d world: A survey and meta-analysis of 3d tasks
+via multi-modal large language models.
+arXiv preprint
+arXiv:2405.10255, 2024. 1
+[25] Yuchen Pan, Hao Li, Wei Zhang, Jing Xu, and Yang Liu.
+Geologic: Enhancing geometric reasoning in multimodal
+large language models through symbolic verification. arXiv
+preprint arXiv:2504.12773, 2025. 1
+[26] Charles R. Qi, Li Yi, Hao Su, and Leonidas J. Guibas. Point-
+net++: Deep hierarchical feature learning on point sets in a
+metric space. In Adv. Neural Inform. Process. Syst., 2017. 3
+[27] Zhangyang Qi, Zhixiong Zhang, Ye Fang, Jiaqi Wang, and
+Hengshuang Zhao. Gpt4scene: Understand 3d scenes from
+videos with vision-language models.
+In arXiv preprint
+arXiv:2501.01428, 2025. 2
+[28] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learn-
+ing transferable visual models from natural language super-
+vision. In ICML, 2021. 2
+[29] Ruwen Schnabel, Roland Wahl, and Reinhard Klein. Effi-
+cient ransac for point-cloud shape detection. In Computer
+graphics forum, 2007. 3
+[30] Jonas Schult, Francis Engelmann, Theodora Kontogianni,
+and Bastian Leibe. Mask3d: Mask transformer for 3d se-
+mantic instance segmentation. In Int. Conf. Comput. Vis.,
+2023. 3
+[31] Gemini Team, Rohan Anil, Sebastian Borgeaud, Jean-
+Baptiste Alayrac, Jiahui Yu, Radu Soricut, Johan Schalkwyk,
+Andrew M Dai, Anja Hauth, Katie Millican, et al. Gemini: a
+family of highly capable multimodal models. arXiv preprint
+arXiv:2312.11805, 2023. 1, 4
+[32] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell,
+Libin Bai, Anmol Gulati, Garrett Tanzer, Damien Vincent,
+et al.
+Gemini 1.5: Unlocking multimodal understanding
+across millions of tokens of context, 2024. URL https://arxiv.
+org/abs/2403.05530, 2024. 2, 6
+[33] Jianyuan Wang, Minghao Chen, Nikita Karaev, Andrea
+Vedaldi, Christian Rupprecht, and David Novotny. Vggt: Vi-
+sual geometry grounded transformer. In IEEE Conf. Comput.
+Vis. Pattern Recog., 2025. 1
+[34] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan,
+Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin
+Ge, Yang Fan, Kai Dang, Mengfei Du, Xuancheng Ren, Rui
+Men, Dayiheng Liu, Chang Zhou, Jingren Zhou, and Jun-
+yang Lin. Qwen2-vl: Enhancing vision-language model’s
+perception of the world at any resolution.
+arXiv preprint
+arXiv:2409.12191, 2024. 1
+[35] Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc V. Le,
+Ed H. Chi, Sharan Narang, Aakanksha Chowdhery, and
+Denny Zhou.
+Self-consistency improves chain of thought
+reasoning in language models. In ICLR, 2023. 3
+[36] Yifan Wang, Jianjun Zhou, Haoyi Zhu, Wenzheng Chang,
+Yang Zhou, Zizun Li, Junyi Chen, Jiangmiao Pang, Chun-
+hua Shen, and Tong He. π3: Permutation-equivariant visual
+geometry learning. arXiv preprint arXiv:2507.13347, 2025.
+1, 4
+[37] Zehan Wang, Haifeng Huang, Yang Zhao, Ziang Zhang, and
+Zhou Zhao. Chat-3d: Data-efficiently tuning large language
+model for universal dialogue of 3d scenes. arXiv preprint
+arXiv:2308.08769, 2023. 2
+[38] Runsen Xu, Xiaolong Wang, Tai Wang, Yilun Chen, Jiang-
+miao Pang, and Dahua Lin. Pointllm: Empowering large
+language models to understand point clouds. In Eur. Conf.
+Comput. Vis., 2024. 2
+[39] Jihan Yang, Shusheng Yang, Anjali W. Gupta, Rilyn Han,
+Li Fei-Fei, and Saining Xie. Thinking in space: How mul-
+timodal large language models see, remember, and recall
+spaces. In IEEE Conf. Comput. Vis. Pattern Recog., 2025.
+1, 2, 4, 5
+[40] Baiqiao Yin, Qineng Wang, Pingyue Zhang, Jianshu Zhang,
+Kangrui Wang, Zihan Wang, Jieyu Zhang, Keshigeyan Chan-
+drasegaran, Han Liu, Ranjay Krishna, et al. Spatial mental
+modeling from limited views. In Structural Priors for Vision
+Workshop at ICCV’25, 2025. 2, 4, 5
+[41] Jiaxin Zhang, Zhongzhi Li, Mingliang Zhang, Fei Yin,
+Chenglin Liu, and Yashar Moshfeghi. Geoeval: benchmark
+for evaluating llms and multi-modal models on geometry
+problem-solving.
+arXiv preprint arXiv:2402.10104, 2024.
+3
+[42] Weichen Zhang, Ruiying Peng, Chen Gao, Jianjie Fang, Xin
+Zeng, Kaiyuan Li, Ziyou Wang, Jinqiang Cui, Xin Wang,
+Xinlei Chen, and Yong Li. The point, the vision and the text:
+Does point cloud boost spatial reasoning of large language
+models? arXiv preprint arXiv:2504.04540, 2025. 1, 6
+[43] Duo Zheng, Shijia Huang, Yanyang Li, and Liwei Wang.
+Learning from videos for 3d world: Enhancing mllms with
+3d vision geometry priors. arXiv preprint arXiv:2505.24625,
+2025. 5, 6
+[44] Duo Zheng, Shijia Huang, and Liwei Wang. Video-3d llm:
+Learning position-aware video representation for 3d scene
+understanding. In IEEE Conf. Comput. Vis. Pattern Recog.,
+2025. 2
+[45] Denny Zhou, Quoc V. Le, Dale Schuurmans, Ed H. Chi, and
+et al. Least-to-most prompting enables complex reasoning in
+large language models. In ICLR, 2023. 3
+[46] Chenming Zhu, Tai Wang, Wenwei Zhang, Jiangmiao Pang,
+and Xihui Liu. Llava-3d: A simple yet effective pathway
+to empowering lmms with 3d-awareness.
+arXiv preprint
+arXiv:2409.18125, 2024. 2, 3
+
+
+--- PAGE 10 ---
+[47] Chuhang Zou, Ersin Yumer, Jimei Yang, Duygu Ceylan, and
+Derek Hoiem. 3d-prnn: Generating shape primitives with
+recurrent neural networks. In Int. Conf. Comput. Vis., 2017.
+3
+
+

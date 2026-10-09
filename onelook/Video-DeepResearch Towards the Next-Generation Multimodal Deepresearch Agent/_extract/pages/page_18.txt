@@ -1,0 +1,21 @@
+Prompt for Deep Research Answer Verification
+[ROLE & TASK]
+You are an impartial judge evaluating whether a deep research report contains the correct answer.
+Task: Determine if the deep research report contains the correct answer anywhere in its content.
+[EXECUTION RULES]
+• Thoroughness: Read through the entire research report carefully.
+• Search Strategy: Look for the correct answer anywhere in the report (it may be embedded in paragraphs,
+tables, or sections).
+• Consistency Check: Check if the information in the report is consistent with the correct answer.
+• Format Independence: The answer does NOT need to be in a specific format or labeled as "final answer".
+• Verdict Criteria: Answer with "yes" if the report contains the correct answer, "no" if it doesn’t or
+contradicts it.
+• Reasoning: You must provide your reasoning to justify your final verdict.
+[INPUT DATA]
+Question: {question}
+Correct Answer: {reference_answer}
+Deep Research Report: {assistant_answer}
+[OUTPUT FORMAT]
+correct: [yes/no]
+reasoning: [your explanation]
+Figure 7: The structured evaluation prompt for determining if a deep-research report contains the correct answer.

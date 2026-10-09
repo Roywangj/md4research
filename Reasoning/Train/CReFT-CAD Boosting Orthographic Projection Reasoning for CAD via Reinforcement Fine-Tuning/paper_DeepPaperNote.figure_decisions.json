@@ -1,0 +1,214 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "title:1b6efc9f4e56",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "(a) (b) show the results of parameterization tasks of orthographic projection reasoning",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Constraint-driven synthesis pipeline for TriView2CAD.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Examples of Real-World",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_004_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_004_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Diagram design of three tasks in curriculum-driven reinforcement fine-tuning.",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:model-3",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_005_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_005_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_005_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Four sets of failure cases. Each set consists of three parts: the left part shows the",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:results",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_022_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_022_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_022_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_008_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_008_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Ablation study results.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_009_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_009_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Performance comparison of various VLMs on orthographic projection reasoning tasks.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:results",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_020_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_020_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_020_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Performance comparison of training-free model, SFT model,and our GRPO-based model on",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:results",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_021_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_021_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-af80133fdad29bc33/tmp/DeepPaperNote/assets/CReFT_CAD_Boosting_Orthographic_Projection/images/page_021_fig_table_4.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 9,
+    "by_decision": {
+      "insert": 8,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

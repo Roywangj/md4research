@@ -1,0 +1,18 @@
+{
+  "paper_id": "doi:10.48550/arxiv.2607.13454",
+  "source": "local PDF plus extracted raw sections",
+  "status": "grounded",
+  "checks": {
+    "abstract": true,
+    "method": true,
+    "training": true,
+    "experiments": true,
+    "ablations": true,
+    "limitations": true,
+    "reproducibility": true
+  },
+  "caveats": [
+    "论文正文未提供系统失败案例；笔记明确区分了可证实的边界与未证明的成功。",
+    "主结果正文将 ViewSpatial 增益概括为 10.7%，但 Table 1 的 37.2 到 47.0 是 9.8 个百分点；笔记优先保留表格数值。"
+  ]
+}

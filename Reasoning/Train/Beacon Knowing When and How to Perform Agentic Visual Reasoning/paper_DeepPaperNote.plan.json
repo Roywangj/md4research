@@ -1,0 +1,137 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文以 Qwen3-VL-8B-Instruct 为基座，通过 cold-start SFT 与 GRPO 强化学习训练一个能判断何时使用 Python 视觉工具、并能从工具结果继续推理的模型；主要贡献是评测定义、训练数据管线、奖励与 rollout 机制，而非训练自由的提示框架。",
+  "dominant_domain": "agentic multimodal visual reasoning with adaptive executable tools",
+  "must_cover": [
+    "Mode Adaptiveness 与 Tool Effect 的定义，以及为什么只报告 tool-available accuracy 会掩盖工具收益与伤害。",
+    "以五次 text-only rollout 划分 text-easy、text-hard 和 ambiguous 样本的评测协议。",
+    "SFT 数据从 16 个数据源筛选、由 Gemini 3.1 Pro 合成并精炼代码轨迹的过程。",
+    "Necessity-Aware Adaptive Reward 如何按当前 policy 的组内结果在线决定 text/code 偏好。",
+    "Hint-Guided Capability Expansion 如何把全错组转化为有相对优势的训练信号，并在更新时移除 hint。",
+    "13 个基准的主结果、工具净收益、消融、训练动态、失败尝试和复现成本。"
+  ],
+  "key_numbers": [
+    "SFT 原始数据 212,353 条，筛选后保留 15,705 条；RL 原始数据 45,886 条，保留 15,709 条。",
+    "Beacon 在 13 个基准中 11 个取得开源模型最佳，平均相对 Qwen3-VL-8B-Instruct 提升 6.07 分。",
+    "13 基准平均分为 58.98，Metis 为 56.67，Qwen3-VL-8B-Instruct 为 53.09。",
+    "五个诊断数据集上 Tool-Available Acc. 53.53%，Tool-Free Acc. 51.57%，差值为 +1.96。",
+    "平均 MAtool 94.75%，MAtext 22.91%，MAmean 58.83%；Tool-Gain 9.29%，Tool-Harm 6.15%，净工具效应 +3.14%。",
+    "消融中 GRPO、GRPO+NAAR、GRPO+HCE、完整 Beacon 的平均净工具效应依次为 +1.40、+2.54、+2.96、+3.14。",
+    "HCE 将约 40% 的初始全错组转化为具有非零 accuracy advantage 的组。",
+    "SFT 训练 4 epoch、峰值学习率 1e-5；RL 训练 1 epoch、学习率 1e-6、group size 128。",
+    "RL 使用 64 张 NVIDIA H200、每题 8 个 rollout、最大序列 30,720 tokens、每条最多 12 次工具调用。"
+  ],
+  "real_comparisons": [
+    "Beacon 与 Qwen3-VL-8B-Instruct、Pixel-Reasoner、Thyme、DeepEyesV2、CodeV、PyVision-RL、Metis 以及 Gemini 3.1 Pro 的 13 基准比较。",
+    "Thyme、DeepEyesV2、CodeV、Metis 与 Beacon 在 Tool-Available/Tool-Free accuracy、MA 与 Tool Effect 上的比较。",
+    "仅 SFT、SFT+GRPO、加入 NAAR、加入 HCE 与完整方案的组件消融。",
+    "正常 rollout 组、包含正确 text response 的组、仅 code 正确的组、hinted 全错组的训练动态比较。",
+    "论文采用的在线 mode-conditioned 标签与 CodeDance、AdaTooler-V、Metis 的适应性目标比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "现有 agentic visual reasoning 模型的工具调用通常不适应题目难度，工具在难题上的收益也常被简单题上的伤害抵消。",
+      "supporting_evidence": ["sec:analysis", "sec:analysis-2"],
+      "what_it_actually_proves": "在五个诊断数据集、每题五次采样和论文定义的 text-easy/text-hard 划分下，多数被测模型的 MAmean 接近 50% 随机基线且净工具效应接近零。",
+      "what_it_does_not_prove": "不能推出所有视觉工具或所有 agent 模型都无效；结论依赖所选模型、提示、数据集和二值正确性判定。"
+    },
+    {
+      "claim": "NAAR 能提高推理模式适应性，同时避免把所有正确代码解一律惩罚为零。",
+      "supporting_evidence": ["sec:method", "sec:appendix-d-1", "sec:results"],
+      "what_it_actually_proves": "在作者的 GRPO 训练设置中，加入 NAAR 后五个诊断数据集平均 MAmean 从 56.30 提升到 59.68，净工具效应从 +1.40 提升到 +2.54。",
+      "what_it_does_not_prove": "完整 Beacon 的 MAmean 58.83 低于 NAAR-only 的 59.68，因此不能声称 HCE 进一步提高了所有适应性指标。"
+    },
+    {
+      "claim": "HCE 能从常规 RLVR 无梯度区分度的全错组中恢复有效轨迹，并扩大工具使用的能力边界。",
+      "supporting_evidence": ["sec:method", "sec:appendix-d-1", "sec:discussion-2"],
+      "what_it_actually_proves": "训练日志显示约 40% 初始全错组被转成非零 accuracy advantage，GRPO+HCE 的平均净工具效应为 +2.96，高于 GRPO 的 +1.40。",
+      "what_it_does_not_prove": "实验没有隔离 Gemini 提示质量、额外采样预算与 hint 机制本身的贡献，也没有与等算力 rejection sampling 做严格对照。"
+    },
+    {
+      "claim": "Beacon 在不明显削弱 text-only 基线能力的前提下获得更强的综合视觉推理成绩。",
+      "supporting_evidence": ["sec:experiments", "sec:analysis-2", "sec:appendix-d-1"],
+      "what_it_actually_proves": "Beacon 在 13 个基准的开源模型平均结果最佳，并在五个诊断集上保持 51.57% 的 Tool-Free Acc. 和 91.00% Text-Retain。",
+      "what_it_does_not_prove": "MathVista 的净工具效应仍为 -0.38，且 MAtext 只有 22.91%，不能把 Beacon 描述为已充分避免不必要代码调用。"
+    }
+  ],
+  "claim_boundaries": [
+    "Beacon 是需要 SFT 和 RL 的 Train 方法，不是 TrainingFree 推理框架。",
+    "MAtext 较低意味着模型总体仍偏好 code；MAmean 最佳不等于在简单题上已实现高效少调用。",
+    "Tool-Gain 与 Tool-Harm 是按全部样本 N 归一化的绝对比例，不是 text-hard/text-easy 子集内部准确率。",
+    "HCE 在训练阶段依赖 Gemini 3.1 Pro 生成正确专家轨迹和答案无泄漏的 hint，开放权重本身并不包含这部分可复现实验服务。",
+    "13 基准平均分跨任务量纲简单平均，只能描述这套 benchmark 组合，不能视为通用智能的单一标尺。",
+    "论文是 arXiv v1 且标注 Work in progress，代码和模型虽给出链接，实验细节与结论仍可能更新。"
+  ],
+  "negative_or_limiting_results": [
+    "Beacon 的平均 MAtext 仅 22.91%，说明它对 text-easy 样本仍频繁调用工具。",
+    "MathVista 上 Tool-Gain 5.98%、Tool-Harm 6.36%，净工具效应为 -0.38%。",
+    "完整 Beacon 的 MAmean 58.83 低于 GRPO+NAAR 的 59.68，HCE 带来的能力扩展与模式适应性存在权衡。",
+    "更激进的 forced-text adaptive reward 会使 code-use ratio 崩塌，并损害 V* 与 HRBench 等感知密集型任务。",
+    "hint 生成依赖闭源 Gemini 3.1 Pro，额外 expert attempts、tool calls 和 64 张 H200 训练资源提高了复现门槛。",
+    "语义答案判定在规则匹配失败时依赖 Gemini 3.1 Pro 或 Gemini 3 Flash，评测并非完全确定或完全开源。",
+    "论文未报告端到端延迟、Python 沙箱失败率、平均工具轮数和 hint 生成成本的完整账本。"
+  ],
+  "mechanism_result_map": [
+    "五次 text-only rollout 给出在线难度信号，支撑 text-easy/text-hard 的 MA 与 Tool Effect 分解。",
+    "SFT 用精炼的代码轨迹建立基础工具协议，解决直接 RL 难以稳定诱导调用的问题。",
+    "NAAR 对有正确 text 解的组给 text 满奖励、code 0.25 奖励；对没有正确 text 解的组给正确 code 满奖励，对应 MAmean 的提升。",
+    "HCE 为全错组生成验证过的 answer-free hint，再以原 prompt 计算新 policy 概率，把 hint-assisted 轨迹迁回无 hint policy，对应净工具效应与全错组转化率提升。",
+    "0.9 adaptive reward 与 0.1 format reward 组合后做组内标准化，既优化答案/模式又约束 tool/observation/answer 结构。",
+    "训练期间 text/code 输出比例基本稳定而 mode-label alignment 持续上升，说明收益更像条件选择改善，而不是简单增加或减少代码比例。"
+  ],
+  "comparative_positioning": [
+    "相对只报告 aggregate accuracy 的工具模型，Beacon 首先把工具价值拆为‘该不该用’与‘用了是否真有净收益’两个诊断轴。",
+    "相对 CodeDance 的 group-accuracy 奖励，NAAR 对每条 trajectory 是否实际调用工具进行条件化，减少误惩罚成功 code 轨迹。",
+    "相对 AdaTooler-V 的固定 teacher 标签，Beacon 用当前 policy 的 text/code 成功情况在线标注，降低 teacher-policy 分布错配。",
+    "相对 Metis 的普遍少调用目标，NAAR 在 text 解失败时明确奖励 code，避免一味节省工具调用。",
+    "相对普通 GRPO 丢弃全错组，HCE 用专家轨迹提取 hint，把困难样本变成可学习组；代价是闭源教师和额外计算。"
+  ],
+  "reuse_takeaways": [
+    "评估工具代理时应同时报告 tool-free、tool-available、调用比例、工具带来的 gain 与 harm，避免只看总分。",
+    "工具必要性标签最好与当前 policy、实际 reasoning mode 和多次采样绑定，而非由固定教师单次决定。",
+    "对正确但不必要的工具解使用软惩罚通常比零奖励更稳，能减少效率目标与任务正确性的冲突。",
+    "全错组不是无价值数据；可以通过经过验证且不含最终答案的中间提示恢复探索，但要单独核算教师与采样成本。",
+    "hint-assisted trajectory 回灌无 hint policy 时，必须明确 old/new policy 的条件概率分母，避免把提示依赖直接带到推理阶段。",
+    "在 3D agent 中可把 code tool 替换为视角选择、点云裁剪、渲染、测量和几何求解器，并沿用 MA/Tool Effect 诊断框架。"
+  ],
+  "followup_questions": [
+    "若控制总 rollout 与 Gemini token 预算，HCE 相对更多无提示采样、best-of-N 和 rejection sampling 的净收益是多少？",
+    "MA 与 Tool Effect 对 text-easy/text-hard 阈值（4/5 与 1/5）的敏感性如何？",
+    "将 Tool-Harm 分成不必要调用导致的错误、代码执行错误和观察利用错误后，各部分占比是多少？",
+    "NAAR 中正确 code 在 text-solvable 组的 0.25 奖励是否最优，能否根据估计成本或置信度连续变化？",
+    "HCE 的 hint 是否对 expert model、提示词和任务类别敏感，是否存在隐式答案泄漏？",
+    "扣除多轮视觉编码与 Python 执行延迟后，Beacon 在真实部署中的 accuracy-cost Pareto 前沿如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "把 agentic visual reasoning 的目标从‘能调用工具’重写为‘按必要性调用且获得正净收益’，并解释现有评测为何不足。",
+      "evidence_sources": ["sec:abstract", "sec:introduction", "sec:analysis"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "说明 text-easy/text-hard 划分、SFT/RL 数据筛选、16 个训练来源、13 个评测基准以及五个诊断集。",
+      "evidence_sources": ["sec:analysis", "sec:method", "sec:experiments", "sec:discussion"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "沿基础工具能力建立、NAAR 在线模式奖励、HCE 全错组再探索、正常与 hinted rollout 联合 GRPO 四步链解释算法。",
+      "evidence_sources": ["sec:method", "sec:results"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "以主结果表、五数据集工具诊断、组件消融和训练动态说明性能、适应性与净工具效应，同时保留 MathVista 负结果。",
+      "evidence_sources": ["sec:experiments", "sec:analysis-2", "sec:appendix-d-1"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "解释为何软模式奖励和 hint 回灌有效，区分指标贡献与工程成本，并与相邻视觉工具模型和 3D agent 研究连接。",
+      "evidence_sources": ["sec:related-work", "sec:method", "sec:appendix-d-1", "sec:discussion-2"]
+    },
+    {
+      "section": "局限",
+      "focus": "记录 MAtext 偏低、MathVista 净伤害、闭源教师依赖、算力与评测器成本、延迟缺失及 arXiv v1 边界。",
+      "evidence_sources": ["sec:analysis-2", "sec:results", "sec:discussion-2"]
+    }
+  ]
+}

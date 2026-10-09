@@ -1,0 +1,254 @@
+{
+  "status": "ok",
+  "paper_id": "arXiv:2606.20092v2",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of EventVLA: (a) non-Markovian challenge, (b) proposed RoboTwin-MeM and real-world benchmarks, (c) event-driven memory design, and (d) strong gains across simulation and real-world tasks.",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "全文核心概览图，包含非马尔可夫反例、基准概括、VLA vs EventVLA 结构及主结果柱状图。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "研究问题",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![图 1: EventVLA 概览](images/page_002_fig_figure_1.png)",
+      "source_image_path": "images/page_002_fig_figure_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "EventVLA framework: maintaining sparse visual evidence memory (visual anchors + keyframe event memory) and proactive delayed commit via KEM.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "方法架构总览图，清晰呈现 VLA Backbone、Action Head、Keyframe Head、前瞻预测与延迟提交管道。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![图 2: EventVLA 框架流程](images/page_004_fig_figure_2.png)",
+      "source_image_path": "images/page_004_fig_figure_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Overview of the 8 evaluation tasks in the RoboTwin-MeM benchmark with intermediate keyframe parameter n in [1, 5].",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:benchmark",
+      "decision": "insert",
+      "reason": "RoboTwin-MeM 8 项任务全局图解，蓝色边框清晰指示关键帧位置，直观呈现任务挑战。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_005_fig_figure_3.png",
+      "relative_markdown_embed": "![图 3: RoboTwin-MeM 基准任务概览](images/page_005_fig_figure_3.png)",
+      "source_image_path": "images/page_005_fig_figure_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Real-world experimental setups and results on the ARX ACONE bimanual robot across four non-Markovian tasks.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "真机实验设置与 4 任务对比柱状图，直观展现 EventVLA 相对基线的高额提升。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与长时程操作验证",
+      "plan_kind": "experimental_result",
+      "source_image_filename": "page_008_fig_figure_4.png",
+      "relative_markdown_embed": "![图 4: 真机实验设置与成功率](images/page_008_fig_figure_4.png)",
+      "source_image_path": "images/page_008_fig_figure_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Expanded real-world execution sequences of EventVLA across the four manipulation tasks with blue-bordered keyframes.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix",
+      "decision": "insert",
+      "reason": "真机完整长时程执行步骤展开图，真实印证物理关键帧捕获与记忆调用的时序一致性。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "真实机器人实验与长时程操作验证",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_016_fig_figure_5.png",
+      "relative_markdown_embed": "![图 5: 真机展开时序图](images/page_016_fig_figure_5.png)",
+      "source_image_path": "images/page_016_fig_figure_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Overall average success rates on RMBench.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "transcribe_in_note",
+      "reason": "重要基准主表，完整转录并与消融和基线深度对比。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "主结果与强基线",
+      "plan_kind": "benchmark_table",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_006_fig_table_1.png",
+      "materialization_status": "transcribed"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "RoboTwin-MeM benchmark results and ablations.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "transcribe_in_note",
+      "reason": "核心主结果与全部消融变体表，全文最关键数据源，完整转录为 Markdown 表格。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "主结果与强基线",
+      "plan_kind": "benchmark_table",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_007_fig_table_2.png",
+      "materialization_status": "transcribed"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "RoboTwin 2.0 benchmark results on Markovian tasks.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "transcribe_in_note",
+      "reason": "证明记忆模块不损害基础马尔可夫控制性能的关键验证，完整转录为 Markdown 表格。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "主结果与强基线",
+      "plan_kind": "benchmark_table",
+      "source_image_filename": "page_007_fig_table_3.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_007_fig_table_3.png",
+      "materialization_status": "transcribed"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Detailed statistics of our proposed RoboTwin-MeM Benchmark.",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:benchmark",
+      "decision": "transcribe_in_note",
+      "reason": "新基准 8 项任务的步长、关键帧数、语言指令与挑战类型的完整定义，转录为 Markdown 表格。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_table",
+      "source_image_filename": "page_015_fig_table_4.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_015_fig_table_4.png",
+      "materialization_status": "transcribed"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "RMBench per-task benchmark results.",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "transcribe_in_note",
+      "reason": "RMBench 9 项子任务的展开细表，完整转录以支持对该基准协议审计的严密论证。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "主结果与强基线",
+      "plan_kind": "benchmark_table",
+      "source_image_filename": "page_019_fig_table_8.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_019_fig_table_8.png",
+      "materialization_status": "transcribed"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Ablation study on EventVLA's inference speed (latency and throughput).",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix",
+      "decision": "transcribe_in_note",
+      "reason": "推理延迟与吞吐量量化表，对于评估物理机器人实时可部署性至关重要，完整转录为 Markdown 表格。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "消融到底说明了什么",
+      "plan_kind": "efficiency_table",
+      "source_image_filename": "page_020_fig_table_9.png",
+      "relative_markdown_embed": "",
+      "source_image_path": "images/page_020_fig_table_9.png",
+      "materialization_status": "transcribed"
+    }
+  ],
+  "summary": {
+    "figures_inserted": 5,
+    "figures_visual_defect": 0,
+    "tables_transcribed_in_note": 6,
+    "all_inserted_assets_materialized": true
+  }
+}

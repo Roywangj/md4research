@@ -1,0 +1,15 @@
+{
+  "note_file": "paper_DeepPaperNote.md",
+  "decisions": [
+    {"source":"Figure 1","decision":"selected","path":"images/page_001_fig_figure_1.png","reason":"Motivates mechanics inconsistency versus StatePlay."},
+    {"source":"Figure 2","decision":"selected","path":"images/page_002_fig_figure_2.png","reason":"Shows state-to-frame mechanism with timer, HP, and skill meter."},
+    {"source":"Figure 3","decision":"selected","path":"images/page_004_fig_figure_3.png","reason":"Shows dual-branch MoT and joint attention data flow."},
+    {"source":"Table 1","decision":"selected_as_transcription","path":"assets/page_006_table_1_2.png","reason":"Primary quantitative comparison; values transcribed in detailed reader."},
+    {"source":"Table 2","decision":"selected_as_transcription","path":"assets/page_006_table_1_2.png","reason":"Ablation directly supports architecture/loss claims."},
+    {"source":"Figure 4","decision":"selected","path":"images/page_007_fig_figure_4.png","reason":"Qualitatively illustrates super-art and terminal-state correctness."},
+    {"source":"Table 3/4 and Figure 5","decision":"selected_as_transcription","path":"assets/page_010_table_3_figure_5.png","reason":"Documents model scale, data criteria, and NPC strategy prompt."},
+    {"source":"Figure 6","decision":"selected","path":"images/page_011_figure_6.png","reason":"Documents mechanics-fidelity evaluator rules and references."},
+    {"source":"Table 5 and Figure 7","decision":"selected_as_transcription","path":"assets/page_012_fig_figure_7_table_5.png","reason":"Supports noisy state input and additional qualitative evidence."}
+  ],
+  "asset_caveat": "The source PDF's dense vector/multi-panel layout led to rendered-page extracts rather than perfectly tight individual panel crops."
+}

@@ -1,0 +1,335 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes a training-free inference-time method for efficient interleaved multimodal chain-of-thought reasoning.",
+  "dominant_domain": "Multimodal reasoning, visually grounded reasoning, efficient interleaved visual-text chain-of-thought.",
+  "must_cover": [
+    "DaP-ICoT addresses two ICoT limits: static visual insertion and broken visual representations.",
+    "DVTI uses logit-margin confidence to decide whether a visual thought is needed.",
+    "PVTG uses SAM2 object segmentation and attention-based relevance to choose a coherent object image.",
+    "Main results span M3CoT, ScienceQA, and MME across five MLLMs.",
+    "Efficiency evidence includes 314 average tokens and a 72.6% reduction compared with ICoT."
+  ],
+  "key_numbers": [
+    "Chameleon-7B M3CoT zero-shot: DaP-ICoT 41.0 vs SCAFFOLD 31.0 and ICoT 26.1.",
+    "Qwen2-VL-7B: M3CoT 57.2/58.7, ScienceQA 75.9/78.5, MME 2012.2/2076.0 under zero-shot/one-shot.",
+    "Ablation on Qwen2-VL-7B: full 57.2 and 75.9; without PVTG 43.4 and 55.5; without DVTI 42.8 and 55.1.",
+    "Token accounting: DaP-ICoT 314 average tokens vs ICoT 1,146, CCoT 1,294, DDCoT 1,426.",
+    "Image usage: DaP-ICoT inserts about 1.2 images per sample vs ICoT about 2.6; average inserted image tokens about 26.",
+    "Confidence: DaP-ICoT improves confidence in 80.7% of samples vs ICoT 46.4%.",
+    "Threshold search: tau equals 0.2 yields 57.2% zero-shot and 58.7% one-shot on M3CoT with Qwen2-VL-7B."
+  ],
+  "real_comparisons": [
+    "Compared with ICoT, DaP-ICoT changes fixed per-step visual insertion into confidence-triggered insertion.",
+    "Compared with ICoT patch-level visual snippets, DaP-ICoT uses SAM2 object-level candidates to reduce broken visual thoughts.",
+    "Compared with CCoT and DDCoT, DaP-ICoT reports lower token consumption while retaining stronger M3CoT results.",
+    "Compared with DeepScan and REALM in the local Reasoning map, DaP-ICoT is still an inference-time evidence insertion method, but the evidence unit is an object image inside interleaved CoT."
+  ],
+  "central_claims": [
+    {
+      "claim": "Dynamic visual insertion improves both effectiveness and efficiency over fixed ICoT insertion.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            6
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The method can reduce redundant visual insertion and improves reported benchmark results under the authors' evaluation settings.",
+      "what_it_does_not_prove": "It does not prove that the same threshold will generalize without tuning to every dataset, model family, or deployment setting."
+    },
+    {
+      "claim": "Object-level visual guidance is more useful than fragmented visual token selection.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:analysis",
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            7
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The PVTG ablation and qualitative case support the claim that coherent object images help the tested models.",
+      "what_it_does_not_prove": "It does not isolate whether gains come from semantic completeness, SAM2 quality, or extra object-centric preprocessing."
+    },
+    {
+      "claim": "DaP-ICoT is a training-free route for more efficient thinking with images.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:methods",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            6
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The method is implemented as inference-time control and reports lower inserted visual content cost.",
+      "what_it_does_not_prove": "It is not tool-free because PVTG relies on SAM2 segmentation and attention-based matching."
+    }
+  ],
+  "claim_boundaries": [
+    "State-of-the-art claims are scoped to the listed reproduced baselines, models, and three benchmarks.",
+    "Efficiency is measured through token accounting and insertion frequency, not full wall-clock latency or segmentation overhead.",
+    "The method remains training-free for the MLLM parameters, but it uses external segmentation for object candidates.",
+    "The confidence threshold is tuned on M3CoT validation data, so threshold transfer is an open question."
+  ],
+  "negative_or_limiting_results": [
+    "Figure 7 indicates performance degrades at overly high thresholds after tau passes the moderate range.",
+    "Removing PVTG causes a large drop, showing the method is sensitive to visual selection quality.",
+    "Removing DVTI causes a similar drop, showing the method depends on the confidence trigger rather than simply adding better crops.",
+    "The paper does not report detailed segmentation failure cases or runtime cost for SAM2."
+  ],
+  "mechanism_result_map": [
+    "DVTI confidence threshold maps to reduced image insertion and 72.6% lower token consumption.",
+    "PVTG object-level selection maps to stronger ablation results and the Figure 8 qualitative correction.",
+    "The combination of DVTI and PVTG maps to full-table gains across Chameleon, LLaVA, and Qwen2-VL backbones.",
+    "Confidence improvement analysis maps inserted visual content to higher model certainty after visual insertion."
+  ],
+  "comparative_positioning": [
+    "In the Reasoning TrainingFree branch, DaP-ICoT is the efficiency-oriented successor to ICoT.",
+    "Relative to DeepScan, DaP-ICoT does not perform hierarchical search; it controls when and what to insert into CoT.",
+    "Relative to REALM, DaP-ICoT stays in 2D visual reasoning rather than 3DGS multi-view reasoning.",
+    "Relative to train-side papers such as PFlowNet or DeepEyes, DaP-ICoT does not change model parameters."
+  ],
+  "reuse_takeaways": [
+    "Use logit margin as a cheap internal uncertainty signal for when to call visual evidence.",
+    "Use complete object crops rather than scattered patch tokens when inserting images into reasoning.",
+    "Report both accuracy and visual-token cost when claiming thinking-with-images improvements.",
+    "For future 3D agent work, map DVTI-style triggers to when the agent should request a new view, crop, or 3D render."
+  ],
+  "followup_questions": [
+    "How much of the gain remains if SAM2 object proposals are noisy or unavailable?",
+    "Does tau learned on M3CoT transfer to MME or other fine-grained benchmarks without retuning?",
+    "What is the true wall-clock tradeoff after adding segmentation and object matching overhead?",
+    "Can the confidence trigger be calibrated per model rather than searched per validation set?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record bibliographic metadata, code link, benchmarks, model families, and training-free classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the abstract around the two ICoT defects, the two DaP-ICoT modules, and the 72.6% efficiency result.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Separate the real contribution into insertion timing, object-level representation, and evaluation discipline.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:analysis",
+          "pages": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Compress DaP-ICoT into a local Reasoning-map statement about efficient inference-time visual evidence insertion.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why previous ICoT is inefficient and semantically broken when it inserts visual content at every step.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Define the evaluated benchmarks, backbones, baselines, settings, metrics, and threshold tuning protocol.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methods",
+          "pages": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Trace the execution chain from confidence estimation to visual insertion and object-level interleaved reasoning.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:analysis",
+          "pages": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Use Table 1 and Figures 3 to 6 to connect accuracy, ablation, token use, insertion frequency, and confidence.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methods",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Assess what the method truly proves, why the numbers hold, and where threshold and segmentation dependence may limit claims.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:related-work",
+          "pages": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "List the concrete overclaim risks: validation-tuned threshold, SAM2 dependence, limited latency accounting, and unclear failure analysis.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methods",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:analysis-2",
+          "pages": [
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "Relate DaP-ICoT to the local 3D agent reading map and extract reusable design ideas.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "Record paper link, DOI, code, and source PDF for future citation and Zotero traceability.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:references",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ]
+    }
+  ]
+}

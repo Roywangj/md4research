@@ -1,0 +1,2776 @@
+--- PAGE 1 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary
+Long-Horizon Manipulation
+Siyi Chen1,2,
+Hugo Hadfield1,
+Alex Zook1,
+Mikaela Angelina Uy1,
+Chan Hee Song1,
+Erwin Coumans1,
+Xuning Yang1,
+Faisal Ladhak1,
+Qing Qu2,
+Stan Birchfield1,
+Jonathan Tremblay1†,
+Valts Blukis1†
+1NVIDIA
+2University of Michigan
+†Project Leads
+VoLoAgent Physical Orchestrator
+Task: "Put every item on the table into the bowl, except the red block and the tuna can"
+Planning
+Planned 4 subgoals
+Tool:
+VLA
+Subgoal 1: green block
+Monitor: subgoal complete
+Tool:
+VLA
+Subgoal 2: blue block
+Monitor: collision on bowl
+Tool:
+Molmo2 + place
+Monitor: subgoal complete
+Tool:
+VLA
+Subgoal 3: lemon
+Monitor: subgoal complete
+Tool:
+VLA
+Subgoal 4: orange
+Monitor: wrong object
+Tool:
+SAM3 + grasp
+Monitor:
+not complete
+Tool:
+VLA
+DONE
+RoboVoLo Benchmark
+4 suites · 15 categories · 126 tasks
+Task success rate
+Ours
+42%
+CaP-X
+10%
+𝜋!.#
+12%
+TiPToP
+12%
+Robot failures recovered
+𝜋!.#
+Ours
+VLM failures breakdown
+completion
+84
+tool use
+12
+planning
+4
+monitoring
+2
+Common Sense
+Infer · Kit · Recover · Sort
+Complex References
+Spatial · Size · Order · Negation
+World Knowledge
+Math · Art · Chem · Recycle
+Failure Diagnostics
+Real Robot
+Order · Recall · Swap
+Memory
+57/156
+105/64
+recovery 27% à 62%
+𝜋!.#
+Ours
+14%
+42.9%
+Success rate
+Figure 1: VoLo overview. VoLoAgent plans, monitors (e.g., subgoal complete), and uses tools (e.g., VLA,
+SAM3) to act and recover from failures (e.g., wrong object). RoboVoLo is a high-fidelity benchmark for
+evaluating and diagnosing open-vocabulary long-horizon manipulation.
+Abstract
+Open-vocabulary long-horizon manipulation requires robots to reason over flexible instructions and
+complex multi-object scenes while adaptively planning, executing, monitoring, and recovering from
+failures. We address these demands with a closed agent loop in which a VLM orchestrates heterogeneous
+robot capabilities as interruptible tools. Unlike in virtual AI agents, the timing of decisions, actions and
+tool calls is important in a physical world that does not pause for reasoning. We refer to this setting as
+Physical Orchestration, and propose VoLoAgent, a VLM that plans, monitors, and recovers by treating
+a VLA/WAM as an interruptible tool it steers mid-rollout alongside vision models and action primitives.
+To evaluate these long-horizon capabilities, we introduce RoboVoLo, a high-fidelity benchmark for
+open-vocabulary long-horizon manipulation across common sense, memory/state tracking, complex
+references, and world knowledge, with both task-level success and failure-mode diagnostics. Experiments
+show VoLoAgent substantially outperforms single VLA/VLM or tool-based systems, with validation on
+real-robot experiments. Project page: https://chicychen.github.io/VoLo/
+* Work done during an internship at NVIDIA.
+© 2026 NVIDIA. All rights reserved.
+arXiv:2606.07723v1  [cs.RO]  5 Jun 2026
+
+
+--- PAGE 2 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+1. Introduction
+Real-world manipulation is often open-vocabulary and long-horizon, rather than a template pick-and-place
+task. As illustrated in Fig. 1, when asked to “put every item on the table into the bowl, except the red block and
+the tuna can,” a robot must understand negative references such as “except,” plan over a sequence of objects,
+monitor whether each subgoal succeeds, and recover from failures such as picking the wrong object. These
+open-vocabulary long-horizon tasks require high-level capabilities including planning, reasoning over complex
+language, using world knowledge, spatial reasoning, and maintaining memory of the evolving scene. At the
+same time, they demand reliable embodied perception and precise low-level action skills.
+Existing manipulation approaches only partially address these challenges. End-to-end vision-language-action
+(VLA) models (Intelligence et al., 2025,, 2026) and world action models (WAMs) (Cheang et al., 2024; Gao
+et al., 2026; Kim et al., 2026; Li et al., 2026; Ye et al., 2026) exhibit precise manipulation, but lack robust
+planning, monitoring, and perception in the multi-object scenes typical of long-horizon tasks. LLM/VLM-driven
+code-as-policy methods (Fu et al., 2026; Liang et al., 2023; Singh et al., 2023), including tool-augmented
+variants (Chen et al., 2026), support explicit reasoning over perception and classical control primitives, but are
+limited by fixed toolsets and control APIs for contact-rich manipulation, while largely overlooking monitoring
+and recovery. Recent hierarchical systems pair a VLM planner with a VLA executor (Li et al., 2025; Lin et al.,
+2025; Liu et al., 2026; Shi et al., 2025; Yang et al., 2025; Yi et al., 2026), but usually hard-wire this control
+flow rather than adaptively composing VLA/WAMs with perception, action, monitoring, and recovery tools. In
+short, the VLA is treated as a fixed executor rather than one interruptible capability among many.
+We instead approach open-vocabulary long-horizon manipulation as physical orchestration: unlike a virtual
+agent, which can pause the world while it thinks, a physical agent must decide when to act, advance, or stop
+against a world that keeps moving (Sec. 4.1). We present VoLoAgent, an instantiation of this idea that unifies
+a VLA/WAM with perception models and grasp/place primitives as callable tools in a flexible VLM-managed
+agent loop, and outperforms hard-wired pipelines.
+To study this regime, we introduce RoboVoLo, a high-fidelity benchmark for open-vocabulary long-horizon
+manipulation built on RoboLab (Yang et al., 2026). Existing benchmarks (Kim et al., 2026; Liu et al., 2023;
+Yang et al., 2026; Zhu et al., 2020) often focus on short-horizon skills, overlook open-vocabulary reasoning,
+or use simplified scenes, leaving limited room to study long-horizon state tracking and adaptive recovery.
+RoboVoLo spans four suites: common sense, memory, complex references, and world knowledge, comprising
+15 task categories and 126 tasks in total. Comprehensive experiments show that VoLoAgent substantially
+outperforms standalone action models, code-as-policy systems, and TAMP-style baselines (i.e., task and motion
+planning). We further analyze both robot-level failures, such as wrong-object picks and stuck behavior, and
+VLM-level failures, such as planning mistakes, missed failure detection, and tool-use errors, to diagnose the
+strengths and limitations of tool-augmented robotic agents. Finally, we validate our findings on real Franka
+manipulation tasks, showing that orchestration substantially improves over a standalone action model.
+We make the following contributions:
+1. VoLoAgent, an adaptive tool-augmented robotic agent that uses a VLM to plan, reason, monitor, and
+recover by composing an interruptible VLA/WAM with perception models and classical action primitives
+callable tools in a single closed loop.
+2. RoboVoLo, a high-fidelity benchmark with 126 tasks for open-vocabulary long-horizon manipulation,
+spanning common sense, memory, references, and world knowledge, designed independently of the system.
+3. A large-scale empirical study comparing action models, code-as-policy systems, TAMP-style systems, and
+ablations of VoLoAgent orchestrator, complemented by real robotic experiments.
+2
+
+
+--- PAGE 3 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+2. Related Work
+Vision-Language-Action and World Action Models.
+End-to-end VLAs map observations and instructions
+directly to robot actions, achieving strong dexterity at scale (Brohan et al., 2023; Deshpande et al., 2026; Fang
+et al., 2026; Intelligence et al., 2025,, 2026; Jiang et al., 2023; Kim et al., 2024; Lee et al., 2025; Liu et al.,
+2025); world action models (WAMs) extend this line by jointly predicting future video and actions (Cheang
+et al., 2024; Gao et al., 2026; Kim et al., 2026; Li et al., 2026; Ye et al., 2026). Recent variants interleave explicit
+reasoning, dual-system architectures, chain-of-thought planning, or depth-aware spatial tokens (Intelligence
+et al., 2025; Lee et al., 2025; Zhang et al., 2024), and some push memory inside the policy via memory
+banks Shi et al. (2026) or multi-frame chunking Li et al. (2026). However, their action chunks still execute
+largely open-loop, limiting planning, reasoning, real-time monitoring, and tool-based recovery during execution.
+We instead use VLA/WAM as an interruptible tool inside a physical orchestrator.
+Agentic and Hierarchical Robot Frameworks.
+LLM- and VLM-driven program synthesis grounds high-level
+reasoning in robotic primitives via code generation (Fu et al., 2026; Liang et al., 2023; Singh et al., 2023) or
+closed-loop VLM verification (Huang et al., 2022; Zhi et al., 2025), with TAMP-augmented variants guiding
+symbolic task-and-motion planners (Shen et al., 2026; Yang et al., 2024). These remain limited by fixed
+primitive interfaces and largely overlook real-time monitoring and failure recovery. A parallel line stacks a
+VLM planner above a VLA executor (Duan et al., 2024; Lei et al., 2026; Li et al., 2025; Liu et al., 2026; Ma
+et al., 2026; Schakkal et al., 2025; Shi et al., 2025; Yang et al., 2026, 2025), sometimes paired with a critic
+for failure detection and replanning (Chen et al., 2026; Dai et al., 2024; Duan et al., 2025; Feng et al., 2025;
+Fu et al., 2026; Gu et al., 2025; Lin et al., 2025; Liufu et al., 2026; Mei et al., 2024; Pchelintsev et al., 2025;
+Skreta et al., 2024; Yang et al., 2026; Ye et al., 2025; Yi et al., 2026). Concurrent work Lei et al. (2026) routes
+a VLM through a family of specialized VLAs. However, these systems still treat the VLM-VLA call as a hardwired
+pipeline; in contrast, our physical orchestrator treats the VLA/WAM as one interruptible tool among others,
+enabling real-time monitoring, mid-rollout intervention, and adaptive tool switching to perception or action
+primitive tools.
+Long-Horizon Open-vocabulary Manipulation Benchmarks.
+Manipulation benchmarks span tabletop
+manipulation (James et al., 2020; Liu et al., 2023; Tao et al., 2024; Zhu et al., 2020), household and kitchen
+environments (Li et al., 2022; Nasiriany et al., 2024), and language-conditioned long-horizon tasks (Han et al.,
+2025; Mees et al., 2022; Zhang et al., 2024), with real-to-sim suites measuring policy transfer (Kim et al., 2026;
+Li et al., 2024). While RoboCerebra (Han et al., 2025) and VLABench (Zhang et al., 2024) stress multi-step
+reasoning, they are low-fidelity, evaluate subtasks against a reset scene, and do not measure memory carried
+across them; closer to our memory axis, RMBench (Chen et al., 2026) targets memory-dependent manipulation
+but scopes it to short single-task contexts. RoboVoLo, built on RoboLab (Yang et al., 2026), instead requires
+reasoning over spatial state accumulated by earlier subtasks, isolating persistent memory as a measurable axis.
+3. RoboVoLo Benchmark
+Tasks and Scenes.
+Long-horizon, open-vocabulary manipulation requires a robot to reason and act over many
+steps. It must ground intent in scene context, track state as the scene changes, resolve fine-grained references,
+and apply world knowledge to carry out each step while monitoring and recovering from failures. This coupling
+of reasoning and execution is largely unsolved, and current benchmarks do not isolate it. RoboVoLo fills
+that gap with 126 tasks that span four reasoning categories, each requiring a chain of grounded manipulation
+actions. The tasks are built so they cannot be solved by obvious instruction-independent behavior. Figure 2
+summarizes the taxonomy of four main categories:
+1. Commonsense grounding. Success depends on understanding the functional or contextual role of objects
+in the current environment, rather than following the instruction verbatim.
+3
+
+
+--- PAGE 4 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+RoboVoLo
+4 SUITES · 15 CATEGORIES · 126 TASKS
+COMMON SENSE
+Infer intent from scene context
+Infer
+Kit
+Each bin needs to have the
+same number of items.
+Recover
+Put item in the wrong place
+to where it belongs.
+Sort
+Each container
+shows what type.
+MEMORY
+Track state across actions
+Order
+Reverse the stacking
+order of the blocks.
+Recall
+Unstack, then rebuild
+in the original order.
+Swap
+Cycle items from left
+to right.
+COMPLEX REFERENCES
+Resolve linguistic references
+Spatial
+Put leftmost in bowl and
+rightmost in bin (robot view).
+Order
+Pick the second and the
+fourth from the left.
+Negation
+Put away everything
+except the tallest.
+Size
+Bin two biggest and
+bowl two smallest.
+WORLD KNOWLEDGE
+Apply external knowledge
+Math
+Bowl three cubes
+that sum to 9.
+Art
+Add the missing
+mouth to the face.
+Chem
+Put noble gases to left and 
+Metals to right bin.
+Recycle
+Sort into recycle /
+compost / trash.
+Leave the odd one out;
+bowl the rest.
+Figure 2: RoboVoLo benchmark. 126 long-horizon manipulation tasks across 15 categories, grouped into
+four capability suites: Common Sense (infer intent from scene context), Memory (track state across actions),
+Complex References (resolve spatial, ordinal, size, and negation cues), and World Knowledge (apply external
+knowledge spanning math, art, chemistry, and recycling). Each panel shows one representative task with its
+instruction.
+2. Memory. These tasks require the policy to maintain information about earlier scene states during execution.
+Examples include restoring a previous arrangement, undoing a change, swapping objects, or rearranging
+objects relative to their initial configuration.
+3. Complex references. Evaluate fine-grained language understanding. Instructions contain spatial, ordinal,
+relational, size-based, or negative references that disambiguate objects.
+4. World knowledge. These tasks require general knowledge beyond the immediate geometry of the scene,
+covering domains like recycling, arithmetic, chemistry, and visual art.
+Simulator.
+RoboVoLo is built on RoboLab (Yang et al., 2026), a high-fidelity simulation environment based
+on NVIDIA Isaac Lab (Mittal et al., 2025). To support these tasks, we expand RoboLab’s asset library with 501
+new objects: 247 household assets from NVIDIA’s Lightwheel SimReady collection and 254 task-specific assets,
+including 118 chemical periodic-table element cubes, 120 geometric art objects varying in color, shape, and size,
+and 16 wooden math cubes with digits and operators. All assets include collision geometry and realistic physics
+materials, yielding a diverse collection spanning household, semantic, symbolic, and task-specific categories.
+4. VoLoAgent and Physical Orchestration
+4.1. Physical Orchestration
+Virtual AI agents assume a world that holds still while the agent thinks, whereas a physical agent must reason
+while the world keeps moving. This imposes a core requirement: the agent must monitor the world for
+divergence between what it believes it has accomplished and the actual scene, halt an in-flight action as quickly
+as possible if divergence is detected, and redirect by choosing a correction: replanning, reissuing the action,
+or switching tools. Safe halting during reasoning may require an idling policy that for a fixed-base arm is
+simply stopping, but in general must keep the agent out of harm’s way. We refer to this monitor–halt–redirect
+requirement as physical orchestration.
+Prior closed-loop systems address parts of it: VLM-driven frameworks perform situated reasoning and failure
+recovery (Zhi et al., 2025), key-frame agents recover from execution errors (Nazarczuk et al., 2025), and reactive
+controllers halt a moving base to recover mid-task (Burgess-Limerick et al., 2023), but each targets a subset of
+4
+
+
+--- PAGE 5 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Sort recyclables into bins.
+VoLoAgent
+Memory
+Environment
+Tools
+Plan
+decompose &
+sequence
+Reason
+decide &
+predict
+Monitor
+progress &
+failure
+Recover
+analyze failure &
+adapt
+Remaining subtasks
+Final Goal
+Initial scene
+Sim
+Real
+VLA / WAM
+𝜋
+DreamZero
+Groot
+|
+|
+Perception
+MolmoBot
+Molmo2
+Claude
+GDino
+SAM3
+|
+|
+|
+Action
+Primitives
+Motion plan
+GraspGen
+Place
+|
+|
+Monitor
+Call / Stop
+VoLoAgent
+Pick
+|
+|
+… 
+… 
+… 
+Figure 3: VoLoAgent system. A VLM agent plans, monitors, and orchestrates tools (VLA/WAM rollouts,
+perception models, grasp/place primitives) through one closed-loop control law. The agent can interrupt a VLA
+rollout and switch to a different tool when execution drifts.
+these capabilities or a fixed pipeline. With physical orchestration we emphasize the need to handle all three
+together, for an open-vocabulary agent that switches tools mid-rollout, including interrupting asynchronous
+tools such as a learned visuomotor policy mid-rollout.
+4.2. VoLoAgent System
+VoLoAgent is a physical orchestrator: a single VLM agent that plans subtasks, monitors execution, and
+continuously routes among tools, deciding whether to continue, switch tools, advance, or recover. Unlike
+prior hierarchical systems that split control between a VLM planner and a VLA executor, here the VLA is one
+callable tool alongside perception models and grasp/place primitives, combined complementarily. It realizes
+the monitor–halt–recover loop through three design choices. (P1) Asynchronous tools: robot motion runs
+independent of the agent’s reasoning, so the agent interleaves monitoring with execution rather than blocking.
+(P2) Fast and slow memory: a short monitor context (current observation, active subgoal, recent decisions)
+read as close to the motion timescale as possible (0.2Hz here), and a fuller deliberation context (task memory,
+scene history, tool catalog) consulted only at planning points, echoing dual-system VLA designs (Intelligence
+et al., 2025). (P3) Safety-aware idling: holding the robot still when reasoning must continue mid-task.
+We instantiate three complementary tool families: VLA/WAM (e.g. 𝜋0.5, DreamZero) is a first-class visuo-
+motor tool but can struggle with open-vocabulary grounding. Perception tools (GroundingDINO (Liu et al.,
+2024), SAM2 (Ravi et al., 2024), SAM3 (Carion et al., 2025), Molmo2 (Clark et al., 2026; Deitke et al.,
+2024)) provide open-vocabulary detection and segmentation. Action primitives such as grasp(target) and
+place(destination) combine perception, GraspGen (Murali et al., 2025), and IK for geometry-grounded
+motion but remain rigid under contact-rich interaction. Full API signatures and prompts are in Appendices B
+and C. The VLM routes among these tools through the following phases:
+Initial execution.
+Given a user instruction and the initial scene, the agent decomposes the task into atomic
+subgoals and stores them with the final goal and initial scene in external memory. It then issues the first tool
+call, typically a VLA rollout for its continuous visuomotor control, and begins monitoring concurrently.
+5
+
+
+--- PAGE 6 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Table 1: Results of various methods on our benchmark (rows: Common Sense, Memory, Complex References,
+World Knowledge), as well as on the Robolab-Vague benchmark. Methods (columns) are grouped by families:
+Single action model (no orchestrator), Code-as-policy + VLM, TAMP + VLM, and VoLoAgent. Each task is run for
+3 episodes. All values are success rate (%, higher is better). Bold = best in row; underline = second-best.
+Single action model
+Code-as-policy
+TAMP
+VoLoAgent (Ours)
+Suite
+Category
+𝜋0.5
+𝜋0-FAST
+MolmoBot
+MolmoAct2
+DreamZero
+CaPX-s
+CaPX-e
+TiPToP
+No VLA
+Only VLA
+Full
+Common Sense
+Infer
+0.00
+9.52
+14.29
+0.00
+19.05
+9.52
+14.29
+4.76
+19.05
+52.38
+52.38
+Kit
+16.67
+4.17
+0.00
+0.00
+12.50
+12.50
+16.67
+8.33
+41.67
+33.33
+50.00
+Recover
+4.17
+0.00
+12.50
+12.50
+20.83
+37.50
+29.17
+0.00
+62.50
+45.83
+62.50
+Sort
+23.81
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+47.62
+52.38
+Overall
+11.11
+3.33
+6.67
+3.33
+13.33
+15.56
+15.56
+3.33
+32.22
+44.44
+54.44
+Memory
+Order
+12.50
+25.00
+33.33
+25.00
+29.17
+16.67
+16.67
+0.00
+25.00
+29.17
+54.17
+Recall
+23.33
+3.33
+30.00
+3.33
+21.43
+23.33
+23.33
+3.33
+6.67
+63.33
+56.67
+Swap
+3.33
+0.00
+6.67
+3.33
+0.00
+6.67
+6.67
+0.00
+10.00
+10.00
+3.33
+Overall
+13.10
+8.33
+22.62
+9.52
+15.85
+15.48
+15.48
+1.19
+13.10
+34.52
+36.90
+Complex References
+Spatial
+14.81
+11.11
+0.00
+7.41
+11.11
+7.41
+7.41
+25.93
+7.41
+29.63
+40.74
+Counting
+16.67
+12.50
+12.50
+0.00
+0.00
+4.17
+4.17
+12.50
+4.17
+45.83
+54.17
+Negation
+16.67
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+20.83
+25.00
+45.83
+54.17
+Size+Sort
+19.05
+4.76
+9.52
+0.00
+4.76
+19.05
+19.05
+23.81
+0.00
+42.86
+57.14
+Overall
+16.67
+7.29
+5.21
+2.08
+4.17
+7.29
+7.29
+20.83
+9.38
+40.62
+51.04
+World Knowledge
+Art
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+16.67
+16.67
+4.17
+8.33
+Chem
+8.33
+0.00
+12.50
+4.17
+12.50
+4.17
+4.17
+50.00
+29.17
+41.67
+54.17
+Math
+4.17
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+4.17
+20.83
+0.00
+12.50
+Recycle
+25.00
+0.00
+4.17
+0.00
+0.00
+4.17
+4.17
+20.83
+0.00
+37.50
+25.00
+Overall
+9.38
+0.00
+4.17
+1.04
+3.12
+2.08
+2.08
+22.92
+16.67
+20.83
+25.00
+Robolab-Vague
+Easy
+19.79
+10.94
+13.76
+6.25
+19.79
+16.67
+15.10
+29.69
+19.79
+35.94
+34.90
+Med
+17.54
+11.40
+11.40
+6.14
+18.80
+14.04
+9.65
+7.02
+16.67
+26.32
+30.70
+Hard
+5.56
+3.70
+3.77
+0.00
+13.73
+7.41
+1.85
+5.56
+12.96
+16.67
+24.07
+Overall
+16.94
+10.00
+11.52
+5.28
+18.61
+14.44
+11.39
+18.89
+17.78
+30.00
+31.94
+Method abbreviations: CaPX-s = CaP-X single, CAPX-e = CAP-X ensemble.
+Monitoring & routing.
+At each monitor step the agent reads the latest observation with memory under the
+monitor context (P2) and selects one of {continue, next_subgoal, recovery}. There is no fixed split
+between planner and executor; the same agent decides whether to keep the current tool running, advance, or
+pause for recovery.
+Recovery.
+On recovery the active tool is idled (P3) and the agent enters the deliberation context to pick
+one of: continue if the alarm was a false positive (resume the rollout), replan to re-issue the remaining
+subgoal decomposition, rewrite to run the VLA with a new subgoal instruction, or grasp / place to run the
+respective primitive on a perception-grounded target.
+The loop terminates on timeout or task completion. A key emergent property is complementarity: action
+primitives inject perception grounding into the VLA, so even a failed grasp leaves the gripper near the target
+with a clean view for the VLA to finish the pick (Sec. 5.3, 5.4).
+5. Experimental Results
+5.1. Setup
+Simulation benchmarks.
+We evaluate on four RoboVoLo suites covering 126 tasks and on the existing
+RoboLab Yang et al. (2026) benchmark (120 tasks) with vague-choice instructions. All policy models use
+the DROID setup (Khazatsky et al., 2024): a 7-DoF Franka Research 3 arm with a Robotiq 2F-85 gripper,
+external ZED 2i and wrist ZED mini cameras, and a 7-DoF joint-position plus binary-gripper action space.
+Camera poses and lighting match the real DROID configuration. Each task is evaluated over three fixed-seed
+trials to ensure identical initial states across systems. We also explored MuJoCo-based benchmarks, including
+6
+
+
+--- PAGE 7 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+LIBERO, RoboCerebra, and VLABench, but found them unsuitable due to limited generalist-policy support and
+insufficient realism; see Appendix H.
+VoLoAgent.
+VoLoAgent (Full) uses Claude Opus 4.6 (Anthropic, 2026) as the decision-making VLM with
+the following tools: 𝜋0.5 (Intelligence et al., 2025) as the VLA, SAM3 (Carion et al., 2025) and Molmo2 (Clark
+et al., 2026) as perception tools, and GraspGen (Murali et al., 2025) with multi-start IK plus depth-projected
+point placement for pick and place execution. The VLA and primitives run at 15Hz, while the VLM monitors
+at 0.2Hz from a front camera. We found this monitoring frequency reasonable for the pace of VLA motion,
+but increasing or adaptively varying it is an important future design goal. We compare two main ablations:
+VoLoAgent (No VLA), which only uses perception tools and grasp/place action primitives, and VoLoAgent
+(Only VLA), which disables all other tools and only relies on verbal steering of the VLA. Complete component
+ablations are in Sec. 5.4.
+Baselines.
+We compare against three baseline families: (i) standalone action-model policies (𝜋0.5 (Intelligence
+et al., 2025), 𝜋0-FAST (Pertsch et al., 2025), MolmoBot (Deshpande et al., 2026), MolmoAct2 (Fang et al.,
+2026), DreamZero (Ye et al., 2026)), (ii) code-as-policy + VLM (CaP-X (Fu et al., 2026), single and ensemble),
+and (iii) TAMP + VLM (TiPToP (Shen et al., 2026)).
+5.2. Main Results
+Table 1 shows that VoLoAgent achieves the best long-horizon open-vocabulary manipulation performance,
+outperforming single-model, code-as-policy, and TAMP baselines on every suite. The full system is significantly
+better than all methods (𝑝< 0.05), except the Only VLA ablation (𝑝= 0.0598), under a paired randomization
+test that asks whether one method consistently outperforms another across tasks (Edgington and Onghena,
+2007) (see Appendix F). Against the strongest baseline in each suite, VoLoAgent (Full) gains +38.9% on
+Common Sense, +30.2% on Complex References, +14.3% on Memory, and +13.1% on Robolab-Vague; the
+exception is World Knowledge (+2.1%), where the TAMP baseline’s symbolic planning is competitive. The
+gains come primarily from the planning, monitoring and recovery inherent in a physical orchestrator design,
+supplemented by the availability of complementary tools whose individual strengths cover others’ blind spots.
+The full system also exceeds its own strongest ablation on every suite by between +1.9% and +10.4%.
+Complex References – Spatial
+“Three fruits are in a row. Put the leftmost into the bowl and the rightmost into the bin.”
+π₀.₅
+180 S
+wrong object
+wrong place
+wrong place
+VoLoAgent
+(No VLA)
+180 S
+stuck
+stuck
+VoLoAgent
+(Only VLA)
+180 S
+wrong object
+wrong place
+VoLoAgent
+53 S
+wrong object
+tool recovery → VLA
+Memory – Recall
+“Unstack all four blocks onto the table. Then put the two blocks that were in the top half into the bin.”
+π₀.₅
+120 S
+wrong object
+wrong object
+stuck
+VoLoAgent
+(No VLA)
+120 S
+timeout
+VoLoAgent
+(Only VLA)
+120 S
+stuck
+wrong object
+stuck
+VoLoAgent
+64 S
+wrong object
+tool recovery → VLA
+Figure 4: Process comparison on two open-vocabulary long-horizon tasks, one row per system. Red tags
+mark failure events and green tags mark grasp-tool recovery events. The behaviors shown are described in
+Sec. 5.2.
+Figure 4 illustrates these gains on two representative tasks. 𝜋0.5 relies on visual priors and ignores open-
+vocabulary constraints, placing all objects into the same bowl. VoLoAgent (No VLA) grounds the instruction
+and plans subtasks, but its action primitives struggle with contact-rich picks and exhaust the step budget.
+VoLoAgent (Only VLA) can steer the VLA through prompts, but remains limited by the VLA’s perception
+errors, such as grasping an orange instead of a lemon. The full system combines their strengths: when the VLA
+7
+
+
+--- PAGE 8 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+selects the wrong object, the grasp tool repositions the gripper on the correct target, and the VLA completes
+the contact-rich manipulation.
+5.3. Failure Mode Analysis
+Metrics Definition.
+We analyze failures along two axes. World failures measure state-level execution errors:
+wrong-object pick (WOP), wrong-target placement (WTP), and lack of end-effector progress for over 10s
+(Stuck), each paired with a recovery event when resolved. VLM failures measure reasoning and action errors:
+incorrect planning, false or missed completion monitor, missed failure detection, and wrong tool calling. Metrics
+mainly use ground-truth simulation states and human-labeled task features; full definitions are in Appendix K.
+Episodes (90)
+No failures (4)
+Failures (86)
+All recovered (11)
+Unrec: stuck (44)
+Unrec: WOP (28)
+Unrec: WTP (3)
+SUCCESS (10)
+INCOMPLETE (5)
+FAIL (75)
+Episodes (90)
+No failures (20)
+Failures (70)
+All recovered (38)
+Unrec: stuck (19)
+Unrec: WOP (11)
+Unrec: WTP (2)
+SUCCESS (49)
+INCOMPLETE (9)
+FAIL (32)
+𝜋!.#
+VoLoAgent
+Figure 5: World failure analysis tracing episodes through failures, recovery, and outcomes for 𝜋0.5 (left) and
+VoLoAgent (right). Major failure subtypes: stuck, WOP=wrong object picked, WTP=wrong target place.
+Band thickness is proportional to the number of episodes.
+World Failures.
+Figure 5 traces 𝜋0.5 and VoLoAgent through the failure-recovery pipeline for world failures.
+VoLoAgent has 5× more failure-free episodes than 𝜋0.5 (20 vs. 4). Among episodes that do hit a failure,
+VoLoAgent recovers from 54% (38/70) vs. only 13% (11/86) for 𝜋0.5, showing that VoLoAgent not only
+enhances direct success but also greatly improves failure recovery (see Appendix J for VoLoAgent ablations).
+PLANNING Failure 
+Planning error
+VLM: “place the banana in the serving bowl.”
+GT plan: move the corn can back to the tray. 
+COMPLETION MONITOR Failure
+False-completion
+VLM: “the orange is now in the white bowl.”
+GT state: orange is outside of the bowl.
+FAILURE MONITOR Failure
+Missed wrong-object grasp
+VLM: “the Rubik's cube is picked.”
+GT state: Robot tries to grasp the orange.
+TOOL-USE Failure
+Hallucinated target
+VLM: grasp(“the red strawberry”).
+GT: grasp(“lychee”). 
+Per-VLM failure counts and breakdown
+VLM failures count per type· colors match panels
+Claude Opus 4.6
+84
+102
+GPT-5.5
+184
+44
+241
+Gemini 2.5 Flash
+176
+81
+263
+Qwen3-VL-8B
+359
+89
+456
+VLM-failure events (raw counts)
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+Figure 6: VLM failure audit. Left: one example per failure type (Planning, Completion-monitor, Failure-monitor,
+Tool-use). Right: per-VLM error counts across 𝑛=90 episodes; segment colors match the example tag colors.
+Qwen3-VL-8B reaches 23% of the ceiling error counts, Claude Opus 4.6 only 5%. Error definitions in Appendix K.
+VLM Failures.
+Figure 6 shows one qualitative example per VLM failure class (left) and per-VLM event counts
+across four frontier VLMs (right). Completion-monitor errors dominate every backend, accounting for >67% of
+total events and increasing 4.3× across VLM capability. Failure-monitor errors are another major class for every
+VLM except Claude Opus 4.6: GPT-5.5 has 44, Gemini 2.5 Flash 81, and Qwen3-VL-8B 89. Planning errors
+are rare for every backend (≤9 events per 90 episodes) as are tool-use mismatches (≤12 events). Improving
+completion and failure monitoring are next steps to strengthening the physical orchestrator design.
+5.4. Component Ablations
+We conduct comprehensive ablation studies, varying one component at a time while holding the rest at our
+default and study four axes: System comparing single VLA and VoLoAgent variants, Perception varying the
+8
+
+
+--- PAGE 9 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+“Sort items in bins.”
+wrong place
+tool recovery
+wrong object
+tool recovery → VLA
+“Sort the remaining items by storage temperature.”
+Figure 7: Real robot examples. VoLoAgent monitors and recovers from failures such as wrong place
+destination, wrong object pick in the real world as well.
+Table 2: Component ablation, cross-suite Overall
+RoboVoLo success rate (%). Full breakdown in
+Table 7.
+Axis
+Ablation
+Success rate
+System
+𝜋0.5 (Pure VLA)
+12.57
+VoLoAgent (No VLA)
+17.76
+VoLoAgent (Only VLA)
+34.97
+Perception
+GDino+SAM2 / Molmo2
+38.52
+SAM3 / VLM-point
+36.07
+Exterior camera
+36.94
+VLM model
+GPT-5.5
+35.52
+Gemini-2.5-Flash
+31.97
+Qwen3-VL-8B
+19.95
+VLA model
+𝜋0-FAST
+26.23
+MolmoBot-DROID
+24.86
+DreamZero-DROID
+21.86
+VoLoAgent
+41.80
+perception tools and camera view, and the choice of VLM and VLA
+model. Table 2 reports cross-suite Overall success rates. System. The
+full system reaches 41.80, while Single-VLA, VoLoAgent (No VLA),
+and VoLoAgent (Only VLA) score 12.57%, 17.76%, and 34.97%
+respectively. Perception. The system is robust to the choice of
+perception tool, with all variants achieving substantial gains. It
+also remains strong with the DROID exterior camera view to the
+orchestrator, though performance drops slightly because objects
+are sometimes occluded in the exterior and wrist views. VLM.
+Frontier VLMs as orchestrator yield +19% to +29% over the VLA-
+only baseline; with weaker VLMs the gain becomes marginal, the
+open-weights Qwen3-VL-8B model drops to +7%, aligning with
+its 4× higher VLM-failure count in Fig. 6. VLA. The orchestrator
+multiplies every VLA backbone by 2–6× overall, and gains hold
+across every base policy. We compared methods using task-paired
+success-rate differences, using aggregate success over all trials and
+two-sided exact sign-flip permutation tests over per-task success fractions. The only non-significant comparisons
+(𝑝< 0.05) to the full system were two perceptual ablations: GDino+SAM2 / Molmo2 and Exterior camera.
+5.5. Real Robot Validation
+Table 3: Real-robot success rate (%) with
+95% Wilson confidence across 14 tasks
+× 3 trials.
+System
+Overall
+95% CI
+𝜋0.5
+14.3%
+[6.7, 27.8]
+VoLoAgent (No VLA)
+45.2%
+[31.2, 60.1]
+VoLoAgent (Only VLA)
+40.5%
+[27.0, 55.5]
+VoLoAgent (full)
+42.9%
+[29.1, 57.8]
+To evaluate whether VoLoAgent can operate beyond simulation, we
+deploy it on a real Franka FR3 with physical objects across a representative
+sample of 14 RoboVoLo tasks, running 3 matched-initial-state trials per
+task for 𝜋0.5, VoLoAgent variants, and full VoLoAgent, for a total of
+168 rollouts across variants. Full VoLoAgent achieves 42.9% success
+versus 14.3% for 𝜋0.5, a 3× improvement that supports the physical appli-
+cability of our agent loop design (Table 3). Figure 7 shows representative
+real-world recoveries from wrong-object picks and wrong-place drops. The
+intermediate variants achieve similar real-robot success (45.2% and 40.5%)
+with highly overlapping confidence intervals. Qualitatively, the grasp tool appears to work better in the real
+world than sim due to contact dynamics differences. Reaching statistical power to compare the ablations
+requires a larger real-robot study on substantially more tasks and trials per system. See Appendix G for more
+details including full list of tasks.
+6. Conclusion and Limitations
+We introduced VoLoAgent, a physical orchestrator that unifies VLA/WAM rollouts, perception models, and
+grasp/place primitives in a VLM-managed closed loop, and RoboVoLo, a 126-task benchmark for open-
+vocabulary long-horizon manipulation. VoLoAgent outperforms existing baselines, with ablations showing
+that orchestration drives the gains.
+9
+
+
+--- PAGE 10 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Limitations.
+Our failure analysis (Sec. 5.3) highlights completion monitoring accuracy as a key direction for
+improvement. The per-call latency (∼1–5 s for cloud VLMs) of the orchestrating VLM bounds reaction time
+and may miss fast failures, calling for fast local monitors. VoLoAgent was demonstrated on a single-arm
+manipulator with a parallel-jaw gripper. Extending to bimanual, dexterous-hand, or mobile embodiments
+is supported by the framework, but requires retraining or swapping the VLA. Safe idling currently reduces
+to halting the arm, which does not generalize to embodiments that must act to stay safe (e.g., a balancing
+humanoid).
+References
+[1] Anthropic. Claude Opus 4.7 system card. https://www.anthropic.com/system-cards, 2026. Anthropic
+technical report. Also covers Claude Opus 4.6 and Claude Sonnet 4.6. 7
+[2] Anthony Brohan, Noah Brown, Justice Carbajal, Yevgen Chebotar, Xi Chen, Krzysztof Choromanski, Tianli
+Ding, Danny Driess, Avinava Dubey, Chelsea Finn, Pete Florence, Chuyuan Fu, Montse Gonzalez Arenas,
+Keerthana Gopalakrishnan, Kehang Han, Karol Hausman, Alexander Herzog, Jasmine Hsu, Brian Ichter,
+Alex Irpan, Nikhil Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Lisa Lee, Tsang-
+Wei Edward Lee, Sergey Levine, Yao Lu, Henryk Michalewski, Igor Mordatch, Karl Pertsch, Kanishka Rao,
+Krista Reymann, Michael Ryoo, Grecia Salazar, Pannag Sanketi, Pierre Sermanet, Jaspiar Singh, Anikait
+Singh, Radu Soricut, Huong Tran, Vincent Vanhoucke, Quan Vuong, Ayzaan Wahid, Stefan Welker, Paul
+Wohlhart, Jialin Wu, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe Yu, and Brianna Zitkovich. RT-2:
+Vision-language-action models transfer web knowledge to robotic control. In CoRL, 2023. 3
+[3] Lawrence D. Brown, T. Tony Cai, and Anirban DasGupta. Interval estimation for a binomial proportion.
+Statistical Science, 16(2):101–133, 2001. 30
+[4] Ben Burgess-Limerick, Chris Lehnert, Jürgen Leitner, and Peter Corke. Enabling failure recovery for
+on-the-move mobile manipulation. In IEEE ICRA Workshop on Robotic Perception and Mapping: Frontier
+Vision and Learning Techniques, 2023. ICRA 2023 Workshop on Robot Failures; arXiv:2305.08351. 4
+[5] Nicolas Carion, Laura Gustafson, Yuan-Ting Hu, Shoubhik Debnath, Ronghang Hu, Didac Suris, Chaitanya
+Ryali, Kalyan Vasudev Alwala, Haitham Khedr, Andrew Huang, Jie Lei, Tengyu Ma, Baishan Guo, Arpit
+Kalla, Markus Marks, Joseph Greer, Meng Wang, Peize Sun, Roman Rädle, Triantafyllos Afouras, Effrosyni
+Mavroudi, Katherine Xu, Tsung-Han Wu, Yu Zhou, Liliane Momeni, Rishi Hazra, Shuangrui Ding, Sagar
+Vaze, Francois Porcher, Feng Li, Siyuan Li, Aishwarya Kamath, Ho Kei Cheng, Piotr Dollár, Nikhila Ravi,
+Kate Saenko, Pengchuan Zhang, and Christoph Feichtenhofer. SAM 3: Segment anything with concepts.
+arXiv preprint arXiv:2511.16719, 2025. 5, 7, 19
+[6] Chi-Lam Cheang, Guangzeng Chen, Ya Jing, Tao Kong, Hang Li, Yifeng Li, Yuxiao Liu, Hongtao Wu,
+Jiafeng Xu, Yichu Yang, Hanbo Zhang, and Minzhao Zhu. GR-2: A generative video-language-action
+model with web-scale knowledge for robot manipulation. arXiv preprint arXiv:2410.06158, 2024. 2, 3
+[7] Lingling Chen, Zongyao Lyu, and William J. Beksi. Reconvla: An uncertainty-guided and failure-aware
+vision-language-action framework for robotic control. arXiv preprint arXiv:2604.16677, 2026. 3
+[8] Siyi Chen, Mikaela Angelina Uy, Chan Hee Song, Faisal Ladhak, Adithyavairavan Murali, Qing Qu, Stan
+Birchfield, Valts Blukis, and Jonathan Tremblay. SpaceTools: Tool-augmented spatial reasoning via double
+interactive rl. CVPR, 2026. 2, 19
+[9] Tianxing Chen, Yuran Wang, Mingleyang Li, Yan Qin, Hao Shi, Zixuan Li, Yifan Hu, Yingsheng Zhang,
+Kaixuan Wang, Yue Chen, Hongcheng Wang, Renjing Xu, Ruihai Wu, Yao Mu, Yaodong Yang, Hao Dong,
+and Ping Luo. RMBench: Memory-dependent robotic manipulation benchmark with insights into policy
+design. arXiv preprint arXiv:2603.01229, 2026. 3
+10
+
+
+--- PAGE 11 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[10] Christopher Clark, Jieyu Zhang, Zixian Ma, Jae Sung Park, Mohammadreza Salehi, Rohun Tripathi,
+Sangho Lee, Zhongzheng Ren, Chris Dongjoo Kim, Yinuo Yang, Vincent Shao, Yue Yang, Weikai Huang,
+Ziqi Gao, Taira Anderson, Jianrui Zhang, Jitesh Jain, George Stoica, Winson Han, Ali Farhadi, and Ranjay
+Krishna. Molmo2: Open weights and data for vision-language models with video understanding and
+grounding. arXiv preprint arXiv:2601.10611, 2026. 5, 7, 19, 23
+[11] Yinpei Dai, Jayjun Lee, Nima Fazeli, and Joyce Chai. RACER: Rich language-guided failure recovery
+policies for imitation learning. arXiv preprint arXiv:2409.14674, 2024. 3
+[12] Matt Deitke, Christopher Clark, Sangho Lee, Rohun Tripathi, Yue Yang, Jae Sung Park, Mohammadreza
+Salehi, Niklas Muennighoff, Kyle Lo, Luca Soldaini, Jiasen Lu, Taira Anderson, Erin Bransom, Kiana
+Ehsani, Huong Ngo, YenSung Chen, Ajay Patel, Mark Yatskar, Chris Callison-Burch, Andrew Head, Rose
+Hendrix, Favyen Bastani, Eli VanderBilt, Nathan Lambert, Yvonne Chou, Arnavi Chheda, Jenna Sparks,
+Sam Skjonsberg, Michael Schmitz, Aaron Sarnat, Byron Bischoff, Pete Walsh, Chris Newell, Piper Wolters,
+Tanmay Gupta, Kuo-Hao Zeng, Jon Borchardt, Dirk Groeneveld, Crystal Nam, Sophie Lebrecht, Caitlin
+Wittlif, Carissa Schoenick, Oscar Michel, Ranjay Krishna, Luca Weihs, Noah A. Smith, Hannaneh Hajishirzi,
+Ross Girshick, Ali Farhadi, and Aniruddha Kembhavi. Molmo and PixMo: Open weights and open data
+for state-of-the-art vision-language models. arXiv preprint arXiv:2409.17146, 2024. 5
+[13] Abhay Deshpande, Maya Guru, Rose Hendrix, Snehal Jauhri, Ainaz Eftekhar, Rohun Tripathi, Max Argus,
+Jordi Salvador, Haoquan Fang, Matthew Wallingford, Wilbert Pumacay, Yejin Kim, Quinn Pfeifer, Ying-
+Chun Lee, Piper Wolters, Omar Rayyan, Mingtong Zhang, Jiafei Duan, Karen Farley, Winson Han, Eli
+VanderBilt, Dieter Fox, Ali Farhadi, Georgia Chalvatzaki, Dhruv Shah, and Ranjay Krishna. MolmoBot:
+Large-scale simulation enables zero-shot manipulation. arXiv preprint arXiv:2603.16861, 2026. 3, 7
+[14] Jiafei Duan, Wentao Yuan, Wilbert Pumacay, Yi Ru Wang, Kiana Ehsani, Dieter Fox, and Ranjay Krishna.
+Manipulate-anything: Automating real-world robots using vision-language models. In CoRL, 2024. 3
+[15] Jiafei Duan, Wilbert Pumacay, Nishanth Kumar, Yi Ru Wang, Shulin Tian, Wentao Yuan, Ranjay Krishna,
+Dieter Fox, Ajay Mandlekar, and Yijie Guo. AHA: A vision-language-model for detecting and reasoning
+over failures in robotic manipulation. In ICLR, 2025. 3
+[16] Eugene S. Edgington and Patrick Onghena. Randomization Tests. Chapman and Hall/CRC, Boca Raton,
+FL, 4 edition, 2007. 7, 27
+[17] Haoquan Fang, Jiafei Duan, Donovan Clay, Sam Wang, Shuo Liu, Weikai Huang, Xiang Fan, Wei-Chuan
+Tsai, Shirui Chen, Yi Ru Wang, Shanli Xing, Jaemin Cho, Jae Sung Park, Ainaz Eftekhar, Peter Sushko,
+Karen Farley, Angad Wadhwa, Cole Harrison, Winson Han, Ying-Chun Lee, Eli VanderBilt, Rose Hendrix,
+Suveen Ellawela, Lucas Ngoo, Joyce Chai, Zhongzheng Ren, Ali Farhadi, Dieter Fox, and Ranjay Krishna.
+MolmoAct2: Action reasoning models for real-world deployment. arXiv preprint arXiv:2605.02881, 2026.
+3, 7
+[18] Yunhai Feng, Jiaming Han, Zhuoran Yang, Xiangyu Yue, Sergey Levine, and Jianlan Luo. Reflective
+planning: Vision-language models for multi-stage long-horizon robotic manipulation. In Conference on
+Robot Learning (CoRL), 2025. arXiv:2502.16707. 3
+[19] Jiahui Fu, Junyu Nan, Lingfeng Sun, Hongyu Li, Jianing Qian, Jennifer L. Barry, Kris Kitani, and George
+Konidaris. NovaPlan: Zero-shot long-horizon manipulation via closed-loop video language planning.
+arXiv preprint arXiv:2602.20119, 2026. 3
+[20] Max Fu, Justin Yu, Karim El-Refai, Ethan Kou, Haoru Xue, Huang Huang, Wenli Xiao, Guanzhi Wang,
+Fei-Fei Li, Guanya Shi, et al. CaP-X: A framework for benchmarking and improving coding agents for
+robot manipulation. arXiv preprint arXiv:2603.22435, 2026. 2, 3, 7
+11
+
+
+--- PAGE 12 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[21] Shenyuan Gao, William Liang, Kaiyuan Zheng, Ayaan Malik, Seonghyeon Ye, Sihyun Yu, Wei-Cheng
+Tseng, Yuzhu Dong, Kaichun Mo, Chen-Hsuan Lin, Qianli Ma, Seungjun Nah, Loic Magne, Jiannan Xiang,
+Yuqi Xie, Ruijie Zheng, Dantong Niu, You Liang Tan, K. R. Zentner, George Kurian, Suneel Indupuru,
+Pooya Jannaty, Jinwei Gu, Jun Zhang, Jitendra Malik, Pieter Abbeel, Ming-Yu Liu, Yuke Zhu, Joel Jang,
+and Linxi Fan. DreamDojo: A generalist robot world model from large-scale human videos. arXiv preprint
+arXiv:2602.06949, 2026. 2, 3
+[22] Qiao Gu, Yuanliang Ju, Shengxiang Sun, Igor Gilitschenski, Haruki Nishimura, Masha Itkina, and
+Florian Shkurti. SAFE: Multitask failure detection for vision-language-action models. arXiv preprint
+arXiv:2506.09937, 2025. 3
+[23] Songhao Han, Boxiang Qiu, Yue Liao, Siyuan Huang, Chen Gao, Shuicheng Yan, and Si Liu. RoboCerebra:
+A large-scale benchmark for long-horizon robotic manipulation evaluation. In NeurIPS, 2025. 3, 31, 32
+[24] Senthooran Huang and LIBERO-Plus contributors. LIBERO+: Robust language-image foundation models
+for robotic manipulation. arXiv preprint, 2025. Language-rephrasing eval suite for LIBERO. 31
+[25] Wenlong Huang, Fei Xia, Ted Xiao, Harris Chan, Jacky Liang, Pete Florence, Andy Zeng, Jonathan
+Tompson, Igor Mordatch, Yevgen Chebotar, Pierre Sermanet, Noah Brown, Tomas Jackson, Linda Luu,
+Sergey Levine, Karol Hausman, and Brian Ichter. Inner monologue: Embodied reasoning through planning
+with language models. In CoRL, 2022. 3
+[26] Physical Intelligence, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Kevin Black, Ken Conley, Grace
+Connors, James Darpinian, Karan Dhabalia, Jared DiCarlo, et al. 𝜋*
+0.6: a VLA that learns from experience.
+arXiv preprint arXiv:2511.14759, 2025. 2, 3
+[27] Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan
+Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, et al. 𝜋0.5: a vision-language-action model with
+open-world generalization. arXiv preprint, 2025. 2, 3, 5, 7, 25
+[28] Physical Intelligence, Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black,
+George Bokinsky, Shihao Cao, Thomas Charbonnier, et al. 𝜋0.7: a steerable generalist robotic foundation
+model with emergent capabilities. arXiv preprint arXiv:2604.15483, 2026. 2, 3
+[29] Stephen James, Zicong Ma, David Rovick Arrojo, and Andrew J. Davison. RLBench: The robot learning
+benchmark & learning environment. IEEE Robotics and Automation Letters, 5(2):3019–3026, 2020. 3
+[30] Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun Chen, Li Fei-Fei,
+Anima Anandkumar, Yuke Zhu, and Linxi Fan. VIMA: General robot manipulation with multimodal
+prompts. In ICML, 2023. 3
+[31] Alexander Khazatsky, Karl Pertsch, Suraj Nair, Ashwin Balakrishna, Sudeep Dasari, Siddharth Karamcheti,
+Soroush Nasiriany, Mohan Kumar Srirama, et al. DROID: A large-scale in-the-wild robot manipulation
+dataset. In Robotics: Science and Systems (RSS), 2024. 6, 24, 31, 32
+[32] Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael
+Rafailov, Ethan Foster, Grace Lam, Pannag Sanketi, Quan Vuong, Thomas Kollar, Benjamin Burchfiel,
+Russ Tedrake, Dorsa Sadigh, Sergey Levine, Percy Liang, and Chelsea Finn. OpenVLA: An open-source
+vision-language-action model. arXiv preprint arXiv:2406.09246, 2024. 3
+[33] Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Grace Lam, Percy Liang, Shuran Song,
+Ming-Yu Liu, Chelsea Finn, and Jinwei Gu. Cosmos Policy: Fine-tuning video models for visuomotor
+control and planning. arXiv preprint arXiv:2601.16163, 2026. 2, 3
+12
+
+
+--- PAGE 13 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[34] Yejin Kim, Wilbert Pumacay, Omar Rayyan, Max Argus, Winson Han, Eli VanderBilt, Jordi Salvador,
+Abhay Deshpande, Rose Hendrix, Snehal Jauhri, Shuo Liu, Nur Muhammad Mahi Shafiullah, Maya
+Guru, Arjun Guru, Ainaz Eftekhar, Karen Farley, Donovan Clay, Jiafei Duan, Piper Wolters, Alvaro
+Herrasti, Ying-Chun Lee, Georgia Chalvatzaki, Yuchen Cui, Ali Farhadi, Dieter Fox, and Ranjay Krishna.
+MolmoSpaces: A large-scale open ecosystem for robot navigation and manipulation, 2026. URL https:
+//arxiv.org/abs/2602.11337. 2, 3
+[35] Jason Lee, Jiafei Duan, Haoquan Fang, Yuquan Deng, Shuo Liu, Boyang Li, Bohan Fang, Jieyu Zhang,
+Yi Ru Wang, Sangho Lee, Winson Han, Wilbert Pumacay, Angelica Wu, Rose Hendrix, Karen Farley, Eli
+VanderBilt, Ali Farhadi, Dieter Fox, and Ranjay Krishna. MolmoAct: Action reasoning models that can
+reason in space. arXiv preprint arXiv:2508.07917, 2025. 3
+[36] Zixing Lei, Changxing Liu, Yichen Xiong, Minhao Xiong, Yuanzhuo Ding, Zhipeng Zhang, Weixin Li, and
+Siheng Chen. Towards Long-horizon Embodied Agents with Tool-Aligned Vision-Language-Action Models.
+arXiv preprint arXiv:2605.13119, 2026. 3
+[37] Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto Martín-Martín,
+Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, et al. BEHAVIOR-1K: A benchmark for
+embodied AI with 1,000 everyday activities and realistic simulation. In Conference on Robot Learning
+(CoRL), 2022. 3
+[38] Hao Li, Shuai Yang, Yilun Chen, Xinyi Chen, Xiaoda Yang, Yang Tian, Hanqing Wang, Tai Wang, Feng
+Zhao, Dahua Lin, and Jiangmiao Pang. Towards efficient and robust manipulation via multi-frame
+vision-language-action modeling. In Proceedings of the AAAI Conference on Artificial Intelligence, 2026.
+Oral. arXiv:2506.19816. 3
+[39] Lin Li, Qihang Zhang, Yiming Luo, Shuai Yang, Ruilin Wang, Fei Han, Mingrui Yu, Zelin Gao, Nan
+Xue, Xing Zhu, Yujun Shen, and Yinghao Xu. Causal world modeling for robot control. arXiv preprint
+arXiv:2601.21998, 2026. 2, 3
+[40] Xuanlin Li, Kyle Hsu, Jiayuan Gu, Karl Pertsch, Oier Mees, Homer Rich Walke, Chuyuan Fu, Ishikaa
+Lunawat, Isabel Sieh, Sean Kirmani, Sergey Levine, Jiajun Wu, Chelsea Finn, Hao Su, Quan Vuong, and
+Ted Xiao. Evaluating real-world robot manipulation policies in simulation. In CoRL, 2024. 3
+[41] Yi Li, Yuquan Deng, Jesse Zhang, Joel Jang, Marius Memmel, Raymond Yu, Caelan Reed Garrett, Fabio
+Ramos, Dieter Fox, Anqi Li, Abhishek Gupta, and Ankit Goyal. HAMSTER: Hierarchical action models for
+open-world robot manipulation, 2025. 2, 3
+[42] Jacky Liang, Wenlong Huang, Fei Xia, Peng Xu, Karol Hausman, Brian Ichter, Pete Florence, and Andy
+Zeng. Code as policies: Language model programs for embodied control. In ICRA, 2023. 2, 3
+[43] Zijun Lin, Jiafei Duan, Haoquan Fang, Dieter Fox, Ranjay Krishna, Cheston Tan, and Bihan Wen. FailSafe:
+Reasoning and recovery from failures in vision-language-action models. arXiv preprint arXiv:2510.01642,
+2025. 2, 3
+[44] Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, and Peter Stone. LIBERO: Bench-
+marking knowledge transfer for lifelong robot learning. In Advances in Neural Information Processing
+Systems (NeurIPS), Datasets and Benchmarks Track, 2023. 2, 3, 31
+[45] Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jie Yang, Qing Jiang, Chunyuan Li, Jianwei
+Yang, Hang Su, Jun Zhu, and Lei Zhang. Grounding DINO: Marrying DINO with grounded pre-training
+for open-set object detection. In ECCV, 2024. 5, 19
+[46] Songming Liu, Lingxuan Wu, Bangguo Li, Hengkai Tan, Huayu Chen, Zhengyi Wang, Ke Xu, Hang Su,
+and Jun Zhu. RDT-1B: a diffusion foundation model for bimanual manipulation. In ICLR, 2025. 3
+13
+
+
+--- PAGE 14 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[47] Zhen Liu, Xinyu Ning, Zhe Hu, Xinxin Xie, Weize Li, Zhipeng Tang, Chongyu Wang, Zejun Yang, Hanlin
+Wang, Yitong Liu, and Zhongzhu Pu. Goal2Skill: Long-horizon manipulation with adaptive planning and
+reflection. arXiv preprint arXiv:2604.13942, 2026. 2, 3
+[48] Weijia Liufu, Xiaoyu Guo, Ruiyi Chen, Jingzhi Liu, Kaidong Zhang, Xiwen Liang, Jianqi Lin, Dawei
+Sun, Yuze Wang, Rongtao Xu, Bingqian Lin, Bowen Yang, Tongtong Cao, Bowen Peng, Dongyu Zhang,
+Guangrun Wang, Min Wang, Liang Lin, and Xiaodan Liang. Repo-vla: Recovery-driven policy optimization
+for vision-language-action models. arXiv preprint arXiv:2605.09410, 2026. 3
+[49] Guoqing Ma, Siheng Wang, Zeyu Zhang, Shan Yu, and Hao Tang. Generalvla: Generalizable vision–
+language–action models with knowledge-guided trajectory planning. arXiv preprint arXiv:2602.04315,
+2026. 3
+[50] Oier Mees, Lukas Hermann, Erick Rosete-Beas, and Wolfram Burgard. CALVIN: A benchmark for language-
+conditioned policy learning for long-horizon robot manipulation tasks. IEEE Robotics and Automation
+Letters, 7(3):7327–7334, 2022. 3
+[51] Aoran Mei, Guo-Niu Zhu, Huaxiang Zhang, and Zhongxue Gan. ReplanVLM: Replanning robotic tasks
+with visual language models. arXiv preprint arXiv:2407.21762, 2024. 3
+[52] Mayank Mittal, Pascal Roth, James Tigue, Antoine Richard, Octi Zhang, Peter Du, Antonio Serrano-Muñoz,
+Xinjie Yao, René Zurbrügg, Nikita Rudin, et al. Isaac lab: A gpu-accelerated simulation framework for
+multi-modal robot learning. arXiv preprint arXiv:2511.04831, 2025. doi: 10.48550/arXiv.2511.04831.
+URL https://arxiv.org/abs/2511.04831. 4, 24
+[53] Adithyavairavan Murali, Balakumar Sundaralingam, Yu-Wei Chao, Wentao Yuan, Jun Yamada, Mark
+Carlson, Fabio Ramos, Stan Birchfield, Dieter Fox, and Clemens Eppner. GraspGen: A diffusion-based
+framework for 6-DoF grasping with on-generator training. arXiv preprint arXiv:2507.13097, 2025. 5, 7,
+19
+[54] Soroush Nasiriany, Abhiram Maddukuri, Lance Zhang, Adeet Parikh, Aaron Lo, Abhishek Joshi, Ajay
+Mandlekar, and Yuke Zhu. RoboCasa: Large-scale simulation of everyday tasks for generalist robots. In
+Robotics: Science and Systems (RSS), 2024. 3
+[55] Michal Nazarczuk, Jan Kristof Behrens, Karla Stepanova, Matej Hoffmann, and Krystian Mikolajczyk.
+Closed loop interactive embodied reasoning for robot manipulation. In IEEE International Conference on
+Robotics and Automation (ICRA), 2025. 4
+[56] Svyatoslav Pchelintsev, Maxim Patratskiy, Anatoly Onishchenko, Alexandr Korchemnyi, Aleksandr
+Medvedev, Uliana Vinogradova, Ilya Galuzinsky, Aleksey Postnikov, Alexey K. Kovalev, and Aleksandr I.
+Panov. LERa: Replanning with visual feedback in instruction following. arXiv preprint arXiv:2507.05135,
+2025. 3
+[57] Karl Pertsch, Kyle Stachowicz, Brian Ichter, Danny Driess, Suraj Nair, Quan Vuong, Oier Mees, Chelsea
+Finn, and Sergey Levine. FAST: Efficient action tokenization for vision-language-action models. arXiv
+preprint arXiv:2501.09747, 2025. 7
+[58] Belinda Phipson and Gordon K. Smyth. Permutation p-values should never be zero: calculating exact
+p-values when permutations are randomly drawn. Statistical Applications in Genetics and Molecular
+Biology, 9(1):Article 39, 2010. 29
+[59] Nikhila Ravi, Valentin Gabeur, Yuan-Ting Hu, Ronghang Hu, Chaitanya Ryali, Tengyu Ma, Haitham
+Khedr, Roman Rädle, Chloe Rolland, Laura Gustafson, Eric Mintun, Junting Pan, Kalyan Vasudev Alwala,
+Nicolas Carion, Chao-Yuan Wu, Ross Girshick, Piotr Dollár, and Christoph Feichtenhofer. SAM 2: Segment
+anything in images and videos. arXiv preprint arXiv:2408.00714, 2024. 5, 19
+14
+
+
+--- PAGE 15 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[60] André Schakkal, Ben Zandonati, Zhutian Yang, and Navid Azizan. Hierarchical vision-language planning
+for multi-step humanoid manipulation. In Robotics: Science and Systems (RSS) Workshop on Robot Planning
+in the Era of Foundation Models, 2025. arXiv:2506.22827. 3
+[61] William Shen, Nishanth Kumar, Sahit Chintalapudi, Jie Wang, Christopher Watson, Edward Hu, Jing Cao,
+Dinesh Jayaraman, Leslie Pack Kaelbling, and Tomás Lozano-Pérez. TiPToP: A modular open-vocabulary
+planning system for robotic manipulation. arXiv preprint arXiv:2603.09971, 2026. 3, 7
+[62] Hao Shi, Bin Xie, Yingfei Liu, Lin Sun, Fengrong Liu, Tiancai Wang, Erjin Zhou, Haoqiang Fan, Xi-
+angyu Zhang, and Gao Huang. Memoryvla: Perceptual-cognitive memory in vision-language-action
+models for robotic manipulation. In International Conference on Learning Representations (ICLR), 2026.
+arXiv:2508.19236. 3
+[63] Lucy Xiaoyang Shi, Brian Ichter, Michael Equi, Liyiming Ke, Karl Pertsch, Quan Vuong, James Tanner,
+Anna Walling, Haohuan Wang, Niccolo Fusai, Adrian Li-Bell, Danny Driess, Lachy Groom, Sergey Levine,
+and Chelsea Finn. Hi robot: Open-ended instruction following with hierarchical vision-language-action
+models. arXiv preprint arXiv:2502.19417, 2025. 2, 3
+[64] Ishika Singh, Valts Blukis, Arsalan Mousavian, Ankit Goyal, Danfei Xu, Jonathan Tremblay, Dieter Fox,
+Jesse Thomason, and Animesh Garg. ProgPrompt: Generating situated robot task plans using large
+language models. In ICRA, 2023. 2, 3
+[65] Marta Skreta, Zihan Zhou, Jia Lin Yuan, Kourosh Darvish, Alán Aspuru-Guzik, and Animesh Garg. RePLan:
+Robotic replanning with perception and language models. arXiv preprint arXiv:2401.04157, 2024. 3
+[66] Stone Tao, Fanbo Xiang, Arth Shukla, Yuzhe Qin, Xander Hinrichsen, Xiaodi Yuan, Chen Bao, Xinsong
+Lin, Yulin Liu, Tse-kai Chan, Yuan Gao, Xuanlin Li, Tongzhou Mu, Nan Xiao, Arnav Gurha, Zhiao Huang,
+Roberto Calandra, Rui Chen, Shan Luo, and Hao Su. ManiSkill3: GPU parallelized robotics simulation
+and rendering for generalizable embodied AI. arXiv preprint arXiv:2410.00425, 2024. 3
+[67] Edwin B. Wilson. Probable inference, the law of succession, and statistical inference. Journal of the
+American Statistical Association, 22(158):209–212, 1927. 30
+[68] Tianshuo Yang, Guanyu Chen, Yutian Chen, Zhixuan Liang, Yitian Liu, Zanxin Chen, Chunpu Xu, Haotian
+Liang, Jiangmiao Pang, Yao Mu, and Ping Luo. Hivla: A visual-grounded-centric hierarchical embodied
+manipulation system. arXiv preprint arXiv:2604.14125, 2026. 3
+[69] Xuning Yang, Rishit Dagli, Alex Zook, Hugo Hadfield, Ankit Goyal, Stan Birchfield, Fabio Ramos, and
+Jonathan Tremblay. RoboLab: A high-fidelity simulation benchmark for analysis of task generalist policies.
+RSS, 2026. 2, 3, 4, 6, 24, 34
+[70] Yifan Yang, Zhixiang Duan, Tianshi Xie, Fuyu Cao, Pinxi Shen, Peili Song, Chenyang Zhao, Piaopiao Jin,
+Guokang Sun, Shaoqing Xu, Yangwei You, and Jingtai Liu. Fpc-vla: A vision-language-action framework
+with a supervisor for failure prediction and correction. Expert Systems with Applications, 316:131742,
+2026. arXiv:2509.04018. 3
+[71] Zhejian Yang, Yongchao Chen, Xueyang Zhou, Jiangyue Yan, Dingjie Song, Yinuo Liu, Yuting Li, Yu Zhang,
+Pan Zhou, Hechang Chen, and Lichao Sun. Agentic robot: A brain-inspired framework for vision-language-
+action models in embodied agents. arXiv preprint arXiv:2505.23450, 2025. 2, 3
+[72] Zhutian Yang, Caelan Garrett, Dieter Fox, Tomás Lozano-Pérez, and Leslie Pack Kaelbling. Guiding
+long-horizon task and motion planning with vision language models. arXiv preprint arXiv:2410.02193,
+2024. 3
+15
+
+
+--- PAGE 16 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+[73] Seonghyeon Ye, Yunhao Ge, Kaiyuan Zheng, Shenyuan Gao, Sihyun Yu, George Kurian, Suneel Indupuru,
+You Liang Tan, Chuning Zhu, Jiannan Xiang, Ayaan Malik, Kyungmin Lee, William Liang, Nadun
+Ranawaka, Jiasheng Gu, Yinzhen Xu, Guanzhi Wang, Fengyuan Hu, Avnish Narayan, Johan Bjorck, Jing
+Wang, Gwanghyun Kim, Dantong Niu, Ruijie Zheng, Yuqi Xie, Jimmy Wu, Qi Wang, Ryan Julian, Danfei
+Xu, Yilun Du, Yevgen Chebotar, Scott Reed, Jan Kautz, Yuke Zhu, Linxi Fan, and Joel Jang. World action
+models are zero-shot policies. arXiv preprint arXiv:2602.15922, 2026. 2, 3, 7
+[74] Zewei Ye, Weifeng Lu, Minghao Ye, Tao Lin, Shuo Yang, Junchi Yan, and Bo Zhao. RoboFAC: A compre-
+hensive framework for robotic failure analysis and correction. arXiv preprint arXiv:2505.12224, 2025.
+3
+[75] Pengfei Yi, Yingjie Ma, Wenjiang Xu, Yanan Hao, Shuai Gan, Wanting Li, and Shanlin Zhong. Critic in the
+loop: A tri-system VLA framework for robust long-horizon manipulation. arXiv preprint arXiv:2603.05185,
+2026. 2, 3
+[76] Jianke Zhang, Yanjiang Guo, Xiaoyu Chen, Yen-Jen Wang, Yucheng Hu, Chengming Shi, and Jianyu Chen.
+HiRT: Enhancing robotic control with hierarchical robot transformers. In CoRL, 2024. 3
+[77] Shiduo Zhang, Zhe Xu, Peiju Liu, Xiaopeng Yu, Yuan Li, Qinghui Gao, Zhaoye Fei, Zhangyue Yin, Zuxuan
+Wu, Yu-Gang Jiang, and Xipeng Qiu. VLABench: A large-scale benchmark for language-conditioned
+robotics manipulation with long-horizon reasoning tasks. arXiv preprint arXiv:2412.18194, 2024. 3, 31,
+32
+[78] Peiyuan Zhi, Zhiyuan Zhang, Yu Zhao, Muzhi Han, Zeyu Zhang, Zhitian Li, Ziyuan Jiao, Baoxiong Jia,
+and Siyuan Huang. Closed-loop open-vocabulary mobile manipulation with GPT-4V. In ICRA, 2025. 3, 4
+[79] Yuke Zhu, Josiah Wong, Ajay Mandlekar, Roberto Martín-Martín, Abhishek Joshi, Kevin Lin, Abhiram
+Maddukuri, Soroush Nasiriany, and Yifeng Zhu.
+robosuite: A modular simulation framework and
+benchmark for robot learning. arXiv preprint arXiv:2009.12293, 2020. 2, 3
+16
+
+
+--- PAGE 17 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Appendix
+We provide additional details and extended results in the supplementary materials:
+• Appendix A: Future directions.
+• Appendix B: Agentic system and tool implementation details.
+• Appendix C: VLM prompt templates.
+• Appendix D: RoboVoLo benchmark details and visualizations.
+• Appendix E: Simulation setup and compute details.
+• Appendix F: Statistic test details.
+• Appendix G: Real robot setup and per task breakdowns.
+• Appendix H: Eploration on other simulation environments.
+• Appendix I: Per suite breakdown of the component ablation.
+• Appendix J: Additional Sankey diagrams.
+• Appendix K: Failure mode definitions.
+A. Future Directions
+VoLoAgent is currently restricted to a single-arm parallel-jaw gripper on a tabletop. Extending to bimanual
+coordination, dexterous-hand manipulation, or mobile-base / humanoid embodiments is a natural next step;
+the agent loop and tool API are embodiment-agnostic, but the action-primitive tools (grasp, place) would need
+re-implementations that respect the new kinematics and contact model. Moreover, distilling the completion-
+and failure-monitor calls into a smaller and stronger local checker is another potential direction for the future,
+because completion-monitor errors are the dominant failure category on every VLM we evaluated (including
+the open-weights Qwen3-VL-8B), and a specialized checker can plausibly cut latency by an order of magnitude.
+B. Agentic System — Tools and API
+This appendix expands the agent loop and tool catalog of the main paper. Appendix B.1 describes the proxy
+architecture and how it isolates the orchestrator from the eval client and VLA so that new simulators or policy
+backends can be plugged in without touching the agent loop. Appendix B.2 specifies the tool catalog and the
+action-primitive pipelines.
+B.1. Proxy Architecture and Extensibility
+Process layout.
+VoLoAgent is implemented as a stand-alone proxy that sits between an existing eval client
+and an existing VLA/WAM policy server. The four components run as separate processes, typically on separate
+GPUs and in separate Conda / venv environments because of dependency conflicts between the perception
+stack, the policy stack, and the simulator:
+• Eval client (e.g. robolab IsaacLab driver, LIBERO / VLABench runner): owns the simulator, sends observa-
+tions, applies actions.
+• Orchestrator (this work): runs the VLM agent loop, dispatches action primitives grasp / place, and
+proxies the VLA channel.
+• VLA / WAM policy server (e.g. openpi for 𝜋0.5, DreamZero, MolmoBot): exposes a chunked-action endpoint
+over its native wire protocol.
+• Tool server: hosts GraspGen + SAM3 + Molmo2 in a separate Conda env; reached by the orchestrator
+over an HTTP RPC.
+None of these processes share Python imports; the only coupling is on the wire. This isolation lets the GraspGen
+stack and a 14B WAM coexist on the same node without dependency conflicts, and lets us swap the eval client
+17
+
+
+--- PAGE 18 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+or VLA without rebuilding the orchestrator.
+Pluggable transports: Frontend and Backend.
+The orchestrator defines two abstract interfaces: Frontend
+accepts eval-client connections in a specific wire protocol and exposes a FrontendSession that yields canonical
+observations and consumes canonical actions; Backend opens a connection to the VLA server in some (possibly
+different) protocol and translates canonical observations to the VLA’s native schema and back. Strategies
+in between always see a single canonical schema (the openpi observation/action layout, msgpack-numpy
+encoded), so adding a new VLA family requires only a new ∼200-line protocol module — no changes to the
+agent loop or the tool catalog.
+The repository ships four protocol modules:
+• OpenPI WebSocket (𝜋0, 𝜋0.5, paligemma) — the native canonical case, essentially a pass-through codec.
+• GR00T ZMQ — translates between the canonical schema and GR00T’s native dict structure with a 180 ×
+320 wide-aspect frame.
+• OpenVLA REST — adapts a JSON-numpy single-step REST endpoint, padding 7-D joint deltas to the
+canonical 8-D chunk and replicating the single action across the chunk since OpenVLA does not chunk
+natively.
+• File-IPC — routes observations and actions through atomically-renamed msgpack files on shared storage.
+We use this on osmo to drive a 14B DreamZero server hosted on a separate H100 pool that cannot open
+a TCP socket to the L40 pool running Isaac Sim.
+Simulator extensibility via –env presets.
+The second axis of extensibility targets the simulator side. The
+–env flag selects a small set of defaults that adapt the orchestrator to a specific simulator without code changes:
+image-key conventions (exterior_image_1_left vs. observation/image), action-chunk length (8-step joint-
+position chunks for IsaacLab/PhysX vs. 5-step OSC_POSE replans for LIBERO), and the cadence of monitor calls
+(check_interval halved on LIBERO so monitor frequency in real time stays comparable). All preset values are
+overridable per flag, so a new simulator typically requires only a new preset entry plus the right image keys —
+everything else (agent loop, prompts, tool catalog) is untouched. We have exercised this path with robolab /
+IsaacLab, LIBERO, RoboCasa and VLABench (see Appendix H).
+Mode and recovery extensibility.
+Within a fixed (frontend, backend, env) triple, the orchestration be-
+haviour is controlled by three orthogonal CLI flags. –mode selects the strategy (passthrough, subgoal,
+tool_chain, next_goal, ...); –failure-monitor selects the monitor backend (vlm, gt, signal_primary,
+...); and –recovery-mode selects the action vocabulary that the monitor exposes (replan, replan_grasp,
+replan_tools, ...; see Appendix C). The three VoLoAgent variants reported in the main paper are reached
+by toggling these flags only; no orchestrator code path is variant-specific, which keeps the system easy to
+extend with new strategies, monitors, or recovery vocabularies.
+B.2. Tool Catalog and API
+Tool catalog.
+• vla(prompt, obs) →action_chunk [𝑁steps]: forwards the current observation and the instruction
+prompt to the policy server. Runs asynchronously (P1) at 15 Hz; the agent can halt an in-flight chunk
+when the monitor returns recovery.
+• grasp(target) →action_chunk [𝑀steps]: classic action primitive that grasps the named object.
+target is a natural-language phrase produced by the VLM and used by the perception stack to detect the
+target object.
+• place(destination) →action_chunk [𝑀steps]: classic action primitive that places the currently-held
+object at the named destination. destination is a natural-language phrase produced by the VLM and
+18
+
+
+--- PAGE 19 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+used by the perception stack to localize the placement region.
+Perception models (GroundingDINO (45), SAM2 (59), SAM3 (5), Molmo2 (10)) are invoked inside grasp/place
+to ground the natural-language target before motion planning (see “Action-primitive pipelines” below). Hiding
+intermediate perception outputs from the VLM keeps the agent’s reasoning loop short and fast, in contrast to
+SpaceTools-style designs (8) that re-prompt the VLM on every intermediate detection.
+Action-primitive pipelines.
+grasp(target) runs: open-vocabulary detection/segmentation (e.g., Ground-
+ingDINO (45) or SAM3 (5)) →depth-aware point-cloud crop →GraspGen (53) 6-DoF pose →multi-start Franka
+IK →Cartesian trajectory streamed back to the eval client in the same chunk format as vla. place(destination)
+runs: 2-D destination point (Molmo2-point (10) or a direct VLM point) →depth projection to a 3-D world target
+→IK with the current end-effector orientation preferred (top-down fallback) →release at a fixed clearance
+above the target.
+IK algorithm details.
+Both primitives use the same Cartesian-to-joint solver: damped least-squares (DLS)
+IK with null-space joint centering, wrapped in a multi-start ladder for robustness on cluttered tabletops.
+Given a target end-effector pose 𝑇⋆∈𝑆𝐸(3) and a seed configuration 𝑞0 ∈R7, each iteration computes
+the analytic Jacobian 𝐽(𝑞), the 6-D pose error 𝑒∈R6 (position + axis-angle rotation), and the DLS step
+∆𝑞= 𝐽⊤(𝐽𝐽⊤+ 𝜆2𝐼)−1𝑒+ (𝐼−𝐽+𝐽) 𝛼(𝑞mid −𝑞), with damping 𝜆=5×10−3 and null-space gain 𝛼=0.5 pulling
+toward the joint mid-range 𝑞mid. Steps are clamped to ‖∆𝑞‖2 ≤0.2 rad and configurations are projected
+onto the Franka joint limits at every iteration. Convergence is declared when position error < 5×10−4 m and
+rotation error < 5×10−3 rad, up to 500 iterations. The multi-start wrapper retries seeds in a fixed ladder —
+caller seed, ±𝜋wrist flip on joint 7, a canonical well-conditioned reset, and up to three random draws from
+𝑞mid ± 1.5 rad — and accepts the first solution that satisfies the internal tolerances together with FK-checked
+rotation error < 2∘(which guards against the ∼180∘axis-angle singularity that can otherwise false-positive
+convergence) and an optional joint-branch consistency cap that rejects solutions jumping to a far IK branch
+incompatible with joint-space trajectory interpolation. The resulting joint trajectory is interpolated and chunked
+into action_chunks of the same shape the policy server emits, so the eval client treats primitive and vla outputs
+identically.
+Internal VLM calls.
+The decisions above are produced by fixed-template VLM prompts (subgoal decomposition,
+completion check, failure check, grasp-target naming, place-destination naming, rewrite, replan). These are
+agent-internal procedures rather than tools the agent can choose among, and are detailed in Appendix C.
+C. VLM Prompts
+VoLoAgent’s VLM calls fall into three fixed-template families, each rendered as a JSON-mode request so
+the orchestrator can deterministically parse the response: plan (issued once at episode start, C.1); the per-
+step monitoring and acting call (C.2), whose exact form depends on the agent variant — tool-chain mode
+(VoLoAgent (No VLA)), replan-only mode, and the replan-with-tools mode used by the full VoLoAgent all
+share the same skeleton but expose different action vocabularies; and the replan call (C.3, issued only when
+monitoring-and-acting returns the replan action). The Molmo2-point query used inside place(destination)
+(Appendix B) is a separate single-purpose VLM call and is shown last (C.4). All prompts appear verbatim below;
+full source lives at vlm_orchestrator/strategies/ and vlm_orchestrator/failure_handlers/.
+C.1 Plan
+(DECOMPOSE_SHARED_PROMPT). Issued once per episode. Takes the user instruction and the initial
+scene image and returns a fresh ordered list of atomic subgoals. The agent stores the resulting list in slow-
+context memory (P2). All three monitoring-and-acting variants below (C.2(a) / (b) / (c)) share this C.1
+prompt verbatim — in code, ToolChainStrategy inherits from SubgoalStrategy, so the planning call is the
+same path; only the per-step monitoring call in C.2 differs across variants.
+19
+
+
+--- PAGE 20 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Subgoal decomposition prompt
+You are a vision-language assistant helping a robot arm plan tabletop manipulation tasks. You will see the
+robot's camera view and a task instruction. Produce an ordered list of subgoals the robot should
+execute one at a time.
+Planning principles:
+- Atomic actions. Each subgoal is one pick-and-place / push / reorient / open / close action.
+- Implicit prerequisites. Add steps the instruction omits when physics requires them (clear an obstacle,
+reorient an object too large for a side grasp, etc.).
+- Avoid unnecessary re-handling. Where physics permit, place each object directly in its final pose on the
+first lift, instead of staging it at a temporary location.
+- Naming. Refer to objects by colour + type ("the yellow banana", "the grey bin"). For visually-identical
+duplicates use a generic phrase ("a Rubik's cube"). Keep each instruction short (<=15 words) and
+start with an action verb.
+- Ordering. Mark `ordered: true` when a later step depends on an earlier one; mark `false` when steps are
+independent (e.g. sorting many items into one container).
+- Trivial tasks. A single pick-and-place with no obstacles should be one subgoal with `ordered: false`.
+Output ONLY valid JSON of the form:
+{"subgoals": [{"instruction": "...", "ordered": true|false}, ...]}
+C.2 Monitoring and acting.
+The per-step decision call that produces the orchestration action of the main
+paper. We use three variants of this prompt depending on the agent’s tool catalog: tool-chain mode (no VLA,
+only grasp/place), replan-only mode (VLA only), and replan-with-tools mode (VLA + grasp/place, used
+by VoLoAgent (Full)). The three variants share the same inputs (overall task, current subgoal, BEFORE /
+NOW images, last-tool outcome where applicable) and a status/action JSON output, but expose different action
+vocabularies.
+C.2(a) Tool-chain monitoring and acting (TOOL_CHAIN_SYSTEM_PROMPT). Used in VoLoAgent (No VLA). The
+agent picks a subgoal_action ∈{advance, continue, replan, abort} and a tool ∈{grasp, place, noop}
+in the same JSON, with strict pairing rules (any non-continue action must pair with noop). The prompt is
+excerpted to its rules; full anti-example list lives in tool_chain.py.
+Tool-chain monitoring-and-acting prompt
+You are driving a robot arm. At every step you (a) judge how the last tool call went and where the plan
+stands, then (b) pick the next tool to run. Output BOTH decisions in a single JSON object.
+Inputs you receive:
+- the overall task instruction
+- the planned subgoal list with the current subgoal index marked
+- a BEFORE image (start of the episode)
+- a NOW image (current scene)
+- the last tool that ran, its arguments, and its outcome
+(DONE / FAILED + failure_reason). These are null on the first cycle.
+SUBGOAL ACTION -- judges what has ALREADY happened to the current subgoal as of the NOW image. Pick
+exactly one:
+"continue" -- the current subgoal is not yet finished in the NOW image. Use this whenever you still need
+to run a tool (grasp or place) to advance it. THIS IS THE DEFAULT.
+"advance"
+-- the current subgoal is ALREADY satisfied in the NOW image. Pair with tool="noop".
+"replan"
+-- something went wrong or the plan no longer fits the NOW scene. Pair with tool="noop".
+"abort"
+-- task is unrecoverable. Pair with tool="noop".
+NEXT TOOL (the action to run THIS cycle):
+grasp(target: str)
+Pick up `target`. Use a noun phrase the detector can localize ("red block", "blue bowl") -- no
+20
+
+
+--- PAGE 21 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+pronouns, no relations.
+place(destination: str, held_object_hint: str)
+Place the held object at `destination`. PHRASING RULES:
+1. Inside a container -> "in <container>" (e.g. "in the white bowl").
+2. Beside / near an anchor -> prepend "empty space" (e.g. "empty space next to the green lemon").
+3. Open table -> "empty space on the table".
+4. On a surface object -> "on <surface>" (e.g. "on the wire rack shelf").
+noop
+Skip a cycle. REQUIRED for subgoal_action in {advance, replan, abort}.
+PAIRING RULES (enforced):
+- "continue" -> tool MUST be "grasp" or "place".
+- "advance" / "replan" / "abort" -> tool MUST be "noop".
+OUTPUT: a single JSON object, no markdown, exactly four top-level keys:
+{
+"subgoal_action": "advance" | "continue" | "replan" | "abort",
+"tool":
+"grasp"
+| "place"
+| "noop",
+"args":
+{ <tool-specific> },
+"reason":
+"<one short sentence describing what HAS happened>"
+}
+C.2(b) Replan-only and (c) Replan-with-tools monitoring and acting (VLMFailureHandler). Used in
+VoLoAgent (Only VLA) with recovery_mode="replan" and in VoLoAgent (Full) with recovery_mode="replan_tools"
+respectively. The two variants share a single prompt template; in code, _build_system_prompt constructs the
+prompt by conditionally appending one bullet per available action to the ACTION: block. The shared skeleton is
+shown below with a <ACTION BLOCK> placeholder, followed by the per-action bullets that are emitted in the
+order the conditions fire.
+Replan / replan-with-tools monitoring-and-acting prompt (shared skeleton)
+You are monitoring a robot arm executing a tabletop manipulation task.
+You receive two sets of images:
+- BEFORE images: the scene at the START of the episode (for reference).
+- NOW images: the current scene.
+You also receive the overall task instruction, the current subgoal, and any remaining subgoals after the
+current one.
+HOW TO REASON:
+- Use the BEFORE images and overall task to understand the goal.
+- Use the NOW images, current subgoal, and remaining subgoals to understand the current state and what
+still needs to happen.
+- Decide whether the robot can keep executing the current subgoal from the NOW scene. If yes ->
+"in_progress" / "continue". If the current subgoal is already done -> "complete" / "next". If
+something actively prevents progress (wrong object in gripper, object dropped, robot stuck) ->
+"failure".
+- The subgoal list may have been replanned mid-episode. The current subgoal and remaining subgoals already
+reflect what needs to be done from the current state -- do not treat them as stale.
+Your job:
+1. Assess status -- look at the NOW images and determine the status of the CURRENT SUBGOAL.
+2. Decide action -- choose the best action for the robot.
+STATUS:
+- "complete" -- the current subgoal is done (the target object is at its destination in the NOW images).
+- "failure"
+-- the robot is clearly stuck, holding the wrong object, or the target object is unreachable.
+- "in_progress" -- the subgoal is not yet complete but is still achievable.
+21
+
+
+--- PAGE 22 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+ACTION:
+<ACTION BLOCK>
+IMPORTANT RULES:
+- Only say "complete" if you see CLEAR visual evidence the subgoal is done in the NOW images.
+- Say "in_progress" if the robot has not yet started or is still working on the current subgoal -- this is
+NORMAL, not a failure.
+- Only say "failure" if the robot is clearly stuck, has picked up the WRONG object, or has been making no
+progress for a long time.
+- When in doubt, say "in_progress" with action "continue".
+- Do NOT replan just because the scene looks different from BEFORE. Only replan if the current subgoal is
+impossible or the plan no longer makes sense given the NOW scene.
+Output ONLY valid JSON (no markdown, no explanation):
+{"status": "...", "action": "...", "reason": "brief explanation",
+"grasp_target": "...", "place_destination": "...",
+"place_held_object": "..."}
+The <ACTION BLOCK> above is filled by appending the following bullets, each gated on whether the corre-
+sponding action is in available_actions. Replan-only (b) emits the next / continue / replan bullets only;
+replan-with-tools (c) additionally emits the grasp_tool and place_tool bullets.
+Action bullets (conditionally appended to the shared skeleton)
+# always present in (b) and (c):
+- "next"
+-- this subgoal is COMPLETE. The target object has moved to its destination. Advance to the
+next subgoal.
+- "continue" -- the robot is making progress or the subgoal is not yet complete. Keep working with the
+current instruction.
+- "replan"
+-- something went wrong (object dropped, stuck, wrong object picked, no visible progress) OR
+the current plan is not working. Replan the remaining subtasks from the current scene state.
+# (c) only -- appended when ACTION_GRASP is available:
+- "grasp_tool" -- fire only for WRONG-OBJECT recovery: the gripper holds (or is closing on) an object
+whose identity differs from the subgoal's target. Do NOT fire while the robot is still attempting the
+correct object -- that is in-progress execution; emit "continue". When firing, set "grasp_target" to
+the noun phrase of the correct object.
+# (c) only -- appended when ACTION_PLACE is available:
+- "place_tool" -- fire only for WRONG-DESTINATION recovery: the held object is heading to or already
+released at a destination different from the subgoal's destination. Do NOT fire while the robot is en
+route to the correct destination -- that is in-progress execution; emit "continue". When firing, set
+"place_destination" to a FREEFORM destination phrase. PHRASING RULES:
+1. Inside a container -> "in <container>" (e.g. "in the white bowl").
+2. Beside / near an anchor -> prepend "empty space" (e.g. "empty space next to the green lemon").
+3. Open table -> "empty space on the table".
+4. On a surface object -> "on <surface>" (e.g. "on the wire rack shelf").
+Optionally also set "place_held_object" with the noun phrase of the object in the gripper.
+LIMITATION: place_tool is unreliable for high containers (e.g. a shelf, a high vase). For those
+destinations prefer "continue" (let the VLA finish) or "replan" instead of firing place_tool.
+The C.2(a) tool-chain prompt and the C.2(b)/(c) prompts are disjoint paths in the codebase: C.2(a) drives
+tool_chain.py, while C.2(b)/(c) drive the subgoal strategy with the failure handler.
+C.3 Replan
+(RECYCLE_SYSTEM_PROMPT). Issued only when monitoring-and-acting (C.2) returns the replan
+action. Unlike C.1, replan is not a fresh re-decomposition: it takes the BEFORE image, the NOW image, the
+original instruction, and the original subgoal list, and returns the subset of those subgoals that still need to
+be executed (plus a done flag if every subgoal is already satisfied). The prompt is framed as a completion
+checker that, in the same call, emits the remaining subgoals as its primary output — hence the JSON schema
+22
+
+
+--- PAGE 23 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+below. It explicitly forbids inventing new subgoals or rephrasing existing ones, which keeps the agent on the
+original plan after transient failures (dropped object, mis-grasp) instead of drifting through paraphrases on
+every recovery.
+Replan prompt
+You check whether a robot finished a pick-and-place task by comparing BEFORE and NOW images of the scene.
+Rules:
+- Only consider objects matching the task instruction. Ignore all others (figurines, decorations,
+containers, robot arm, etc.).
+- An object is DONE if it moved from its BEFORE table position into the target container / stacking
+position.
+- An object is REMAINING if it is still clearly visible on the table in the NOW image, or if the physics
+engine reports it as regressed.
+- Do NOT invent objects you cannot clearly see on the table in NOW.
+- Rubik's cubes are standard multi-colored cubes -- never name them by a single face color. Just call them
+"Rubik's cube".
+- If you are unsure whether an object is still on the table or already in the correct position, assume it
+is DONE (be conservative -- fewer subgoals is better than hallucinated ones).
+- IMPORTANT: When an ORIGINAL SUBGOAL LIST is provided, you MUST select subgoals ONLY from that list. Do
+NOT rephrase, rewrite, or invent new subgoal instructions. Return the exact text of the original
+subgoals that still need to be completed.
+You MUST respond with ONLY a single JSON object -- no analysis, no bullet points, no markdown, no
+explanation before or after.
+JSON format (task not done):
+{"remaining": ["green cube"],
+"subgoals": [{"instruction": "Pick up the green cube and place it in the bin",
+"target_object": "green cube"}],
+"done": false}
+JSON format (task complete):
+{"remaining": [], "subgoals": [], "done": true}
+C.4 Place-tool 2-D point query.
+When place(destination) fires (Appendix B) the 2-D destination point is
+obtained either by a direct VLM-point query (below) or by Molmo2-point (10), which uses the same phrasing
+but returns a sharper pixel coordinate for tight placements. The output is then projected to 3-D via the depth
+image.
+Place-destination 2-D point query
+You are given a robot's camera view and a destination phrase. Return the pixel coordinate (x, y) where the
+gripper should release the held object so that, after release, the object satisfies the destination
+phrase.
+Rules:
+- Coordinates are in image pixels with (0, 0) at the top-left.
+- For "in <container>", point at the centre of the container's interior.
+- For "empty space next to <anchor>", point at a clear table region next to the anchor, not on top of any
+object.
+- For "on <surface>", point at a stable region of the surface.
+- If multiple candidates match, prefer the one closest to the gripper.
+Destination phrase: <PHRASE>
+Output ONLY valid JSON: {"x": <int>, "y": <int>, "reason": "..."}
+23
+
+
+--- PAGE 24 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Front-camera variant.
+When –use-front-camera is active, the orchestrator appends a short note to each
+prompt above instructing the VLM that the front-camera view is both left/right and front/behind flipped relative
+to the robot frame, and asking it to describe targets by visual features (colour, type, proximity to landmarks)
+rather than directional words. Three near-identical variants of this note exist in code, one per prompt family.
+Front-camera note appended to C.1 Plan and C.3 Replan (_FRONT_CAM_NOTE)
+NOTE on camera orientation: the "Front camera" view is BOTH L/R and front/behind FLIPPED from the robot's
+perspective. image-LEFT <-> robot-RIGHT, image-TOP <-> robot-BEHIND.
+To avoid frame confusion, describe targets by VISUAL FEATURES (color, type, proximity to landmarks) in
+every output field -- NOT by left/right/front/behind. Example: "the grey container next to the red
+block" instead of "the right bin". If the user's instruction uses a direction, first apply the flip
+to find which object they mean in the image, then re-describe by visual features.
+Front-camera note appended to C.2(b)/(c) monitoring-and-acting (failure-handler variant)
+NOTE on camera orientation: the "Front camera" view is BOTH L/R and front/behind FLIPPED from the robot's
+perspective. image-LEFT <-> robot-RIGHT, image-TOP <-> robot-BEHIND.
+To avoid frame confusion, describe targets by VISUAL FEATURES (color, type, proximity to landmarks) in
+every output field -- NOT by left/right/front/behind. Example: "the grey container next to the red
+block" instead of "the right bin". If the subgoal uses a direction, first apply the flip to find
+which object it means in the image, then re-describe by visual features.
+Front-camera note appended to C.2(a) tool-chain (_TOOL_CHAIN_FRONT_CAM_NOTE)
+NOTE on camera orientation: the "Front camera" view is BOTH L/R and front/behind FLIPPED from the robot's
+perspective. image-LEFT <-> robot-RIGHT, image-TOP <-> robot-BEHIND.
+To avoid frame confusion, describe targets by VISUAL FEATURES (color, type, proximity to landmarks) in
+every `target` / `destination` -- NOT by left/right/front/behind. Example: "the grey container next
+to the red block" instead of "the right bin". If the subgoal uses a direction, first apply the flip
+to find which object it means in the image, then re-describe by visual features.
+D. RoboVoLo Benchmark Details
+RoboVoLo comprises 126 tasks across four suites, grouped into 15 task categories. Each suite targets one
+diagnostic axis: scene-context grounding for Common Sense, state tracking for Memory, language-reference
+resolution for Complex References, and external-knowledge application for World Knowledge. Each task is
+authored so that instruction-independent behaviour (e.g. a fixed “put everything in the bin” policy) cannot
+succeed. Table 4 defines all 15 categories: their testing purpose, the cognitive skill being probed, the number
+of tasks, and one representative instruction. The full task list with per-task initial-state screenshots is in the
+released benchmark repository.
+Task examples per suite.
+Figures 8–11 show two representative initial-scene views per category for each
+suite, drawn from the front-camera view used by the orchestrator. Each panel’s subcaption gives the task
+category (matching Table 4) and the natural-language instruction issued to the agent.
+E. Simulation Setup Details
+RoboVoLo is implemented on top of RoboLab (69) on NVIDIA Isaac Sim / Isaac Lab (52) with PhysX as
+the physics engine. This appendix complements the main paper with the embodiment, observation, and
+evaluation-protocol details needed to reproduce a run.
+Robot embodiment and action space.
+All policy models use the DROID configuration (31): a 7-DoF Franka
+Research 3 arm with a Robotiq 2F-85 parallel-jaw gripper. Actions are 8-D — seven joint-position targets
+24
+
+
+--- PAGE 25 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Table 4: RoboVoLo task categories. 15 categories across four suites, with the testing purpose and a
+representative instruction. # is the number of distinct tasks per category; each is run for 𝑇=3 seeded trials.
+Suite
+Category
+Testing purpose
+#
+Example instruction
+Common
+Sense (CS)
+Infer
+Infer the implicit goal from scene context
+when the instruction is under-specified.
+8
+“Sort the cans on the table into the
+correct bowls.”
+Kit
+Assemble a coherent set from scattered
+objects (kitting / packing).
+8
+“Set up the table for breakfast.”
+Recover
+Detect an out-of-place object and restore
+the expected configuration.
+8
+“Something fell, put it back where
+it belongs.”
+Sort
+Group objects by category, function, or
+container affinity.
+8
+“One item is in the wrong container
+– move it to where it belongs.”
+Memory
+Order
+Track or reproduce an ordered sequence
+(e.g. stack reversal, line ordering, cyclic
+rotation).
+10
+“Reverse the two-block stack.”
+Recall
+Recall an earlier scene state hidden by
+intermediate manipulations.
+10
+“Unstack all four blocks onto the
+table, then put the two that were on
+top into the bin.”
+Swap
+Exchange the positions of two objects
+without losing track of either.
+10
+“Swap the contents of the left and
+right bins.”
+Complex
+Refs (CR)
+Spatial
+Resolve spatial-relation references (left-
+/right, behind, between, nearest).
+8
+“Put the fruit behind the bowl into
+the bin.”
+Counting
+Resolve ordinal / counting references
+(leftmost, second, every-other, 𝑛-th from
+end).
+8
+“Five fruits are lined up. Put the
+second and the fourth from the left
+onto the cutting board.”
+Negation
+Handle negative references (everything ex-
+cept 𝑋, items not in a group).
+8
+“Move every item except the cans
+into the bin.”
+Size+Sort
+Resolve size-based references and com-
+bine with sorting.
+8
+“Put the smaller fruits in the small
+bowl and the larger ones in the large
+bowl.”
+World
+Know. (WK)
+Art
+Compose stylised pictures by arranging
+shape/colour primitives.
+8
+“Use the blocks to make a stick fig-
+ure.”
+Chem
+Assemble
+chemical
+formulas
+from
+periodic-table element cubes.
+8
+“Build the chemical formula for wa-
+ter from the periodic-table cubes.”
+Math
+Solve simple arithmetic by arranging dig-
+it/operator cubes.
+8
+“Use the cubes to make an equation
+that equals seven.”
+Recycle
+Sort items by material / recyclability.
+8
+“Place the recyclable items in the
+blue bin and the trash in the grey
+bin.”
+plus one binary gripper open/close — streamed in 8-step chunks at the 𝜋0.5 (27) control rate of 15 Hz. The
+orchestrator’s grasp / place primitives emit chunks of the same shape so the eval client treats them identically
+to VLA outputs.
+Cameras and observations.
+The simulator exposes three RGB cameras whose intrinsics and extrinsics match
+the real DROID cell: an exterior ZED 2i (used by the VLA), a wrist ZED mini (used by the VLA), and a front-
+mounted egocentric ZED 2i (used by the orchestrator’s monitor and tools when –use-front-camera is set; see
+Appendix C). Camera images are 224×224 after canonical resize. Synthetic depth from PhysX is forwarded
+25
+
+
+--- PAGE 26 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+(a) Infer. “Most items on the
+table are the same kind. Put
+them in the bowl and leave
+the odd one out.”
+(b) Infer. “One item on the ta-
+ble belongs with the group in
+the bowl. Put it there. Leave
+the rest.”
+(c) Kit. “Each bowl should
+contain a can and a fruit.”
+(d) Kit. “One bin has a com-
+plete set. Make the other one
+match.”
+(e) Recover. “One item in the
+bin doesn’t belong with the
+others. Take it out.”
+(f) Recover. “An object that
+belongs in the bowl has fallen
+out. Put it back.”
+(g) Sort. “Sort the cans on
+the table into the correct
+bowls.”
+(h) Sort.
+“Each container
+holds a category. Put the ta-
+ble items where they belong.”
+Figure 8: Common Sense suite – task examples. 8 representative initial-scene views from the Common Sense
+suite of RoboVoLo; each panel shows the task category (italics) and its instruction.
+alongside RGB; the grasp primitive consumes the front-camera depth, and the place primitive consumes the
+front-camera depth together with a Molmo2 2-D point. The VLA does not see depth.
+Scene assets.
+RoboVoLo expands RoboLab’s asset library with the 501 objects described in the main paper
+(247 Lightwheel SimReady household items and 254 task-specific assets: 118 periodic-table element cubes, 120
+geometric art primitives, and 16 wooden digit/operator cubes for math). Figure 12 visualises all 501 items at
+once, each rendered in isolation in Isaac Sim and tiled into a single panel. All assets carry collision geometry
+and physically-realistic mass / friction / restitution so PhysX rigid-body dynamics produce contact behaviour
+usable by a depth-based grasp pipeline.
+Trial protocol and success criterion.
+Each task is evaluated for 𝑇=3 trials. Trials share the canonical initial
+scene (object identity and slot assignment); within-trial randomization perturbs initial object poses, lighting,
+and any distractor placements according to a fixed seed indexed by trial, so trial 𝑘of system 𝐴and trial 𝑘of
+system 𝐵start from identical states and admit paired comparison (Appendix F). Success is determined by the
+RoboLab task’s authored termination predicate (object-in-container, final pose tolerance, etc.); episodes that do
+not satisfy it before the per-task simulation-step budget elapses count as failures.
+Compute.
+A single trial of VoLoAgent (Full) consumes roughly one L40 GPU for the simulator + grasp
+server and one H100 (or a second L40 for 𝜋0.5, or two H100 for 14B DreamZero) for the VLA, plus a few cents
+of cloud-VLM inference. The 126-task × 3-trial RoboVoLo sweep takes ∼18 GPU-hours per system.
+F. Statistic Test Details
+This appendix documents the statistical procedures behind every significance claim in the main paper: paired
+sign-flip randomization tests for the simulation Main-Results and Component-Ablation tables in the main paper
+(§F.1), and Wilson score confidence intervals for the Real-Robot table in the main paper (§F.2).
+26
+
+
+--- PAGE 27 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+(a) Order. “Reverse the stacking order
+of the three colored blocks.”
+(b) Order.
+“Reverse the two-block
+stack.”
+(c) Recall. “Unstack all the cans, then
+put only the top and bottom cans from
+the original stack into the bowl – leave
+the middle can on the table.”
+(d) Recall. “Take all objects out of the
+three containers and place them on the
+table, then put the objects that were
+originally on the table into the serving
+bowl.”
+(e) Swap. “Cycle the items through
+three containers: move the wooden
+bowl’s item to the plastic bowl, the
+plastic bowl’s item to the bin, and the
+bin’s item to the wooden bowl.”
+(f) Swap. “Take the item out of the con-
+tainer and place it on the table. Then
+put the item that was on the table into
+the container.”
+Figure 9: Memory suite – task examples. 6 representative initial-scene views from the Memory suite of
+RoboVoLo; each panel shows the task category (italics) and its instruction.
+F.1. Paired Sign-Flip Randomization Test (Main-Results and Component-Ablation tables
+in the main paper)
+Setup.
+Fix two methods 𝐴and 𝐵and the set of tasks 𝒯on which both methods were run with 𝐾=3 matched-
+seed trials per task. For task 𝑖∈𝒯let 𝑠𝐴
+𝑖, 𝑠𝐵
+𝑖∈{0, 1, . . . , 𝐾} denote the number of successful trials and define
+the per-task success fractions
+ˆ𝑝𝐴
+𝑖
+= 𝑠𝐴
+𝑖
+𝐾,
+ˆ𝑝𝐵
+𝑖
+= 𝑠𝐵
+𝑖
+𝐾,
+𝑑𝑖= ˆ𝑝𝐴
+𝑖−ˆ𝑝𝐵
+𝑖
+∈{−1, −2
+3, −1
+3, 0, 1
+3, 2
+3, 1}.
+(1)
+The test statistic is the mean per-task difference
+¯𝑑=
+1
+𝑁
+𝑁
+∑︁
+𝑖=1
+𝑑𝑖,
+𝑁= |𝒯|.
+(2)
+Null hypothesis and randomization.
+Under 𝐻0 :𝐴
+𝑑= 𝐵on every task, the within-task labels (ˆ𝑝𝐴
+𝑖, ˆ𝑝𝐵
+𝑖) are
+exchangeable, which by linearity of expectation flips the sign of 𝑑𝑖with probability 1
+2 independently for each
+𝑖(16). The randomization distribution of ¯𝑑is therefore
+¯𝑑⋆(𝜀) =
+1
+𝑁
+𝑁
+∑︁
+𝑖=1
+𝜀𝑖𝑑𝑖,
+𝜀∈{−1, +1}𝑁.
+(3)
+27
+
+
+--- PAGE 28 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+(a) Spatial. “Put the fruit that
+is behind the bowl, from the
+robot’s perspective, onto the
+plate.”
+(b) Spatial.
+“Put only the
+item that is between the two
+bins into the bowl.”
+(c) Counting. “Four items are
+in a row. Put the first and the
+last into the bowl.”
+(d) Counting. “Five items are
+in a row. Put the three left-
+most ones into the bin.”
+(e) Size+Sort.
+“Put the
+largest and the smallest items
+into the bin – leave the
+middle-sized one on the ta-
+ble.”
+(f) Size+Sort.
+“Move all
+fruits that are smaller than
+the orange into the bowl.”
+(g) Negation.
+“Put all the
+fruits into the bowl except
+the orange.”
+(h) Negation.
+“Put all the
+cans into the crate except the
+tallest one.”
+Figure 10: Complex References suite – task examples. 8 representative initial-scene views from the Complex
+References suite of RoboVoLo; each panel shows the task category (italics) and its instruction.
+(a) Art. “Complete the stick
+figure by placing the missing
+head.”
+(b) Art. “Complete the stick
+figure by placing the missing
+head.”
+(c) Chem. “Complete the wa-
+ter molecule by adding the
+missing element to the bowl.”
+(d) Chem.
+“Put the non-
+reactive noble gas into the
+bin.”
+(e) Math. “Move a cube to
+complete the equation.”
+(f) Math. “Move a cube to
+complete the equation.”
+(g) Recycle. “Sort 2 items into
+correct bins.”
+(h) Recycle. “Sort 3 items into
+correct bins.”
+Figure 11: World Knowledge suite – task examples. 8 representative initial-scene views from the World
+Knowledge suite of RoboVoLo; each panel shows the task category (italics) and its instruction.
+Tasks with 𝑑𝑖=0 contribute zero in every flip and are kept, matching standard sign-flip convention. The
+two-sided p-value for the observed ¯𝑑obs is the tail mass
+𝑝=
+Pr
+𝜀∼Unif{±1}𝑁
+[︁⃒⃒¯𝑑⋆(𝜀)
+⃒⃒≥| ¯𝑑obs|
+]︁
+.
+(4)
+28
+
+
+--- PAGE 29 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Figure 12: The 501 new RoboVoLo assets. Every object added on top of RoboLab’s existing library is shown:
+247 Lightwheel SimReady household items plus 254 task-specific assets (118 periodic-table element cubes, 120
+geometric art primitives, 16 math digit/operator cubes). Each tile is the Isaac Sim render of a single asset,
+randomly ordered.
+Computation.
+For 𝑁≤24 we evaluate Eq. 4 exactly by enumerating all 2𝑁sign assignments. For larger 𝑁
+we use a Monte-Carlo estimator with 𝐵=2×105 uniform random sign vectors and the unbiased estimator of
+Phipson and Smyth (58):
+ˆ𝑝= 1 + #{ 𝑏: | ¯𝑑⋆
+𝑏| ≥| ¯𝑑obs| }
+1 + 𝐵
+.
+(5)
+The +1 on numerator and denominator prevents ˆ𝑝=0 for finite 𝐵and guarantees ˆ𝑝remains a valid p-value (i.e.
+Pr(ˆ𝑝≤𝛼| 𝐻0) ≤𝛼).
+Scope.
+Comparisons against Full in the Main-Results table of the main paper pool tasks across all five
+benchmark suites (Common Sense 32, Memory 30, Complex References 32, World Knowledge 32, Robolab-Vague
+120). Ablation comparisons in the main-paper Component-Ablation table pool only the four RoboVoLo suites.
+p-values for the main table.
+Each row pairs Full against one column of the main-paper Main-Results table;
+¯𝑑obs is the mean per-task success-rate difference (in percentage points) on the paired tasks.
+29
+
+
+--- PAGE 30 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Full vs. baseline
+¯𝑑obs (pp)
+𝑝
+mode
+𝜋0.5
++22.18
+< 10−4
+MC
+𝜋0-FAST
++29.61
+< 10−4
+MC
+MolmoBot
++26.69
+< 10−4
+MC
+MolmoAct2
++32.37
+< 10−4
+MC
+DreamZero
++23.28
+< 10−4
+MC
+CaP-X (single)
++24.79
+< 10−4
+MC
+CaP-X (ensemble)
++26.31
+< 10−4
+MC
+TiPToP
++21.21
+< 10−4
+MC
+VoLoAgent (No VLA)
++19.15
+< 10−4
+MC
+VoLoAgent (Only VLA)
++ 4.41
+0.0599
+MC
+p-values for the ablation table.
+On the four RoboVoLo suites:
+Axis
+Ablation (vs. Full)
+¯𝑑obs (pp)
+𝑝
+System
+𝜋0.5 (Pure VLA)
++29.23
+< 10−4
+VoLoAgent (No VLA)
++24.04
+< 10−4
+VoLoAgent (Only VLA)
++ 6.83
+0.0466
+Perception
+GDino+SAM2 / Molmo2
++ 3.28
+0.3012
+SAM3 / VLM-point
++ 5.74
+0.0437
+Exterior camera
++ 5.28
+0.0942
+VLM model
+GPT-5.5
++ 6.28
+0.0480
+Gemini-2.5-Flash
++ 9.84
+0.0051
+Qwen3-VL-8B
++21.86
+< 10−4
+VLA model
+𝜋0-FAST
++15.57
+< 10−4
+MolmoBot-DROID
++16.94
+< 10−4
+DreamZero-DROID
++19.95
+< 10−4
+The two non-significant ablation rows are the perception swap GDino+SAM2 / Molmo2 and the exterior-camera
+variant, matching the ablation discussion in the main paper.
+F.2. Wilson Score Confidence Intervals
+For the real-robot table we report a per-system success rate and a two-sided 95% confidence interval. With 𝑛=42
+trials per system (14 tasks × 3 matched-initial-state trials), the normal-approximation interval is unreliable for
+the small success counts at the tails (e.g., 𝜋0.5 with ˆ𝑝=0.143 violates the 𝑛ˆ𝑝(1 −ˆ𝑝) ≥5 rule of thumb). We
+therefore use the Wilson (67) score interval, which inverts the standard score test on the binomial proportion
+and remains valid for small 𝑛and proportions near 0 or 1.
+For 𝑠successes out of 𝑛trials and a two-sided level 1 −𝛼(𝛼=0.05, 𝑧1−𝛼/2=1.96), the Wilson interval is
+CI1−𝛼(𝑠, 𝑛) =
+1
+1 + 𝑧2
+𝑛
+[︂
+ˆ𝑝+ 𝑧2
+2𝑛± 𝑧
+√︁
+^𝑝(1−^𝑝)
+𝑛
++
+𝑧2
+4𝑛2
+]︂
+,
+ˆ𝑝= 𝑠
+𝑛.
+(6)
+This is the interval reported in the main-paper Real-Robot table; it contains the maximum-likelihood estimate
+ˆ𝑝, is contained in [0, 1] by construction, and has approximately nominal coverage even for ˆ𝑝close to 0 or 1 (3).
+No paired test on the real-robot ablations.
+Because the intermediate-variant intervals overlap heavily with
+Full in the Real-Robot table of the main paper, the main paper reports only the per-system intervals and does not
+assert significance for the within-VoLoAgent ablation comparisons. A larger sample (more tasks and/or more
+trials per task) would be required to reach the statistical power needed to distinguish the three VoLoAgent
+variants on the real robot.
+30
+
+
+--- PAGE 31 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+G. Real-Robot Setup and Results
+Hardware.
+A single physical DROID cell (31): a 7-DoF Franka Research 3 arm with a Robotiq 2F-85 parallel-jaw
+gripper, an exterior ZED 2i, and a wrist-mounted ZED mini. Camera extrinsics, lighting, and the joint-position +
+binary-gripper action space match the simulation setup of Appendix E, so the same VLA checkpoints, the same
+orchestrator code, and the same grasp / place primitives run unchanged from sim to real (no retraining, no
+per-cell calibration).
+Per-task results.
+We sampled 14 tasks from the four RoboVoLo suites that are physically reproducible with
+the props available in the lab. Initial object placements were arranged once per task and reset to the same
+configuration before each of the 3 trials per system, so all four systems see identical scenes (same objects, same
+poses, same lighting). This gives 14 × 3 = 42 trials per system and 4 × 42 = 168 trials total. Table 5 lists every
+task with its source suite and the success counts behind the main-paper Real-Robot table.
+Table 5: Real-robot per-task success counts (𝑛=3 trials per cell). Same matched initial states across all four
+systems. Column totals match the per-system rates in the main-paper Real-Robot table.
+Task
+𝜋0.5
+VoLoAgent (No VLA)
+VoLoAgent (Only VLA)
+VoLoAgent (Full)
+KitCanFruitPair
+0/3
+2/3
+3/3
+2/3
+KitLunchPairs
+0/3
+3/3
+3/3
+3/3
+SortFridgeVsPantry
+0/3
+0/3
+1/3
+0/3
+SortProduceAndDairy
+0/3
+1/3
+3/3
+2/3
+SpatialByStackOrder
+0/3
+0/3
+0/3
+0/3
+SwapBinReplaceFruits
+0/3
+3/3
+1/3
+3/3
+UnstackSelect
+2/3
+3/3
+3/3
+3/3
+XrExceptOrange
+1/3
+2/3
+2/3
+3/3
+XrExtremesToBin
+0/3
+0/3
+0/3
+0/3
+XrFirstLast
+1/3
+1/3
+0/3
+1/3
+XrLeftmostRightmost
+0/3
+2/3
+1/3
+1/3
+XrSecondFourth
+2/3
+1/3
+0/3
+0/3
+XrSplitByBlock
+0/3
+1/3
+0/3
+0/3
+RecycleSort3
+0/3
+0/3
+0/3
+0/3
+Total
+6/42
+19/42
+17/42
+18/42
+Success rate
+14.3%
+45.2%
+40.5%
+42.9%
+H. Other Simulation Environments
+We explored the VoLoAgent stack on several widely-used MuJoCo-based benchmarks via the same WebSocket
+proxy: LIBERO (44), RoboCerebra (23), and VLABench (77). In addition, we authored our own set of long-
+horizon composite tasks on top of the LIBERO scene set (“LIBERO – author-designed composite tasks”; same
+kitchen / desk scenes as LIBERO but with multi-step instructions of the same flavor as our RoboVoLo suites:
+literal, vague, and creative phrasings of the same scene-level goal); we also examined the related LIBERO-Plus
+suite (24). We tested the released 𝜋0.5 checkpoint for corresponding benchmarks. Two recurring findings
+emerged on every (benchmark, model) combination we tried; we report the LIBERO-based results as an example
+below, and note where the same pattern recurred on RoboCerebra and VLABench.
+H.1. Finding 1: VLAs over-fit to scene, not generalizable to instruction
+To test whether the VLA actually responds to changes in language, we held the LIBERO scene configuration
+fixed and varied only the prompt: explicit (literal “first 𝑋then 𝑌”), vague (synonyms), creative (intent verbs),
+creative-v2 (scenario utterances), and no prompt (empty). All five prompt styles share identical BDDL goal
+31
+
+
+--- PAGE 32 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+predicates; only the language differs. Binary success was 0/10 in every condition (3-step chains exhaust the
+700-step budget), so we report PSR (predicate satisfaction rate over 24 underlying goal predicates).
+Table 6: 𝜋0.5 (LIBERO) on 10 author-designed composite tasks (24 BDDL goal predicates), with only the prompt
+varied. PSR spans only 5 pp from the empty prompt (30%) to the literal composite (35%).
+Prompt style
+𝜋0.5 (LIBERO) PSR
+explicit (“first 𝑋then 𝑌then 𝑍”)
+35.0%
+vague (synonyms)
+41.7%
+creative (intent verbs / category)
+35.0%
+creative-v2 (scenario-level utterances)
+35.0%
+no prompt (empty instruction)
+30.0%
+The decisive row is no prompt: with the language channel entirely removed, the policy still satisfies 30% of
+the goal predicates — essentially the same level it reaches when given a literal multi-step description of what
+to do. The four prompted rows are within a few points of one another (within single-trial noise), and the
+empty-prompt row is within that same band. The reason is not that prompt rewriting has a small but real
+ceiling on this suite; it is that this 𝜋0.5 checkpoint has been trained on too narrow a scene distribution and has
+stopped conditioning on language at all — it executes the same scene-driven trajectory whatever the instruction
+says, including when there is no instruction. Until the VLA itself generalizes to instructions, the orchestrator
+has nothing to steer through.
+We observed the same effect on every other (benchmark, model) combination we tried and spot-checks on
+RoboCerebra (23) and VLABench (77) reproduce the no-prompt ≈prompted gap with the released sim-trained
+checkpoints, showing limited generalist policy.
+H.2. Finding 2: vision tools do not transfer to non-photoreal sims
+The grasp / place primitives in Appendix B rely on open-vocabulary detectors (GroundingDINO, SAM2,
+SAM3) and pointing models (Molmo2) that were trained almost exclusively on real-world imagery, and our
+ultimate target is real-world deployment. Isaac Sim’s PathTracer renderer produces photometrically realistic
+images, so these vision tools transfer. The MuJoCo-based simulators do not: their rendered scenes have a large
+appearance gap relative to real scenes, leading to failures such as (i) GroundingDINO frequently returning
+empty boxes or wrong-class boxes for everyday objects (mug, plate, basket) once they are rendered in MuJoCo,
+(ii) SAM2 / SAM3 either refusing to segment or attaching the mask to the wrong instance, and (iii) Molmo2’s
+pointing collapsing to the image center on flat-shaded scenes. We observed the same three failure modes on
+RoboCerebra and VLABench scenes (both also MuJoCo-rendered) without further tuning, so we attribute the
+gap to the renderer rather than to any individual benchmark’s asset choices — this is the empirical evidence
+behind the main paper’s “insufficient realism” claim.
+In contrast, RoboLab uses the DROID setup (31), whose VLA checkpoints are trained on a broad cross-
+embodiment real-robot dataset and remain language-conditional, so the orchestrator’s instruction rewrites
+actually steer behavior. RoboLab also runs on Isaac Sim, whose PathTracer rendering closes the visual gap to
+the real world enough that GroundingDINO / SAM3 / Molmo2 transfer. Together, these properties motivated us
+to design RoboVoLo on top of RoboLab: we study agentic robot manipulation that is aligned with a physical
+robot, rather than chasing failures induced by sim-only artifacts of the underlying simulator or executor.
+I. Per-suite Component Ablations
+Table 7 reports the full per-suite breakdown of the component ablation summarized in the main-paper
+Component-Ablation table (Overall column only) in the main text.
+32
+
+
+--- PAGE 33 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Table 7: Per-suite component ablations. Each axis varies one component while the rest of the system is held at
+our default. The final VoLoAgent row is the full system reference; its values are constant across all axes. All
+values are success rate (%, higher is better).
+Axis
+Configuration
+Common Sense
+Memory
+Complex Ref.
+World Know.
+Overall
+System
+𝜋0.5 (Pure VLA)
+11.11
+13.10
+16.67
+9.38
+12.57
+VoLoAgent (No VLA)
+32.22
+13.10
+9.38
+16.67
+17.76
+VoLoAgent (Only VLA)
+44.44
+34.52
+40.62
+20.83
+34.97
+Perception
+GDino+SAM2 / Molmo2
+54.44
+30.95
+43.75
+25.00
+38.52
+SAM3 / VLM-point
+43.33
+35.71
+43.75
+21.88
+36.07
+Exterior camera
+41.67
+30.95
+52.08
+22.92
+36.94
+VLM model
+Claude Sonnet 4.6
+48.89
+36.90
+41.67
+18.75
+36.34
+GPT-5.5
+42.22
+35.71
+42.71
+21.88
+35.52
+GPT-5-mini
+54.44
+22.62
+38.54
+22.92
+34.70
+Gemini-2.5-Flash
+45.56
+26.19
+36.46
+19.79
+31.97
+Qwen3-VL-8B
+33.33
+19.05
+19.79
+8.33
+19.95
+VLA model
+𝜋0-FAST
+50.00
+25.00
+19.79
+11.46
+26.23
+MolmoBot-DROID
+37.78
+27.38
+19.79
+15.62
+24.86
+MolmoAct2-DROID
+30.00
+10.71
+3.12
+7.29
+12.57
+DreamZero-DROID
+50.00
+10.71
+13.54
+13.54
+21.86
+VoLoAgent
+54.44
+36.90
+51.04
+25.00
+41.80
+J. Additional Outcome-flow Diagrams
+Figure 13 reports the outcome-flow Sankey diagrams for the two intermediate ablations omitted from the
+main-paper Sankey figure in the main text: VoLoAgent (No VLA), which replaces the policy with VLM-driven
+primitives, and VoLoAgent (Only VLA), which keeps the VLA + VLM monitor but disables tool-augmented
+recovery.
+Episodes (90)
+No failures (18)
+Failures (72)
+All recovered (20)
+Unrec: stuck (42)
+Unrec: WOP (8)
+Unrec: WTP (2)
+SUCCESS (29)
+INCOMPLETE (9)
+FAIL (52)
+Episodes (90)
+No failures (33)
+Failures (57)
+All recovered (11)
+Unrec: stuck (35)
+Unrec: WOP (9)
+Unrec: WTP (2)
+SUCCESS (40)
+INCOMPLETE (4)
+FAIL (46)
+VoLoAgent (No VLA)
+VoLoAgent (VLA Only)
+Figure 13: Outcome flow on Common Sense (𝑛=90) for the two intermediate ablations: VoLoAgent (no VLA)
+on the left and VoLoAgent (Only VLA) on the right.
+K. Failure-mode Taxonomy and Definitions
+This section expands the two diagnostic streams referenced in the main paper. Both run passively: events are
+written to per-episode log files but never influence orchestration. They share the same simulator’s gt_state
+export.
+33
+
+
+--- PAGE 34 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+K.1. World failures (outcome events, task_failures.jsonl)
+Setup.
+Each long-horizon task is decomposed into an ordered sequence of sub-tasks 𝑆1 →𝑆2 →· · · →𝑆𝐾,
+where each 𝑆𝑘carries a set of target objects with their required end-states:
+𝑆𝑘=
+{︀
+(𝑜(𝑘)
+1 , 𝜏(𝑘)
+1
+), . . . , (𝑜(𝑘)
+𝑁𝑘, 𝜏(𝑘)
+𝑁𝑘)
+}︀
+,
+with 𝑜(𝑘)
+𝑗
+the 𝑗-th tracked object in sub-task 𝑘and 𝜏(𝑘)
+𝑗
+its required predicate (e.g. in_container(bowl),
+on_surface(plate)). At any instant exactly one sub-task is active; all of its 𝑁𝑘objects are tracked in parallel.
+The active sub-task advances to 𝑆𝑘+1 once every (𝑜(𝑘)
+𝑗, 𝜏(𝑘)
+𝑗
+) predicate is satisfied. Objects whose target was
+satisfied in any earlier sub-task remain tracked for regression — with one exception: if an object 𝑜also appears
+as a target of the current sub-task, regression is not fired against 𝑜until the current sub-task completes (an
+in-flight re-grasp of 𝑜is part of the plan, not a failure).
+Events.
+Stateless rules consume per-step gt_state snapshots and emit five event types against this sub-task
+/ object-tracking state:
+• wrong_object_picked (WOP): the gripper holds an object that is not a target of the currently-active
+sub-task.
+• wrong_target_place (WTP): a target object of the active sub-task has been released into a stable pose
+that does not satisfy its required predicate.
+• object_regression: an object that previously emitted object_complete (target satisfied in an earlier
+sub-task) has stopped satisfying its target predicate, and is not a target of the active sub-task.
+• stuck: no end-effector progress and no new sub-task completion for ∼10 s. Re-fires periodically while
+still stuck.
+• recovery: a previously-fired failure’s underlying condition has resolved. Each recovery is paired one-to-
+one with its failure.
+A failure spell is the interval between a failure event and its paired recovery. An episode contains unrecovered
+spells when at least one failure event lacks a paired recovery before episode end. Successful episodes are
+post-hoc resolved as “all recovered” (success implies every spell ended favorably even if the recovery event was
+cut off by the success terminal).
+K.2. VLM failures (metrics.jsonl)
+How GT is obtained.
+Each RoboVoLo task carries two hand-authored predicate lists in its task class:
+gt_success_checks (the conjunction of object-state predicates that defines task success) and gt_invariant_checks
+(predicates that must remain true throughout, e.g. items already sorted into a container should stay there). A typ-
+ical entry is {predicate:
+object_in_container, object:
+[lime01, orange_01, lemon_02], container:
+serving_bowl, logical:
+all} drawn directly from the simulator’s physics state. At every step, robolab
+evaluates these predicates against the current scene and exports the results inside obs["gt_state"] (alongside
+object poses, gripper contact, and per-subtask completion flags). The orchestrator’s GT-metric detectors (69)
+consume this stream passively — they emit metric events but never alter prompts, observations, or recov-
+ery behavior, so the headline success rates in the main-paper Main-Results table are unaffected by whether
+–enable-gt-metrics is on.
+Pairing VLM calls with GT.
+Each VLM call (planning, completion check, failure check, grasp-tool dispatch) is
+paired with the GT predicate it should have verified at the same step: e.g. a “subgoal complete” VLM verdict is
+matched against the gt_success_checks predicate for that subgoal, and a grasp-tool target name is matched
+against the active sub-task’s target object list. The eight leaf metrics in Table 8 partition into four taxonomy
+groups, and the group sum equals the total VLM-failure count (no overlap, no omission):
+34
+
+
+--- PAGE 35 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+• Planning — vlm_plan_mismatch: the VLM’s proposed sub-goal decomposition does not align with the
+GT plan.
+• Completion monitor — vlm_scene_qa_failure (false_complete: scene-QA says complete while GT in-
+complete; missed_complete: scene-QA says incomplete after GT satisfied), vlm_completion_mismatch (or-
+chestrator advanced subgoal on the VLM signal but GT is still incomplete), vlm_task_success_qa_failure
+(end-of-episode QA claimed success while GT failed).
+• Failure monitor — vlm_failure_missed (a blocking GT failure was not flagged), vlm_invariant_qa_failure
+(a GT invariant violation, e.g. object_in_container contradiction, was not flagged).
+• Tool-use — vlm_grasp_target_mismatch: the grasp-tool target name produced by the VLM does not
+resolve to any current GT target after the two-stage resolver below.
+Two-stage VLM-as-judge resolver for tool-use mismatches.
+Naming style (“white bottle with green cap” vs.
+canonical ranch_dressing) inflates the raw vlm_grasp_target_mismatch count. A two-stage offline resolver,
+applied once per sweep, reclassifies alias-equivalent events to a success bucket so the headline tool-use error
+number reflects true semantic mismatches:
+• Stage 1 — string + alias dictionary. Exact-match against the canonical GT target name, then alias-set
+lookup against a hand-maintained per-object phrase dictionary (e.g. {“ranch dressing”, “white bottle with
+green cap”, “green-capped bottle”, ...} →ranch_dressing). Deterministic, sub-ms per event.
+• Stage 2 — VLM grounding. For residual mismatches, a VLM is prompted with the scene image and the
+current GT target list and asked which canonical target the VLM-uttered phrase refers to (or “none of
+them”). Verdicts are cached on disk in metrics_resolved.jsonl sidecars so re-runs cost nothing.
+Resolved events are reclassified to a vlm_grasp_target_qa: target_aliased success bucket and excluded from
+vlm_tool_use_error. All counts in Table 8 and the main-paper VLM-failure figure are post-resolver.
+35
+
+
+--- PAGE 36 ---
+VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation
+Table 8: Per-leaf-metric VLM-failure breakdown on LH-CS (System-2 audit). Counts are raw event totals across
+all 90 LH-CS episodes per VLM. Group sums (Planning / Completion / Failure-mon. / Tool-use) correspond to
+the four bar-segment colors in the main-paper VLM-failure figure.
+Group
+Metric
+Definition
+Claude GPT
+Gemini
+Qwen
+Opus 4.6
+5.5 2.5 Flash 3-VL-8B
+Planning
+vlm_plan_mismatch
+plan_mismatch: VLM-proposed subgoal
+decomposition does not align with the
+GT plan.
+4
+9
+2
+8
+Planning subtotal
+4
+9
+2
+8
+Completion
+monitor
+vlm_scene_qa_failure
+false_complete: scene-QA reports com-
+plete while GT predicate still unsatisfied.
+22
+66
+61
+136
+vlm_scene_qa_failure
+missed_complete: scene-QA reports in-
+complete after GT predicate already sat-
+isfied.
+35
+23
+21
+41
+vlm_completion_mismatch
+Orchestrator advanced subgoal on the
+VLM signal, but GT marks current sub-
+goal still incomplete.
+23
+68
+61
+146
+vlm_task_success_qa_failure
+End-of-episode task-success QA says suc-
+cess while GT episode_results says
+failure.
+4
+27
+33
+36
+Completion subtotal
+84
+184
+176
+359
+Failure
+monitor
+vlm_failure_missed
+GT signaled a blocking failure (dropped
+target, stuck gripper, ...) that the VLM
+failure-monitor did not flag.
+1
+12
+35
+43
+vlm_invariant_qa_failure
+GT detected an invariant violation (e.g.
+wrong-object-in-container) that the VLM
+invariant-QA did not flag.
+1
+32
+46
+46
+Failure-mon. subtotal
+2
+44
+81
+89
+Tool-use
+vlm_grasp_target_mismatch
+target_mismatch:
+grasp-tool
+target
+name does not resolve to any current
+GT target after alias resolution.
+12
+4
+3
+0
+vlm_grasp_target_mismatch
+missing_target: grasp-tool call emitted
+with no target name.
+0
+0
+1
+0
+Tool-use subtotal
+12
+4
+4
+0
+Total VLM-failure events
+102
+241
+263
+456
+36
+

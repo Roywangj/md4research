@@ -1,0 +1,56 @@
+{
+  "paper": {
+    "title": "Boosting MLLM Spatial Reasoning with Geometrically Referenced 3D Scene Representations",
+    "paper_id": "arxiv:2603.08592v2",
+    "source": "local PDF",
+    "source_pages": 10,
+    "source_format": "pdf-text"
+  },
+  "coverage": {
+    "status": "full-coverage",
+    "anchored_sections": [
+      "Abstract",
+      "Introduction",
+      "Related Work",
+      "Method (3D Scene Analysis, Language-Based Geometric Reasoning, Text-Image Association)",
+      "Experiments (Benchmarks, Implementation Details, Evaluation Results, Ablation Study, Qualitative Examples)",
+      "Conclusion",
+      "References"
+    ],
+    "anchors": [
+      "PDF pp.1-2 (Problem, Motivation, Related Work)",
+      "PDF pp.3-5 (Methodology, Eq. 1, Figs. 1-3)",
+      "PDF pp.5-7 (Experimental Results, Tabs. 1-3, Fig. 4)",
+      "PDF pp.7-10 (Discussion, Conclusion, References)"
+    ],
+    "notes": "Full-paper grounded analysis covering motivation, algorithmic formulation, occlusion pruning, prompt structure, VSI-Bench and MindCube benchmarks, ablations, sparse qualitative cases, and critical comparison with 3D-MLLM/agent literature."
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "GR3D introduces geometrically referenced 3D scene representations that couple 2D visual cues with ID-indexed 3D geometric textual descriptions in a training-free framework.",
+      "evidence": "PDF pp.1-4, Sec. 1, 3.1-3.3, Fig. 1"
+    },
+    {
+      "id": "C2",
+      "claim": "Depth-based occlusion pruning eliminates occluded object tags by comparing projected canonical depth z against dense depth map D(i, j) at minimal computational cost.",
+      "evidence": "PDF pp.3-4, Sec. 3.3, Eq. 1, Fig. 2"
+    },
+    {
+      "id": "C3",
+      "claim": "GR3D boosts zero-shot spatial reasoning across multiple MLLMs, pushing GPT-5 from 50.3% to 59.8% (+9.5%) on VSI-Bench and from 55.0% to 66.8% (+11.8%) on MindCube, establishing new SOTA.",
+      "evidence": "PDF pp.5-6, Sec. 4.3, Tabs. 1-2"
+    },
+    {
+      "id": "C4",
+      "claim": "Explicit 2D-3D visual grounding via ID stamps is necessary; providing geometric text without image annotations yields zero gain over base GPT-5 (50.3% vs 50.3%).",
+      "evidence": "PDF pp.5-6, Sec. 4.4, Tab. 3"
+    },
+    {
+      "id": "C5",
+      "claim": "Spatial anchoring allows MLLMs to deduce coordinates of unannotated small objects from nearby annotated anchors, enhancing robustness against missing detections in sparse views.",
+      "evidence": "PDF pp.4, 6-7, Sec. 3.3, 4.5, Fig. 4"
+    }
+  ],
+  "passes_grounding": true
+}

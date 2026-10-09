@@ -1,0 +1,57 @@
+{
+  "status": "ok",
+  "script": "manual_wj_deepreading_grounding_pass",
+  "paper_id": "arxiv:2608.07955v1",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/S7EUAMC6/Tian 等 - 2026 - Self-Evolving Neuro-Symbolic Skills for Tool-Augmented Spatial Reasoning.pdf",
+  "source_pages_read": "1-25",
+  "coverage": {
+    "abstract": {"pages":"1","status":"covered"},
+    "introduction": {"pages":"1-2","status":"covered"},
+    "related_work": {"pages":"2-3","status":"covered"},
+    "method": {"pages":"3-5","status":"covered"},
+    "experiments": {"pages":"5-8","status":"covered"},
+    "conclusion": {"pages":"8","status":"covered"},
+    "references": {"pages":"9-13","status":"read_for_identity_not_line_translated"},
+    "supplementary_implementation": {"pages":"14-16","status":"covered"},
+    "supplementary_cases": {"pages":"16-21","status":"covered"},
+    "supplementary_inventory_and_prompts": {"pages":"21-25","status":"covered"}
+  },
+  "evidence_units": [
+    {"id":"E001","anchors":["p.1","Fig.1"],"claim":"Dynamic planning can violate tool dependencies, whereas fixed pipelines can be redundant and generalize poorly.","note_location":"研究问题"},
+    {"id":"E002","anchors":["pp.3-4","Fig.2"],"claim":"NeSy-Spatial separates typed atomic instructions, Tool-Use Skills, Geometry Skills, execution trajectories, and evolution.","note_location":"方法主线"},
+    {"id":"E003","anchors":["p.3","Eq.1","Eq.2","Eq.3"],"claim":"The library, atomic instruction, verifier, and node-edge-context skill are explicitly formalized.","note_location":"神经符号技能形式化"},
+    {"id":"E004","anchors":["pp.4-5","Eq.4","Eq.5","Eq.6"],"claim":"Inference follows retrieval, action selection, execution, and state update with Python-instantiated Geometry Skills.","note_location":"机制流程"},
+    {"id":"E005","anchors":["p.5","Eq.7","Eq.8","Eq.9","Eq.10"],"claim":"Buffered trajectories drive analysis, fusion, and tenure-aware pruning between episodes.","note_location":"自演化"},
+    {"id":"E006","anchors":["p.5","Table 1"],"claim":"Overall accuracy: GPT-5.4 NeSy-Spatial 49.50/71.50/60.27 and Gemini 2.5 Pro 61.50/82.50/70.94 for MMSI/MindCube/OmniSpatial.","note_location":"主结果与强基线"},
+    {"id":"E007","anchors":["p.6","Fig.5"],"claim":"Average GPT-5.4 FTCS/Python success is 94.56/95.45; Gemini 2.5 Pro is 88.67/96.21.","note_location":"工具利用和执行可靠性"},
+    {"id":"E008","anchors":["p.7","Fig.6"],"claim":"Online evolution exceeds Frozen by 12.5, 3.5, and 2.5 points on MindCube, MMSI, and OmniSpatial; macro average is 54.2 to 60.3.","note_location":"在线演化的持续收益"},
+    {"id":"E009","anchors":["p.7","Table 2"],"claim":"Full configuration is 71.50/49.50/60.27; disabling evolution, Tool-Use, or Geometry yields the reported drops.","note_location":"消融到底说明了什么"},
+    {"id":"E010","anchors":["pp.16-17","Fig.7"],"claim":"MindCube camera-motion case reconstructs a shared scene and returns diagonally forward-left (C) from camera-0-frame geometry.","note_location":"补充案例"},
+    {"id":"E011","anchors":["pp.17-18","Fig.8"],"claim":"MMSI grounded-object case detects a framed painting, projects its box to 3D, and returns front-left (C) in Image 2.","note_location":"补充案例"},
+    {"id":"E012","anchors":["pp.18-19","Fig.9"],"claim":"OmniSpatial allocentric case estimates the screen pose and returns the fan on the screen's right.","note_location":"补充案例"},
+    {"id":"E013","anchors":["pp.19-21","Fig.10"],"claim":"Failure analysis adds destination grounding and forward-motion comparison after a turn; geometry evolution adds guarded dynamic option parsing.","note_location":"Skill evolution"},
+    {"id":"E014","anchors":["pp.14-16","Tables 3-6"],"claim":"The supplement specifies seeds, warm-up, batches, limits, native tools, and the two skill representations.","note_location":"复现注意点"},
+    {"id":"E015","anchors":["pp.21-25","Tables 7-9","Section D"],"claim":"The supplement lists retained skill inventories and prompt constraints, while noting complete prompts depend on code release.","note_location":"复现注意点"}
+  ],
+  "key_numbers": [
+    "N_seed=3 for MMSI and MindCube, 4 for OmniSpatial; N_buf=20; n_min=5; rho_err=0.4; T_idle=100; lambda=0.5.",
+    "GPT-5.4 Overall: 49.50 MMSI, 71.50 MindCube, 60.27 OmniSpatial.",
+    "Gemini 2.5 Pro Overall: 61.50 MMSI, 82.50 MindCube, 70.94 OmniSpatial.",
+    "Retained skill endpoints: MindCube 17, MMSI 9, OmniSpatial 20.",
+    "Evolution deltas versus Frozen: +12.5 MindCube, +3.5 MMSI, +2.5 OmniSpatial."
+  ],
+  "claim_boundaries": [
+    "The reported best-of-six and best-of-three claims are benchmark-, tool-pool-, and backbone-specific.",
+    "Prequential ordering prevents current-label leakage but past labels still change later libraries.",
+    "FTCS and Python success measure execution reliability, not causal evidence contribution or guaranteed answer correctness.",
+    "The PDF does not establish unseen-tool transfer, real-robot deployment, long-term skill pollution resistance, runtime cost, or token cost.",
+    "The requested /Users/roywangj/research PDF path was unavailable; the existing mounted repository copy was used and has identical filename/identity."
+  ],
+  "consistency_checks": {
+    "gemini_omnispacial_overall_corrected_to_pdf_table_value": true,
+    "all_reported_main_numbers_have_page_or_table_anchor": true,
+    "supplementary_sections_covered": true,
+    "unsupported_external_claims_added": false
+  },
+  "passes_grounding": true
+}

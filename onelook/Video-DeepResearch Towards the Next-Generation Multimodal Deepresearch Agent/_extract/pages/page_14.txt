@@ -1,0 +1,19 @@
+Each annotator possesses strong familiarity with
+video understanding, visual search, and multi-hop
+reasoning tasks.
+Quality Assurance. Before the formal anno-
+tation phase, all annotators undergo a structured
+training session covering task definitions, tool us-
+age (e.g., Crop_Search), and common pitfalls such
+as parametric knowledge leakage. This is followed
+by a qualification test on a held-out pilot set; only
+annotators meeting a predefined accuracy threshold
+are admitted to the main annotation. During pro-
+duction, the workflow is organized into two decou-
+pled stages: an annotation stage, where annotators
+create and verify VQA instances, and a quality in-
+spection stage, where a separate group of reviewers
+cross-checks each instance for answerability, visual
+groundability, and factual correctness. Instances
+flagged during inspection are returned for revision
+or discarded.

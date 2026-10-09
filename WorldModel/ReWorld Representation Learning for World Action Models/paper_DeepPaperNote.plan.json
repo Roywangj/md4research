@@ -1,0 +1,166 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出面向自动驾驶链式 WAM 的三阶段表征学习课程，直接约束中间 Video DiT、跨模态 Action DiT 状态和闭环动作空间。",
+  "dominant_domain": "autonomous-driving world action models and generative representation learning",
+  "must_cover": [
+    "DriveLaW 链式 Video DiT→Action DiT 接口和中间状态 F",
+    "阶段 1 的未来流中间监督与自引导采样",
+    "阶段 2 的 stop-gradient 跨注意力读出对齐",
+    "阶段 3 的 NAVSIM PDM 困难负样本与 RDE",
+    "nuScenes、nuPlan、NAVSIM、UCF-101 数据和评测协议",
+    "视频生成、闭环规划、线性探测、效率和全部消融结果",
+    "0.3% 视频侧开销、阶段超参数、复现约束和证据边界"
+  ],
+  "key_numbers": [
+    "2B Video DiT + 133M Action DiT",
+    "阶段 1 20k 步、global batch 64、lr 1e-5、weight decay 5e-2",
+    "阶段 2 6k 步、batch 128、lambda_align 0.05、第 12 个跨注意力层",
+    "阶段 3 10k 步、batch 160、lambda_RDE 0.04；每场景 64 候选、delta 0.6",
+    "nuScenes FID/FVD: DriveLaW 4.6/81.3, ReWorld 4.4/61.9",
+    "NAVSIM PDMS: DriveLaW 89.1, Align only 89.5, RDE only 89.8, ReWorld 90.4",
+    "UCF-101 frozen linear probe: LTX 66.8, DriveLaW 68.3, Stage 1 71.7, full 80.2",
+    "统一协议 FVD: Vanilla Flow 304.1, Self-Flow 283.3, ReWorld 270.4",
+    "视频侧归一化每步成本 ReWorld 1.003x；自引导 gamma=1.4；视频 30 步、动作 5 步"
+  ],
+  "real_comparisons": [
+    "nuScenes 视频生成与 DriveGAN、DriveDreamer、DrivingGPT、DriveWorld、Vista、Epona、DriveLaW 比较",
+    "NAVSIM Navtest 与传统端到端规划器及 DrivingGPT、LAW、Epona、WoTE、DriveVLA-W0、PWM、WorldDrive、DriveLaW 比较",
+    "UCF-101 与 LTX-Video、DriveLaW 和 ReWorld 阶段 1/完整课程比较",
+    "受控长时程协议与 Vanilla Flow、SRA、SRA2、Self-Flow、REPA 系列和 ReDi 比较",
+    "中间 block、自引导尺度、Align/RDE 组合和两个正则权重消融"
+  ],
+  "central_claims": [
+    {
+      "claim": "显式未来预测监督能让规划端消费的中间 Video DiT 状态具有未来性，并改善长时程视频生成。",
+      "supporting_evidence": [
+        "sec:preliminaries",
+        "sec:method-2",
+        "sec:related-work",
+        "sec:datasets",
+        "sec:method-4"
+      ],
+      "what_it_actually_proves": "在作者的 DriveLaW 设置中，中间监督使标准采样 FVD 从 81.3 降至 78.9；与 gamma=1.4 自引导结合后为 61.9。",
+      "what_it_does_not_prove": "61.9 是组合结果；没有完整消融自引导与中间监督的独立交互，也没有多 seed 方差。"
+    },
+    {
+      "claim": "让 Action DiT 保留跨注意力视频 readout，并用闭环低分近邻塑造动作空间，可以改善规划。",
+      "supporting_evidence": [
+        "sec:preliminaries",
+        "sec:method-2",
+        "sec:method-4",
+        "sec:method-4"
+      ],
+      "what_it_actually_proves": "在 NAVSIM Navtest，同一链式架构的 PDMS 从 89.1 提升到 Align only 89.5、RDE only 89.8、完整 ReWorld 90.4。",
+      "what_it_does_not_prove": "RDE 依赖 PDM 评分器和 64 候选；非反应式 NAVSIM 分数不是现实交通安全证明。"
+    },
+    {
+      "claim": "生成器原生的表征目标在长时程驾驶视频上兼顾效果和开销。",
+      "supporting_evidence": [
+        "sec:method-3",
+        "sec:method-3",
+        "sec:method-3"
+      ],
+      "what_it_actually_proves": "统一 120k 步协议中 ReWorld FVD 为 270.4，且归一化视频侧每步成本为 1.003x。",
+      "what_it_does_not_prove": "受控协议与主系统不同；0.3% 不含离线困难负样本挖掘、总 wall-clock 或端到端总成本。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文是单一链式 DriveLaW 架构上的实验，不证明所有 WAM 都需要三阶段课程。",
+    "FVD 61.9 结合中间监督与 gamma=1.4 自引导，不能全部归因于中间预测头。",
+    "NAVSIM 是数据驱动、非反应式基准，PDMS 不能直接等同现实道路安全。",
+    "UCF-101 线性探测只支持时空表征迁移改善，不直接证明规划因果收益。",
+    "正文没有 action-only 且结构完全一致的未来视频目标移除实验。",
+    "论文未报告完整训练曲线方差、随机种子和困难负样本覆盖率。"
+  ],
+  "negative_or_limiting_results": [
+    "ReWorld 舒适度 99.8 低于 DriveLaW 的 100，提升并非所有 PDMS 分量同步。",
+    "lambda_align 从 0.05 增至 0.10 时 Stage 2 PDMS 从 89.5 降至 87.7。",
+    "lambda_RDE=0.10 时 PDMS 仅 85.5，排斥项过强会破坏专家流匹配。",
+    "自引导 gamma=1.6/1.8 的 FVD 69.7/68.2，劣于 gamma=1.4 的 61.9。",
+    "第 2/12/16/20 block 的 FVD 65.5/62.7/63.0/64.3，均劣于 block 8。"
+  ],
+  "mechanism_result_map": [
+    "中间头共享未来流目标，直接对应标准采样 FVD 81.3→78.9和统一协议 FVD 270.4。",
+    "中间—最终速度差异形成自引导方向，gamma=1.4 对应最终 FVD 61.9，但非单调权重表明不能过度引导。",
+    "冻结视频分支和 stop-gradient readout 给 Action DiT 稳定世界空间，对应 Align only PDMS 89.5。",
+    "最近低分专家邻居 + RDE 提供局部行为对比，对应 RDE only PDMS 89.8、完整 90.4。",
+    "不引入外部编码器，只加轻量预测头，对应视频侧 1.003x 归一化成本。"
+  ],
+  "comparative_positioning": [
+    "相对 DriveLaW，ReWorld 保持链式 latent interface，但显式优化中间表示和闭环动作局部。",
+    "相对图像扩散表征方法，ReWorld 使用生成器原生 future-flow target，而非外部静态语义教师。",
+    "相对并行 WAM，ReWorld 研究的是 Video DiT 中间状态经跨注意力进入 Action DiT 的传递质量。"
+  ],
+  "reuse_takeaways": [
+    "规划消费的中间生成状态需要直接的未来目标，而不能假定最终输出监督会自动传递。",
+    "跨模态注意力的读取不等于后续状态保留，stop-gradient readout 是可复现的检查点。",
+    "行为塑形应选择专家附近的低分候选，随机负样本可能只学习几何差异。",
+    "效率数字必须明确是单步视频侧还是包含采样、离线挖掘和总训练时间。",
+    "未来视频目标需要结构一致的 action-only 移除实验才能建立因果归因。"
+  ],
+  "followup_questions": [
+    "删除 LMid、保留同一 DriveLaW 架构和训练预算时 FVD、PDMS 和 UCF-101 会怎样？",
+    "不使用自引导、只使用中间监督时不同采样步数的 FVD 曲线是什么？",
+    "readout stop-gradient、对齐层位置和余弦损失形式是否决定 Align 收益？",
+    "PDM 阈值、候选数量和负样本距离对 NC/DAC/TTC 的影响是否稳定？",
+    "RDE 学到的是实际安全边界还是 NAVSIM/PDM 评分器的局部偏差？",
+    "在多 seed、分布外天气、反应式仿真和更长时域上是否保持收益？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "从中间世界到动作表征的三个未约束缺口切入，区分端点监督与路径监督。",
+      "evidence_sources": [
+        "sec:preamble",
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "交代 nuPlan/nuScenes/NAVSIM/UCF-101、指标、训练和统一比较协议。",
+      "evidence_sources": [
+        "sec:datasets",
+        "sec:method-2",
+        "sec:model"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按三阶段课程给出链式流匹配、LMid、自引导、Lalign、困难负样本和 LRDE 公式。",
+      "evidence_sources": [
+        "sec:preliminaries",
+        "sec:method-2",
+        "sec:method-3",
+        "sec:method-4"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "覆盖五项图、八张表的证据和完整定量/定性结果，明确组合效应。",
+      "evidence_sources": [
+        "sec:datasets",
+        "sec:method-2",
+        "sec:method-3",
+        "sec:method-4"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "解释为什么原生未来流、readout 保留和局部 RDE 可能成立，并与 DriveLaW 定位。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:preliminaries",
+        "sec:method-4"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "强调无 action-only 对照、PDM/NAVSIM 依赖、统计缺失和外推边界。",
+      "evidence_sources": [
+        "sec:method-4",
+        "sec:conclusion"
+      ]
+    }
+  ]
+}

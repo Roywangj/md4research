@@ -1,0 +1,513 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2605.09423",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "SIMWORLD STUDIO: (Left) SIMCODER automatically generates UE5 interactive",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "SIMCODER turns a user prompt into an interactive environment through an automatic",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_003_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "The workspace supports the full environment-generation workflow in a single view.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_004_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "(case study 1 left), SIMCODER receives a text prompt (e.g., “build a residential neighbor-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_006_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_006_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_006_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Ablation study results for SIMCODER in Case Study 1.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_007_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_007_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Qualitative medieval village scene comparison. Each generated scene is paired with its",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_008_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_008_fig_figure_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Example of tool, skill, and generated script used in the example in Fig 6. The MCP",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Generalization analysis. (Left) More diverse SIMWORLD STUDIO environments yield",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Co-evolution of SIMCODER and embodied agent. (a) Environment difficulty across",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:results-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Representative interface views of SIMWORLD STUDIO. The light-theme main interface",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:appendix-case-b-skills-panel",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_031_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_031_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_031_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Qualitative Example P1. Output scenes generated by three model backbones given the",
+      "pages": [
+        41
+      ],
+      "section_id": "sec:evaluation",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Qualitative Example P1. Top: prompt and reference image. Bottom: rendered UE5",
+      "pages": [
+        42
+      ],
+      "section_id": "sec:evaluation",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Qualitative Example P1. Top: editing prompt and the original scene prior to modification.",
+      "pages": [
+        42
+      ],
+      "section_id": "sec:evaluation",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Qualitative Example P2. Top: editing prompt and the original scene prior to modification.",
+      "pages": [
+        43
+      ],
+      "section_id": "sec:evaluation",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Iterative scene development over six steps. Starting from a bare 4-way road intersection",
+      "pages": [
+        43
+      ],
+      "section_id": "sec:evaluation",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Scene generation quality (averaged across difficulty levels). All metrics ∈[0, 1] (↑). Bold",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Embodied navigation on generated environments. We report SR, SPL, SoftSPL, and",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_010_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_010_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_010_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Comparison with representative embodied simulation platforms, generative scene-",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:results-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_012_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_012_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "lists all 14 MCP tools exposed by the SIMWORLD STUDIO server. Tools are organized into",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_022_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_022_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_022_fig_table_4.png"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "SIMWORLD STUDIO Minimal System Requirements.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:appendix-case-d-interactive-user-control-mode",
+      "decision": "placeholder",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Existing software, model APIs, and assets used in SIMWORLD STUDIO.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:appendix-case-d-interactive-user-control-mode",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_032_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_032_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/SimWorld_Studio_Automatic_Environment_Generation_with_Evolving_Coding_Agent_for_Embodied_Agent_Learning/images/page_032_fig_table_6.png"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Scene generation quality across LLM backbones, settings, and difficulty levels. All",
+      "pages": [
+        34
+      ],
+      "section_id": "sec:appendix-case-d-interactive-user-control-mode",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Complete metric inventory. “R” = Rule-based, “V” = VLM-as-Judge. Bold indicates metrics",
+      "pages": [
+        34
+      ],
+      "section_id": "sec:appendix-case-d-interactive-user-control-mode",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Ablation study on verification loop and self-evolving skill accumulation across four models.",
+      "pages": [
+        35
+      ],
+      "section_id": "sec:appendix-case-d-interactive-user-control-mode",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "Ablation on observation modalities across model scales. Each Qwen3.5 model is",
+      "pages": [
+        38
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 11",
+      "source_id": "Table 11",
+      "kind": "table",
+      "label": "Table 11",
+      "caption": "Difficulty level parameterization. Path length is the geodesic distance from start to goal;",
+      "pages": [
+        39
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    }
+  ],
+  "summary": {
+    "total_items": 26,
+    "by_decision": {
+      "insert": 9,
+      "low_priority": 14,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

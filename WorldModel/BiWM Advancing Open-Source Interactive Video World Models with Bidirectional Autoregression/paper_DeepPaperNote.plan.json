@@ -1,0 +1,129 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出 BiWM：一个把预训练双向视频扩散模型转成 chunk-wise 双向自回归交互世界模型的全栈开源框架，核心是两阶段训练配方（文本空间相机控制微调 + 多目标少步 DMD 蒸馏）、三种可插拔历史压缩和可选低比特 QAT 部署，属于方法/系统框架类论文。",
+  "dominant_domain": "interactive video world models, video diffusion distillation, and camera-controllable generation",
+  "must_cover": [
+    "causal 与 bidirectional 自回归的真正分界：不是 chunk 大小，而是已生成帧是否允许被后续生成刷新（KV cache 冻结 vs 历史逐步重编码自纠错）。",
+    "文本空间相机控制机制：81 类离散动作词表（9 平移 × 9 旋转，Eq.2）、一次性预编码 frozen buffer、逐帧拼接注入既有 cross-attention、零新增参数、约 100 步收敛。",
+    "两阶段配方 vs minWM 四阶段：Stage 1 相机-文本预训练约 100 optimizer steps，Stage 2 多目标少步蒸馏约 200 steps，8×H200、梯度累积 4，数小时完成。",
+    "多目标蒸馏：DMD reverse-KL 主项的 mode-seeking 病理，与 GAN hinge、低噪声 SFT、real/teacher 两种 forward-KL 质量覆盖锚的互补关系。",
+    "三种可插拔历史压缩（sink 滑窗、PackForcing 式 HR+LR 编码器、FramePack/Yume-1.5 式多尺度金字塔）与 RoPE patch-grid 位置约定。",
+    "结论边界：全文没有任何定量基准，Results 自述系统性定量研究仍在进行，所有效果图标注为 qualitative illustration；BD 优于 causal 的定量证据链主要来自 Yume/Matrix-Game 的报告。"
+  ],
+  "key_numbers": [
+    "训练管线仅 2 个阶段（minWM 为 4 个）；Stage 1 约 100 optimizer steps 学会相机控制，Stage 2 蒸馏约 200 steps 收敛；8×H200 GPU、gradient accumulation 4，全程数小时。",
+    "离散动作词表 81 类 = 9 向平移 × 9 向旋转（Eq.2：a_i = g_t × 9 + g_r），每类绑定固定相机文本短语，一次性预编码为 81×S_a×d_t 的 frozen buffer；文本条件长度 S=512。",
+    "50 步双向 teacher 蒸馏为 4 步/chunk 的生成器，rollout 可延伸到 60 s 以上；训练时每 chunk 只保留 1 个随机去噪步的梯度并跨 chunk detach 历史。",
+    "默认设置：视频截断为 77 帧、编码为 20 个 latent 帧，按 K 个 latent 帧分 chunk；fake score critic 以 N:1 频率相对生成器在线更新。",
+    "4 个骨干、3 类架构：Wan2.1-T2V-1.3B 与 Wan2.2-TI2V-5B（cross-attention）、HunyuanVideo-1.5-TI2V-8B（MMDiT）、LTX-2.3-22B（音视频联合）。",
+    "PackForcing 式 HR 分支为 8 个 causal 3D 卷积块、通道 64→128→256→512；FramePack 式金字塔空间尺度 s∈{1,2,4,8,16}，最远段附加 2× 时间压缩，超长历史最多 16–32× 压缩。",
+    "数据：OpenVid+WorldPlay 规定轨迹数据（直接复用 minWM 开源发布）+ Sekai 真实行走视频（SLAM 式位姿引擎 + 时序一致多视几何 + 度量单目模型恢复 metric-scale 位姿）。",
+    "低比特部署：FP8-E4M3（Hopper 硬件 kernel）与 NVFP4 4-bit（Blackwell 原生 kernel），QAT 折叠进 Stage 2 尾部，用 forward-KL 对齐全精度 teacher 的速度场与干净估计。"
+  ],
+  "real_comparisons": [
+    "BiWM 与 minWM 的框架级对比：范式（chunk 内双向 vs 因果掩码）、训练阶段数（2 vs 4）、相机控制（离散文本动作 vs 连续 PRoPE）、真实场景相机控制可用性（作者断言 minWM 频繁失控）。",
+    "BiWM 与 Yume-1.5 / Matrix-Game-3.0：同属双向范式，但后两者未开源数据与完整训练管线，Matrix-Game-3.0 依赖多阶段配方；BiWM 定位为可复现开源版本。",
+    "文本空间相机注入与两类既有注入法的比较：绝对注入（CameraCtrl、层级注入）耦合相机与视频时序动态、放大误差累积；相对注入（CaPE、GTA、PRoPE、UCPE）更稳但残差支路扰动预训练注意力、需要重相机编码器与大 batch。",
+    "同 prompt、同相机脚本、同随机种子下有无 anchor loss 的对照（Fig 8）：DMD 单独 vs DMD+GAN+SFT+forward-KL。",
+    "BF16、FP8-E4M3、NVFP4 三种精度的 rollout 对照（Fig 9）：帧级质量与自回归内容漂移分开评估。",
+    "causal 基线（Self-Forcing 式连续位姿控制）在行走轨迹下的崩溃过程（Fig 3）作为动机性对照。"
+  ],
+  "central_claims": [
+    {
+      "claim": "chunk 内保留全双向注意力、跨 chunk 自回归、历史随每步重编码的 bidirectional autoregression，能抑制因果 KV cache 冻结带来的误差累积与相机漂移，实现更稳的长时程 rollout。",
+      "supporting_evidence": ["sec:introduction", "sec:method", "sec:results"],
+      "what_it_actually_proves": "机制论证 + 定性证据：Fig 3 展示因果基线在行走相机轨迹下退化为无结构帧，Fig 7 展示 BiWM chunk-wise rollout 保持场景身份与几何；连续分布视频扩散缺少语言模型式 re-quantization 自纠错的论证在概念上成立。",
+      "what_it_does_not_prove": "论文没有同骨干、同数据、同预算的 causal vs bidirectional 定量对照（FVD、控制误差、时延），BD 范式更优的定量证据链主要引用 Yume-1.5 与 Matrix-Game-3.0 的自报结果；作者也把 head-to-head benchmarking 明确列为 future work。"
+    },
+    {
+      "claim": "把相机控制表达为 81 类离散动作的固定文本短语、经既有 text conditioning 路径逐帧注入，可在不加任何新参数的情况下约 100 步获得可靠相机控制，且不出现残差注入法的早期画质下跌。",
+      "supporting_evidence": ["sec:related-work", "sec:method", "sec:results"],
+      "what_it_actually_proves": "step 0 时模型严格等于预训练生成器（只是文本更丰富），因此训练稳定性与数据效率的机制解释成立；Fig 2 定性展示每行恒定离散动作下相机服从指令；数据侧用真实 6-DoF 几何量化而非手工标签，保证了词表的几何含义。",
+      "what_it_does_not_prove": "没有与 PRoPE/CaPE 等注入法的控制精度定量对比；离散词表方向-幅度解耦意味着不编码运动速度与幅值，连续精细控制能力未被验证；约 100 步收敛的主张来自作者自述而非公开训练曲线。"
+    },
+    {
+      "claim": "以 DMD 为主项、辅以 GAN hinge、低噪声 SFT 与 real/teacher 双 forward-KL 质量覆盖锚的多目标蒸馏，能在约 200 步内把 50 步双向 teacher 压成 4 步 chunk-wise 生成器，同时避免 mode-seeking 导致的动态塌缩。",
+      "supporting_evidence": ["sec:method", "sec:results", "sec:conclusion"],
+      "what_it_actually_proves": "同 prompt/轨迹/种子对照（Fig 8）显示 DMD 单独训练产生雾状近静态 rollout，加锚后高频细节、对比度与时序动态显著恢复；forward-KL 的 mass-covering 性质与低运动退化之间的机制映射清晰。",
+      "what_it_does_not_prove": "没有 FVD 或任何量化指标支撑各锚项的边际贡献，也没有各损失项的系统消融表；结论目前依赖单例定性对照。"
+    }
+  ],
+  "claim_boundaries": [
+    "全文零定量基准：Results 开篇即声明按组件功能刻画框架、系统性定量研究 ongoing，Fig 5/6/7 图注均标 qualitative illustration, not a benchmark；因此一切质量与控制性主张目前都是机制论证加个例演示。",
+    "『minWM 在真实场景相机控制中频繁失控』是作者断言，论文未给出该对比的实验协议或数字。",
+    "『first full-stack open-source BD-AR framework』是定位性主张，成立与否取决于对 full-stack 的定义（Yume-1.5 开源了模型但未开源数据与完整训练管线）。",
+    "双向重编码历史的额外推理成本只被描述为 modestly more costly，全文没有 FPS/时延数字，real-time 与 interactivity 主张缺少硬指标。",
+    "低比特通路作者自己声明：batch size 1 下主要以精度换显存，吞吐收益需要批量推理 + 图编译 + 真低比特 kernel 组合才能兑现。",
+    "约 100/200 步收敛的训练预算主张与数据规模、骨干规模的关系未展开；LTX-2.3-22B 这类大骨干是否同样几百步收敛没有单独数字。"
+  ],
+  "negative_or_limiting_results": [
+    "DMD 单独蒸馏（无锚项）产生雾状、低对比、内容几乎不随时间变化的 rollout（Fig 8 上排），是 reverse-KL mode-seeking 病理的直接展示。",
+    "NVFP4 4-bit rollout 帧级质量保留，但自回归内容在量化噪声累积下漂移，与 BF16 不逐帧对齐（Fig 9）。",
+    "sink 滑窗历史模式超出窗口即丢弃远距离上下文，不保留长程记忆。",
+    "causal 基线（Self-Forcing 式）在行走相机轨迹下由干净街景退化为 washed-out 无结构帧，图像误差与相机响应漂移互相强化（Fig 3）。",
+    "绝对相机注入把相机轨迹时序与视频动态耦合、放大长 rollout 误差；相对注入即使零初始化也会因残差支路扰动预训练注意力造成训练早期画质下跌——这两个失败模式是 BiWM 设计的反面教材。"
+  ],
+  "mechanism_result_map": [
+    "chunk 内全双向注意力 + 历史随每步重编码 → 已生成帧可被持续修正，误差不被冻结进 KV cache → 对应 Fig 3（因果崩溃）与 Fig 7（BiWM 长 rollout 场景身份保持）的对照。",
+    "相机控制走文本空间、零新增参数 → step 0 即预训练生成器，条件分布不被残差支路扰动 → 对应约 100 步出控制、无早期画质塌陷、无需大 batch。",
+    "静态-only caption + 离散动作流分离 → 文本无法泄漏轨迹，运动监督全部流经动作通道 → 对应 Fig 2 中每行恒定动作下相机严格服从指令。",
+    "历史/记忆 token 只条件于 caption（Eq.6），相机文本只作用于当前 chunk → 防止历史泄漏伪相机线索，解耦『世界长什么样』与『相机怎么动』。",
+    "forward-KL（mass-covering）+ SFT（低噪声细节锚）+ GAN（高频纹理）三类锚对冲 DMD reverse-KL 的 mode-seeking → 对应 Fig 8 有无锚项的动态与清晰度差异。",
+    "跨 chunk 条件路径天然接受干净 latent 作历史 → 把用户图像编码为首帧历史即得免训练 I2V（Fig 6），同一机制也支撑实时事件编辑（Fig 5）。",
+    "QAT 量化自蒸馏用 forward-KL 对齐速度场与干净估计 → 低比特下保住相机驱动动态（reverse-KL/MSE 对齐则趋于静态场景），对应 Fig 9 帧级质量保持。"
+  ],
+  "comparative_positioning": [
+    "相对 minWM：不是竞争者而是同一开源设计空间的双向补集；用每窗口少量时延换保真度、可控性与显著更短的训练（2 阶段 vs 4 阶段）。",
+    "相对 Yume-1.5 / Matrix-Game-3.0：范式相同，但 BiWM 补上了这些系统缺失的可复现性——开源数据、两阶段训练代码与跨骨干支持，且支持对它们做二次微调。",
+    "相对 CausVid/Self-Forcing 谱系：同样使用 self-rollout DMD 闭合训练-测试差距，关键差异是 rollout 在 chunk-wise 双向而非严格因果掩码下进行。",
+    "相对绝对/相对相机注入法：文本空间注入不改自注意力、不加参数、复用预训练条件路径，代价是控制信号被量化为 81 类离散词表。",
+    "相对 DreamZero 等具身 WAM：BiWM 处理的是相机/键鼠驱动的世界探索而非机器人动作生成，其『双向自回归』恰好落在 DreamZero AR-vs-BD 消融所批评的『固定长度整段双向』与『纯因果自回归』之间的中间点。"
+  ],
+  "reuse_takeaways": [
+    "给任何视频骨干加低维控制信号的最低成本方案：把控制量化成固定文本短语、一次性预编码、走已有 text conditioning 路径——零新参数、不动预训练分布。",
+    "BD vs causal 的真实决策点在少步蒸馏之后：当每 chunk 只需 4 步去噪，chunk 内全注意力的额外开销变小，误差韧性而非时延成为主导因素。",
+    "reverse-KL 蒸馏必须配 mass-covering 锚（forward-KL/SFT/GAN），否则动态塌缩；量化蒸馏同理——forward-KL 是低比特保动态的关键。",
+    "历史压缩三方案（sink 滑窗 / PackForcing HR+LR / FramePack 金字塔）统一在一个接口后可直接换插消融；RoPE 位置必须用 patch-grid 单位且时间轴不得按 chunk 重置。",
+    "训练预算参考点：相机控制约 100 步、蒸馏约 200 步、8×H200——学术预算下世界模型按小时迭代成为可能。"
+  ],
+  "followup_questions": [
+    "同骨干、同数据、同蒸馏预算下 BD-AR 与 causal-AR 的 head-to-head 定量比较（FVD、相机跟随误差、每 chunk 时延）结果如何？作者列为 future work。",
+    "chunk 内双向重编码历史的实际推理时延/FPS 是多少？在多长历史窗口下仍能维持交互帧率？",
+    "81 类离散词表不编码运动幅度与速度，连续精细相机控制（如缓慢推拉）如何实现？连续与组合动作词表是作者自列方向。",
+    "事件编辑后历史被重编码，已生成场景的几何一致性是否被事件注入破坏？能否量化？",
+    "三种历史压缩模式在超长 rollout 下的记忆保持差异如何？论文说可直接消融但未给结果。",
+    "该配方能否迁移到动作条件的具身 WAM（机器人 action chunk 替代相机词表），与 DreamZero 式闭环真值回填结合？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释为什么连续分布的视频扩散缺乏语言模型的 re-quantization 自纠错、因果 KV cache 冻结如何让图像误差与相机漂移互相强化，以及开源生态缺双向范式全栈框架的空档。",
+      "evidence_sources": ["sec:preamble", "sec:introduction"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "覆盖 OpenVid+WorldPlay 规定轨迹与 Sekai 真实行走视频两路数据、SLAM 式位姿恢复管线、静态-only caption 约定和连续位姿到 81 类离散动作的量化协议。",
+      "evidence_sources": ["sec:method", "sec:results"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按 chunk-wise 双向自回归公式、文本空间相机注入四步机制、三种历史压缩模式与 RoPE 约定、多目标少步蒸馏损失（Eq.7-12）与训练预算展开执行链。",
+      "evidence_sources": ["sec:method"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "在无定量基准的前提下整理框架级对比表（vs minWM/Yume/Matrix-Game）、锚项有无对照、低比特三精度对照与训练预算数字，并明确定性证据的边界。",
+      "evidence_sources": ["sec:results", "sec:method", "sec:conclusion"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "区分真贡献（范式级开源配方 + 文本空间控制 + 锚项工具箱）与工程组装，解释为什么双向自纠错在少步蒸馏后变得可负担，并指出定性证据与 first 类主张的误读风险。",
+      "evidence_sources": ["sec:introduction", "sec:related-work", "sec:method", "sec:results"]
+    },
+    {
+      "section": "局限",
+      "focus": "梳理零定量基准、无时延数字、离散控制表达力、滑窗记忆丢失、低比特收益边界与 minWM 对比断言未经验证等限制。",
+      "evidence_sources": ["sec:results", "sec:conclusion", "sec:method"]
+    }
+  ]
+}

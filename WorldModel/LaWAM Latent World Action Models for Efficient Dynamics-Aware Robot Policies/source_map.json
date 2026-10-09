@@ -1,0 +1,392 @@
+{
+  "paper": {
+    "title": "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies",
+    "authors": [
+      "Jialei Chen",
+      "Kai Wang",
+      "Kang Chen",
+      "Shuaihang Chen",
+      "Feng Gao",
+      "Wenhao Tang",
+      "Zhiyuan Li",
+      "Weilin Liu",
+      "Zhuyu Yao",
+      "Boxun Li",
+      "Yuanbo Xu",
+      "Chao Yu"
+    ],
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2606.15768",
+    "arxiv_id": "2606.15768",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/2I9EGQ7W/Chen 等 - 2026 - LaWAM Latent World Action Models for Efficient Dynamics-Aware Robot Policies.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "page_count": 23,
+    "source_text_sha256": "d559f5f8161d22c8cd911863e4d8c9948f3b3ad3760bfe5bf77446469e5814f8"
+  },
+  "notes": {
+    "mode": "section-complete bilingual reader with layout-repaired paragraph groups",
+    "references_policy": "Pages 9-12 are indexed but bibliography entries [1]-[47] are not translated line by line.",
+    "author_name_variants": "PDF first page spellings (Kang Chen, Weilin Liu, Chao Yu) are used; Semantic Scholar lists Kanghao Chen, Weiling Liu, Chaoyang Yu.",
+    "canonical_raw_sections": "pipeline workdir paper_raw_sections.jsonl (scratchpad lawam_tr)",
+    "full_text_extraction": "pipeline workdir paper_full_text.md (scratchpad lawam_tr); sha256 recorded above",
+    "section_detector_caveat": "The automatic section detector split pages 6-8 into spurious sec:method-2 / sec:method-3 / sec:appendix-d-4* blocks and merged the appendix into sec:references; paper.md restores the true section order from headings and page positions."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "VLAs lack explicit foresight; WAMs are pixel-expensive; LaWAM uses latent visual subgoals from a 230M LaWM; headline SRs 98.6 LIBERO / 91.22 RoboTwin, 187 ms, 24x lower latency."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-2",
+      "summary": "VLA limitation (no scene-evolution modeling) and three WAM inefficiencies: pixel synthesis capacity, iterative latency (LingBot-VA 4482 ms vs pi0.5 220 ms), and futures not exposing chunk-relevant state change."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "2-3",
+      "summary": "LaWM proposal: latent-action-conditioned dynamics model in frozen DINOv3 feature space; decoder repurposed from LAM; LaWAM two-stage pipeline, 3000h robot + 1500h human video; 2.3B model, 95% fewer world-modeling parameters than 5B WAN."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Related Work",
+      "pages": "3",
+      "summary": "Three lineages: VLAs with implicit future tokens; pixel-space vs efficiency-oriented WAMs (pi0.7, Fast-WAM, GigaWorld-Policy, LDA-1B); latent action models and the concurrent decoder-as-world-model observation (Garrido et al.)."
+    },
+    {
+      "id": "S005",
+      "type": "equation",
+      "section": "Method / 3.1 Problem Formulation",
+      "pages": "3-4",
+      "summary": "Eq. (1) WAM decomposition into future prediction and IDM; Eq. (2) LAM posterior and LaWM decoder in frozen feature space; Eq. (3) inference-time factorization policy prior x LaWM x action expert."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Method / 3.2 Latent World Model",
+      "pages": "4",
+      "summary": "Stage 1: LaWM as forward decoder; auxiliary end-effector state predictor g; Eq. (4) forward-prediction + aux + KL objective; physical interval tau makes subgoals correspond to consistent elapsed motion."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Method / 3.3 Latent World Action Model",
+      "pages": "4-5",
+      "summary": "Stage 2: policy prior predicts z-hat, LaWM decodes subgoal without pixels; Alternate-DiT action expert with semantic and dynamics streams; Eq. (5) distillation + subgoal supervision + flow matching, with Knowledge Insulation."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Experiments / setup",
+      "pages": "5",
+      "summary": "Open-source pretraining mixture; policy integration uses only language-annotated robot trajectories; five evaluation axes."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Experiments / 4.1 LIBERO",
+      "pages": "5-6",
+      "summary": "Best average SR 98.6 among VLA/latent-action/WAM baselines; 230M LaWM vs 5B WAN backbone; 187 ms latency, up to 24x faster."
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "Experiments / 4.2 RoboTwin",
+      "pages": "6-7",
+      "summary": "50-task bimanual benchmark; best clean-scene average 92.64, close to strongest pixel-space WAMs under randomization (89.80)."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "Experiments / 4.3 Real-World",
+      "pages": "7",
+      "summary": "Pick-and-place, drawer opening, towel folding on Franka and Quanta X1; LaWAM best average 90.0 and first on all three tasks; latency-driven baseline failures on towel folding."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Experiments / 4.4 LaWM Dynamics Analysis",
+      "pages": "7-8",
+      "summary": "Open-loop cross-embodiment rollouts: latent action is embodiment-agnostic, LaWM grounds it in the current latent state; explains why raw latent actions alone are a limited interface."
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "Experiments / 4.5 Component Ablations",
+      "pages": "8",
+      "summary": "Removing LaWM causes the largest drop (especially LIBERO-Long); distillation and KI both matter; interface should be driven by aligned latent actions and gradient-protected."
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "Limitations",
+      "pages": "8",
+      "summary": "Camera self-motion breaks latent-action coherence (humanoid/mobile robots out of scope); training mixture lacks fine-grained deformable dynamics."
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "8-9",
+      "summary": "Future prediction as a compact latent interface between semantic instruction following and physically grounded control."
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "References",
+      "pages": "9-12",
+      "summary": "Bibliography [1]-[47]; indexed, not translated line by line."
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Appendix A / Detailed RoboTwin Results",
+      "pages": "13",
+      "summary": "Per-task RoboTwin success rates expanding Table 2 averages."
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Appendix B / Qualitative Visualization Protocol",
+      "pages": "13-14",
+      "summary": "Subgoal heatmaps from DINO patch cosine similarity; panels show final frame of each action chunk."
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "Appendix C.1 / LaWM architecture",
+      "pages": "14",
+      "summary": "DINOv3 ViT-B/16 features; 24-layer encoder/decoder; V-JEPA2-style encoder; adaLN latent-action conditioning instead of Genie-style additive injection; disposable MLP state heads."
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "Appendix C.2 / LaWAM architecture",
+      "pages": "14-15",
+      "summary": "Qwen3-VL first 16 layers; four Alternate-DiT blocks, hidden 1024; query layout with causal mask; EEF actions; no proprioception; RGB 256x256."
+    },
+    {
+      "id": "S021",
+      "type": "equation",
+      "section": "Appendix C.3 / Physical-time alignment",
+      "pages": "15",
+      "summary": "Eq. (6) H_b = round(tau h_b); Eq. (7) sinusoidal physical-time encoding phi(t_b,i); shared physical-time coordinate across control frequencies."
+    },
+    {
+      "id": "S022",
+      "type": "body",
+      "section": "Appendix C.4 / Mixed-frequency experiment",
+      "pages": "15-16",
+      "summary": "Controlled 5/10/20 Hz LIBERO co-training; native 20 Hz as upper-bound reference; physical-time encoding largely recovers performance."
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "Appendix C.5 / Training details",
+      "pages": "16-17",
+      "summary": "LaWM: 16 H100, 100k steps, AdamW lr 3e-4, batch 1024, beta 1e-5, tau 1.2s robot / 0.4s human, view-decoupled augmentation. Policy: lambda 0.1, 200k steps on 64 H100; 10 denoising steps; latency from 1000 A100 runs; WAM parameter counts exclude VAE/text encoder."
+    },
+    {
+      "id": "S024",
+      "type": "body",
+      "section": "Appendix D.1-D.2 / LIBERO and RoboTwin protocols",
+      "pages": "17",
+      "summary": "LIBERO: 25k steps, batch 256, 2000 trials over 40 tasks. RoboTwin: 2500 clean + 25000 randomized demos, 100k steps, ~20h on 64 H100, 100 trials per task."
+    },
+    {
+      "id": "S025",
+      "type": "body",
+      "section": "Appendix D.3 / Real-world protocol",
+      "pages": "18-21",
+      "summary": "Franka (pick-and-place, drawer) and Quanta X1 (towel); 150/280 demos; 30 trials per task with fixed initial configurations; per-task setups and failure inspection."
+    },
+    {
+      "id": "S026",
+      "type": "body",
+      "section": "Appendix D.4 / Additional LaWM rollout analysis",
+      "pages": "19-23",
+      "summary": "500-trajectory open-loop similarity curves; additional cross-environment and cross-embodiment rollout examples."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "summary": "Figure 1: latency-success trade-off on LIBERO; marker area = model size, pink sector = world-modeling parameters.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "2",
+      "summary": "Figure 2: two-stage LaWAM overview (Stage 1 LAM/LaWM pretraining, Stage 2 policy integration with distillation and Alternate-DiT).",
+      "asset": "assets/page_002_fig_figure_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Method / 3.3",
+      "pages": "5",
+      "summary": "Figure 3: subgoal-guided chunk execution with robot-arm heatmap overlays.",
+      "asset": "assets/page_005_fig_figure_3.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments / 4.1 LIBERO",
+      "pages": "6",
+      "summary": "Table 1: LIBERO results, 50 trials per task, with model size and latency columns.",
+      "asset": "assets/page_006_fig_table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Experiments / 4.2 RoboTwin",
+      "pages": "6",
+      "summary": "Table 2: RoboTwin averages over 100 trials per task, clean and randomized.",
+      "asset": "assets/page_006_fig_table_2.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Experiments / 4.3 Real-World",
+      "pages": "7",
+      "summary": "Figure 4: representative real-world rollouts on two platforms.",
+      "asset": "assets/page_007_fig_figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Experiments / 4.4 Dynamics Analysis",
+      "pages": "7",
+      "summary": "Figure 5: cross-embodiment open-loop LaWM rollouts from shared latent actions; (d)(e) use pi.website screenshots.",
+      "asset": "assets/page_007_fig_figure_5.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Experiments / 4.3 Real-World",
+      "pages": "7",
+      "summary": "Table 3: real-world SR over 30 trials per task; automatic crop was caption-only, so the table is transcribed as Markdown in paper.md.",
+      "asset": null
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Experiments / 4.5 Ablations",
+      "pages": "8",
+      "summary": "Figure 6: component ablations on LIBERO; manually re-cropped to remove the left body-text column; legend top edge slightly clipped.",
+      "asset": "assets/page_008_fig_figure_6.png"
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Appendix A",
+      "pages": "13",
+      "summary": "Table 4: per-task RoboTwin success rates, clean and randomized.",
+      "asset": "assets/page_013_fig_table_4.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix C.4",
+      "pages": "16",
+      "summary": "Figure 7: mixed-frequency training results; physical-time encoding recovers performance toward the 20 Hz reference.",
+      "asset": "assets/page_016_fig_figure_7.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "17",
+      "summary": "Figure 8: qualitative LIBERO chunk-level executions with latent world rollouts; green box marks the selected robot-arm patch.",
+      "asset": "assets/page_017_fig_figure_8.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix D.3",
+      "pages": "18",
+      "summary": "Figure 9: real-world setups, Franka Emika Panda with external RGB camera and Quanta X1 bimanual robot.",
+      "asset": "assets/page_018_fig_figure_9.png"
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix D.4",
+      "pages": "19",
+      "summary": "Figure 10: average LaWM rollout similarity curves over 500 LIBERO trajectories.",
+      "asset": "assets/page_019_fig_figure_10.png"
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "Appendix D.3 / Pick-and-place",
+      "pages": "20",
+      "summary": "Figure 11: post-chunk observations with future-similarity overlay and subgoal PCA for pick-and-place.",
+      "asset": "assets/page_020_fig_figure_11.png"
+    },
+    {
+      "id": "F012",
+      "type": "figure",
+      "section": "Appendix D.3 / Drawer opening",
+      "pages": "20",
+      "summary": "Figure 12: post-chunk observations for drawer opening.",
+      "asset": "assets/page_020_fig_figure_12.png"
+    },
+    {
+      "id": "F013",
+      "type": "figure",
+      "section": "Appendix D.3 / Towel folding",
+      "pages": "21",
+      "summary": "Figure 13: post-chunk observations for the long-horizon towel-folding sequence.",
+      "asset": "assets/page_021_fig_figure_13.png"
+    },
+    {
+      "id": "F014",
+      "type": "figure",
+      "section": "Appendix D.4",
+      "pages": "22",
+      "summary": "Figure 14: single-arm cross-embodiment rollout.",
+      "asset": "assets/page_022_fig_figure_14.png"
+    },
+    {
+      "id": "F015",
+      "type": "figure",
+      "section": "Appendix D.4",
+      "pages": "23",
+      "summary": "Figure 15: dual-arm cross-embodiment rollout; (e)-(j) unseen scenes, (f)-(j) pi.website screenshots.",
+      "asset": "assets/page_023_fig_figure_15.png"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_005_fig_figure_3.png",
+    "assets/page_006_fig_table_1.png",
+    "assets/page_006_fig_table_2.png",
+    "assets/page_007_fig_figure_4.png",
+    "assets/page_007_fig_figure_5.png",
+    "assets/page_008_fig_figure_6.png",
+    "assets/page_013_fig_table_4.png",
+    "assets/page_016_fig_figure_7.png",
+    "assets/page_017_fig_figure_8.png",
+    "assets/page_018_fig_figure_9.png",
+    "assets/page_019_fig_figure_10.png",
+    "assets/page_020_fig_figure_11.png",
+    "assets/page_020_fig_figure_12.png",
+    "assets/page_021_fig_figure_13.png",
+    "assets/page_022_fig_figure_14.png",
+    "assets/page_023_fig_figure_15.png"
+  ]
+}

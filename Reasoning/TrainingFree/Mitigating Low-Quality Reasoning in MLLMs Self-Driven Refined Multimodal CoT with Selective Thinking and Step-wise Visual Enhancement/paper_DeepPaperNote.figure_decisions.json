@@ -1,0 +1,167 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "title:8d98ae569727",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Performance and token consumption comparisons",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Illustration of different MCoT methods. (a) No CoT: MLLMs directly generate answers without intermediate rea-",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_002_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_002_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_002_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Overview of the proposed SDR-MCoT. Selective Thinking: For each query, MLLMs obtain answer confidence and",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_004_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Correlation between performance and entropy of",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Illustration of the relative attention mechanism. (a) When provided with answer options, MLLMs focus on answering,",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_005_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_005_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_005_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Performance comparison of different MCoT methods across multiple benchmarks. Token consumption represents the",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_006_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Ablation study on the two key components of SDR-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Mitigating_Low_Quality_Reasoning_in_MLLMs_Self_Driven_Refined_Multimodal_CoT_with_Selective_Thinking_and_Step_wise_Visual_Enhancement/images/page_007_fig_table_2.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 7,
+    "by_decision": {
+      "insert": 6,
+      "low_priority": 0,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

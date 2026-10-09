@@ -1,0 +1,396 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.16666",
+  "title": "Fast-WAM: Do World Action Models Need Test-time Future Imagination?",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Fast-WAM Do World Action Models Need Test-time Future Imagination/.pipeline/deep_fast/fast_wam_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Fast-WAM Do World Action Models Need Test-time Future Imagination/.pipeline/deep_fast/fast_wam_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DPU4SKTI/Yuan 等 - 2026 - Fast-WAM Do World Action Models Need Test-time Future Imagination.pdf",
+    "total_pages": 13,
+    "text_pages_extracted": 13,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 13,
+    "text_max_pages": null,
+    "text_pages_extracted": 13,
+    "text_pages_scanned": 13,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 12,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 210,
+      "text_hash_sha256": "0a25b7bd53da0fd10568d1403a1e47f434ba62c9739d406b96ea0e1bd39f3f0d"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1597,
+      "text_hash_sha256": "6c86b73646f2fa73ec9ec55e26d912841fd61c76aa41560e548e4dc3fdb5b96b"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 6353,
+      "text_hash_sha256": "309861d9661fc7e310e2cb481a7e969679303d9e8f82f4c7c5096b0644582db0"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 2544,
+      "text_hash_sha256": "47270b8720e199fdf4907a0eb0d144719a1f72061768c89a6f8da23f670ea3a7"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 3,
+      "page_end": 6,
+      "char_count": 9072,
+      "text_hash_sha256": "9dcd343f4d4ef3dffd083016bf0987c2fc490df9b33e0697cc5012eaf5f808ca"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 2894,
+      "text_hash_sha256": "7a81ed779c27a1c26d17b062d2e8e7c2773a017631e552959675d36a481da0aa"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 2268,
+      "text_hash_sha256": "2ca025cbe0a3f883bc21565077c42e269125e771bebe3cfa60ab0313e6e56bd3"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 4921,
+      "text_hash_sha256": "d2b36ef69525fce276ee0e0f132d92baa9e4daeda1242658a5c966fcec9f95ea"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 1095,
+      "text_hash_sha256": "5f8a1ae3a27abea3a566b684d710df335085b8d225767295d1ee97403b524f84"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 10,
+      "page_end": 12,
+      "char_count": 10640,
+      "text_hash_sha256": "d53076f56b00005fff3ab1798f91f1e822931447d31a319580fdc019153acdff"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 1284,
+      "text_hash_sha256": "cdab4f6c30d2af4108ff177795578f35f3a72282088408541af991dab6e475a6"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3278,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4226,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3964,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4483,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2482,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4110,
+      "section_ids": [
+        "sec:method",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2575,
+      "section_ids": [
+        "sec:experiment",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3738,
+      "section_ids": [
+        "sec:method-2",
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2635,
+      "section_ids": [
+        "sec:method-3",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3696,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3693,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3382,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3404,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Three representative WAM paradigms. (A) Joint-modeling WAMs denoise future video",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Fast-WAM architecture and the structured attention mask used to disentangle video co-",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Real-world towel-folding task on the Galaxea R1 Lite platform. Folding a deformable",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Real-world results on the long-horizon towel-folding task. The left panel plots success",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method-3"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "and Table 2 summarize the results on RoboTwin and LIBERO, respectively. Overall, Fast-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on LIBERO. Fast-WAM achieves competitive overall performance without embodied",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Per-task success rates on RoboTwin under clean and randomized evaluation settings.",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:appendix"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "p(a1:H | o, l) =",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "pθ(a1:H | o, l) = pθ(a1:H | z(o, l)).",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "latents z1:T ), we sample Gaussian noise ϵ ∼N(0, I) and a time step t ∈(0, 1), and construct the",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "yt = (1 −t) y + t ϵ.",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "LFM(y) = Ey, ϵ, t",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "we set y = a1:H and optimize",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Lact = LFM(a1:H).",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "For video co-training, we set y = z1:T , where z1:T denotes the latent tokens of future video frames",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Lvid = LFM(z1:T ).",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "L = Lact + λLvid,",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "dimension of da = 1024, resulting in a 1B action expert and a total model size of 6B parameters. We",
+      "section_id": "sec:experiment",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "set the action horizon to h = 32. Video frames are temporally downsampled by 4×, resulting in 9",
+      "section_id": "sec:experiment",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "p = 0.5.",
+      "section_id": "sec:experiment",
+      "page_start": 6,
+      "page_end": 7
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 12,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": [
+      {
+        "id": "Table 3",
+        "caption": "Per-task success rates on RoboTwin under clean and randomized evaluation settings.",
+        "page_hint": "p.13"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "281b5f804508ea8dc16e5320ee5e50b358b836ddbdb133cecc74c03bfff2d3c9"
+}

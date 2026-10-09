@@ -1,0 +1,50 @@
+{
+  "paper": {
+    "title": "Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning",
+    "authors": ["Haodong Li", "Shaoteng Liu", "Tianyu Wang", "Chongjian Ge", "Sihui Ji", "Jiahan Zhang", "Xin Lin", "Haolin Lu", "Zhe Lin", "Manmohan Chandraker"],
+    "year": 2026,
+    "arxiv": "2608.09926v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/A94M5EQ5/Li 等 - 2026 - Learning How the World Evolves Extrapolative Video World Models via Latent Dynamics Reasoning.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "pages": 9
+  },
+  "notes": {
+    "scope": "Complete bilingual rendering of all 9 PDF pages, including abstract, main text, algorithm, figures, tables, limitation, footnotes, and references.",
+    "paragraph_pairs": 45,
+    "caption_pairs": 8,
+    "references": 51,
+    "assets_are_crops": true
+  },
+  "blocks": [
+    {"id":"F001","type":"figure","section":"Overview","pages":"1","asset":"assets/page_001_fig_figure_1.png","summary":"Motivation, ID/OOD and severe-shift examples."},
+    {"id":"S001","type":"body","section":"Abstract","pages":"1","summary":"LDR, benchmark, extrapolation and efficiency claims."},
+    {"id":"S002","type":"body","section":"Introduction","pages":"2","summary":"World-model distinction, benchmark protocol and contributions."},
+    {"id":"S003","type":"body","section":"Related Works","pages":"2","summary":"Video generation/world models and learning laws of motion."},
+    {"id":"F002","type":"figure","section":"Method","pages":"3","asset":"assets/page_003_fig_figure_2.png","summary":"Three-stage LDR encoding, reasoning and decoding pipeline."},
+    {"id":"S004","type":"body","section":"Method","pages":"3","summary":"Structured representation, encoding, decoding and extrapolation rationale."},
+    {"id":"S005","type":"equation","section":"Latent Dynamics Reasoning","pages":"3","summary":"Finite-difference initialization and kinematic integration equations (1)-(2)."},
+    {"id":"S006","type":"algorithm","section":"Latent Dynamics Reasoning","pages":"4","summary":"Algorithm 1, exact rollout procedure."},
+    {"id":"F003","type":"figure","section":"Experiments","pages":"3","asset":"assets/page_003_fig_figure_3.png","summary":"Single-task qualitative OOD comparison."},
+    {"id":"S007","type":"body","section":"Optimization","pages":"4","summary":"Three training losses and full LDR objective (5)."},
+    {"id":"T001","type":"table","section":"Experimental Results","pages":"4","asset":"assets/page_004_tables_1_2.png","summary":"Single-task and joint five-task results at 256^2."},
+    {"id":"T002","type":"table","section":"Experimental Results","pages":"5","asset":"assets/page_005_tables_3_4.png","summary":"Single-task and joint five-task results at 128^2."},
+    {"id":"S008","type":"body","section":"Experimental Setup","pages":"4-5","summary":"Benchmark, ranges, protocols, metrics, baselines and implementation."},
+    {"id":"S009","type":"body","section":"Experimental Results","pages":"5-6","summary":"Quantitative, ablation and qualitative findings."},
+    {"id":"F004","type":"figure","section":"Qualitative Comparison","pages":"6","asset":"assets/page_005_fig_figure_4.png","summary":"Joint five-task qualitative comparison."},
+    {"id":"T003","type":"table","section":"Efficiency Study","pages":"6","asset":"assets/page_006_table_5.png","summary":"Parameters and latency comparison."},
+    {"id":"F005","type":"figure","section":"Stress Test","pages":"6","asset":"assets/page_005_fig_figure_5.png","summary":"Severe OOD shift with unseen earth-textured objects."},
+    {"id":"S010","type":"body","section":"Summary and Limitation","pages":"6","summary":"Summary and stated limitations."},
+    {"id":"S011","type":"references","section":"References","pages":"7-9","summary":"51 original bibliographic entries retained with Chinese title translations."}
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_003_fig_figure_2.png",
+    "assets/page_003_fig_figure_3.png",
+    "assets/page_004_tables_1_2.png",
+    "assets/page_005_tables_3_4.png",
+    "assets/page_005_fig_figure_4.png",
+    "assets/page_005_fig_figure_5.png",
+    "assets/page_006_table_5.png"
+  ]
+}

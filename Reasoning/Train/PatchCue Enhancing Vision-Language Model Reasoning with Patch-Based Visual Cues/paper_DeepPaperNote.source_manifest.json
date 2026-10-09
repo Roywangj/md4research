@@ -1,0 +1,860 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.05869",
+  "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.patchcue_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+    "total_pages": 27,
+    "text_pages_extracted": 27,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 27,
+    "text_max_pages": null,
+    "text_pages_extracted": 27,
+    "text_pages_scanned": 27,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 16
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1726,
+      "text_hash_sha256": "eda5334100eae5134288baebfb33650cd66ff11ee2dbaac667091521ce874b26"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 5796,
+      "text_hash_sha256": "b466c9c4ba6e2327cee742f9f24611d96a7b14709802577cb54dd0e06c4f02cc"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 2845,
+      "text_hash_sha256": "f39d74202b34eee1d1e9cd466c895127a6ec40326f84382adb5cdf9881254236"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 9,
+      "char_count": 10602,
+      "text_hash_sha256": "074388971cf92a573b051c73437e9219d2b36bbd0431174a8738284fd73c4e27"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 3510,
+      "text_hash_sha256": "244ffbbfa25aa1dfb558c946200714f095fcef461a24f8b63db11c31d4f096e9"
+    },
+    {
+      "section_id": "sec:analysis",
+      "kind": "experiment",
+      "title": "Analysis",
+      "page_start": 10,
+      "page_end": 12,
+      "char_count": 4676,
+      "text_hash_sha256": "fd2360ec6e73534fc2122c12d58bcf3e9722aa8f933f149412af4ccf55cb22ce"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 1064,
+      "text_hash_sha256": "57ae406e57e31eac524bc91a7f7d72e7d5ef664889cc0bde015d419ef4723212"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 1486,
+      "text_hash_sha256": "5521c7ae9792fc4c52f1ffa4bd51e248b037bbe17e3c7c9c4e674b70a317d351"
+    },
+    {
+      "section_id": "sec:discussion",
+      "kind": "conclusion",
+      "title": "Discussion",
+      "page_start": 13,
+      "page_end": 14,
+      "char_count": 2246,
+      "text_hash_sha256": "be39feebf14490f40fc0a9df222b19dc0ad13ff87d7ea5f92271fa40bc779b1f"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 14,
+      "page_end": 16,
+      "char_count": 694,
+      "text_hash_sha256": "be3cce12f961d53bc031182709166b51f96f121194b5c36166b8acda5d146225"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 16,
+      "page_end": 27,
+      "char_count": 23697,
+      "text_hash_sha256": "44904ecb4edc87bd9d8c95069abb7c5c41dbf14c4f81950a879c82c30c280b2b"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 2345,
+      "section_ids": [
+        "sec:preamble",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 2541,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 2979,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3108,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2185,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 2277,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2009,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 2735,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2226,
+      "section_ids": [
+        "sec:method",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 2744,
+      "section_ids": [
+        "sec:experiment",
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 2937,
+      "section_ids": [
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 1967,
+      "section_ids": [
+        "sec:analysis",
+        "sec:model"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 2520,
+      "section_ids": [
+        "sec:model",
+        "sec:method-2",
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 1859,
+      "section_ids": [
+        "sec:discussion",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 375,
+      "section_ids": [
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3262,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3642,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 3560,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 3392,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 1875,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 2107,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1306,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 330,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 1246,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 628,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 832,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 1621,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Fig 1",
+        "caption": "Comparison of reasoning with different cue types: (a) Text-only: rea-",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Fig 2",
+        "caption": "Overview of PatchCue. We divide images into fixed-size patches in order to",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Fig 3",
+        "caption": "Data Pipeline. Starting from the collected original data, we filter to obtain",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Fig 4",
+        "caption": "Data Distribution. In the left figure, we show the distribution of the number",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Fig 5",
+        "caption": "Case Study. We compare the model’s outputs before and after PatchCue",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Fig 6",
+        "caption": "Successful examples where visual cues effectively guide the model to conduct",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Fig 7",
+        "caption": "Common failure cases of cue-based reasoning, including flawed reasoning despite",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Fig 8",
+        "caption": "Cue Extraction Prompt",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Fig 9",
+        "caption": "Cue Grounding Prompt",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Fig 10",
+        "caption": "Reasoning Construction Prompt.",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:references"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Main results across multiple benchmarks. We evaluate the performance",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Performance comparison across different forms of visual cues. We",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison under different training data setups. We",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation of cue reward. We compare the performance differences between",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Performance comparison of different methods on multimodal benchmarks. We",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:model"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Hyperparameters for SFT Training.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Hyperparameters for GRPO Training",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "\\lfloor \\frac {y}{h} \\right \\rfloor , \\quad c = \\left \\lfloor \\frac {x}{w} \\right \\rfloor",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "{y_1}{h} \\right \\rfloor , \\left \\lfloor \\frac {x_1}{w} \\right \\rfloor \\right ), \\quad (r_2, c_2) = \\left (\\left \\lfloor \\frac {y_2}{h} \\right \\rfloor , \\left \\lfloor \\frac {x_2}{w} \\right \\rfloor \\right )",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "visual cues, and final answer are correctly enclosed within the <think></think>,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "<cue></cue>, and <answer></answer> tags, respectively.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "\\ma thc al {S} ( r_1, c_ 1 ,r _ 2 , c_2 ) = \\ {(i,j) \\mid r_1 \\le i \\le r_2,\\, c_1 \\le j \\le c_2\\},",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "} = |\\ m athc",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "al {S} _ p \\cap \\mathcal {S}_g|, \\quad \\text {FP} = |\\mathcal {S}_p \\setminus \\mathcal {S}_g|, \\quad \\text {FN} = |\\mathcal {S}_g \\setminus \\mathcal {S}_p|,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "= \\ fra",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "xt {TP}}{\\text {TP} + \\text {FP}}, \\quad Rec = \\frac {\\text {TP}}{\\text {TP} + \\text {FN}},",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "F _ 1 = \\ fra",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "C _ { i j} =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "a successful match (default τ = 0.5). Let k denote the number of successful",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "text {cue}} = \\frac {k}{|\\mathcal {S}_g|}",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "e} } = \\ b egi n {c a se",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "} | \\mat h cal {S}_p| = 0 \\text { and } |\\mathcal {S}_g| = 0, \\\\ 0, & \\text {if } |\\mathcal {S}_p| > |\\mathcal {S}_g|, \\\\ \\frac {k}{n_{\\text {GT}}}, & \\text {if } 0 < |\\mathcal {S}_p| \\le |\\mathcal {S}_g|, \\end {cases}",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "\\lab e l {eq:f i nal_reward} R = R_{\\text {acc}} + R_{\\text {format}} +R_{\\text {cue}}",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "ability in vision-language models with less than $3. https://github.com/Deep-",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "out module generates a group of trajectories \\ifmmode \\lbrace \\else \\textbraceleft \\fi o_i\\}_{i=1}^{G}",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label></label>, without any bounding box information.",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>row with stem = 4</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>row with stem = 8</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "Extracted cues: <label>heater</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>10 flowers in the first row</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>9 flowers in the first column</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>three empty spots in the last row</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "Your extracted visual cues (text only, wrapped in <label>):",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "box, in the format: <bbox>[x_min, y_min, x_max, y_max]</bbox>. Output",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>heater</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>light switch</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.235, 0.345, 0.521, 0.876]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.120, 0.400,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.300, 0.520]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "Your extracted bounding boxes (wrapped in <bbox>):",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "– Each visual cue contains two components: a <label> describing the visual",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "content, and a <bbox> specifying the corresponding bounding box.",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "include its corresponding <bbox> using the <bbox></bbox> tag.",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<image>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>10 flowers in the first row</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.0, 0.0,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.909, 0.120]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>9 flowers in the first column</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.0, 0.0,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.120, 0.916]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>three empty spots in the last row</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.621,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.832, 0.910, 0.916]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "angular pattern. The first row has over ten flowers <bbox>[0.0, 0.0, 0.909,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.120]</bbox>, meaning each row has over ten flowers. The first column",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "has nine flowers <bbox>[0.0, 0.0, 0.120, 0.916]</bbox>, meaning each col-",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.621, 0.832, 0.910, 0.916]</bbox>, so the final number of flowers",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "is 9 × 10 - 3 = 87. The final answer is (A) 87.",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<image>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>the longest bar</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.194, 0.062, 0.851,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.141]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<label>Keylor Navas</label>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "<bbox>[0.107, 0.062, 0.194,",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "0.141]</bbox>",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "players. The longest bar <bbox>[0.194, 0.062, 0.851, 0.141]</bbox> rep-",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    },
+    {
+      "text": "Navas\" <bbox>[0.107, 0.062, 0.194, 0.141]</bbox>. Therefore, the most",
+      "section_id": "sec:references",
+      "page_start": 16,
+      "page_end": 27
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "8b4f8f99093188171a631c56af6506379e35f75c592e2b26e452a0c90aaf0c7f"
+}

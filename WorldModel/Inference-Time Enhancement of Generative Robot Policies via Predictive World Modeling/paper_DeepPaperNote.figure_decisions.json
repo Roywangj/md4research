@@ -1,0 +1,231 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py + manual_review",
+  "paper_id": "arxiv:2502.00622",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig 1",
+      "caption": "GENERATIVE PREDICTIVE CONTROL (GPC). (a) GPC-RANK: The generative policy proposes multiple action",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "总览图完整清晰，含 RANK/OPT 双通道与想象 rollout 示例，是全文机制的最佳单图。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "创新点",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_002_fig_fig_1.png",
+      "relative_markdown_embed": "![Fig 1](images/page_002_fig_fig_1.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_002_fig_fig_1.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：裁切完整、含原始图注，质量好。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_002_fig_fig_1.png"
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Generative Predictive Control (GPC)",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:related-work",
+      "decision": "visual_defect",
+      "reason": "算法伪代码给出 K/M 实例化与完整循环，适合方法主线。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_002_fig_algorithm_1.png",
+      "relative_markdown_embed": "![Algorithm 1](images/page_002_fig_algorithm_1.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_002_fig_algorithm_1.png",
+      "manual_visual_review": "自动质量门拒绝；人工确认裁切不可独立成图，保留占位并在正文转写关键步骤。",
+      "materialization_status": "not_materialized"
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig 2",
+      "caption": "DIFFUSION-BASED VISUAL WORLD MODELING.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "世界模型递归单步扩散结构图，支撑机制流程第 2 步。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "方法主线",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_004_fig_fig_2.png",
+      "relative_markdown_embed": "![Fig 2](images/page_004_fig_fig_2.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_004_fig_fig_2.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：图体与图注完整，但右侧混入相邻栏正文文字，属可接受瑕疵。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_004_fig_fig_2.png"
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig 3",
+      "caption": "WORLD MODEL PREDICTIONS IN GPC FOR VISION-",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "世界模型想象 rollout 质量与 SSIM 数字，支撑预测质量论证。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_005_fig_fig_3.png",
+      "relative_markdown_embed": "![Fig 3](images/page_005_fig_fig_3.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_005_fig_fig_3.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：裁切干净、含完整图注与四行任务样例。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_005_fig_fig_3.png"
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig 4",
+      "caption": "COMPARISON OF DIFFERENT VISUAL WORLD MODELS. We report the average SSIM between each method’s prediction",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "世界模型对比（Ours/AVDC/DVF 的 SSIM）是关键证据。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_fig_4.png",
+      "relative_markdown_embed": "![Fig 4](images/page_005_fig_fig_4.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_005_fig_fig_4.png",
+      "manual_visual_review": "自动质量门拒绝；人工确认裁切顶端混入 Fig 3 与 Table II 图注，不作为独立图插入，数值已在正文表格转写。",
+      "materialization_status": "not_materialized"
+    },
+    {
+      "item_id": "figure:Fig 5",
+      "source_id": "Fig 5",
+      "kind": "figure",
+      "label": "Fig 5",
+      "caption": "IMPORTANCE OF RANDOM EXPLORATION IN WORLD",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "随机探索消融柱状图，支撑数据配方主张。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_006_fig_fig_5.png",
+      "relative_markdown_embed": "![Fig 5](images/page_006_fig_fig_5.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_006_fig_fig_5.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：裁切干净完整。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_006_fig_fig_5.png"
+    },
+    {
+      "item_id": "figure:Fig 6",
+      "source_id": "Fig 6",
+      "kind": "figure",
+      "label": "Fig 6",
+      "caption": "REAL-WORLD TESTS FOR PUSH-T. Top row shows trajectories of baseline model (K = 1, M = 0), middle row shows",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:models-2",
+      "decision": "insert",
+      "reason": "真机 Push-T 三行轨迹对比（baseline/RANK/OPT）。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_fig_6.png",
+      "relative_markdown_embed": "![Fig 6](images/page_008_fig_fig_6.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_008_fig_fig_6.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：三行轨迹与图注完整，底边带极窄的下一图残条，可接受。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_008_fig_fig_6.png"
+    },
+    {
+      "item_id": "figure:Fig 7",
+      "source_id": "Fig 7",
+      "kind": "figure",
+      "label": "Fig 7",
+      "caption": "REAL-WORLD TESTS FOR CLOTHES FOLDING. Top row shows trajectories of baseline model (K = 1, M = 0), second",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:models-2",
+      "decision": "insert",
+      "reason": "真机叠衣两行轨迹对比。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_fig_7.png",
+      "relative_markdown_embed": "![Fig 7](images/page_008_fig_fig_7.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_008_fig_fig_7.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：图体与图注完整，顶端残留上一图注半行文字，可接受但需在图注说明。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_008_fig_fig_7.png"
+    },
+    {
+      "item_id": "figure:Fig 8",
+      "source_id": "Fig 8",
+      "kind": "figure",
+      "label": "Fig 8",
+      "caption": "REAL-WORLD SUCCESS RATES",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:models-2",
+      "decision": "insert",
+      "reason": "真机成功率柱状图，两任务主结果。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "关键结果",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_fig_8.png",
+      "relative_markdown_embed": "![Fig 8](images/page_008_fig_fig_8.png)",
+      "source_image_path": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/tmp/DeepPaperNote/assets/Inference_Time_Enhancement_of_Generative_Robot_Policies_via_Predictive_World_Modeling/images/page_008_fig_fig_8.png",
+      "materialization_status": "materialized",
+      "manual_visual_review": "人工核图：裁切干净完整。",
+      "materialized_path": "/root/wwwroy/papernotes/markdowns4zotero/WorldModel/Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling/images/page_008_fig_fig_8.png"
+    }
+  ],
+  "summary": {
+    "total_items": 9,
+    "by_decision": {
+      "insert": 7,
+      "visual_defect": 2,
+      "placeholder": 0,
+      "low_priority": 0,
+      "skip": 0
+    }
+  }
+}

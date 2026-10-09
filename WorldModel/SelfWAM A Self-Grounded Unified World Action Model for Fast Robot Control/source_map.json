@@ -1,0 +1,297 @@
+{
+  "paper": {
+    "title": "SelfWAM: A Self-Grounded Unified World Action Model for Fast Robot Control",
+    "authors": [
+      "Bikang Pan",
+      "Fan Liu",
+      "Haotao Lu",
+      "Jingya Wang",
+      "Ye Shi"
+    ],
+    "institution": "ShanghaiTech University, InstAdapt",
+    "year": 2026,
+    "date": "2026-08-01",
+    "version_date": "2026-08-01",
+    "arxiv_id": "2608.00725",
+    "doi": "10.48550/arXiv.2608.00725",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AKPPJA6W/Pan 等 - 2026 - SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "page_count": 14
+  },
+  "notes": {
+    "scope": "Complete paragraph-level Chinese-English bilingual reader covering main paper and all appendices (Appendices A-F).",
+    "source_coverage": "All 14 PDF pages were extracted. Main text occupies pages 1-7; Appendix A-F occupy pages 8-13; References occupy pages 13-14.",
+    "paragraph_policy": "Source prose is organized into paired English (Para. X:) and Chinese (Para. X[CN]:) blockquotes with colored labels.",
+    "reference_policy": "All 32 references are preserved in searchable English bibliographic form.",
+    "asset_policy": "Figures 1-4, Figures S1-S3, Tables 1-5, and Tables S1-S4 are linked locally from assets/. Substantive tables are fully transcribed into clean Markdown tables."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Motivation of self-grounded WAM, clean-action conditioning, future self-mask supervision, and core empirical findings."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-2",
+      "summary": "Policy-facing world model requirements, FastWAM background and limitations, modality-specialized MoT, and contributions list."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "2",
+      "summary": "World-Action Models (UVA, UWM, FastWAM, GigaWorld-Policy, tau0-WM) and Structured Visual/Robot Body Modeling."
+    },
+    {
+      "id": "S004",
+      "type": "body_equations",
+      "section": "3.1 Problem Formulation",
+      "pages": "2-3",
+      "summary": "Self-grounded WAM formulation, multi-view observations, action chunks, and optimal policy/world model definitions; equations 1-5."
+    },
+    {
+      "id": "S005",
+      "type": "body_equations",
+      "section": "3.2 Modality-Specialized Mixture-of-Transformers",
+      "pages": "3-4",
+      "summary": "MoT architecture, parameter interpolation, asymmetric information flow, directed attention pattern, and robot mask prediction; equation 6."
+    },
+    {
+      "id": "S006",
+      "type": "body_equations",
+      "section": "3.3 Training and Inference",
+      "pages": "4-5",
+      "summary": "Joint flow-matching training objective, RGB and self-mask mixture, and fast action-only inference deployment; equation 7."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "4 Experiments - Implementation & Benchmarks",
+      "pages": "5-6",
+      "summary": "WAN2.2-5B initialization, composite resolution, RoboTwin 2.0 multi-task setup, and hardware specifications."
+    },
+    {
+      "id": "S008",
+      "type": "results",
+      "section": "4 Experiments - Main Results",
+      "pages": "5-6",
+      "summary": "50-task RoboTwin 2.0 evaluation and real-robot dual-arm pick-and-place manipulation experiments."
+    },
+    {
+      "id": "S009",
+      "type": "results",
+      "section": "4 Experiments - Action-Conditioned Future Prediction",
+      "pages": "6-7",
+      "summary": "275-trajectory future-video fidelity evaluation (LPIPS, PSNR, FVD-I3D) and directional action perturbation studies."
+    },
+    {
+      "id": "S010",
+      "type": "results",
+      "section": "4 Experiments - Component Ablation & Inference Efficiency",
+      "pages": "7",
+      "summary": "Component ablation on action conditioning and self-mask supervision, plus NVIDIA H200 latency/memory benchmarks."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "5 Conclusion & Acknowledgements",
+      "pages": "7",
+      "summary": "Summary of contributions and grant acknowledgements."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Appendix",
+      "pages": "8",
+      "summary": "Overview of supplementary materials."
+    },
+    {
+      "id": "S013",
+      "type": "body_equations",
+      "section": "Appendix A Implementation and Reproducibility Details",
+      "pages": "8-9",
+      "summary": "Training instance construction, prompt templates, multi-view T-layout preprocessing, parameter interpolation equation, and dataset splits."
+    },
+    {
+      "id": "S014",
+      "type": "results",
+      "section": "Appendix B Extended RoboTwin Evaluation",
+      "pages": "9-10",
+      "summary": "50 RoboTwin 2.0 task-level success rates table (Table S4) and future-video fidelity protocols."
+    },
+    {
+      "id": "S015",
+      "type": "body_equations",
+      "section": "Appendix C Action Sensitivity and Controlled Rollouts",
+      "pages": "11-12",
+      "summary": "WorldArena Action Following and Raw Consistency metrics, directional perturbations, and continuous action interpolation; equations S1-S5."
+    },
+    {
+      "id": "S016",
+      "type": "body_equations",
+      "section": "Appendix D Consistency of the Clean and Noisy Action Paths",
+      "pages": "11-12",
+      "summary": "Layerwise NRMSE and cosine distance evaluation of clean vs noisy action representations at zero perturbation."
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Appendix E Real Robot Experimental Details",
+      "pages": "12-13",
+      "summary": "AgileX ALOHA platform, 30 Hz joint-position control, RobotSeg offline whole-robot segmentation, and task execution rules."
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Appendix F Limitations and Future Work",
+      "pages": "13",
+      "summary": "Discussion of lack of explicit contact, force, and occlusion modeling."
+    },
+    {
+      "id": "S019",
+      "type": "references",
+      "section": "References",
+      "pages": "13-14",
+      "summary": "Thirty-two complete searchable bibliography entries."
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Method",
+      "pages": "3",
+      "asset": "assets/figure_1.png",
+      "summary": "Overview of SelfWAM comparing action-unconditioned video prediction with self-grounded action-conditioned world modeling."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Method",
+      "pages": "4",
+      "asset": "assets/figure_2.png",
+      "summary": "SelfWAM architecture and attention design: MoT structure, directed attention pattern, and dual inference modes."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "6",
+      "asset": "assets/figure_3.png",
+      "summary": "Representative closed-loop real-robot manipulation rollouts across four tasks."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "7",
+      "asset": "assets/figure_4.png",
+      "summary": "Directional action perturbation along vertical and horizontal axes showing robot self-mask predictions."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Appendix A",
+      "pages": "9",
+      "asset": "assets/figure_s1.png",
+      "summary": "Temporal sampling and multi-view T-layout composition of future 8-frame observation sequences."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Appendix C",
+      "pages": "11",
+      "asset": "assets/figure_s2.png",
+      "summary": "Continuous action interpolation from hold action to demonstrated action."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix D",
+      "pages": "12",
+      "asset": "assets/figure_s3.png",
+      "summary": "Layerwise representation consistency (NRMSE and cosine distance) between clean and noisy action paths at zero noise."
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "5",
+      "asset": "assets/table_1.png",
+      "summary": "RoboTwin 2.0 success rates across clean and randomized settings for SelfWAM and baselines."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "6",
+      "asset": "assets/table_2.png",
+      "summary": "Success rates on four real-world manipulation tasks comparing SelfWAM, FastWAM, and pi0.5."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "6",
+      "asset": "assets/table_3.png",
+      "summary": "Future-video quality on 275 offline trajectories measuring LPIPS, PSNR, and FVD-I3D."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "7",
+      "asset": "assets/table_4.png",
+      "summary": "Component ablation on RoboTwin 2.0 testing action conditioning and self-mask supervision."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "7",
+      "asset": "assets/table_5.png",
+      "summary": "Inference efficiency on a single NVIDIA H200 GPU comparing action-only and joint prediction latencies and peak memory."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix A",
+      "pages": "8",
+      "asset": "assets/table_s1.png",
+      "summary": "Construction and supervision differences between RGB and self-mask training instances."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix A",
+      "pages": "9",
+      "asset": "assets/table_s2.png",
+      "summary": "Comprehensive optimization, inference, and system configuration hyperparameters."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "9",
+      "asset": "assets/table_s3.png",
+      "summary": "WorldArena Action Following and raw consistency scores across SelfWAM variants and FastWAM."
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "10",
+      "asset": "assets/table_s4.png",
+      "summary": "Complete per-task success rates on all 50 RoboTwin 2.0 tasks under clean and randomized settings."
+    }
+  ]
+}

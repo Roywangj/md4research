@@ -1,0 +1,13 @@
+{
+  "source": "StatePlay PDF arXiv:2607.26754v1",
+  "pages": 12,
+  "grounding_status": "grounded",
+  "claims": [
+    {"claim":"state alignment 0.947","evidence":"Table 1; Table 2; Table 5","confidence":"high"},
+    {"claim":"mechanics fidelity 82.3±0.5 Gemini and 78.3±0.5 GPT","evidence":"Table 1","confidence":"high"},
+    {"claim":"MoT exceeds shared backbone by 17.6% mechanics fidelity","evidence":"Section 4.4; Table 2","confidence":"high"},
+    {"claim":"regression improves state alignment 12.1% and mechanics fidelity 21.6% over FM","evidence":"Section 4.4; Table 2","confidence":"high"},
+    {"claim":"scope limited to SF3 and 100-sample test","evidence":"Sections 3.1, 4.1, 5; Appendix C","confidence":"high"}
+  ],
+  "caveats": ["Mechanics fidelity uses Gemini-3.1-Pro/GPT-5.5 visual judges, not engine-state verification.", "PDF has an untagged two-column text layer; paragraph boundaries reconstructed from rendered layout."]
+}

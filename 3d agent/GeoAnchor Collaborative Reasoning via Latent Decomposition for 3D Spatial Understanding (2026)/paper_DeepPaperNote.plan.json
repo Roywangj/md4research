@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.1",
+  "paper_title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "physical_pages": 23,
+    "main_paper_physical_pages": "1-15",
+    "appendix_physical_pages": "16-23 (printed appendix pages 1-8)",
+    "read_scope": "complete supplied PDF; physical pages 19-23 inspected for continuity, pages 21-23 read separately"
+  },
+  "deliverable": "paper_DeepPaperNote.md",
+  "language": "zh-CN",
+  "evidence_policy": "Every central factual or numerical statement receives an inline G### marker and a physical-page/section/figure/table/equation anchor in grounding.json. Interpretations are explicitly labeled.",
+  "sections": [
+    {"id":"S01","heading":"核心信息","intent":"bibliographic identity, source version, research position, base model","evidence_targets":["G001","G002","G003","G004"]},
+    {"id":"S02","heading":"原文摘要翻译","intent":"faithful Chinese rendering of abstract claims","evidence_targets":["G005"]},
+    {"id":"S03","heading":"创新点与一句话总结","intent":"separate contribution from engineering assembly","evidence_targets":["G006","G007","G008","G009"]},
+    {"id":"S04","heading":"研究问题","intent":"motivation and hypotheses about text, single latent, and fixed invocation","evidence_targets":["G011","G012","G013"]},
+    {"id":"S05","heading":"数据与任务定义","intent":"training construction, pseudo-label validation, benchmarks, grouped metrics","evidence_targets":["G014","G015","G016","G017","G018","G019","G020","G021","G022","G023"]},
+    {"id":"S06","heading":"方法主线","intent":"trajectory, local tokens, global geometry, losses, four-stage training","evidence_targets":["G024","G025","G026","G027","G028","G029","G030","G031","G032","G033"]},
+    {"id":"S07","heading":"关键结果","intent":"main table, ablations, interpretability observations, critical reading","evidence_targets":["G034","G035","G036","G037","G038","G039","G040","G041","G042","G043","G044","G045","G057","G058","G059"]},
+    {"id":"S08","heading":"复现注意点","intent":"implementation hyperparameters, external dependencies, source boundary","evidence_targets":["G046","G047","G048","G049","G054","G055"]},
+    {"id":"S09","heading":"附录 C/D 补全：物理页 19–23","intent":"continue Appendix C.2.2 and capture Tables 9-14, dense baselines, task mappings, and additional experiments","evidence_targets":["G049","G052","G053","G054","G055","G056","G057","G058","G059"]},
+    {"id":"S10","heading":"深度分析、局限与我的笔记","intent":"distinguish evidence from interpretation and update limitations after complete PDF review","evidence_targets":["G014","G016","G021","G040","G043","G045","G049","G052","G058","G059"]},
+    {"id":"S11","heading":"图表取舍","intent":"record local visual decisions and extraction limitation","evidence_targets":["G050","G051"]}
+  ],
+  "figure_plan": {
+    "keep": ["Fig.2 architecture", "Fig.3 collaborative training", "Fig.4 Stage 3 ablation", "Fig.6 attention comparison"],
+    "skip_or_transcribe": ["Fig.1 motivation", "Fig.5 attention bars", "Fig.7 t-SNE", "Tables 1-14"],
+    "asset_format": "SVG local schematics; clearly labeled as recreated rather than source crops",
+    "new_appendix_decisions": "Tables 9-14 are transcribed or summarized in the note; no new image asset is required."
+  },
+  "validation_plan": [
+    "Check required Markdown headings and inline G### anchors.",
+    "Check every Markdown image target against images/.",
+    "Parse all four JSON artifacts and check required keys.",
+    "Verify deterministic PDF physical page count is 23 and anchors distinguish physical from printed appendix pages.",
+    "Check source PDF is referenced read-only and no non-whitelisted deliverables are touched.",
+    "Validate numerical claims against physical pages 19-23, especially pattern reward 0.5 and Tables 9-14.",
+    "Report raster extraction limitation and distinguish PDF evidence from workflow observations."
+  ]
+}

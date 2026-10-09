@@ -1,0 +1,817 @@
+{
+  "paper": {
+    "title": "Towards On-Policy Data Evolution for Visual-Native Multimodal Deep Search Agents",
+    "authors": [
+      "Shijue Huang",
+      "Hangyu Guo",
+      "Guanting Dong",
+      "Chenxin Li",
+      "Junting Lu",
+      "Xinyu Geng",
+      "Zhaochen Su",
+      "Zhenyu Li",
+      "Shuang Chen",
+      "Hongru Wang",
+      "Yi R. (May) Fung"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/MHFY795Z/Huang 等 - 2026 - Towards On-Policy Data Evolution for Visual-Native Multimodal Deep Search Agents.pdf",
+    "reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "pages": 25
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Multimodal Deep Search Agents"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Shijue Huangα , Hangyu Guoα , Guanting Dongβ , Chenxin Liγ , Junting Luσ , Xinyu Gengα , Zhaochen Suα , Zhenyu Liδ , Shuang Chenγ , Hongru Wangµ , Yi R. (May) Fungα α Hong Kong University of Science a"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Ñ on-policy-data-evolution.github.io § github.com/JoeYing1019/ODE"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Abstract Multimodal deep search requires an agent to solve open-world problems by chain- ing search, tool use, and visual reasoning over evolving textual and visual context. Two bottlenecks limit curr"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "full paper",
+      "summary": "1 Introduction Recently, Multimodal Large Language Models (MLLMs) have witnessed a rapid emergence of agent capabilities, pushing their application boundary from static image-question answering toward"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "full paper",
+      "summary": "agents augment MLLMs with image and text search to enable on-demand retrieval in open-world environments [Wu et al., 2025, Geng et al., 2026], and subsequent works extend this paradigm with crop-condi"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2 Method Overview. In this section, we present the proposed framework, as illustrated in Fig. 1. To improve the multimodal deep search agent’s capability, we first propose the visual-native agent harn"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "full paper",
+      "summary": "1. Visual-Native Agent Harness 2. On-policy Data Evolution Python Web Code Search Visit Rubric-Guided Optimization - Information Complexity - Shortcut Leakage Task Scholar - Tool Usage Quality - Diffi"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Figure 1: Overview of our framework. Left: The visual-native agent harness unifies 9 tools in a shared workspace and enables reusable visual state through the image bank reference protocol. Right: ODE"
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "full paper",
+      "summary": "lets the agent reuse tool-returned images by keeping them addressable to subsequent tool calls. Then, unlike static data-synthesis approaches, we propose On-policy Data Evolution (ODE, Section 2.2), a"
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2.1 Visual-Native Agent Harness"
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Multimodal deep search requires iterative search, browsing, visual manipulation, and computation before answering. However, existing approaches typically tie visual operations to the original task ima"
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2.2 On-policy Data Evolution"
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2.2.1 Forward Curation Building on the visual-native harness above, ODE represents the data generator with two configuration objects: a fixed System Config, which defines the execution environment and"
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "full paper",
+      "summary": "and an editable Evolvable Config Ct , which carries the generator parameters adapted from rollout feedback across rounds. ODE initializes C0 with four forward-stage sub-configs for seed proposal, web "
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2.2.2 Backward Optimization"
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Backward optimization evaluates whether the candidate tasks produced by forward exploration are useful for training and how the generator should change in the next round. Following the backward path i"
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Visual Dependency, Shortcut Leakage, and Verifiability of the task, and the SFT and RL modes each add their own training-utility dimensions, because SFT data is consumed as demonstrations so the trace"
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "full paper",
+      "summary": "2.3 Statistics of ODE-Curated Data Figure 2 reports topical-domain coverage and curator- Math 13.2 News 6.8 annotated difficulty for three sets curated by ODE: Geo. 7.6 Sports 10.5 the SFT demonstrati"
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Difficulty Ratio (%) 13% and the two RL sets cover the same domains, with per- 19% 28% domain coefficients of variation around 0.05. Thus, 75 48% adapting data to a specific target policy does not col"
+    },
+    {
+      "id": "S021",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Table 1: Main results. Avg denotes the average score over all eight benchmarks. ∆ denotes the improvement over the corresponding base model. The best results are highlighted in bold, and the second-be"
+    },
+    {
+      "id": "S022",
+      "type": "body",
+      "section": "full paper",
+      "summary": "HLE-VL [Center for AI Safety et al., 2026], BC-VL [Geng et al., 2026], VDR [Zeng et al., 2026], MMSearch [Jiang et al., 2024], MMSearch+ [Tao et al., 2026], SimpleVQA (SVQA) [Cheng et al., 2025], and "
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "full paper",
+      "summary": "3.2 Main Results Tab. 1 reports the main results. In a fair setting, our method consistently outperforms baseline methods, firmly establishing its superiority. Moreover, we highlight the following obs"
+    },
+    {
+      "id": "S024",
+      "type": "body",
+      "section": "full paper",
+      "summary": "W/o Tool-Image Reuse Visual Native Harness Reuse rate Gain Zoom-in Visual search Other +4.9 6 MMBC 306 80 40 70.3 66.0 64.7 +2.9 +3.2 4 HLE-VL 613"
+    },
+    {
+      "id": "S025",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Accuracy (%) 69.7 60 64.0 65.0 30 +2.0 BC-VL 50 +0.3 +0.2 2 VDR 277 41.9 +0.6 40 41.6 20 0 MMSearch 35 24.9 -0.3 MMSearch+ 65 20.4 2 20 12.5 11.4 20.2 21.7 10 SVQA 122 7.6 8.5 4 FVQA 62 0 0 BC -VL -VL"
+    },
+    {
+      "id": "S026",
+      "type": "body",
+      "section": "full paper",
+      "summary": "MMSearch, MMSearch+, and FVQA. This suggests that ODE mainly improves the agent’s ability to search, inspect, and integrate multimodal evidence over multiple steps. (2) Tool access is not tool compete"
+    },
+    {
+      "id": "S027",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Static Recipe Data Evolution Static Recipe Data Evolution Static Recipe Data Evolution 80 With tool 69.0 80 images 42.5 70.3 63.7 4+ tool 42.9 66.0 64.7"
+    },
+    {
+      "id": "S028",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Accuracy (%) 60 66.0 58.3 images 10.5 60 66.7 53.3 62.0 59.0 52.7 55.3 2+ tool 92.8 calls 80.9 41.9 40 33.6 Visual + 54.8 40 40.9 search 35.3 32.1 62.4 24.9 18.1 Tool-chain 20.4 20 15.6 diversity 43.9"
+    },
+    {
+      "id": "S029",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Evolution improves downstream SFT performance. Fig. 4(a) shows that SFT on evolved data outperforms the static recipe on most benchmarks, with clear gains on visually grounded and search- oriented eva"
+    },
+    {
+      "id": "S030",
+      "type": "body",
+      "section": "full paper",
+      "summary": "3.5 Mechanism Analysis of ODE We further analyze what ODE changes during data construction. The goal is not only to show that evolved data performs better, but to understand how the closed-loop genera"
+    },
+    {
+      "id": "S031",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Initial Config Evolved Config Initial Config Evolved Config Info. Evolved Pattern Comp. Tool 15.94 7.5 7.33 Visual Calls"
+    },
+    {
+      "id": "S032",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Avg. rubric score Config Div. 6.81 12.19 6.98 10.00 6.75 8.31Dep. 6.96 6.94 8.00 6.88 1.25 7.0 Dynamic Images 3.75 Initial Tool 4.81 4.44 2.25 3.62 6.5 Qual. 4.44 Config Shortcut Image-input 1.06 6.16"
+    },
+    {
+      "id": "S033",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Avg. rubric score 7.0 Config 6.79 Util. Dep. 15.33 6.55 7.20 5.676.73 7.27 6.5 6.40 Dynamic 3.07 5.98 5.93 Diff. Images 11.00 6.0 5.85 Match5.60 5.005.47 3.47 4.80 5.5 Initial Config 9.00 Shortcut 9.2"
+    },
+    {
+      "id": "S034",
+      "type": "body",
+      "section": "full paper",
+      "summary": "are more likely to operate on those visual states. This matches the intended role of ODE for SFT: selecting trajectories that teach the model how to inspect, reuse, and integrate visual evidence rathe"
+    },
+    {
+      "id": "S035",
+      "type": "body",
+      "section": "full paper",
+      "summary": "4 Related Work 4.1 Multimodal Deep Search Agent Multimodal agents that search, browse, and reason over web evidence are central to moving beyond static visual reasoning. Early efforts such as MMSearch"
+    },
+    {
+      "id": "S036",
+      "type": "body",
+      "section": "full paper",
+      "summary": "4.2 Agentic Data Synthesis Synthetic data has become central for training LLM-based agents. Early agentic synthesis frameworks use agentic flows to generate diverse post-training data from raw documen"
+    },
+    {
+      "id": "S037",
+      "type": "body",
+      "section": "full paper",
+      "summary": "search; DeepMMSearch-R1 [Narayan et al., 2025] builds DeepMMSearchVQA through an automated pipeline mixed with real web search; WebWatcher [Geng et al., 2026] uses synthetic multimodal trajectories fo"
+    },
+    {
+      "id": "S038",
+      "type": "body",
+      "section": "full paper",
+      "summary": "5 Conclusion This paper presented a visual-native agent harness centered on an image bank reference protocol that makes intermediate visual evidence reusable across tool calls, and On-policy Data Evol"
+    },
+    {
+      "id": "S039",
+      "type": "body",
+      "section": "full paper",
+      "summary": "References Arash Ahmadian, Chris Cremer, Matthias Gallé, Marzieh Fadaee, Julia Kreutzer, Olivier Pietquin, Ahmet Üstün, and Sara Hooker. Back to basics: Revisiting reinforce style optimization for lea"
+    },
+    {
+      "id": "S040",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Anthropic. Claude 3.7 Sonnet System Card. Technical report, Anthropic, February 2025a. URL https://www-cdn.anthropic.com/9ff93dfa8f445c932415d335c88852ef47f1201e. pdf."
+    },
+    {
+      "id": "S041",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Anthropic. System Card: Claude Opus 4 & Claude Sonnet 4. Technical report, Anthropic, May 2025b. URL https://www-cdn.anthropic.com/ 6d8a8055020700718b0c49369f60816ba2a7c285.pdf."
+    },
+    {
+      "id": "S042",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen, Xionghui Chen, Zesen Cheng, Lianghao Deng, Wei Ding, Chang Gao, Chunjiang Ge, Wenbin Ge, Zhifang Guo, Qidong Huang, Jie Huang, Fei Huang, Binyuan Hui, S"
+    },
+    {
+      "id": "S043",
+      "type": "body",
+      "section": "full paper",
+      "summary": "ByteDance Seed Team. Seed2.0 model card. https://lf3-static.bytednsdoc.com/obj/ eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/seed2/0214/Seed2.0%20Model%20Card. pdf, 2026. Model card."
+    },
+    {
+      "id": "S044",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Center for AI Safety, Scale AI, and HLE Contributors Consortium. A benchmark of expert-level academic questions to assess AI capabilities. Nature, 649:1139–1146, 2026. doi: 10.1038/ s41586-025-09962-4"
+    },
+    {
+      "id": "S045",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Mingyang Chen, Haoze Sun, Tianpeng Li, Fan Yang, Hao Liang, Keer Lu, Bin Cui, Wentao Zhang, Zenan Zhou, and Weipeng Chen. Facilitating multi-turn function calling for llms via compositional instructio"
+    },
+    {
+      "id": "S046",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Shuang Chen, Kaituo Feng, Hangting Chen, Wenxuan Huang, Dasen Dai, Quanxin Shou, Yunlong Lin, Xiangyu Yue, Shenghua Gao, and Tianyu Pang. Opensearch-vl: An open recipe for frontier multimodal search a"
+    },
+    {
+      "id": "S047",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Xianfu Cheng, Wei Zhang, Shiwei Zhang, Jian Yang, Xiangyuan Guan, Xianjie Wu, Xiang Li, Ge Zhang, Jiaheng Liu, Yuying Mai, Yutao Zeng, Zhoufutu Wen, Ke Jin, Baorui Wang, Weixiao Zhou, Yunhong Lu, Tong"
+    },
+    {
+      "id": "S048",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Gheorghe Comanici, Eric Bieber, Mike Schaekermann, and Gemini Team. Gemini 2.5: Pushing the frontier with advanced reasoning, multimodality, long context, and next generation agentic capabilities, 202"
+    },
+    {
+      "id": "S049",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Xinyu Geng, Peng Xia, Zhen Zhang, Xinyu Wang, Qiuchen Wang, Ruixue Ding, Chenxi Wang, Jialong Wu, Kuan Li, Yida Zhao, Huifeng Yin, Yong Jiang, Pengjun Xie, Fei Huang, Huaxiu Yao, Yi R. Fung, and Jingr"
+    },
+    {
+      "id": "S050",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Jack Hong, Chenxiao Zhao, ChengLIn Zhu, Weiheng Lu, Guohai Xu, and XingYu. Deepeyesv2: Toward agentic multimodal model. In The Fourteenth International Conference on Learning Representations, 2026. UR"
+    },
+    {
+      "id": "S051",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Wenxuan Huang, Yu Zeng, Qiuchen Wang, Zhen Fang, Shaosheng Cao, Zheng Chu, Qingyu Yin, Shuang Chen, Zhenfei Yin, Lin Chen, Zehui Chen, Xu Tang, Yao Hu, Shaohui Lin, Philip Torr, Feng Zhao, and Wanli O"
+    },
+    {
+      "id": "S052",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Dongzhi Jiang, Renrui Zhang, Ziyu Guo, Yanmin Wu, Jiayi Lei, Pengshuo Qiu, Pan Lu, Zehui Chen, Guanglu Song, Peng Gao, Yu Liu, Chunyuan Li, and Hongsheng Li. MMSearch: Benchmarking the potential of la"
+    },
+    {
+      "id": "S053",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Shilong Li, Xingyuan Bu, Wenjie Wang, Jiaheng Liu, Jun Dong, Haoyang He, Hao Lu, Haozhe Zhang, Chenchen Jing, Zhen Li, Chuanhao Li, Jiayi Tian, Chenchen Zhang, Tianhao Peng, Yancheng He, Jihao Gu, Yua"
+    },
+    {
+      "id": "S054",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Weiwen Liu, Xu Huang, Xingshan Zeng, Xinlong Hao, Shuai Yu, Dexun Li, Shuai Wang, Weinan Gan, Zhengying Liu, Yuanqing Yu, Zezhong Wang, Yuxian Wang, Wu Ning, Yutai Hou, Bin Wang, Chuhan Wu, Xinzhi Wan"
+    },
+    {
+      "id": "S055",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Ziyu Liu, Yuhang Zang, Yushan Li, Yuhang Liang, Xiaoyi Dong, Yuhang Cao, Haodong Duan, Dahua Lin, and Jiaqi Wang. Visual agentic reinforcement fine-tuning. arXiv preprint arXiv:2505.14246, 2025b."
+    },
+    {
+      "id": "S056",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Arindam Mitra, Luciano Del Corro, Guoqing Zheng, Shweti Mahajan, Dany Rouhana, Andres Codas, Yadong Lu, Wei ge Chen, Olga Vrousgos, Corby Rosset, Fillipe Silva, Hamed Khanpour, Yash Lara, and Ahmed Aw"
+    },
+    {
+      "id": "S057",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Kartik Narayan, Yang Xu, Tian Cao, Kavya Nerella, Vishal M. Patel, Navid Shiee, Peter Grasch, Chao Jia, Yinfei Yang, and Zhe Gan. Deepmmsearch-r1: Empowering multimodal llms in multimodal web search, "
+    },
+    {
+      "id": "S058",
+      "type": "body",
+      "section": "full paper",
+      "summary": "OpenAI. Gpt-4v(ision) system card. https://cdn.openai.com/papers/GPTV_System_Card. pdf, 2023. System card."
+    },
+    {
+      "id": "S059",
+      "type": "body",
+      "section": "full paper",
+      "summary": "OpenAI. Update to GPT-5 System Card: GPT-5.2. https://deploymentsafety.openai.com/ gpt-5-2, December 2025. OpenAI Deployment Safety Hub."
+    },
+    {
+      "id": "S060",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Akshara Prabhakar, Zuxin Liu, Ming Zhu, Jianguo Zhang, Tulika Awalgaonkar, Shiyu Wang, Zhiwei Liu, Haolin Chen, Thai Hoang, Juan Carlos Niebles, Shelby Heinecke, Weiran Yao, Huan Wang, Silvio Savarese"
+    },
+    {
+      "id": "S061",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, and Daya Guo. Deepseekmath: Pushing the limits of mathemat- ical reasoning in ope"
+    },
+    {
+      "id": "S062",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Aaditya Singh, Adam Fry, Adam Perelman, and OpenAI Team. Openai gpt-5 system card, 2026. URL https://arxiv.org/abs/2601.03267."
+    },
+    {
+      "id": "S063",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Zhaochen Su, Peng Xia, Hangyu Guo, Zhenhua Liu, Yan Ma, Xiaoye Qu, Jiaqi Liu, Yanshu Li, Kaide Zeng, Zhengyuan Yang, et al. Thinking with images for multimodal reasoning: Foundations, methods, and fut"
+    },
+    {
+      "id": "S064",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Zhaochen Su, Jincheng Gao, Hangyu Guo, Zhenhua Liu, Lueyang Zhang, Xinyu Geng, Shijue Huang, Peng Xia, Guanyu Jiang, Cheng Wang, Yue Zhang, Yi R. Fung, and Junxian He. Agentvista: Evaluating multimoda"
+    },
+    {
+      "id": "S065",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Shuo Tang, Xianghe Pang, Zexi Liu, Bohan Tang, Rui Ye, Tian Jin, Xiaowen Dong, Yanfeng Wang, and Siheng Chen. Synthesizing post-training data for llms through multi-agent simulation. In Proceedings of"
+    },
+    {
+      "id": "S066",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Appendix"
+    },
+    {
+      "id": "S067",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A Implementation Details of On-policy Data Evolution 15"
+    },
+    {
+      "id": "S068",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.1 Round Configuration Ct . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15"
+    },
+    {
+      "id": "S069",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.2 Mode-Specific Trace Rubrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15"
+    },
+    {
+      "id": "S070",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.3 Stage 1: Seed Proposal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16"
+    },
+    {
+      "id": "S071",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.4 Stage 2: Web Exploration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17"
+    },
+    {
+      "id": "S072",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.5 Stage 3: Graph Organization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18"
+    },
+    {
+      "id": "S073",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.6 Stage 4: Task Curation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18"
+    },
+    {
+      "id": "S074",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.7 Stage 5: Rollout and Stage 6: Backward Analysis . . . . . . . . . . . . . . . . . . . . 19"
+    },
+    {
+      "id": "S075",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.8 Optimizer Update to Ct+1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20"
+    },
+    {
+      "id": "S076",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.9 Round t+1 Forward Under Ct+1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21"
+    },
+    {
+      "id": "S077",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.10 Round t+1 Backward and Update to Ct+2 . . . . . . . . . . . . . . . . . . . . . . . . 21"
+    },
+    {
+      "id": "S078",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.11 Additional Statistics of ODE-Curated Data . . . . . . . . . . . . . . . . . . . . . . . 22"
+    },
+    {
+      "id": "S079",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B More on Experimental Setup 22"
+    },
+    {
+      "id": "S080",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.1 Data Construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22"
+    },
+    {
+      "id": "S081",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.2 Training setup. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23"
+    },
+    {
+      "id": "S082",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.3 Evaluation Setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23"
+    },
+    {
+      "id": "S083",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.4 Benchmark Details. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24"
+    },
+    {
+      "id": "S084",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A Implementation Details of On-policy Data Evolution To make the loop in Section 2 concrete, this appendix traces two consecutive rounds of On-policy Data Evolution end to end on a real run. We first "
+    },
+    {
+      "id": "S085",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.1 Round Configuration Ct A round begins with two configuration objects, the System Config and the Evolvable Config Ct . The System Config bundles every component that ODE deliberately freezes for th"
+    },
+    {
+      "id": "S086",
+      "type": "body",
+      "section": "full paper",
+      "summary": "System Config (frozen for the run) mode : rl rollout_model : the policy currently under training, queried through the visual-native harness judge : LLM judge that compares the rollout’s final answer t"
+    },
+    {
+      "id": "S087",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Ct , the round’s Evolvable Config (key numerical fields) seed_proposer.max_steps = 8 explorer.max_steps = 10 explorer.params.number_of_anchors = 6 explorer.params.max_nodes_per_phase = 2 explorer.para"
+    },
+    {
+      "id": "S088",
+      "type": "body",
+      "section": "full paper",
+      "summary": "The key prompt fields used by the loop are embedded in the corresponding stage cases below. The forward-stage prompts belong to Ct and evolve with the numerical fields: the optimizer can append reject"
+    },
+    {
+      "id": "S089",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.2 Mode-Specific Trace Rubrics The analyzer scores each rollout along a seven-dimension rubric. Every dimension takes an ordinal score from −5 to +5 with a short textual justification, and the overal"
+    },
+    {
+      "id": "S090",
+      "type": "body",
+      "section": "full paper",
+      "summary": "SFT Rubric: Teacher Trace Value The SFT rubric favours teacher trajectories that are useful for distillation, rather than merely correct final answers. Information_Complexity (weight 1.0). Rewards tra"
+    },
+    {
+      "id": "S091",
+      "type": "body",
+      "section": "full paper",
+      "summary": "RL Rubric: Task Quality and Policy Suitability The RL rubric favours tasks that are judgeable, evidence-supported, and useful for optimizing the current policy. Informa- tion_Complexity (weight 1.0). "
+    },
+    {
+      "id": "S092",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.3 Stage 1: Seed Proposal"
+    },
+    {
+      "id": "S093",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Figure 6: Seed image I0 . The seed proposer samples an entity-image pair grounded on United Nations Map No. 4135 Rev. 3, “The World in 1945” (May 2010), domain geography."
+    },
+    {
+      "id": "S094",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Seed Record Entity. United Nations Map No. 4135 Rev. 3: The World in 1945 (May 2010). Domain. geography. Visual poten- tial. The map carries legible, visually extractable details, including the offici"
+    },
+    {
+      "id": "S095",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Seed Proposal Prompt Fields strategy. The seed proposer is instructed to find seeds that pair an entity with an associated image for deep-search tasks. A good seed must pair a real entity with an info"
+    },
+    {
+      "id": "S096",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.4 Stage 2: Web Exploration The explorer expands the seed into a small information network of six nodes, visiting twelve URLs over a single exploration phase. Nodes include the cartographic baseline,"
+    },
+    {
+      "id": "S097",
+      "type": "body",
+      "section": "full paper",
+      "summary": "(a) The contemporary NSGT global map, UN Map (b) The territory-specific UN reference map for No. 4175 Rev. 6 (April 2020). Western Sahara, UN Map No. 3175 Rev. 5 (Jan 2020). Figure 7: Tool-returned no"
+    },
+    {
+      "id": "S098",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Explorer Record Topic. UN cartography of post-WWII territorial status. Visited URLs. 12 (UN Geospatial Information Section, UN Charter texts, Trusteeship Council documents, NSGT roster, Western Sahara"
+    },
+    {
+      "id": "S099",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Web Exploration Prompt Fields strategy. The explorer is instructed to expand the seed into a compact knowledge graph for multimodal deep-search QA generation. Each node must add a new direction, such "
+    },
+    {
+      "id": "S100",
+      "type": "body",
+      "section": "full paper",
+      "summary": "two independent sources. For image-bearing nodes, the record must state exactly what can be extracted visually and why the image is useful downstream. exploration_process_prompt. The loop starts from "
+    },
+    {
+      "id": "S101",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.5 Stage 3: Graph Organization The graph organizer assembles the collected nodes into a multimodal evidence graph G and enriches it with reasoning and perception nodes that test cross-source consiste"
+    },
+    {
+      "id": "S102",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Graph Organization Prompt Fields organization_strategy. The organizer is asked to analyze the relationships among collected information nodes and turn them into a coherent knowledge graph. The prompt "
+    },
+    {
+      "id": "S103",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.6 Stage 4: Task Curation Curated Task Record Question. “In the world map shown (dated ‘as of September 1948’), use the legend to identify which shaded regions count as UN-administered trust territor"
+    },
+    {
+      "id": "S104",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Figure 8: Curated task image for the worked example. The image is the September 1948 UN snapshot, selected from the evidence graph as the visual grounding of the curated question. It is registered int"
+    },
+    {
+      "id": "S105",
+      "type": "body",
+      "section": "full paper",
+      "summary": "label trust territories), web_search (retrieve the original-set count and the Somaliland exclusion), and calculate (form the percentage and round). Curator complexity-enhancement rewrote an earlier ea"
+    },
+    {
+      "id": "S106",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Task Curation Prompt Fields difficulty_control_prompt. The curator is instructed to avoid trivial tasks, avoid brittle or unsolvable tasks, and prefer hard-but-learnable examples. The desired task sho"
+    },
+    {
+      "id": "S107",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.7 Stage 5: Rollout and Stage 6: Backward Analysis The candidate task is rolled out by the policy under training. The verifier finds the final answer incorrect, and the analyzer then scores the rollo"
+    },
+    {
+      "id": "S108",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Backward Analysis Prompt Fields rubric_prompt: You are a professional data quality evaluator. Score the Agent execution trace based on the rubric. For each dimension, read the question, ground truth, "
+    },
+    {
+      "id": "S109",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Rubric Scores (overall 3.82) Information_Complexity (4.0). Multi-source synthesis of legend-based classification on the 1948 map plus the canonical 11-original Trusteeship set, with cross-checks for t"
+    },
+    {
+      "id": "S110",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Stage Diagnoses (analyzer output, abridged) seed_proposer (severity moderate). The seed did not robustly lock identity and provenance to a single canonical map artifact (map number, revision, date), s"
+    },
+    {
+      "id": "S111",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.8 Optimizer Update to Ct+1 The optimizer aggregates the per-rollout diagnoses across the round’s batch into a single ∆t , applies the implied edits to the corresponding fields of Ct , and writes out"
+    },
+    {
+      "id": "S112",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Diff Ct → Ct+1 (numerical fields) seed_proposer.max_steps : 8 → 10 explorer.params.image_ratio : 0.50 → 0.40 graph_organizer.complexity.reasoning_max_steps : 5 → 6 graph_organizer.complexity.perceptio"
+    },
+    {
+      "id": "S113",
+      "type": "body",
+      "section": "full paper",
+      "summary": "The four edits map cleanly onto the four stage diagnoses above. (1) Raising seed_proposer.max_steps from 8 to 10 gives the seed proposer enough budget to satisfy the new identity-and-provenance lock t"
+    },
+    {
+      "id": "S114",
+      "type": "body",
+      "section": "full paper",
+      "summary": "organizer gives complexity enhancement room to attach legend-category nodes and run an extra cross-source consistency check, addressing the missing perception enrichment. The curator field set is left"
+    },
+    {
+      "id": "S115",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Round t+1 exploration node 4: zoomed segment of the Round t+1 task image I0 : the curated chart excerpt show- Seagirt Marine Terminal access channel from the NOAA ing the purple-outlined deep-draft ch"
+    },
+    {
+      "id": "S116",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Figure 9: Round t+1 visual artifacts, produced under the updated Ct+1 . The explorer’s higher reasoning and perception step budgets surface a denser per-node evidence base, and the curator grounds the"
+    },
+    {
+      "id": "S117",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Round t+1 Forward (compact) Seed. Entity-image pair. Entity NOAA Nautical Chart 12281: Baltimore Harbor, 57th Edition (November 2018), domain geography. The seed proposer now lists the chart’s image-v"
+    },
+    {
+      "id": "S118",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.10 Round t+1 Backward and Update to Ct+2 The round t+1 candidate is rolled out by the same policy and scored by the same rubric. The new failure mode is informative. Round t+1 Rubric Scores (overall"
+    },
+    {
+      "id": "S119",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Diff Ct+1 → Ct+2 (numerical fields) explorer.params.max_nodes_per_phase : 2 → 1 explorer.params.image_ratio : 0.40 → 0.50 (rolled back) graph_organizer.complexity.reasoning_max_steps : 6 → 7 graph_org"
+    },
+    {
+      "id": "S120",
+      "type": "body",
+      "section": "full paper",
+      "summary": "The [too_hard] tag dominates the round’s batch-level signal. The optimizer reads this as a request to slow down the explorer (max_nodes_per_phase drops from 2 to 1, forcing a deeper traver- sal of few"
+    },
+    {
+      "id": "S121",
+      "type": "body",
+      "section": "full paper",
+      "summary": "A.11 Additional Statistics of ODE-Curated Data This appendix complements Fig. 2 in Section 2.3 with the ODE-8B and ODE-30B topical-domain donuts and the planned reasoning-step distribution. Topical br"
+    },
+    {
+      "id": "S122",
+      "type": "body",
+      "section": "full paper",
+      "summary": "100 14% Math 8.9 News 9.4 Math 9.1 News 9.8"
+    },
+    {
+      "id": "S123",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Percentage (%) 75 54% Sports 9.0 Geo. 8.1 Sports 9.1 Geo. 9.0 81% History 8.6 Life 9.3 50 71% Life 9.4 ODE-8B 11 domains ODE-30B 11 domains History 9.1 Arts 9.3 Sci. 9.2 25 43% Sci. 9.3 Business 9.3 P"
+    },
+    {
+      "id": "S124",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B More on Experimental Setup B.1 Data Construction We use ODE to curate both SFT and RL training data. GPT-5.2 [OpenAI, 2025] is used for most generation, analysis, and optimization stages, and also s"
+    },
+    {
+      "id": "S125",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.2 Training setup. We instantiate our agent with two Qwen3-VL backbones: Qwen3-VL-8B-Instruct and Qwen3-VL- 30B-A3B-Instruct [Bai et al., 2025]. We first perform SFT on data curated by the SFT mode o"
+    },
+    {
+      "id": "S126",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.3 Evaluation Setup All models and agents are evaluated under the same decoding and interaction budget. We use temperature 0.6 and top-p 0.95, and allow at most 50 LLM calls, 8,192 tokens per turn, a"
+    },
+    {
+      "id": "S127",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Prompt for LLM-as-judge You are a precise final-answer judge. Your job is to decide whether the candidate final answer matches the correct answer. Be conservative, but grade like a careful human evalu"
+    },
+    {
+      "id": "S128",
+      "type": "body",
+      "section": "full paper",
+      "summary": "Calibration examples: - Correct: reference=’A set of edges without common vertices.’ candidate=’matching’ - Correct: reference=’Thought experiments.’ candidate=’used to explore philosophical questions"
+    },
+    {
+      "id": "S129",
+      "type": "body",
+      "section": "full paper",
+      "summary": "B.4 Benchmark Details We provide the detailed evaluation benchmark below. Unless otherwise specified, we evaluate on the released benchmark questions with our unified agent harness and LLM-based answe"
+    },
+    {
+      "id": "S130",
+      "type": "body",
+      "section": "full paper",
+      "summary": "HLE-VL, and the single-image subset of MMSearch+. For SimpleVQA and FVQA, we randomly sample 300 instances from each benchmark."
+    }
+  ],
+  "assets": [
+    "assets/page_002_fig_figure_1.png",
+    "assets/page_005_fig_figure_2.png",
+    "assets/page_006_fig_figure_3.png",
+    "assets/page_007_fig_figure_4.png",
+    "assets/page_008_fig_figure_5.png",
+    "assets/page_016_fig_figure_6.png",
+    "assets/page_017_fig_figure_7.png",
+    "assets/page_018_fig_figure_8.png",
+    "assets/page_021_fig_figure_9.png",
+    "assets/page_022_fig_figure_10.png"
+  ]
+}

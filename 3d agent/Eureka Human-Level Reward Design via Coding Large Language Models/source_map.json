@@ -1,0 +1,290 @@
+{
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/B8NIC3SM/Ma 等 - 2023 - Eureka Human-Level Reward Design via Coding Large Language Models.pdf",
+  "source_identity": {
+    "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+    "venue": "ICLR 2024 Oral",
+    "arxiv": "2310.12931v2",
+    "date": "2024-04-30",
+    "pages": 45,
+    "authors": [
+      "Yecheng Jason Ma",
+      "William Liang",
+      "Guanzhi Wang",
+      "De-An Huang",
+      "Osbert Bastani",
+      "Dinesh Jayaraman",
+      "Yuke Zhu",
+      "Linxi \"Jim\" Fan",
+      "Anima Anandkumar"
+    ],
+    "affiliation": "NVIDIA, UPenn, Caltech, UT Austin",
+    "project_page": "https://eureka-research.github.io"
+  },
+  "target": "detailed_paper.md",
+  "section_order": [
+    {
+      "section": "Abstract",
+      "source_pages": [
+        1
+      ]
+    },
+    {
+      "section": "1 Introduction",
+      "source_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "section": "2 Problem Setting and Definitions",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "section": "3 Method",
+      "source_pages": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "section": "4 Experiments",
+      "source_pages": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "section": "5 Related Work",
+      "source_pages": [
+        9
+      ]
+    },
+    {
+      "section": "6 Conclusion",
+      "source_pages": [
+        9
+      ]
+    },
+    {
+      "section": "Acknowledgement",
+      "source_pages": [
+        10
+      ]
+    },
+    {
+      "section": "References",
+      "source_pages": [
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "section": "Appendix A. Full Prompts",
+      "source_pages": [
+        16,
+        17
+      ]
+    },
+    {
+      "section": "Appendix B. Environment Details",
+      "source_pages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "section": "Appendix C. Baseline Details",
+      "source_pages": [
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "section": "Appendix D. EUREKA Details",
+      "source_pages": [
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "section": "Appendix E. EUREKA on Mujoco Environments",
+      "source_pages": [
+        25,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "section": "Appendix F. Additional Results",
+      "source_pages": [
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "section": "Appendix G. EUREKA Reward Examples",
+      "source_pages": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    {
+      "section": "Appendix H. Limitations and Discussion",
+      "source_pages": [
+        45
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": "Figure 1",
+      "source_page": 1,
+      "asset": "assets/figure_1.png"
+    },
+    {
+      "label": "Figure 2",
+      "source_page": 2,
+      "asset": "assets/figure_2.png"
+    },
+    {
+      "label": "Figure 3",
+      "source_page": 4,
+      "asset": "assets/figure_3.png"
+    },
+    {
+      "label": "Figure 4",
+      "source_page": 6,
+      "asset": "assets/figure_4.png"
+    },
+    {
+      "label": "Figure 5",
+      "source_page": 7,
+      "asset": "assets/figure_5.png"
+    },
+    {
+      "label": "Figure 6",
+      "source_page": 7,
+      "asset": "assets/figure_6.png"
+    },
+    {
+      "label": "Figure 7",
+      "source_page": 8,
+      "asset": "assets/figure_7.png"
+    },
+    {
+      "label": "Figure 8",
+      "source_page": 8,
+      "asset": "assets/figure_8.png"
+    },
+    {
+      "label": "Figure 9",
+      "source_page": 9,
+      "asset": "assets/figure_9.png"
+    },
+    {
+      "label": "Figure 10",
+      "source_page": 28,
+      "asset": "assets/figure_10.png"
+    },
+    {
+      "label": "Figure 11",
+      "source_page": 29,
+      "asset": "assets/figure_11.png"
+    },
+    {
+      "label": "Figure 12",
+      "source_page": 29,
+      "asset": "assets/figure_12.png"
+    },
+    {
+      "label": "Figure 13",
+      "source_page": 29,
+      "asset": "assets/figure_13.png"
+    },
+    {
+      "label": "Figure 14",
+      "source_page": 30,
+      "asset": "assets/figure_14.png"
+    },
+    {
+      "label": "Figure 15",
+      "source_page": 30,
+      "asset": "assets/figure_15.png"
+    },
+    {
+      "label": "Figure 16",
+      "source_page": 30,
+      "asset": "assets/figure_16.png"
+    }
+  ],
+  "tables": [
+    {
+      "label": "Table 3",
+      "source_page": 22,
+      "asset": "assets/table_3.png"
+    },
+    {
+      "label": "Table 4",
+      "source_page": 25,
+      "asset": "assets/table_4.png"
+    }
+  ],
+  "assets": {
+    "type": "figure and table crop assets",
+    "directory": "assets/",
+    "files": [
+      "figure_1.png",
+      "figure_2.png",
+      "figure_3.png",
+      "figure_4.png",
+      "figure_5.png",
+      "figure_6.png",
+      "figure_7.png",
+      "figure_8.png",
+      "figure_9.png",
+      "figure_10.png",
+      "figure_11.png",
+      "figure_12.png",
+      "figure_13.png",
+      "figure_14.png",
+      "figure_15.png",
+      "figure_16.png",
+      "table_3.png",
+      "table_4.png"
+    ]
+  },
+  "validation": {
+    "script": "/Users/roywangj/Desktop/skills4ai/wj_skills/nature-reader-detail-wj/scripts/validate_detailed_paper.py",
+    "expected_primary_output": "detailed_paper.md"
+  }
+}

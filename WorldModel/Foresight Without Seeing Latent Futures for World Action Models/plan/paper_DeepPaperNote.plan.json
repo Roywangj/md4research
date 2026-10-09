@@ -1,0 +1,177 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "ForeWAM 是面向机器人操作的 World-Action Model 方法论文，核心证据包括接口形式化、视频/动作扩散架构、训练目标、LIBERO/LIBERO-Plus 结果和组件消融。",
+  "dominant_domain": "embodied AI / robot manipulation / world-action models",
+  "must_cover": [
+    "direct-policy WAM 的预测动态接口缺口",
+    "Future-KV 单次 Video DiT prefill 与层级 K/V cache",
+    "latent-action-supervised dynamics registers",
+    "四组 token 与结构化注意力路由",
+    "Eq. (1)-(10) 与部署期信息可用性",
+    "LIBERO 四套件、LIBERO-Plus 七类扰动、延迟和消融",
+    "训练配置与复现依赖",
+    "与 cascaded/joint WAM 及 Fast-WAM 的定位",
+    "已证明与未证明边界、研究启发"
+  ],
+  "key_numbers": [
+    "LIBERO overall: ForeWAM 96.7%, ForeWAM-Flash 96.9%, Fast-WAM 97.6%",
+    "LIBERO-Plus observed subset: ForeWAM 61.6%, Flash 58.2%, Fast-WAM 51.5%",
+    "latency: 667 ms → 568 ms → 220 ms; 10 steps → 2 steps",
+    "parameters: 2B vs Fast-WAM 6B",
+    "H=32; 33 observation frames; 9 video frames; 224×448 two-view input",
+    "30 transformer blocks per branch; dv=1536, da=1024; ND=16 registers",
+    "A800 80GB; flow schedule 1000 timesteps, shift 5.0; AdamW lr 1e-4, wd 0.01",
+    "matched ablation n=1,482 observed evaluations; base reference n=10,027 under different coverage"
+  ],
+  "real_comparisons": [
+    "ForeWAM/Flash vs Fast-WAM on LIBERO suites",
+    "ForeWAM vs Fast-WAM across seven LIBERO-Plus perturbations",
+    "Future-KV only vs LA supervision only vs both vs base",
+    "10-step standard vs 2-step Flash latency",
+    "2B ForeWAM vs 6B Fast-WAM parameter scale"
+  ],
+  "central_claims": [
+    {
+      "claim": "Future-KV 让 direct-policy Action DiT 在不生成未来视频的情况下读取预测性视觉上下文。",
+      "supporting_evidence": [
+        "sec:method",
+        "sec:conclusion",
+        "sec:related-work"
+      ],
+      "what_it_actually_proves": "论文定义并实现了单次 prefill、层级 K/V 缓存和 action denoising 读取该缓存的部署接口。",
+      "what_it_does_not_prove": "未通过干预证明缓存表征本身因果必要，也未证明隐式 future slots 可被唯一解释为真实未来。"
+    },
+    {
+      "claim": "动态寄存器和 Future-KV 具有互补收益。",
+      "supporting_evidence": [
+        "sec:ablation",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "在覆盖匹配的三种配置中，两者同时使用为 61.6%，高于 Future-KV only 58.5% 和 LA only 58.0%。",
+      "what_it_does_not_prove": "不是完整多种子因子实验，不能精确分解交互效应或排除优化条件差异。"
+    },
+    {
+      "claim": "ForeWAM 保持标准 LIBERO 性能并显著降低动作生成延迟。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "sec:method-3",
+        "sec:method-2"
+      ],
+      "what_it_actually_proves": "在报告的 benchmark 与 standalone latency setting 中，Flash 为 96.9% overall、220 ms。",
+      "what_it_does_not_prove": "延迟不是任务完成时间，且没有报告方差、吞吐或真实机器人端到端时延。"
+    },
+    {
+      "claim": "LIBERO-Plus 上的鲁棒性提升支持预测动态对控制有用。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "sec:ablation"
+      ],
+      "what_it_actually_proves": "在 observed subset 的描述性比较中 ForeWAM overall 比 Fast-WAM 高 10.1 points。",
+      "what_it_does_not_prove": "外部结果覆盖不完全匹配，不能视为普适 OOD 因果增益。"
+    }
+  ],
+  "claim_boundaries": [
+    "LIBERO-Plus 跨方法比较来自不同来源/覆盖，需标为 descriptive",
+    "Table 4 base policy 的 10,027 evaluations 与三项 matched configurations 不可直接作因果差",
+    "LaWM teacher 和 ground-truth future 只在训练使用，部署不使用",
+    "论文无真实机器人评测、无多 embodiment、无 broader long-horizon 验证",
+    "作者明确提醒 mask 不等于 disentanglement 或 causal sufficiency",
+    "arXiv v1 版本，PDF 未检测到 appendix"
+  ],
+  "negative_or_limiting_results": [
+    "ForeWAM 的 Long suite 92.8% 低于 Fast-WAM 95.2%",
+    "ForeWAM-Flash 在 LIBERO-Plus overall 58.2% 低于标准 ForeWAM 61.6%",
+    "Flash 在 robot-initial-state、language、lighting、background 等若干扰动低于标准模型",
+    "ForeWAM 在 LIBERO-Plus robot initial-state 仅 37.4%，为其七类中最低",
+    "组件比较不是完整因果消融；基础策略覆盖不同",
+    "缺少置信区间/多随机种子/训练成本和任务完成时间"
+  ],
+  "mechanism_result_map": [
+    "单次 Future-KV prefill + cache reuse → 667 ms Fast-WAM 到 568 ms ForeWAM",
+    "2-step OneDP distillation 保留接口 → 220 ms Flash，但 LIBERO-Plus 从 61.6% 降至 58.2%",
+    "Future-KV only 58.5% 与 LA only 58.0% → both 61.6%，支持互补但非严格因果",
+    "latent-action teacher 的 transition cue → 设计上聚焦 object motion/contact/task progress；论文只用聚合结果支撑效用",
+    "current latent + noisy future slots → 保留 direct-policy 部署，不把未来观测或解码视频送入控制回路"
+  ],
+  "comparative_positioning": [
+    "cascaded WAM 先生成未来再行动，joint WAM 联合去噪，均暴露未来但承担迭代生成成本",
+    "Fast-WAM 已省掉部署期 future rollout；ForeWAM 的新增点是把预测上下文以 hidden K/V 与 registers 接回 Action DiT",
+    "ForeWAM 的贡献是 Future-KV 与 LA registers 的组合，而非单独提出 no-rollout 或 latent-action learning",
+    "与大规模 embodied pretraining 的 VLA 基线相比，ForeWAM 报告不使用 embodied pretraining，故参数/数据条件需一起解读"
+  ],
+  "reuse_takeaways": [
+    "把未来建模目标与动作专家之间的 interface 明确化，比单纯增加视频生成更可控",
+    "训练期 privileged future/teacher 可以只作为 shaping signal，部署期移除",
+    "rich distributed K/V 与 compact transition register 是两种互补的信息瓶颈",
+    "效率数字必须区分 standalone action latency、rollout time 和 task completion time",
+    "跨论文 OOD 分数比较前先核对 observed coverage 与评测来源"
+  ],
+  "followup_questions": [
+    "随机 future-slot 噪声是否导致动作方差？多次采样/固定噪声的敏感性如何？",
+    "Future-KV 的 cache 与 registers 做完整 2×2、多种子、显著性检验后是否仍互补？",
+    "Long horizon、真实接触动力学和跨形态机器人上是否保持优势？",
+    "action loss 的梯度穿过 prefill 的贡献能否通过 stop-gradient 或 cache intervention 单独测量？",
+    "220 ms 是否包含双相机编码、文本条件和 VAE，还是只包含 Action DiT 去噪？",
+    "LaWM teacher 的码本、训练集与量化细节公开程度如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释显式 future rollout 的成本与 direct-policy 的接口缺口，并定位 ForeWAM 的问题意识。",
+      "evidence_sources": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "记录同步多相机、语言、本体感知、动作 chunk、LIBERO/LIBERO-Plus 协议和覆盖差异。",
+      "evidence_sources": [
+        "sec:method",
+        "sec:experiments",
+        "sec:method-2",
+        "sec:method-3"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "逐步解释 Future-KV、dynamics registers、token routing、flow matching 和部署期接口。",
+      "evidence_sources": [
+        "sec:method",
+        "sec:conclusion",
+        "sec:method-2",
+        "sec:related-work"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用表格核对 LIBERO、LIBERO-Plus、延迟和消融，并明确负结果和外部覆盖边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:ablation",
+        "sec:method-2",
+        "sec:method-3"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "区分真正贡献与工程组装，解释机制到结果的链条、邻近工作定位、复现成本和过度解读风险。",
+      "evidence_sources": [
+        "sec:related-work",
+        "sec:method",
+        "sec:experiments",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "从 benchmark、统计、部署协议、因果归因和资料完整性审视未证明内容。",
+      "evidence_sources": [
+        "sec:ablation",
+        "sec:conclusion-2",
+        "sec:method-3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "paper_id": "arXiv:2606.14048v3",
+  "decisions": [
+    {"source_id":"F001","decision":"skip","reason":"neighbor-method overview is discussed textually; architecture has higher mechanism value"},
+    {"source_id":"F002","decision":"insert","target":"images/page_004_figure_2.png","reason":"central architecture, token groups, and attention routing"},
+    {"source_id":"F003","decision":"insert","target":"images/page_006_figure_3.png","reason":"training/deployment branch deletion"},
+    {"source_id":"F004","decision":"skip","reason":"task photos add less analytical value than result table"},
+    {"source_id":"F005","decision":"skip","reason":"attention visualization is described with correlation boundary; crop remains in reader assets"},
+    {"source_id":"F006","decision":"skip","reason":"qualitative 4D meaning explained textually; large image reserved for full reader"},
+    {"source_id":"F007","decision":"skip","reason":"failure mechanism can be explained precisely in text"},
+    {"source_id":"T001","decision":"insert","target":"images/page_008_table_1.png","reason":"central success/latency/memory comparison"},
+    {"source_id":"T002","decision":"skip","reason":"real-world values transcribed into prose; visual redundancy"},
+    {"source_id":"T003","decision":"skip","reason":"dense per-task image is hard to read in note; exact reader transcription used for analysis"},
+    {"source_id":"T004","decision":"skip","reason":"task definitions summarized in data section"},
+    {"source_id":"T005","decision":"skip","reason":"split summarized compactly"},
+    {"source_id":"T006","decision":"skip","reason":"extremely dense; Tables 7/8 isolate interpretable ablations"},
+    {"source_id":"T007","decision":"insert","target":"images/page_012_table_7.png","reason":"register interface/layer/visibility mechanism evidence"},
+    {"source_id":"T008","decision":"insert","target":"images/page_013_table_8.png","reason":"pretraining and adaptation evidence"},
+    {"source_id":"T009","decision":"insert","target":"images/page_015_table_9.png","reason":"hardware and denoising protocol denominator"}
+  ],
+  "all_numbered_objects_decided": true,
+  "insert_assets_materialized": true,
+  "broken_links": 0
+}

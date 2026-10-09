@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "source_pdf_pages": 61,
+  "grounded_claims_checked": 34,
+  "numeric_claims_checked": 29,
+  "unsupported_claims": 0,
+  "checks": [
+    {"topic": "GPG/ED fits", "source": "Section 3.2, Equations 3-4, Figure 7", "result": "pass"},
+    {"topic": "matched NL control", "source": "Table 2, Section 4.1", "result": "pass"},
+    {"topic": "prompter ablation", "source": "Table 4, Section 4.2", "result": "pass"},
+    {"topic": "agentic scaling", "source": "Table 5, Section 4.3", "result": "pass"},
+    {"topic": "limitations and reproducibility", "source": "Limitations, Appendices A-C", "result": "pass"}
+  ]
+}

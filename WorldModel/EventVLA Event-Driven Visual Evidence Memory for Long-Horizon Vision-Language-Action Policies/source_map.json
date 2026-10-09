@@ -1,0 +1,337 @@
+{
+  "paper": {
+    "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
+    "authors": [
+      "Ganlin Yang",
+      "Zhangzheng Tu",
+      "Yuqiang Yang",
+      "Sitong Mao",
+      "Junyi Dong",
+      "Tianxing Chen",
+      "Jiaqi Peng",
+      "Jing Xiong",
+      "Jiafei Cao",
+      "Jifeng Dai",
+      "Wengang Zhou",
+      "Yao Mu",
+      "Tai Wang"
+    ],
+    "year": 2026,
+    "arxiv_id": "2606.20092",
+    "doi": "10.48550/arXiv.2606.20092",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/RFZ8Y4FX/Yang 等 - 2026 - EventVLA Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "pdf-text+layout",
+    "page_count": 23,
+    "source_version": "arXiv:2606.20092v2, 29 Jun 2026"
+  },
+  "notes": {
+    "canonical_text": "extracted_text.txt and 23-page original PDF",
+    "figure_source": "assets/figure_1.png ~ figure_8.png",
+    "table_source": "assets/table_1.png ~ table_9.png",
+    "reader_validation": "74 bilingual paragraph pairs; 17 caption pairs (8 figures + 9 tables); 17 image links; zero missing links",
+    "sha256": "664bc41be02a677aa6e211683daabfdfb24766eb77fef79eb0b0a67abaee61ad"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Title & Abstract",
+      "pages": "1",
+      "summary": "Paper title, authors, affiliations, abstract, keywords, and non-Markovian manipulation bottleneck."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-3",
+      "summary": "Markovian assumption failure, 3 existing memory paradigms, foundational visual anchors, and foresight-driven KEM."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "2",
+      "summary": "Overview of EventVLA, non-Markovian challenge, benchmarks, memory architecture, and gains."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3",
+      "summary": "2.1 Memory-augmented policies for long-horizon manipulation; 2.2 Memory-oriented manipulation benchmarks."
+    },
+    {
+      "id": "S004",
+      "type": "method",
+      "section": "3.1 Problem Formulation & Visual Anchors",
+      "pages": "3-4",
+      "summary": "Non-Markovian formulation, action conditioned on memory buffer, initial layout and short-term sliding window (Eq. 1-2)."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3.1 Framework Architecture",
+      "pages": "4",
+      "summary": "EventVLA framework diagram with visual anchors, KEM module, future keyframe forecast, and delayed commit."
+    },
+    {
+      "id": "S005",
+      "type": "method",
+      "section": "3.2 Keyframe Evidence Memory (KEM)",
+      "pages": "4-5",
+      "summary": "Lightweight parallel keyframe prediction head, chunk-wise probability vector, FIFO buffer, unified sequence input (Eq. 3-4)."
+    },
+    {
+      "id": "S006",
+      "type": "method",
+      "section": "3.3 End-to-End Training & Inference",
+      "pages": "5",
+      "summary": "Qwen3-VL labeling pipeline, raised cosine soft labels, joint loss (Eq. 5), teacher-to-student curriculum, and 1D NMS."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "4 RoboTwin-MeM Benchmark",
+      "pages": "5",
+      "summary": "Overview of 8 evaluation tasks in RoboTwin-MeM parameterized by intermediate keyframes n in [1, 5]."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "4 RoboTwin-MeM Benchmark",
+      "pages": "5-6",
+      "summary": "Diagnostic benchmark motivation, SAPIEN physics engine, n-parameterized transient evidence design, and task hierarchy."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "5.1 Simulation Experiments",
+      "pages": "6",
+      "summary": "Table 1: Overall average success rates on RMBench across non-memory VLAs, dual-system, end-to-end, and EventVLA variants."
+    },
+    {
+      "id": "S008",
+      "type": "experiment",
+      "section": "5.1 Performance on Simulation Benchmarks",
+      "pages": "6-8",
+      "summary": "Evaluation on RMBench, efficacy of visual anchors, evaluation on RoboTwin-MeM, necessity of KEM, and standard Markovian tasks."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "5.1 Simulation Experiments",
+      "pages": "7",
+      "summary": "Table 2: Comprehensive RoboTwin-MeM benchmark results across 8 tasks, baselines, full EventVLA (75.2%), and 6 ablation variants."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "5.1 Simulation Experiments",
+      "pages": "7",
+      "summary": "Table 3: RoboTwin 2.0 benchmark results on Easy and Hard Markovian tasks confirming reactive control retention."
+    },
+    {
+      "id": "S009",
+      "type": "experiment",
+      "section": "5.2 Ablation Analysis",
+      "pages": "7-8",
+      "summary": "Core mechanisms (explicit raw images vs implicit bank, soft vs hard labels), buffer capacity, NMS necessity, and chunk size."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "5.3 Real-World Robot Evaluation",
+      "pages": "8",
+      "summary": "ARX ACONE bimanual robot experimental setup and success rate comparison across 4 memory-intensive physical tasks."
+    },
+    {
+      "id": "S010",
+      "type": "experiment",
+      "section": "5.3 Real-World Robot Evaluation",
+      "pages": "8",
+      "summary": "Physical deployment across Find Block Easy, Find Block Hard, Pick-X-Times, and Pick in Order (up to 90% success rate)."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "6 Limitations",
+      "pages": "8-9",
+      "summary": "Bounded buffer capacity scaling in ultra-long-horizon manipulation (>10 min) and future hierarchical memory directions."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "7 Conclusion & Acknowledgments",
+      "pages": "9",
+      "summary": "Paper conclusion and Shanghai AI Laboratory support acknowledgment."
+    },
+    {
+      "id": "S013",
+      "type": "references",
+      "section": "References",
+      "pages": "9-12",
+      "summary": "Bibliographic references [1] to [48] in searchable Markdown format."
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix A.1 Training Formulations",
+      "pages": "13",
+      "summary": "Raised cosine soft target kernel, BCE sequence-averaged loss (Eq. 6), joint loss (Eq. 7), and teacher-to-student annealing."
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix A.2 Online Inference",
+      "pages": "13-14",
+      "summary": "1D Non-Maximum Suppression (NMS) candidate peak identification (Eq. 8), temporal cooldown C, and FIFO buffer eviction."
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix A.3 Keyframe Annotation Pipeline",
+      "pages": "14-15",
+      "summary": "Qwen3-VL-235B vLLM setup, ICL few-shot prompting, verbatim System Prompt, simulation physics validation, and real error analysis."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Appendix B.1 RoboTwin-MeM Details",
+      "pages": "15",
+      "summary": "Table 4: Detailed statistics, episodes, average steps, intermediate keyframes, and language instructions for 8 RoboTwin-MeM tasks."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Appendix B.1 Real Execution Gallery",
+      "pages": "16",
+      "summary": "Expanded real-world execution sequences of EventVLA across 4 physical tasks with blue-bordered keyframe highlights."
+    },
+    {
+      "id": "S017",
+      "type": "appendix",
+      "section": "Appendix B.2 Real-World Tasks Details",
+      "pages": "16",
+      "summary": "Detailed narrative description of physical bimanual tasks and intermediate keyframe emergence moments."
+    },
+    {
+      "id": "S018",
+      "type": "appendix",
+      "section": "Appendix B.3 Network Architecture & Hyper-parameters",
+      "pages": "17-18",
+      "summary": "QwenOFT base model, learning rate schedules, action chunking, and physical Pi0.5 setup."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix B.3 Network Architecture",
+      "pages": "17",
+      "summary": "Table 5: Network architecture and training hyper-parameters for RMBench (visual anchors only)."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix B.3 Network Architecture",
+      "pages": "18",
+      "summary": "Table 6: Network architecture and KEM hyper-parameters for RoboTwin-MeM (VA+KEM)."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix B.3 Network Architecture",
+      "pages": "18",
+      "summary": "Table 7: Network architecture and KEM hyper-parameters for real-robot platform (Pi0.5 backbone)."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix C Extended Results",
+      "pages": "19",
+      "summary": "Table 8: Comprehensive per-task breakdown on RMBench across 8 manipulation tasks."
+    },
+    {
+      "id": "S019",
+      "type": "appendix",
+      "section": "Appendix C.1 Breakdown on RMBench",
+      "pages": "19",
+      "summary": "Detailed task breakdown analysis confirming visual anchors' sufficiency on RMBench."
+    },
+    {
+      "id": "S020",
+      "type": "appendix",
+      "section": "Appendix C.2 Extended Ablation & Speed",
+      "pages": "19-20",
+      "summary": "Deep analysis of memory representations, supervision strategies, NMS necessity, horizon size, and physical robot throughput."
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "Appendix C.2 Extended Ablation",
+      "pages": "20",
+      "summary": "Table 9: Ablation study on EventVLA inference latency (s/chunk) and throughput (chunks/s) across RoboTwin-MeM tasks."
+    },
+    {
+      "id": "S021",
+      "type": "appendix",
+      "section": "Appendix D.1 Simulation Rollouts",
+      "pages": "20-22",
+      "summary": "Qualitative execution descriptions and visual analysis across all 8 simulation tasks."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Appendix D.1 Simulation Visualizations",
+      "pages": "21",
+      "summary": "Figure 6: Qualitative rollouts on Rearrange Blocks Hard, Pick the Unhidden Block, Put Back Block Hard, Cover Blocks Hard."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix D.1 Simulation Visualizations",
+      "pages": "22",
+      "summary": "Figure 7: Qualitative rollouts on Press Button Keyframe, Pick Objects in Order, Find Seal and Seal Stamp, Reproduce Route."
+    },
+    {
+      "id": "S022",
+      "type": "appendix",
+      "section": "Appendix D.2 Real-World Sequences",
+      "pages": "21-23",
+      "summary": "Qualitative execution descriptions and detailed physical task instructions for real robot evaluation."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix D.2 Real-World Visualizations",
+      "pages": "23",
+      "summary": "Figure 8: Qualitative real-world execution sequences on Find Block Easy, Find Block Hard, Pick-X-Times, and Pick in Order."
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "Critical-Reading Postscript",
+      "pages": "N/A",
+      "summary": "Technical synthesis of algorithmic innovations, benchmark diagnostic value, architectural trade-offs, and open challenges."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png"
+  ]
+}

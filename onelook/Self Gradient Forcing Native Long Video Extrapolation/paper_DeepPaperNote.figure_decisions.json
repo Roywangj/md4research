@@ -1,0 +1,564 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2607.20368",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Long-horizon consistency with Self Gradient Forcing. Under the same prompt, seed,",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "From frozen-cache Self Forcing to Self Gradient Forcing. Self Forcing trains on",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Self Gradient Forcing Training",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "placeholder",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Frame-wise 240-second comparison under TF initialization. Both rows use matched",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "Figure_3_long_horizon.png",
+      "relative_markdown_embed": "![Figure 3](images/Figure_3_long_horizon.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_007_fig_figure_3_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "148c0972fa99d8b5814b818bc7447cf016f619a8085b71de8b0016dd93babd06",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_007_fig_figure_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DLP68L8E/Zhuang 等 - 2026 - Self Gradient Forcing Native Long Video Extrapolation.pdf",
+        "source_page": 7,
+        "caption": "Frame-wise 240-second comparison under TF initialization. Both rows use matched",
+        "bbox_pt": [
+          104.0,
+          77.85984802246094,
+          508.1039733886719,
+          284.48199462890625
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.098308,
+          0.830235,
+          0.359194
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "148c0972fa99d8b5814b818bc7447cf016f619a8085b71de8b0016dd93babd06",
+        "preserved_scientific_elements": [
+          "主体图像/表格内容",
+          "坐标或指标标签",
+          "图注对应的科学关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查图号、裁剪范围和可读性；与正文结论一致。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Decoded Pass-1 and Pass-2 recovery comparison. Rows show paired decoded outputs",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:results",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "Figure_4_recovery.png",
+      "relative_markdown_embed": "![Figure 4](images/Figure_4_recovery.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_018_fig_figure_4_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "21b16179a77a8618ee9cd7274d874718a4f8e6044c25f48ba725a86ef862f0fa",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_018_fig_figure_4_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/page_previews/page_018.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DLP68L8E/Zhuang 等 - 2026 - Self Gradient Forcing Native Long Video Extrapolation.pdf",
+        "source_page": 18,
+        "caption": "Decoded Pass-1 and Pass-2 recovery comparison. Rows show paired decoded outputs",
+        "bbox_pt": [
+          104.0,
+          77.8599853515625,
+          507.9450988769531,
+          384.1961669921875
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.098308,
+          0.829976,
+          0.485096
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "21b16179a77a8618ee9cd7274d874718a4f8e6044c25f48ba725a86ef862f0fa",
+        "preserved_scientific_elements": [
+          "主体图像/表格内容",
+          "坐标或指标标签",
+          "图注对应的科学关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查图号、裁剪范围和可读性；与正文结论一致。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "VAE boundary and sink-latent choice. Left: sink 1 preserves only the stream-start an-",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:results",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Qualitative sink ablation at 60 seconds. Very small sinks preserve too little early stream-",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:results",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Frame-wise 60-second comparison under TF initialization. In the car-and-motorcycle",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Frame-wise 60-second comparison under causal CD initialization. Under causal CD",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Frame-wise 240-second comparison under causal CD initialization. The otter prompt",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Frame-wise 60-second comparison under causal ODE initialization. In the library-",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Frame-wise 240-second comparison under causal ODE initialization. Under matched",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Chunk-wise 60-second comparison under TF initialization. In the apple-peeling",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Chunk-wise 240-second comparison under TF initialization. The coarser chunk-",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Chunk-wise 60-second comparison under causal CD initialization. The strip includes",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Chunk-wise 240-second comparison under causal CD initialization. This strip in-",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:limitations",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Frame-wise 60-second and 240-second long-horizon metrics. The 60s setting uses VBench-",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "Table_1_long_horizon_metrics.png",
+      "relative_markdown_embed": "![Table 1](images/Table_1_long_horizon_metrics.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_008_fig_table_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "b03c8522ad2b65172b65a130501fb146fe9a51ec91eb7b326e026cc14c1a912c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/images/page_008_fig_table_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-afb88291f4fcba201/tmp/DeepPaperNote/assets/Self_Gradient_Forcing_Native_Long_Video_Extrapolation/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DLP68L8E/Zhuang 等 - 2026 - Self Gradient Forcing Native Long Video Extrapolation.pdf",
+        "source_page": 8,
+        "caption": "Frame-wise 60-second and 240-second long-horizon metrics. The 60s setting uses VBench-",
+        "bbox_pt": [
+          109.80500030517578,
+          112.98507690429688,
+          497.58819580078125,
+          295.702392578125
+        ],
+        "normalized_bbox": [
+          0.17942,
+          0.142658,
+          0.813053,
+          0.373362
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "b03c8522ad2b65172b65a130501fb146fe9a51ec91eb7b326e026cc14c1a912c",
+        "preserved_scientific_elements": [
+          "主体图像/表格内容",
+          "坐标或指标标签",
+          "图注对应的科学关系"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "人工检查图号、裁剪范围和可读性；与正文结论一致。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Chunk-wise 60-second and 240-second long-horizon metrics. 60s uses VBench-Long",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Long-horizon GSB preference scores for SGF vs. matched Self Forcing baselines in frame-",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:background-4",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Training feasibility of context-gradient recovery. Direct differentiable-cache training",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:background-4",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Frame-wise 5-second VBench metrics. Evaluation uses sink 4, FIFO 16, and current chunk",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Chunk-wise 5-second VBench metrics. Training and evaluation use sink 3, FIFO 6, current",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:background-5",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Pass-1 versus Pass-2 latent recovery fidelity. Metrics are averaged over 24 prompts for each",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix-verifies-that-assumption-at-the-forward-level-the-goal-is-not-to-claim-equivalence-to-full",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Sink ablation in frame-wise SGF with TF initialization on 60-second evaluation. Higher is",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:results",
+      "decision": "low_priority",
+      "reason": "caption detected but not selected by visual budget",
+      "skip_reason": "未作为精读插图插入；正文已转录该图/表承载的关键证据。",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    }
+  ],
+  "summary": {
+    "total_items": 24,
+    "by_decision": {
+      "insert": 3,
+      "low_priority": 20,
+      "placeholder": 1,
+      "review_pending": 0,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

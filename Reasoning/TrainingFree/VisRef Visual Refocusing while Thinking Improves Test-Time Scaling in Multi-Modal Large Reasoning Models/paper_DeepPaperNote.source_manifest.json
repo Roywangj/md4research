@@ -1,0 +1,1077 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.00207",
+  "title": "VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.visref_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.visref_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/V8UHNJTS/Ghosal 等 - 2026 - VisRef Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning M.pdf",
+    "total_pages": 16,
+    "text_pages_extracted": 16,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 16,
+    "text_max_pages": null,
+    "text_pages_extracted": 16,
+    "text_pages_scanned": 16,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 12,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 404,
+      "text_hash_sha256": "2452e62efb67a94e35748e7de29638b6ff710029eb46f4e684b7193bb4cdf96f"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1338,
+      "text_hash_sha256": "2039681437d8dad6a8d5d6097cc359c07ff289b26ba96c7a88835fafad367db2"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 9536,
+      "text_hash_sha256": "17009351496568aa1336e0110306cd14fb827ee5fe992dc81d512686dda65319"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "3. Preliminaries",
+      "page_start": 3,
+      "page_end": 6,
+      "char_count": 13158,
+      "text_hash_sha256": "7f183078ccd42b466f25b6ebe8a1dcec108e3f6eea299948252cc03fc5df6455"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 1025,
+      "text_hash_sha256": "85801bc3228685141720643e3e3c3b25b5a620f3f5f4615fa95d1377a54ca863"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "5. Experiments",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 6116,
+      "text_hash_sha256": "4c90166796fc55b33b86797c339845bf0802a81e8882f4f09a7dc04866668a6b"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 648,
+      "text_hash_sha256": "7a1fc782e13f39f2004aad7dc114e1773bc58d1155294d548f74c15d5dc0e8f5"
+    },
+    {
+      "section_id": "sec:discussion",
+      "kind": "conclusion",
+      "title": "6. Discussion",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 4591,
+      "text_hash_sha256": "a094d7cc95daf34cdd81970f13db802a3ebb386c00cf8f6b675c1c67ec4c6167"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "7. Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 649,
+      "text_hash_sha256": "5b156aac0ca9c063eabec6fd9351c11a400dd0d78a007d1294494336b1161699"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 12,
+      "char_count": 14999,
+      "text_hash_sha256": "2263922f9eca8c160f4caba383ffeab1a1e0a5f73b1aead2abed32dc7ecf1328"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 12,
+      "page_end": 14,
+      "char_count": 7385,
+      "text_hash_sha256": "dbdcbff8b7d1cacd0b395f2b1ad4d98586c1e3c3b89ffa7af52287f0ddb28c3b"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 14,
+      "page_end": 14,
+      "char_count": 1443,
+      "text_hash_sha256": "26cfc42d8e34cb8f3390507ffbed0045cbca59228a42cd2b00809e06e1643bdc"
+    },
+    {
+      "section_id": "sec:method-4",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 14,
+      "page_end": 14,
+      "char_count": 91,
+      "text_hash_sha256": "fa17868475046a7d51bbb60253513aa8a484f753204da575ba297686e6f77f51"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 14,
+      "page_end": 16,
+      "char_count": 4064,
+      "text_hash_sha256": "c44804682b09e47fad9e669636e962cbf2021791897879a5b2a286c9225a102a"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4070,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5959,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5273,
+      "section_ids": [
+        "sec:introduction",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4552,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4308,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 5840,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:method",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2908,
+      "section_ids": [
+        "sec:experiments",
+        "sec:method-2",
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4808,
+      "section_ids": [
+        "sec:discussion",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5753,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 5966,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3310,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 5127,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 1830,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 4204,
+      "section_ids": [
+        "sec:appendix",
+        "sec:method-3",
+        "sec:method-4",
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 1091,
+      "section_ids": [
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 842,
+      "section_ids": [
+        "sec:model-3"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Illustration comparing our approach with prior test-time",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of VisRef. Given an image-text input, VisRef enables multi-modal large reasoning models (MLRMs) to maintain",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "VisRef: Visual Refocusing while Thinking",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "presents the test-time scaling behavior of VisRef",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Test-time scaling of VisRef. We evaluate the test-time scaling behavior of VisRef by generating multiple parallel visual-integrated",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Ablation study of hyper-parameters. (a) We visual-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Attention Visualization. Attention maps show how VisRef progressively refocuses on relevant visual regions during multi-step",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "illustrates the test-time scaling behavior of Vis-",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Test-time scaling of VisRef. We evaluate the test-time scaling behavior of VisRef by generating multiple parallel visual-integrated",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Attention Visualization. Attention maps show how VisRef progressively refocuses on relevant visual regions during multi-step",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:model-3"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Evaluation on visual reasoning benchmarks. We evalu-",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Comparison with training-based method (i.e., Look-",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Importance of relevance and diversity. Ablation study",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Evaluation on additional visual reasoning benchmarks.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Latency per prompt on MathVista.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Accuracy (%) across model scales on MathVista.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Token selection strategies (InternVL-8B).",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Table 8",
+        "caption": "performance peaks at λ=0.5 across both MathVista",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:model-3"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "where xinput = [I, T] denotes the input, with I ∈I the",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "visual input (e.g., image) and T = (t1, t2, . . . , tP ) the textual",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "prompt consisting of P tokens (ti ∈M for vocabulary M).",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "for t = 2, . . . , k, until the model generates final response as",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Formally, given an image–text input xinput = [I, T], let",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "V = {v1, v2, · · · , vN} denote the set of N visual token em-",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "beddings extracted from image I, where each vi ∈Rd is a d-",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "τ1:k =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Entropy H < δ ?",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Entropy H < δ ?",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "idx = argmax ( log Det(L))",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "k = arg max",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "where τ1:k−1 = {(z1, V1), . . . , (zk−1, Vk−1)} denotes the",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "eVk = arg max",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "} ∈RTk×d denote the Tk text token",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Mk =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "pear when projected into this textual subspace Lk(vi, vj) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "ϕk(vi)⊤ϕk(vj) where ϕk(v) = M 1/2",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "J (Vk | xinput, zk) = det(LVk",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "∈R|Vk|×|Vk| is the kernel matrix restricted to the",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "k ]ij = Lk(vi, vj) for vi, vj ∈Vk.",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "eVk = arg max",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "i = ϕk(vi)⊤ϕk(vi) = v⊤",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "i Mkvi =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "diversity kernel [¯Lk]ij = [Lk]ij/(rirj), so that ∀Vk, the ker-",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "= Diag(rVk) ¯LVk",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "k ) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "vi∈Vk",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Require: Image-text input xinput = [I, T], visual tokens",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "V = {v1, . . . , vN}, token budget m, entropy threshold",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "2: while k ≤Kmax do",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Compute text subspace: Mk = PTk",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "j=1 z(j)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "Define kernel: Lk(vi, vj) = v⊤",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "if Hk < δentropy then",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "ing step, enforcing |Vk| = m. Starting from V (0)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "= ∅, at",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "vk,i = arg max",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "v∈V\\V (i−1)",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "trajectory τ1:k = {(z1, V1), . . . , (zk, Vk)}, we assess the",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "distribution, defined as Hk = −Ey∼πθ(·|xinput,τ1:k)[log πθ(y |",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "xinput, τ1:k)]. A low entropy Hk < δentropy, where δentropy",
+      "section_id": "sec:preliminaries",
+      "page_start": 3,
+      "page_end": 6
+    },
+    {
+      "text": "the adaptive stopping entropy threshold δentropy=0.25, visual",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "token budget m = ⌊0.3|V|⌋, and maximum reasoning steps",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "Kmax=10. We report test accuracy by checking whether each",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "image-text pair xinput: τ (i) ∼πθ(· | xinput), i = 1, 2, . . . , C,",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "i=1 |τ (i)| ≤B. Each trace τ (i) is sampled inde-",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "a candidate set Y = {y(1), y(2), . . . , y(C)}. Following self-",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "majority voting: ey = arg maxy∈Y",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "i=1 I[y(i) = y], where",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "δentropy = 0.25 achieves the best balance between accuracy and",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "from 20% to 30% but plateaus for m ≥30%.",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "different thresholds, we observe that δentropy = 0.25 consis-",
+      "section_id": "sec:discussion",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "findings, we set m = 30% and δentropy = 0.25 for all main",
+      "section_id": "sec:discussion",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "old δentropy = 0.25, the visual token budget m = ⌊0.3|V|⌋",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "reasoning steps Kmax = 10.",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "ically, for each image-text input xinput = [I, T] ∈Dtest,",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "Exinput∼Dtest,τ∼πθ(·|xinput),y∼πθ(·|xinput,τ) [I{y = y∗}], where y∗",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "k ) =",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "vi∈Vk",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "Derivation. For any selected subset Vk = {v1, . . . , vm} ⊆",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "k ]ij = Lk(vi, vj) = ϕk(vi)⊤ϕk(vj) = v⊤",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "j=1 z(j)",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "i = ∥ϕk(vi)∥2",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "2 = v⊤",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "i Mkvi =",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "i = [LVk",
+      "section_id": "sec:appendix",
+      "page_start": 12,
+      "page_end": 14
+    },
+    {
+      "text": "k ]ij = [LVk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "k ]ii = 1 for all i, representing normalized",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "correlations between tokens. Let DVk = diag(r1, . . . , rm).",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "= DVk ¯LVk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "k DVk]ij =",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "· rj = [LVk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "k ) = det(DVk)2 det(¯LVk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "k ) =",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "vi∈Vk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "k ) =",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "vi∈Vk",
+      "section_id": "sec:method-3",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "Table 8, performance peaks at λ=0.5 across both MathVista",
+      "section_id": "sec:model-3",
+      "page_start": 14,
+      "page_end": 16
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 12,
+    "sections": [
+      {
+        "title": "A. Limitations",
+        "page": 12
+      },
+      {
+        "title": "a variety of visual-reasoning benchmarks and model archi-",
+        "page": 12
+      },
+      {
+        "title": "B. Software and Hardware",
+        "page": 12
+      },
+      {
+        "title": "C. Baselines and Implementation Details.",
+        "page": 12
+      },
+      {
+        "title": "D. Evaluation Criteria.",
+        "page": 12
+      },
+      {
+        "title": "E. Additional Results",
+        "page": 12
+      },
+      {
+        "title": "F. Additional Qualitative Evaluations",
+        "page": 12
+      },
+      {
+        "title": "G. Derivation of the Relevance-Diversity Decom-",
+        "page": 13
+      },
+      {
+        "title": "k ) =",
+        "page": 13
+      },
+      {
+        "title": "i ) + log det(¯LVk",
+        "page": 13
+      },
+      {
+        "title": "k ]ij = Lk(vi, vj) = ϕk(vi)⊤ϕk(vj) = v⊤",
+        "page": 13
+      },
+      {
+        "title": "i Mkvj (13)",
+        "page": 13
+      },
+      {
+        "title": "M 1/2",
+        "page": 13
+      },
+      {
+        "title": "v projects visual token v into",
+        "page": 13
+      },
+      {
+        "title": "k (z(j)",
+        "page": 13
+      },
+      {
+        "title": "i = ∥ϕk(vi)∥2",
+        "page": 13
+      },
+      {
+        "title": "i Mkvi =",
+        "page": 13
+      },
+      {
+        "title": "i z(j)",
+        "page": 13
+      },
+      {
+        "title": "i = [LVk",
+        "page": 13
+      },
+      {
+        "title": "k ]ii. Next, we",
+        "page": 13
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 6",
+        "caption": "illustrates the test-time scaling behavior of Vis-",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Test-time scaling of VisRef. We evaluate the test-time scaling behavior of VisRef by generating multiple parallel visual-integrated",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Attention Visualization. Attention maps show how VisRef progressively refocuses on relevant visual regions during multi-step",
+        "page_hint": "p.16"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 4",
+        "caption": "Evaluation on additional visual reasoning benchmarks.",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Latency per prompt on MathVista.",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Accuracy (%) across model scales on MathVista.",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Token selection strategies (InternVL-8B).",
+        "page_hint": "p.15"
+      },
+      {
+        "id": "Table 8",
+        "caption": "performance peaks at λ=0.5 across both MathVista",
+        "page_hint": "p.15"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "04d9122a5af6b71ae4066941a32cb8fb2252fe782449fed468828dd51ada0037"
+}

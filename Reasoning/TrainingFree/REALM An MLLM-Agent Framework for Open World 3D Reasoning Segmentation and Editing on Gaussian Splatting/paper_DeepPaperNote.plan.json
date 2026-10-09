@@ -1,0 +1,159 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一个面向 3DGS 的 MLLM-agent 方法，用现有 MLLM、SAM、多视角渲染和 3D 特征场完成开放世界 3D reasoning segmentation，并通过 LERF、3D-OVS、REALM3D 与消融验证方法效果。",
+  "dominant_domain": "training-free 3D visually grounded reasoning and 3D Gaussian Splatting segmentation",
+  "must_cover": [
+    "为什么 3D open-vocabulary segmentation 能落地但不善推理，而 2D MLLM 能推理但缺少 3D grounding。",
+    "3D Feature Field 如何把 SAM/temporal propagation 得到的实例 ID 绑定到 Gaussian primitive，并支持 2D mask 回连 3D identity。",
+    "LMSeg 如何让 MLLM 输出 bbox、category、explanation，再借助 SAM 和 feature-field identity map 找到目标实例。",
+    "GLSpaG 的全局阶段如何用 K-means 与 Top-K-ID 选择视角，并通过多视角投票抵消单视角不稳定。",
+    "GLSpaG 的局部阶段如何选择目标可见视角、渲染近景，并用局部 2D mask 通过 L1 loss refine 3D mask。",
+    "LERF、3D-OVS、REALM3D 的任务设置、主结果、编辑展示、GLSpaG 消融和 training-free 边界。"
+  ],
+  "key_numbers": [
+    "LERF implicit queries: REALM 92.88 mIoU / 90.12 mBIoU。",
+    "3D-OVS implicit queries: REALM 93.68 mIoU / 86.02 mBIoU。",
+    "REALM3D implicit queries: REALM 82.30 mIoU / 70.37 mBIoU。",
+    "GLSpaG component ablation on Figurines: Global Reasoning 0.89 / 0.88 / 20.21s; +Local Reasoning 0.89 / 0.88 / 79.68s; +Local Refinement 0.95 / 0.94 / 83.35s。",
+    "Global camera sampling: w/o K-means 0.38 / 0.38; K-means + Random 0.76 / 0.75; Totally Random 0.59 / 0.58; K-means + Top-K-ID 0.95 / 0.94。",
+    "Rendering speed: REALM 354.72 FPS; Gaga 204.49 FPS; GS-Group 305.79 FPS; GAGS 107.06 FPS。",
+    "Best reported hyperparameters include N_cluster=24, N_global=8, and 50 local refinement steps。",
+    "REALM3D contains 100+ 3D scenes and 1000+ prompt-mask pairs."
+  ],
+  "real_comparisons": [
+    "REALM 与 Gaga、GAGS、GS-Group 在 LERF、3D-OVS、REALM3D 隐式查询上的 mIoU/mBIoU 比较。",
+    "直接向 MLLM 输入随机渲染视角与 REALM 多视角选择/投票之间的视角敏感性比较。",
+    "Global reasoning、Local reasoning、Local refinement 三个组件的准确率和时延比较。",
+    "不同全局相机采样策略，包括 w/o K-means、K-means + Random、Totally Random、K-means + Top-K-ID。",
+    "不同 N_cluster、N_global 和 refinement steps 对 mIoU/mBIoU 与速度的影响。",
+    "语言驱动 3D 编辑中的 remove、replace、stylize 定性展示。"
+  ],
+  "central_claims": [
+    {
+      "claim": "REALM 将 2D MLLM 的隐式指令推理能力提升到 3D reasoning segmentation，关键桥梁是 3DGS 渲染、3D Feature Field 和多视角 agent 聚合。",
+      "supporting_evidence": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:methodology"
+      ],
+      "what_it_actually_proves": "论文证明在给定 3DGS 场景和构建好的 feature field 上，现有 MLLM 可以通过渲染视角和实例 ID 回连完成隐式指令的 3D mask 生成。",
+      "what_it_does_not_prove": "它没有证明 MLLM 本身获得了原生 3D 空间理解，也没有消除 3DGS 重建、feature-field 优化和外部 SAM/MLLM 调用成本。"
+    },
+    {
+      "claim": "GLSpaG 通过全局多视角投票和局部近景 refinement 缓解单视角输入的视角敏感性。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:methods",
+        "sec:method"
+      ],
+      "what_it_actually_proves": "Figure 2、Figure 4、Figure 6 和 Table 2 共同支持多视角聚合和局部 refinement 能把不稳定 2D reasoning 输出转成更稳健的 3D mask。",
+      "what_it_does_not_prove": "它没有保证所有视角或所有 MLLM 错误都能被投票纠正；如果多数视角都受遮挡或 prompt 误导，聚合仍可能失败。"
+    },
+    {
+      "claim": "REALM 在隐式 3D segmentation 上显著超过现有 3D open-vocabulary segmentation baselines。",
+      "supporting_evidence": [
+        "sec:experiments",
+        "sec:method"
+      ],
+      "what_it_actually_proves": "Table 1 显示 REALM 在 LERF、3D-OVS、REALM3D 的 mIoU/mBIoU 均明显优于 Gaga、GAGS、GS-Group，Figure 5 展示空间关系、歧义描述和上下文理解样例。",
+      "what_it_does_not_prove": "它没有证明 benchmark prompt 完全代表真实人类 3D 指令分布；REALM3D 部分标注由 Qwen2.5-VL 与 SAM 生成，可能继承模型偏差。"
+    }
+  ],
+  "claim_boundaries": [
+    "REALM 的 training-free 指避免 extensive 3D-specific post-training，不等于没有场景级优化或外部模型调用。",
+    "方法主要在 3DGS 表示上验证，跨点云、mesh 或动态场景的适用性仍需实验。",
+    "局部 refinement 提升边界质量，但把单样本耗时从 20.21s 提高到 83.35s。",
+    "REALM3D 的 prompt-mask pairs partly rely on Qwen2.5-VL and SAM; benchmark generation itself is model-assisted。",
+    "Figure 2 说明少视角输入不稳定；如果全局采样不足或遮挡严重，多视角投票也可能失效。"
+  ],
+  "negative_or_limiting_results": [
+    "Single or too-few rendered views are highly sensitive to viewpoint selection, which motivates GLSpaG.",
+    "Local refinement improves Figurines from 0.89/0.88 to 0.95/0.94 but increases runtime to 83.35s.",
+    "Without K-means, global camera sampling drops to 0.38/0.38, showing that camera selection is a major dependency.",
+    "Excessive refinement steps degrade from 0.95/0.94 at 50 iterations to 0.79/0.76 at 500 and 0.74/0.71 at 1000.",
+    "The paper does not provide a broad failure taxonomy for MLLM hallucination, prompt sensitivity, or poor 3DGS reconstruction."
+  ],
+  "mechanism_result_map": [
+    "3D Feature Field maps rendered 2D masks back to persistent Gaussian instance IDs, enabling object-level 3D selection.",
+    "LMSeg turns implicit natural-language instructions into bbox/category/explanation and then into SAM masks.",
+    "Global camera K-means + Top-K-ID selects diverse, instance-rich views and explains the gain over random view selection.",
+    "Voting over global IDs converts unstable per-view reasoning into a coarse 3D target identity.",
+    "Local view selection and L1 mask alignment refine the target boundary and explain the mIoU/mBIoU increase in Table 2.",
+    "Once the target Gaussian group is selected, the same mask supports 3D removal, replacement, and style transfer."
+  ],
+  "comparative_positioning": [
+    "相对 3D open-vocabulary segmentation，REALM 的差异是处理隐式 reasoning prompt，而不是只做显式类别 grounding。",
+    "相对训练型 visually grounded reasoning，REALM 不训练新的 MLLM，而是用 3DGS 渲染和 agent orchestration 组织现有模型。",
+    "相对 2D test-time visual refocusing，REALM 增加了持久 3D identity 层，使局部 2D evidence 可以回连 3D object mask。",
+    "相对单视角 VLM reasoning，REALM 的关键不是 prompt 更强，而是视角选择、投票和局部 3D consistency。"
+  ],
+  "reuse_takeaways": [
+    "可以把困难的 3D 语义推理拆成 controllable rendering、2D MLLM reasoning、3D identity aggregation 三段。",
+    "先解决 2D mask 到 3D identity 的可追踪性，再调用 MLLM，能让 MLLM 输出变成可操作的 3D mask。",
+    "全局视角适合做目标身份投票，局部视角适合做 mask 边界优化。",
+    "如果要把方法迁移到其他 3D 表示，最需要复刻的是 persistent instance identity field，而不是具体 3DGS 渲染公式。",
+    "Benchmark 设计要区分 explicit prompt、spatial relation、ambiguous description 和 contextual understanding。"
+  ],
+  "followup_questions": [
+    "当 MLLM 在多数视角给出一致但错误的解释时，GLSpaG 如何发现并纠正这种系统性错误？",
+    "REALM 是否可以用轻量 VLM 或 open-source MLLM 替换闭源/大模型，同时保持 3D reasoning 性能？",
+    "REALM3D 中 model-assisted prompts 与真实人类自然指令相比有多大分布差异？",
+    "能否用不确定性估计动态决定 N_global、N_cluster 和 local refinement steps，以降低平均延迟？",
+    "feature-field identity 如果来自失败的 SAM/temporal propagation，会怎样影响最终 3D mask？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释 3D grounding 与 2D reasoning 的错位，以及 implicit instruction 对 3D segmentation 的挑战。",
+      "evidence_sources": [
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "说明输入输出、LERF/3D-OVS/REALM3D、隐式 prompt-mask pairs、baselines、metrics 和实现设置。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "沿 3D Feature Field、LMSeg、Global GLSpaG、Local GLSpaG 解释完整执行链与关键公式。",
+      "evidence_sources": [
+        "sec:methodology",
+        "sec:methods"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "整理 Table 1 主结果、Figure 5 定性结果、Figure 7 编辑结果和 Table 2 消融结果。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析 training-free 的真实边界、3DGS 作为 renderer 的优势、viewpoint voting 的失败模式和 benchmark 风险。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:experiments",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "明确场景级预处理、MLLM/SAM 依赖、局部 refinement 延迟、自动标注偏差和跨表示泛化不足。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:experiments",
+        "sec:method",
+        "sec:conclusion"
+      ]
+    }
+  ]
+}

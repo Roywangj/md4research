@@ -1,0 +1,188 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.07436",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Motivation and overview of Skill-3D. (a) Scene-agnostic tool calls can yield mismatched evidence and",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of Skill-3D. (a) Skill-3D records scene-task rollouts into Scene Memory, which stores scene",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_004_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Effective tool usage analysis. We report the",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "visual_defect",
+      "reason": "自动候选把 Figure 3 和 Figure 4 裁到同一张图中，不作为单独 Figure 3 插入；正文转写关键 ETU 数值。",
+      "skip_reason": "candidate_crop_contaminated_with_figure_4",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_007_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_007_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_007_fig_figure_3.png"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Tool usage distribution analysis. We illus-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "placeholder",
+      "reason": "未获得独立、无污染的 Figure 4 候选；正文总结工具分布模式。",
+      "skip_reason": "asset_candidate_missing_independent_crop",
+      "visual_quality_status": "",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Effect of skill updating and cold start dur-",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图展示 GRPO 训练稳定性；人工查看裁剪完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_008_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_008_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_008_fig_figure_5.png",
+      "materialization_status": "pending_manual_visual_pass"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Comprehensive evaluation on VSI-Bench, BLINK, CV-3D, and MMSI-Bench. We report representative",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是闭源模型主结果表；原自动裁剪底部包含正文，已手工重裁为无正文污染的表格图。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_1_clean.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1_clean.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_006_fig_table_1_clean.png",
+      "materialization_status": "pending_manual_clean_crop"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Open-source evaluation on VSI-Bench, BLINK, CV-3D, and MMSI-Bench. We report representative",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_007_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Module ablation of Skill-3D on VSI-Bench.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是模块消融表；人工查看裁剪完整可读，没有相邻正文污染。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_008_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/.codex/skills/DeepPaperNote/tmp/DeepPaperNote/assets/Skill_3D_Evolving_Scene_Aware_Skills_for_Agentic_3D_Spatial_Reasoning/images/page_008_fig_table_3.png",
+      "materialization_status": "pending_manual_visual_pass"
+    }
+  ],
+  "summary": {
+    "total_items": 8,
+    "by_decision": {
+      "insert": 3,
+      "low_priority": 0,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 4
+    }
+  }
+}

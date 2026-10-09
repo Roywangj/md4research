@@ -1,0 +1,45 @@
+\begin{table*}[p]
+\centering
+\caption{\textbf{Per-Task Results on GemBench L4 (novel long-horizon tasks).}
+Success rates (\%), mean$\pm$std over five random seeds with 20
+trials per task variation;
+columns are denoted \emph{task+variation}. Baseline numbers are
+quoted from~\cite{garcia2024towards}. Best result per column in
+bold.}
+\label{tab:gembench_sota_cmpr_l4_detail}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Method} & \textbf{Avg.} & \begin{tabular}[c]{@{}c@{}}Push\\ Buttons4+1\end{tabular} & \begin{tabular}[c]{@{}c@{}}Push\\ Buttons4+2\end{tabular} & \begin{tabular}[c]{@{}c@{}}Push\\ Buttons4+3\end{tabular} & \begin{tabular}[c]{@{}c@{}}TakeShoes\\ OutOfBox+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}PutItems\\ InDrawer+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}PutItems\\ InDrawer+2\end{tabular} \\
+\midrule
+Hiveformer~\cite{guhur2023instruction} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+PolarNet~\cite{chen2023polarnet} & 0.1$_{\pm 0.2}$ & 1$_{\pm 2.2}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+3D Diffuser Actor~\cite{3d-da} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+RVT-2~\cite{goyal2024rvt} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+3D-LOTUS~\cite{garcia2024towards} & 0.3$_{\pm 0.3}$ & 3$_{\pm 4.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+3D-LOTUS++~\cite{garcia2024towards} & \textbf{17.4}$_{\pm 0.4}$ & \textbf{76}$_{\pm 7.4}$ & \textbf{49}$_{\pm 8.6}$ & \textbf{37}$_{\pm 8.1}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+\midrule
+\textbf{\method\ (ours)} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+\textbf{\memmethod\ (ours)} & 8.2$_{\pm 1.0}$ & 68$_{\pm 8.1}$ & 27$_{\pm 9.3}$ & 3$_{\pm 2.4}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ \\
+\midrule
+\textbf{Method} & \begin{tabular}[c]{@{}c@{}}PutItems\\ InDrawer+4\end{tabular} & Tower4+1 & Tower4+3 & \begin{tabular}[c]{@{}c@{}}Stack\\ Cups+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Stack\\ Cups+3\end{tabular} & \begin{tabular}[c]{@{}c@{}}PutAllGroceries\\ InCupboard+0\end{tabular} &  \\
+\midrule
+Hiveformer~\cite{guhur2023instruction} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ &  \\
+PolarNet~\cite{chen2023polarnet} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ &  \\
+3D Diffuser Actor~\cite{3d-da} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ &  \\
+RVT-2~\cite{goyal2024rvt} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ &  \\
+3D-LOTUS~\cite{garcia2024towards} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ &  \\
+3D-LOTUS++~\cite{garcia2024towards} & 0$_{\pm 0.0}$ & \textbf{17}$_{\pm 10.8}$ & \textbf{30}$_{\pm 13.4}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \\
+\midrule
+\textbf{\method\ (ours)} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \\
+\textbf{\memmethod\ (ours)} & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 1$_{\pm 2.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

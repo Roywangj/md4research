@@ -1,0 +1,398 @@
+{
+  "paper": {
+    "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+    "authors": [
+      "Ronghan Chen",
+      "Yandan Yang",
+      "Zuojin Tang",
+      "Dongjie Huo",
+      "Tong Lin",
+      "Haoning Wu",
+      "Haoyun Liu",
+      "Yuzhi Chen",
+      "Lulu Zheng",
+      "Botai Yuan",
+      "Tianlun Li",
+      "Mingxin Wang",
+      "Dekang Qi",
+      "Bin Hu",
+      "Wei Mei",
+      "Yuze Xuan",
+      "Haolong Yang",
+      "Yanqing Zhu",
+      "Mu Xu",
+      "Zhiheng Ma",
+      "Xinyuan Chang"
+    ],
+    "institution": "AMAP CV Lab, Alibaba Group",
+    "year": 2026,
+    "date": "2026-07-01",
+    "version_date": "2026-07-06",
+    "arxiv_id": "2607.00678",
+    "doi": "10.48550/arXiv.2607.00678",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "deep_note_file": "paper_DeepPaperNote.md",
+    "source_format": "pdf-text",
+    "page_count": 33
+  },
+  "notes": {
+    "scope": "Complete bilingual reader plus analytical deep-reading note.",
+    "source_coverage": "All 33 PDF pages were extracted. Main text ends on page 28; references occupy pages 29-33. No appendix or supplementary section is present in the supplied PDF.",
+    "paragraph_policy": "Source prose is cleaned into auditable paragraph groups in paper order, with every English group immediately followed by its Chinese translation.",
+    "reference_policy": "References are retained in searchable English bibliographic form rather than translated line by line.",
+    "asset_policy": "Figures 1-13 and table crops 1-6 are linked locally. Tables 7-8 are transcribed in Markdown because their automatic crops were incomplete.",
+    "zotero_status": "The user-provided local Zotero attachment path is the canonical paper source; no weaker network copy was substituted."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1-2",
+      "summary": "Motivation, three alignment failures, three proposed components, and headline result claim."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "3-4",
+      "summary": "Mobile-manipulation requirements, limitations of reactive VLA and coarse WAM formulations, and contribution list."
+    },
+    {
+      "id": "S003",
+      "type": "body_equations",
+      "section": "2.1 Problem Setting",
+      "pages": "4-5",
+      "summary": "Multi-view observations, action chunks, WAM joint prediction, and the video-to-latent-action-to-control hierarchy; equations 1-3."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "2.2 Core Bottlenecks",
+      "pages": "5-6",
+      "summary": "Temporal-granularity, action-space, and rollout-condition mismatches."
+    },
+    {
+      "id": "S005",
+      "type": "body_equations",
+      "section": "3.1 Overall Architecture and Notation",
+      "pages": "6-8",
+      "summary": "Wan2.2, 3D VAE, UMT5, conditional flow matching, three token streams, and asymmetric masks; equations 4-6."
+    },
+    {
+      "id": "S006",
+      "type": "body_equations",
+      "section": "3.2 Intermediate Latent Action Modeling",
+      "pages": "8-9",
+      "summary": "Frame-transition latent-action encoder and conditional flow-matching objective; equations 7-9."
+    },
+    {
+      "id": "S007",
+      "type": "body_equations",
+      "section": "3.3 Dual-Level Mixture-of-Transformers",
+      "pages": "9-10",
+      "summary": "Modality-level and action-level expert separation with shared self-attention; equations 10-13."
+    },
+    {
+      "id": "S008",
+      "type": "body_equations",
+      "section": "3.4 Dream Forcing",
+      "pages": "10-12",
+      "summary": "Teacher-forcing mismatch, two-phase dreamed-future generation, and dreamed-condition inverse dynamics; equations 14-15."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "4.1 Pretraining Data",
+      "pages": "12-13",
+      "summary": "Multi-embodiment robot datasets and the role of unlabeled video for latent-action learning."
+    },
+    {
+      "id": "S010",
+      "type": "body_equations",
+      "section": "4.2 World Model Pretraining",
+      "pages": "13-14",
+      "summary": "Full-parameter Wan2.2 pretraining and fixed four-camera-slot representation; equation 16."
+    },
+    {
+      "id": "S011",
+      "type": "body_equations",
+      "section": "4.3 Latent Action Model Pretraining",
+      "pages": "14-15",
+      "summary": "ALAM additive and reversal consistency, total loss, and frozen offline encoder; equations 17-19."
+    },
+    {
+      "id": "S012",
+      "type": "body_equations",
+      "section": "4.4 Progressive Supervised Fine-Tuning",
+      "pages": "15-17",
+      "summary": "Stage-I clean-condition supervision and Stage-II dreamed-condition action learning; equations 20-28."
+    },
+    {
+      "id": "S013",
+      "type": "body_equations",
+      "section": "4.5 Efficient Attention and Augmentation",
+      "pages": "17",
+      "summary": "Variable-length FlashAttention packing and offset chunk augmentation; equation 29."
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "5.1 Experimental Setup",
+      "pages": "17-19",
+      "summary": "RoboCasa365, RoboTwin, LIBERO, LIBERO-Plus, real-robot tasks, success rate, and process score."
+    },
+    {
+      "id": "S015",
+      "type": "results",
+      "section": "5.2 Mobile Manipulation",
+      "pages": "19-20",
+      "summary": "RoboCasa365 pretraining, Target100, and Target10 comparisons."
+    },
+    {
+      "id": "S016",
+      "type": "results",
+      "section": "5.3 Manipulation Benchmarks",
+      "pages": "20-23",
+      "summary": "RoboTwin, LIBERO, and LIBERO-Plus results and comparison boundaries."
+    },
+    {
+      "id": "S017",
+      "type": "results",
+      "section": "5.4 Ablation Studies",
+      "pages": "21-25",
+      "summary": "Latent-action structure, D-MoT, Dream Forcing, and world-model pretraining ablations."
+    },
+    {
+      "id": "S018",
+      "type": "results",
+      "section": "5.5 Real-World Experiments",
+      "pages": "25-27",
+      "summary": "Agilex Piper setup, five tasks, success rates, process scores, and rollout sequences."
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "6 Conclusion and Future Work",
+      "pages": "27-28",
+      "summary": "Summary of the three alignment mechanisms and future work on data, scaling, memory, inference, and edge deployment."
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "7 Contributions and Acknowledgments",
+      "pages": "28-29",
+      "summary": "Author role allocation, resource/data/hardware acknowledgments, and corresponding-author information."
+    },
+    {
+      "id": "S021",
+      "type": "references",
+      "section": "References",
+      "pages": "29-33",
+      "summary": "Eighty-two searchable bibliography entries retained in English."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "3",
+      "asset": "assets/page_003_fig_figure_1.png",
+      "summary": "Overall ABot-M0.5 motivation, training pipeline, tasks, and headline results."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3.1 Overall Architecture",
+      "pages": "8",
+      "asset": "assets/page_008_fig_figure_2.png",
+      "summary": "Structured asymmetric cascade for video, latent action, and executable action."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "3.3 D-MoT",
+      "pages": "10",
+      "asset": "assets/page_010_fig_figure_3.png",
+      "summary": "Shared self-attention and separate mobility/manipulation experts."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "3.4 Dream Forcing",
+      "pages": "11",
+      "asset": "assets/page_011_fig_figure_4.png",
+      "summary": "Teacher forcing, diffusion forcing, and Dream Forcing comparison."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "3.4 Dream Forcing",
+      "pages": "12",
+      "asset": "assets/page_012_fig_figure_5.png",
+      "summary": "Two-phase dreamed-future generation and action learning."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.2 World Model Pretraining",
+      "pages": "14",
+      "asset": "assets/page_014_fig_figure_6.png",
+      "summary": "World-model pretraining and multi-view input organization."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "4.4 Progressive SFT",
+      "pages": "16",
+      "asset": "assets/page_016_fig_figure_7.png",
+      "summary": "Structured attention masks across training stages."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "5.1 Experimental Setup",
+      "pages": "18",
+      "asset": "assets/page_018_fig_figure_8.png",
+      "summary": "Qualitative benchmark and mobile-manipulation trajectories."
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "5.3 Manipulation Benchmarks",
+      "pages": "21",
+      "asset": "assets/page_021_fig_figure_9.png",
+      "summary": "Qualitative RoboTwin or latent-action design examples; crop includes surrounding page content."
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "5.4 Ablations",
+      "pages": "22",
+      "asset": "assets/page_022_fig_figure_10.png",
+      "summary": "D-MoT training dynamics."
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "5.4 Ablations",
+      "pages": "24",
+      "asset": "assets/page_024_fig_figure_11.png",
+      "summary": "Attention maps across pretraining and fine-tuning stages."
+    },
+    {
+      "id": "F012",
+      "type": "figure",
+      "section": "5.5 Real-World Experiments",
+      "pages": "25",
+      "asset": "assets/page_025_fig_figure_12.png",
+      "summary": "Success-rate and process-score bar charts."
+    },
+    {
+      "id": "F013",
+      "type": "figure",
+      "section": "5.5 Real-World Experiments",
+      "pages": "26",
+      "asset": "assets/page_026_fig_figure_13.png",
+      "summary": "Real observations, dreamed futures, and action sequences."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "3.1 Notation",
+      "pages": "7",
+      "asset": "assets/page_007_fig_table_1.png",
+      "summary": "Model symbols and variable definitions."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "5.2 Mobile Manipulation",
+      "pages": "20",
+      "asset": "assets/page_020_fig_table_2.png",
+      "summary": "RoboCasa365 pretraining task results."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "5.2 Mobile Manipulation",
+      "pages": "20",
+      "asset": "assets/page_020_fig_table_3.png",
+      "summary": "RoboCasa365 Target100 and Target10 results."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "5.3 Manipulation Benchmarks",
+      "pages": "21",
+      "asset": "assets/page_021_fig_table_4.png",
+      "summary": "RoboTwin Easy and Hard results."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "5.3 Manipulation Benchmarks",
+      "pages": "22",
+      "asset": "assets/page_022_fig_table_5.png",
+      "summary": "LIBERO four-suite results."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "5.3 Manipulation Benchmarks",
+      "pages": "23",
+      "asset": "assets/page_023_fig_table_6.png",
+      "summary": "LIBERO-Plus robustness results."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "5.4 Ablations",
+      "pages": "23",
+      "asset": null,
+      "summary": "Latent-action design ablation, transcribed as Markdown because the automatic crop contained only the title."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "5.4 Ablations",
+      "pages": "24",
+      "asset": null,
+      "summary": "Dream Forcing ablation, transcribed as Markdown because the automatic crop contained only the title."
+    }
+  ],
+  "assets": [
+    "assets/page_003_fig_figure_1.png",
+    "assets/page_007_fig_table_1.png",
+    "assets/page_008_fig_figure_2.png",
+    "assets/page_010_fig_figure_3.png",
+    "assets/page_011_fig_figure_4.png",
+    "assets/page_012_fig_figure_5.png",
+    "assets/page_014_fig_figure_6.png",
+    "assets/page_016_fig_figure_7.png",
+    "assets/page_018_fig_figure_8.png",
+    "assets/page_020_fig_table_2.png",
+    "assets/page_020_fig_table_3.png",
+    "assets/page_021_fig_table_4.png",
+    "assets/page_021_fig_figure_9.png",
+    "assets/page_022_fig_table_5.png",
+    "assets/page_022_fig_figure_10.png",
+    "assets/page_023_fig_table_6.png",
+    "assets/page_024_fig_figure_11.png",
+    "assets/page_025_fig_figure_12.png",
+    "assets/page_026_fig_figure_13.png"
+  ],
+  "deep_note_images": [
+    "images/page_003_fig_figure_1.png",
+    "images/page_008_fig_figure_2.png",
+    "images/page_010_fig_figure_3.png",
+    "images/page_011_fig_figure_4.png",
+    "images/page_012_fig_figure_5.png",
+    "images/page_018_fig_figure_8.png",
+    "images/page_022_fig_figure_10.png",
+    "images/page_024_fig_figure_11.png",
+    "images/page_025_fig_figure_12.png",
+    "images/page_026_fig_figure_13.png"
+  ]
+}

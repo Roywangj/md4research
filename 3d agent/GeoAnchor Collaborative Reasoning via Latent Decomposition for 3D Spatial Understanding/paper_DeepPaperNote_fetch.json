@@ -1,0 +1,250 @@
+{
+  "status": "ok",
+  "script": "fetch_pdf.py",
+  "paper_id": "doi:10.48550/arxiv.2607.13454",
+  "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+  "pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a4a8bb985cc6a1273/tmp/DeepPaperNote/pdfs/GeoAnchor_Collaborative_Reasoning_via_Latent_Decomposition_for_3D_Spatial_Understanding.pdf",
+  "pdf_source": "downloaded",
+  "source_url": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+  "pdf_url": "https://arxiv.org/pdf/2607.13454.pdf",
+  "file_size": 5328687,
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "schema_version": 2,
+    "paper_id": "doi:10.48550/arxiv.2607.13454",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "translated_title": "",
+      "authors": [
+        "Li et al."
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2607.13454",
+      "arxiv_id": "2607.13454",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "year": "2026",
+      "venue": "",
+      "source_url": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+      "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "doi": "",
+      "arxiv_id": "",
+      "zotero_key": ""
+    },
+    "accepted_metadata": {
+      "status": "ok",
+      "script": "resolve_paper.py",
+      "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+      "translated_title": "",
+      "authors": [
+        "Li et al."
+      ],
+      "affiliations": [],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2607.13454",
+      "arxiv_id": "2607.13454",
+      "source_url": "https://doi.org/10.48550/arxiv.2607.13454",
+      "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+      "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "zotero_key": "",
+      "abstract": "Although multimodal large language models (MLLMs) have achieved remarkable progress, understanding 3D spatial relationships from 2D images remains a critical challenge. Existing methods primarily rely on symbolic text tokens, which inherently lack the fidelity to represent continuous geometric information. While recent methods use latent representations to enhance reasoning, relying on a single latent type cannot adapt to the diversity of spatial tasks, leading to misalignment in complex geometric scenarios. To address these limitations, we propose GeoAnchor, an interleaved text-latent reasoning framework. GeoAnchor decomposes 3D spatial information into three complementary components: position latents for object grounding, direction latents for relational orientation, and geometry latents for scene structure. These components are recombined in a structured space to construct local evidence while capturing global context, enabling dynamic and interpretable reasoning. Furthermore, we introduce a collaborative training strategy that guides the model from local spatial perception to comprehensive 3D understanding. Extensive experiments on diverse and complex 3D reasoning tasks demonstrate that GeoAnchor outperforms the state of the art, validating its effectiveness and generalization capabilities.",
+      "source_type": "pdf-text",
+      "metadata_sources": [
+        "seed_record",
+        "openalex",
+        "arxiv"
+      ],
+      "paper_id": "doi:10.48550/arxiv.2607.13454",
+      "source": "openalex",
+      "url": "http://arxiv.org/abs/2607.13454v2",
+      "published": "2026-07-15T05:27:37Z",
+      "identity_confidence": "high",
+      "identity_confidence_reasons": [
+        "doi_present",
+        "arxiv_id_present"
+      ]
+    },
+    "bound_sources": [
+      {
+        "kind": "local_pdf",
+        "value": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+        "provider": "pdf-text",
+        "binding_reason": "trusted_input"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454.pdf",
+        "provider": "openalex",
+        "binding_reason": "accepted_identifier_derived"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454v2",
+        "provider": "arxiv",
+        "binding_reason": "shared_identifier"
+      }
+    ],
+    "field_provenance": {
+      "title": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "authors": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "year": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "local_pdf_path": {
+        "provider": "pdf-text",
+        "retrieved_by": {
+          "kind": "input",
+          "value": "title:8d00f94d5bee"
+        }
+      },
+      "venue": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "doi": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "source_url": {
+        "provider": "openalex",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "arxiv_id": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "abstract": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      },
+      "pdf_url": {
+        "provider": "arxiv",
+        "retrieved_by": {
+          "kind": "title",
+          "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        }
+      }
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2607.13454",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2607.13454",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.13454v2",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "https://doi.org/10.48550/arxiv.2607.13454",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "title_author_or_abstract_supports_equivalence",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+          "work_value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+        },
+        {
+          "kind": "leading_author",
+          "status": "match",
+          "source_value": "Li et al.",
+          "work_value": "Li et al."
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/3d agent/GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding/paper_DeepPaperNote_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+    "year": "2026",
+    "venue": "",
+    "source_url": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2607.13454v2",
+    "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "doi": "",
+    "arxiv_id": "",
+    "zotero_key": ""
+  },
+  "attempted_sources": [
+    {
+      "kind": "local_pdf",
+      "path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+      "status": "missing_file"
+    }
+  ]
+}

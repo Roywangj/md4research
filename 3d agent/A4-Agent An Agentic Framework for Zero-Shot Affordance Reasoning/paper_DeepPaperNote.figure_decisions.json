@@ -1,0 +1,420 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2512.14442",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Left: Overview of A4-Agent , an affordance-centric vision-language agent that predicts actionable regions based on complex",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Vision Foundation Models are good at fine-grained grounding, but are poor at reasoning. Vision Language Models are good at",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "The pipeline of our A4-Agentframework, which decouples affordance prediction into three stages. (1) Dreamer: Imagines the",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_004_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_004_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Qualitative comparison on ReasonAff dataset. Our method continuously predicts appropriate components according to task",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "人工视觉检查确认定性对比网格完整、文字与掩码清晰，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_005_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_005_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Qualitative comparison on RAGNet dataset. Our zero-shot method effectively reasons over task instructions to identify correct",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_007_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_007_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Qualitative results on open-world images. A4-Agent demonstrates robust affordance reasoning across diverse scenarios, consis-",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:model-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_008_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_008_fig_figure_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Illustration of different categories of baseline methods.",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the ReasonAff dataset.",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_014_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_014_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_014_fig_figure_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the ReasonAff dataset.",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "visual_defect",
+      "reason": "人工视觉检查发现自动裁剪出现大面积黑底，且左侧标题、Dreamer 文本和底部图注被截断，无法作为独立可读的 Figure 9 插入。",
+      "skip_reason": "manual_visual_review_rejected_black_background_and_clipping",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_015_fig_figure_9.png",
+      "relative_markdown_embed": "![Figure 9](images/page_015_fig_figure_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_015_fig_figure_9.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the UMD dataset.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "人工视觉检查确认 UMD 中间流程示例完整，Dreamer、Thinker 与 Spotter 链路均清晰可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_016_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_016_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the UMD dataset.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "visual_defect",
+      "reason": "人工视觉检查发现自动裁剪出现大面积黑底，Thinker 与 Spotter 区域的左侧内容被明显截断，无法作为独立可读的 Figure 11 插入。",
+      "skip_reason": "manual_visual_review_rejected_black_background_and_clipping",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_017_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_017_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_017_fig_figure_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the RAGNet dataset.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "人工视觉检查确认 RAGNet 中间流程示例完整，输入、想象、结构化部件描述和最终掩码均清晰。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_018_fig_figure_12.png",
+      "relative_markdown_embed": "![Figure 12](images/page_018_fig_figure_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_018_fig_figure_12.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Full Demonstration of Intermediate Results. Sampled from results on the RAGNet dataset.",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "visual_defect",
+      "reason": "人工视觉检查发现自动裁剪出现大面积黑底，Dreamer、Thinker 与 Spotter 多处文字和图标被截断，无法作为独立可读的 Figure 13 插入。",
+      "skip_reason": "manual_visual_review_rejected_black_background_and_clipping",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_019_fig_figure_13.png",
+      "relative_markdown_embed": "![Figure 13](images/page_019_fig_figure_13.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_019_fig_figure_13.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Quantitative results on ReasonAff. A4-Agent achieves",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:related-work",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_006_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Quantitative results on RAGNet-3DOI and RAGNet-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:related-work",
+      "decision": "visual_defect",
+      "reason": "人工视觉检查发现自动裁剪只包含 Table 2 的标题、表头和前几行，A4-Agent 及主要对比方法行均缺失，不能代表完整主结果表。",
+      "skip_reason": "manual_visual_review_rejected_incomplete_table_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_006_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_006_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Zero-shot results on UMD dataset. A4-Agent outper-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_007_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_007_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "evaluates visual imagination’s contribution. The",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_008_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_008_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_008_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Ablation on different components on RAGNet-3DOI",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:model-3",
+      "decision": "placeholder",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "More Exploratory results on RAGNet-3DOI.",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_013_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/A4_Agent_An_Agentic_Framework_for_Zero_Shot_Affordance_Reasoning/images/page_013_fig_table_6.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 19,
+    "by_decision": {
+      "insert": 15,
+      "low_priority": 2,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

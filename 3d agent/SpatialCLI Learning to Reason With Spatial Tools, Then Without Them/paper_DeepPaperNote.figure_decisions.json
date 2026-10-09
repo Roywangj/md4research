@@ -1,0 +1,8 @@
+{
+  "decisions": [
+    {"figure": "Figure 1", "status": "insert", "asset": "images/page_002.png", "anchor": "PDF p.2"},
+    {"figure": "Figure 2", "status": "insert", "asset": "images/page_003.png", "anchor": "PDF p.3"},
+    {"figure": "Appendix case figures", "status": "not inserted", "asset": "assets/case12-36.png and assets/cases34-40.png", "anchor": "PDF pp.35-48", "reason": "Representative page/asset renders are retained; repeated case traces are summarized with source anchors."}
+  ],
+  "figure_policy": "Use only local PDF renders; do not infer unreadable visual details from raster assets."
+}

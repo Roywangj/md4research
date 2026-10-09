@@ -1,0 +1,1 @@
+NowWAM_vs_FastWAM_ImageWAM.md

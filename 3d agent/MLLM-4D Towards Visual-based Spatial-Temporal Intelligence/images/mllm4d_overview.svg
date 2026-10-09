@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<rect width="1200" height="520" fill="#fbfaf7"/>
+<text x="600" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#17324d">MLLM-4D：从 RGB 视频到 4D 空间—时间智能</text>
+<g font-family="Arial, sans-serif" font-size="17" fill="#17324d" text-anchor="middle">
+<rect x="35" y="105" width="185" height="105" rx="16" fill="#dbeafe" stroke="#3577b8" stroke-width="2"/><text x="127" y="140" font-weight="700">2D RGB 视频</text><text x="127" y="169">帧序列 + 问题</text><text x="127" y="194">仅视觉输入</text>
+<rect x="265" y="80" width="220" height="155" rx="16" fill="#fff0d5" stroke="#df8b24" stroke-width="2"/><text x="375" y="113" font-weight="700">4D 元数据抽取</text><text x="375" y="145">相机位姿</text><text x="375" y="172">物体 3D 点云</text><text x="375" y="199">逐帧语义描述</text>
+<rect x="530" y="105" width="185" height="105" rx="16" fill="#dcfce7" stroke="#3d9563" stroke-width="2"/><text x="622" y="140" font-weight="700">物理关系求解器</text><text x="622" y="169">坐标差 + 距离</text><text x="622" y="194">自动生成 QA</text>
+<rect x="760" y="80" width="190" height="155" rx="16" fill="#e9d5ff" stroke="#8250ad" stroke-width="2"/><text x="855" y="113" font-weight="700">两阶段训练</text><text x="855" y="145">SFT：MLLM4D-2M</text><text x="855" y="172">Cold start：ST-CoT</text><text x="855" y="199">GRPO：ST-reward</text>
+<rect x="995" y="105" width="170" height="105" rx="16" fill="#fee2e2" stroke="#c85858" stroke-width="2"/><text x="1080" y="140" font-weight="700">4D 推理</text><text x="1080" y="169">空间状态</text><text x="1080" y="194">答案 + 轨迹</text>
+</g>
+<g stroke="#17324d" stroke-width="3" fill="none"><path d="M220 157H265"/><path d="M485 157H530"/><path d="M715 157H760"/><path d="M950 157H995"/></g>
+<g font-family="Arial, sans-serif" font-size="17" fill="#17324d"><text x="600" y="300" text-anchor="middle" font-weight="700">核心闭环：用可计算的时空物理量监督模型，而不是只监督最终答案 token</text><rect x="70" y="330" width="1060" height="115" rx="18" fill="#eef4f8" stroke="#94aabd" stroke-width="2"/><text x="100" y="365">ST-CoT 五步：①定义目标  ②起始帧 3D 状态  ③时间推进  ④终止帧验证  ⑤基于证据综合</text><text x="100" y="402">ST-reward = 坐标准确性 + 格式约束 + 时空对齐；GRPO 通过组内相对优势更新 LoRA 参数</text></g>
+</svg>

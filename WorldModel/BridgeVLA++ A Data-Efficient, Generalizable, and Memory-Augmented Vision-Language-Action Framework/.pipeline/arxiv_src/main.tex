@@ -1,0 +1,167 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{graphicx}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage[table]{xcolor}
+\usepackage{pifont}
+\usepackage{cite}
+\usepackage{balance} % \balance: equalize the two columns of the closing appendix text page
+
+% Table styling: no row fills at all -- every table row sits on the white page.
+% Our own rows are set apart by bold type and by the \midrule above them, and
+% ablated variants by the lineage connectors defined next, so nothing in the
+% tables depends on colour being reproduced.
+
+% Lineage connectors for the subtractive ablation tree. Drawn from rules rather
+% than Unicode box-drawing glyphs so they survive any font/encoding. A row one
+% level below its parent is prefixed with \tbranch (or \tlast if it is the
+% parent's final child); each further level of nesting prepends one \tind.
+\newcommand{\tind}{\hspace{1.25em}}
+\newcommand{\tbranch}{\hspace{0.6em}\makebox[1.15em][l]{% "|-"
+  \rule[-0.55ex]{0.45pt}{1.65ex}\kern-0.45pt\rule[0.25ex]{0.85em}{0.45pt}}}
+\newcommand{\tlast}{\hspace{0.6em}\makebox[1.15em][l]{%   "L-"
+  \rule[0.25ex]{0.45pt}{0.85ex}\kern-0.45pt\rule[0.25ex]{0.85em}{0.45pt}}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% ------------------------------------------------------------- float placement
+% The appendix is table-dense, and LaTeX's stock float parameters are tuned for
+% a text-dense body: they refuse to put a tall float at the top of a text page
+% (\dbltopfraction 0.7) and insist a page keep 20% text (\textfraction 0.2), so
+% every large per-task table was exiled to a float page of its own. Loosening
+% both lets the tables sit at the top of ordinary pages with the discussion
+% flowing underneath, and lets several stack when a float page is unavoidable.
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.65}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\setcounter{dbltopnumber}{3}
+
+% On a float page LaTeX centers the floats vertically (\@fptop and \@fpbot both
+% carry 1fil), which is why a lone appendix table floated in the middle of an
+% otherwise blank page. Anchor float pages to the top edge, keep stacked floats
+% snug (only a whisker of stretch between them), and pool all remaining slack
+% at the bottom edge, where it reads as an ordinary page break rather than as
+% gaps torn between the tables.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{12pt plus 4pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\setlength{\@dblfptop}{0pt}
+\setlength{\@dblfpsep}{12pt plus 4pt}
+\setlength{\@dblfpbot}{0pt plus 1fil}
+\makeatother
+
+% Width used inside \resizebox so a table is shrunk to the measure when it is
+% too wide but never blown up when it is narrower. Plain \resizebox{\linewidth}
+% magnifies a small table -- which is what made the GemBench L4 table render in
+% oversized type and consume far more height than its content warranted.
+\newcommand{\fitwidth}{\ifdim\width>\linewidth\linewidth\else\width\fi}
+
+% IEEEtran typesets table captions in small caps by default; restore normal
+% case. Copied from IEEEtran.cls with \scshape removed.
+\makeatletter
+\long\def\@makecaption#1#2{%
+\ifx\@captype\@IEEEtablestring%
+\footnotesize\bgroup\par\centering\@IEEEtabletopskipstrut{\normalfont\footnotesize #1}\\{\normalfont\footnotesize #2}\par\addvspace{0.5\baselineskip}\egroup%
+\@IEEEtablecaptionsepspace
+\else
+\@IEEEfigurecaptionsepspace
+\setbox\@tempboxa\hbox{\normalfont\footnotesize {#1.}\nobreakspace\nobreakspace #2}%
+\ifdim \wd\@tempboxa >\hsize%
+\setbox\@tempboxa\hbox{\normalfont\footnotesize {#1.}\nobreakspace\nobreakspace}%
+\parbox[t]{\hsize}{\normalfont\footnotesize\noindent\unhbox\@tempboxa#2}%
+\else%
+\hbox to\hsize{\normalfont\footnotesize\box\@tempboxa\hfil}%
+\fi\fi}
+\makeatother
+
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore Bridge-VLA}
+
+\newcommand{\method}{BridgeVLA\xspace}
+\newcommand{\memmethod}{BridgeVLA++\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+% ------------------------------------------------------------------ hyperlinks
+% Clickable cross-references (figures, tables, sections, equations, appendices,
+% citations) plus a PDF bookmark outline, which IEEE's own Xplore PDFs carry and
+% which makes a 37-page paper with appendices navigable for reviewers.
+% hidelinks: links stay active but are neither coloured nor boxed, so the printed
+% appearance is byte-for-byte the stock IEEEtran look required at camera-ready.
+% breaklinks: lets a link split across lines, which the narrow two-column measure
+% forces on long URLs and reference ranges.
+% hyperref must be loaded after every other package (notably cite, subfig and
+% stfloats, which it patches), hence its position at the very end of the preamble.
+\usepackage[hidelinks,breaklinks=true,bookmarksnumbered=true]{hyperref}
+
+\begin{document}
+
+% Activates the IEEEtranBSTCTL entry at the top of main.bib, which enforces the
+% IEEE rule that references with more than six authors collapse to "first author
+% et al.". Produces no visible output and no citation of its own.
+\bstctlcite{IEEEexample:BSTcontrol}
+
+% \title{\memmethod: Towards Data-Efficient and Generalizable Vision-Language-Action Learning with Spatio-Temporal Memory}
+\title{\memmethod: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation}
+\author{
+Peiyan Li\textsuperscript{*}\thanks{\textsuperscript{*} Equal Contribution.}, Yuze Zhu\textsuperscript{*}, Yixiang Chen, Qisen Ma, Yuan Xu, Jiabing Yang, He Guan\\
+Yan Huang\textsuperscript{\textdagger}\thanks{\textsuperscript{\textdagger} Corresponding Author.}, Hongtao Wu, Xiao Ma,
+Tao Kong, Liang Wang, \textit{Fellow, IEEE}, Tieniu Tan, \textit{Fellow, IEEE}%
+\thanks{Peiyan Li, Yuze Zhu, Yixiang Chen, Qisen Ma, Yuan Xu, Jiabing Yang, Yan Huang, Liang Wang and Tieniu Tan are with the New Laboratory of Pattern Recognition (NLPR), Institute of Automation, Chinese Academy of Sciences, Beijing, China, and with the School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing, China.}%
+\thanks{He Guan is with FiveAges, Beijing, China. Yan Huang is also with FiveAges.}%
+\thanks{Hongtao Wu, Xiao Ma, and Tao Kong contribute to this work when they were with ByteDance Seed.}}
+
+\markboth{IEEE Transactions on Pattern Analysis and Machine Intelligence}%
+{\memmethod: Memory-Augmented Vision-Language-Action Learning for 3D Manipulation}
+
+\maketitle
+
+% \begin{abstract}
+% Leveraging pre-trained vision-language models (VLMs) to construct vision-language-action (VLA) models has emerged as a promising paradigm for 3D robot manipulation. However, existing 3D VLA methods remain data-hungry, generalize poorly to distribution shifts, and lack explicit memory of past observations. These limitations hinder their application to data-scarce, open-world, and memory-dependent manipulation scenarios. In our previous work, BridgeVLA improves data efficiency and generalization by preserving the input--output alignment of a pre-trained VLM during 3D action learning: raw point clouds are projected into multi-view images, and intermediate heatmaps are predicted before generating robot actions. In this work, we further extend BridgeVLA with a unified spatio-temporal memory architecture that models persistent spatial context and temporal interaction history. The resulting memory-augmented framework can reason over historical observations while preserving the hallmark data efficiency and strong generalization capability of BridgeVLA. Extensive experiments show that BridgeVLA++ matches or surpasses the original BridgeVLA across all previously evaluated benchmarks, with no degradation in data efficiency or out-of-distribution generalization. It further achieves state-of-the-art performance on two challenging memory-dependent manipulation benchmarks. In addition, BridgeVLA++ extends effectively to bimanual manipulation and is validated on a new real-world robot embodiment beyond the Franka platform, demonstrating its scalability across tasks, environments, and robot embodiments. These results establish BridgeVLA++ as a unified 3D vision-language-action framework that simultaneously supports data-efficient learning, robust generalization, and memory-aware robot manipulation.
+% \end{abstract}
+\input{sections/00_abstract}
+
+\begin{IEEEkeywords}
+Vision-language-action models, 3D Manipulation Learning, Memory-Augmented Policies.
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_analysis}
+\input{sections/06_conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+
+% Single appendix, subdivided into lettered sections A, B, C, ... rather than
+% several numbered appendices each with subsections. \appendix (singular)
+% prints one "Appendix" heading and redefines \thesubsection to a bare letter,
+% so \ref to any of them renders as "Appendix E" with no section prefix.
+% Note that \section is disabled inside it: every part below is a \subsection.
+\clearpage
+\appendix
+\input{sections/a1_training_details}
+\input{sections/a2_additional_results}
+
+\end{document}

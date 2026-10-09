@@ -1,0 +1,211 @@
+{
+  "paper": {
+    "title": "BiWM: Advancing Open-Source Interactive Video World Models with Bidirectional Autoregression",
+    "authors": [
+      "Shaohao Rui",
+      "Xiaofeng Mao",
+      "Zhanyu Zhang",
+      "Peijia Lin",
+      "Yansong Zhu",
+      "Yibo Zhang",
+      "Haibin Wan",
+      "Weijie Ma"
+    ],
+    "year": 2026,
+    "arxiv_id": "2606.10135v1",
+    "code": "https://github.com/LynnReal-AI/BiWM",
+    "source_pdf": "/root/wwwroy/papernotes/papers/Rui 等 - 2026 - BiWM Advancing Open-Source Interactive Video World Models with Bidirectional Autoregression.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "pages": 19
+  },
+  "notes": {
+    "extraction": "Canonical extraction: scratchpad biwm_tr/paper_raw_sections.jsonl and paper_full_text.md (deeppapernote run_pipeline.py, translation-side run, independent of the DeepPaperNote agent's workdir).",
+    "numbering": "Para. X numbering resets at each major section and at each Method/Results subsection. Section numbers 4 (Implementation Details) and 5/6 follow the paper's own 5.1/5.2 numbering; the extracted text shows 'Implementation Details' unnumbered between Sec. 3 and Sec. 5.",
+    "equations": "Equations 1-12 were reconstructed from a fragmented PDF text layer (multi-column math split across lines); numbering follows the paper. Display math is standalone $$...$$ outside blockquotes.",
+    "glossary": "See '## Terminology Ledger' table in paper.md (20 entries)."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1-2",
+      "summary": "Problem (causal multi-stage pipelines, error accumulation), BiWM two-stage bidirectional-autoregressive full-stack framework, backbones, history compression, NVFP4, anti-degradation objectives. 3 Para pairs."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1. Introduction",
+      "pages": "2-4",
+      "summary": "Interactive world model goal; causal vs bidirectional families; KV-cache frozen-error argument incl. footnote 1; language-vs-video-diffusion drift contrast; minWM gap; BiWM recipe overview; academic budget; contributions. 7 Para pairs."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2. Related Work",
+      "pages": "4-5",
+      "summary": "Diffusion backbones (3 families); causal interactive WMs (CausVid/Self-Forcing/minWM); bidirectional WMs (Yume, Matrix-Game-3.0); camera injection absolute vs relative; distillation/GAN/memory schemes. 6 Para pairs."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3. Method (intro) + 3.1 Problem Formulation",
+      "pages": "5-6",
+      "summary": "Two-stage pipeline statement; chunk factorization Eq. 1; causal vs bidirectional autoregression definition (frozen KV vs refreshed history). 1 + 3 Para pairs."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "3.2 Data Preprocessing: Camera Trajectories to Discrete Actions",
+      "pages": "6-7",
+      "summary": "Continuous 6-DoF grounding; OpenVid+WorldPlay prescribed trajectories; Sekai real footage with SLAM/ViPE-style annotation; filtering and static-only captioning; quantization handoff to Eq. 2. 5 Para pairs."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "3.3 Text-based Camera Control",
+      "pages": "7-9",
+      "summary": "Camera control as pure text-space conditioning; Eq. 2 (81-class label), Eq. 3 (one-time pre-encoding), Eq. 4 (per-frame condition assembly, S=512, NN interpolation), Eq. 5-6 (decoupled per-frame vs memory streams); parameter efficiency, ~100-step control emergence. 6 Para pairs."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "3.4 Chunk-wise Autoregressive Rollout and History Conditioning",
+      "pages": "9-10",
+      "summary": "Single memory-token interface; sink-based sliding window; PackForcing-style HR+LR encoder (8 causal 3D-conv blocks, 64-512 channels); Yume-1.5-style FramePack pyramid (scales 1-16); patch-unit RoPE convention. 5 Para pairs."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "3.5 Multi-Objective Few-Step Distillation",
+      "pages": "10-13",
+      "summary": "Self-Forcing-based self-rollout DMD in bidirectional setting; flow-matching parameterization; Eq. 7 DMD gradient; Eq. 8 GAN hinge; Eq. 9 SFT low-sigma anchor; Eq. 10-11 real/teacher forward-KL anchors; Eq. 12 total objective; real-time event editing (Fig. 5); training-free I2V (Fig. 6); mixed-task training. 8 Para pairs."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "3.6 Generality Across Architectures and Modalities",
+      "pages": "12-13",
+      "summary": "Same recipe on cross-attention (Wan2.1/2.2), MMDiT (HunyuanVideo-1.5), audio-video (LTX-2.3-22B) backbones; thin-adapter porting. 1 Para pair."
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "3.7 Training Budget and Optional Low-Bit Inference",
+      "pages": "12-13",
+      "summary": "~100 + ~200 optimizer steps on 8xH200; FP8-E4M3/NVFP4 pathway; QAT with quantization self-distillation via forward-KL on velocity and x0-hat; honest low-bit caveats. 3 Para pairs."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "4. Implementation Details",
+      "pages": "13",
+      "summary": "77-frame clips, static-only captions, one-time pre-encoding, NN action alignment, single-gradient-step rollout, chunk-count curriculum, flag-toggled losses, released figure-generation and fine-tuning scripts. 2 Para pairs."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "5. Results (5.1 Instantiations, 5.2 Qualitative Results)",
+      "pages": "13-14",
+      "summary": "Framework characterized by component function; quantitative study explicitly ongoing; instantiation details (77 frames -> 20 latent frames, 4 steps/chunk); qualitative analyses of Figs. 7, 2, 8, 9. 1 + 3 + 4 Para pairs."
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "6. Conclusion",
+      "pages": "14-17",
+      "summary": "Recipe summary (50-step teacher -> 4-step generator, 81-class vocabulary); breadth across backbones; positioning vs minWM; future directions. 2 Para pairs."
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "References",
+      "pages": "17-19",
+      "summary": "Bibliography preserved in source PDF; not translated line by line; lineage summary given bilingually in reader."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Terminology Ledger / overview",
+      "pages": "2",
+      "asset": "assets/page_002_fig_figure_1.png",
+      "summary": "Figure 1: BiWM overview, two training stages from a pretrained bidirectional foundation model."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "5.2 Qualitative Results (camera controllability)",
+      "pages": "2",
+      "asset": "assets/page_002_fig_figure_2.png",
+      "summary": "Figure 2: interactive exploration on Sekai-domain street scenes, one constant discrete action per row; placed at its first substantive discussion in Sec. 5.2."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "1. Introduction",
+      "pages": "3",
+      "asset": "assets/page_003_fig_figure_3.png",
+      "summary": "Figure 3: causal camera-control collapse under a Self-Forcing-style baseline; motivation evidence."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "3.3 Text-based Camera Control",
+      "pages": "9",
+      "asset": "assets/page_009_fig_figure_4.png",
+      "summary": "Figure 4: 81-class discrete camera vocabulary as 9x9 translation x rotation grid (Eq. 2)."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "3.5 Multi-Objective Few-Step Distillation (event editing)",
+      "pages": "12",
+      "asset": "assets/page_012_fig_figure_5.png",
+      "summary": "Figure 5: real-time event editing, prompt-specified fantastical events injected into real street scenes mid-rollout."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "3.5 Multi-Objective Few-Step Distillation (training-free I2V)",
+      "pages": "13",
+      "asset": "assets/page_013_fig_figure_6.png",
+      "summary": "Figure 6: training-free image-to-video rollouts from held-out real Sekai first frames."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "5.2 Qualitative Results (long-horizon rollouts)",
+      "pages": "15",
+      "asset": "assets/page_015_fig_figure_7.png",
+      "summary": "Figure 7: illustrative chunk-wise T2V rollouts under camera control; caption printed on page 15 within the Conclusion-page range."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "5.2 Qualitative Results (anchor losses)",
+      "pages": "15",
+      "asset": "assets/page_015_fig_figure_8.png",
+      "summary": "Figure 8: with vs. without anchor losses, same prompt/trajectory/seed, 5 s rollout sampled every second."
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "5.2 Qualitative Results (low-bit inference)",
+      "pages": "16",
+      "asset": "assets/page_016_fig_figure_9.png",
+      "summary": "Figure 9: BF16 vs FP8-E4M3 vs NVFP4 rollouts; NVFP4 keeps per-frame quality but drifts in content."
+    }
+  ],
+  "assets": [
+    "assets/page_002_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_003_fig_figure_3.png",
+    "assets/page_009_fig_figure_4.png",
+    "assets/page_012_fig_figure_5.png",
+    "assets/page_013_fig_figure_6.png",
+    "assets/page_015_fig_figure_7.png",
+    "assets/page_015_fig_figure_8.png",
+    "assets/page_016_fig_figure_9.png"
+  ]
+}

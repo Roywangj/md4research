@@ -1,0 +1,45 @@
+{
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+    "title": "ReWorld: Representation Learning for World Action Models",
+    "version": "arXiv:2606.27504v2",
+    "date": "2026-08-24",
+    "pages": 15
+  },
+  "target": {
+    "title": "ReWorld Representation Learning for World Action Models",
+    "files": ["detailed_paper.md", "paper.md", "source_map.json", "translation_notes.md"]
+  },
+  "coverage": {
+    "pages": {"1-15": "full text, figures/tables, conclusion, acknowledgments, references [1]-[85], author biographies"},
+    "sections": ["Abstract", "1 Introduction", "2 Related Work", "3 Method", "4 Experiments", "5 Conclusion", "Acknowledgments", "References", "Author Biographies", "Material caveat"],
+    "equations": "(1)-(23), transcribed as reader-facing Markdown math",
+    "figures": [
+      {"id": "Figure 1", "source_pages": [2], "asset": "assets/page-02.png"},
+      {"id": "Figure 2", "source_pages": [3], "asset": "assets/page-03.png"},
+      {"id": "Figure 3", "source_pages": [9], "asset": "assets/page-09.png"},
+      {"id": "Figure 4", "source_pages": [10], "asset": "assets/page-10.png"},
+      {"id": "Figure 5", "source_pages": [11], "asset": "assets/page-11.png"}
+    ],
+    "tables": ["Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Table 6", "Table 7", "Table 8"],
+    "references": {"first": 1, "last": 85, "count": 85}
+  },
+  "paragraphs": {
+    "bilingual_pairs": 96,
+    "caption_pairs": 13,
+    "section_labels": "Para. X / Para. X[CN]",
+    "note": "Paragraph count is based on reader labels; table rows and equations are counted separately from prose pairs."
+  },
+  "assets": {
+    "count": 5,
+    "paths": ["assets/page-02.png", "assets/page-03.png", "assets/page-09.png", "assets/page-10.png", "assets/page-11.png"],
+    "broken_links": 0,
+    "format": "PNG page renders at 160 dpi; page renders preserve figure/table context where PDF extraction is two-column/interleaved."
+  },
+  "caveats": [
+    "The source is an arXiv v2 manuscript marked submitted to IEEE TPAMI, not a final publisher version.",
+    "The PDF has two-column text and mixed vector/raster figures; assets are page renders rather than recropped figure-only images to avoid losing labels and context.",
+    "Bibliographic references are retained in original searchable form as permitted by the output contract; their explanatory prose is not translated.",
+    "No supplementary appendix beyond the 15 supplied pages was present in the source PDF."
+  ]
+}

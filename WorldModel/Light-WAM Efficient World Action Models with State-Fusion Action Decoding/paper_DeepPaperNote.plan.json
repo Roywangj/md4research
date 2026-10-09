@@ -1,0 +1,106 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出轻量世界动作模型，通过训练期下采样视频监督、冻结紧凑视频骨干和单次前向状态融合动作解码，重点优化完整 WAM 流水线的训练与推理效率。",
+  "dominant_domain": "efficient world action models and robot manipulation policies",
+  "must_cover": [
+    "训练期视频监督与推理期动作路径的解耦。",
+    "Wan2.1-T2V-1.3B 冻结骨干、LoRA、稀疏 WAM adapter 的职责。",
+    "StateFusionActionExpert 的多层状态、16-query 池化、融合和直接动作回归。",
+    "2× 潜空间视频下采样、潜变量缓存与直接动作头的效率贡献。",
+    "LIBERO、RoboTwin 2.0、IMETA Y1 真机结果及其负面边界。",
+    "0.44B 是可训练参数而非总参数，真机与 RoboTwin 没有超过强基线。"
+  ],
+  "key_numbers": [
+    "总参数 1.99B，可训练 0.44B；StateFusionActionExpert 单独占 351.03M 可训练参数。",
+    "LIBERO 平均 97.2%，无具身预训练排名第一、总体第三；Long 只有 93.0%。",
+    "RoboTwin 2.0 clean/randomized/average 为 76.4/76.3/76.4，Fast-WAM 为 91.9/91.8/91.9。",
+    "训练吞吐 2.08 steps/s，是 Fast-WAM 0.49 steps/s 的 4.25 倍；单卡峰值显存 43.1 对 70.7 GiB。",
+    "推理 72.03 ms、4.1 GiB，其中 VAE 12.7 ms、视觉 56.5 ms、动作头 2.1 ms。",
+    "真机三任务 Light-WAM 为 67/87/53，pi0.5 为 80/93/60。",
+    "消融：全分辨率视频监督 99.0 对默认 98.2；5 个 adapter 98.0；8 query 95.4。",
+    "RoboTwin 使用 2,500 干净示范和 25,000 随机化示范覆盖 50 项任务；真机每任务 50 条训练示范。"
+  ],
+  "real_comparisons": [
+    "LIBERO 与 OpenVLA、OpenVLA-OFT、VLA-Adapter、pi0、pi0.5、Motus、LingBot-VA、Fast-WAM 比较。",
+    "RoboTwin 2.0 与 pi0、pi0.5、X-VLA、Motus、LingBot-VA、Fast-WAM 比较。",
+    "训练效率逐步比较 Fast-WAM、紧凑骨干+DiT 动作头、StateFusion、latent cache、2× downsample。",
+    "RTX 4090 上比较 pi0.5、LingBot-VA、Motus、Fast-WAM、Light-WAM 的延迟与显存。",
+    "三项 IMETA Y1 双臂真机任务与 pi0.5 同设置比较。",
+    "视频分辨率、adapter 层数、query 数量的 LIBERO-Spatial 消融。"
+  ],
+  "central_claims": [
+    {
+      "claim": "未来视频生成的主要价值可以保留在训练期表征监督中，在线策略不必生成未来视频。",
+      "supporting_evidence": ["sec:introduction", "sec:methodology", "sec:references"],
+      "what_it_actually_proves": "Light-WAM 在只用当前观测进行单次前向动作解码时，仍在 LIBERO 达到 97.2%、RoboTwin 达到 76.4%。",
+      "what_it_does_not_prove": "没有 action-only 且其余结构完全一致的核心消融，因此无法精确量化未来视频目标本身的净收益。"
+    },
+    {
+      "claim": "StateFusionActionExpert、潜变量缓存和视频下采样共同显著提高 WAM 训练与推理效率。",
+      "supporting_evidence": ["sec:methodology", "sec:method-2", "sec:model"],
+      "what_it_actually_proves": "在作者硬件与实现中，完整系统达到 4.25 倍训练吞吐、72.03 ms 推理和 4.1 GiB 峰值显存。",
+      "what_it_does_not_prove": "不能把收益全部归因于 StateFusion；骨干、VAE、缓存、下采样和实现差异共同作用。"
+    },
+    {
+      "claim": "多层适配状态与 query bottleneck 能以较低动作侧成本保留控制相关视觉信息。",
+      "supporting_evidence": ["sec:methodology", "sec:model", "sec:references"],
+      "what_it_actually_proves": "8 query 使 LIBERO-Spatial 从 98.2 降到 95.4，层注意力图关注互补区域，动作头仅用 2.1 ms。",
+      "what_it_does_not_prove": "没有与最终层-only、简单均值池化或同参数 MLP 的直接消融；注意力图也不是因果解释。"
+    }
+  ],
+  "claim_boundaries": [
+    "0.44B 是可训练参数，部署时仍加载 1.99B 总参数。",
+    "4.25 倍吞吐是相对特定 Fast-WAM 实现和 4×H100 设置的端到端结果。",
+    "RoboTwin 76.4 明显低于 Fast-WAM 91.9，效率以牺牲复杂多任务能力为代价。",
+    "真机三项任务全部低于 pi0.5，不能宣称真实机器人性能领先。",
+    "LIBERO 接近饱和且 suite 使用不同 checkpoint，没有多 seed 方差。",
+    "论文没有核心 action-only 对照，未来视频 co-training 的独立贡献未被充分隔离。",
+    "真机正文未报告评估 rollout 次数，成功率差异缺乏置信区间。"
+  ],
+  "negative_or_limiting_results": [
+    "RoboTwin 2.0 平均成功率比 Fast-WAM 低 15.5 个百分点。",
+    "真机三项任务分别落后 pi0.5 13、6、7 个百分点。",
+    "LIBERO-Long 93.0，落后 LingBot-VA 98.5 和 Motus 97.6。",
+    "只使用紧凑骨干和 DiT 动作头的变体为 0.43 steps/s，略慢于 Fast-WAM 的 0.49。",
+    "视频潜变量下采样把 LIBERO-Spatial 从全分辨率的 99.0 降到 98.2。",
+    "8 个 learned query 不足，成功率下降到 95.4。",
+    "未在 LIBERO-Plus 等鲁棒性/泛化基准评测。"
+  ],
+  "mechanism_result_map": [
+    "冻结 Wan 骨干保留视频先验，LoRA+稀疏 adapter 提供机器人适配；对应 0.44B 可训练预算。",
+    "视频潜变量 2× 下采样减少时空 token 成本；对应训练显存从 48.2 降到 43.1 GiB、吞吐从 0.86 增至 2.08 steps/s，但成功率损失 0.8 点。",
+    "latent cache 删除在线 VAE 编码；对应 StateFusion 变体吞吐从 0.56 升至 0.86 steps/s。",
+    "StateFusion 用多层 query 池化代替生成式动作 DiT；对应动作分支仅 2.1 ms，以及 query 数不足时 2.8 点性能下降。",
+    "训练期视频 flow loss塑造时间表征但推理不执行；对应模糊却保持运动的未来视频与 72.03 ms 在线路径。"
+  ],
+  "comparative_positioning": [
+    "相对 Fast-WAM，Light-WAM 不仅停止测试时视频想象，还删除生成式动作专家，用直接回归动作块换取速度。",
+    "相对 DiT4DiT，Light-WAM 不把视频去噪中间状态作为在线条件，而是让训练期视频目标塑造共享骨干，在线只读当前观测的多层状态。",
+    "相对 DreamZero，Light-WAM 放弃联合视频—动作生成和大规模闭环自回归，换成冻结小骨干与简单动作接口。",
+    "相对轻量 VLA，Light-WAM 仍保留未来视频协同训练，因此它的卖点是低成本时间监督而非纯 action-only 适配。"
+  ],
+  "reuse_takeaways": [
+    "高效 WAM 应分别优化骨干加载、视频 token 数、VAE 编码、动作解码器和在线执行路径。",
+    "多层视觉状态进入动作头前可用 learned-query pooling 构造显式信息瓶颈。",
+    "报告轻量模型时必须区分 total、loaded、trainable 参数。",
+    "效率论文应同时给出性能损失，不能只用 Pareto 图掩盖绝对成功率差距。",
+    "训练期辅助生成目标是否有效，应加入结构一致的 action-only 消融。"
+  ],
+  "followup_questions": [
+    "去掉 L_video、保持相同 backbone/adapter/action head 后，LIBERO 和 RoboTwin 会下降多少？",
+    "final-layer only、三层平均池化、Perceiver pooling 与 StateFusion 在等参数下谁更好？",
+    "将 StateFusionActionExpert 从 351M 缩到 50M–100M 时性能—延迟曲线如何？",
+    "2× 下采样具体减少多少视频 token、理论 FLOPs 和 wall-clock attention 时间？",
+    "RoboTwin 的性能差距来自模型容量、直接回归多模态动作，还是缺少具身预训练？",
+    "在 LIBERO-Plus、相机扰动、遮挡和物理参数变化下，视频监督是否真的提高鲁棒性？",
+    "真机成功率基于多少次 rollout，置信区间和失败类型是什么？"
+  ],
+  "section_plan": [
+    {"section":"研究问题","focus":"从 WAM 的时间监督收益与大型生成架构成本之间的矛盾切入。","evidence_sources":["sec:preamble","sec:introduction","sec:related-work"]},
+    {"section":"数据与任务定义","focus":"解释 LIBERO、RoboTwin 50-task、真机三任务、EPT 口径与硬件。","evidence_sources":["sec:experiments","sec:method","sec:method-2","sec:model"]},
+    {"section":"方法主线","focus":"覆盖冻结 Wan、LoRA、adapter、视频下采样、StateFusion 和单次推理。","evidence_sources":["sec:methodology","sec:references"]},
+    {"section":"关键结果","focus":"比较性能、训练效率、推理效率、消融与真机负面结果。","evidence_sources":["sec:experiments","sec:method","sec:method-2","sec:model"]},
+    {"section":"深度分析","focus":"区分真正贡献与工程叠加，解释性能损失和证据缺口。","evidence_sources":["sec:introduction","sec:methodology","sec:model","sec:references"]},
+    {"section":"局限","focus":"强调无 action-only 消融、RoboTwin/真机落后、统计与鲁棒性不足。","evidence_sources":["sec:model","sec:references"]}
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.03188",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of the architecture of our method. The overall figure represents the training phase, and the",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "relative_markdown_embed": "![Figure 1](images/figure_1_architecture.png)",
+      "source_image_path": "images/figure_1_architecture.png",
+      "materialization_status": "materialized",
+      "selected_output": "images/figure_1_architecture.png"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "The architecture of DPT auxiliary head.",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methodology",
+      "decision": "skip",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "relative_markdown_embed": "![Figure 2](images/page_005_fig_figure_2.png)",
+      "source_image_path": "",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Fig. (a) and (b): Middle layer Video DiT token embeddings colored by semantic class. GeoSem-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "relative_markdown_embed": "![Figure 3](images/figure_3_semantic_geometry_probes.png)",
+      "source_image_path": "images/figure_3_semantic_geometry_probes.png",
+      "materialization_status": "materialized",
+      "selected_output": "images/figure_3_semantic_geometry_probes.png"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Real-world manipulation experiments overview. (I) Four core tasks: Easy-Pick, Multi-Pick,",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "relative_markdown_embed": "![Figure 4](images/figure_4_real_world_experiments.png)",
+      "source_image_path": "images/figure_4_real_world_experiments.png",
+      "materialization_status": "materialized",
+      "selected_output": "images/figure_4_real_world_experiments.png"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Overview of simulation environments and multi-modal observations. (I) Libero",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model-2",
+      "decision": "skip",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "relative_markdown_embed": "![Figure 5](images/page_013_fig_figure_5.png)",
+      "source_image_path": "",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Example Episodes of Real World Experiments on Franka. Step-by-step demonstra-",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:model-2",
+      "decision": "skip",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "relative_markdown_embed": "![Figure 6](images/page_014_fig_figure_6.png)",
+      "source_image_path": "",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Comparisons with SOTA methods on LIBERO benchmark.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "skip",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Performance on RoboTwin 2.0 Compared with SOTA Methods.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method",
+      "decision": "skip",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": ""
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Component analysis of different structured world supervision objectives on the LIBERO benchmark.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "relative_markdown_embed": "![Table 3](images/table_3_ablation.png)",
+      "source_image_path": "images/table_3_ablation.png",
+      "materialization_status": "materialized",
+      "selected_output": "images/table_3_ablation.png"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Quantitative results of real Franka robot experiments. All tasks are evaluated over 50",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-3",
+      "decision": "skip",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "完整精读只保留机制图、表征图、真机图、关键消融与逐任务结果；正文以可搜索表格覆盖其余数值。",
+      "visual_quality_status": "low_priority_after_manual_review",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "relative_markdown_embed": "![Table 4](images/page_008_fig_table_4.png)",
+      "source_image_path": "",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Quantitative results for each task on the RoboTwin 2.0 simulation benchmark, covering 50",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "relative_markdown_embed": "![Table 5](images/table_5_robotwin_50_tasks.png)",
+      "source_image_path": "images/table_5_robotwin_50_tasks.png",
+      "materialization_status": "materialized",
+      "selected_output": "images/table_5_robotwin_50_tasks.png"
+    }
+  ],
+  "summary": {
+    "total_items": 11,
+    "by_decision": {
+      "insert": 5,
+      "skip": 6
+    }
+  }
+}

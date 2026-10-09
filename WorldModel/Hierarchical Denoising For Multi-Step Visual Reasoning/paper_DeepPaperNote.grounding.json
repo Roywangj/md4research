@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EI8L4DXZ/Qian 等 - 2026 - Hierarchical Denoising For Multi-Step Visual Reasoning.pdf",
+    "pdf_total_pages": 29,
+    "paper_numbered_pages_covered": "1-20",
+    "source_type": "selectable-text PDF with figures"
+  },
+  "status": "pass",
+  "claims": [
+    {"id": "G01", "claim": "HDR uses a coarse-to-fine hierarchical latent tree before streaming output", "anchors": ["p.4 Fig.2", "p.5 Sec.3.2"], "status": "verified"},
+    {"id": "G02", "claim": "Layer-wise flow matching is defined over all levels and tokens", "anchors": ["p.5 Eq.4"], "status": "verified"},
+    {"id": "G03", "claim": "Default entropy-matched schedule is [5,8,13,20,32,50] with Kmax=50 and beta=0.66", "anchors": ["p.19 Appendix C"], "status": "verified"},
+    {"id": "G04", "claim": "SHAP attends to same-level predecessor, parent/neighbouring parent tokens, and first-frame condition", "anchors": ["pp.5-6 Eq.5-6"], "status": "verified"},
+    {"id": "G05", "claim": "Overall Success improves 34.22 to 60.29 and Avg. Progress 76.00 to 89.56 versus CausalForcing", "anchors": ["p.7 Table 1"], "status": "verified"},
+    {"id": "G06", "claim": "Steady streaming latency is 0.70s after KV-cache initialization", "anchors": ["p.7 Table 2", "p.20 Appendix D"], "status": "verified_with_scope"},
+    {"id": "G07", "claim": "HDR retains 82.9% of full-data success with 2% data", "anchors": ["p.8 Sec.4.4", "p.9 Fig.6"], "status": "verified"},
+    {"id": "G08", "claim": "Robot maze uses 3000 virtual videos and 50 real videos plus IDM", "anchors": ["p.9 Sec.4.5"], "status": "verified"},
+    {"id": "G09", "claim": "HDR-WAM reaches RoboDojo Overall 5.47 / 3.00% without pretraining", "anchors": ["pp.9-10 Table 3"], "status": "verified"},
+    {"id": "G10", "claim": "Entropy-matched Table 5 overall is 60.29 / 89.56; All-50 is 58.38 / 88.21", "anchors": ["pp.19-20 Appendix C and Table 5"], "status": "verified"},
+    {"id": "G11", "claim": "Temporal attention is O(KN^2) for bidirectional and streaming AR, O(Kavg N) for HDR", "anchors": ["p.20 Appendix D"], "status": "verified"},
+    {"id": "G12", "claim": "HDR prefill is 16.19s versus 1.48s bidirectional and 2.44s CausalForcing", "anchors": ["p.20 Appendix D"], "status": "verified"}
+  ],
+  "critical_inferences": [
+    {"statement": "Entropy-matched evidence supports increasing budgets more strongly than the exact entropy law", "basis": "Table 5 entropy-matched nearly ties exponential in Success", "label": "author-independent interpretation"},
+    {"statement": "54.2x speed claim excludes hierarchy prefill", "basis": "Table 2 metric definition and Appendix D prefill values", "label": "scope correction"},
+    {"statement": "Few-shot results do not directly prove cross-task rule transfer", "basis": "data reduction is not leave-one-task-out transfer", "label": "overclaim audit"}
+  ],
+  "appendix_check": {
+    "A": "covered in HDR-WAM method and reproduction notes",
+    "B": "covered in benchmark and evaluator details",
+    "C": "covered with formula, default schedule, interpretation, and Table 5",
+    "D": "covered with all three complexity results and prefill caveat",
+    "nonexistent_appendices_F_G": "not included"
+  }
+}

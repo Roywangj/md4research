@@ -1,0 +1,322 @@
+[
+  {
+    "page": 1,
+    "chars": 4123,
+    "lines": 93,
+    "images": 1,
+    "first_lines": [
+      "Video-DeepResearch: Towards the Next-Generation Multimodal",
+      "Deepresearch Agent",
+      "Video-Deepresearch Team",
+      "fazii@mail.ustc.edu.cn, wxhuang0616@gmail.com",
+      "https://github.com/Osilly/Vision-DeepResearch",
+      "Abstract",
+      "We introduce Video-DeepResearch (Video-",
+      "DR), extending multimodal agents from static"
+    ]
+  },
+  {
+    "page": 2,
+    "chars": 4128,
+    "lines": 125,
+    "images": 27,
+    "first_lines": [
+      "(A) Existing Text-Only & Image-Only Research",
+      "What is the name of this actor?",
+      "Query",
+      "Search",
+      "Input Frame",
+      "Text-only shortcut",
+      "Full-image retrieval",
+      "(B) Our Video-Deep Research Paradigm"
+    ]
+  },
+  {
+    "page": 3,
+    "chars": 4524,
+    "lines": 135,
+    "images": 61,
+    "first_lines": [
+      "Others",
+      "3.5%",
+      "Which royalty-free video platform is the source of the slow-motion footage of the insect",
+      "with orange and black wings collecting nectar from a flower",
+      "Q",
+      "Storyblocks.",
+      "A",
+      "Game"
+    ]
+  },
+  {
+    "page": 4,
+    "chars": 3292,
+    "lines": 129,
+    "images": 51,
+    "first_lines": [
+      "Phase I: Multi-Domain Video Filtering",
+      "(a) Rule-based Coarse Filter",
+      "(b) Agent-based Fine Filtering",
+      "Rich",
+      "Information",
+      "Phase II: Visual Search and VQA Generation",
+      "CLIP Score",
+      "Phase III: Trajectory Generation"
+    ]
+  },
+  {
+    "page": 5,
+    "chars": 4645,
+    "lines": 114,
+    "images": 0,
+    "first_lines": [
+      "Step 2: VQA Generation and Verification. Fi-",
+      "nally, we synthesize QA pairs from the curated",
+      "metadata via two generation patterns: (1) Single-",
+      "entity: sampling one entity to formulate fact-based",
+      "questions, and (2) Multi-entity: sampling n enti-",
+      "ties to construct compositional questions requiring",
+      "cross-entity reasoning. In both settings, we ex-",
+      "plicitly penalize superficial visual attribute queries."
+    ]
+  },
+  {
+    "page": 6,
+    "chars": 4043,
+    "lines": 128,
+    "images": 0,
+    "first_lines": [
+      "difficulty RL dataset by executing four rollouts per",
+      "trajectory (Sec.3.2) and strictly retaining instances",
+      "with a Pass@4 score between 0 and 1. We apply a",
+      "sparse binary reward, assigning r = 1 for correct",
+      "answers (judged by Qwen3-VL-30B-A3B-Instruct)",
+      "and r = 0 otherwise. To prevent formatting viola-",
+      "tions or repetitive loops from dominating the up-",
+      "dates, we compute the corresponding advantage ˆA"
+    ]
+  },
+  {
+    "page": 7,
+    "chars": 3600,
+    "lines": 182,
+    "images": 0,
+    "first_lines": [
+      "Table 3: Main Results on Video Deep-Research Agent Benchmarks. We evaluate various state-of-the-art",
+      "Vision–Language Models (VLMs) under two distinct execution settings: Direct (tool-free baseline) and Agentic",
+      "(equipped with the full suite of visual and text tools). Performance is reported across VIDEO-DR (Acc.) and the six",
+      "fine-grained categories within our proposed VIDEODR-BENCH benchmark, alongside the overall average score.",
+      "Column abbreviations for VIDEODR-BENCH denote the corresponding video categories: KNL for knowledge,",
+      "ENT for Entertainment, DLY for daily, G&S for game&sports, NWS for news, and OTH for other.",
+      "Model",
+      "Video-DR"
+    ]
+  },
+  {
+    "page": 8,
+    "chars": 3777,
+    "lines": 153,
+    "images": 0,
+    "first_lines": [
+      "VIDEO-DEEPRESEARCH-35B (41.7%) sug-",
+      "gests potential domain transfer challenges for",
+      "the larger variant.",
+      "Scaling Insight. A critical observation emerges",
+      "from our experiments: the improvement margins",
+      "are not uniform across model sizes. While VIDEO-",
+      "DEEPRESEARCH-30B achieves +18.8% over",
+      "its base, VIDEO-DEEPRESEARCH-35B achieves"
+    ]
+  },
+  {
+    "page": 9,
+    "chars": 4714,
+    "lines": 106,
+    "images": 0,
+    "first_lines": [
+      "This explicit +12.5% trajectory-driven surge con-",
+      "firms that our visual grounding data is strictly nec-",
+      "essary for the agent to internalize the foundational",
+      "perception-exploration paradigm. Interestingly, the",
+      "improvement is more pronounced on VIDEODR-",
+      "BENCH (51.0% vs. 43.0% base) than on VideoDR",
+      "(55.0% vs. 38.0% base), suggesting that visual",
+      "grounding is particularly crucial for benchmark-"
+    ]
+  },
+  {
+    "page": 10,
+    "chars": 4242,
+    "lines": 99,
+    "images": 0,
+    "first_lines": [
+      "metric memory to an open-world collaborative ver-",
+      "ification loop, VIDEO-DEEPRESEARCH enables",
+      "highly robust, multi-source deep reasoning.",
+      "5.2",
+      "Multimodal-DeepResearch Systems.",
+      "Autonomous deep research agents have rapidly",
+      "evolved from text-only systems (Team et al., 2025;",
+      "Wu et al., 2025a; Li et al., 2025b; Tao et al., 2025)"
+    ]
+  },
+  {
+    "page": 11,
+    "chars": 4887,
+    "lines": 122,
+    "images": 0,
+    "first_lines": [
+      "References",
+      "Anthropic.",
+      "2025.",
+      "Introducing",
+      "claude",
+      "sonnet",
+      "4.5.",
+      "https://www.anthropic.com/news/"
+    ]
+  },
+  {
+    "page": 12,
+    "chars": 4838,
+    "lines": 117,
+    "images": 0,
+    "first_lines": [
+      "Kunchang Li, Yali Wang, Yinan He, Yizhuo Li,",
+      "Yi Wang, Yi Liu, Zun Wang, Jilan Xu, Guo Chen,",
+      "Ping Luo, and 1 others. 2024. Mvbench: A com-",
+      "prehensive multi-modal video understanding bench-",
+      "mark. In Proceedings of the IEEE/CVF Conference",
+      "on Computer Vision and Pattern Recognition, pages",
+      "22195–22206.",
+      "Zhen Li, Chuanhao Li, Xiaofeng Mao, Shaoheng Lin,"
+    ]
+  },
+  {
+    "page": 13,
+    "chars": 4586,
+    "lines": 109,
+    "images": 0,
+    "first_lines": [
+      "Jialong Wu, Baixuan Li, Runnan Fang, Wenbiao Yin,",
+      "Liwen Zhang, Zhengwei Tao, Dingchu Zhang, Zekun",
+      "Xi, Gang Fu, Yong Jiang, and 1 others. 2025a. Web-",
+      "dancer: Towards autonomous information seeking",
+      "agency. arXiv preprint arXiv:2505.22648.",
+      "Jinming Wu, Zihao Deng, Wei Li, Yiding Liu, Bo You,",
+      "Bo Li, Zejun Ma, and Ziwei Liu. 2025b. Mmsearch-",
+      "r1: Incentivizing lmms to search. arXiv preprint"
+    ]
+  },
+  {
+    "page": 14,
+    "chars": 890,
+    "lines": 20,
+    "images": 0,
+    "first_lines": [
+      "Each annotator possesses strong familiarity with",
+      "video understanding, visual search, and multi-hop",
+      "reasoning tasks.",
+      "Quality Assurance. Before the formal anno-",
+      "tation phase, all annotators undergo a structured",
+      "training session covering task definitions, tool us-",
+      "age (e.g., Crop_Search), and common pitfalls such",
+      "as parametric knowledge leakage. This is followed"
+    ]
+  },
+  {
+    "page": 15,
+    "chars": 2580,
+    "lines": 40,
+    "images": 0,
+    "first_lines": [
+      "Prompt for Video-DR Task Suitability Evaluation",
+      "[ROLE & TASK]",
+      "You are an Expert Video Content Auditor and Information Retrieval Analyst.",
+      "Task: Evaluate video content to determine if it is suitable for a Video-based Web Search (Video-DR) task.",
+      "Specifically, judge whether understanding, contextualizing, or verifying the video’s core content strictly requires",
+      "external web search and domain-specific knowledge.",
+      "[PRE-CONDITIONS (Immediate Rejection)]",
+      "Before detailed analysis, apply these gating rules. If any apply, immediately evaluate as needs_search: \"No\":"
+    ]
+  },
+  {
+    "page": 16,
+    "chars": 2442,
+    "lines": 38,
+    "images": 0,
+    "first_lines": [
+      "Prompt for Multi-Frame Entity Extraction and Grounding",
+      "[ROLE & TASK]",
+      "You are an expert visual parsing agent specialized in analyzing video keyframe sequences.",
+      "Task: Strictly follow a sequential pipeline to observe video frames, select a diverse subset of representative",
+      "keyframes, and extract exactly one highly salient entity per selected frame.",
+      "[EXECUTION PIPELINE]",
+      "• Step 1: Global Temporal Observation. Carefully examine every provided frame in chronological order.",
+      "Assess the visual composition (objects, individuals, logos, icons, or text) and determine the single most"
+    ]
+  },
+  {
+    "page": 17,
+    "chars": 2861,
+    "lines": 52,
+    "images": 0,
+    "first_lines": [
+      "Prompt for Knowledge-Grounded Question Generation",
+      "[ROLE & TASK]",
+      "You are an expert visual-language reasoning agent. You are provided with: (1) a set of localized entities extracted",
+      "from a video, and (2) their corresponding retrieved external knowledge (which may reveal their ground-truth",
+      "identities).",
+      "Task: Evaluate the provided multi-modal context, select the most appropriate questioning strategy, and synthesize",
+      "exactly ONE complex, knowledge-intensive reasoning question.",
+      "[QUESTIONING STRATEGIES (Select Exactly ONE)]"
+    ]
+  },
+  {
+    "page": 18,
+    "chars": 1153,
+    "lines": 22,
+    "images": 0,
+    "first_lines": [
+      "Prompt for Deep Research Answer Verification",
+      "[ROLE & TASK]",
+      "You are an impartial judge evaluating whether a deep research report contains the correct answer.",
+      "Task: Determine if the deep research report contains the correct answer anywhere in its content.",
+      "[EXECUTION RULES]",
+      "• Thoroughness: Read through the entire research report carefully.",
+      "• Search Strategy: Look for the correct answer anywhere in the report (it may be embedded in paragraphs,",
+      "tables, or sections)."
+    ]
+  },
+  {
+    "page": 19,
+    "chars": 3026,
+    "lines": 53,
+    "images": 0,
+    "first_lines": [
+      "Prompt for Deep Research Agent",
+      "[ROLE & TASK]",
+      "You are a deep research assistant. Your core function is to conduct thorough, multi-source investigations into any",
+      "topic, handling both broad open-domain inquiries and specialized academic queries. Synthesize information from",
+      "credible, diverse sources to deliver a comprehensive, accurate, and objective response. When you have gathered",
+      "sufficient information, enclose the definitive response within <answer></answer> tags.",
+      "[AVAILABLE TOOLS]",
+      "1. select_crop_search(image_idx, bbox, goal)"
+    ]
+  },
+  {
+    "page": 20,
+    "chars": 1961,
+    "lines": 60,
+    "images": 0,
+    "first_lines": [
+      "Table 6: Tools available to the agent. select_crop_search is the only tool exposed during the exploration phase;",
+      "search and visit are added in the answering phase.",
+      "Parameter",
+      "Type",
+      "Req.",
+      "Description",
+      "select_crop_search — pick frames, crop a bounding box from each, run a reverse-image / visual web search per crop.",
+      "selections"
+    ]
+  }
+]

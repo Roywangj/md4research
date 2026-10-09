@@ -1,0 +1,452 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2607.00678",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of ABot-M0.5. ABot-M0.5 is a granularity-aligned, action-disentangled, and train-test-consistent",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_003_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_003_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overall architecture of ABot-M0.5. The model jointly predicts future video latents, frame-level latent",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_008_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_008_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_008_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Dual-level Mixture-of-Transformers. The architecture disentangles modality-specific representations and",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_010_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_010_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_010_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Training paradigms for World Action Models. Existing WAM training paradigms (a) and (b) suffer",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Illustration of two-phase training strategy in Dream Forcing. In Phase A, the model performs a",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Model structure of ALAM.",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Attention masks of different training stages.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_016_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_016_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_016_fig_figure_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Visualization of some results on RoboCasa365. We show video frames of both real camera observations",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:experiments-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_018_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_018_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_018_fig_figure_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Different structures of latent action embeddings.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:method-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Training dynamics of different MoT architecture designs. Adding action-decoupled MoT demonstrates",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:model-4",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_022_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_022_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_022_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Attention maps of different training strategies. We calculate Text-video Text-conditioned attention",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:background",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Results of real-world experiments. The performance of ABot-M0.5 was evaluated on five manipulation",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:background",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_025_fig_figure_12.png",
+      "relative_markdown_embed": "![Figure 12](images/page_025_fig_figure_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_025_fig_figure_12.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Visualization of some real-world results of ABot-M0.5. We show video frames of both real camera",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:background",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_026_fig_figure_13.png",
+      "relative_markdown_embed": "![Figure 13](images/page_026_fig_figure_13.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_026_fig_figure_13.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Main notation used in ABot-M0.5.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_007_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_007_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_007_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Evaluation results on RoboCasa365 Benchmark (pretraining). ABot-M0.5 outperforms prior methods,",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:discussion",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_020_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_020_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_020_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Evaluation results on RoboCasa365 benchmark (Target). The suffixes -S and -U denote seen and unseen",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:discussion",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_020_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_020_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_020_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Evaluation results on RoboTwin 2.0 benchmark.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:method-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_021_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_021_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_021_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Evaluation results on LIBERO benchmark.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:model-4",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_022_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_022_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_022_fig_table_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Zero-shot performance on LIBERO-Plus benchmark. All methods are trained only on the standard LIBERO",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_023_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_023_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_023_fig_table_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Ablation study of latent-action strategies",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:background",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_024_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_024_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_024_fig_table_7.png"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Ablation study on Dream Forcing (DF) and",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:background",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_024_fig_table_8.png",
+      "relative_markdown_embed": "![Table 8](images/page_024_fig_table_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/ABot_M05_Unified_Mobility_and_Manipulation_World_Action_Model/images/page_024_fig_table_8.png"
+    }
+  ],
+  "summary": {
+    "total_items": 21,
+    "by_decision": {
+      "insert": 14,
+      "low_priority": 5,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "paper": {
+    "title": "VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models",
+    "authors": [
+      "Soumya Suvra Ghosal",
+      "Youngeun Kim",
+      "Zhuowei Li",
+      "Ritwick Chaudhry",
+      "Linghan Xu",
+      "Hongjing Zhang",
+      "Jakub Zablocki",
+      "Yifan Xing",
+      "Qin Zhang"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/V8UHNJTS/Ghosal 等 - 2026 - VisRef Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning M.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "34QUN2EN",
+    "arxiv_id": "2603.00207"
+  },
+  "notes": {
+    "reading_mode": "faithful reader-style bilingual translation with source-grounded analytical compression",
+    "figure_policy": "Primary method and result figures/tables are embedded. Low-priority but clear Figure 3 and Figure 5 are included because they are central to test-time scaling and attention analysis.",
+    "bibliography_policy": "References are summarized by scope rather than translated line by line."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "source_section_id": "sec:abstract",
+      "summary": "The paper motivates visual token dilution in long multimodal reasoning and proposes training-free visual token coreset reinjection."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-3",
+      "source_section_id": "sec:introduction",
+      "summary": "VisRef is positioned between costly training-based look-back methods and text-centric test-time scaling."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Related Works",
+      "pages": "2-3",
+      "source_section_id": "sec:introduction",
+      "summary": "Related work covers MLRMs, test-time scaling, visual refocusing, and tool-using multimodal agents."
+    },
+    {
+      "id": "S004",
+      "type": "equations",
+      "section": "Preliminaries",
+      "pages": "3-4",
+      "source_section_id": "sec:preliminaries",
+      "summary": "The paper formalizes standard thinking, textual self-reflection, and visual-integrated trajectories."
+    },
+    {
+      "id": "S005",
+      "type": "equations",
+      "section": "Proposed Framework",
+      "pages": "3-6",
+      "source_section_id": "sec:preliminaries",
+      "summary": "DPP-based coreset selection uses a text-conditioned kernel and a log-determinant relevance-diversity decomposition."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Experiments",
+      "pages": "6-7",
+      "source_section_id": "sec:experiments",
+      "summary": "Experiments evaluate MathVista, MathVision, and MM-Star on InternVL3.5-8B, Qwen-3-VL-8B, and SAIL-VL2-8B."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Discussion",
+      "pages": "7-8",
+      "source_section_id": "sec:discussion",
+      "summary": "Discussion validates relevance-diversity balance, entropy threshold, token budget, and attention focusing."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "8-9",
+      "source_section_id": "sec:conclusion",
+      "summary": "Conclusion restates selective DPP visual reinjection and entropy stopping as a training-free visual grounding route."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Appendix",
+      "pages": "12-16",
+      "source_section_id": "sec:appendix",
+      "summary": "Appendix reports limitations, implementation settings, additional benchmarks, latency, model scaling, and extra ablations."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "summary": "Figure 1 contrasts text-only test-time scaling with training-free visual refocusing.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Method",
+      "pages": "4",
+      "summary": "Figure 2 gives the VisRef pipeline.",
+      "asset": "assets/page_004_fig_figure_2.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "6",
+      "summary": "Table 1 main benchmark results.",
+      "asset": "assets/page_006_fig_table_1.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "7",
+      "summary": "Figure 3 test-time scaling curves.",
+      "asset": "assets/page_007_fig_figure_3.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Discussion",
+      "pages": "7",
+      "summary": "Figure 4 entropy threshold and token budget ablations.",
+      "asset": "assets/page_007_fig_figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Discussion",
+      "pages": "8",
+      "summary": "Figure 5 attention visualization.",
+      "asset": "assets/page_008_fig_figure_5.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "7",
+      "summary": "Table 2 comparison with Look-Back.",
+      "asset": "assets/page_007_fig_table_2.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Discussion",
+      "pages": "8",
+      "summary": "Table 3 relevance and diversity ablation.",
+      "asset": "assets/page_008_fig_table_3.png"
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix",
+      "pages": "14",
+      "summary": "Table 5 latency per prompt.",
+      "asset": "assets/page_014_fig_table_5.png"
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix",
+      "pages": "14",
+      "summary": "Table 6 accuracy across model scales.",
+      "asset": "assets/page_014_fig_table_6.png"
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix",
+      "pages": "15",
+      "summary": "Table 7 token selection strategies.",
+      "asset": "assets/page_015_fig_table_7.png"
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix",
+      "pages": "15",
+      "summary": "Table 8 lambda weighting.",
+      "asset": "assets/page_015_fig_table_8.png"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_004_fig_figure_2.png",
+    "assets/page_006_fig_table_1.png",
+    "assets/page_007_fig_figure_3.png",
+    "assets/page_007_fig_figure_4.png",
+    "assets/page_007_fig_table_2.png",
+    "assets/page_008_fig_figure_5.png",
+    "assets/page_008_fig_table_3.png",
+    "assets/page_014_fig_table_5.png",
+    "assets/page_014_fig_table_6.png",
+    "assets/page_015_fig_table_7.png",
+    "assets/page_015_fig_table_8.png"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "script": "manual_wj_validation",
+  "paper_id": "arxiv:2608.09926",
+  "input_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a336d780f69149711/worldmodel/Learning How the World Evolves Extrapolative Video World Models via Latent Dynamics Reasoning/paper_DeepPaperNote.md",
+  "checks": {
+    "file_nonempty": true,
+    "markdown_bytes": 30099,
+    "page_count_recorded": 9,
+    "required_sections": ["核心信息", "原文摘要翻译", "创新点", "一句话总结", "研究问题", "数据与任务定义", "方法主线", "关键结果", "深度分析", "局限", "我的笔记", "引用"],
+    "required_sections_missing": [],
+    "method_coverage": true,
+    "experiment_coverage": true,
+    "limitation_coverage": true,
+    "formula_coverage": true,
+    "wam_video_world_model_latent_dynamics_coverage": true,
+    "image_link_count": 6,
+    "broken_image_links": [],
+    "json_companion_files_parseable": true,
+    "forbidden_companion_files_touched": false,
+    "reader_math_delimiters_found": {"escaped_parenthesis": 0, "escaped_brackets": 0}
+  },
+  "warnings": [
+    "图 1 和图 5 的 severe-shift 结论属于定性示例；未将其写成统计泛化保证。",
+    "论文为 9 页短文，仅报告 seed 42 single run；缺少方差/置信区间。",
+    "若需要像素级逐段翻译，应由全文翻译代理维护 paper.md/detailed_paper.md；本文件是独立精读。"
+  ],
+  "passes_basic_structure": true,
+  "passes_asset_gate": true,
+  "passes_json_gate": true,
+  "passes_substantive_content": true,
+  "passes_scope_boundary": true
+}

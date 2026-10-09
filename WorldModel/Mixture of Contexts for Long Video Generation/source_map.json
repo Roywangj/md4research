@@ -1,0 +1,818 @@
+{
+  "paper": {
+    "title": "Mixture of Contexts for Long Video Generation",
+    "authors": [
+      "Shengqu Cai",
+      "Ceyuan Yang",
+      "Lvmin Zhang",
+      "Yuwei Guo",
+      "Junfei Xiao",
+      "Ziyan Yang",
+      "Yinghao Xu",
+      "Zhenheng Yang",
+      "Alan Yuille",
+      "Leonidas Guibas",
+      "Maneesh Agrawala",
+      "Lu Jiang",
+      "Gordon Wetzstein"
+    ],
+    "year": 2025,
+    "date": "2025-12-10",
+    "venue": "arXiv preprint",
+    "arxiv": "2508.21058v3",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/7SWAYAM9/Cai 等 - 2025 - Mixture of Contexts for Long Video Generation.pdf",
+    "reader_file": "detailed_paper.md",
+    "page_count": 20
+  },
+  "notes": {
+    "paper_type": "methods and empirical long video generation paper",
+    "reading_order": "Natural reading order reconstructed from single-column selectable-text PDF and verified against rendered page assets.",
+    "paragraph_policy": "Substantive prose is presented as adjacent Para. X / Para. X[CN] bilingual pairs with restarted numbering at each major section.",
+    "bibliography_policy": "All 65 references are preserved in searchable bibliographic citation form.",
+    "table_policy": "Tables 1-5 are provided as both cropped visual assets and searchable Markdown tables.",
+    "math_policy": "Inline math is delimited with $...$ and display math is formatted on standalone lines outside blockquotes."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "order": 1,
+      "summary": "Recasting long video generation as memory retrieval and proposing Mixture of Contexts (MoC).",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1",
+      "order": 2,
+      "summary": "Long-term memory bottleneck in scaling Diffusion Transformers for video generation.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-2",
+      "order": 3,
+      "summary": "Temporal redundancy in video and limitations of prior lossy compression or static sparsity.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2",
+      "order": 4,
+      "summary": "MoC formulation: content-aligned chunking, trainable top-k routing, mandatory anchors, and causal mask.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2",
+      "order": 5,
+      "summary": "Key empirical findings: 85% sparsity, >7x FLOPs reduction, 2.2x speedup on 180k token sequences.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "2",
+      "order": 6,
+      "summary": "Overview of standard self-attention quadratic cost in transformers.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "2-3",
+      "order": 7,
+      "summary": "Long Video Generation: recurrent transformers, autoregressive models, latent state compression, LCT dense baseline.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3",
+      "order": 8,
+      "summary": "Sparse Attention for Video Generation: training-free and trainable sparse attention pruners.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3",
+      "order": 9,
+      "summary": "Context Learning in Visual Generation: world model memory, view memory, and in-context conditioning.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "3 Method",
+      "pages": "3-4",
+      "order": 10,
+      "summary": "Method overview and high-level principles of MoC.",
+      "confidence": "high",
+      "refs": [
+        "F001"
+      ]
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "3-4",
+      "order": 11,
+      "summary": "Vanilla attention in DiTs and query-wise formulation.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "4-5",
+      "order": 12,
+      "summary": "Dynamic routing via top-k selection and mean-pooled key descriptor.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "5",
+      "order": 13,
+      "summary": "Expressiveness and end-to-end differentiability of mean pooling router via downstream gradients.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "5",
+      "order": 14,
+      "summary": "Context Drop-off regularization preventing catastrophic failure.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "5-6",
+      "order": 15,
+      "summary": "Context Drop-in regularization combating dead routes.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "3.1 Mixture of Contexts",
+      "pages": "6",
+      "order": 16,
+      "summary": "Per-head distributed routing covering diverse subspaces across layers.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "3.2 Attention Chunking and Routing",
+      "pages": "6",
+      "order": 17,
+      "summary": "Content-aligned chunking along natural video and modality boundaries.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "3.2 Attention Chunking and Routing",
+      "pages": "6",
+      "order": 18,
+      "summary": "Fixed cross-modal text selection as attention sink.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "3.2 Attention Chunking and Routing",
+      "pages": "6-7",
+      "order": 19,
+      "summary": "Fixed intra-shot selection as local high-fidelity window.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "3.2 Attention Chunking and Routing",
+      "pages": "7",
+      "order": 20,
+      "summary": "Causal routing mask eliminating closed-loop cycles and creating DAG.",
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ]
+    },
+    {
+      "id": "S021",
+      "type": "body",
+      "section": "3.3 Computation Efficiency",
+      "pages": "7",
+      "order": 21,
+      "summary": "GPU implementation using prefix sums, segment_reduce, head-major gathers, and Flash-Attention var-len.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S022",
+      "type": "body",
+      "section": "3.3 Computation Efficiency",
+      "pages": "7-8",
+      "order": 22,
+      "summary": "FLOPs derivation and theoretical linear speedup analysis on 180k token video.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "8",
+      "order": 23,
+      "summary": "Experimental setup, base model LCT (3B MMDiT), 8-shot 64-second benchmarks, and VBench metrics.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S024",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "8",
+      "order": 24,
+      "summary": "Quantitative multi-shot results under 85% sparsity with 2.2x speedup and improved dynamic degree.",
+      "confidence": "high",
+      "refs": [
+        "T001"
+      ]
+    },
+    {
+      "id": "S025",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "8-9",
+      "order": 25,
+      "summary": "Qualitative multi-shot comparison and theoretical justification of mean pooling.",
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ]
+    },
+    {
+      "id": "S026",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "9-10",
+      "order": 26,
+      "summary": "Qualitative illustration of coherence across shots, objects, and characters.",
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ]
+    },
+    {
+      "id": "S027",
+      "type": "body",
+      "section": "5 Conclusion",
+      "pages": "9-10",
+      "order": 27,
+      "summary": "Conclusion: emergent long-term memory in long video generation via learnable sparse routing.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S028",
+      "type": "body",
+      "section": "5 Conclusion",
+      "pages": "10",
+      "order": 28,
+      "summary": "Limitations and future hardware-software co-design directions.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S029",
+      "type": "bibliography",
+      "section": "References",
+      "pages": "11-14",
+      "order": 29,
+      "summary": "References 1-65 in searchable bibliographic form.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S030",
+      "type": "body",
+      "section": "Appendix A",
+      "pages": "15",
+      "order": 30,
+      "summary": "Memory complexity analysis demonstrating <0.1% GPU memory routing overhead.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S031",
+      "type": "body",
+      "section": "Appendix B",
+      "pages": "15",
+      "order": 31,
+      "summary": "MoC implementation benchmark and near-linear scaling verification.",
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ]
+    },
+    {
+      "id": "S032",
+      "type": "body",
+      "section": "Appendix C",
+      "pages": "15-16",
+      "order": 32,
+      "summary": "Multi-shot scene dataset curation: 500k authentic scenes, Gemini-1.5 two-tier captions, 1M smooth transitions.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S033",
+      "type": "body",
+      "section": "Appendix D",
+      "pages": "16",
+      "order": 33,
+      "summary": "Zero-shot sparsification on pretrained dense DiT without fine-tuning.",
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ]
+    },
+    {
+      "id": "S034",
+      "type": "body",
+      "section": "Appendix E",
+      "pages": "16-17",
+      "order": 34,
+      "summary": "Single-shot short video generation quantitative and qualitative evaluation.",
+      "confidence": "high",
+      "refs": [
+        "F007",
+        "T002"
+      ]
+    },
+    {
+      "id": "S035",
+      "type": "body",
+      "section": "Appendix F",
+      "pages": "17-18",
+      "order": 35,
+      "summary": "Training details, chunk size schedules, and hyperparameters.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S036",
+      "type": "body",
+      "section": "Appendix G",
+      "pages": "18",
+      "order": 36,
+      "summary": "Ablation study on chunk sizes, top-k values, forced links, and Context Drop In/Out.",
+      "confidence": "high",
+      "refs": [
+        "T003",
+        "T004"
+      ]
+    },
+    {
+      "id": "S037",
+      "type": "body",
+      "section": "Appendix H",
+      "pages": "19",
+      "order": 37,
+      "summary": "Generalization experiment on open-source Wan-2.1-1.3B model.",
+      "confidence": "high",
+      "refs": [
+        "T005"
+      ]
+    },
+    {
+      "id": "S038",
+      "type": "body",
+      "section": "Appendix I",
+      "pages": "19",
+      "order": 38,
+      "summary": "Outer loop context routing hierarchical design for million-token scaling.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S039",
+      "type": "body",
+      "section": "Appendix J",
+      "pages": "19-20",
+      "order": 39,
+      "summary": "Broader social impact, democratization, and misuse prevention.",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S040",
+      "type": "body",
+      "section": "Appendix K",
+      "pages": "20",
+      "order": 40,
+      "summary": "Disclosure of Large Language Model (LLM) usage for writing refinement.",
+      "confidence": "high",
+      "refs": []
+    }
+  ],
+  "asset_objects": [
+    {
+      "id": "F001",
+      "label": "Figure 1",
+      "type": "figure",
+      "page": 4,
+      "image_path": "assets/figure_1.png",
+      "placed_after": "S010",
+      "alt_text": "Overview of Adaptive Mixture of Contexts."
+    },
+    {
+      "id": "F002",
+      "label": "Figure 2",
+      "type": "figure",
+      "page": 5,
+      "image_path": "assets/figure_2.png",
+      "placed_after": "S019",
+      "alt_text": "Illustration of loop closures without causality."
+    },
+    {
+      "id": "T001",
+      "label": "Table 1",
+      "type": "table",
+      "page": 8,
+      "image_path": "assets/table_1.png",
+      "placed_after": "S024",
+      "alt_text": "Multi-shot video generation quantitative comparison."
+    },
+    {
+      "id": "F003",
+      "label": "Figure 3",
+      "type": "figure",
+      "page": 9,
+      "image_path": "assets/figure_3.png",
+      "placed_after": "S025",
+      "alt_text": "Multi-shot video generation qualitative comparison."
+    },
+    {
+      "id": "F004",
+      "label": "Figure 4",
+      "type": "figure",
+      "page": 10,
+      "image_path": "assets/figure_4.png",
+      "placed_after": "S026",
+      "alt_text": "Illustration of coherence achieved by Mixture of Contexts."
+    },
+    {
+      "id": "F005",
+      "label": "Figure 5",
+      "type": "figure",
+      "page": 15,
+      "image_path": "assets/figure_5.png",
+      "placed_after": "S031",
+      "alt_text": "Performance benchmark of content-aligned Mixture of Contexts."
+    },
+    {
+      "id": "F006",
+      "label": "Figure 6",
+      "type": "figure",
+      "page": 16,
+      "image_path": "assets/figure_6.png",
+      "placed_after": "S033",
+      "alt_text": "Zero-shot sparsification on pretrained DiT."
+    },
+    {
+      "id": "F007",
+      "label": "Figure 7",
+      "type": "figure",
+      "page": 17,
+      "image_path": "assets/figure_7.png",
+      "placed_after": "S034",
+      "alt_text": "Single-shot video generation qualitative comparison."
+    },
+    {
+      "id": "T002",
+      "label": "Table 2",
+      "type": "table",
+      "page": 17,
+      "image_path": "assets/table_2.png",
+      "placed_after": "S034",
+      "alt_text": "Single-shot video generation quantitative comparison."
+    },
+    {
+      "id": "T003",
+      "label": "Table 3",
+      "type": "table",
+      "page": 18,
+      "image_path": "assets/table_3.png",
+      "placed_after": "S036",
+      "alt_text": "Ablation study on different chunk sizes and routing top-k."
+    },
+    {
+      "id": "T004",
+      "label": "Table 4",
+      "type": "table",
+      "page": 18,
+      "image_path": "assets/table_4.png",
+      "placed_after": "S036",
+      "alt_text": "Ablation study on the effect of forced links."
+    },
+    {
+      "id": "T005",
+      "label": "Table 5",
+      "type": "table",
+      "page": 19,
+      "image_path": "assets/table_5.png",
+      "placed_after": "S037",
+      "alt_text": "Single-shot video generation quantitative comparison on Wan-2.1-1.3B."
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "F001",
+        "S011",
+        "S012"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "F002",
+        "S012",
+        "S013",
+        "S014",
+        "S015"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019"
+      ]
+    },
+    {
+      "page": 7,
+      "block_ids": [
+        "S019",
+        "S020",
+        "S021",
+        "S022"
+      ]
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "S022",
+        "T001",
+        "S023",
+        "S024",
+        "S025"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": [
+        "F003",
+        "S025",
+        "S026",
+        "S027"
+      ]
+    },
+    {
+      "page": 10,
+      "block_ids": [
+        "F004",
+        "S027",
+        "S028"
+      ]
+    },
+    {
+      "page": 11,
+      "block_ids": [
+        "S029"
+      ]
+    },
+    {
+      "page": 12,
+      "block_ids": [
+        "S029"
+      ]
+    },
+    {
+      "page": 13,
+      "block_ids": [
+        "S029"
+      ]
+    },
+    {
+      "page": 14,
+      "block_ids": [
+        "S029"
+      ]
+    },
+    {
+      "page": 15,
+      "block_ids": [
+        "F005",
+        "S030",
+        "S031",
+        "S032"
+      ]
+    },
+    {
+      "page": 16,
+      "block_ids": [
+        "S032",
+        "F006",
+        "S033",
+        "S034"
+      ]
+    },
+    {
+      "page": 17,
+      "block_ids": [
+        "F007",
+        "T002",
+        "S034",
+        "S035"
+      ]
+    },
+    {
+      "page": 18,
+      "block_ids": [
+        "S035",
+        "T003",
+        "T004",
+        "S036"
+      ]
+    },
+    {
+      "page": 19,
+      "block_ids": [
+        "T005",
+        "S037",
+        "S038",
+        "S039"
+      ]
+    },
+    {
+      "page": 20,
+      "block_ids": [
+        "S039",
+        "S040"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Mixture of Contexts (MoC)",
+      "translation": "上下文混合（MoC）",
+      "note": "Learnable sparse attention routing module for long-context video memory retrieval."
+    },
+    {
+      "term": "content-aligned chunks",
+      "translation": "内容对齐块",
+      "note": "Variable-length sequence slices aligned with frame, shot, and caption boundaries."
+    },
+    {
+      "term": "mean-pooled key",
+      "translation": "均值池化键",
+      "note": "Arithmetic mean of key vectors inside a chunk used as representation descriptor."
+    },
+    {
+      "term": "top-k selection",
+      "translation": "top-k 选择",
+      "note": "Retrieval of k most relevant chunks per query based on inner products."
+    },
+    {
+      "term": "causal routing",
+      "translation": "因果路由",
+      "note": "Restricting query tokens to attend only to earlier chunks to eliminate closed-loop cycles."
+    },
+    {
+      "term": "loop closures",
+      "translation": "回路闭合 / 自反馈闭环",
+      "note": "Pathological feedback cycles between bidirectional chunks causing repeated frames."
+    },
+    {
+      "term": "attention sink",
+      "translation": "注意力汇聚",
+      "note": "Mandatory cross-modal links to text prompt tokens ensuring low-entropy anchoring and gradient flow."
+    },
+    {
+      "term": "intra-shot local window",
+      "translation": "镜头内局部窗口",
+      "note": "Forced dense self-attention within each individual shot preserving high-frequency details."
+    },
+    {
+      "term": "context drop-off",
+      "translation": "上下文丢弃",
+      "note": "Randomly masking selected chunks to promote representation redundancy."
+    },
+    {
+      "term": "context drop-in",
+      "translation": "上下文注入",
+      "note": "Randomly inserting extraneous chunks to prevent dead routes and balance gradients."
+    },
+    {
+      "term": "per-head distributed routing",
+      "translation": "分头分布式路由",
+      "note": "Independent chunk selection for each attention head across all layers."
+    },
+    {
+      "term": "outer loop context routing",
+      "translation": "外循环上下文路由",
+      "note": "Hierarchical coarse-grained shot selection enabling scaling to million-token sequences."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png"
+  ]
+}

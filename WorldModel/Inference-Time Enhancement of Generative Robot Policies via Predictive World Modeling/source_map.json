@@ -1,0 +1,68 @@
+{
+  "paper": {
+    "title": "Inference-Time Enhancement of Generative Robot Policies via Predictive World Modeling",
+    "authors": ["Han Qi", "Haocheng Yin", "Aris Zhu", "Yilun Du", "Heng Yang"],
+    "year": 2026,
+    "venue": "IEEE Robotics and Automation Letters (RA-L), preprint version, accepted February 2026",
+    "arxiv_id": "2502.00622v4",
+    "source_pdf": "/root/wwwroy/papernotes/papers/2502.00622v4.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "pages": 8
+  },
+  "notes": {
+    "extraction_pipeline": "/tmp/claude-0/-root-wwwroy-papernotes/fbcd5d0c-d98e-409d-8a49-a3bbe90bb6f3/scratchpad/gpc_smoke/ (paper_raw_sections.jsonl, paper_full_text.md, paper_assets.json)",
+    "section_detector_caveat": "The automatic section detector split reference entries into spurious sections (sec:models, sec:models-2) and placed the Table III area under sec:method; paper.md restores the true IEEE section order (I-VII, References, Appendix) verified against per-page PDF text.",
+    "tables": "No usable table crops were produced; Tables I-III are transcribed as Markdown tables in paper.md from the PDF text layer and verified against page renders of pages 5-6.",
+    "source_typos_preserved": [
+      "Fig. 6 caption prints GPC-OPT as (K = 0, M = 25); K = 1 is the semantically consistent value.",
+      "Table III prints the behavior cloning baseline as (K=1, M=1); body text defines the baseline as K=1, M=0."
+    ]
+  },
+  "blocks": [
+    {"id": "S001", "type": "body", "section": "Abstract", "pages": "1", "summary": "GPC: inference-time enhancement of frozen diffusion BC policies via an action-conditioned predictive world model and lightweight online planning (rank + refine)."},
+    {"id": "S002", "type": "body", "section": "I. Introduction", "pages": "1", "summary": "BC looks back and is brittle at deployment; MPC looks ahead but is hard to integrate with generative policies; motivating question of test-time adaptability without retraining."},
+    {"id": "S003", "type": "body", "section": "I. Introduction", "pages": "1", "summary": "Contribution: three components (generative policy training, predictive world modeling with random exploration, online planning GPC-RANK/GPC-OPT); novelty vs imagined-rollout planners: image-space diffusion world model, frozen-noise inference, unified rank+refine, VLM reward surrogates."},
+    {"id": "F001", "type": "figure", "section": "I. Introduction", "pages": "2", "asset": "assets/page_002_fig_fig_1.png", "summary": "Fig. 1 framework overview: (a) GPC-RANK evaluates multiple proposals in imagination; (b) GPC-OPT refines a single proposal by gradients through the world model."},
+    {"id": "S004", "type": "body", "section": "II. Related Work", "pages": "1-2", "summary": "Generative modeling for robotics (policies, data, dynamics, planning); visual world modeling lineage (IRIS, Dreamer-v3, TDMPC-2, latent-space MPC); GPC differs by explicit image-space action-conditioned video world model used at inference time."},
+    {"id": "S005", "type": "body", "section": "III. Overview of GPC", "pages": "2-3", "summary": "Formalization of I_t, action chunks a_{t:t+T}; generative policy training with Diffusion Policy (H=2, T=16, action horizon 9, DDPM, ResNet18+UNet, 300 epochs AdamW 1e-4/1e-6, 100 denoising steps)."},
+    {"id": "S006", "type": "body", "section": "III. Overview of GPC", "pages": "3", "summary": "Predictive world modeling: expert pairs plus random-exploration dataset (system identification / sufficient excitation); combined D^W trains W(.); reward model R as trained predictor or VLM surrogate."},
+    {"id": "S007", "type": "equation", "section": "III. Overview of GPC", "pages": "3", "summary": "GPC-RANK: Eq. (1) sample K proposals, Eq. (2) argmax of R(W(I_t, a^{(k)})); advantages: parallelizable, no hyperparameter tuning, supports non-differentiable and VLM rewards."},
+    {"id": "S008", "type": "equation", "section": "III. Overview of GPC", "pages": "3", "summary": "GPC-OPT: Eq. (3) reward maximization, Eq. (4) gradient ascent from diffusion-policy warm start with step sizes eta^(l), Eq. (5) final chunk; single shooting analogy; M sequential world-model evaluations."},
+    {"id": "S009", "type": "body", "section": "III. Overview of GPC", "pages": "3-4", "summary": "GPC-RANK+OPT: multi-initialization solving of (3), K x M world-model evaluations; Alg. 1 summary; modern diffusion models enable near physics-accurate visual prediction."},
+    {"id": "F002", "type": "figure", "section": "III. Overview of GPC", "pages": "2", "asset": "assets/page_002_fig_algorithm_1.png", "summary": "Algorithm 1 pseudocode unifying GPC-RANK (M=0) and GPC-OPT (K=1, M>0)."},
+    {"id": "S010", "type": "equation", "section": "IV. World Model Learning", "pages": "4", "summary": "MLP for state-based dynamics; visual world model as recursive single-step conditional diffusion predictor: Eq. (6) o_{t+1}=f_vision(o_{t-H:t}, a_t), Eq. (7) denoising iteration with denoiser D_phi (architecture of [42])."},
+    {"id": "F003", "type": "figure", "section": "IV. World Model Learning", "pages": "4", "asset": "assets/page_004_fig_fig_2.png", "summary": "Fig. 2 architecture: recursive single-step predictors (left), UNet denoiser conditioned on history and action for N_d steps (right). Crop includes stray body text from the right column of page 4."},
+    {"id": "S011", "type": "body", "section": "IV. World Model Learning", "pages": "4", "summary": "Two-phase training (single-step supervision, then recursive T-step joint supervision), H=4, N_d=3, EDM-based diffusion; Remark 1 freeze-the-noise: fix o^{N_d}_{t+1}=0 at inference, otherwise GPC-OPT fails."},
+    {"id": "S012", "type": "body", "section": "V. Experiments", "pages": "4", "summary": "Evaluation plan: state-based pushing, four vision-based simulation tasks, two real-world tasks; ablations on K, M and inference-time baselines."},
+    {"id": "S013", "type": "body", "section": "V.A State-based Planar Pushing", "pages": "4-5", "summary": "State-based Push-T setup, MLP world model, registration-loss reward (l2 distance over transformed object vertices); all GPC variants beat BC; best variant 0.934 approaches GT-simulator planning 0.952."},
+    {"id": "T001", "type": "table", "section": "V.A State-based Planar Pushing", "pages": "5", "asset": null, "summary": "Table I transcribed to Markdown: BC 0.812; GPC-RANK 0.898/0.932/0.934 (K=100/1000/5000); GPC-OPT 0.886; GPC-RANK+OPT 0.912/0.914/0.891; GT simulator 0.952. IoU over 100 seeds."},
+    {"id": "S014", "type": "body", "section": "V.B Vision-based Tasks", "pages": "5-6", "summary": "Four vision tasks; diffusion world model quality: SSIM vs deep visual foresight and AVDC; baseline footnote URLs (github Xiaohui9607/physical_interaction_video_prediction_pytorch, flow-diffusion/AVDC) kept in source_map only."},
+    {"id": "F004", "type": "figure", "section": "V.B Vision-based Tasks", "pages": "5", "asset": "assets/page_005_fig_fig_3.png", "summary": "Fig. 3 predicted rollouts on four tasks with per-task SSIM 0.971/0.973/0.961/0.950 over ~250 frames, 5 seeds."},
+    {"id": "F005", "type": "figure", "section": "V.B Vision-based Tasks", "pages": "5", "asset": "assets/page_005_fig_fig_4.png", "summary": "Fig. 4 world-model comparison: GT 1.000, Ours 0.983, Deep Visual Foresight 0.943, AVDC 0.955 (SSIM, 10 sampled predictions, 100 samples). Crop top contaminated by Fig. 3 / Table II caption text."},
+    {"id": "S015", "type": "body", "section": "V.B Vision-based Tasks", "pages": "6", "summary": "Reward strategies: differentiable ResNet18+MLP predictor, or zero-shot VLM (ChatGPT-4o, final frames at resolution 96, fixed prompt, temperature 0.2, one query per decision step); planning performance vs LaDi-WM, V-GPS, DreamerV3 with shared policy/data and 100 candidates."},
+    {"id": "T002", "type": "table", "section": "V.B Vision-based Tasks", "pages": "5", "asset": null, "summary": "Table II transcribed to Markdown: GPC-RANK best on all four tasks (0.739, 0.767(0.761), 0.989(0.973), 0.730); scores over 50 seeds."},
+    {"id": "T003", "type": "table", "section": "V.B Vision-based Tasks", "pages": "6", "asset": null, "summary": "Table III transcribed to Markdown: score/timing trade-off, BC 0.642/0.457s to GPC-RANK+OPT 0.882/374.102s; baseline printed as (K=1, M=1) in source."},
+    {"id": "S016", "type": "body", "section": "V.B Vision-based Tasks", "pages": "6-7", "summary": "Ablations: GPC-RANK ~10%, GPC-OPT ~15%, GPC-RANK+OPT up to ~25% over BC; planning-only MPPI/CEM/gradient-ascent below 0.2; random exploration adds ~10%; summary of complementary benefits."},
+    {"id": "F006", "type": "figure", "section": "V.B Vision-based Tasks", "pages": "6", "asset": "assets/page_006_fig_fig_5.png", "summary": "Fig. 5 bar chart: with vs without random exploration for GPC-RANK and GPC-OPT (about +10%)."},
+    {"id": "S017", "type": "body", "section": "V.C Real-world Vision-based Tasks", "pages": "7", "summary": "Real Push-T (ResNet+MLP reward from AprilTag-derived registration loss) and clothes folding (progressing reward); 10 trials per task; policy and world model fully vision-based at inference."},
+    {"id": "F007", "type": "figure", "section": "V.C Real-world Vision-based Tasks", "pages": "8", "asset": "assets/page_008_fig_fig_6.png", "summary": "Fig. 6 real Push-T trajectories: baseline vs GPC-RANK (K=10) vs GPC-OPT (printed K=0, M=25; likely K=1)."},
+    {"id": "F008", "type": "figure", "section": "V.C Real-world Vision-based Tasks", "pages": "8", "asset": "assets/page_008_fig_fig_7.png", "summary": "Fig. 7 real clothes-folding trajectories: baseline vs GPC-RANK (K=10)."},
+    {"id": "F009", "type": "figure", "section": "V.C Real-world Vision-based Tasks", "pages": "8", "asset": "assets/page_008_fig_fig_8.png", "summary": "Fig. 8 real-world success rates over 10 trials: Push-T 0.5/0.7/0.7 (baseline/RANK/OPT), clothes 0.3/0.7 (baseline/RANK), values read from chart."},
+    {"id": "S018", "type": "body", "section": "VI. Conclusion", "pages": "7", "summary": "GPC enables robust test-time adaptation without retraining by combining diffusion priors, action-conditioned visual world models, and flexible rewards."},
+    {"id": "S019", "type": "body", "section": "VII. Limitation and Future Work", "pages": "7", "summary": "Inference cost dominated by diffusion world-model rollouts (~90-95% of runtime; ~3 s per decision cycle for real-world GPC-RANK); future: distillation, faster solvers, hardware acceleration."},
+    {"id": "S020", "type": "references", "section": "References", "pages": "7-8", "summary": "44 entries; not translated line by line per reader contract; lineages summarized bilingually in paper.md."},
+    {"id": "S021", "type": "body", "section": "Appendix A. Tasks and Datasets", "pages": "8", "summary": "Dataset sizes: Push-T 500 expert + 6x500 perturbations + 7 long-horizon; Triangle Drawing 30/100; Block Stacking 50/100; Cube & Sphere 100/100; real-world 100 demos + 5 random-play videos per task."}
+  ],
+  "assets": [
+    "assets/page_002_fig_fig_1.png",
+    "assets/page_002_fig_algorithm_1.png",
+    "assets/page_004_fig_fig_2.png",
+    "assets/page_005_fig_fig_3.png",
+    "assets/page_005_fig_fig_4.png",
+    "assets/page_006_fig_fig_5.png",
+    "assets/page_008_fig_fig_6.png",
+    "assets/page_008_fig_fig_7.png",
+    "assets/page_008_fig_fig_8.png"
+  ]
+}

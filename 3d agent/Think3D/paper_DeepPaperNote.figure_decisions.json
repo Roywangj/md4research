@@ -1,0 +1,607 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2601.13029",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig 1",
+      "caption": "Comparison between prior “think with image” [46,84] and our “think with 3D",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_fig_1.png",
+      "relative_markdown_embed": "![Fig 1](images/page_002_fig_fig_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_002_fig_fig_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig 2",
+      "caption": "The Think3D pipeline. The VLM interacts with the 3D scene through itera-",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_005_fig_fig_2.png",
+      "relative_markdown_embed": "![Fig 2](images/page_005_fig_fig_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_005_fig_fig_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig 3",
+      "caption": "Spatial exploration behavior of Think3D. The agent autonomously selects view-",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:model",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig 4",
+      "caption": "Spatial exploration patterns in viewpoint selection. Strong models concentrate",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 5",
+      "source_id": "Fig 5",
+      "kind": "figure",
+      "label": "Fig 5",
+      "caption": "Reinforcement Learning Dynamics. As RL fine-tuning progresses, the model",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 6",
+      "source_id": "Fig 6",
+      "kind": "figure",
+      "label": "Fig 6",
+      "caption": "The ablation of turns.",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:model-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_014_fig_fig_6.png",
+      "relative_markdown_embed": "![Fig 6](images/page_014_fig_fig_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_014_fig_fig_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 7",
+      "source_id": "Fig 7",
+      "kind": "figure",
+      "label": "Fig 7",
+      "caption": "Efficiency ablation on BLINK (ac-",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:model-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_014_fig_fig_7.png",
+      "relative_markdown_embed": "![Fig 7](images/page_014_fig_fig_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_014_fig_fig_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 8",
+      "source_id": "Fig 8",
+      "kind": "figure",
+      "label": "Fig 8",
+      "caption": "The system prompt. Instruction prompt detailing tool invocation rules and the",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "visual_defect",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_017_fig_fig_8.png",
+      "relative_markdown_embed": "![Fig 8](images/page_017_fig_fig_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_017_fig_fig_8.png"
+    },
+    {
+      "item_id": "figure:Fig 12",
+      "source_id": "Fig 12",
+      "kind": "figure",
+      "label": "Fig 12",
+      "caption": "The RL continuation prompt used during non-final turns. Iterative-step in-",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 9",
+      "source_id": "Fig 9",
+      "kind": "figure",
+      "label": "Fig 9",
+      "caption": "The Pi3 Tool Prompt. The prompt specifies the tool’s capabilities, key control",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Self-Refine Inference",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "visual_defect",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_018_fig_algorithm_1.png",
+      "relative_markdown_embed": "![Algorithm 1](images/page_018_fig_algorithm_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_018_fig_algorithm_1.png"
+    },
+    {
+      "item_id": "figure:Fig 10",
+      "source_id": "Fig 10",
+      "kind": "figure",
+      "label": "Fig 10",
+      "caption": "Multi-step prompt for iterative 3D viewpoint exploration. Including angle",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 11",
+      "source_id": "Fig 11",
+      "kind": "figure",
+      "label": "Fig 11",
+      "caption": "The RL system prompt. Instruction prompt defining the constrained 3-view",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "visual_defect",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_020_fig_fig_11.png",
+      "relative_markdown_embed": "![Fig 11](images/page_020_fig_fig_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_020_fig_fig_11.png"
+    },
+    {
+      "item_id": "figure:Fig 13",
+      "source_id": "Fig 13",
+      "kind": "figure",
+      "label": "Fig 13",
+      "caption": "The RL continuation prompt used in the final turn. Final-turn instruction",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 14",
+      "source_id": "Fig 14",
+      "kind": "figure",
+      "label": "Fig 14",
+      "caption": "The prompt without tools. Base instruction prompt for direct image-question",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 15",
+      "source_id": "Fig 15",
+      "kind": "figure",
+      "label": "Fig 15",
+      "caption": "The critique prompt and refinement prompt used in the self-refine experiment.",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 16",
+      "source_id": "Fig 16",
+      "kind": "figure",
+      "label": "Fig 16",
+      "caption": "Ego view usage ratio across different tasks. Distribution of GPT-4.1’s reliance",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 17",
+      "source_id": "Fig 17",
+      "kind": "figure",
+      "label": "Fig 17",
+      "caption": "Tool calling iteration ratio across different tasks. GPT-4.1 rarely uses tools",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 18",
+      "source_id": "Fig 18",
+      "kind": "figure",
+      "label": "Fig 18",
+      "caption": "The Mindcube example.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 19",
+      "source_id": "Fig 19",
+      "kind": "figure",
+      "label": "Fig 19",
+      "caption": "The Mindcube example.",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 20",
+      "source_id": "Fig 20",
+      "kind": "figure",
+      "label": "Fig 20",
+      "caption": "The BLINK example.",
+      "pages": [
+        29
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 21",
+      "source_id": "Fig 21",
+      "kind": "figure",
+      "label": "Fig 21",
+      "caption": "The BLINK example.",
+      "pages": [
+        30
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 22",
+      "source_id": "Fig 22",
+      "kind": "figure",
+      "label": "Fig 22",
+      "caption": "The VSI-Bench example.",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 23",
+      "source_id": "Fig 23",
+      "kind": "figure",
+      "label": "Fig 23",
+      "caption": "The VSI-Bench example.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:model-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Results on VSI-Bench-tiny (%). Think3D uses up to two exploration itera-",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiment",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_010_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Results on BLINK (Multi-view) and the MindCube subset (%). Think3D",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:model",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_011_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_011_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_011_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation on different 3D reasoning components. All results are reported",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:model-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_012_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_012_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Comparison of 3D reconstruction tools on spatial benchmarks (Acc.%).",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:model-3",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_015_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_015_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_015_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Training and evaluation parameters used in both the RL optimization process",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "placeholder",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Effect of exploration strategies.",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_026_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_026_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_026_fig_table_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "More results on BLINK(Multi-view) and the MindCube subbset(%).",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:conclusion",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_026_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_026_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Think3D_Thinking_with_Space_for_Spatial_Reasoning/images/page_026_fig_table_7.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 31,
+    "by_decision": {
+      "insert": 10,
+      "low_priority": 17,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 3
+    }
+  }
+}

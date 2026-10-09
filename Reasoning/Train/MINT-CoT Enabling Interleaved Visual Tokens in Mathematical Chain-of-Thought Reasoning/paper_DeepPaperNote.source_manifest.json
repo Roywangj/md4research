@@ -1,0 +1,1228 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2506.05331",
+  "title": "MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.mintcot_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.mintcot_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/NVZK9PA9/Chen 等 - 2025 - MINT-CoT Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning.pdf",
+    "total_pages": 22,
+    "text_pages_extracted": 22,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 22,
+    "text_max_pages": null,
+    "text_pages_extracted": 22,
+    "text_pages_scanned": 22,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 18,
+    "references_start_page": 11
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 343,
+      "text_hash_sha256": "e0be527a680e614ca74b01ef9d9038b8243848fb276b6d9bd6c65726a783f9a5"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1599,
+      "text_hash_sha256": "9cf80e9c25d0509ac22e4afa2c1c4bef95643555a9a7f6b653ddc6820b84bbb5"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 8664,
+      "text_hash_sha256": "c27bd16c7e1805e962c25432a7cff585a86d0252c888c8ec9c5328712d5e46c3"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 3259,
+      "text_hash_sha256": "39f3bd79f2eaadd3613b488d5a27388c6e0e711de41502398fd5cccae2e3b12b"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 12366,
+      "text_hash_sha256": "bbeb75a5060124d72c101aa20cef8f46c19fa67668d0f401bec6d6707b4ae840"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 1320,
+      "text_hash_sha256": "e29fd1a4eb2d4797848dfce1cb2508d749b7effbc2ad727984e06a4d7da7327f"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 960,
+      "text_hash_sha256": "4e1ce3025c872d68c5286d37b630632cdd765b572406de9acc4911bc27bcb02a"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 332,
+      "text_hash_sha256": "6c17326af9bdf1dbac2335348ce7011db5c057df3070c29143f1e2206d0ba527"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 1583,
+      "text_hash_sha256": "0c22dc95192f9cf4dd24788469c5bef6a84fef34511bff7937b707c4e8e311c6"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 532,
+      "text_hash_sha256": "78ed3c7359826b5605d4388e2f78a4eef6f43fd52534b66ece2dce211c967a11"
+    },
+    {
+      "section_id": "sec:model-5",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 6981,
+      "text_hash_sha256": "5e47f6cc195e50aa406735b607ac90ba9aaa242186216019bd45a1ed8e5219b6"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 10,
+      "page_end": 11,
+      "char_count": 655,
+      "text_hash_sha256": "71ebc298c0f7517d7ec6ac1787c5c24433953b4a86e584c8be2e80ac4605523a"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 11,
+      "page_end": 18,
+      "char_count": 25700,
+      "text_hash_sha256": "8da6962f5e15922d44ab74307bf665f0b02e263acc542e64a8bcb53dd56ba94d"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 18,
+      "page_end": 22,
+      "char_count": 15376,
+      "text_hash_sha256": "177e697db34467807fcce1e1486d7ee81f92e543f1fb0081edb90807c76d2ddc"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 2868,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3614,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4753,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3289,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4025,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 5131,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3605,
+      "section_ids": [
+        "sec:method",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3222,
+      "section_ids": [
+        "sec:experiments",
+        "sec:model",
+        "sec:model-2",
+        "sec:model-3"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3924,
+      "section_ids": [
+        "sec:model-3",
+        "sec:model-4",
+        "sec:model-5"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4408,
+      "section_ids": [
+        "sec:model-5",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3381,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3847,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3428,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 5247,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3522,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3929,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 2372,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 2578,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 3220,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 3657,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 4269,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1742,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Comparison of three CoT reasoning methods: text-only CoT reasoning, box-shaped visual",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of the MINT-CoT framework. During CoT reasoning, MINT-CoT generates an",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Data generation pipline. Step 1: Grid Images. We divide each image into grid cells",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "F1 score plot of",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Qualitative results of Qwen2-VL-7B-Instruct and MINT-CoT-7B. MINT-CoT-7B demon-",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-5"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "An example from MINT-CoT dataset.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "An example from MINT-CoT dataset.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "An example from MINT-CoT dataset.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:appendix"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Combined quantitative results on MathVista. We evaluate MINT-CoT-7B, the baseline",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Combined quantitative results of on",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Combined results on the mathematical",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation study on different training stages. We evaluate the three progressive training",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Ablation study of different interleaving methods on GeoQA",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Table 2",
+        "caption": "our model outperforms the state-of-the-art models by +5.72%. In Table 3, MINT-CoT-7B",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:model-3"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Key statistics of the MINT-CoT dataset.",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Ablation study on the post interleave projector and the post visual projector. We",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:appendix"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "Step 2: AngleCOE = 180° - 90° - 42° = 48°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 3: Since OC = OD, angleCDB = angleODC = 1/2 angleBOC = 24",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 1: Since angle E = 42°, therefore angle A = 42°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 2: Since AB is the diameter of circle O, angle ACB = 90°. Therefore, angle B = 180° - 42° - 90° = 48°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 3: Since AB is the diameter of circle O, angle CDB = angle B = 48°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 1: Since angle E = 42°, angle CEB = 42°",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 2: Since AB is the diameter of circle O, angle ACB = 90°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Step 3: Therefore, angle CDB = angle CEB = 42°.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "{s(1), s(2), . . . , s(k)}, answer = LLM(V, TextEncoder(T)),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "where V = VisionEncoder(I) = {vτ}N",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "τ=1 denotes the visual feature extracted from the input image",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "α(i) = γ · cos",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "{v(i)} = {v(i)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "> θ}.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "{v(1), s(1), v(2), s(2), . . . , v(k), s(k)}, answer = LLM(V, TextEncoder(T)).",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "ratio of AD to AB. Given AD:AB = 1.0:3.0,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "### Step 3:\\nGiven DE = 4.0, which",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Then, (1/3)x = 4.0.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "### Step 2:<interleave>3,4,8,9,14,19,24,25</interleave>",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "ratio of AD to AB. Given AD:AB = 1.0:3.0, the ratio of sides is",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "### Step 3:<interleave>8,9,10,11,14,15,16,24,25,26,27,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "28,29</interleave>Given DE = 4.0, which corresponds to 1/3",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "### Step 4:<interleave>24,25,26,27,28,29</interleave>",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Let x be the length of BC. Then, (1/3)x = 4.0.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "x = 4.0 * 3 = 12.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "segments {s(i)} and the answer, while conditioning on the full preceding sequence. Let Y =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "LCE = −",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "t∈T",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "\u0000yt | y<t, I, T",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "labels X ∈{0, 1}:",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "LBCE = −",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "L = LCE + LBCE.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "chains with group size G, we compute answer correctness as the reward r ∈{0, 1} and define the",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "advantage via group-wise comparison as ˆAj = rj−mean(r)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "LGRPO = −E{Yj}G",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Given triangle ABC where AB = AC and angle BAC measures 100.0 degrees, and the",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "### Step 1: Since triangle ABC is isosceles with AB = AC, angles ABC and ACB are equal.",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "angle ABC = angle ACB = (180 - angle BAC) / 2 = (180 - 100) / 2 = 40 degrees.",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "The perpendicular bisector of AB implies that point E is equidistant from A and B, making BE =",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "Apply angular considerations: Consider that both AE and BE are equal, and with angle BAC = 100",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "degrees and angle ABC = 40 degrees, angle BAE will share properties of an isosceles triangle and",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "with AB = AC and angle BAC = 100.0 degrees.\\n2. The perpendicular bisector of AB intersects AB at point D and intersects",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "BC at point E.\\n\\nSince AB = AC, triangle ABC is isosceles as well. The perpendicular bisector of AB implies that AE is the",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "BAC.\\n\\nSince ∠BAC = 100.0 degrees, θ = 100.0 / 2 = 50.0 degrees.\\n\\nTherefore, the correct answer is C.",
+      "section_id": "sec:model-5",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "tion ability in vision-language models with less than $3. https://github.com/Deep-Agent/",
+      "section_id": "sec:references",
+      "page_start": 11,
+      "page_end": 18
+    },
+    {
+      "text": "LGRPO_text = −E{Yj}G",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j=1∼Pθold(·|I,T )",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "t∈Tj",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "Pθ(yj,t|yj,<t,I,T )",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "Pθold(yj,t|yj,<t,I,T ) · ˆAj,t −βDKL[Pθ ∥Pref]",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "LGRPO_vis = −E{Yj}G",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j=1∼Pθold(·|I,T )",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "τ=1",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j,τ |yj,<τ ,I,T )",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "j,τ |yj,<τ ,I,T ) · ˆAj −βDKL[Pθ ∥Pref]",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "LGRPO = LGRPO_text + λ · LGRPO_vis.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "Pinterleave and Pvis, is implemented as a single linear layer. We uniformly set the threshold θ = 0.7 to",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "using a group size G = 4, a weighting factor λ = 0.02, a learning rate of 1e-6 and a batch size of",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 1: <interleave>9,16,23,30<interleave>Identify the values and ratios given. The height of the bridge (AB) is 6",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 2:<interleave>2,9,16,23,26,30,33<interleave>Assign the given ratio to the triangle‘s sides: AB corresponds to",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 3:<interleave>23,26,30,33<interleave>Calculate the length of BC. Since AB is 6 units (which corresponds to",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "3 parts), then each part is 2 units. BC, having 4 parts, will be 4 * 2 = 8 units.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 4:Use the Pythagorean theorem, \\\\( AC = \\\\sqrt{AB^2 + BC^2} \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 5:Substitute the values into the equation: \\\\( AC = \\\\sqrt{6^2 + 8^2} = \\\\sqrt{36 + 64} = \\\\sqrt{100} = 10",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "'z' units, where z = 6.0. If the slope of the overpass AC follows a 3:4 ratio, what is",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 1: <interleave>22,23,25,29,30,32<interleave>Identify the known segments: \\\\( MP = 11 \\\\), \\\\( PO = 27",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 2:<interleave>21,22,27,28,29,34<interleave>The hypotenuse \\\\( MO = MP + PO = 11 + 27 = 38 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "squared \\\\( NP^2 \\\\) is equal to the product of the segments it divides the hypotenuse into: \\\\( NP^2 = MP \\\\times",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 4:Calculate the product: \\\\( NP^2 = 11 \\\\times 27 = 297 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 5:Find \\\\( NP \\\\) by taking the square root: \\\\( NP = \\\\sqrt{297} \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 1:<interleave>0,1,30,31,34<interleave>Recognize that triangle ABC is a right triangle with angle ACB",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 2:<interleave>31,34<interleave>Identify that angle CBO, as part of triangle OBC, measures 30 degrees.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 4:<interleave>0,1,34<interleave>Calculate angle ABC. Since angle CBO is 30 degrees and angle ACB is 90",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "degrees, angle ABC = 90 - 30 = 60 degrees.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 5:<interleave>0,1,30,31,34<interleave>Find angle A using the angle sum property of a triangle:\\nAngle A +",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "Angle ABC + Angle ACB = 180 degrees\\nAngle A + 60 + 90 = 180\\nAngle A = 180 - 150 = 30 degrees",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "that BD = 6 and AC = 8. The perimeter of diamond ABCD is ().",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "side length.\\n\\nPerimeter \\\\( = 4 \\\\times 5 = 20 \\\\)",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "The quadrilateral ABCD is a rhombus since its diagonals are perpendicular. \\n\\n[asy]\\npair A,B,C,D,O;\\n\\nA = (0,4);\\nB =",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "(6,0);\\nC = (-3*sqrt(3), 3);\\nD = (0, 4);\\nO = (0, 0);\\ndraw(A--B--C--D--cycle, black+linewidth(1));\\ndraw(A--C,",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "black+linewidth(1));\\ndraw(O--C, black+linewidth(1));\\ndraw(O--D, black+linewidth(1));\\nlabel(\"$A$\", A, N);\\nlabel(\"$B$\",",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "B, E);\\nlabel(\"$C$\", C, dir(315));\\nlabel(\"$D$\", D, N);\\nlabel(\"$O$\", O, S);\\n[/asy]\\n\\nLet\\'s label the intersection point",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "of the diagonals O. \\n\\nSince OA = OC = 4 and OB = OD = 3, we have OB = 3 and BD = 6.\\n\\nSo, the perimeter of the",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "rhombus ABCD is 4OA + 4OB = 4 * 4 + 4 * 3 = 16 + 12 = 28.\\n\\nTherefore, the answer is 28. \\n\\nSince the question asks",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "each other at right angles. Therefore, AO = OC = AC/2 = 8/2 = 4 and BO = OD",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "= BD/2 = 6/2 = 3.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "The hypotenuse is AD, with AO = 4 and BO = 3.\\n\\n\\\\[\\nAD = \\\\sqrt{AO^2 + BO^2}",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "= \\\\sqrt{4^2 + 3^2} = \\\\sqrt{16 + 9} = \\\\sqrt{25} = 5\\n\\\\]",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "O, and AC = 6.0, then AB = ()",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 4: Apply the Pythagorean theorem in triangle ABC: \\\\( AB^2 = AC^2 + BC^2 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 5: Substitute the known values into the Pythagorean theorem: \\n\\\\( AB^2 = 6^2 + 8^2 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 6: Calculate the squares: \\n\\\\( 6^2 = 36 \\\\) and \\\\( 8^2 = 64 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 7: Sum the squares: \\n\\\\( AB^2 = 36 + 64 = 100 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 8: Take the square root to find AB: \\n\\\\( AB = \\\\sqrt{100} = 10 \\\\).",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "hypotenuse.\\n\\nGiven that AO is the radius (4.0), we use the Pythagorean theorem in triangle OAB:\\n\\nAB = √(OA² +",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "OB²) = √(4.0² + 4.0²) \\n\\nAB = √(16 + 16) \\nAB = √32 \\nAB ≈ 6.4\\n\\nSo the answer is approximate 6.4. It seems there is",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "(being the diameter) is twice the radius: BC = 8.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "In ABCD, given that AB < BC, the perpendicular bisector of diagonal AC intersects AD at point E.",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 3: Since AB < BC, consider potential equalities or relationships with the line segment created by the",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "### Step 4: Express the perimeter of triangle CDE: CD + DE + EC. Given EC = EA due to E being on the perpendicular",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "By symmetry, BC = 50 cm, AD = 50 cm, so AE = 25 cm. From the right triangle AEC, AC^2 - AE^2 = CE^2, so AC^2 - AE^2",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "= CE^2 = AD^2 - AE^2. Therefore, CE = 25 cm. Therefore, the perimeter of triangle CDE = 75 cm. ×",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    },
+    {
+      "text": "EA = EC. The intersection at E means that E is equidistant from A",
+      "section_id": "sec:appendix",
+      "page_start": 18,
+      "page_end": 22
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 18,
+    "sections": [
+      {
+        "title": "M (i)",
+        "page": 18
+      },
+      {
+        "title": "w. projectors",
+        "page": 19
+      },
+      {
+        "title": "a bit more than the radius of circle O.\\n\\nTherefore, the answer is C:6. ×",
+        "page": 21
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 6",
+        "caption": "An example from MINT-CoT dataset.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "An example from MINT-CoT dataset.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "An example from MINT-CoT dataset.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Comparison between Qwen2-VL-7B-Instruct and MINT-CoT-7B.",
+        "page_hint": "p.22"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 6",
+        "caption": "Key statistics of the MINT-CoT dataset.",
+        "page_hint": "p.18"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Ablation study on the post interleave projector and the post visual projector. We",
+        "page_hint": "p.19"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "9a080cc7c82892a76b4daabc3bf0cd74023aae6f7a665d1403ed4cda8ae2a4a6"
+}

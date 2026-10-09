@@ -1,0 +1,185 @@
+{
+  "paper": {
+    "title": "DM0.5: An Open-World Foundation Model for General-Purpose Embodied Intelligence",
+    "organization": "Dexmal (原力灵机 / 重庆智能科技有限公司)",
+    "date": "2026-09-01",
+    "source_html": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VUPCWDUX/www.dexmal.com.html",
+    "extracted_text": "extracted_text.txt",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "html-technical-report",
+    "page_count": 1,
+    "architecture": {
+      "backbone": "4B Vision-Language Model (VLM)",
+      "action_expert": "680M Flow Matching Action Expert",
+      "history_context_window": "up to 60 seconds",
+      "action_chunk_size": 50,
+      "flow_matching_steps": 10,
+      "inference_speed": "10 Hz on RTX 4090, 20 Hz on H100"
+    }
+  },
+  "notes": {
+    "scope": "Complete bilingual reader and comprehensive technical report covering all sections of the Dexmal DM0.5 official release whitepaper.",
+    "source_coverage": "All sections from the HTML snapshot and extracted text are covered: Overview, Model (Context Abstraction Layer, Embodiment CoT Tasks, Trajectory Alignment Layer, Training, Inference), Data (Composition, Cleaning Strategy), Experiments (Zero-Shot Generalization, Fine-Tuning Capability on RoboChallenge Table30 v2 / LIBERO / RoboTwin2.0 / R2R & RxR Navigation, Historical Context Modeling, Policy Robustness under Camera Viewpoint & Human Perturbations), Conclusion, Organization & Ecosystem.",
+    "paragraph_policy": "Source prose is arranged into 59 strictly paired English/Chinese blockquotes with colored labels (> <span style=\"color:#3B82F6\"><strong>Para. X:</strong></span> / > <span style=\"color:#F59E0B\"><strong>Para. X[CN]:</strong></span>).",
+    "asset_policy": "All 10 available assets in assets/ (image_01.png ~ image_10.png) are linked locally with bilingual captions (**Caption:** / **Caption[CN]:**). All tables are transcribed into clean, searchable Markdown tables.",
+    "identical_policy": "paper.md is maintained as an exact byte-for-byte copy of detailed_paper.md."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "header_and_index",
+      "section": "Title, Index & Terminology Ledger",
+      "paragraphs": "Ledger Table",
+      "summary": "Frontmatter metadata, official publication banner, section index, and 18-term technical terminology ledger."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Overview",
+      "paragraphs": "Para. 1 - Para. 6",
+      "summary": "VLA evolution, DM0 foundation, open-world challenge, 5 core technical improvements, and 4 open-world task demonstration areas."
+    },
+    {
+      "id": "S003",
+      "type": "body_architecture",
+      "section": "Model: Architecture Overview",
+      "paragraphs": "Para. 7 - Para. 10",
+      "summary": "4B VLM backbone, 680M Action Expert, historical context fusion, and embodied reasoning."
+    },
+    {
+      "id": "S004",
+      "type": "body_method",
+      "section": "Model: Context Abstraction Layer",
+      "paragraphs": "Para. 11 - Para. 13",
+      "summary": "60-second visual memory, temporal/spatial token sampling, and graceful fallback."
+    },
+    {
+      "id": "S005",
+      "type": "body_method",
+      "section": "Model: Embodiment CoT Tasks",
+      "paragraphs": "Para. 14 - Para. 17",
+      "summary": "11 autoregressive embodied reasoning tasks across task planning, event prediction, and action intent."
+    },
+    {
+      "id": "S006",
+      "type": "body_method",
+      "section": "Model: Trajectory Alignment Layer",
+      "paragraphs": "Para. 18 - Para. 22",
+      "summary": "Dynamic action matching, monotonic dynamic programming alignment, and trajectory continuity objective."
+    },
+    {
+      "id": "S007",
+      "type": "body_training_inference",
+      "section": "Model: Training and Inference",
+      "paragraphs": "Para. 23 - Para. 25",
+      "summary": "Multi-source mixture training, decoupled learning rates, action chunking, and 10Hz/20Hz inference throughput."
+    },
+    {
+      "id": "S008",
+      "type": "body_data",
+      "section": "Data: Composition and Cleaning",
+      "paragraphs": "Para. 26 - Para. 28",
+      "summary": "Heterogeneous dataset composition and 5-step data cleaning strategy."
+    },
+    {
+      "id": "S009",
+      "type": "results_zero_shot",
+      "section": "Experiments: Zero-Shot Generalization",
+      "paragraphs": "Para. 29 - Para. 33",
+      "summary": "Evaluation setup across 8 atomic actions and 7 condition constraints on Franka and Dexmal-Mirror platforms; Table 1 and Table 2."
+    },
+    {
+      "id": "S010",
+      "type": "results_real_robot",
+      "section": "Experiments: RoboChallenge Table30 v2",
+      "paragraphs": "Para. 34 - Para. 37",
+      "summary": "SOTA 43% success rate and 54.42 composite score on real-robot tabletop manipulation."
+    },
+    {
+      "id": "S011",
+      "type": "results_simulation",
+      "section": "Experiments: Simulated Manipulation & Navigation",
+      "paragraphs": "Para. 38 - Para. 40",
+      "summary": "SOTA results on LIBERO (99.0%), RoboTwin2.0 (93.5%), and R2R/RxR vision-language navigation benchmarks; Tables 3, 4, and 5."
+    },
+    {
+      "id": "S012",
+      "type": "results_memory",
+      "section": "Experiments: Historical Context Modeling",
+      "paragraphs": "Para. 41 - Para. 45",
+      "summary": "Real-world short-horizon cup-and-table wiping and long-horizon battery demonstration learning."
+    },
+    {
+      "id": "S013",
+      "type": "results_robustness",
+      "section": "Experiments: Policy Robustness",
+      "paragraphs": "Para. 46 - Para. 53",
+      "summary": "Camera viewpoint robustness matrix across 9 configurations (Table 6) and dynamic adaptation under human perturbations."
+    },
+    {
+      "id": "S014",
+      "type": "conclusion_ecosystem",
+      "section": "Conclusion & Dexmal Ecosystem",
+      "paragraphs": "Para. 54 - Para. 59",
+      "summary": "Foundational open-world philosophy, robotic ecosystem, platforms, and corporate contact."
+    },
+    {
+      "id": "S015",
+      "type": "postscript",
+      "section": "Technical Critical Reading Postscript",
+      "paragraphs": "Critical Analysis",
+      "summary": "In-depth technical critique on architectural highlights, trajectory alignment, memory, and industrial deployment."
+    }
+  ],
+  "assets": [
+    "assets/image_01.png",
+    "assets/image_02.png",
+    "assets/image_03.png",
+    "assets/image_04.png",
+    "assets/image_05.png",
+    "assets/image_06.png",
+    "assets/image_07.png",
+    "assets/image_08.png",
+    "assets/image_09.png",
+    "assets/image_10.png"
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "title": "Table 1: Zero-shot results by atomic action",
+      "asset": "assets/image_04.png",
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T002",
+      "title": "Table 2: Zero-shot results by instruction constraint",
+      "asset": "assets/image_05.png",
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T003",
+      "title": "Table 3: LIBERO benchmark results",
+      "asset": null,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T004",
+      "title": "Table 4: RoboTwin2.0 benchmark results",
+      "asset": null,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T005",
+      "title": "Table 5: Simulated navigation benchmarks (R2R & RxR)",
+      "asset": null,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T006",
+      "title": "Table 6: Camera viewpoint success rate matrix on Franka",
+      "asset": null,
+      "transcribed_markdown": true
+    }
+  ]
+}

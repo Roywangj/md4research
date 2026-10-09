@@ -1,0 +1,402 @@
+{
+  "paper_id": "doi:10.48550/arxiv.2305.16291",
+  "title": "VOYAGER: An Open-Ended Embodied Agent with Large Language Models",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "系统型 embodied agent 论文，核心是开放式 Minecraft 探索、代码技能库与反馈驱动的提示迭代；实验同时验证探索、科技树掌握、地图覆盖和新世界迁移。",
+  "dominant_domain": "embodied AI / lifelong learning / Minecraft agent",
+  "must_cover": [
+    "开放式 Minecraft 任务与 lifelong learning 问题定义",
+    "automatic curriculum、skill library、iterative prompting 三模块",
+    "Mineflayer 控制原语、GPT-4/GPT-3.5/embedding API 与实验设置",
+    "探索、科技树、地图覆盖、zero-shot 新任务和人类反馈结果",
+    "六项消融、skill retrieval accuracy 和附录实现细节",
+    "成本、错误、hallucination、视觉缺失及对机器人外推的边界"
+  ],
+  "key_numbers": [
+    "160 次 prompting iterations 内 VOYAGER 发现 63 个 unique items，约为对比方法 3.3 倍",
+    "地图遍历距离约为 baselines 2.3 倍；wood/stone/iron tech-tree milestone 分别快 15.3/8.5/6.4 倍",
+    "diamond tool 仅 VOYAGER 在 3 次试验中 1 次完成，平均 102 次 prompting iterations",
+    "zero-shot 四任务 VOYAGER 均 3/3 成功，平均 18–21 次；ReAct、Reflexion、AutoGPT 均在 50 次内失败",
+    "random curriculum 使 discovered item count 下降 93%；去掉 self-verification 下降 73%；GPT-3.5 仅 GPT-4 的 1/5.7 unique items",
+    "skill retrieval 309 samples：top-1 80.2±3.0，top-5 96.5±0.3"
+  ],
+  "central_claims": [
+    {
+      "claim": "把 action space 提升为可组合的 Mineflayer 程序，并把成功程序写入向量技能库，使 lifelong learning 能积累而非每次从零规划。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 2,
+            "end": 3
+          }
+        },
+        {
+          "section_id": "sec:method",
+          "pages": {
+            "start": 3,
+            "end": 6
+          }
+        },
+        {
+          "section_id": "sec:method-4",
+          "pages": {
+            "start": 19,
+            "end": 38
+          }
+        }
+      ],
+      "what_it_actually_proves": "在 Minecraft 的高层 API 控制设定中，程序技能可被检索、组合并复用。",
+      "what_it_does_not_prove": "不证明低层像素控制、真实机器人或跨环境技能迁移同样成立。"
+    },
+    {
+      "claim": "自动课程与三类反馈共同推动可持续探索。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": {
+            "start": 3,
+            "end": 6
+          }
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": {
+            "start": 6,
+            "end": 7
+          }
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": {
+            "start": 8,
+            "end": 10
+          }
+        }
+      ],
+      "what_it_actually_proves": "在作者的 Minecraft 任务、提示和三次试验协议下，这些组件的移除会显著降低探索表现。",
+      "what_it_does_not_prove": "消融不是完全正交的因果识别，且评测规模有限，不能外推到所有开放世界。"
+    },
+    {
+      "claim": "技能库支持新世界中的 zero-shot 任务完成，而不是仅在原轨迹上记忆。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:evaluation-results",
+          "pages": {
+            "start": 7,
+            "end": 8
+          }
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": {
+            "start": 8,
+            "end": 10
+          }
+        }
+      ],
+      "what_it_actually_proves": "清空 inventory 并重置世界后，VOYAGER 在四个未见任务上三次均成功，且比无库版本更少 prompting iterations。",
+      "what_it_does_not_prove": "任务仍限于 Minecraft 及预定义控制 API，不能据此声称通用 embodied intelligence。"
+    }
+  ],
+  "claim_boundaries": [
+    "实验比较的是高层 Mineflayer API agent，不是像素输入/低层键鼠控制；作者明确称二者不是 apple-to-apple。",
+    "论文将 self-verification 称为比 self-reflection 更全面，但它仍由 GPT-4 根据状态和任务判断，存在误判（如 spider string）。",
+    "摘要的 3.3x/2.3x/15.3x 是相对作者所选 baselines 的实验性比值，不是一般游戏能力的通用倍率。",
+    "附录 extraction 将若干附录页识别为 Method；页码范围仍以 PDF 页码和 A/B 小节为准。"
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "automatic curriculum 根据 inventory、环境状态、已完成/失败任务和 GPT-3.5 外部知识提议单一下一任务",
+      "observed_result": "random curriculum 的 item count 下降 93%，且 VOYAGER 稳定推进到 diamond",
+      "link": "任务难度和资源可达性被在线调整，避免过早提出不可完成目标"
+    },
+    {
+      "mechanism": "代码执行后把 bot.chat 环境反馈、解释器错误和 critic critique 回灌 GPT-4，最多每任务 4 轮",
+      "observed_result": "去掉 self-verification 下降 73%，去掉环境反馈或执行错误也低于完整系统",
+      "link": "反馈不仅纠错，还决定何时提交技能、何时换任务"
+    },
+    {
+      "mechanism": "成功程序以 GPT-3.5 生成的描述 embedding 为 key、可执行代码为 value，检索 top-5 放进新 prompt",
+      "observed_result": "top-5 retrieval accuracy 96.5±0.3；新世界四任务均 3/3 成功",
+      "link": "记忆以可组合程序而非自然语言日志保存，能支撑长时程技能复用"
+    }
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "明确开放式 Minecraft 的三项 lifelong learning 要求：在线选任务、从反馈改进并记忆技能、持续探索。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "交代 MineDojo 世界、agent state、单任务目标、Mineflayer code action space，以及四类评测指标和新世界 zero-shot protocol。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:evaluation-results",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "解释 automatic curriculum、向量技能库、四轮代码迭代和 GPT-4 self-verification 如何串成闭环，并指出控制 API 约束。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:method-4",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用数字比较 unique items、tech tree、map coverage、zero-shot 和六项 ablation，注明三次运行和最大 prompting iterations。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:evaluation-results",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:experiments-2",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:ablations",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:evaluation-results-2",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "把程序化记忆、课程难度、反馈纠错与结果模式连接起来，区分高层 API 设定下的证据和通用 embodied intelligence 的未证断言。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:method",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:related-work",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "具体讨论成本、幻觉、执行卡住、critic 误判、无视觉输入、人类反馈依赖与机器人外推安全约束。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments-2",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        },
+        {
+          "section_id": "sec:method-4",
+          "pages": {
+            "start": 1,
+            "end": 42
+          }
+        }
+      ]
+    },
+    {
+      "section": "核心信息",
+      "focus": "固定论文身份、作者机构、版本与链接，避免把判断句放入元数据。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "逐句忠实翻译摘要中的模块、black-box prompting、指标与 open-source 声明。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "列出自动课程、代码技能库、反馈迭代和无梯度 lifelong learning 的实际创新，并标出工程组装部分。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "用一句话指出论文把 GPT-4 变成会探索、会积累技能的 Minecraft 高层 embodied agent。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "把本文放到 3D embodied agent、tool-use planning 与 continual learning 图谱中，提炼可复用的课程与记忆设计。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "列出本文、MineDojo、ReAct、Reflexion、AutoGPT、Code as Policies 和 Mineflayer。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": {
+            "start": 1,
+            "end": 11
+          }
+        }
+      ]
+    }
+  ],
+  "real_comparisons": [
+    "与 ReAct、Reflexion、AutoGPT 在同一 MineDojo/高层 Mineflayer API 设置对比：VOYAGER 发现 63 items、地图距离 2.3×，且 only method unlocks diamond tool。",
+    "在 tech tree 三次运行中，AutoGPT 完成 wooden/stone/iron 但 diamond 0/3；VOYAGER 分别 6±2、11±2、21±7、diamond 102 (1/3) 次。",
+    "zero-shot 新世界中，VOYAGER 四任务均 3/3，AutoGPT、ReAct、Reflexion 无技能库均无法在 50 次内完成；将 VOYAGER skill library 插入 AutoGPT 后出现部分成功。"
+  ],
+  "negative_or_limiting_results": [
+    "GPT-4 API 成本约为 GPT-3.5 的 15 倍。",
+    "自动课程会提出不存在的 copper sword/copper chestplate；代码也会把 cobblestone 当燃料或调用不存在 API。",
+    "self-verification 偶尔误判，例如没有把 spider string 识别为击杀 spider 的成功信号；agent 也可能卡住。",
+    "VOYAGER 当前没有视觉感知；人类反馈实验只能说明视觉 critique 能补足空间细节，不能说明 agent 自主视觉理解已解决。"
+  ],
+  "comparative_positioning": [
+    "相对 ReAct/Reflexion/AutoGPT，本文把文本 agent 的推理循环接到可执行 Mineflayer API，并增加 automatic curriculum 与自生成 skill library。",
+    "相对 MineDojo、VPT、DreamerV3 等 Minecraft 工作，本文聚焦高层规划和 lifelong learning，不直接比较像素到低层动作的 controller。",
+    "相对 Code as Policies/ProgPrompt，本文将代码从一次性策略生成扩展为可检索、可组合、由环境执行反馈持续修正的技能记忆。"
+  ],
+  "reuse_takeaways": [
+    "对开放式 agent，先用状态条件化课程控制任务难度，再让规划器生成动作。",
+    "将长时程记忆保存为可执行且可组合的程序，比只存自然语言反思更接近能力复用。",
+    "把 environment feedback、interpreter error 和独立 success critic 分开记录，能诊断资源不足、代码错误和任务完成三类失败。",
+    "对新技能至少检查 identity、可复用性、依赖资源和检索质量；本文 top-5 retrieval 96.5% 是一个可复用的检查点。"
+  ],
+  "followup_questions": [
+    "若不改变任务和数据，只取消 skill retrieval，后期 plateau 的曲线是否可由更多 prompting 取代？",
+    "将 critic 换成人类或规则 checker 后，self-verification 的 -73% 消融是否仍成立？",
+    "把 Mineflayer API 换成像素输入控制器，程序技能的可组合优势是否仍然保留？",
+    "新世界任务是否真正 out-of-distribution，还是仍由 Minecraft recipe 和预训练 GPT-4 知识强力覆盖？"
+  ]
+}

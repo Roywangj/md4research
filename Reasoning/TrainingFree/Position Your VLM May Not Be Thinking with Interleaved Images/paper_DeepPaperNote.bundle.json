@@ -1,0 +1,3240 @@
+{
+  "status": "ok",
+  "script": "build_synthesis_bundle.py",
+  "paper_id": "title:8cc41398b86f",
+  "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+  "metadata": {
+    "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+    "translated_title": "",
+    "authors": [],
+    "affiliations": [],
+    "year": "",
+    "venue": "",
+    "doi": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/8TG39CQY/Position Your VLM May Not Be Thinking with Interleaved Images.pdf",
+    "abstract": "",
+    "arxiv_id": "",
+    "zotero_key": "",
+    "metadata_sources": [
+      "local_pdf"
+    ],
+    "identity_confidence": "low",
+    "identity_confidence_reasons": [
+      "pdf_metadata_title_used"
+    ]
+  },
+  "evidence_quality": "medium",
+  "coverage": {
+    "language_hint": "en",
+    "section_extraction_coverage": {
+      "coverage_status": "partial",
+      "recognized_sections": [
+        "preamble",
+        "abstract",
+        "introduction",
+        "method",
+        "conclusion"
+      ],
+      "core_sections_found": [
+        "introduction",
+        "method"
+      ],
+      "missing_core_sections": [
+        "experiment"
+      ],
+      "section_text_chars": {
+        "preamble": 110,
+        "abstract": 1240,
+        "introduction": 13937,
+        "method": 18412,
+        "conclusion": 873
+      },
+      "fallback_sections": []
+    },
+    "pdf_coverage": {
+      "total_pages": 13,
+      "text_max_pages": 32,
+      "text_pages_scanned": 13,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": null,
+      "section_stop_reason": "acknowledgments",
+      "section_stop_page": 8
+    },
+    "source_coverage": {
+      "total_pages": 13,
+      "text_max_pages": null,
+      "text_pages_extracted": 13,
+      "text_pages_scanned": 13,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": null
+    },
+    "source_manifest": {
+      "raw_sections_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+      "full_text_md_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_full_text.md",
+      "section_count": 17,
+      "page_count": 13,
+      "text_hash_sha256": "98784268e49cb4f810155732e63da74329ec39558f80c3bfcf1b3d3e42f2040d"
+    },
+    "appendix_evidence_counts": {
+      "ablation": 0,
+      "implementation_details": 0,
+      "dataset_details": 0,
+      "extra_results": 0,
+      "qualitative_examples": 0
+    },
+    "extraction_failures": [],
+    "asset_coverage": {
+      "total_pages": 13,
+      "asset_max_pages": 40,
+      "asset_pages_scanned": 13,
+      "truncated_due_to_asset_page_limit": false
+    },
+    "figure_quality_summary": {
+      "usable": 6,
+      "review": 0,
+      "reject": 3,
+      "unknown": 0
+    },
+    "truncation_warnings": [],
+    "identity_confidence": "low",
+    "identity_confidence_reasons": [
+      "pdf_metadata_title_used"
+    ]
+  },
+  "source_manifest": {
+    "paper_id": "title:8cc41398b86f",
+    "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+    "source_kind": "pdf_text",
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_full_text.md",
+    "pdf": {
+      "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/8TG39CQY/Position Your VLM May Not Be Thinking with Interleaved Images.pdf",
+      "total_pages": 13,
+      "text_pages_extracted": 13,
+      "text_max_pages": null,
+      "text_truncated": false
+    },
+    "coverage": {
+      "total_pages": 13,
+      "text_max_pages": null,
+      "text_pages_extracted": 13,
+      "text_pages_scanned": 13,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": false,
+      "appendix_start_page": null,
+      "references_start_page": null
+    }
+  },
+  "source_index": {
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_full_text.md",
+    "sections": [
+      {
+        "section_id": "sec:preamble",
+        "kind": "preamble",
+        "title": "preamble",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 110,
+        "text_hash_sha256": "b047cab8b78677808d4dc8eaba76e54397294fa5aebcfe83c114c9effeafce5e"
+      },
+      {
+        "section_id": "sec:abstract",
+        "kind": "abstract",
+        "title": "Abstract",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 1240,
+        "text_hash_sha256": "544731ebe063afcf5c4da76bd2851936930205d07818800f69f705d743d683b5"
+      },
+      {
+        "section_id": "sec:introduction",
+        "kind": "introduction",
+        "title": "1. Introduction",
+        "page_start": 1,
+        "page_end": 2,
+        "char_count": 4534,
+        "text_hash_sha256": "fac393f3b0b17f88701e0847c5774382ac938e78ee71d18e28723a40c86f3a22"
+      },
+      {
+        "section_id": "sec:related-work",
+        "kind": "introduction",
+        "title": "2. Related Work",
+        "page_start": 2,
+        "page_end": 3,
+        "char_count": 5954,
+        "text_hash_sha256": "478c8233ebbdb69eec1285b5f65ff71167ea940acc474c54c1e4095b4e4e0493"
+      },
+      {
+        "section_id": "sec:preliminaries",
+        "kind": "introduction",
+        "title": "3. Preliminaries",
+        "page_start": 3,
+        "page_end": 4,
+        "char_count": 3447,
+        "text_hash_sha256": "98c94d23e5e0a351fcffc981ce19c8e3a961f1feb4e771ed015c05b78b4bb9c7"
+      },
+      {
+        "section_id": "sec:method",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 4,
+        "page_end": 4,
+        "char_count": 379,
+        "text_hash_sha256": "9cbad0ef5a66d24a53fa5a84968ef1cecd3d1f9c1cc44b445963ef94593b5792"
+      },
+      {
+        "section_id": "sec:method-2",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 4,
+        "page_end": 4,
+        "char_count": 2433,
+        "text_hash_sha256": "f71f7da78d664677b402f9b03299cabbf192d624e108e4056e0ca96c6d07e0e1"
+      },
+      {
+        "section_id": "sec:method-3",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 4,
+        "page_end": 6,
+        "char_count": 6829,
+        "text_hash_sha256": "46f0e921d3d21e8567751af14c3f455eccbf8352f074e3ac8cf01cbf52f09ca9"
+      },
+      {
+        "section_id": "sec:method-4",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 6,
+        "page_end": 6,
+        "char_count": 113,
+        "text_hash_sha256": "1d708b16cba20695a121b70310f6f6e70a63e8b5761f27320f50d95db86446d2"
+      },
+      {
+        "section_id": "sec:method-5",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 6,
+        "page_end": 6,
+        "char_count": 122,
+        "text_hash_sha256": "aa37d5fabd34b806bf42b4613b4a26f0bdb5c7d466529e31ebe85fe58748d0cc"
+      },
+      {
+        "section_id": "sec:method-6",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 6,
+        "page_end": 7,
+        "char_count": 1604,
+        "text_hash_sha256": "3da426b71c33df448f2d90828b7e3197a158a21a7e30131f86f3f1fc6125adf5"
+      },
+      {
+        "section_id": "sec:method-7",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 7,
+        "page_end": 8,
+        "char_count": 6926,
+        "text_hash_sha256": "11aaa078e4ea36bb79ff3d664710bf2276788675c3cfae883b6334f19c5a6b35"
+      },
+      {
+        "section_id": "sec:conclusion",
+        "kind": "conclusion",
+        "title": "8. Conclusion",
+        "page_start": 8,
+        "page_end": 8,
+        "char_count": 873,
+        "text_hash_sha256": "50f1092563bf432cb460b08f3ea1bfb8844400ad216a682b5643f6f5cc68b90e"
+      },
+      {
+        "section_id": "sec:acknowledgments",
+        "kind": "acknowledgments",
+        "title": "Acknowledgments",
+        "page_start": 8,
+        "page_end": 8,
+        "char_count": 227,
+        "text_hash_sha256": "077063af5cd31337276900a6824737f6dae8ed5357dea0165443b405fa39824e"
+      },
+      {
+        "section_id": "sec:appendix",
+        "kind": "appendix",
+        "title": "Appendix.",
+        "page_start": 8,
+        "page_end": 8,
+        "char_count": 194,
+        "text_hash_sha256": "1c21096fb4f8c5d6ba3002355febc1f39e20ef2d48c58a9b637aa28826e9fcbb"
+      },
+      {
+        "section_id": "sec:references",
+        "kind": "references",
+        "title": "References",
+        "page_start": 8,
+        "page_end": 13,
+        "char_count": 19580,
+        "text_hash_sha256": "621914f262a8daf801ec7ee2f5ceacfb74076d226084509238f4d3a289822f2b"
+      },
+      {
+        "section_id": "sec:method-8",
+        "kind": "method",
+        "title": "Method",
+        "page_start": 13,
+        "page_end": 13,
+        "char_count": 2696,
+        "text_hash_sha256": "a3c0124b5af2681aacce523f55e459f7251dbaa2a665efbfb9f0f06759aedeed"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "char_count": 3804,
+        "section_ids": [
+          "sec:preamble",
+          "sec:abstract",
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 2,
+        "char_count": 5998,
+        "section_ids": [
+          "sec:introduction",
+          "sec:related-work"
+        ]
+      },
+      {
+        "page": 3,
+        "char_count": 5256,
+        "section_ids": [
+          "sec:related-work",
+          "sec:preliminaries"
+        ]
+      },
+      {
+        "page": 4,
+        "char_count": 4114,
+        "section_ids": [
+          "sec:preliminaries",
+          "sec:method",
+          "sec:method-2",
+          "sec:method-3"
+        ]
+      },
+      {
+        "page": 5,
+        "char_count": 2693,
+        "section_ids": [
+          "sec:method-3"
+        ]
+      },
+      {
+        "page": 6,
+        "char_count": 4765,
+        "section_ids": [
+          "sec:method-3",
+          "sec:method-4",
+          "sec:method-5",
+          "sec:method-6"
+        ]
+      },
+      {
+        "page": 7,
+        "char_count": 4616,
+        "section_ids": [
+          "sec:method-6",
+          "sec:method-7"
+        ]
+      },
+      {
+        "page": 8,
+        "char_count": 5292,
+        "section_ids": [
+          "sec:method-7",
+          "sec:conclusion",
+          "sec:acknowledgments",
+          "sec:appendix",
+          "sec:references"
+        ]
+      },
+      {
+        "page": 9,
+        "char_count": 4646,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 10,
+        "char_count": 5220,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 11,
+        "char_count": 4870,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 12,
+        "char_count": 3162,
+        "section_ids": [
+          "sec:references"
+        ]
+      },
+      {
+        "page": 13,
+        "char_count": 3088,
+        "section_ids": [
+          "sec:references",
+          "sec:method-8"
+        ]
+      }
+    ],
+    "captions": {
+      "figures": [
+        {
+          "id": "Figure 1",
+          "caption": "Illustration of the “Thinking with Images” frame-",
+          "page": 1,
+          "pages": [
+            1
+          ],
+          "section_id": "sec:preamble"
+        },
+        {
+          "id": "Figure 2",
+          "caption": "Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved",
+          "page": 5,
+          "pages": [
+            5
+          ],
+          "section_id": "sec:method-3"
+        }
+      ],
+      "tables": [
+        {
+          "id": "Table 1",
+          "caption": "Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section_id": "sec:preliminaries"
+        },
+        {
+          "id": "Table 2",
+          "caption": "Results on HRBench (Wang et al., 2025c). Qwen3-VL",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section_id": "sec:preliminaries"
+        },
+        {
+          "id": "Table 3",
+          "caption": "Effectiveness of vanilla SFT. DeepEyes-7B is the “Think-",
+          "page": 6,
+          "pages": [
+            6
+          ],
+          "section_id": "sec:method-3"
+        },
+        {
+          "id": "Table 4",
+          "caption": "Results on V∗(Wu & Xie, 2024) with masked images.",
+          "page": 7,
+          "pages": [
+            7
+          ],
+          "section_id": "sec:method-6"
+        },
+        {
+          "id": "Table 1",
+          "caption": "are easy to implement, as one need only sup-",
+          "page": 7,
+          "pages": [
+            7
+          ],
+          "section_id": "sec:method-6"
+        },
+        {
+          "id": "Table 5",
+          "caption": "Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual",
+          "page": 13,
+          "pages": [
+            13
+          ],
+          "section_id": "sec:references"
+        }
+      ]
+    },
+    "math_index": [
+      {
+        "text": "Wenjie Yang <yangago668@gmail.com>, Zengfeng Huang",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 2
+      },
+      {
+        "text": "<huangzf@fudan.edu.cn>.",
+        "section_id": "sec:introduction",
+        "page_start": 1,
+        "page_end": 2
+      },
+      {
+        "text": "the previous history St = (z1, . . . , zt−1). Let T denote the",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "where zt ∈T ∪I. We refer to the subset {zt|zt ∈I}",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "rollouts S = {S1, S2, · · · , SG} from the old policy πold and",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "LGRPO(θ) = E",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "i=1",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "t=1",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "where rt(θ) =",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "πθ(Si,t|(I,Q),Si,<t)",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "πold(Si,t|(I,Q),Si,<t) is the ratio function,",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "ˆAi,t = ri−mean(r)",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "the rewards r = {r1, r2, · · · , rG}, ϵ and β are hyperparam-",
+        "section_id": "sec:preliminaries",
+        "page_start": 3,
+        "page_end": 4
+      },
+      {
+        "text": "˜A(li) = A(li)A(li−1) . . . A(l0),",
+        "section_id": "sec:method-3",
+        "page_start": 4,
+        "page_end": 6
+      },
+      {
+        "text": "i.e., A(li) = 0.5W(li) + 0.5I and I is the identity matrix.",
+        "section_id": "sec:method-3",
+        "page_start": 4,
+        "page_end": 6
+      },
+      {
+        "text": "LSFT(θ) = E(I,Q,ST )∼D[−log πθ(ST |I, Q)],",
+        "section_id": "sec:method-3",
+        "page_start": 4,
+        "page_end": 6
+      },
+      {
+        "text": "where D = {(I, Q, ST )} denotes the finetuning data. Cru-",
+        "section_id": "sec:method-3",
+        "page_start": 4,
+        "page_end": 6
+      },
+      {
+        "text": "openreview.net/forum?id=mB3vxfrQZM.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "net/forum?id=yDKawwfJ5O.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "id=dHng2O0Jjr.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "id=VeZkY3JjWV.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "//openreview.net/forum?id=QWTCcxMpPA.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "//openreview.net/forum?id=Idst6X6gmy.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "forum?id=DgaY5mDdmT.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "//openreview.net/forum?id=k5VHHgsRbi.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "net/forum?id=gCWLkqK45O.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      },
+      {
+        "text": "forum?id=xUyMXkI958.",
+        "section_id": "sec:references",
+        "page_start": 8,
+        "page_end": 13
+      }
+    ],
+    "appendix_index": {
+      "appendix_detected": false,
+      "start_page": null,
+      "sections": [],
+      "figure_captions": [],
+      "table_captions": []
+    },
+    "language_hint": "en",
+    "text_hash_sha256": "98784268e49cb4f810155732e63da74329ec39558f80c3bfcf1b3d3e42f2040d"
+  },
+  "references": {
+    "candidates": []
+  },
+  "figure_plan": {
+    "paper_id": "title:8cc41398b86f",
+    "figures": [
+      {
+        "id": "Table 1",
+        "caption": "Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+          "width": 1384,
+          "height": 778,
+          "size_bytes": 150314,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.288355,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 612,
+            "table_body_rows": 16,
+            "caption_text_chars": 254,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "ablation",
+              "interleaved",
+              "images",
+              "within",
+              "visual"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 1. Ablation study of interleaved images within the visual CoT of “Thinking with Images” mod",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+                "width": 1384,
+                "height": 778,
+                "size_bytes": 150314,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.288355,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 612,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 254,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+                "width": 770,
+                "height": 948,
+                "size_bytes": 116086,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.195415,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2171,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 382,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_004_fig_table_2_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+                "width": 1700,
+                "height": 631,
+                "size_bytes": 239874,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.286896,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1668,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 577,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "ablation",
+              "interleaved",
+              "images",
+              "within",
+              "visual"
+            ],
+            "snippet": "by these results alone. In contrast, ablation studies on interleaved images, as shown in Table 1, are easy to implement, as one need only sup- press the output of the tool/code. This app",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+                "width": 691,
+                "height": 368,
+                "size_bytes": 51640,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.068175,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 83,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_1.png",
+                "width": 656,
+                "height": 282,
+                "size_bytes": 44385,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.049614,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1504,
+                  "table_body_rows": 1,
+                  "caption_text_chars": 286,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "ablation",
+              "interleaved",
+              "images",
+              "within",
+              "visual"
+            ],
+            "snippet": "tic transparency, we suggest that future “Thinking with Images” works include lightweight ablation studies to verify the necessity of interleaved images. Furthermore, we call upon the comm",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on HRBench (Wang et al., 2025c). Qwen3-VL",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+          "width": 770,
+          "height": 948,
+          "size_bytes": 116086,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "table_text_contamination_suspected"
+            ],
+            "page_coverage_ratio": 0.195415,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 2171,
+            "table_body_rows": 16,
+            "caption_text_chars": 382,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "hrbench",
+              "wang",
+              "qwen"
+            ],
+            "snippet": "nstruct (Bai et al., 2025a) is a recent, popular VLM with “Thinking with Images” capabil- Table 2. Results on HRBench (Wang et al., 2025c). Qwen3-VL denotes the Qwen/Qwen3-VL-235B-A22B-In",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+                "width": 1384,
+                "height": 778,
+                "size_bytes": 150314,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.288355,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 612,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 254,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+                "width": 770,
+                "height": 948,
+                "size_bytes": 116086,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.195415,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2171,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 382,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_004_fig_table_2_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+                "width": 1700,
+                "height": 631,
+                "size_bytes": 239874,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.286896,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1668,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 577,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 1,
+            "matched_terms": [
+              "wang"
+            ],
+            "snippet": "ave achieved substantial progress in recent years (Liu et al., 2023; Bai et al., 2025b;a; Wang et al., 2025d). A particularly prominent milestone is OpenAI o3 (OpenAI, 2025), which pio",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 1,
+            "matched_terms": [
+              "qwen"
+            ],
+            "snippet": "reasoning traces or interleaved images. Both models are finetuned from the same backbone, Qwen2.5-VL-7B (Bai et al., 2025b). ∆reports the performance difference between DeepEyes-SFT-7B",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+                "width": 688,
+                "height": 1028,
+                "size_bytes": 147770,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.189532,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 665,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Effectiveness of vanilla SFT. DeepEyes-7B is the “Think-",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_006_fig_table_3.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+          "width": 688,
+          "height": 1028,
+          "size_bytes": 147770,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.189532,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 15,
+            "caption_text_chars": 665,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "effectiveness",
+              "vanilla",
+              "deepeyes-",
+              "think-"
+            ],
+            "snippet": "nor textual CoT annotations, as it was originally constructed for reinforcement learning. Table 3. Effectiveness of vanilla SFT. DeepEyes-7B is the “Think- ing with Images” model trained",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+                "width": 688,
+                "height": 1028,
+                "size_bytes": 147770,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.189532,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 665,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "vanilla",
+              "deepeyes-",
+              "think-"
+            ],
+            "snippet": "e the optimal testbed for visual reasoning. 5.2. The Masked Experiment We have shown that vanilla SFT can achieve performance comparable to that of “Thinking with Images” models. How- eve",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+                "width": 691,
+                "height": 368,
+                "size_bytes": 51640,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.068175,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 83,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_1.png",
+                "width": 656,
+                "height": 282,
+                "size_bytes": 44385,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.049614,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1504,
+                  "table_body_rows": 1,
+                  "caption_text_chars": 286,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 1,
+            "matched_terms": [
+              "think-"
+            ],
+            "snippet": "ibution resulting from finetuning. These find- ings challenge the prevailing belief that “Think- ing with Images” VLMs actively utilize visual information to complete visual tasks. To im",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Results on V∗(Wu & Xie, 2024) with masked images.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_table_4.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+          "width": 691,
+          "height": 368,
+          "size_bytes": 51640,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.068175,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 83,
+            "table_body_rows": 5,
+            "caption_text_chars": 227,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 7,
+            "matched_terms": [
+              "table 4",
+              "masked",
+              "images"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 4. Results on V∗(Wu & Xie, 2024) with masked images. We mask the regions containing the tar",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+                "width": 691,
+                "height": 368,
+                "size_bytes": 51640,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.068175,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 83,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_1.png",
+                "width": 656,
+                "height": 282,
+                "size_bytes": 44385,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.049614,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1504,
+                  "table_body_rows": 1,
+                  "caption_text_chars": 286,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 1,
+            "matched_terms": [
+              "images"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Wenjie Yang * 1 Siqi Zhu * 1 Zengfeng Huang 1 2 Abstract “Thinking with Images” has emerg",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 1,
+            "matched_terms": [
+              "images"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 1. Ablation study of interleaved images within the visual CoT of “Thinking with Ima",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+                "width": 1384,
+                "height": 778,
+                "size_bytes": 150314,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.288355,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 612,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 254,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+                "width": 770,
+                "height": 948,
+                "size_bytes": 116086,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.195415,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2171,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 382,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_004_fig_table_2_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+                "width": 1700,
+                "height": 631,
+                "size_bytes": 239874,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.286896,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1668,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 577,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_013_fig_table_5.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_013_fig_table_5.png",
+          "width": 1384,
+          "height": 313,
+          "size_bytes": 60753,
+          "label": "Table 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.11611,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 5,
+            "caption_text_chars": 249,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 13,
+            "score": 8,
+            "matched_terms": [
+              "table 5",
+              "combining",
+              "vlms",
+              "hide",
+              "better",
+              "context"
+            ],
+            "snippet": "Be Thinking with Interleaved Images A. Bonus: A Simple Way to Achieve Better Performance Table 5. Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better cont",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_table_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_013_fig_table_5.png",
+                "width": 1384,
+                "height": 313,
+                "size_bytes": 60753,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.11611,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 249,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 3,
+            "matched_terms": [
+              "vlms",
+              "better",
+              "context"
+            ],
+            "snippet": "Zuidema, 2020; Chefer et al., 2021a;b), which provides intuitive insights into where the VLMs actually “see”. To better quantify the information flow, we utilize the attention rollout",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_01.png",
+                "width": 930,
+                "height": 627,
+                "size_bytes": 961671
+              },
+              {
+                "filename": "page_005_img_02.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_02.png",
+                "width": 315,
+                "height": 693,
+                "size_bytes": 217813
+              },
+              {
+                "filename": "page_005_img_03.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_03.png",
+                "width": 1988,
+                "height": 1512,
+                "size_bytes": 6519166
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+                "width": 1378,
+                "height": 1281,
+                "size_bytes": 1351967,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.47226,
+                  "visual_rect_count": 15,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 570,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 395,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "vlms",
+              "better",
+              "context"
+            ],
+            "snippet": "objects. These regions are then masked to occlude the visual targets, thereby forcing the VLMs to rely solely on the background context and infer the answers based on their internal te",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+                "width": 691,
+                "height": 368,
+                "size_bytes": 51640,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.068175,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 83,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_1.png",
+                "width": 656,
+                "height": 282,
+                "size_bytes": 44385,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.049614,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1504,
+                  "table_body_rows": 1,
+                  "caption_text_chars": 286,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "Illustration of the “Thinking with Images” frame-",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_001_fig_figure_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+          "width": 677,
+          "height": 978,
+          "size_bytes": 353913,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.177392,
+            "visual_rect_count": 4,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 481,
+            "table_body_rows": 0,
+            "caption_text_chars": 319,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 1,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "illustration",
+              "thinking",
+              "images",
+              "frame-"
+            ],
+            "snippet": "is visible. Above the door, there is a display window showing a red dress hanging inside. Figure 1. Illustration of the “Thinking with Images” frame- work. Ideally, “Thinking with Images”",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 2,
+            "matched_terms": [
+              "thinking",
+              "images"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 1. Ablation study of interleaved images within the visual C",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+                "width": 1384,
+                "height": 778,
+                "size_bytes": 150314,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.288355,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 612,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 254,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+                "width": 770,
+                "height": 948,
+                "size_bytes": 116086,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.195415,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2171,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 382,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_004_fig_table_2_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+                "width": 1700,
+                "height": 631,
+                "size_bytes": 239874,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.286896,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1668,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 577,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 2,
+            "matched_terms": [
+              "thinking",
+              "images"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Input Raw Image Query: What is the material of the glove? DeepEye",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_01.png",
+                "width": 930,
+                "height": 627,
+                "size_bytes": 961671
+              },
+              {
+                "filename": "page_005_img_02.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_02.png",
+                "width": 315,
+                "height": 693,
+                "size_bytes": 217813
+              },
+              {
+                "filename": "page_005_img_03.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_03.png",
+                "width": 1988,
+                "height": 1512,
+                "size_bytes": 6519166
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+                "width": 1378,
+                "height": 1281,
+                "size_bytes": 1351967,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.47226,
+                  "visual_rect_count": 15,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 570,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 395,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_005_fig_figure_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+          "width": 1378,
+          "height": 1281,
+          "size_bytes": 1351967,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.47226,
+            "visual_rect_count": 15,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 570,
+            "table_body_rows": 0,
+            "caption_text_chars": 395,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 5,
+            "score": 8,
+            "matched_terms": [
+              "figure 2",
+              "attention",
+              "maps",
+              "thinking",
+              "images",
+              "models"
+            ],
+            "snippet": ".... Interleaved Image Attention Map Answer: The animal depicted in the poster is a dove. Figure 2. Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_01.png",
+                "width": 930,
+                "height": 627,
+                "size_bytes": 961671
+              },
+              {
+                "filename": "page_005_img_02.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_02.png",
+                "width": 315,
+                "height": 693,
+                "size_bytes": 217813
+              },
+              {
+                "filename": "page_005_img_03.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_03.png",
+                "width": 1988,
+                "height": 1512,
+                "size_bytes": 6519166
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+                "width": 1378,
+                "height": 1281,
+                "size_bytes": 1351967,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.47226,
+                  "visual_rect_count": 15,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 570,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 395,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "thinking",
+              "images",
+              "models"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Wenjie Yang * 1 Siqi Zhu * 1 Zengfeng Huang 1 2 Abstract “Thinkin",
+            "images": [
+              {
+                "filename": "page_001_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+                "width": 2250,
+                "height": 1500,
+                "size_bytes": 589715
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+                "width": 840,
+                "height": 504,
+                "size_bytes": 56891
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+                "width": 677,
+                "height": 978,
+                "size_bytes": 353913,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.177392,
+                  "visual_rect_count": 4,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 481,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 319,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "thinking",
+              "images",
+              "models"
+            ],
+            "snippet": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 1. Ablation study of interleaved images within the visual C",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+                "width": 1384,
+                "height": 778,
+                "size_bytes": 150314,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.288355,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 612,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 254,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_004_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+                "width": 770,
+                "height": 948,
+                "size_bytes": 116086,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.195415,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2171,
+                  "table_body_rows": 16,
+                  "caption_text_chars": 382,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_004_fig_table_2_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+                "width": 1700,
+                "height": 631,
+                "size_bytes": 239874,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected",
+                    "table_text_contamination_suspected"
+                  ],
+                  "page_coverage_ratio": 0.286896,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 1668,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 577,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  },
+  "figure_table_manifest": {
+    "decisions_path": "/Users/roywangj/Documents/3d agent/.position_vlm_reasoning_work/paper_DeepPaperNote_figure_table_decisions.json",
+    "decisions": [
+      {
+        "item_id": "figure:Figure 1",
+        "source_id": "Figure 1",
+        "kind": "figure",
+        "label": "Figure 1",
+        "caption": "Illustration of the “Thinking with Images” frame-",
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble",
+        "decision": "insert",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_001_fig_figure_1.png",
+        "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 2",
+        "source_id": "Figure 2",
+        "kind": "figure",
+        "label": "Figure 2",
+        "caption": "Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved",
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method-3",
+        "decision": "insert",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_005_fig_figure_2.png",
+        "relative_markdown_embed": "![Figure 2](images/page_005_fig_figure_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 1",
+        "source_id": "Table 1",
+        "kind": "table",
+        "label": "Table 1",
+        "caption": "Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained",
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_004_fig_table_1.png",
+        "relative_markdown_embed": "![Table 1](images/page_004_fig_table_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 2",
+        "source_id": "Table 2",
+        "kind": "table",
+        "label": "Table 2",
+        "caption": "Results on HRBench (Wang et al., 2025c). Qwen3-VL",
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminaries",
+        "decision": "visual_defect",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "visual_quality_gate_rejected_candidate",
+        "visual_quality_status": "reject_visual_quality",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_004_fig_table_2.png",
+        "relative_markdown_embed": "![Table 2](images/page_004_fig_table_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png"
+      },
+      {
+        "item_id": "table:Table 3",
+        "source_id": "Table 3",
+        "kind": "table",
+        "label": "Table 3",
+        "caption": "Effectiveness of vanilla SFT. DeepEyes-7B is the “Think-",
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method-3",
+        "decision": "insert",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "table_result",
+        "source_image_filename": "page_006_fig_table_3.png",
+        "relative_markdown_embed": "![Table 3](images/page_006_fig_table_3.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 4",
+        "source_id": "Table 4",
+        "kind": "table",
+        "label": "Table 4",
+        "caption": "Results on V∗(Wu & Xie, 2024) with masked images.",
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-6",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_007_fig_table_4.png",
+        "relative_markdown_embed": "![Table 4](images/page_007_fig_table_4.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 5",
+        "source_id": "Table 5",
+        "kind": "table",
+        "label": "Table 5",
+        "caption": "Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual",
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_013_fig_table_5.png",
+        "relative_markdown_embed": "![Table 5](images/page_013_fig_table_5.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_013_fig_table_5.png",
+        "materialization_status": "pending"
+      }
+    ],
+    "caption_counts": {
+      "figures": 2,
+      "tables": 6
+    },
+    "planned_items": 7,
+    "requires_full_decision_table": true
+  },
+  "pdf_assets": {
+    "asset_root": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images",
+    "images_dir": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images",
+    "page_assets": [
+      {
+        "page_number": 1,
+        "searchable_text_chars": 3804,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 2,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Wenjie Yang * 1 Siqi Zhu * 1 Zengfeng Huang 1 2 Abstract “Thinking with Images” has emerged as a central research theme in the realm of Vision-Language Models (VLMs). This multi"
+      },
+      {
+        "page_number": 2,
+        "searchable_text_chars": 5998,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images ing such interleaved images is computationally expensive, as they significantly increase the context length for VLMs. Furthermore, they dramatically increase the difficulty of f"
+      },
+      {
+        "page_number": 3,
+        "searchable_text_chars": 5256,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images And there are also several concurrent works that also inves- tigate the effectiveness of zooming and cropping (Ma et al., 2026; Wei et al., 2026; Song et al., 2026). In this wor"
+      },
+      {
+        "page_number": 4,
+        "searchable_text_chars": 4114,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 1. Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained using VLMEvalKit (Duan et al., 2024). The values i"
+      },
+      {
+        "page_number": 5,
+        "searchable_text_chars": 2693,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 9,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Input Raw Image Query: What is the material of the glove? DeepEyes Output Input Image Attention Map Thought: Given the context of a food stall, it is likely that the glove is ma"
+      },
+      {
+        "page_number": 6,
+        "searchable_text_chars": 4765,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images qualitative insights, we consider the quantitative results from the ablation study to be more robust evidence of the model behavior. There are also other visualization technique"
+      },
+      {
+        "page_number": 7,
+        "searchable_text_chars": 4616,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Table 4. Results on V∗(Wu & Xie, 2024) with masked images. We mask the regions containing the target object in each image. “Attribute” denotes the attribute recognition task, an"
+      },
+      {
+        "page_number": 8,
+        "searchable_text_chars": 5292,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images While there have been admirable attempts to construct more challenging benchmarks, such as RealX-Bench (Hong et al., 2026), merely combining multiple diffi- culties within a sin"
+      },
+      {
+        "page_number": 9,
+        "searchable_text_chars": 4646,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Xu, H., and Lin, J. Qwen2.5-vl technical report, 2025b. URL https://arxiv.org/abs/2502.13923. Chefer, H., Gur, S., and Wolf, L. Transformer inter- pretability beyond attention v"
+      },
+      {
+        "page_number": 10,
+        "searchable_text_chars": 5220,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Liu, Z., Pan, J., She, Q., Gao, Y., and Xia, G. On the faithfulness of visual thinking: Measurement and enhancement, 2025c. URL https://arxiv.org/ abs/2510.23482. Ma, Y., Zhang,"
+      },
+      {
+        "page_number": 11,
+        "searchable_text_chars": 4870,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Wu, H., Wu, J., Wu, R., Wu, W., Wu, Y., Wu, Y., Wu, Y., Wu, Z., Xiao, C., Xie, J., Xie, X., Xie, Y., Xin, Y., Xing, B., Xu, B., Xu, J., Xu, J., Xu, J., Xu, L. H., Xu, L., Xu, S."
+      },
+      {
+        "page_number": 12,
+        "searchable_text_chars": 3162,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images Yu, B., Yuan, H., Li, H., Xu, X., Wei, Y., Wang, B., Qi, W., and Chen, K. Long-short chain-of-thought mixture su- pervised fine-tuning eliciting efficient reasoning in large lan"
+      },
+      {
+        "page_number": 13,
+        "searchable_text_chars": 3088,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Position: Your VLM May Not Be Thinking with Interleaved Images A. Bonus: A Simple Way to Achieve Better Performance Table 5. Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting v"
+      }
+    ],
+    "image_assets": [
+      {
+        "page_number": 1,
+        "image_index": 1,
+        "xref": 474,
+        "filename": "page_001_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 2250,
+        "height": 1500,
+        "colorspace": 3,
+        "size_bytes": 589715,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 1,
+        "image_index": 2,
+        "xref": 475,
+        "filename": "page_001_img_02.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_img_02.jpeg",
+        "ext": "jpeg",
+        "width": 840,
+        "height": 504,
+        "colorspace": 3,
+        "size_bytes": 56891,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 1,
+        "xref": 21,
+        "filename": "page_005_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_01.png",
+        "ext": "png",
+        "width": 930,
+        "height": 627,
+        "colorspace": 3,
+        "size_bytes": 961671,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 2,
+        "xref": 22,
+        "filename": "page_005_img_02.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_02.png",
+        "ext": "png",
+        "width": 315,
+        "height": 693,
+        "colorspace": 3,
+        "size_bytes": 217813,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 3,
+        "xref": 14,
+        "filename": "page_005_img_03.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_03.png",
+        "ext": "png",
+        "width": 1988,
+        "height": 1512,
+        "colorspace": 3,
+        "size_bytes": 6519166,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 4,
+        "xref": 15,
+        "filename": "page_005_img_04.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_04.png",
+        "ext": "png",
+        "width": 911,
+        "height": 693,
+        "colorspace": 3,
+        "size_bytes": 1496927,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 5,
+        "xref": 16,
+        "filename": "page_005_img_05.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_05.png",
+        "ext": "png",
+        "width": 693,
+        "height": 693,
+        "colorspace": 3,
+        "size_bytes": 100056,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 6,
+        "xref": 17,
+        "filename": "page_005_img_06.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_06.png",
+        "ext": "png",
+        "width": 2240,
+        "height": 1512,
+        "colorspace": 3,
+        "size_bytes": 4103315,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 7,
+        "xref": 18,
+        "filename": "page_005_img_07.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_07.png",
+        "ext": "png",
+        "width": 930,
+        "height": 627,
+        "colorspace": 3,
+        "size_bytes": 1043744,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 8,
+        "xref": 19,
+        "filename": "page_005_img_08.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_08.png",
+        "ext": "png",
+        "width": 930,
+        "height": 631,
+        "colorspace": 3,
+        "size_bytes": 780733,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 9,
+        "xref": 20,
+        "filename": "page_005_img_09.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_img_09.png",
+        "ext": "png",
+        "width": 2240,
+        "height": 1512,
+        "colorspace": 3,
+        "size_bytes": 3462204,
+        "extraction_level": "xref"
+      }
+    ],
+    "figure_assets": [
+      {
+        "filename": "page_001_fig_figure_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+        "page_number": 1,
+        "label": "Figure 1",
+        "kind": "figure",
+        "caption_text": "Figure 1. Illustration of the “Thinking with Images” frame- work. Ideally, “Thinking with Images” models leverage tools or code to generate interleaved images that facilitate visual reasoning tasks. This example demonstrates a successful reasoning trajectory where the model employs a zooming tool to resolve the query.",
+        "width": 677,
+        "height": 978,
+        "size_bytes": 353913,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.177392,
+          "visual_rect_count": 4,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 481,
+          "table_body_rows": 0,
+          "caption_text_chars": 319,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_table_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+        "page_number": 4,
+        "label": "Table 1",
+        "kind": "table",
+        "caption_text": "Table 1. Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained using VLMEvalKit (Duan et al., 2024). The values in parentheses indicate the performance difference compared to the full model.",
+        "width": 1384,
+        "height": 778,
+        "size_bytes": 150314,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.288355,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 612,
+          "table_body_rows": 16,
+          "caption_text_chars": 254,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_table_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png",
+        "page_number": 4,
+        "label": "Table 2",
+        "kind": "table",
+        "caption_text": "Table 2. Results on HRBench (Wang et al., 2025c). Qwen3-VL denotes the Qwen/Qwen3-VL-235B-A22B-Instruct checkpoint. ∆denotes the performance difference. The raw performance is reproduced by us, while the “Thinking with Images” result is reported by the official technical report of Qwen3-VL. We only report HRBench since the reproduced results of other benchmarks are not available.",
+        "width": 770,
+        "height": 948,
+        "size_bytes": 116086,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "table_text_contamination_suspected"
+          ],
+          "page_coverage_ratio": 0.195415,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 2171,
+          "table_body_rows": 16,
+          "caption_text_chars": 382,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_table_2_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2_2.png",
+        "page_number": 4,
+        "label": "Table 2",
+        "kind": "table",
+        "caption_text": "Table 2. We use Lmms-eval (Zhang et al., 2024) as the evaluation framework as suggested by the Qwen3VL team. The result shows that Qwen3-VL-235B-A22B-Instruct per- forms similarly, if not better, on perception benchmarks, which aligns with our previous findings for “Thinking with Images”-only VLMs. However, we would like to emphasize that this does not imply that training “Thinking with Images” models is without merit. The goal of this paper is to high- light that performance gains may not necessarily stem from the interleaving of images and text. Further experimentation",
+        "width": 1700,
+        "height": 631,
+        "size_bytes": 239874,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "table_body_missing",
+            "caption_only_suspected",
+            "table_text_contamination_suspected"
+          ],
+          "page_coverage_ratio": 0.286896,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 1668,
+          "table_body_rows": 0,
+          "caption_text_chars": 577,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_005_fig_figure_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+        "page_number": 5,
+        "label": "Figure 2",
+        "kind": "figure",
+        "caption_text": "Figure 2. Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved images, indicating the spatial focus of the answer tokens. These scores are computed using attention rollout (Abnar & Zuidema, 2020). Note that the generation sequence proceeds as follows: Thought text, followed by the interleaved image, and finally the Answer text.",
+        "width": 1378,
+        "height": 1281,
+        "size_bytes": 1351967,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.47226,
+          "visual_rect_count": 15,
+          "visual_body_ratio": 1.0,
+          "paragraph_text_chars": 570,
+          "table_body_rows": 0,
+          "caption_text_chars": 395,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_006_fig_table_3.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+        "page_number": 6,
+        "label": "Table 3",
+        "kind": "table",
+        "caption_text": "Table 3. Effectiveness of vanilla SFT. DeepEyes-7B is the “Think- ing with Images” model trained by Zheng et al. (2026) that depends on long CoT with tool-generated interleaved images. DeepEyes- SFT-7B is trained by us using vanilla SFT, without reasoning traces or interleaved images. Both models are finetuned from the same backbone, Qwen2.5-VL-7B (Bai et al., 2025b). ∆reports the performance difference between DeepEyes-SFT-7B and DeepEyes- 7B. Avg. denotes the macro average of the 8 benchmarks. The performance gap on MME-RealWorld-Lite (Zhang et al., 2025d) likely stems from its stringent reasoning requirements, for which RL proves more effective than SFT.",
+        "width": 688,
+        "height": 1028,
+        "size_bytes": 147770,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.189532,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 15,
+          "caption_text_chars": 665,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_007_fig_table_4.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+        "page_number": 7,
+        "label": "Table 4",
+        "kind": "table",
+        "caption_text": "Table 4. Results on V∗(Wu & Xie, 2024) with masked images. We mask the regions containing the target object in each image. “Attribute” denotes the attribute recognition task, and “Spatial” denotes the spatial relationship task.",
+        "width": 691,
+        "height": 368,
+        "size_bytes": 51640,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.068175,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 83,
+          "table_body_rows": 5,
+          "caption_text_chars": 227,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_007_fig_table_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_1.png",
+        "page_number": 7,
+        "label": "Table 1",
+        "kind": "table",
+        "caption_text": "Table 1, are easy to implement, as one need only sup- press the output of the tool/code. This approach is also cost-effective, requiring only inference adjustments. The genuine utility of interleaved images is validated only when their removal leads to a consistent drop in performance.",
+        "width": 656,
+        "height": 282,
+        "size_bytes": 44385,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "caption_only_suspected",
+            "table_text_contamination_suspected"
+          ],
+          "page_coverage_ratio": 0.049614,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 1504,
+          "table_body_rows": 1,
+          "caption_text_chars": 286,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_013_fig_table_5.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_013_fig_table_5.png",
+        "page_number": 13,
+        "label": "Table 5",
+        "kind": "table",
+        "caption_text": "Table 5. Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual evidence while avoiding additional textual context, and “Better prior” denotes finetuned priors. Best results are bold.",
+        "width": 1384,
+        "height": 313,
+        "size_bytes": 60753,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.11611,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 5,
+          "caption_text_chars": 249,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      }
+    ],
+    "ocr_available": false
+  },
+  "writing_contract": {
+    "language": "zh-CN",
+    "contract_role": "manifest_quality_contract",
+    "canonical_source": "SKILL.md defines the workflow; scripts/contracts.py defines machine-checkable contract data.",
+    "must_include_sections": [
+      "核心信息",
+      "原文摘要翻译",
+      "创新点",
+      "一句话总结",
+      "研究问题",
+      "数据与任务定义",
+      "方法主线",
+      "关键结果",
+      "深度分析",
+      "局限",
+      "我的笔记",
+      "引用"
+    ],
+    "note_plan_contract": {
+      "required_fields": [
+        "paper_type",
+        "paper_type_rationale",
+        "dominant_domain",
+        "must_cover",
+        "key_numbers",
+        "real_comparisons",
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions",
+        "section_plan"
+      ],
+      "artifact_preference": "short_json_planning_file",
+      "grounding_field": "section_plan[*].evidence_sources",
+      "analysis_coverage_field": "central_claims[*]"
+    },
+    "paper_type_selection": {
+      "source_of_truth": "note_plan.paper_type",
+      "suggested_paper_type_role": "none",
+      "allowed_paper_types": [
+        "AI_method",
+        "benchmark_or_dataset",
+        "clinical_or_psychology_empirical",
+        "humanities_or_social_science",
+        "survey_or_review"
+      ]
+    },
+    "contracts_by_paper_type": {
+      "AI_method": {
+        "paper_type": "AI_method",
+        "reader_lens": "面向能复现方法机制的技术读者",
+        "section_focus": [
+          "问题设置",
+          "方法机制",
+          "训练/推理流程",
+          "关键公式",
+          "比较基线",
+          "消融与失败边界"
+        ],
+        "required_checks": [
+          "需要说明机制流程、关键公式、实验设计、消融含义和失败边界。"
+        ],
+        "formula_rules": [
+          "仅保留理解方法必需的 1 到 3 个关键公式，并解释其工程含义。"
+        ],
+        "avoid_rules": [
+          "不要把非 AI_method 论文强行改写成模型架构。"
+        ],
+        "boundary_questions": [
+          "核心机制的收益由哪个实验或消融支撑，而不是只由主结果暗示？",
+          "哪些比较只能证明在当前数据、基线、算力或协议下有效，不能外推到通用场景？",
+          "论文是否给出失败、退化、不稳定或成本上升的证据；如果没有，结论边界是什么？"
+        ],
+        "section_semantics": {
+          "研究问题": "方法要解决的具体技术问题和现有方法短板。",
+          "数据与任务定义": "数据集、输入输出、评测任务和实验设置。",
+          "方法主线": "模型、算法、训练或推理机制。",
+          "关键结果": "主结果、强基线、消融和关键数字。",
+          "深度分析": "方法为什么有效、何处脆弱、复现和扩展代价。"
+        },
+        "recommended_subsections": {
+          "方法主线": [
+            "机制流程",
+            "模型结构",
+            "训练目标",
+            "推理与采样链路",
+            "关键实现细节"
+          ],
+          "关键结果": [
+            "主结果与强基线",
+            "消融到底说明了什么",
+            "失败或不稳定设置"
+          ],
+          "深度分析": [
+            "为什么有效",
+            "复杂度与扩展性",
+            "复现注意点"
+          ]
+        },
+        "mechanism_flow_contract": {
+          "apply_when_paper_type_in": [
+            "AI_method"
+          ],
+          "required_step_count": "3_to_4",
+          "required_step_fields": [
+            "input",
+            "operation",
+            "output_destination"
+          ]
+        }
+      },
+      "benchmark_or_dataset": {
+        "paper_type": "benchmark_or_dataset",
+        "reader_lens": "面向要判断 benchmark/dataset 可用性和偏差边界的研究者",
+        "section_focus": [
+          "任务拆分",
+          "数据来源与构建流程",
+          "标注协议",
+          "评测指标",
+          "覆盖范围与偏差",
+          "样本统计与数据开放限制"
+        ],
+        "required_checks": [
+          "需要说明数据来源、构建/标注流程、评测指标、基线表现、样本统计、数据开放或隐私限制和适用边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心评测指标、采样规则或划分定义。"
+        ],
+        "avoid_rules": [
+          "不要把数据构建流程写成模型 pipeline。"
+        ],
+        "boundary_questions": [
+          "这个 benchmark/dataset 实际测量的构念是什么，哪些能力只是间接近似？",
+          "任务、标签、采样、过滤或评测协议会引入哪些覆盖缺口或偏差？",
+          "基线结果证明了评测集有区分度，还是只证明某类模型适应该协议？",
+          "样本时长、语料长度、人口统计、类别分布、数据可访问性或隐私限制如何影响复现和外推？"
+        ],
+        "section_semantics": {
+          "研究问题": "这个 benchmark/dataset 想补足的评测或数据缺口。",
+          "数据与任务定义": "数据来源、任务拆分、标签/题目定义、样本范围。",
+          "方法主线": "数据构建、筛选、标注和评测协议，不写成模型 pipeline。",
+          "关键结果": "基线表现、难度分布、覆盖范围和偏差。",
+          "深度分析": "它真正测到了什么，以及不能代表什么。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "数据来源",
+            "任务拆分",
+            "标注/筛选协议"
+          ],
+          "方法主线": [
+            "构建流程",
+            "评测协议",
+            "Baseline 设置"
+          ],
+          "关键结果": [
+            "基线表现",
+            "难度分布",
+            "覆盖与偏差"
+          ],
+          "深度分析": [
+            "benchmark 真正测到了什么",
+            "适用边界"
+          ]
+        }
+      },
+      "clinical_or_psychology_empirical": {
+        "paper_type": "clinical_or_psychology_empirical",
+        "reader_lens": "面向关注临床/心理学样本、变量关系和外推边界的研究读者",
+        "section_focus": [
+          "样本来源",
+          "纳排标准",
+          "变量或量表",
+          "分析管线",
+          "效应量与不确定性",
+          "样本统计、伦理和数据可访问性"
+        ],
+        "required_checks": [
+          "需要区分相关、预测、组间差异和因果解释，说明样本统计、伦理/隐私约束与外推边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心统计模型、效应量、置信区间或量表定义。"
+        ],
+        "avoid_rules": [
+          "不要把相关性、预测性能或组间差异写成未经证明的因果结论。"
+        ],
+        "boundary_questions": [
+          "样本来源、纳排标准、测量工具和标注流程如何限制外推？",
+          "结果支持相关、预测、组间差异还是因果解释；不要越过论文设计能证明的范围。",
+          "临床或心理学意义是否依赖未观测混杂、量表阈值、文本/语音缺失或场景约束？",
+          "样本构成、数据缺失、隐私限制或材料不可公开会怎样限制复现与再分析？"
+        ],
+        "section_semantics": {
+          "研究问题": "临床、心理学或行为科学中的研究问题、假设或变量关系。",
+          "数据与任务定义": "样本来源、纳排标准、变量/量表、测量方式。",
+          "方法主线": "研究设计、分组、测量流程和统计分析路径。",
+          "关键结果": "主要效应、相关性、组间差异、不确定性或显著性。",
+          "深度分析": "结果解释、因果边界、临床/心理学意义和外推限制。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "样本与纳排标准",
+            "变量与量表",
+            "测量流程"
+          ],
+          "方法主线": [
+            "研究设计",
+            "分析模型",
+            "主要比较"
+          ],
+          "关键结果": [
+            "主要效应",
+            "不确定性与显著性",
+            "临床或心理学解释"
+          ],
+          "深度分析": [
+            "因果解释边界",
+            "外推限制"
+          ]
+        }
+      },
+      "humanities_or_social_science": {
+        "paper_type": "humanities_or_social_science",
+        "reader_lens": "面向关注理论框架、材料解释和论证结构的研究读者",
+        "section_focus": [
+          "研究对象",
+          "材料来源",
+          "理论框架",
+          "论证路径",
+          "概念贡献",
+          "解释边界"
+        ],
+        "required_checks": [
+          "需要区分作者论证、材料证据、规范性判断和实验事实。"
+        ],
+        "formula_rules": [
+          "通常不强行保留公式；仅保留核心形式化定义或编码规则。"
+        ],
+        "avoid_rules": [
+          "不要把规范性判断、文本解释或案例分析写成实验事实。"
+        ],
+        "boundary_questions": [
+          "作者的解释依赖哪些材料、案例或理论前提？",
+          "是否存在同样能解释材料的替代解释，论文如何排除或没有排除？",
+          "哪些结论是概念贡献或规范性判断，而不是可直接当作经验事实？"
+        ],
+        "section_semantics": {
+          "研究问题": "作者要解释的社会、文化、历史、制度或理论问题。",
+          "数据与任务定义": "材料、案例、文本、访谈、档案或语料范围，不写成 ML task。",
+          "方法主线": "理论框架、概念区分和论证路径。",
+          "关键结果": "核心解释性发现、概念贡献或对既有观点的修正。",
+          "深度分析": "论证强度、材料边界、解释替代性和可迁移性。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "材料范围",
+            "选择标准",
+            "案例或语料边界"
+          ],
+          "方法主线": [
+            "理论框架",
+            "概念区分",
+            "论证路径"
+          ],
+          "关键结果": [
+            "核心解释性发现",
+            "概念贡献"
+          ],
+          "深度分析": [
+            "论证强度",
+            "替代解释",
+            "材料边界"
+          ]
+        }
+      },
+      "survey_or_review": {
+        "paper_type": "survey_or_review",
+        "reader_lens": "面向需要梳理综述脉络、分类体系和证据边界的研究读者",
+        "section_focus": [
+          "综述范围",
+          "纳入排除标准",
+          "主题分类",
+          "方法谱系",
+          "共识与分歧",
+          "开放问题"
+        ],
+        "required_checks": [
+          "需要说明综述范围、文献选择、分类体系、共识分歧和开放问题。"
+        ],
+        "formula_rules": [
+          "仅保留分类轴、纳入排除准则、证据汇总规则或 meta-analysis 统计量。"
+        ],
+        "avoid_rules": [
+          "不要把综述中的代表性结论写成作者自己完成的单项实验结果。"
+        ],
+        "boundary_questions": [
+          "检索范围、纳入排除标准或分类轴会遗漏哪些研究路线？",
+          "综述给出的是领域共识、作者分类，还是尚未解决的分歧？",
+          "哪些趋势结论来自覆盖范围内的文献分布，不能直接当作技术成熟度判断？"
+        ],
+        "section_semantics": {
+          "研究问题": "综述试图整理的领域问题、争议或知识缺口。",
+          "数据与任务定义": "纳入文献范围、检索/筛选标准和综述对象。",
+          "方法主线": "分类体系、综述组织方式和证据综合逻辑，不写成单篇方法架构。",
+          "关键结果": "领域共识、分歧、趋势、代表性方向和开放问题。",
+          "深度分析": "综述覆盖的盲区、分类体系的解释力和未来研究机会。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "综述范围",
+            "纳入/排除标准",
+            "文献覆盖"
+          ],
+          "方法主线": [
+            "分类体系",
+            "方法谱系",
+            "证据组织方式"
+          ],
+          "关键结果": [
+            "代表性方向",
+            "共识与分歧",
+            "开放问题"
+          ],
+          "深度分析": [
+            "分类体系的局限",
+            "未覆盖区域",
+            "后续研究机会"
+          ]
+        }
+      }
+    },
+    "grounding_contract": {
+      "source_of_truth": "source_manifest",
+      "accepted_reference_forms": [
+        "section_id",
+        "pages"
+      ],
+      "required_sections": [
+        "研究问题",
+        "数据与任务定义",
+        "方法主线",
+        "关键结果",
+        "深度分析",
+        "局限"
+      ],
+      "note_plan_depth_requirements": {
+        "required_section_focus_min_chars": 20,
+        "required_section_focus_fields": [
+          "focus",
+          "reading_goal",
+          "purpose"
+        ],
+        "generic_focus_phrases": [
+          "use the raw source to explain",
+          "paper-specific role of",
+          "explain the paper-specific role",
+          "explain this section",
+          "summarize this section"
+        ]
+      },
+      "reject_old_references": [
+        "synthesis_bundle.evidence",
+        "bundle.evidence",
+        "synthesis_bundle.candidate_chunks",
+        "synthesis_bundle.section_texts",
+        "synthesis_bundle.summary",
+        "bundle.candidate_chunks",
+        "bundle.section_texts",
+        "bundle.summary"
+      ],
+      "lint_command": "scripts/lint_grounding.py --note-plan ... --source-manifest ... --bundle-json ..."
+    },
+    "figure_table_contract": {
+      "placeholder_first": true,
+      "visual_quality_gate": "fail_closed",
+      "decision_table_required": true,
+      "decision_values": [
+        "insert",
+        "placeholder",
+        "low_priority",
+        "visual_defect",
+        "skip"
+      ],
+      "usable_insert_candidate": {
+        "kinds": [
+          "figure",
+          "table"
+        ],
+        "visual_quality_status": "usable_candidate",
+        "requires_source_image_path": true
+      },
+      "allowed_usable_placeholder_reasons": [
+        "visual_defect",
+        "materialization_blocked"
+      ],
+      "manual_visual_review_required_statuses": [
+        "usable_candidate",
+        "needs_visual_quality_check",
+        "review"
+      ],
+      "automatic_fail_closed_visual_statuses": [
+        "reject_visual_quality",
+        "asset_candidate_missing"
+      ],
+      "manual_review_claim_requires_image_inspection": true
+    },
+    "analysis_coverage_contract": {
+      "central_claim_fields": [
+        "claim",
+        "supporting_evidence",
+        "what_it_actually_proves",
+        "what_it_does_not_prove"
+      ],
+      "required_plan_fields": [
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions"
+      ],
+      "final_quality_review_checks": [
+        "central_claims_are_supported_by_raw_sections_or_pages",
+        "key_experimental_settings_and_numbers_are_present",
+        "mechanisms_or_protocol_choices_are_mapped_to_results",
+        "comparisons_explain_positioning_against_alternatives",
+        "discussion_or_limitation_claims_are_explained_mechanistically",
+        "proven_claims_are_separated_from_unproven_or_unvalidated_claims",
+        "research_or_engineering_takeaways_are_specific_and_reusable",
+        "followup_questions_are_specific_to_replication_or_extension"
+      ]
+    }
+  }
+}

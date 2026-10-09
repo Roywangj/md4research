@@ -1,0 +1,574 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2510.16410",
+  "title": "REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.realm_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.realm_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D99TFPBN/Shi 等 - 2025 - REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Spla.pdf",
+    "total_pages": 10,
+    "text_pages_extracted": 10,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 10,
+    "text_max_pages": null,
+    "text_pages_extracted": 10,
+    "text_pages_scanned": 10,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1158,
+      "text_hash_sha256": "d8cebf46bc649785d91b4d338286649250db8ee250dffd9fc9cc7b448dd25222"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1676,
+      "text_hash_sha256": "a2345ae97f5440fad54c1df12ae1abdf0c06eefbfd1639bf573b154139da969a"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 8296,
+      "text_hash_sha256": "f443bd57f156ae107fa0d04fe7bb393aef97bb773b02cef800c6eaf0dbb1ae18"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "models",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 2102,
+      "text_hash_sha256": "ed146c0d8e12f6734ef1e11725296a91fe6aafc3f8c87118f91afeb5525fdfc6"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "3. Methodology",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 5568,
+      "text_hash_sha256": "39e910db0c4ae4418d70ede187240ad6debda821acd55c7dfd87fbee005a5ce2"
+    },
+    {
+      "section_id": "sec:methods",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 1440,
+      "text_hash_sha256": "caf6c95e78bc2931cc5fa31dc0985043e19d237e4bba65d8156d69d4f2186cea"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "4. Experiments",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 3499,
+      "text_hash_sha256": "c98c579e1929413564cfaa9e32155fd7edd6e614b6485d8a1fb827acb73c762d"
+    },
+    {
+      "section_id": "sec:methods-2",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 279,
+      "text_hash_sha256": "9c8537706cc59f858e94d286c2bff8579ddb7fede5f682ef4cb9a4e8dae47596"
+    },
+    {
+      "section_id": "sec:methods-3",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 277,
+      "text_hash_sha256": "1b6b5db589703f5177bf0be0babaaec8aab30d3b754886be3d02d89ba4890a9a"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 6701,
+      "text_hash_sha256": "31c76efe1fa8841fbbba0c73fd8b4000c25f454c01d6e1097d151ddb61a9b02f"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "5. Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 652,
+      "text_hash_sha256": "423e019b43f5cc050c04b2a5c1f9b2006968bcc29a6ae6f8778e5bdada611641"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 9063,
+      "text_hash_sha256": "15aa5ed37eb4f6ad1da692799f7e33f0119f67adda954d91687471a3ce975824"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3140,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5105,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3629,
+      "section_ids": [
+        "sec:introduction",
+        "sec:models"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4944,
+      "section_ids": [
+        "sec:models",
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2119,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4412,
+      "section_ids": [
+        "sec:methodology",
+        "sec:methods",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3118,
+      "section_ids": [
+        "sec:experiments",
+        "sec:methods-2",
+        "sec:methods-3",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5419,
+      "section_ids": [
+        "sec:method",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5754,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3327,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "We propose REALM, an MLLM-agent framework designed for open-world 3D reasoning segmentation and editing within 3D",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "REALM vs. Direct Image Inputs. Feeding one or a",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of REALM. Top: Global-to-Local Spatial Grounding (GLSpaG) pipline hierarchically aggregates the outputs of",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Global reasoning process. We visualize reasoning out-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:models"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Qualitative Results on the LERF Dataset. The results demonstrate the ability of REALM to handle complex and implicit",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Ablation study on GLSpaG. The local grounding stage",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Language-driven 3D editing. Once the object is grounded, we can perform a wide range of 3D editing tasks.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Annotation prompt for REALM3D dataset. We use",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:method"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Quantitative results on LERF [13], 3D-OVS [20] and our proposed REALM3D benchmarks. We compare REALM with",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Ablation Study. We conduct a detailed ablation study on “Figurines” of the LERF dataset to evaluate the contribution of each",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiments"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "REAVRQLQJ\u0003$Q\\\u0003\u0016'\u00036FHQH\u0003ZLWK\u00030/LM",
+      "section_id": "sec:preamble",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "text": "each Gaussian Gi = {xi, si, ri, oi, ci} with an instance fea-",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "ture fi ∈RD. The feature can be rendered to a 2D feature",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "F =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "ˆid(u, v) = arg max",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "(B, C, E) = MLLM(I, q),",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where B = {(x1, y1, x2, y2)} represents the predicted 2D",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "generate the corresponding binary object mask M 2D ∈",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "= KMeans({ϕtrain",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "j=1 , N cluster).",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "For each view ϕi ∈{ϕcluster",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "= TopK-ID",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "final target instance identity IDq = arg max",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "c∈C",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i =",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "= IDy",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "̸= IDy",
+      "section_id": "sec:methodology",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "i=1 =",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "IDy ∈ˆidj, j = 1, . . . , N clustero",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "i=1 .",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "Llocal =",
+      "section_id": "sec:methods",
+      "page_start": 6,
+      "page_end": 6
+    },
+    {
+      "text": "N cluster = 24 and the number of global views N global = 8.",
+      "section_id": "sec:experiments",
+      "page_start": 6,
+      "page_end": 7
+    },
+    {
+      "text": "Ncluster = 2",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "Ncluster = 24",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "N cluster = 128",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "N global = 1",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "N global = 2",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "N global = 8",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "Nglobal = 16",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "itr=10",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "itr=50",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "itr=500",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "itr=1000",
+      "section_id": "sec:method",
+      "page_start": 7,
+      "page_end": 8
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "1419e2d5526d5aa4d79dba4c78e00cfada2e68617c4017969d38b252f1994331"
+}

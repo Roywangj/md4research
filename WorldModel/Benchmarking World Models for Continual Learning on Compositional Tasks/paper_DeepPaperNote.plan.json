@@ -1,0 +1,58 @@
+{
+  "paper": {
+    "title": "Benchmarking World Models for Continual Learning on Compositional Tasks",
+    "short_title": "Compositional Continual World Models",
+    "year": 2026,
+    "venue": "arXiv:2609.22055"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总牛津大学 A2I 团队、核心作者、开源主页、核心创新与关键战绩指标"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达组合式持续学习与知识复用解耦的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "五大核心突破：解耦复用与学习速度、动作与感知正交分解组合基准、原则性世界模型骨干与任务头解耦架构、渐进式持续混合专家PWM、冻结编码器诊断探针"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "极简凝练模型核心定位与学术价值"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深挖传统持续学习基准中未知任务容量与历史知识复用的严重纠缠，以及世界模型在组合式物理世界中的天然复用契机"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "系统拆解 6 大组合任务套件（Action、Perception、Full Composition），解析 9 通道多视角与 7 维本体感觉连续控制接口"
+    },
+    {
+      "section": "方法主线",
+      "goal": "详述世界模型原则性解耦范式、四大传统持续学习方法在整块模型上的适配、持续渐进式 PWM 架构以及冻结编码器严谨对照实验"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全面剖析 DreamerV3 凭借生成式重构压制 TD-MPC2、传统 CL 方法在 BWT 与 FWT 间的零和博弈、组合轴难度单调递增规律、PWM 路由矩阵与专家功能性消融"
+    },
+    {
+      "section": "深度分析",
+      "goal": "从第一性原理探究为什么模块化能防遗忘但受制于表征漂移、任务级静态路由为何受阻于时序组合、三大认知误区澄清与工程复现指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出在线 MBRL 采样步数巨大、依赖稠密奖励与模拟器 Reset、缺乏真机硬件评测等局限"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "横向大比拼：本工作与 Continual World, LIBERO, CompoSuite, CausalWorld, DINO-WM 全景横评与具身智能启示"
+    },
+    {
+      "section": "引用",
+      "goal": "标准 BibTeX 条目"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+\begin{table*}[p]
+\centering
+\caption{\textbf{Per-Task Results on GemBench L3 (novel articulated objects).}
+Success rates (\%), mean$\pm$std over five random seeds with 20
+trials per task variation;
+columns are denoted \emph{task+variation}. Baseline numbers are
+quoted from~\cite{garcia2024towards}. Best result per column in
+bold.}
+\label{tab:gembench_sota_cmpr_l3_detail}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{Method} & \textbf{Avg.} & \begin{tabular}[c]{@{}c@{}}Close\\ Door+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Close\\ Box+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Close\\ Fridge2+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}CloseLaptop\\ Lid2+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Close\\ Microwave2+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Door2+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Box2+0\end{tabular} \\
+\midrule
+Hiveformer~\cite{guhur2023instruction} & 35.1$_{\pm 1.7}$ & 0$_{\pm 0.0}$ & 1$_{\pm 2.2}$ & 34$_{\pm 9.6}$ & 52$_{\pm 9.1}$ & 15$_{\pm 7.1}$ & 32$_{\pm 11.5}$ & 5$_{\pm 3.5}$ \\
+PolarNet~\cite{chen2023polarnet} & 38.5$_{\pm 1.7}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 78$_{\pm 5.7}$ & 26$_{\pm 8.2}$ & 74$_{\pm 6.5}$ & 33$_{\pm 6.7}$ & 23$_{\pm 8.4}$ \\
+3D Diffuser Actor~\cite{3d-da} & 37.0$_{\pm 2.2}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \textbf{97}$_{\pm 2.7}$ & 23$_{\pm 6.7}$ & 88$_{\pm 7.6}$ & \textbf{86}$_{\pm 7.4}$ & 67$_{\pm 9.8}$ \\
+RVT-2~\cite{goyal2024rvt} & 36.0$_{\pm 2.2}$ & 1$_{\pm 2.2}$ & 2$_{\pm 2.7}$ & 72$_{\pm 6.7}$ & 42$_{\pm 14.0}$ & 71$_{\pm 8.9}$ & 79$_{\pm 6.5}$ & 5$_{\pm 6.1}$ \\
+3D-LOTUS~\cite{garcia2024towards} & 38.1$_{\pm 1.1}$ & 0$_{\pm 0.0}$ & \textbf{58}$_{\pm 8.1}$ & 36$_{\pm 9.7}$ & 54$_{\pm 10.7}$ & 85$_{\pm 7.1}$ & 42$_{\pm 6.8}$ & 11$_{\pm 6.6}$ \\
+3D-LOTUS++~\cite{garcia2024towards} & 41.5$_{\pm 1.8}$ & \textbf{1}$_{\pm 2.0}$ & 29$_{\pm 8.6}$ & 93$_{\pm 2.5}$ & 50$_{\pm 9.5}$ & \textbf{99}$_{\pm 2.0}$ & 52$_{\pm 10.3}$ & 16$_{\pm 8.0}$ \\
+\midrule
+\textbf{\method\ (ours)} & \textbf{43.8}$_{\pm 1.2}$ & 0$_{\pm 0.0}$ & 1$_{\pm 2.0}$ & 95$_{\pm 5.5}$ & \textbf{77}$_{\pm 4.0}$ & 54$_{\pm 10.2}$ & 68$_{\pm 10.8}$ & \textbf{74}$_{\pm 4.9}$ \\
+\textbf{\memmethod\ (ours)} & 38.5$_{\pm 0.9}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \textbf{97}$_{\pm 4.0}$ & 15$_{\pm 5.5}$ & 34$_{\pm 9.2}$ & 73$_{\pm 5.1}$ & 30$_{\pm 10.5}$ \\
+\midrule
+\textbf{Method} & \begin{tabular}[c]{@{}c@{}}Open\\ Drawer2+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Drawer3+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}OpenDrawer\\ Long+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}OpenDrawer\\ Long+1\end{tabular} & \begin{tabular}[c]{@{}c@{}}OpenDrawer\\ Long+2\end{tabular} & \begin{tabular}[c]{@{}c@{}}OpenDrawer\\ Long+3\end{tabular} & \begin{tabular}[c]{@{}c@{}}Toilet\\ SeatUp+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Fridge+0\end{tabular} \\
+\midrule
+Hiveformer~\cite{guhur2023instruction} & 59$_{\pm 11.9}$ & 39$_{\pm 11.9}$ & 78$_{\pm 8.4}$ & 82$_{\pm 4.5}$ & 49$_{\pm 4.2}$ & 57$_{\pm 11.5}$ & 6$_{\pm 4.2}$ & 0$_{\pm 0.0}$ \\
+PolarNet~\cite{chen2023polarnet} & \textbf{91}$_{\pm 4.2}$ & 29$_{\pm 8.2}$ & 84$_{\pm 11.9}$ & \textbf{88}$_{\pm 5.7}$ & \textbf{63}$_{\pm 8.4}$ & 37$_{\pm 7.6}$ & 2$_{\pm 2.7}$ & 4$_{\pm 2.2}$ \\
+3D Diffuser Actor~\cite{3d-da} & 19$_{\pm 8.2}$ & 1$_{\pm 2.2}$ & 15$_{\pm 5.0}$ & 35$_{\pm 13.7}$ & 26$_{\pm 9.6}$ & 79$_{\pm 12.9}$ & 0$_{\pm 0.0}$ & 7$_{\pm 5.7}$ \\
+RVT-2~\cite{goyal2024rvt} & 81$_{\pm 11.9}$ & 0$_{\pm 0.0}$ & \textbf{84}$_{\pm 8.2}$ & 39$_{\pm 10.8}$ & 11$_{\pm 8.9}$ & 75$_{\pm 6.1}$ & 7$_{\pm 5.7}$ & 0$_{\pm 0.0}$ \\
+3D-LOTUS~\cite{garcia2024towards} & 90$_{\pm 3.2}$ & 22$_{\pm 8.1}$ & 56$_{\pm 13.9}$ & 33$_{\pm 11.2}$ & 17$_{\pm 8.1}$ & 75$_{\pm 6.3}$ & 0$_{\pm 0.0}$ & 4$_{\pm 5.8}$ \\
+3D-LOTUS++~\cite{garcia2024towards} & 70$_{\pm 5.5}$ & 41$_{\pm 4.9}$ & 72$_{\pm 4.0}$ & 52$_{\pm 10.8}$ & 23$_{\pm 8.1}$ & 78$_{\pm 5.1}$ & \textbf{8}$_{\pm 5.1}$ & 0$_{\pm 0.0}$ \\
+\midrule
+\textbf{\method\ (ours)} & 65$_{\pm 6.3}$ & \textbf{87}$_{\pm 6.0}$ & 59$_{\pm 8.6}$ & 34$_{\pm 8.0}$ & 18$_{\pm 10.3}$ & \textbf{85}$_{\pm 8.4}$ & 6$_{\pm 5.8}$ & 7$_{\pm 2.5}$ \\
+\textbf{\memmethod\ (ours)} & 85$_{\pm 9.5}$ & 82$_{\pm 11.2}$ & 52$_{\pm 8.7}$ & 43$_{\pm 8.1}$ & 11$_{\pm 9.7}$ & 83$_{\pm 6.8}$ & 1$_{\pm 2.0}$ & \textbf{11}$_{\pm 10.7}$ \\
+\midrule
+\textbf{Method} & \begin{tabular}[c]{@{}c@{}}OpenLaptop\\ Lid+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Microwave+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}PutMoney\\ InSafe+2\end{tabular} & \begin{tabular}[c]{@{}c@{}}Open\\ Drawer+1\end{tabular} & \begin{tabular}[c]{@{}c@{}}Close\\ Drawer+0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Close\\ Grill+0\end{tabular} &  &  \\
+\midrule
+Hiveformer~\cite{guhur2023instruction} & \textbf{100}$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 83$_{\pm 5.7}$ & 44$_{\pm 10.8}$ &  &  \\
+PolarNet~\cite{chen2023polarnet} & \textbf{100}$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 1$_{\pm 2.2}$ & 4$_{\pm 4.2}$ & 29$_{\pm 11.9}$ & 42$_{\pm 11.5}$ &  &  \\
+3D Diffuser Actor~\cite{3d-da} & \textbf{100}$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 2$_{\pm 4.5}$ & 0$_{\pm 0.0}$ & 66$_{\pm 7.4}$ & \textbf{65}$_{\pm 13.7}$ &  &  \\
+RVT-2~\cite{goyal2024rvt} & 93$_{\pm 5.7}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \textbf{6}$_{\pm 2.2}$ & 78$_{\pm 8.4}$ & 9$_{\pm 4.2}$ &  &  \\
+3D-LOTUS~\cite{garcia2024towards} & \textbf{100}$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & \textbf{87}$_{\pm 8.1}$ & 29$_{\pm 6.6}$ &  &  \\
+3D-LOTUS++~\cite{garcia2024towards} & 86$_{\pm 6.6}$ & 0$_{\pm 0.0}$ & \textbf{13}$_{\pm 8.1}$ & 0$_{\pm 0.0}$ & 69$_{\pm 5.8}$ & 19$_{\pm 13.9}$ &  &  \\
+\midrule
+\textbf{\method\ (ours)} & 95$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 2$_{\pm 2.5}$ & 0$_{\pm 0.0}$ & 58$_{\pm 12.9}$ & 35$_{\pm 12.3}$ &  &  \\
+\textbf{\memmethod\ (ours)} & \textbf{100}$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 0$_{\pm 0.0}$ & 51$_{\pm 9.7}$ & 40$_{\pm 7.7}$ & & \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

@@ -1,0 +1,107 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一种机器人策略架构，并通过共享实现下的受控变体区分训练期视频协同训练与推理期未来想象的作用，核心证据来自方法机制、消融和部署延迟。",
+  "dominant_domain": "embodied AI and robot learning",
+  "must_cover": [
+    "训练期视频协同训练与测试期未来生成的因果区分",
+    "结构化注意力掩码如何阻断动作读取未来视频",
+    "动作与视频的联合流匹配目标",
+    "Fast-WAM、Joint、IDM 与无视频协同训练变体的公平比较",
+    "RoboTwin、LIBERO 和真实毛巾折叠的关键数值",
+    "与 DreamZero 等联合生成 WAM 的关系、边界与非等价性",
+    "复现设置、推理成本和未被验证的外推范围"
+  ],
+  "key_numbers": [
+    "总参数量 6B，其中动作专家约 1B，动作维度 1024，动作 horizon 为 32",
+    "RoboTwin 平均成功率：Fast-WAM 91.8%，Joint 90.6%，IDM 91.3%，无视频协同训练 83.8%",
+    "LIBERO 平均成功率：Fast-WAM 97.6%，Joint 98.5%，IDM 98.0%，无视频协同训练 93.5%",
+    "真实毛巾折叠：Fast-WAM 约 75% 成功率、约 152 秒；无视频协同训练仅 10% 且约 241 秒",
+    "单块推理延迟：Fast-WAM 190 ms、Joint 580 ms、IDM 810 ms",
+    "训练数据：LIBERO 每套 500 条示范、共 40 任务；RoboTwin 2,500 条干净与 25,000 条强随机化示范；真实任务 60 小时示范"
+  ],
+  "real_comparisons": [
+    "在相同骨干、分词和训练配方下比较 Fast-WAM、Fast-WAM-Joint、Fast-WAM-IDM 与去除视频协同训练版本",
+    "与有具身预训练的 LingBot-VA、Motus、pi0.5 比较时，区分初始化和训练数据优势，而不是只比较最终成功率",
+    "与 DreamZero 的关系主要是范式级比较：DreamZero 属于联合视频—动作生成路线，但模型规模、硬件、数据和闭环机制不同，本文没有直接同设置复现 DreamZero"
+  ],
+  "central_claims": [
+    {
+      "claim": "WAM 的主要收益更可能来自训练期视频建模，而不是测试期显式未来想象。",
+      "supporting_evidence": [
+        {"section_id": "sec:method-3"},
+        {"section_id": "sec:experiment"},
+        {"pages": [7, 9]}
+      ],
+      "what_it_actually_proves": "在作者构造的三个共享实现变体、两个仿真基准和一个真实折叠任务中，删除视频协同训练造成的性能下降明显大于取消测试期未来生成造成的差异。",
+      "what_it_does_not_prove": "不能证明未来想象对所有 WAM、所有长程规划任务或更大规模预训练都无用，也不能排除当前注意力隔离设计低估了显式想象的上限。"
+    },
+    {
+      "claim": "Fast-WAM 可以在不做具身预训练的情况下取得接近强预训练 WAM 的结果。",
+      "supporting_evidence": [
+        {"section_id": "sec:experiment"},
+        {"section_id": "sec:method-2"},
+        {"pages": [6, 8]}
+      ],
+      "what_it_actually_proves": "在论文规定的数据和评测协议下，Fast-WAM 在 RoboTwin 达到 91.8%，在 LIBERO 达到 97.6%，接近或超过多项有具身预训练的报告结果。",
+      "what_it_does_not_prove": "不同论文系统间并非完全等算力、等数据或等训练预算，结果不能直接归因于单一结构优势。"
+    },
+    {
+      "claim": "跳过未来视频去噪显著降低控制延迟。",
+      "supporting_evidence": [
+        {"section_id": "sec:method"},
+        {"section_id": "sec:method-3"},
+        {"pages": [4, 9]}
+      ],
+      "what_it_actually_proves": "在单张 RTX 5090D V2 32GB 和作者实现中，Fast-WAM 为 190 ms，而 Joint 和 IDM 分别为 580 ms 与 810 ms。",
+      "what_it_does_not_prove": "没有给出跨硬件、跨批量、端到端机器人控制栈的统一延迟比较；190 ms 也不等于任意高频控制任务都满足实时约束。"
+    }
+  ],
+  "claim_boundaries": [
+    "受控实验只生成一个动作块，并明确省略了外层自回归滚动，因此不能直接裁决需要长视觉记忆的 WAM 设计。",
+    "真实世界只覆盖 Galaxea R1 Lite 上的毛巾折叠，成功率样本规模和置信区间未在正文中充分报告。",
+    "Fast-WAM 仍使用 Wan2.2-5B 的视频生成预训练，只是没有使用机器人具身预训练，不能称为完全从零训练。",
+    "动作分支被掩码禁止访问未来视频，所以测试期删掉未来分支不会产生输入缺失；这是一种有意设计的解耦，并非对任意既有 WAM 的无损裁剪。"
+  ],
+  "negative_or_limiting_results": [
+    "LIBERO 上 Fast-WAM 97.6% 略低于 Joint 98.5% 和 IDM 98.0%，说明未来生成并非严格零收益。",
+    "真实折叠中 Fast-WAM-IDM 成功率约 90%，高于 Fast-WAM 约 75%，显式未来表示在该任务上可能仍改善成功率，只是代价为 810 ms 延迟。",
+    "去掉视频协同训练后真实折叠仅 10% 成功率，说明单纯的预训练视频骨干加动作专家不足以复制完整收益。",
+    "论文没有报告更大模型、更大机器人预训练规模、多机器人本体和更长上下文下的结论是否保持。"
+  ],
+  "mechanism_result_map": [
+    "结构化掩码让动作只读取当前干净观测表征，因此训练期未来视频不会泄露到动作分支，也使推理时删除未来视频分支成为接口一致的操作。",
+    "视频流匹配损失持续更新共享视频 DiT，使当前观测表征学习运动和接触结构；无视频协同训练变体的大幅下降支持该辅助目标的表征作用。",
+    "Fast-WAM 只对当前帧做一次视频骨干前向，再进行动作去噪；Joint 和 IDM 还要生成未来视频，因此 190/580/810 ms 的延迟排序与计算链长度一致。",
+    "真实折叠中无视频协同训练同时降低成功率并延长完成时间，提示视频目标不仅影响是否完成，也影响闭环动作的效率与纠错次数。"
+  ],
+  "comparative_positioning": [
+    "相对直接 VLA，Fast-WAM 在推理接口上仍是观测到动作，但训练时增加未来视频预测监督，以视频世界模型预训练作为动态表征先验。",
+    "相对 DreamZero、Unified World Models 和 Motus 一类联合生成 WAM，Fast-WAM 把视频预测降为训练辅助任务，不让动作依赖未来视频 token，换取更低推理成本。",
+    "相对 Causal WAM/LingBot-VA 的视频后接 IDM 路线，Fast-WAM 不把生成未来作为动作条件；受控 IDM 变体显示显式未来可带来小幅或任务相关收益，但延迟显著更高。",
+    "相对 UVA、VPP 等绕开像素解码的工作，本文进一步问的是是否连未来 latent 的迭代生成也可跳过，并用共享框架的消融回答。"
+  ],
+  "reuse_takeaways": [
+    "把昂贵生成任务当作训练期表征正则，而不是部署期必须执行的推理链，是降低具身模型延迟的通用设计模式。",
+    "若要检验辅助任务是否真正有用，应同时构造‘保留辅助训练但移除推理分支’与‘移除辅助训练’两个对照。",
+    "用注意力掩码阻断未来目标向动作分支的信息泄露，能让训练—推理接口保持一致，是复现实验的关键。",
+    "部署评价应同时报告成功率、完成时间和单次策略延迟，因为更高成功率可能来自更慢的想象或更多闭环修正。"
+  ],
+  "followup_questions": [
+    "在需要明确多步搜索、遮挡恢复或记忆的任务中，显式未来想象是否会比单块折叠和短 horizon 操作更重要？",
+    "若把 Fast-WAM 与 DreamZero 在同一骨干、同一数据、同一硬件和相同控制频率下比较，性能—延迟前沿是否仍占优？",
+    "视频协同损失的最佳权重 lambda 是多少，是否存在动作性能下降或视频过拟合区间？",
+    "共享注意力、视频 DiT 更新和仅保留首帧 token 三者中，哪一个是视频协同训练收益的真正载体？",
+    "加入多帧真实历史而非单一当前帧后，Fast-WAM 是否能保留低延迟并改善长程任务？"
+  ],
+  "section_plan": [
+    {"section": "原文摘要翻译", "weight": "medium", "focus": "忠实翻译摘要，不混入后验判断", "evidence_sources": [{"section_id": "sec:abstract"}]},
+    {"section": "创新点", "weight": "medium", "focus": "概括解耦设计、结构化掩码、受控变体和实时部署意义", "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:method"}]},
+    {"section": "研究问题", "weight": "high", "focus": "区分训练期世界建模和推理期未来想象两个可能来源", "evidence_sources": [{"section_id": "sec:introduction"}, {"pages": [1, 3]}]},
+    {"section": "数据与任务定义", "weight": "high", "focus": "说明 LIBERO、RoboTwin、真实毛巾折叠的数据量、任务和指标", "evidence_sources": [{"section_id": "sec:experiment"}, {"section_id": "sec:appendix"}]},
+    {"section": "方法主线", "weight": "high", "focus": "重建视频骨干、动作专家、掩码、流匹配训练及推理裁剪", "subsections": ["机制流程", "注意力隔离与无泄露训练", "流匹配目标", "受控变体", "训练与推理细节"], "evidence_sources": [{"section_id": "sec:method"}, {"pages": [3, 6]}]},
+    {"section": "关键结果", "weight": "high", "focus": "用紧凑表格解释仿真、真实任务和延迟，并保留不利结果", "subsections": ["仿真主结果", "消融到底说明了什么", "真实折叠与延迟"], "evidence_sources": [{"section_id": "sec:experiment"}, {"section_id": "sec:method-2"}, {"section_id": "sec:method-3"}, {"section_id": "sec:appendix"}]},
+    {"section": "深度分析", "weight": "high", "focus": "区分证据支持与标题可能过度推广，比较 DreamZero 等 WAM", "subsections": ["真正贡献是什么", "为什么结果成立", "与 DreamZero 等 WAM 的关系", "容易误读的地方", "复现注意点"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:related-work"}, {"section_id": "sec:method-3"}, {"section_id": "sec:conclusion"}]},
+    {"section": "局限", "weight": "high", "focus": "讨论单动作块、单真实任务、非等设置跨论文比较与规模外推", "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:method-3"}, {"section_id": "sec:conclusion"}]},
+    {"section": "我的笔记", "weight": "medium", "focus": "沉淀可复用设计原则和可执行的后续实验", "evidence_sources": [{"section_id": "sec:method"}, {"section_id": "sec:method-3"}]}
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "artifact": "paper_DeepPaperNote.lint.json",
+  "status": "passed",
+  "checks": {
+    "structure_gate": true,
+    "grounding_gate": true,
+    "mechanism_gate": true,
+    "quantitative_gate": true,
+    "figure_table_gate": true,
+    "style_gate": true,
+    "asset_link_gate": true,
+    "source_reader_gate": true,
+    "json_gate": true,
+    "control_character_gate": true
+  },
+  "counts": {
+    "substantive_source_groups": 40,
+    "bilingual_pairs": 40,
+    "caption_pairs": 9,
+    "package_markdown_image_links": 21,
+    "deep_note_inserted_visuals": 3,
+    "reader_visuals_per_reader": 9,
+    "numbered_figures": 6,
+    "numbered_tables": 3,
+    "equations": 7,
+    "references": 68,
+    "table_data_rows": 15
+  },
+  "final_quality_review": {
+    "passed": true,
+    "central_evidence_chain": true,
+    "key_settings_and_numbers": true,
+    "mechanism_to_result_pattern": true,
+    "strong_baseline_positioning": true,
+    "limitations_mechanistic": true,
+    "proven_vs_unproven_separated": true,
+    "reusable_takeaways": true
+  },
+  "final_readability_review": {
+    "passed": true,
+    "reviewed_full_note": true,
+    "mixed_language_artifacts": false,
+    "math_readable": true,
+    "tables_compact": true
+  },
+  "issues": []
+}

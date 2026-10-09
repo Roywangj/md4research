@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <rect width="1200" height="650" fill="#fffdf8"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17324d">SMA diagnostics on Qwen3.6-27B</text>
+  <text x="600" y="68" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#52606d">Recreated from Fig. 4 and Table 2 (PDF pp. 7–8); values are transcribed from the supplied PDF</text>
+  <g font-family="Arial,sans-serif">
+    <text x="300" y="112" text-anchor="middle" font-size="21" font-weight="700" fill="#17324d">Ablation on RoboSpatial</text>
+    <line x1="90" y1="510" x2="520" y2="510" stroke="#52606d" stroke-width="2"/><line x1="90" y1="145" x2="90" y2="510" stroke="#52606d" stroke-width="2"/>
+    <text x="54" y="330" transform="rotate(-90 54 330)" text-anchor="middle" font-size="15" fill="#52606d">Accuracy (%)</text>
+    <g fill="#d9e9f7" stroke="#3b82c4" stroke-width="1"><rect x="112" y="177" width="48" height="333"/><rect x="185" y="245" width="48" height="265"/><rect x="258" y="258" width="48" height="252"/><rect x="331" y="403" width="48" height="107"/><rect x="404" y="317" width="48" height="193"/></g>
+    <rect x="112" y="177" width="48" height="333" fill="#4d9bd2"/><text x="136" y="166" text-anchor="middle" font-size="14" fill="#17324d">68.5</text><text x="136" y="535" transform="rotate(-25 136 535)" text-anchor="middle" font-size="13" fill="#52606d">SMA</text>
+    <text x="209" y="234" text-anchor="middle" font-size="14" fill="#17324d">65.3</text><text x="209" y="535" transform="rotate(-25 209 535)" text-anchor="middle" font-size="13" fill="#52606d">− summary</text>
+    <text x="282" y="247" text-anchor="middle" font-size="14" fill="#17324d">65.0</text><text x="282" y="535" transform="rotate(-25 282 535)" text-anchor="middle" font-size="13" fill="#52606d">− lesson</text>
+    <text x="355" y="392" text-anchor="middle" font-size="14" fill="#17324d">62.7</text><text x="355" y="535" transform="rotate(-25 355 535)" text-anchor="middle" font-size="13" fill="#52606d">− filter</text>
+    <text x="428" y="306" text-anchor="middle" font-size="14" fill="#17324d">64.1</text><text x="428" y="535" transform="rotate(-25 428 535)" text-anchor="middle" font-size="13" fill="#52606d">+ raw output</text>
+    <text x="300" y="590" text-anchor="middle" font-size="15" fill="#52606d">Complete structured memory + calibrated retrieval is required.</text>
+    <text x="820" y="112" text-anchor="middle" font-size="21" font-weight="700" fill="#17324d">Mean TRS vs. deployment accuracy</text>
+    <line x1="625" y1="510" x2="1080" y2="510" stroke="#52606d" stroke-width="2"/><line x1="625" y1="145" x2="625" y2="510" stroke="#52606d" stroke-width="2"/>
+    <text x="590" y="330" transform="rotate(-90 590 330)" text-anchor="middle" font-size="15" fill="#52606d">Accuracy (%)</text>
+    <polyline points="655,440 710,412 765,378 820,280 875,262 930,215 985,205 1040,154" fill="none" stroke="#1f6f9f" stroke-width="4"/>
+    <g fill="#fffdf8" stroke="#1f6f9f" stroke-width="3"><circle cx="655" cy="440" r="6"/><circle cx="710" cy="412" r="6"/><circle cx="765" cy="378" r="6"/><circle cx="820" cy="280" r="6"/><circle cx="875" cy="262" r="6"/><circle cx="930" cy="215" r="6"/><circle cx="985" cy="205" r="6"/><circle cx="1040" cy="154" r="6"/></g>
+    <g font-size="13" fill="#52606d" text-anchor="middle"><text x="655" y="535">.2–.3</text><text x="710" y="535">.3–.4</text><text x="765" y="535">.4–.5</text><text x="820" y="535">.5–.6</text><text x="875" y="535">.6–.7</text><text x="930" y="535">.7–.8</text><text x="985" y="535">.8–.9</text><text x="1040" y="535">.9–1.0</text></g>
+    <g font-size="13" fill="#17324d" text-anchor="middle"><text x="655" y="426">19.3</text><text x="710" y="398">26.8</text><text x="765" y="364">36.1</text><text x="820" y="266">63.2</text><text x="875" y="248">68.3</text><text x="930" y="201">80.3</text><text x="985" y="191">82.2</text><text x="1040" y="140">97.3</text></g>
+    <text x="850" y="590" text-anchor="middle" font-size="15" fill="#52606d">Pearson r = 0.982; pooled trend may mix difficulty and composition.</text>
+  </g>
+</svg>

@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "paper_type": "AI_method",
+  "paper_type_rationale": "Training-time representation enhancement evaluated with matched baselines and ablations.",
+  "dominant_domain": "robotics / world-action models",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LPKCNZ7A/Zhang 等 - 2026 - GaussianWAM Distilling Geometry and Semantics from 3D Gaussian Fields into World-Action Models.pdf",
+  "source_coverage": {
+    "pages": 13,
+    "body_pages": "1-11",
+    "reference_pages": "12-13",
+    "appendix_detected": false
+  },
+  "must_cover": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "机制流程",
+    "训练和推理细节",
+    "关键结果",
+    "消融到底说明了什么",
+    "定性结果",
+    "深度分析",
+    "局限",
+    "复现性",
+    "研究 / 工程启示",
+    "引用"
+  ],
+  "technical_depth": [
+    "多视角深度/语义抽取与 3D Gaussian binding",
+    "Gaussian fitting/rendering/cache",
+    "validity mask 与三项 masked losses",
+    "FastWAM/Cosmos Policy 接入差异",
+    "training-only deployment boundary"
+  ],
+  "key_numbers": [
+    "FastWAM LIBERO-Plus 52.05→71.29 (+19.24)",
+    "Cosmos Policy 71.52→77.30 (+5.78)",
+    "Direct CLIP+VGGT 69.37；Gaussian no-alpha 70.99；full 71.29",
+    "去掉 depth 66.28；semantic 68.06；alpha 70.99",
+    "FastWAM noise +39.46、camera +29.03、light +29.11",
+    "RoboTwin Random FastWAM 0.70→1.60；Cosmos 7.10→14.40"
+  ],
+  "real_comparisons": [
+    "same-backbone baseline vs GaussianWAM",
+    "Direct CLIP + VGGT vs Gaussian-field unification",
+    "semantic/depth/alpha removal",
+    "supervision layer 10/20/30",
+    "RoboTwin Clean vs Random and real-world"
+  ],
+  "central_claims": [
+    {
+      "claim": "3D Gaussian Field spatially binds geometry and semantics before distillation.",
+      "supporting_evidence": [
+        {
+          "pages": [
+            4,
+            5,
+            6
+          ],
+          "sections": [
+            "§3.2",
+            "§3.3"
+          ],
+          "equations": [
+            "(1)-(12)"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "PDF describes multi-view VGGT/CLIP signals initialized and fitted in Gaussian primitives, then rendered to WAM-aligned targets.",
+      "what_it_does_not_prove": "No independent ground-truth 3D validation or proof of superiority over every alignment alternative."
+    },
+    {
+      "claim": "Training-only Gaussian distillation improves WAM robustness without extra inference modules.",
+      "supporting_evidence": [
+        {
+          "pages": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "sections": [
+            "§3.3-§4.2"
+          ],
+          "tables": [
+            "Table 1",
+            "Table 2"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Matched reported settings show overall success gains and Gaussian modules are removed from deployment path.",
+      "what_it_does_not_prove": "No wall-clock latency, training/cache cost, confidence intervals, or arbitrary-real-world generalization."
+    },
+    {
+      "claim": "Spatial unification adds value beyond direct CLIP+VGGT losses.",
+      "supporting_evidence": [
+        {
+          "pages": [
+            9,
+            10
+          ],
+          "sections": [
+            "§4.3"
+          ],
+          "tables": [
+            "Table 3"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Direct 69.37, Gaussian no-alpha 70.99, full 71.29 in the reported FastWAM comparison.",
+      "what_it_does_not_prove": "Unification gain is small and not fully isolated from capacity, mask, head, or seed confounds."
+    },
+    {
+      "claim": "Depth, semantic and alpha supervision are complementary, with depth largest single ablation drop.",
+      "supporting_evidence": [
+        {
+          "pages": [
+            9,
+            10
+          ],
+          "sections": [
+            "§4.3"
+          ],
+          "tables": [
+            "Table 3",
+            "Table 4"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Removing each component lowers overall; depth removal reaches 66.28.",
+      "what_it_does_not_prove": "VGGT pseudo-depth is not real depth ground truth."
+    }
+  ],
+  "claim_boundaries": [
+    "VGGT-Omega depth and CLIP features are pseudo/teacher targets.",
+    "RoboTwin Random absolute success remains low.",
+    "Cosmos Light/BG show negative transfer.",
+    "Depth probe uses VGGT pseudo-depth and t-SNE is qualitative.",
+    "No appendix, seeds, CIs, full renderer config, or end-to-end cost reported."
+  ],
+  "negative_or_limiting_results": [
+    "Cosmos Light -1.05 and BG -11.34 points.",
+    "RoboTwin Random FastWAM 1.60 and Cosmos 14.40.",
+    "Unification +1.62 without alpha; alpha adds +0.30.",
+    "Intermediate layers win some shifts but lose overall."
+  ],
+  "mechanism_result_map": [
+    "Shared 3D carrier and multi-view rendering align with gains under camera/robot/light/noise shifts.",
+    "Alpha validity gate is auxiliary; removing it causes only a small overall drop.",
+    "Final-layer supervision is strongest overall."
+  ],
+  "comparative_positioning": [
+    "Adds training-time geometry/semantic teacher to 2D WAM; uses shared spatial carrier versus independent losses; removes 3D path at inference versus explicit 3D/4D WAM."
+  ],
+  "reuse_takeaways": [
+    "Align heterogeneous teachers in common physical coordinates.",
+    "Use renderer coverage as a validity gate.",
+    "Decompose teacher gain from organization gain.",
+    "Use teacher-independent geometry/semantic evaluation."
+  ],
+  "followup_questions": [
+    "Does gain persist with calibrated depth and object-level correspondence?",
+    "Does it work single-view or with different camera counts?",
+    "What are fitting/cache cost and failure rates?",
+    "Does the 1.62-point gain survive capacity/mask/seed controls?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "weight": "medium",
+      "focus": "固定记录论文身份、作者、出处和资源，避免把元数据与分析混写。",
+      "reading_goal": "核对题名、作者、日期、arXiv、代码和资源入口。",
+      "purpose": "为后续引用与复现提供身份锚点。",
+      "evidence_sources": [
+        {
+          "pages": [
+            1,
+            12,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "weight": "medium",
+      "focus": "忠实翻译原始摘要，保留方法边界、数字和部署主张。",
+      "reading_goal": "把作者摘要中的贡献与结果完整转为中文，不加入后见之明。",
+      "purpose": "作为整篇精读的事实起点。",
+      "evidence_sources": [
+        {
+          "pages": [
+            1
+          ],
+          "section": "Abstract"
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "weight": "medium",
+      "focus": "区分 3D Gaussian 共同空间载体、coverage 门控、训练时增强和跨架构验证。",
+      "reading_goal": "判断哪些是方法性新意，哪些是工程组合。",
+      "purpose": "形成可用于相关工作和审稿判断的创新定位。",
+      "evidence_sources": [
+        {
+          "pages": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "weight": "medium",
+      "focus": "用一句话说明真实贡献及标题可能造成的误读。",
+      "reading_goal": "回答方法到底改变了什么、没有改变什么。",
+      "purpose": "压缩论文的因果主张与边界。",
+      "evidence_sources": [
+        {
+          "pages": [
+            2,
+            4,
+            6,
+            7,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "weight": "medium",
+      "focus": "解释 2D/video latent 的几何—语义缺口，以及独立 teacher loss 与显式 3D/4D 路线的代价。",
+      "reading_goal": "把论文的问题表述成可检验的两个设计问题。",
+      "purpose": "定位这是旧问题的训练时表征增强重构，而非在线 3D 世界建模。",
+      "evidence_sources": [
+        {
+          "pages": [
+            1,
+            2
+          ],
+          "sections": [
+            "§1"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "区分多视角输入、VGGT/CLIP 伪监督、LIBERO 系列、RoboTwin 和双 UR7e 任务及评测边界。",
+      "reading_goal": "明确模型预测什么、监督来自哪里、分布偏移如何构造。",
+      "purpose": "防止把 teacher 目标、真实几何真值和新 3D 输出混为一谈。",
+      "evidence_sources": [
+        {
+          "pages": [
+            4,
+            7,
+            8,
+            9,
+            10
+          ],
+          "sections": [
+            "§3.2",
+            "§4.1",
+            "§4.2"
+          ]
+        }
+      ],
+      "subsections": [
+        "数据来源与监督来源",
+        "任务与评测协议",
+        "任务边界"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "weight": "very_high",
+      "focus": "逐步重建 3D lifting、Gaussian 初始化/拟合/渲染/cache、有效 mask、三项蒸馏损失及两种 WAM 接入位置。",
+      "reading_goal": "给出输入—变换—输出链与可复现公式。",
+      "purpose": "解释 geometry/semantics 如何绑定到同一物理位置并回到当前视觉 token。",
+      "evidence_sources": [
+        {
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "sections": [
+            "§3.1–§3.5"
+          ],
+          "equations": [
+            "(1)–(15)"
+          ],
+          "figures": [
+            "Fig. 2"
+          ]
+        }
+      ],
+      "subsections": [
+        "机制流程",
+        "Gaussian Teacher Construction",
+        "有效性掩码",
+        "Gaussian Distillation",
+        "两种 backbone 的接入位置"
+      ]
+    },
+    {
+      "section": "训练和推理细节",
+      "weight": "medium",
+      "focus": "记录网格、拟合迭代、loss 权重、训练步数、batch、硬件和推理删除边界。",
+      "reading_goal": "分开训练期缓存成本与部署 forward path。",
+      "purpose": "支持复现并限制“零额外成本”表述。",
+      "evidence_sources": [
+        {
+          "pages": [
+            5,
+            6,
+            7
+          ],
+          "sections": [
+            "§3.2–§4.1"
+          ]
+        }
+      ],
+      "subsections": [
+        "训练配置",
+        "推理路径与成本边界"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "weight": "very_high",
+      "focus": "比较 matched baseline、直接 CLIP+VGGT、Gaussian unification、组件移除、层深度、跨环境和真实实验。",
+      "reading_goal": "保留最关键数字、负迁移和绝对性能限制。",
+      "purpose": "判断收益来自 teacher、空间组织还是 coverage，并检查跨架构/跨域证据。",
+      "evidence_sources": [
+        {
+          "pages": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "sections": [
+            "§4.2–§4.4"
+          ],
+          "tables": [
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4"
+          ],
+          "figures": [
+            "Fig. 3",
+            "Fig. 5"
+          ]
+        }
+      ],
+      "subsections": [
+        "主结果与强基线",
+        "RoboTwin 与真实世界迁移",
+        "消融到底说明了什么",
+        "定性结果"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "weight": "very_high",
+      "focus": "用证据链连接监督机制与分布偏移结果，讨论因果归因、teacher 泄漏、表征 probing 与过度解读。",
+      "reading_goal": "区分作者声称、数据真正支持和仍未验证的部分。",
+      "purpose": "提炼可迁移研究与工程启示。",
+      "evidence_sources": [
+        {
+          "pages": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "subsections": [
+        "真正贡献是什么",
+        "为什么结果成立：证据链与因果归因",
+        "哪些地方容易被误读",
+        "监督目标的潜在泄漏与边界"
+      ]
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "focus": "覆盖伪标签质量、拟合开销、统计重复、负迁移、RoboTwin Random 低绝对值和范围限制。",
+      "reading_goal": "列出论文未报告而会影响复现或外推的关键信息。",
+      "purpose": "为后续实验和引用时的 claim calibration 提供边界。",
+      "evidence_sources": [
+        {
+          "pages": [
+            4,
+            5,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "复现性",
+      "weight": "high",
+      "focus": "整理已报告超参数与缺失的 renderer、cache、seed、数据划分和训练策略细节。",
+      "reading_goal": "判断正文是否足够实现 bitwise reproduction。",
+      "purpose": "把复现工作拆成可执行清单。",
+      "evidence_sources": [
+        {
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "subsections": [
+        "已报告且足以搭建主流程的信息",
+        "仍缺的复现关键项"
+      ]
+    },
+    {
+      "section": "研究 / 工程启示",
+      "weight": "medium",
+      "focus": "总结共同空间索引、coverage validity gate、训练时重监督和消融归因的可迁移经验。",
+      "reading_goal": "提出 teacher-independent evaluation 与单视角/多相机扩展问题。",
+      "purpose": "支持后续方法设计而非只记忆论文结论。",
+      "evidence_sources": [
+        {
+          "pages": [
+            2,
+            4,
+            5,
+            6,
+            9,
+            10
+          ]
+        }
+      ],
+      "subsections": [
+        "可迁移设计原则",
+        "下一步验证"
+      ]
+    },
+    {
+      "section": "引用",
+      "weight": "medium",
+      "focus": "保留与 Gaussian fields、VGGT、CLIP、FastWAM、Cosmos Policy 和相邻 WAM 工作直接相关的条目。",
+      "reading_goal": "为比较与追踪提供原始文献锚点。",
+      "purpose": "便于后续 related work 和复核。",
+      "evidence_sources": [
+        {
+          "pages": [
+            12,
+            13
+          ]
+        }
+      ]
+    }
+  ],
+  "formula_requirements": [
+    "Eq. (1) geometry extraction",
+    "Eq. (2) Gaussian attributes",
+    "Eq. (3)-(6) render/fit/cache/mask",
+    "Eq. (7)-(13) heads/losses",
+    "Eq. (14)-(15) token selection"
+  ]
+}

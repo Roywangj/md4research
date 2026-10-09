@@ -1,0 +1,171 @@
+{
+  "paper_type": "benchmark_or_dataset",
+  "paper_type_rationale": "论文的主要贡献是发布一套大规模宽许可图文数据集、数据构建协议与视觉生成评测协议；JiT-T2I 只是参考基线，而不是论文的核心模型创新。",
+  "dominant_domain": "视觉生成数据集与基准",
+  "must_cover": [
+    "数据来源与逐样本许可元数据",
+    "质量与安全过滤",
+    "SSCD 去重与阈值选择",
+    "四档合成 caption 及模型选择",
+    "冻结分片、数据划分与可访问性",
+    "FD-DINOv2 评测协议与合规边界",
+    "JiT-T2I 训练设置与参考结果",
+    "社会风险、偏差和复现限制"
+  ],
+  "key_numbers": [
+    "27.97 万亿像素；110,569,761 张来源图像；去重后 101.3M，最终 100M/200K/1M 训练/验证/测试划分",
+    "12.9TB、8,000 个分片，每片约 12,500 张；GPIC-Nano/Lite/Full 分别为 1M/10M/100M",
+    "许可构成：CC BY 80.92%、Public Domain 13.85%、CC0 4.42%、No restrictions 0.81%",
+    "过滤移除比例：极端分辨率/长宽比约 0.01%，VLM 质量过滤约 0.3%，VLM 安全过滤约 0.35%",
+    "去重候选图边阈值 0.90；成对删除阈值 0.9625；5 张以上连通分量保留最高分辨率图",
+    "caption 比例 1%/45%/45%/9%；1,520 图人工修订微基准；全量 caption 约 1,500 H100 GPU 小时",
+    "评测生成 50K 图并对比 1M held-out 测试统计；Test-50K 实图参照 FD-DINOv2=7.44",
+    "JiT-T2I 1.1B、单轮 100M 样本、256×256、全局 batch 256、8×H100 约 40 小时；最佳 CFG=6.25 时 FD=76.25",
+    "八种 DINOv2 配置的平均 Pearson 相关系数 0.847、Kendall 协同系数 0.795"
+  ],
+  "real_comparisons": [
+    "GPIC 与 ImageNet-1K、YFCC100M、OpenImages、DataComp 在 permissive/stable/large/accessible 四项属性上的结构性比较",
+    "Qwen3-VL-Instruct 2B、4B、8B、30B-A3B 在五项 caption 质量与 H100 吞吐上的比较",
+    "ImageNet-1K 的 FID 与 FD-DINOv2 相对 held-out 实图下界的饱和性比较",
+    "GPIC Full/Lite/Nano/Val/Test-50K 对 Test-1M 的实图 oracle 统计",
+    "JiT-T2I 在 CFG=1.75、4.00、6.25 下的 FD、Precision、Recall、Density、Coverage"
+  ],
+  "central_claims": [
+    {
+      "claim": "GPIC 把宽许可、冻结版本、大规模和集中可下载四个条件同时落实到一个 100M 级视觉生成语料库。",
+      "supporting_evidence": [
+        {"section_id": "sec:background"},
+        {"pages": [2, 7]}
+      ],
+      "what_it_actually_proves": "论文给出许可类别、逐样本归因元数据、冻结 tar 分片、12.9TB/8,000 分片和 100M 训练样本的公开设计，说明该发布物在工程和协议层面满足作者定义的四项条件。",
+      "what_it_does_not_prove": "它没有证明每条来源许可永远无争议，也没有独立法律审计或第三方长期可用性测量来保证未来零风险。"
+    },
+    {
+      "claim": "保守过滤与 SSCD 去重在尽量保存稀缺宽许可数据的同时移除了明显低质、危险与重复内容。",
+      "supporting_evidence": [
+        {"section_id": "sec:background"},
+        {"pages": [4, 6]},
+        {"section_id": "sec:evaluation-2"}
+      ],
+      "what_it_actually_proves": "论文报告了各过滤阶段比例、手工阈值校准、连通分量规则、101.3M 去重后规模和 SHA-256 精确重复检查，并给出不同相似度区间的定性样例。",
+      "what_it_does_not_prove": "这些证据不能保证没有语义近重复、虚假许可、VLM 漏检的危险内容，也没有给出全量人工抽检误删率和漏删率。"
+    },
+    {
+      "claim": "Qwen3-VL-4B-Instruct 在作者的 caption 微基准上提供了适合 100M 图像规模的质量-吞吐折中。",
+      "supporting_evidence": [
+        {"section_id": "sec:background"},
+        {"pages": [6, 7]},
+        {"pages": [20, 25]}
+      ],
+      "what_it_actually_proves": "在 1,520 张人工修订样本、五项 0-2 分和单 H100 吞吐下，4B 模型接近大模型的总体质量，并在空间与属性绑定上得分最高；全量处理约需 1,500 H100 GPU 小时。",
+      "what_it_does_not_prove": "它没有证明合成 caption 在开放域事实性、公平性或下游生成训练中优于人工 caption；评分仍依赖 LLM-as-a-judge 和较小的内部样本。"
+    },
+    {
+      "claim": "以 held-out Test-1M 为参照的 FD-DINOv2 协议比 ImageNet-1K FID 更不饱和，也更能暴露当前生成模型与实图分布的距离。",
+      "supporting_evidence": [
+        {"section_id": "sec:background"},
+        {"pages": [7, 9]},
+        {"section_id": "sec:evaluation-2"}
+      ],
+      "what_it_actually_proves": "Figure 9 显示所列 ImageNet 模型可越过 FID 实图下界却都未越过 FD-DINOv2 下界；GPIC 又给出 Test-50K 对 Test-1M 的 FD=7.44 参照和特征配置敏感性分析。",
+      "what_it_does_not_prove": "它没有完成专门的人类偏好研究来验证所有 DINOv2 变体，也不能排除 DINOv2 训练集与 GPIC 测试集重叠或针对指标优化。"
+    },
+    {
+      "claim": "公开 JiT-T2I 基线证明 GPIC-Full 能被单节点完成端到端训练和统一评测，但结果主要是起点而非性能上限。",
+      "supporting_evidence": [
+        {"section_id": "sec:experiments"},
+        {"section_id": "sec:background-2"},
+        {"pages": [9, 10]}
+      ],
+      "what_it_actually_proves": "作者披露 1.1B 架构、优化器、采样、单轮训练约 40 小时和三档 CFG 指标；CFG=6.25 得到最佳 FD 76.25，并改善 recall/coverage。",
+      "what_it_does_not_prove": "单个未调优基线、单轮训练和偶发重复样本不足以证明 GPIC 的最优模型排序、缩放规律或相对其他大数据集的训练优势。"
+    }
+  ],
+  "claim_boundaries": [
+    "宽许可是基于 Flickr/Wikimedia 的许可标签和保留元数据，不等于对版权链、人格权、商标权与地区法律差异的全量法律担保。",
+    "测试集与训练集保持来源和 caption 类型分布一致，因此衡量的是同分布视觉生成；跨域、长尾和时间外泛化仍未被检验。",
+    "合成 caption 的监督质量受 Qwen3-VL-4B 的识别偏差和提示模板约束，内部微基准不能替代真实下游训练对照。",
+    "FD-DINOv2 的绝对数值依赖 backbone 和 register 配置；与论文默认的非 register ViT-L/14 不同的实现不可直接横比。",
+    "JiT-T2I 结果只是在作者公开配置下的参考点，不是数据集质量的因果证明。"
+  ],
+  "negative_or_limiting_results": [
+    "极高 SSCD 相似度的图像仍可能存在可见差异，作者因此避免使用单一 0.95 阈值做激进去重；这意味着部分近重复会被有意保留。",
+    "Caption 微基准示例显示 VLM 会在计数、左右/一三垒空间关系和 OCR 文本上出错。",
+    "JiT-T2I 最佳 FD 76.25 仍远高于 Test-50K 实图 oracle 的 7.44，表明基准并未被该参考模型接近饱和。",
+    "DINOv2 的 register 与 backbone 变化显著改变 FD 的绝对尺度，专门的人类一致性研究被留给未来工作。",
+    "分布式流式训练发生过预取错误，导致少量样本重复；论文未报告准确重复量及其影响。"
+  ],
+  "mechanism_result_map": [
+    "逐样本许可与归因元数据 + 冻结集中式 tar 分片，分别支撑 permissive/stable/accessibility 三个发布属性。",
+    "候选图阈值 0.90、成对删除阈值 0.9625、五图以上连通分量规则，把 Figure 5 中的误删风险转化为偏保守的 101.3M 去重结果。",
+    "四档 caption 配比和 4B 模型的吞吐选择，使短/中 caption 占 90% 的全量生成成本控制在约 1,500 H100 GPU 小时。",
+    "50K 固定 prompts + Test-1M held-out 统计避免使用训练集参照，Test-50K 的实图 FD=7.44 提供了可监测饱和的下界。",
+    "提高 CFG 强化条件一致性，在作者基线中同时降低 FD 并提高 recall/coverage，但尚未给出更高 CFG 的转折点。"
+  ],
+  "comparative_positioning": [
+    "GPIC 不只是比 ImageNet 更大，而是把现代文本条件生成需要的规模和丰富 caption 与可冻结、可再分发的开源基准约束结合起来。",
+    "相对 URL 索引型 YFCC/DataComp，集中托管避免链接腐烂、重新抓取和 URL 级数据投毒；代价是 12.9TB 托管与长期维护责任集中。",
+    "相对 ImageNet-1K FID，GPIC 的 FD-DINOv2 协议强调 held-out test reference 和指标合规披露，但又引入 DINOv2 表征依赖。",
+    "相对更大 Qwen3-VL，4B 并非所有质量维度最高，而是由 90% 短/中 caption 的吞吐需求决定的工程 Pareto 点。",
+    "JiT-T2I 避免 tokenizer 预训练和辅助损失，适合作为低依赖基线，但并未与潜空间扩散或更强 T2I 模型做公平训练预算对照。"
+  ],
+  "reuse_takeaways": [
+    "构建可复现大数据集时，应把逐样本权利元数据、冻结版本和流式分片格式视为与样本规模同等重要的设计目标。",
+    "去重阈值不能只用相似度直觉选择：先在多尺度子集拟合 collision curve，再结合人工相似对检查制定分段规则。",
+    "生成评测应公开真实样本下界并使用 held-out 参照；同时明确禁止或披露针对 evaluator 表征的训练。",
+    "给合成 caption 选模型时，要用任务自定义微基准同时测事实维度与吞吐，而不是直接沿用通用 VLM 排行。",
+    "大规模发布最好提供 Nano/Lite/Full 嵌套层级，并让层级与连续 shard 范围一一对应，降低开发到全量训练的切换成本。"
+  ],
+  "followup_questions": [
+    "对许可和归因元数据做随机法律审计后，错误标签、失效声明和人格权风险分别有多高？",
+    "用人工抽检估计 VLM 质量/安全过滤的误删率与漏删率，并按 Flickr/Wikimedia、地区和内容类别分层，会发现什么偏差？",
+    "在固定模型和训练预算下，Qwen3-VL 合成 caption 相对原始 metadata、alt text 或人工 caption 对生成质量和可控性的净增益是多少？",
+    "训练-测试之间除精确重复外还有多少语义近重复，Test-1M 是否能可靠检测 memorization？",
+    "FD-DINOv2、MMD 与人类偏好在 GPIC 文本条件任务上的相关性，是否随 backbone、caption 类型和 prompt 难度变化？",
+    "JiT-T2I 从 1M 到 10M 到 100M、从一轮到多轮训练的 scaling curve 是否平滑，瓶颈来自数据、模型还是采样器？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "weight": "medium",
+      "focus": "解释 ImageNet-1K 的类别条件、规模和 FID 饱和问题，以及产业数据集私有/漂移为何阻碍现代文本条件生成研究。",
+      "subsections": ["现代生成研究缺的不是又一个爬虫数据集", "四项设计准则"],
+      "evidence_sources": [{"section_id": "sec:introduction"}, {"pages": [1, 3]}]
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "给出来源、许可、规模、划分、caption 形式、嵌套 benchmark tier、分片和评测输入输出，明确任务是同分布文本条件生成而非通用图像理解。",
+      "subsections": ["数据来源与许可", "规模、划分与 caption", "任务与评测对象"],
+      "evidence_sources": [{"section_id": "sec:background"}, {"pages": [2, 8]}]
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "focus": "按来源池/许可、质量与安全过滤、SSCD 去重、Qwen3-VL caption、冻结发布和 held-out 评测协议重建数据管线，并记录阈值、模型和算力。",
+      "subsections": ["机制流程", "许可筛选与元数据", "过滤与去重", "Caption 生成", "发布与评测协议", "参考基线训练"],
+      "evidence_sources": [{"section_id": "sec:background"}, {"section_id": "sec:experiments"}, {"pages": [4, 10]}, {"section_id": "sec:evaluation-2"}]
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "focus": "用紧凑表格呈现数据规模与删减链、caption 模型质量-吞吐、实图 oracle 与 CFG 基线，解释 FD-DINOv2 未饱和但仍存在表征依赖。",
+      "subsections": ["数据构建结果", "Caption 模型选择", "评测下界与基线", "指标敏感性"],
+      "evidence_sources": [{"section_id": "sec:background"}, {"section_id": "sec:background-2"}, {"pages": [5, 10]}, {"section_id": "sec:evaluation-2"}]
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "focus": "区分真正贡献与工程组装，串联许可/冻结/去重/caption/held-out evaluator 的证据链，并讨论 VLM、SSCD、DINOv2 和托管方式带来的新依赖。",
+      "subsections": ["真正贡献是什么", "为什么设计成立", "容易误读的地方", "复现注意点"],
+      "evidence_sources": [{"section_id": "sec:background"}, {"section_id": "sec:experiments"}, {"section_id": "sec:conclusion"}, {"section_id": "sec:evaluation-2"}, {"pages": [4, 25]}]
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "focus": "讨论许可法律边界、平台和地域偏差、VLM 过滤/caption 误差、近重复残留、DINOv2 evaluator 依赖、同分布测试和单基线证据不足。",
+      "subsections": ["数据与权利边界", "标注与过滤偏差", "评测与基线边界"],
+      "evidence_sources": [{"section_id": "sec:conclusion"}, {"section_id": "sec:evaluation-2"}, {"pages": [8, 10]}, {"pages": [18, 21]}]
+    }
+  ]
+}

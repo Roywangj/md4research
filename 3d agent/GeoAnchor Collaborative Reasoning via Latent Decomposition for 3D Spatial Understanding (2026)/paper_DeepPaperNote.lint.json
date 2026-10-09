@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.1",
+  "target": "paper_DeepPaperNote.md",
+  "status": "PASS_WITH_CAVEATS",
+  "counts": {
+    "errors": 0,
+    "warnings": 1,
+    "unsupported_important_claims": 0,
+    "broken_markdown_links": 0,
+    "missing_images": 0,
+    "invalid_json_files": 0,
+    "missing_required_sections": 0,
+    "numerical_mismatches_found": 0,
+    "metadata_issues": 0,
+    "important_claims_total": 57,
+    "important_pdf_claims_grounded": 57,
+    "evidence_coverage_percent": 100.0,
+    "workflow_observations_total": 2,
+    "workflow_observations_grounded": 2
+  },
+  "checks": [
+    {"name":"required_note_sections","status":"pass","details":"核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线、关键结果、附录 C/D 补全、深度分析、局限、我的笔记、引用均 present."},
+    {"name":"grounding_markers","status":"pass","details":"Important factual and quantitative claims use G001-G059 markers; all new physical-pages-21-23 claims use G052-G059; interpretations are labeled 我的判断."},
+    {"name":"evidence_coverage","status":"pass","details":"57/57 important PDF claims grounded = 100.0%; 2/2 workflow observations recorded separately. Denominator excludes workflow records G050-G051."},
+    {"name":"physical_page_coverage","status":"pass","details":"Deterministic source count and grounding metadata report 23 physical pages; physical pages 19-23 were inspected and physical pages 21-23 were separately read."},
+    {"name":"appendix_continuity","status":"pass","details":"Appendix C.2.2 is continued from physical p.20 to p.21, then Tables 9-11 and Appendix D Tables 12-14 are covered through final physical p.23."},
+    {"name":"markdown_image_links","status":"pass","details":"Four relative image links resolve under images/."},
+    {"name":"image_files","status":"pass","details":"figure_2_geoanchor_architecture.svg, figure_3_training_strategy.svg, figure_4_stage3_ablation.svg, figure_6_attention_comparison.svg exist."},
+    {"name":"json_structure","status":"pass","details":"plan, grounding, lint, and figure_decisions artifacts were written as valid JSON objects with required top-level metadata and consistent physical-page metadata."},
+    {"name":"numerical_claims","status":"pass","details":"Tables 9-14 and corrected Table 10 pattern reward 0.5 were transcribed against the separately read physical pages 21-23; no numerical mismatches found."},
+    {"name":"source_boundary","status":"pass","details":"Source PDF was read-only; only the five whitelisted JSON/Markdown artifacts were modified. Translation files, paper.md, detailed_paper.md, source_map.json, assets/, and the pre-existing unsuffixed GeoAnchor directory were not modified."},
+    {"name":"figure_rasterization","status":"warning","details":"Kept visual assets remain explicitly labeled recreated SVG schematics/data chart, not pixel crops, because local PDF raster extraction was unavailable under the permission environment."},
+    {"name":"external_material","status":"pass","details":"No external repository or reviewer backend was accessed; the GitHub URL is recorded only as a PDF claim and not treated as implementation evidence."}
+  ],
+  "caveats": [
+    "The note's empirical claims are limited to the supplied 23-page PDF and its single-image evaluation settings.",
+    "Table 9 reports 5928 SpatialLadder-26K samples although the main text describes the draw as 5k; both are recorded with the table count prioritized.",
+    "Recreated figures should not be mistaken for source-faithful pixel crops."
+  ],
+  "validated_at": "2026-08-27"
+}

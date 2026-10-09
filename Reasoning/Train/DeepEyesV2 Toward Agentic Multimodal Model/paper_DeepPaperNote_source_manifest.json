@@ -1,0 +1,1454 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2511.05271",
+  "title": "DeepEyesV2: Toward Agentic Multimodal Model",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa551797f1cf6b4fa/Reasoning/Train/DeepEyesV2 Toward Agentic Multimodal Model/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa551797f1cf6b4fa/Reasoning/Train/DeepEyesV2 Toward Agentic Multimodal Model/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+    "total_pages": 27,
+    "text_pages_extracted": 27,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 27,
+    "text_max_pages": null,
+    "text_pages_extracted": 27,
+    "text_pages_scanned": 27,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 18,
+    "references_start_page": 13
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 214,
+      "text_hash_sha256": "70f94d132b21e45a39372b1d2198d2d09e40d47b9ac01533a6623a0dc100408f"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1585,
+      "text_hash_sha256": "5a634eb3c0e5172e458b3706bd3d102d95a0b6ba68b456cd04979ffc83f6f05c"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 7,
+      "char_count": 24025,
+      "text_hash_sha256": "d837630abef6f6552ca6df9510a34c5fb46025eb815b066248704f1d985bf082"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 5305,
+      "text_hash_sha256": "f702a3c4c0333280053808ef1d1ab8d6f84e54c16daa182b7d32fb23d4296587"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 838,
+      "text_hash_sha256": "ac8ed12f7bde114b40b55dad937a067892d073e89393933dda89295bc1879c59"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 730,
+      "text_hash_sha256": "38722a13d0496103179e3c9495441a9b1fac6705100904f733593f28e75d6f47"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 629,
+      "text_hash_sha256": "1e33fd98ebae30de6048102c7f3b0ce1a390f076ddebf402d641cd6bb0f3450c"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 12,
+      "char_count": 5914,
+      "text_hash_sha256": "08dac430476f1d2b625fb82212f2d626f7d2ac7331175bc2ab2b4044e0cbacda"
+    },
+    {
+      "section_id": "sec:analysis",
+      "kind": "experiment",
+      "title": "Analysis",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 5270,
+      "text_hash_sha256": "10ed7cae4bf424b37e079341a0b54b3684c3c21de9fda0fb6da6cecd88ea3b84"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 778,
+      "text_hash_sha256": "27bc8c9b283e6ffef241dff1dc4df2afb8a1c97356bc64e7ce1588f7df9636fd"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 13,
+      "page_end": 18,
+      "char_count": 14679,
+      "text_hash_sha256": "8571b1db8725288d08c3e3b91661bf520cde6c121e293030a908713dfd9b036e"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 18,
+      "page_end": 19,
+      "char_count": 2655,
+      "text_hash_sha256": "2269ea82113e32d097911147d060fa7ee84bd41269c86446d94be4ebbb1fa3e4"
+    },
+    {
+      "section_id": "sec:model-5",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 19,
+      "page_end": 19,
+      "char_count": 862,
+      "text_hash_sha256": "cea030c28d4b6cb95e25e96e6c1af122b25e2d5d114c40f225c6d78652e338c6"
+    },
+    {
+      "section_id": "sec:model-6",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 19,
+      "page_end": 27,
+      "char_count": 16482,
+      "text_hash_sha256": "ddbf69d746636515bf21a6819f1a2e028b31efb99ace0cc2913ec3252e7ccb49"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3088,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4384,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 5533,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3758,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4921,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4187,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2133,
+      "section_ids": [
+        "sec:introduction",
+        "sec:model"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4054,
+      "section_ids": [
+        "sec:model",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2063,
+      "section_ids": [
+        "sec:experiments",
+        "sec:model-2",
+        "sec:model-3",
+        "sec:model-4"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3584,
+      "section_ids": [
+        "sec:model-4"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 1633,
+      "section_ids": [
+        "sec:model-4"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4661,
+      "section_ids": [
+        "sec:model-4",
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3874,
+      "section_ids": [
+        "sec:analysis",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3516,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3591,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3638,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 1822,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 2598,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 3047,
+      "section_ids": [
+        "sec:appendix",
+        "sec:model-5",
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 3041,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 1130,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 2957,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 2611,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 1828,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 463,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 1619,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 982,
+      "section_ids": [
+        "sec:model-6"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Illustration of agentic multimodal models. (a) Existing models show unsatisfactory",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Case reasoning trajectory of DeepEyesV2. DeepEyesV2 seamlessly integrates code",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Pipeline of DeepEyesV2. DeepEyesV2 invokes tools and incorporates execution results",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "during training, we observe that in the early stages model occasionally attempts to produce",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Statistics of RealX-Bench. (a) Domain distribution across five representative categories:",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Tool distribution comparison. DeepEyesV2 demonstrates the task-specific tool-calling",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Tool invocation statics. After reinforcement learning, DeepEyesV2’s tool-calling frequency",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Training dynamics of RL. On the right, the green parts indicate the mean and standard",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Distribution of cold start and reinforcement learning data.",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Tool Usage Pattern during RL.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "comparing model performance before and after RL across tasks such as OCR, image",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Zero-shot tool utilization example of DeepEyesV2 on TIR-Bench.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Error analysis.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Case Study 1.",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Case Study 2.",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:model-6"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Results on RealX-Bench.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on real-world & OCR & chart understanding Benchmarks.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Results on multimodal reasoning benchmarks.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Results on search-oriented benchmarks.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Ablation study on cold start data. Perception and reason represent multi-turn agent data",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Ablation study on reinforcement learning data. DeeyEyesV2-SFT denotes the model",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Results on real-world & OCR & chart understanding Benchmarks.",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Results on multimodal reasoning benchmarks.",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Specifically, DeepEyesV2-SFT represents the model after the cold-start stage, and Deep-",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:model-6"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Zero-shot results on OCR sub-",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:model-6"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "<Code: Crop>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<Image search> The most similar",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<Text search: Moth orchid> The search results further",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<Answer> Moth orchid. </Answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<Image_Zoom_In_Tool:",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "{“bbox_2d”: [0,578,157,776]}> .",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<Answer>We can see the petals are",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "purple and like an orchid. </Answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "img = Image.open",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "cropped = img.crop",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>Image search didn’t yield TR’s 9:30 AM–4:00 PM data for the same day;",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "let’s continue searching for TR’s stock price in that time frame.</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>Comparing the two price drops, Tootsie Roll Industries, Inc. (TR) had a",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "larger drop of $15.0, while Bridgford Outdoors had a smaller drop of",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "approximately $0.20.</think> <answer>Tootsie Roll Industries, Inc.</answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>The next step is to visit the first search result page for Tootsie Roll",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "calculate the price drop.</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>First, analyze Bridgford Outdoors' data from the image, then get Tootsie",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "drops ~0.2 (8.3→8.1); let's search for more data using image search.</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "soup = BeautifulSoup(requests.get",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "price_drop_TR = float(soup.find(...).text) - float(soup.find(...).text)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "$15.0",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>Now I can more clearly see the position of the black dot in each subplot.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "To calculate the average, I need to sum these values and divide by 4.<think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>The calculated result is 0.8375, but considering that the question requires",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "rounding to one decimal place, the result is 0.8. </think><answer>0.8</answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>The user's question asks for …I need to locate the black dot in each of",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "value from the plot. Let me analyze the position of each black dot.</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "region = (10, 8, 45, 42)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "subplot_A = image.crop(region)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "k3_prime_values = [0.8, 0.85, 0.85, 0.85]",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "average_k3 = sum(k3_prime_values) / len(k3_prime_values)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "img = Image.open",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "cropped = img.crop",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<E> End of CoT",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<E>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>First, I need to zoom in ….</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "left = 500",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "cropped_image =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "1294 if box[2] < box[0]:",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "1295 msg = \"Coordinate",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "1297 elif box[3] < box[1]:",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "1298 msg = \"Coordinate",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think> The life buoy appears to be located",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "</think><answer>B. right</answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "cropped_image = image.crop((left,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "</think> …, can see the word \"family\" </think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<answer>family</answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think> From the image, we can see a sign",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "with an arrow pointing to the left…</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think> …the arrow is pointing left. </think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<answer>Left</answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>The user…I need to zoom in the area",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "of the building</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "total reward is defined as: R = Racc + Rformat.",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "cropped = image_1.crop ((top , left , right , bottom))",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "height = 68",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "w = height / math.tan(math.radians (37))",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "x = w / math.tan(math.radians (46))",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "print(f\"w = {w}\")",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "print(f\"x = {x}\")",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "draw = ImageDraw.Draw(image_1)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "box = (50, 50, 300, 200)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "color = (255, 0, 0)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "thickness = 8",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "draw.rectangle(box , outline=color , width=thickness)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "enhancer = ImageEnhance.Brightness(image_1)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "factor = 1.5",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "bright_img = enhancer.enhance(factor)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "subplot =",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "subplot =",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "derivative at T = 0.25 in plot 1?",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think> I need to zoom in the",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "bicycle frame. </think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think> Let’s search the release",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "time of iPhone 14 pro. </think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think> Let’s search the model of",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "this car. </think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think> I see the derivative at T =",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "0.25. Real is the lowest. </think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "Your python code should be enclosed within <code> </code> tag.",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<code>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "</code>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "You are provided with function signatures within <tools></tools> XML tags:",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<tool_call></tool_call> XML tags:",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<answer> </answer>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<answer> answer here </answer>.",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "Format strictly as <think> </think> <code> </code>(if code is needed)",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "or <think> </think> <tool_call> </tool_call>(if function call is needed) or",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think> <think> <answer> </answer>.",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "1. <image> [{title}]",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "2. <image> [{title}]",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>The search results indicate that the third song in the first row is “本草纲",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "mentioned, I need to search for the lyrics of this song.</think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>Now I understand that this song was inspired by the ancient Chinese",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "heritage.</think><answer>Sixteen.</answer>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>First, The image shows a collage of various posters and images related to",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "Jay Chou. Let's search for them by the cover. <think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>The text search results suggest that the specific card for \"Two-Sided",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "image search is necessary to find the location of the card.</think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>Given the context of the image and the search results, it is likely that",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "image.</think><answer>The second in bottom row</answer>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "<think>The image shows a collection of cards with various characters. The",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    },
+    {
+      "text": "which card corresponds to \"Two-Sided Style.\"</think>",
+      "section_id": "sec:model-6",
+      "page_start": 19,
+      "page_end": 27
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 18,
+    "sections": [
+      {
+        "title": "w = height / math.tan(math.radians (37))",
+        "page": 21
+      },
+      {
+        "title": "x = w / math.tan(math.radians (46))",
+        "page": 21
+      },
+      {
+        "title": "A Google image search for the image found 5 results:",
+        "page": 25
+      },
+      {
+        "title": "A Google search for ’{query}’ found 5 results:",
+        "page": 25
+      },
+      {
+        "title": "I would like to know the exact number of distinct",
+        "page": 26
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 9",
+        "caption": "Distribution of cold start and reinforcement learning data.",
+        "page_hint": "p.18"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Tool Usage Pattern during RL.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "comparing model performance before and after RL across tasks such as OCR, image",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Zero-shot tool utilization example of DeepEyesV2 on TIR-Bench.",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Error analysis.",
+        "page_hint": "p.22"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Case Study 1.",
+        "page_hint": "p.26"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Case Study 2.",
+        "page_hint": "p.27"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 7",
+        "caption": "Results on real-world & OCR & chart understanding Benchmarks.",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Results on multimodal reasoning benchmarks.",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Specifically, DeepEyesV2-SFT represents the model after the cold-start stage, and Deep-",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Zero-shot results on OCR sub-",
+        "page_hint": "p.20"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "320fd7ea75cdfe5d392f85097225bb7ed44d945b34a26715db1891e387aca2f5",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2511.05271",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "DeepEyesV2: Toward Agentic Multimodal Model",
+      "translated_title": "",
+      "authors": [
+        "Jack Hong",
+        "Chenxiao Zhao",
+        "ChengLin Zhu",
+        "Weiheng Lu",
+        "Guohai Xu",
+        "Xing Yu"
+      ],
+      "year": "2025",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2511.05271",
+      "arxiv_id": "2511.05271",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "DeepEyesV2: Toward Agentic Multimodal Model",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2511.05271v4",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+      "doi": "",
+      "arxiv_id": "2511.05271",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2511.05271",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2511.05271",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "DeepEyesV2: Toward Agentic Multimodal Model",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2511.05271v4",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2511.05271"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "DeepEyesV2: Toward Agentic Multimodal Model",
+          "work_value": "DeepEyesV2: Toward Agentic Multimodal Model"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa551797f1cf6b4fa/Reasoning/Train/DeepEyesV2 Toward Agentic Multimodal Model/paper_DeepPaperNote_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa551797f1cf6b4fa/Reasoning/Train/DeepEyesV2 Toward Agentic Multimodal Model/paper_DeepPaperNote_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-aa551797f1cf6b4fa/Reasoning/Train/DeepEyesV2 Toward Agentic Multimodal Model/paper_DeepPaperNote_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "DeepEyesV2: Toward Agentic Multimodal Model",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2511.05271v4",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+    "doi": "",
+    "arxiv_id": "2511.05271",
+    "zotero_key": ""
+  }
+}

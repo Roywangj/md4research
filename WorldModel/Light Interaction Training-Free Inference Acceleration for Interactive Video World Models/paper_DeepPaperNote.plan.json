@@ -1,0 +1,206 @@
+{
+  "paper_id": "arxiv:2605.31158v3",
+  "paper_type": "AI_method",
+  "status": "grounded",
+  "required_sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "central_claims": [
+    {
+      "claim": "Trajectory-dependent gates reduce waste better than uniform policies.",
+      "supporting_evidence": [
+        {
+          "source": "Section 3.1"
+        },
+        {
+          "source": "Equations 1–6"
+        },
+        {
+          "source": "Table 2"
+        }
+      ],
+      "what_it_actually_proves": "The reported A100 experiments and profiled stages support this claim under the two evaluated backends.",
+      "what_it_does_not_prove": "Pose/FoV similarity must exist and temporal adaptation is not fully instantiated on both backends."
+    },
+    {
+      "claim": "The full pipeline realizes 2.59× on HY-WorldPlay and 1.61× on Matrix-Game-3.0.",
+      "supporting_evidence": [
+        {
+          "source": "Table 1"
+        },
+        {
+          "source": "Figure 4"
+        }
+      ],
+      "what_it_actually_proves": "The reported A100 experiments and profiled stages support this claim under the two evaluated backends.",
+      "what_it_does_not_prove": "Backend-dependent wall-clock result on one A100; not a universal speedup."
+    },
+    {
+      "claim": "Triton fusion converts sparse computation into wall-clock benefit.",
+      "supporting_evidence": [
+        {
+          "source": "Section 3.3"
+        },
+        {
+          "source": "Figure 5"
+        }
+      ],
+      "what_it_actually_proves": "The reported A100 experiments and profiled stages support this claim under the two evaluated backends.",
+      "what_it_does_not_prove": "1.40× applies to sparse-attention portion, not end-to-end."
+    }
+  ],
+  "negative_or_limiting_results": [
+    "SVG is 0.92×/0.62× and BSA is 0.48×/0.94×, showing algorithmic sparsity can be slower.",
+    "Only sparse attention lowers HY-WorldPlay fidelity to PSNR 25.53 versus context-only variants.",
+    "Matrix TeaCache has stronger retrospective metrics but lower VBench."
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "context management",
+      "result": "KV reconstruction, latency, and memory reduction"
+    },
+    {
+      "mechanism": "pose-gated cache",
+      "result": "about 4 to 3 effective denoising steps on average"
+    },
+    {
+      "mechanism": "Triton fusion",
+      "result": "sparse portion 22.87 s to 16.36 s, 1.40×"
+    }
+  ],
+  "comparative_positioning": [
+    "Uniform cache/sparse baselines lack interaction-state gating.",
+    "AR Q/K asymmetry and causal layout distinguish this from bidirectional video DiT acceleration."
+  ],
+  "reuse_takeaways": [
+    "Use a semantic/geometric control signal to gate several inference shortcuts jointly.",
+    "Report theoretical sparsity and measured stage latency separately."
+  ],
+  "followup_questions": [
+    "Can a learned reliability estimator replace explicit pose/FoV signals without retraining the generator?",
+    "How do gains scale on H100/B200 and alternative attention backends?"
+  ],
+  "figure_plan": [
+    {
+      "id": "Figure 2",
+      "decision": "insert",
+      "path": "images/page_004_fig_figure_2.png",
+      "placement": "方法主线/机制流程"
+    },
+    {
+      "id": "Table 1",
+      "decision": "insert",
+      "path": "images/page_008_tbl_table_1.png",
+      "placement": "关键结果/主结果"
+    },
+    {
+      "id": "Figure 5",
+      "decision": "insert",
+      "path": "images/page_009_fig_figure_5.png",
+      "placement": "深度分析/算法稀疏性与实测加速"
+    },
+    {
+      "id": "Table 3",
+      "decision": "insert",
+      "path": "images/page_013_tbl_table_3.png",
+      "placement": "关键结果/消融"
+    }
+  ],
+  "paper_type_rationale": "The paper proposes an inference mechanism and AR sparse-attention system, evaluated against acceleration baselines and ablations.",
+  "dominant_domain": "machine learning systems and video world models",
+  "must_cover": [
+    "trajectory-dependent context gating",
+    "denoising cache",
+    "AR-aware sparse attention",
+    "wall-clock profiling",
+    "backend dependence"
+  ],
+  "key_numbers": [
+    "2.59× HY-WorldPlay speedup",
+    "1.61× Matrix-Game-3.0 speedup",
+    "1.40× sparse portion fusion speedup",
+    "24.81 PSNR on HY-WorldPlay"
+  ],
+  "real_comparisons": [
+    "against Original, SVG, BSA, and TeaCache on Table 1",
+    "Table 2 full-set standalone ablations versus Table 3 fixed-subset leave-one-out"
+  ],
+  "claim_boundaries": [
+    "Pose/FoV signal required.",
+    "Temporal adaptation incompletely instantiated across backends.",
+    "One A100 and backbone-only latency.",
+    "Short-step denoising K<=4 only."
+  ],
+  "section_plan": [
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "subsections": [
+        "机制流程",
+        "上下文",
+        "去噪缓存",
+        "稀疏注意力",
+        "Triton 融合"
+      ],
+      "evidence_sources": [
+        {
+          "pages": [
+            3,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:method"
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "subsections": [
+        "主结果",
+        "单模块与留一消融"
+      ],
+      "evidence_sources": [
+        {
+          "pages": [
+            7,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:experiments"
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "subsections": [
+        "wall-clock",
+        "backend dependence",
+        "training-free boundary"
+      ],
+      "evidence_sources": [
+        {
+          "pages": [
+            8,
+            9,
+            13
+          ]
+        }
+      ]
+    }
+  ]
+}

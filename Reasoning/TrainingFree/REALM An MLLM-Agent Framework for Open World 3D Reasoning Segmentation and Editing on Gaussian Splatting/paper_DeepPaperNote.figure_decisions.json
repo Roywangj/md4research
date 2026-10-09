@@ -1,0 +1,237 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2510.16410",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "We propose REALM, an MLLM-agent framework designed for open-world 3D reasoning segmentation and editing within 3D",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "REALM vs. Direct Image Inputs. Feeding one or a",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_002_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_002_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_002_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Overview of REALM. Top: Global-to-Local Spatial Grounding (GLSpaG) pipline hierarchically aggregates the outputs of",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_003_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_003_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Global reasoning process. We visualize reasoning out-",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:models",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_004_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_004_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Qualitative Results on the LERF Dataset. The results demonstrate the ability of REALM to handle complex and implicit",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_005_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_005_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Ablation study on GLSpaG. The local grounding stage",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_005_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_005_fig_figure_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Language-driven 3D editing. Once the object is grounded, we can perform a wide range of 3D editing tasks.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_007_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_007_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_007_fig_figure_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Annotation prompt for REALM3D dataset. We use",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_008_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_008_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_008_fig_figure_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Quantitative results on LERF [13], 3D-OVS [20] and our proposed REALM3D benchmarks. We compare REALM with",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_006_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Ablation Study. We conduct a detailed ablation study on “Figurines” of the LERF dataset to evaluate the contribution of each",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/REALM_An_MLLM_Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_and_Editing_on_Gaussian_Splatting/images/page_007_fig_table_2.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 10,
+    "by_decision": {
+      "insert": 10,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

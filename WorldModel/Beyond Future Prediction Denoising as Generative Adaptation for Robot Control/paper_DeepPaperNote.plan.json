@@ -1,0 +1,58 @@
+{
+  "paper": {
+    "title": "Beyond Future Prediction: Denoising as Generative Adaptation for Robot Control",
+    "short_title": "NowWAM",
+    "year": 2026,
+    "venue": "arXiv:2609.28339"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总论文机构（UCSD/HKU/HKUST/Princeton）、核心作者、开源主页、核心创新与关键战绩指标"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达打破未来预测执念的生成式去噪自适应思想"
+    },
+    {
+      "section": "创新点",
+      "goal": "五大核心突破：范式解构、单流去噪表征耦合、纯净端点极速推断、文生图DiT通用性、训练开销减半与1.8倍加速"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "高密度提炼核心物理机制与学术定位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析具身策略两派分水岭、具身世界模型（WAM）的历史演变链条与未来预测在推断/训练中的冗余性追问"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "系统拆解 Standard LIBERO、RoboCasa GR1 100-shot 以及 LIBERO-Plus 10,030 轮极限扰动评测基准"
+    },
+    {
+      "section": "方法主线",
+      "goal": "详尽拆解传统双流未来协同训练弊端、NowWAM 单流流匹配去噪机制、偏置噪声采样公式、速度目标与端点推断"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全面剖析 Standard LIBERO 饱和性能、RoboCasa 跨仿真器迁移、LIBERO-Plus 7大维度断层领先、颠覆性消融与训练效率跃升"
+    },
+    {
+      "section": "深度分析",
+      "goal": "从第一性原理深挖去噪轨迹作为正则项的机理、流匹配向量场几何平滑性、三大误区澄清与工程复现避坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观分析长程多阶段物理推演接触动力学缺失、单帧视觉输入与真实机器人实体评测待拓展点"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "横向大比拼：NowWAM vs Fast-WAM vs ImageWAM vs Motus2 vs SimpleMemVLA vs Cosmos-Policy vs π0.5 全景横评与奥卡姆剃刀启示"
+    },
+    {
+      "section": "引用",
+      "goal": "标准 BibTeX 条目"
+    }
+  ]
+}

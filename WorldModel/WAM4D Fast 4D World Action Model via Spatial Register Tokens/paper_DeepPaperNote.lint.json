@@ -1,0 +1,101 @@
+{
+  "structure_gate": {
+    "required_headings": true,
+    "yaml_frontmatter": true,
+    "passes": true
+  },
+  "grounding_gate": {
+    "artifact_exists": true,
+    "proven_correlation_interpretation_separated": true,
+    "unsupported_cross_paper_mechanisms": 0,
+    "passes": true
+  },
+  "mechanism_gate": {
+    "register_definition_shape_flow": true,
+    "attention_and_position": true,
+    "training_and_inference_paths": true,
+    "cache_lifecycle": true,
+    "passes": true
+  },
+  "quantitative_gate": {
+    "main_results_table": true,
+    "ablation_tables": true,
+    "hardware_protocol": true,
+    "task_heterogeneity": true,
+    "passes": true
+  },
+  "figure_table_gate": {
+    "numbered_figures": 7,
+    "numbered_tables": 9,
+    "decision_count": 16,
+    "asset_count": 16,
+    "image_count": 6,
+    "missing_links": [],
+    "passes": true
+  },
+  "style_gate": {
+    "mixed_prose_reviewed": true,
+    "mechanical_replacement_artifacts": 0,
+    "passes": true
+  },
+  "source_reader_gate": {
+    "pairs": 63,
+    "caption_pairs": 16,
+    "reader_identical": true,
+    "pages_inventoried": 19,
+    "table3_rows": 51,
+    "table6_rows": 36,
+    "passes": true,
+    "references": 70,
+    "algorithm_steps": 11,
+    "english_para_line_words": 4771,
+    "semantically_repaired": true,
+    "source_groups": 63,
+    "reader_sha256": "1144eb5dd75d44e63d7b00fc52fb6339fd23fa08f281a66b310f415eb1d66063"
+  },
+  "control_character_gate": {
+    "findings": [],
+    "passes": true
+  },
+  "asset_link_gate": {
+    "markdown_image_links": 38,
+    "missing": [],
+    "passes": true
+  },
+  "json_gate": {
+    "files": [
+      "source_map.json",
+      "paper_DeepPaperNote.plan.json",
+      "paper_DeepPaperNote.grounding.json",
+      "paper_DeepPaperNote.figure_decisions.json"
+    ],
+    "errors": [],
+    "passes": true
+  },
+  "path_boundary_gate": {
+    "worktree_or_temp_path_leaks": [],
+    "passes": true
+  },
+  "reader_syntax_gate": {
+    "visible_original_or_chinese_labels": false,
+    "forbidden_math_delimiters": false,
+    "passes": true
+  },
+  "final_quality_review": {
+    "central_evidence_chain": true,
+    "key_settings_numbers": true,
+    "mechanism_result_mapping": true,
+    "strong_baseline_positioning": true,
+    "limitations_mechanistic": true,
+    "claim_boundaries": true,
+    "reusable_takeaways": true,
+    "passes": true
+  },
+  "final_readability_review": {
+    "full_note_reread": true,
+    "ordinary_english_leftovers_reviewed": true,
+    "tables_compact": true,
+    "passes": true
+  },
+  "passes_all_gates": true
+}

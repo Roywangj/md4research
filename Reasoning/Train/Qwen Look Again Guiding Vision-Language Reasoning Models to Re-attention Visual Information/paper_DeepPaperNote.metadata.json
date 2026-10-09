@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5WY2LX5P/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5WY2LX5P/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+  "title": "Qwen Look Again: Guiding Vision-Language Reasoning Models to Re-attention Visual Information",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2505.23558",
+  "paper_id": "arxiv:2505.23558",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2505.23558v2",
+  "abstract": "Inference time scaling drives extended reasoning to enhance the performance of Vision-Language Models (VLMs), thus forming powerful Vision-Language Reasoning Models (VLRMs). However, long reasoning dilutes visual tokens, causing visual information to receive less attention and may trigger hallucinations. Although introducing text-only reflection processes shows promise in language models, we demonstrate that it is insufficient to suppress hallucinations in VLMs. To address this issue, we introduce Qwen-LookAgain (Qwen-LA), a novel VLRM designed to mitigate hallucinations by incorporating a vision-text reflection process that guides the model to re-attention visual information during reasoning. We first propose a reinforcement learning method Balanced Reflective Policy Optimization (BRPO), which guides the model to decide when to generate vision-text reflection on its own and balance the number and length of reflections. Then, we formally prove that VLRMs lose attention to visual tokens as reasoning progresses, and demonstrate that supplementing visual information during reflection enhances visual attention. Therefore, during training and inference, Visual Token COPY and Visual Token ROUTE are introduced to force the model to re-attention visual information at the visual level, addressing the limitations of text-only reflection. Experiments on multiple visual QA datasets and hallucination metrics indicate that Qwen-LA achieves leading accuracy performance while reducing hallucinations. Our code is available at: https://github.com/Liar406/Look_Again",
+  "authors": [
+    "Xu Chu",
+    "Xinrong Chen",
+    "Guanyu Wang",
+    "Zhijie Tan",
+    "Kui Huang",
+    "Wenyu Lv",
+    "Tong Mo",
+    "Weiping Li"
+  ],
+  "published": "2025-05-29T15:34:15Z",
+  "year": "2025",
+  "pdf_url": "https://arxiv.org/pdf/2505.23558v2",
+  "venue": "ArXiv.org",
+  "doi": "10.48550/arxiv.2505.23558",
+  "script": "collect_metadata.py"
+}

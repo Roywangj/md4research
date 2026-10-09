@@ -1,0 +1,1225 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "doi:10.48550/arxiv.2406.11824",
+  "title": "Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/infinigen_indoors/infinigen_indoors_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/tmp/pdfs/infinigen_indoors/infinigen_indoors_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/CQMVHPUL/Raistrick 等 - 2024 - Infinigen Indoors Photorealistic Indoor Scenes us.pdf",
+    "total_pages": 29,
+    "text_pages_extracted": 29,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 29,
+    "text_max_pages": null,
+    "text_pages_extracted": 29,
+    "text_pages_scanned": 29,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 13,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 336,
+      "text_hash_sha256": "53967d92c64f0a5e5a686e0a34c22d1ee0649e3db1819eb31caa60f5a13784ae"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 910,
+      "text_hash_sha256": "b89e5e04b50185707f0d1aefac3565b0d42080a380284c6c340db1ce819bbcf1"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 6923,
+      "text_hash_sha256": "8c6c8cfc559056f7ba67ba7a57fdebe6e5acd305e7f9bdd7b044bd52b2483f62"
+    },
+    {
+      "section_id": "sec:dataset",
+      "kind": "data",
+      "title": "Dataset",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 76,
+      "text_hash_sha256": "ea19176f1677867bb1fdecd49c3d3f49169bc17405a31ba5a9bafe63f9dcc317"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 2317,
+      "text_hash_sha256": "797ba8bce49d08cff797c65658d4e2e3eaf8375459f6d5c0d09bdde033139a42"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "2. Related Work",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 3551,
+      "text_hash_sha256": "d3a17f49c6c3484201c8dd6579b445c91ab19ceeb0511002a327ac75cf1c9981"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "3. Method",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 10340,
+      "text_hash_sha256": "fc4acac92a3b5c606e23796b17e61662580eac27f0c7003461f96fd1296e5fe2"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 1370,
+      "text_hash_sha256": "fb15282a63d3ddb09c2c1f28dce97549556efc03e42f9ab6c1f5d3db95349d94"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "4. Experiments",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 1704,
+      "text_hash_sha256": "d4fb78f0424903b9b3d6416847967c10a113e5578baf03bcf7bf82c4e0b5c022"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 4068,
+      "text_hash_sha256": "31ba43ea51cec5e0bc55899da47111a2fe57342f5c2e33c66bdd76af254ebd1d"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 13,
+      "char_count": 22001,
+      "text_hash_sha256": "b2a5d217e384bc1eea157f84901bb4b743126e04bd44ea739d76ae9432eb0b7d"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 13,
+      "page_end": 27,
+      "char_count": 44960,
+      "text_hash_sha256": "b58e3baec6ab686c92168c051f58331cfaa3b848eb52a8a44f291752a63be62d"
+    },
+    {
+      "section_id": "sec:dataset-2",
+      "kind": "data",
+      "title": "dataset.",
+      "page_start": 27,
+      "page_end": 28,
+      "char_count": 5586,
+      "text_hash_sha256": "bc9041df84392586c8d5e5cfb21c39eb24f3c8f8cc873d986ddba767a322dd05"
+    },
+    {
+      "section_id": "sec:method-4",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 28,
+      "page_end": 29,
+      "char_count": 3409,
+      "text_hash_sha256": "bf53a3cecf5a08f106b65e1c7cbf599ff9420541f1cad2d8054493b9243e55ab"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4699,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3499,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4910,
+      "section_ids": [
+        "sec:introduction",
+        "sec:dataset",
+        "sec:method",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 2734,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 5128,
+      "section_ids": [
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3068,
+      "section_ids": [
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3517,
+      "section_ids": [
+        "sec:method-2",
+        "sec:model",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4306,
+      "section_ids": [
+        "sec:experiments",
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5637,
+      "section_ids": [
+        "sec:method-3",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 5745,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 5815,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4836,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4839,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 101,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 101,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 2212,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 5415,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 4785,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 435,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 3569,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 4674,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 4278,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 4032,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 5183,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 3193,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 2342,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 4031,
+      "section_ids": [
+        "sec:appendix",
+        "sec:dataset-2"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 3212,
+      "section_ids": [
+        "sec:dataset-2",
+        "sec:method-4"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 1836,
+      "section_ids": [
+        "sec:method-4"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Random, non cherry-picked sample of images generated by our system. From top left to bottom right, we show images from",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Each image (a) is rendered from a mesh (b), from which",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Random samples of procedurally generated doors",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Random samples of procedurally generated ovens, dish-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Random samples of procedurally generated furniture,",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Random samples of procedurally generated tableware, in-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Random samples of procedurally generated home decora-",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "A collection of materials generated in Infinigen Indoors.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Example usage of our constraint specification API, speci-",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "In Fig. a), we show ten randomly generated single-story floor plans with a diverse set of room combinations, connectedness, and",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Qualitative room arrangement results, grouped by room type. From left to right, we show bathrooms, dining rooms, living rooms",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Two scenes imported into Unreal Engine 5 (above) and",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Qualitative zero-shot results on SRD [66] test dataset.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Qualitative results on synthetic artistic scenes [26].",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Qualitative Ablation. From left to right, we show scenes generated by our system with 10K solving steps (a), 1K solving steps (b),",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Random, non-cherry-picked sample of procedurally generated residential homes (Part 1 of 2)",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "Random, non-cherry-picked sample of procedurally generated residential homes (Part 2 of 2)",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 18",
+        "caption": "Constraint Program for whole residential homes. Left shows hard constraints, right shows continous objective scores. Our system",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 19",
+        "caption": "Constraint program for warehouse scenes. In only a few high-level statements, we specify the hierarchy of allowed objects, and",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 20",
+        "caption": "Warehouse scene arrangement (left) and example first-person images (right). Using only a few high-level objectives, we extend",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 21",
+        "caption": "Illustration of narrow passage and erosion-buffer op-",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 22",
+        "caption": "All floor plan optimization moves. a) The original",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Greedy Solving Algorithm",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 23",
+        "caption": "Variation in a chair asset with tuneable parameters. a) A base chair for comparison, followed by chairs with b) larger depth; c)",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 24",
+        "caption": "Additional qualitative results on synthetic scenes [26].",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Figure 25",
+        "caption": "Additional qualitative zero-shot results on SRD [66] test",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:appendix"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Comparisons to existing datasets and generators. Many existing datasets/generators use external, static asset libraries and have",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Shadow removal task quantitative performance on ISTD,",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Ablation of solver performance optimizations.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Occlusion boundary quantitative results on a curated",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Capabilities included in our API. Please see Sec. B and C for example programs, and surrounding text for full descriptions. For our",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Probability of the number of rooms PCFG produces for",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Probability of the number of rooms PCFG produces for",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Typical area occupied by rooms",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Perceptual Study Results. We followed the method and",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:dataset-2"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Coverage of the assets in Infinigen Indoors.",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:method-4"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "No ($500)",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 3
+    },
+    {
+      "text": "No ($6000)",
+      "section_id": "sec:method",
+      "page_start": 3,
+      "page_end": 3
+    },
+    {
+      "text": "\\left (\\frac {l(s) - l(s')}{\\tau }\\right ), 1 \\right ]",
+      "section_id": "sec:method-2",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "nentially from τ = 0.25 to τ = 0.001.",
+      "section_id": "sec:method-2",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Our full system provides a ≈3x speedup compared to the",
+      "section_id": "sec:experiments",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "\\frac {1 -\\cos \\theta _i}{2}",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "\\tex t {score} = \\frac { \\text {loca tion asym",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "• Let ⃗pi = ⃗xi −c where c is the centroid of the objects.",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "• Then, we have location asymmetry = 1",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "is given by \\pr o te c t \\v e c {p'} = \\vec {p} - 2(\\vec {p} \\cdot \\vec {N}_{plane})\\vec {N}_{plane}. The reflection of",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "where ⃗e′ = ⃗e −2(⃗e · ⃗Nplane)⃗Nplane and θ′ = −θ.",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "== < <= and in range",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "Every bookcase must have ≥10 books",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "O'_i) = ((\\vec {p}_i, q_i),(\\vec {p'}_i, q'_i))",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "D_{p os} = ||\\vec {p}_i - \\vec {p'}_i ||",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "D_{a n g } = 2 \\arc c os",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "D_{dev}(O_i) = V(O_i) \\times (D_{pos} + D_{ang})",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "pha =",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "frac {1}{N(N-1)}\\sum _{i \\neq j} ||\\vec {p}_i - \\vec {p'}_i ||",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "e } = 1 - \\frac {1}{1 + \\sum _i D_{dev}(O_i) / \\alpha }",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "= \\vec {a}_c - \\left ( (\\vec {a}_c - \\vec {f}_p) \\cdot \\vec {n}_a \\right ) \\vec {n}_a",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "For a given object a ∈A, we define \\vec {b}(a) and \\vec {b} _{\\text {closest\\_pt}} . The",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "= \\a r gmin _{",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "b \\in B} \\| \\ vec {b}_ c - \\ vec {a}_ {\\text {proj}}\\| & \\\\ &\\vec {b}_{\\text {closest\\_pt}} = \\text {Centroid of the selected } \\vec {b}(a) &",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "&\\v e c {b}( a) = \\t ext {Obj ect in } B \\t e",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "xt { with t h e poi nt clo sest to mesh } a & \\\\ &\\vec {b}_{\\text {closest\\_pt}} = \\text {Point on mesh } \\vec {b}(a) \\text { closest to mesh } a &",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "cost} = \\s um _{a \\in A}",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "\\frac {(\\v ec {b}_{\\te",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "um _{a \\in A} \\mu (\\mathrm {proj}(a)) - \\sum _{b \\in B} \\mu (\\mathrm {proj}(b))",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "{sp } = \\sum _{f\\i",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "al F}}\\sum _{r\\in f}\\left (\\frac {\\|e_f\\rightarrow r\\|_{1,\\text {direct}}}{\\|e_f\\rightarrow r\\|_1}-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "rooms r ∈f, we compute its ideal area as",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "= \\frac {\\mathrm {typical\\_area_r}}{\\sum _{r'\\in f}\\mathrm {typical\\_area}_r}area_f",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}=\\sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "l F}}\\sum _{r\\in f}\\max \\left ({\\frac {\\overline { \\mathrm {area}}_r}{\\mathrm {area}_r},\\frac {\\mathrm {area}_r}{\\overline { \\mathrm {area}}_r}}\\right )",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "=\\s",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}}\\sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "\\in f\\cap \\mathcal R_s}\\left (\\max \\left (\\frac {\\mathrm {height}_r}{\\mathrm {width}_r},\\frac {\\mathrm {width}_r}{\\mathrm {height}_r}\\right )-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "onv}=\\sum _ {f\\in {",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "l F}}\\sum _{r\\in f}\\left (\\frac {\\mathrm {area}_{\\mathrm {convex\\_hull}(r)}}{\\mathrm {area}_r}-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "onc } =\\sum _ { f\\in {\\mathcal F}}\\sum _{r\\in f}\\left (\\|{w\\in \\mathrm {walls}_r}\\|-4\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "{func } =\\sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "{\\mathcal F}}\\left (\\frac {\\sum _{r\\in f\\cap \\mathcal R_{f}}\\mathrm {area}_r}{\\mathrm {area}_f}-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "l L_{co l }= \\ sum _{f\\in {\\ m athc al F}",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "nar}=\\ s um _{f\\in {\\mathcal F}}\\sum _{r\\in f}\\left (\\mathrm {area}_r-\\mathrm {area}_{\\text {erosion-buffer}(r)}\\right )",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "\\sum _{f \\in {\\ma thc",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}\\left ( \\frac {\\ sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "{r\\in f\\cap \\mathcal R_e}\\sum _{w\\in \\mathrm {walls}_r\\text { exterior}}\\|w\\|}{\\sum _{r\\in f}\\sum _{w\\in \\mathrm {walls}_r\\text { exterior}}\\|w\\|}-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "{extc} =\\s u m _{f\\in { \\mathcal F",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}\\l eft (\\frac {\\s um _{r\\in",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "cap \\mathcal R_e}\\left |\\{c\\in \\mathrm {corners}_r|c\\text { exterior}\\}\\right |}{\\sum _{r\\in f}\\left |\\{c\\in \\mathrm {corners}_r|c\\text { exterior}\\}\\right |}-1\\right )^2",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}=\\sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "l F}}\\left (\\sum _{r \\in f\\cap \\mathcal R_s}\\frac {\\mathrm {area}{sp\\cap r }}{\\mathrm {area}_{sp}}-1\\right )^",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "}=\\sum",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "\\mathcal F}}\\left (\\sum _{r \\in f\\cap \\mathcal R_s}\\mathrm {IOU}_{r,sp}-1\\right )^",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "against wall).count() > 0,",
+      "section_id": "sec:appendix",
+      "page_start": 13,
+      "page_end": 27
+    },
+    {
+      "text": "sample ⃗x ∈R3 where xi ∼N(0, σ2) for i = 1, 2, 3, and the",
+      "section_id": "sec:dataset-2",
+      "page_start": 27,
+      "page_end": 28
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 13,
+    "sections": [
+      {
+        "title": "A. Constraint Specification API",
+        "page": 13
+      },
+      {
+        "title": "P ||⃗wi −⃗pi||2.",
+        "page": 16
+      },
+      {
+        "title": "i. The reflection of a point \\protect \\vec {p}",
+        "page": 16
+      },
+      {
+        "title": "i are the quater-",
+        "page": 17
+      },
+      {
+        "title": "c o r",
+        "page": 17
+      },
+      {
+        "title": "e } = 1 - \\frac {1}{1 + \\sum _i D_{dev}(O_i) / \\alpha }",
+        "page": 17
+      },
+      {
+        "title": "B to each mesh in A . The mathematical formulation can be",
+        "page": 17
+      },
+      {
+        "title": "u m _{ a \\in A} \\",
+        "page": 18
+      },
+      {
+        "title": "a constraint program that contains the loop variable as a leaf",
+        "page": 18
+      },
+      {
+        "title": "B. Extended Random Sample & Constraint",
+        "page": 18
+      },
+      {
+        "title": "C. Extension to warehouse scenes",
+        "page": 18
+      },
+      {
+        "title": "D. Floorplan Solver Details",
+        "page": 19
+      },
+      {
+        "title": "a rectangular, round, or 45-degree profile that provides the",
+        "page": 20
+      },
+      {
+        "title": "a grid with a size of 0.5, and divisions leading to a bad",
+        "page": 21
+      },
+      {
+        "title": "F as the set of all floors, ef is the entrance on floor f, and",
+        "page": 21
+      },
+      {
+        "title": "n { \\ mat",
+        "page": 21
+      },
+      {
+        "title": "a room’s ideal proportion on one floor and the room’s true",
+        "page": 21
+      },
+      {
+        "title": "A formula for the objective function is",
+        "page": 21
+      },
+      {
+        "title": "i n {\\m",
+        "page": 21
+      },
+      {
+        "title": "n {\\ma",
+        "page": 21
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 16",
+        "caption": "Random, non-cherry-picked sample of procedurally generated residential homes (Part 1 of 2)",
+        "page_hint": "p.14"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "Random, non-cherry-picked sample of procedurally generated residential homes (Part 2 of 2)",
+        "page_hint": "p.15"
+      },
+      {
+        "id": "Figure 18",
+        "caption": "Constraint Program for whole residential homes. Left shows hard constraints, right shows continous objective scores. Our system",
+        "page_hint": "p.16"
+      },
+      {
+        "id": "Figure 19",
+        "caption": "Constraint program for warehouse scenes. In only a few high-level statements, we specify the hierarchy of allowed objects, and",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Figure 20",
+        "caption": "Warehouse scene arrangement (left) and example first-person images (right). Using only a few high-level objectives, we extend",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 21",
+        "caption": "Illustration of narrow passage and erosion-buffer op-",
+        "page_hint": "p.22"
+      },
+      {
+        "id": "Figure 22",
+        "caption": "All floor plan optimization moves. a) The original",
+        "page_hint": "p.23"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Greedy Solving Algorithm",
+        "page_hint": "p.24"
+      },
+      {
+        "id": "Figure 23",
+        "caption": "Variation in a chair asset with tuneable parameters. a) A base chair for comparison, followed by chairs with b) larger depth; c)",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Figure 24",
+        "caption": "Additional qualitative results on synthetic scenes [26].",
+        "page_hint": "p.26"
+      },
+      {
+        "id": "Figure 25",
+        "caption": "Additional qualitative zero-shot results on SRD [66] test",
+        "page_hint": "p.27"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 5",
+        "caption": "Capabilities included in our API. Please see Sec. B and C for example programs, and surrounding text for full descriptions. For our",
+        "page_hint": "p.17"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Probability of the number of rooms PCFG produces for",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Probability of the number of rooms PCFG produces for",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Typical area occupied by rooms",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Perceptual Study Results. We followed the method and",
+        "page_hint": "p.28"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Coverage of the assets in Infinigen Indoors.",
+        "page_hint": "p.29"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "dd2b56b2a3e56532319abdbd01ea695674ace7936d0989a4d1ca93fff7851624"
+}

@@ -1,0 +1,94 @@
+{
+  "paper_id": "arXiv:2606.14048v3",
+  "paper_type": "embodied AI method / world action model",
+  "source_authority": [
+    "canonical 19-page PDF",
+    "repaired byte-identical detailed_paper.md / paper.md",
+    "source_map.json"
+  ],
+  "required_sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "机制流程",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "evidence_intent": [
+    {
+      "topic": "meaning of 4D and deployment representation",
+      "sources": [
+        "S004",
+        "S058",
+        "F006"
+      ]
+    },
+    {
+      "topic": "register definition, grid, routing, readout",
+      "sources": [
+        "S018",
+        "S021",
+        "S037",
+        "F002"
+      ]
+    },
+    {
+      "topic": "objectives and trainable modules",
+      "sources": [
+        "S030",
+        "S032"
+      ]
+    },
+    {
+      "topic": "inference and cache lifecycle",
+      "sources": [
+        "S040",
+        "F003"
+      ]
+    },
+    {
+      "topic": "protocol and quantitative results",
+      "sources": [
+        "T001",
+        "T002",
+        "T003",
+        "T009"
+      ]
+    },
+    {
+      "topic": "ablations and mechanism boundaries",
+      "sources": [
+        "T006",
+        "T007",
+        "T008",
+        "F005"
+      ]
+    },
+    {
+      "topic": "limitations and reproduction",
+      "sources": [
+        "S059",
+        "S061",
+        "T009"
+      ]
+    }
+  ],
+  "comparison_policy": "Separate direct paper evidence from cross-paper synthesis; do not import unreported mechanisms.",
+  "figure_plan": [
+    "F002",
+    "F003",
+    "T001",
+    "T007",
+    "T008",
+    "T009"
+  ],
+  "status": "executed",
+  "reader_revision": "Semantically repaired complete reader: 63 source groups/base pairs, 4771 English Para-line words, 70 references; Chinese pairs audited sentence-by-sentence."
+}

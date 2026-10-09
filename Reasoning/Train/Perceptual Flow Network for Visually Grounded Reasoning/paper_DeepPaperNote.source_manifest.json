@@ -1,0 +1,1985 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2605.02730",
+  "title": "Perceptual Flow Network for Visually Grounded Reasoning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.pflownet_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.pflownet_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/59DCWCTW/Li 等 - 2026 - Perceptual Flow Network for Visually Grounded Reasoning.pdf",
+    "total_pages": 36,
+    "text_pages_extracted": 36,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 36,
+    "text_max_pages": null,
+    "text_pages_extracted": 36,
+    "text_pages_scanned": 36,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 7,
+    "references_start_page": 13
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 362,
+      "text_hash_sha256": "7339a951c44b34fa89b2a10dce3e0061e10f6b655066ed9faf2907019b591e69"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1282,
+      "text_hash_sha256": "3d1b2c1a061153cb1d2030c140434e0112925a6cd1216258b8c28fe3f081126b"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 7,
+      "char_count": 20586,
+      "text_hash_sha256": "245de17a69410307057f832c2d1cc2e350c8d3ff51d6371b3e3e06bda4204a94"
+    },
+    {
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "kind": "appendix",
+      "title": "Appendix A.1) to characterize the effect of its key hyperparameters. By examining the limiting regimes of this",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 5723,
+      "text_hash_sha256": "a844bf4bd60cc7f1b9461bc6098352aacdaf3781dad01281e63a87e832d373b1"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 8,
+      "page_end": 11,
+      "char_count": 13692,
+      "text_hash_sha256": "b092626c683bc645e4ccd6fdfe8327af799c2a93fcdf07ee1a613bc95cf3fe01"
+    },
+    {
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "kind": "appendix",
+      "title": "Appendix B, with specific adjustments for com-",
+      "page_start": 11,
+      "page_end": 12,
+      "char_count": 2560,
+      "text_hash_sha256": "4d91a570c49ca886c63978a8acebc9c994bf2d51cff3e44743634618bf2aded9"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 2246,
+      "text_hash_sha256": "631eb08792bb905aba7fa9f4d83fae39899cf6bd6438afe6bba8fa938ce6abdc"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 2109,
+      "text_hash_sha256": "203b7951b6c087eb57bec1b8e6e26109c9eea29f84a3ad7a7a4cf933dc6400a0"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 13,
+      "page_end": 17,
+      "char_count": 15859,
+      "text_hash_sha256": "8651713600ac1294f31fc92f8b8da2d4a8aa58316a6333ab50e4656a45bfeca6"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "Preliminaries",
+      "page_start": 17,
+      "page_end": 27,
+      "char_count": 20094,
+      "text_hash_sha256": "e0882cb290cc9ebd8a6aea1a272b47d9b3533c57ff6796af50245e6936b776a2"
+    },
+    {
+      "section_id": "sec:dataset",
+      "kind": "data",
+      "title": "Dataset",
+      "page_start": 27,
+      "page_end": 36,
+      "char_count": 27881,
+      "text_hash_sha256": "842c373cb8cd43b0059d90ce2fc989a05bce04e298b7b32626dddfa98c5801c2"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3246,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3563,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3842,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3200,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 3545,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4237,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3664,
+      "section_ids": [
+        "sec:introduction",
+        "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4099,
+      "section_ids": [
+        "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4392,
+      "section_ids": [
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4915,
+      "section_ids": [
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4160,
+      "section_ids": [
+        "sec:experiment",
+        "sec:appendix-b-with-specific-adjustments-for-com"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4897,
+      "section_ids": [
+        "sec:appendix-b-with-specific-adjustments-for-com",
+        "sec:related-work",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4321,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 4364,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 4223,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3281,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3447,
+      "section_ids": [
+        "sec:references",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 2192,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 2257,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2173,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 2021,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 3061,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 1629,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 1371,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 2117,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 1466,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 3893,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 3863,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 135,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 119,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 4957,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 4922,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 1737,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 34,
+      "char_count": 4316,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 35,
+      "char_count": 2030,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    },
+    {
+      "page": 36,
+      "char_count": 1991,
+      "section_ids": [
+        "sec:dataset"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Impact of evidence geometric precision (IoU w.r.t. the expert annotations) on reasoning performance",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Illustration of feasible regions (Sv) and optimization objectives for visually grounded reasoning. Existing",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of PFlowNet that consists of two decoupled stages: flow generation and flow-guided reasoning. We",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Data pipeline for perceptual flow synthesis.",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Statistics of the Cold-Start Dataset. Notably, as the number of RoIs increases, the average character length",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Performance-efficiency trade-offs of Qwen3-VL 8B, PFlowNet, TreeVGR, DeepEyesV2, and Thyme. All",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Qualitative comparison of visual reasoning across different methods. PFlowNet enables precise yet compre-",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Pass@k curves (i.e., k ∈[1, 8]) of different methods",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Statistics of RoIs distributions and character-level output length across different type of benchmarks.",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Ablation study on the geometric shaping scheme.",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Framework comparisons between different paradigms, where (a) agentic frameworks rely on multi-turn tool",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:appendix-b-with-specific-adjustments-for-com"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Parallel computation strategy of terminal probability, i.e., log pθ(⊤| z0:i), with explicit position IDs &",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:dataset"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Parallel computation strategy of efficacy reward, i.e., log pϕ(Y | z0:i, X), with explicit attention mask.",
+        "page": 30,
+        "pages": [
+          30
+        ],
+        "section_id": "sec:dataset"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Qualitative comparison of grounding results under test-time scaling, highlighting the severe mode collapse",
+        "page": 33,
+        "pages": [
+          33
+        ],
+        "section_id": "sec:dataset"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page": 34,
+        "pages": [
+          34
+        ],
+        "section_id": "sec:dataset"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page": 35,
+        "pages": [
+          35
+        ],
+        "section_id": "sec:dataset"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page": 36,
+        "pages": [
+          36
+        ],
+        "section_id": "sec:dataset"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Training data construction via verifier-based filtering and difficulty-aware splitting. Here, Zs denotes the",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Comparison with competitive alternatives on TreeBench (left) and MME-RealWorld-Lite (right).",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison on fine-grained visual tasks: visual search, high-resolution VQA, and GUI grounding.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation on the training recipe, reward design and",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Cross-scale gains of PFlowNet across general-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Hyperparameters for variational reinforcement fine-tuning.",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:dataset"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "pθ(Y | X) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "pθ(yt | X, y<t),",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "where Y = (y1, y2 . . . , yT ) represents the output token sequence conditioned on X. Conventionally, Mθ is",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "trajectory Z, which is the σ-neighborhood of G under a deviation metric d(·, ·): SV :=",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Z | d(Z, G) ≤σ",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Target posterior PV (Z | X, Y ) := P(Z | X, Y, Z ∈SV ) is given by assigning its probability mass",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "= pθ(Z | X) pθ(Y | X, Z) = PV (Z | X, Y )",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Definition 2.2 (Perceptual Flow). Given an input X, we define Perceptual Flow Z = (z0 →z1 . . . zK)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "♢Perceptual States (z≥1): A chain of grounded observations enclosed by ⟨localize⟩and ⟨/localize⟩.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Each state zk = ⟨rk, ck⟩consists of a Region of Interest (RoI) rk ∈N4 (represented in relative",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "ωω(z0:k, E) := exp",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Z = (z0 →↑r1, c1↓. . . ↑r3, c3↓)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Rω(z0:K↘) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "#$ k",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "sub-trajectory indexed by 0≤i≤j ≤K, the Sub-TB objective derived by a divergence metric D is defined as:",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "where TF (zi:j) = Qj",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "k=i+1 pθ(zk | zk−1), TB(zj:i) = Qj",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "k=i+1 pθ(zk−1 | zk) denotes the forward, backward",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "The overall architecture of PFlowNet is shown in Figure 3. Formally, let X := ⟨I, T⟩denote a multimodal",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "pθ(Y, Z | X) = pθ(Z | X) pθ(Y | Z, ⟨X, IRoI⟩),",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "kpass = 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "kpass > 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "2 ≤kpass ≤16",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "kpass = 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "kpass > 16",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "kpass = 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "correct answer, with kpass > n indicating failure within n decoded responses. In the data tuple, E denotes the original",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "expanded RoI, together with its corresponding caption, is treated as a Perceptual State z≥1. The synthetic",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "pθ(Z|X). Specifically, given the RFT set Pdata(X, Y, E) introduced in Table 1, let Rλ(z0:i) := F(zi) = Rλ(z0:i⊤)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "LvRFT(θ) = E",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "l=1∼pθ(Z|X)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "0≤i≤j≤|Z|",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1)pθ(⊤| z0:j)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "R(z0:k⊤) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "pϕ(Y | z0:k⊤, X) ⇐⇒log(R(z0:k⊤)) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "ϕ (zi) = pϕ(ci | Iri), p−",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "ϕ (zi) = pϕ(ci | I \\ Iri), where Iri = Crop(ri, I)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "θ(c) := pθ(ci = c | X, z<i, ri) be the policy-induced caption distribution for the predicted ri. Under the",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "IoUA→B = 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "a∈A sup",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "b∈B",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "IoU(a, b), IoU(a, b)= a ∩b",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "dIoU(A, B) = 1 −0.5 ∗(IoUA→B + IoUB→A).",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "For any (X, Y, E)∼Pdata, we define an ε-vicinity of the prior E by a ball Bε(E) := {z0:k | dIoU(r1:k, E) ≤ε},",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "and thus introduce an energy weight ωλ(z0:k, E) := exp",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "\u0000−λ I(z0:k /∈Bε(E))",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "parameters. Notably, since z0 is defined as the planning state without RoI, we define ωλ(z0, E) = 1. Finally,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "Rλ(z0:k⊤) := R(z0:k⊤) ωλ(z0:k, E) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "evidence as G∼P(· | X, Y ). Any perceptual flow is denoted by Z :=(z0, ⟨R, C⟩), parametrized by the planning",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "support SV and the expert vicinity Bε based on dIoU with σ, ε ∈[0, 1]:",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "SV :={Z | dIoU(R, G)≤σ}, Bε :={Z | dIoU(R, E)≤ε}.",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "sV := P(SV | X, Y ),",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "sB := P(Bε | X, Y ).",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "Pλ(Z | X, Y, E) := P(Z | X, Y ) ωλ(Z, E) / Zλ.",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "where the partition function Zλ is given by Zλ =",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "P(Z | X, Y ) ωλ(Z, E) dZ = sB + e−λ(1 −sB). Let",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "PV(Z | X, Y ):=P(Z | X, Y )/sV be the target posterior for idealized perceptual behaviors. We now establish",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "SV satisfies deff-regularity, where deff is its effective dimension; thus, ∃κ ≥1 such that q := sB/sV ≥",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "DTV(pθ⋆(· | X), PV(· | X, Y )) ≤",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "DTV(λ⋆, ε) ≤min{ 1 −sV, 1 −q }.",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "For fixed λ = λ⋆, the bound is strictly decreasing in q (ε ↑).",
+      "section_id": "sec:appendix-a-1-to-characterize-the-effect-of-its-key-hyperparameters-by-examining-the-limiting-regimes-of-this",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "Qwen3-VL 8B Instruct: <thinking> The sculpture",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "</thinking> <answer> No, the sculpture is large.",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "TreeVGR: <think> The question asks if the sculpture to the left of the",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "vase looks white and small. First, identify the vase <box>[800, 720,",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "864, 997]</box> which is white and small-sized. Then, find the",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "sculpture to its left <box>[293, 613, 395, 700]</box>. It is also white",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "small.</think> <answer> Yes </answer>",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "PFlowNet: <analyze> The question asks whether the sculpture located to the left of the vase is both white and small. To",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "relative size of that sculpture compared to surrounding objects in the image. </analyze> <localize> <box>[792, 677, 885, 977]",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "</box> This is the tall, white vase positioned on the side table. The sculpture is near this vase. <box>[756, 857, 813, 924]</box>",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "examine the image. <box>[385, 672, 488, 729]</box> This is a white, bowl-shaped sculpture placed on the wooden coffee table.",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "It is located to the left of the vase on the side table, but not directly adjacent. <box>[712, 677, 867, 819]</box> This is the gray",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "cushion on the sofa, which seems not relevant to the question. I have fully explored the image. </localize>",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "<thinking> Upon re-examining the image and supplied visual evidence, I confirm that there is a white, spherical sculpture",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "vase is indeed white and small. </thinking> <answer> Yes, the sculpture to the left of the vase is white and small. </answer>",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "Figure 7 Pass@k curves (i.e., k ∈[1, 8]) of different methods",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "results, we set λ = 4.5, ε = 0.5 in this work.",
+      "section_id": "sec:experiment",
+      "page_start": 8,
+      "page_end": 11
+    },
+    {
+      "text": "<think> Based on these",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "analysis, the…</think>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<answer> Yes, the white",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "sculpture is ... </answer>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<tool>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "</tool>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<user>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "</user>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<think> First, identify the vase",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<box>[800, 720, 864, 997]",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "</box> which is white and",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "small-sized. … </think>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<answer> No, it looks as",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "large as the vase. </answer>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<analyze> To answer this, I need to",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "examine … </analyze> <localize>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<box>[756, 857, 813, 924]</box> This",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "is a white tall vase with … </localize>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<think> Upon re-examining the zoom-",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "in evidence, I notice that ... </think>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "<answer> Yes, the sculpture near the",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "vase is white and small. </answer>",
+      "section_id": "sec:appendix-b-with-specific-adjustments-for-com",
+      "page_start": 11,
+      "page_end": 12
+    },
+    {
+      "text": "X := ⟨I, T⟩consists of an image I and an instruction T, Y = (y1, . . . , yL) is the response sequence generated",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Z = (z0 →z1 →· · · →zK),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "zk = ⟨rk, ck⟩",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "(k ≥1),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "r1:K := (r1, . . . , rK),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "c1:K := (c1, . . . , cK).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "convenience, RoIs are represented by normalized coordinates rk ∈[0, 1]4, e.g., rk = (x1, y1, x2, y2) with",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "0 ≤x1 < x2 ≤1 and 0 ≤y1 < y2 ≤1. All geometric distances below are defined on this normalized coordinate",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "system. For any k ∈{0, 1, . . . , K}, define the prefix or sub-flow",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "z0:k := (z0 →z1 →· · · →zk),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "R(X) = {R1(X), . . . , RM(X)}",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(Z | X). Each Rj(X) = {rj",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=1 is a set of RoIs with cardinality K and represents one admissible unordered",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "r1:K ∈SR, where SR is the permutation class induced by the elements of R.",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "pθ(Z | X) = pθ(z0 | X)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "z0 = g(X),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(z0 | ·, X) = 1{z0 = g(X)}.",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Ir = Crop(r, I),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Irj:k := (Irj, . . . , Irk).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(cj:k | I, rj:k) = P(cj:k | Irj:k).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "term applies only to perceptual states zk≥1, we set the boundary condition at the planning state as",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P −(z0) := 1,",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "R(z0⊤) = P(Y | z0⊤, X).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Vicinal support. Assume there exists a conceptual golden RoI trajectory GR = (g1, . . . , gK) that captures the",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "intrinsic visual evidence for X. For a tolerance parameter σ ∈[0, 1], define the support of valid flows as",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "SV :=",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "sV := P(SV | X, Y ).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Given a reference RoI set E and radius ε ∈[0, 1], define the ε-vicinity of E by",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Bε(E) :=",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Given a complete flow Z ∈Bε(E), its terminal RoI set {r1, . . . , rK} lies within the ε-vicinity of E. We define",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "sB := P(Bε(E) | X, Y ),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "q := sB",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "0 ≤sB ≤sV ≤1.",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Reward-induced tilted posterior. For any λ ≥0, the shaping weight ωλ induces an exponentially tilted posterior",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Pλ(Z | X, Y, E) := P(Z | X, Y ) ωλ(Z, E)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Zλ :=",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Since ωλ(Z, E) = 1 on Bε(E) and ωλ(Z, E) = e−λ on its complement, the normalizer admits the closed form",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Zλ =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= P(Bε(E) | X, Y ) + e−λP(Bε(E)c | X, Y )",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= sB + e−λ(1 −sB).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Using sB = q sV, we equivalently have",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Zλ = q sV + e−λ\u00001 −q sV",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "PV(Z | X, Y ) := P(Z | X, Y, Z ∈SV) = P(Z | X, Y ) 1{Z ∈SV}",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "squared log-difference form of the SubTB objective for a sub-trajectory zi:j (where 0 ≤i < j ≤K), which is",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "L(zi:j) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i.e., TB(zj:i) = 1. Conversely, the forward transition TF (zi:j) is governed by the product of conditional",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "likelihoods parameterized by θ, yielding TF (zi:j) = Qj",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1). Furthermore, we formulate the",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "F(zk) := Rλ(z0:k⊤)/pθ(⊤| z0:k).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "∆i,j = log",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= log",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= log",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= log",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1) · pθ(⊤| z0:j)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Then, given a trajectory Z = (z0, . . . , zK), we derive the loss by summing the squared log-ratios over all valid",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "LvRFT(Z, θ) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "0≤i≤j≤K",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i,j =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "0≤i≤j≤K",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1) pθ(⊤| z0:j)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Finally, we extend this formulation to the empirical data setting (X, Y, E) ∼Pdata, where E = {el}L",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "l=1 ⊂N4",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "LvRFT(θ) = E",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "l=1∼pθ(Z|X)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "0≤i≤j≤|Z|",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "k=i+1 pθ(zk | z0:k−1) pθ(⊤| z0:j)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "l=1 ∼Z denotes the group of sampled perceptual flows, and θ⋆= arg minθ LvRFT(θ).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "RoI space R(X). Formally, given X, for all Z(z0, R, C) ∼P(Z | X) where R ∈R(X) and |R| = K, we have",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(R | X) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(r1:K | R, X) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "where r1:K ∈SR and SR is the symmetric group of ∀r ∈R.",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Assumption A.2 (Faithful Captioning with Non-Informative Prior). We assume ∀c ∈C is faithful when",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(cj:k | Irj:k) = Qk",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=j P(ci | Iri), P(c | I \\ Ir) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Rλ(Z) := Rλ(z0:k⊤) ∝Pλ(Z | X, Y, E).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Rλ(z0:k⊤) :=",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Invoking Assumption A.2, for all i ∈{1, . . . , K}, we have P(ci | I \\ Iri) = 1/|C| where C is a finite space",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "Rλ(Z) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(ci | Iri) = P(c1:K | Ir1:K).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(Z | X, Y ) = P(Y, Z | X)",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(Z | X, Y ) ∝P(Y, Z | X) = P(Z | X) P(Y | Z, X) ≡P(R, z0, r1:K, c1:K | X) P(Y | Z, X),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "state z0 given X, yielding P(r1:K | z0, R, X) = P(r1:K | R, X). Leveraging the deterministic crop operator",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "P(c1:K | r1:K, z0, R, X) = P(c1:K | r1:K, R, I, T),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= P(c1:K | Ir1:K, z0, R, T),",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    },
+    {
+      "text": "= P(c1:K | ·, Ir1:K).",
+      "section_id": "sec:preliminaries",
+      "page_start": 17,
+      "page_end": 27
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 7,
+    "sections": [
+      {
+        "title": "a guaranteed improvement.",
+        "page": 7
+      },
+      {
+        "title": "V * Bench",
+        "page": 10
+      },
+      {
+        "title": "a localization tool; it serves as a critical explicit semantic anchor. By translating visual thoughts into a",
+        "page": 11
+      },
+      {
+        "title": "w SFT",
+        "page": 11
+      },
+      {
+        "title": "w RFT",
+        "page": 11
+      },
+      {
+        "title": "X := ⟨I, T⟩consists of an image I and an instruction T, Y = (y1, . . . , yL) is the response sequence generated",
+        "page": 17
+      },
+      {
+        "title": "a flow. Following Definition 2.2, a perceptual flow is written as a finite trajectory",
+        "page": 17
+      },
+      {
+        "title": "Z = (z0 →z1 →· · · →zK),",
+        "page": 17
+      },
+      {
+        "title": "P +(z0)",
+        "page": 18
+      },
+      {
+        "title": "P −(z0) := 1,",
+        "page": 18
+      },
+      {
+        "title": "Z : dIoU",
+        "page": 18
+      },
+      {
+        "title": "q := sB",
+        "page": 18
+      },
+      {
+        "title": "P (R,z0,r1:K,c1:K|X)",
+        "page": 20
+      },
+      {
+        "title": "q. As ε →0, the vicinity contracts to a singularity, implying q →0 and sB →0. Consequently, Zλ →e−λ.",
+        "page": 22
+      },
+      {
+        "title": "P (Z|X,Y )",
+        "page": 24
+      },
+      {
+        "title": "V implies Z /∈Bε(E) because Bε(E) ⊆SV. Hence on Sc",
+        "page": 24
+      },
+      {
+        "title": "V | X, Y )",
+        "page": 24
+      },
+      {
+        "title": "q + |e−λsV −Zλ|",
+        "page": 24
+      },
+      {
+        "title": "q |sV −Zλ| + (1 −q) |e−λsV −Zλ| + e−λ(1 −sV)",
+        "page": 24
+      },
+      {
+        "title": "Z ∼pθ(Z | X), the computation involves three primary components:",
+        "page": 27
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 6",
+        "caption": "Performance-efficiency trade-offs of Qwen3-VL 8B, PFlowNet, TreeVGR, DeepEyesV2, and Thyme. All",
+        "page_hint": "p.9"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Qualitative comparison of visual reasoning across different methods. PFlowNet enables precise yet compre-",
+        "page_hint": "p.10"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Pass@k curves (i.e., k ∈[1, 8]) of different methods",
+        "page_hint": "p.10"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Statistics of RoIs distributions and character-level output length across different type of benchmarks.",
+        "page_hint": "p.10"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Ablation study on the geometric shaping scheme.",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Framework comparisons between different paradigms, where (a) agentic frameworks rely on multi-turn tool",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Parallel computation strategy of terminal probability, i.e., log pθ(⊤| z0:i), with explicit position IDs &",
+        "page_hint": "p.29"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Parallel computation strategy of efficacy reward, i.e., log pϕ(Y | z0:i, X), with explicit attention mask.",
+        "page_hint": "p.30"
+      },
+      {
+        "id": "Figure 14",
+        "caption": "Qualitative comparison of grounding results under test-time scaling, highlighting the severe mode collapse",
+        "page_hint": "p.33"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page_hint": "p.34"
+      },
+      {
+        "id": "Figure 16",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page_hint": "p.35"
+      },
+      {
+        "id": "Figure 17",
+        "caption": "Additional qualitative results of visual reasoning. We highlight the important reasoning steps.",
+        "page_hint": "p.36"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 2",
+        "caption": "Comparison with competitive alternatives on TreeBench (left) and MME-RealWorld-Lite (right).",
+        "page_hint": "p.8"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Performance comparison on fine-grained visual tasks: visual search, high-resolution VQA, and GUI grounding.",
+        "page_hint": "p.9"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation on the training recipe, reward design and",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Cross-scale gains of PFlowNet across general-",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Hyperparameters for variational reinforcement fine-tuning.",
+        "page_hint": "p.28"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "7e26fd9dcaab53ae0b9c5b2f841d2dc411cd62f3666dc56faadced995dec794d"
+}

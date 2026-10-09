@@ -1,0 +1,57 @@
+{
+  "paper": {
+    "title": "SimpleMemVLA: A Simple but Effective Native-Video Memory for Vision-Language-Action Models",
+    "year": 2026,
+    "venue": "arXiv:2609.05533"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "提取华科/清华/面壁团队、开源代码、核心突破与关键指标"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利学术直译，传达奥卡姆剃刀式原生视频记忆理念"
+    },
+    {
+      "section": "创新点",
+      "goal": "五大突破：原生视频上下文、极窄文本通道、动作掩盖流式推断、SWA 变体、同构归因与反事实证明"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "极简凝练模型核心定位与价值"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深挖部分可观测 POMDP、传统三大记忆机制先决后验矛盾及实时控制延迟冲突"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "拆解 6 大评测基准与硬件自适应配置元组"
+    },
+    {
+      "section": "方法主线",
+      "goal": "系统拆解原生视频保留、自注意力 Read-time 筛选、极窄文本通道瓶颈与流式推断"
+    },
+    {
+      "section": "关键结果",
+      "goal": "深度剖析 6 大基准全面领跑、同构消融归因、反事实因果干预、推断效率与消融验证"
+    },
+    {
+      "section": "深度分析",
+      "goal": "论证奥卡姆剃刀哲学深意、物理与数学机理、三大认知误区澄清与工程复现注意点"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出单视角遮挡、复杂多目标长文本容量与训练期算力开销"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "横向大比拼：SimpleMemVLA 与 EventVLA, MemoryWAM, DIM-WAM, HarnessWAM, HiMem-WAM 全景横评"
+    },
+    {
+      "section": "引用",
+      "goal": "标准 BibTeX 格式条目"
+    }
+  ]
+}

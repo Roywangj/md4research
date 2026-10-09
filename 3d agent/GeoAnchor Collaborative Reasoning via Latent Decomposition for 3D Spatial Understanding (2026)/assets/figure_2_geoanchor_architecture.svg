@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+<rect width="1200" height="620" fill="#fff"/>
+<text x="600" y="38" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#173b63">Figure 2 schematic — GeoAnchor architecture</text>
+<text x="600" y="66" text-anchor="middle" font-family="Arial" font-size="15" fill="#555">Recreated schematic from the paper figure; local cues are interleaved with text and a global geometry token.</text>
+<rect x="35" y="95" width="1130" height="100" rx="14" fill="#eef5ff" stroke="#6288b5" stroke-width="2"/>
+<text x="55" y="125" font-family="Arial" font-size="18" font-weight="700">Input / query</text>
+<rect x="180" y="112" width="190" height="56" rx="8" fill="#fff" stroke="#999"/><text x="275" y="146" text-anchor="middle" font-family="Arial" font-size="16">Vision I + Query Q</text>
+<path d="M390 140H465" stroke="#555" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="480" y="112" width="260" height="56" rx="8" fill="#f9ecd2" stroke="#b88737"/><text x="610" y="146" text-anchor="middle" font-family="Arial" font-size="16">MLLM text–latent trajectory</text>
+<path d="M760 140H835" stroke="#555" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="850" y="112" width="285" height="56" rx="8" fill="#fff" stroke="#999"/><text x="992" y="137" text-anchor="middle" font-family="Arial" font-size="15">Interleaved tokens</text><text x="992" y="158" text-anchor="middle" font-family="Arial" font-size="14">text ⊕ local ⊕ global</text>
+<rect x="45" y="225" width="525" height="330" rx="16" fill="#f1f5ff" stroke="#6f89d5" stroke-width="2"/>
+<text x="70" y="260" font-family="Arial" font-size="20" font-weight="700" fill="#324d9a">Local atomic 3D cues</text>
+<text x="70" y="290" font-family="Arial" font-size="15">Continuous, object-level evidence</text>
+<rect x="80" y="330" width="175" height="70" rx="10" fill="#b9c8ff" stroke="#536bb6"/><text x="167" y="359" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700">Position latent</text><text x="167" y="382" text-anchor="middle" font-family="Arial" font-size="13">zᵖᵒˢ → p̂ ∈ R³</text>
+<rect x="355" y="330" width="175" height="70" rx="10" fill="#b9c8ff" stroke="#536bb6"/><text x="442" y="359" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700">Direction latent</text><text x="442" y="382" text-anchor="middle" font-family="Arial" font-size="13">zᵈⁱʳ → d̂ ∈ R³</text>
+<path d="M167 410V485" stroke="#536bb6" stroke-width="3" marker-end="url(#arrow2)"/><path d="M442 410V485" stroke="#536bb6" stroke-width="3" marker-end="url(#arrow2)"/>
+<text x="167" y="520" text-anchor="middle" font-family="Arial" font-size="14">object grounding</text><text x="442" y="520" text-anchor="middle" font-family="Arial" font-size="14">relative orientation</text>
+<rect x="630" y="225" width="525" height="330" rx="16" fill="#fff2fb" stroke="#b46caa" stroke-width="2"/>
+<text x="655" y="260" font-family="Arial" font-size="20" font-weight="700" fill="#8b397c">Global geometry context</text>
+<text x="655" y="290" font-family="Arial" font-size="15">VGGT features → soft coverage alignment</text>
+<rect x="690" y="330" width="175" height="70" rx="10" fill="#e6b2db" stroke="#9d5594"/><text x="777" y="359" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700">Geometry latent</text><text x="777" y="382" text-anchor="middle" font-family="Arial" font-size="13">zᵍᵉᵒ → G={gⱼ}</text>
+<path d="M777 410V485" stroke="#9d5594" stroke-width="3" marker-end="url(#arrow3)"/>
+<rect x="935" y="330" width="170" height="70" rx="10" fill="#f3d9ee" stroke="#9d5594"/><text x="1020" y="359" text-anchor="middle" font-family="Arial" font-size="16">VGGT feature map</text><text x="1020" y="382" text-anchor="middle" font-family="Arial" font-size="13">global scene structure</text>
+<path d="M935 365H875" stroke="#9d5594" stroke-width="2" marker-end="url(#arrow3)"/>
+<text x="777" y="520" text-anchor="middle" font-family="Arial" font-size="14">global context for downstream reasoning</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#555"/></marker><marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#536bb6"/></marker><marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#9d5594"/></marker></defs>
+</svg>

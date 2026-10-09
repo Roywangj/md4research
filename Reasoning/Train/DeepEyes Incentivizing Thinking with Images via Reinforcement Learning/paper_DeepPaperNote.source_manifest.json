@@ -1,0 +1,1266 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2505.14362",
+  "title": "DeepEyes: Incentivizing \"Thinking with Images\" via Reinforcement Learning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.deepeyes_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.deepeyes_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/7SFX2HHW/Zheng 等 - 2026 - DeepEyes Incentivizing Thinking with Images via Reinforcement Learning.pdf",
+    "total_pages": 25,
+    "text_pages_extracted": 25,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 25,
+    "text_max_pages": null,
+    "text_pages_extracted": 25,
+    "text_pages_scanned": 25,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 502,
+      "text_hash_sha256": "b8e55696b12b4c8a41d8ffc250b129dec0434eeefc2f7f2e0a26763d8f5efd80"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1284,
+      "text_hash_sha256": "e178a052288709933d2cf960e4b694c06ff7167f7c7421020e61d1ceff6726d0"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 8302,
+      "text_hash_sha256": "5b1f3d00d4d9eb0ea2fee5c00cdfcc6581775087e7aa0b39cb0fb3b74f8259b5"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "RELATED WORK",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 3425,
+      "text_hash_sha256": "80921a68310af6c2eecf817632f97fd960d0af30638a9a1b9b9b214bfdeca97f"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "METHOD",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 7428,
+      "text_hash_sha256": "afa73b9e7ae06862e7ef123e1cc0eaf2a32f029ef479a5ecd437e90181c608bc"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 846,
+      "text_hash_sha256": "63d2e7c64d4d1e773a59a2750fdcba307663957ea7c5569b515d83946e7bab9a"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 598,
+      "text_hash_sha256": "ced0bea06c01701d5dc13dba9d7131384fec54adce730855e05a076457503cef"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 482,
+      "text_hash_sha256": "68b18d49af6cfae1291a5184f6af0bc6501aff7fbfced2568ebfca795a341e6e"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 336,
+      "text_hash_sha256": "98c774d88e691fbaf2a84adfdb9791a4cc742e7bc30e743588c98a3c7dd51edf"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "EXPERIMENT",
+      "page_start": 6,
+      "page_end": 8,
+      "char_count": 5479,
+      "text_hash_sha256": "963af2938e191d93aa4a25a1a9f36828a582e3caf577f93b97da237603da9d9e"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 251,
+      "text_hash_sha256": "2b224c7d9ee1a3131fac6a2b8c8dfc72cdc076de9b8e4afb7baae5bf906836b1"
+    },
+    {
+      "section_id": "sec:model-5",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 268,
+      "text_hash_sha256": "845e864d8c7c6bf02456f54456fc9de5a2dea86fc0b7a5a376029f2faa1ae4fa"
+    },
+    {
+      "section_id": "sec:model-6",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 217,
+      "text_hash_sha256": "a07c89811943c76b3fbd4cc15c1a6b02b460dac60ea1111e5a8d83470953127d"
+    },
+    {
+      "section_id": "sec:model-7",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 193,
+      "text_hash_sha256": "4717c79be12e9f2a146cd095612342bdf5d9791be7d2f7bf71ad5d1c5ca14dab"
+    },
+    {
+      "section_id": "sec:model-8",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 8,
+      "page_end": 10,
+      "char_count": 8008,
+      "text_hash_sha256": "0acb68d97339ae86551505a1738a41aeeca4e5c002048330973b736d6ec9e339"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "CONCLUSION",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 1045,
+      "text_hash_sha256": "29c88d2c34dfa330de2a5d17d5bac95ed563e5e74264741df5823a68f9ba8c8b"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "REFERENCES",
+      "page_start": 10,
+      "page_end": 17,
+      "char_count": 23621,
+      "text_hash_sha256": "f6dbd4d079bcf0bc068e1a9ee353b6c4dd27f766ce7f4f567ebe814cf1a503eb"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "experiments.",
+      "page_start": 17,
+      "page_end": 24,
+      "char_count": 11918,
+      "text_hash_sha256": "1aa0cef31fb931b37ced2cf57cc182afcb8142e7e8de265acd8363f263ad3eab"
+    },
+    {
+      "section_id": "sec:limitations",
+      "kind": "conclusion",
+      "title": "LIMITATIONS",
+      "page_start": 24,
+      "page_end": 25,
+      "char_count": 908,
+      "text_hash_sha256": "728e6d863b7adf1faba2f5c3faf519315b321e96510cf2dfbf469b04d0b9cf04"
+    },
+    {
+      "section_id": "sec:future-work",
+      "kind": "conclusion",
+      "title": "FUTURE WORK",
+      "page_start": 25,
+      "page_end": 25,
+      "char_count": 268,
+      "text_hash_sha256": "511a20636cbd20bfbf14759778de071bb1d0d7abbfe93913a1ec544facf4d77d"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3399,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4643,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4929,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3262,
+      "section_ids": [
+        "sec:related-work",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4577,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3859,
+      "section_ids": [
+        "sec:method",
+        "sec:model",
+        "sec:model-2",
+        "sec:model-3",
+        "sec:model-4",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4146,
+      "section_ids": [
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4171,
+      "section_ids": [
+        "sec:experiment",
+        "sec:method-2",
+        "sec:model-5",
+        "sec:model-6",
+        "sec:model-7",
+        "sec:model-8"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 5058,
+      "section_ids": [
+        "sec:model-8"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3176,
+      "section_ids": [
+        "sec:model-8",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3734,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3737,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3624,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3864,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 2677,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 1863,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 2475,
+      "section_ids": [
+        "sec:references",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 1484,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 1644,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 1675,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 1015,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1176,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 1629,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 3906,
+      "section_ids": [
+        "sec:experiments",
+        "sec:limitations"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 330,
+      "section_ids": [
+        "sec:limitations",
+        "sec:future-work"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Interleaved Multi-modal Chain-of-Thought (iMCoT). DeepEyes is incentivized to",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overview of DeepEyes. Our model itself decides whether to perform a second perception",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Training dynamics of DeepEyes on V ∗. s1/2/3 represent different stages.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Training dynamics w.r.t. tool reward.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Analysis of hallucination mitigation. Qwen2.5-VL-7B (top) hallucinates “rocks,” driven by",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:model-8"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Distribution of Training Data.",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Thinking Pattern: Visual Search.",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Thinking Pattern: Visual Comparison.",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Thinking Pattern: Visual Confirmation.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Thinking Pattern: Hallucination Mitigation.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Grounding Limitation.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Reasoning Limitation.",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "After an initial observation of the whole image, the model recognized that the current",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "To determine which section exhibits the least data variability, the model sequentially",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "In this case, the model was initially uncertain about the shape of the window. Through",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "The model initially hypothesized that the awning was green. It then invoked the zoom-in",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Although the model was able to accurately locate the position of figure (b) and invoke",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:experiments"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Results on High-Resolution Benchmarks. E2E indicates whether the model is end-to-end,",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on General Perception and Reasoning Benchmark MME-RealWorld-Lite.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Results on Grounding and Hallucination Benchmarks. ∗denotes reproduced results.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Results on Challenging Reasoning Benchmarks.∗denotes reproduced results, and †",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Evaluations w.r.t. tool reward.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Scaling Model Size. The 32B model is",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Scaling Challenging Reasoning Data",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Zero-Shot Tool Generalization. HR-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Ablation on iMCoT. We provide results",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 10",
+        "caption": "reveals the critical role of training data composition. While unfiltered data (#1) offers",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "<answer> Yes, the clock is to the left of the laptop. </answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<answer> GaAs </answer>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<E>",
+      "section_id": "sec:related-work",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "<E>",
+      "section_id": "sec:related-work",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "st = {(X0, I0), (X1, I1), . . . , (Xt, It)} = {X≤t; I≤t},",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where X≤t = {X1, . . . , Xt} represents the accumulated sequence of text tokens before step t,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "and I≤t = {I1, . . . , It} represents the image observation tokens before step t. We omit other",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "perceptions is reached. Note that text tokens X≤t and image tokens I≤t are interleaved in the states.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "R(τ) = Racc(τ) + Rformat(τ) + IRacc(τ)>0 Rtool(τ),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "where IRacc(τ)>0 equals 1 if the accuracy reward is positive. Conditioning this bonus on a correct an-",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "<answer> The image depicts a man walking on a beach carrying a",
+      "section_id": "sec:model-8",
+      "page_start": 8,
+      "page_end": 10
+    },
+    {
+      "text": "clock, with waves and sand in the background. </answer>",
+      "section_id": "sec:model-8",
+      "page_start": 8,
+      "page_end": 10
+    },
+    {
+      "text": "You are provided with function signatures within <tools></tools> XML",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<tools>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "</tools>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<tool_call></tool_call> XML tags:",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "{\"name\": <function-name>, \"arguments\": <args-json-object>}",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<think>...</think>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<tool_call>...</tool_call> (if tools needed)",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<answer>...</answer>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 17
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>From the zoomed-in image of the vehicle’s window, the",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>The front window on the vehicle appears to be black and",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think> The blazer seen through the windows of the building",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think> Upon closer inspection, it is clear that the blazer is not",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:experiments",
+      "page_start": 17,
+      "page_end": 24
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "1c9d70a1e5abcd258130f28388b4ba1ed0a30c5f0d52e9b5f5a5029e6b839e2c"
+}

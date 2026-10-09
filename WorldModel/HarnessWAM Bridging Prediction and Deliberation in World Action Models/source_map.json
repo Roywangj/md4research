@@ -1,0 +1,491 @@
+{
+  "paper": {
+    "title": "HarnessWAM: Bridging Prediction and Deliberation in World Action Models",
+    "source_format": "pdf-text",
+    "pages": 15,
+    "sha256": "e123b7056eb7011730c4ce5fc289f3df7a74b187228cdb5ba029daf46dddcad9"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "original_text": "World Action Models (WAMs) jointly learn environmental dynamics and robot actions, introducing priors over physical evolution into embodied control. However, finite-horizon prediction and action generation are insufficient for complex embodied tasks that require global planning, cross-stage state maintenance, execution verification, and failure recovery. We refer to this mismatch as the prediction-deliberation gap of WAMs.",
+      "translation": "世界动作模型（WAM）联合学习环境动力学与机器人动作，为具身控制引入物理演化先验。然而，对于需要全局规划、跨阶段状态维护、执行验证和失败恢复的复杂具身任务，有限时域预测和动作生成并不足够。我们将 WAM 的这种不匹配称为“预测—审议鸿沟”。",
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Abstract",
+      "original_text": "To address this gap, we propose HarnessWAM, an agentic framework for WAMs. HarnessWAM employs a vision-language-model-based Task Manager to maintain an evidence-grounded scene belief and a structured task graph. A capability-conditioned executable-space projection further constrains open-ended semantic plans into sequences of atomic skills that satisfy task dependencies, embodiment-state constraints, and the capability boundary of the underlying WAM.",
+      "translation": "为弥合这一鸿沟，我们提出 HarnessWAM，一种面向 WAM 的智能体框架。HarnessWAM 使用基于视觉语言模型的任务管理器维护证据支撑的场景信念和结构化任务图。能力条件化的可执行空间投影进一步把开放式语义计划约束为原子技能序列，使其满足任务依赖、具身状态约束以及底层 WAM 的能力边界。",
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Abstract",
+      "original_text": "During execution, HarnessWAM operates through an event-driven, dual-timescale feedback loop: a lightweight progress estimator continuously provides high-frequency execution evidence, while the Task Manager deliberates at salient milestones by jointly considering the current observation, task state, and interaction history to determine whether to advance the task, acquire additional observations, revise the plan, or initiate local recovery. This mechanism enables the robot to recover its state after a subtask failure and resume execution without discarding previously acquired scene knowledge. HarnessWAM achieves state-of-the-art full-task and subtask success rates of 59.6% and 69.9% on RoboMemArena, and an SR of 23.7% on RoboCerebra Ideal.",
+      "translation": "执行期间，HarnessWAM 采用事件驱动的双时间尺度反馈循环：轻量级进度估计器持续提供高频执行证据；任务管理器在显著里程碑处审议，联合考虑当前观测、任务状态和交互历史，决定推进任务、获取更多观测、修改计划或发起局部恢复。该机制使机器人在子任务失败后恢复状态，并在不丢弃既有场景知识的情况下继续执行。HarnessWAM 在 RoboMemArena 上取得 59.6% 的整任务成功率和 69.9% 的子任务成功率，在 RoboCerebra Ideal 上取得 23.7% 的 SR。",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Abstract",
+      "original_text": "These results demonstrate that model-external structured state maintenance and closed-loop agentic decision making can effectively extend the local control capabilities of WAMs into embodied task execution that is plannable, verifiable, and recoverable.",
+      "translation": "这些结果表明，模型外部的结构化状态维护和闭环智能体决策能够有效把 WAM 的局部控制能力扩展为可规划、可验证、可恢复的具身任务执行。",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "World Action Models (WAMs) jointly model future observations, environment states, and robot actions, enabling control policies to learn environmental dynamics and the physical consequences of robotic interventions (Li et al., 2026; Ye et al., 2026). Their predictive representations provide a foundation for outcome-aware control, closed-loop correction, and generalizable embodied agents.",
+      "translation": "世界动作模型联合建模未来观测、环境状态和机器人动作，使控制策略能够学习环境动力学以及机器人干预的物理后果（Li et al., 2026；Ye et al., 2026）。其预测表征为结果感知控制、闭环纠正和可泛化具身智能体提供基础。",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "However, finite-horizon prediction alone is insufficient for persistent agentic decision making. Although WAMs can reliably predict near-term physical evolution and execute local manipulation skills, they do not explicitly maintain the global task state required to verify outcomes, propagate evidence across stages, or determine how to recover from failure. We call this mismatch between local predictive control and the persistent deliberation required by open-ended embodied tasks the prediction–deliberation gap.",
+      "translation": "然而，有限时域预测本身不足以支持持久的智能体决策。尽管 WAM 能可靠预测近期物理演化并执行局部操作技能，但它不会显式维护验证结果、跨阶段传播证据或决定失败恢复方式所需的全局任务状态。我们把局部预测控制与开放式具身任务所需持续审议之间的不匹配称为预测—审议鸿沟。",
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "Language-model agents demonstrate that a foundation model’s effective capabilities depend on the harness through which it maintains state, invokes actions, and incorporates feedback (Yao et al., 2022; Shinn et al., 2023; Yang et al., 2024). Existing harnesses mainly target digital environments with discrete interfaces and explicit feedback. Physical interaction instead involves continuous control, partial observability, uncertain outcomes, and potentially irreversible state changes. An embodied harness must consequently ground semantic reasoning in executable skills while persistently tracking task state and physical effects.",
+      "translation": "语言模型智能体表明，基础模型的有效能力很大程度上取决于其 harness 如何维护状态、调用动作并吸收反馈（Yao et al., 2022；Shinn et al., 2023；Yang et al., 2024）。现有 harness 主要面向具有离散接口和显式反馈的数字环境；物理交互则涉及连续控制、部分可观测性、不确定结果以及可能不可逆的状态变化。因此，具身 harness 必须把语义推理落到可执行技能上，同时持续跟踪任务状态和物理效果。",
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "We introduce HarnessWAM, an agentic framework that addresses this challenge through a structured runtime external to the WAM. A vision-language-model-based Task Manager maintains an evidence-grounded scene belief and represents the global instruction as a task graph containing both physical and cognitive operations. Unresolved entities remain symbolic until sufficient visual evidence supports their binding. A capability-conditioned executable-space projection then compiles open-ended semantic plans into primitive sequences supported by validated WAM skills, enforcing task dependencies and consistency with the current scene and embodiment state.",
+      "translation": "我们提出 HarnessWAM，通过 WAM 外部的结构化运行时应对这一挑战。基于视觉语言模型的任务管理器维护证据支撑的场景信念，并把全局指令表示为同时包含物理操作和认知操作的任务图。在足够视觉证据支持绑定之前，未解析实体保持为符号变量。能力条件化的可执行空间投影随后把开放式语义计划编译为已验证 WAM 技能支持的原语序列，并强制满足任务依赖以及当前场景和具身状态的一致性。",
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "HarnessWAM coordinates physical execution through an event-driven, dual-timescale loop. On the fast timescale, a lightweight progress estimator continuously summarizes subtask progress and completion evidence. On the slow timescale, the Task Manager deliberates only at salient milestones or changes in execution conditions, jointly considering the current observation, progress history, scene belief, task graph, and execution state. It determines whether to continue, advance, acquire evidence, replan, or recover, and may revise only the unexecuted graph suffix when new observations resolve prior uncertainty. Upon local failure, HarnessWAM restores the robot embodiment toward its subtask-initial state while retaining acquired scene knowledge and task memory.",
+      "translation": "HarnessWAM 通过事件驱动的双时间尺度循环协调物理执行。快速时间尺度上，轻量进度估计器持续概括子任务进度和完成证据；慢速时间尺度上，任务管理器只在显著里程碑或执行条件发生变化时审议，联合考虑当前观测、进度历史、场景信念、任务图和执行状态。它决定继续、推进、获取证据、重规划或恢复；当新观测消除先前不确定性时，只修改任务图中尚未执行的后缀。局部失败时，HarnessWAM 把机器人具身状态恢复到子任务初始状态附近，同时保留已获得的场景知识和任务记忆。",
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "The resulting loop integrates planning, execution, evaluation, memory, and recovery without requiring changes to the WAM architecture. HarnessWAM achieves state-of-the-art full-task and subtask success rates of 59.6% and 69.9% on RoboMemArena, and an SR of 23.7% on RoboCerebra Ideal.",
+      "translation": "这一循环无需改变 WAM 架构，就把规划、执行、评估、记忆和恢复整合起来。HarnessWAM 在 RoboMemArena 上取得 59.6% 的整任务成功率和 69.9% 的子任务成功率，在 RoboCerebra Ideal 上取得 23.7% 的 SR。",
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "Introduction",
+      "original_text": "Our main contributions are: (1) identifying the prediction–deliberation gap and formulating reliable WAM execution as model-external state estimation and closed-loop decision making; (2) introducing evidence-grounded task state and capability-conditioned executable-space projection; (3) developing event-driven, dual-timescale progress-aware transitions, plan revision, and local embodiment-state recovery; and (4) establishing results on RoboMemArena and RoboCerebra Ideal.",
+      "translation": "主要贡献为：（1）识别预测—审议鸿沟，并把可靠 WAM 执行表述为模型外部状态估计和闭环决策；（2）提出证据支撑任务状态与能力条件化可执行空间投影；（3）设计事件驱动、双时间尺度的进度感知转换、计划修订和局部具身状态恢复；（4）在 RoboMemArena 和 RoboCerebra Ideal 上验证该框架。",
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Related Work",
+      "original_text": "Action-conditioned visual prediction has long supported model-predictive robot control by forecasting the effects of candidate actions (Ebert et al., 2017; 2018b). Recent generative approaches scale this principle through text-conditioned video policies, pretrained video diffusion, and unified video simulation and action decoding (Du et al., 2023; Wen et al., 2024; Liao et al., 2025). These results establish future visual modeling as a useful source of physical-dynamics priors for policy learning.",
+      "translation": "动作条件视觉预测长期以来通过预测候选动作的效果支持模型预测控制。近期生成式方法通过文本条件视频策略、预训练视频扩散以及统一的视频仿真与动作解码扩展了这一原则。这些工作表明，未来视觉建模可以为策略学习提供有用的物理动力学先验。",
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "Related Work",
+      "original_text": "World Action Models (WAMs) more directly couple future-observation modeling with action generation. LingBot-VA enables closed-loop asynchronous control through autoregressive video–action generation (Li et al., 2026), while DreamZero demonstrates transfer across tasks, scenes, and embodiments (Ye et al., 2026). Fast-WAM separates video co-training from test-time future generation, showing that representations acquired through predictive training can support efficient action inference without explicit rollout synthesis (Yuan et al., 2026). Recent extensions additionally incorporate compressed or boundary-triggered history into WAM inference (Sun et al., 2026; Yang et al., 2026). This line of work primarily advances dynamics representation, transfer, memory conditioning, and inference efficiency within the model. HarnessWAM addresses an orthogonal question: how to organize local WAM predictions and actions into persistent task-level behavior whose intermediate effects can be verified and whose failures can be recovered.",
+      "translation": "世界动作模型更直接地把未来观测建模与动作生成结合起来。LingBot-VA 通过自回归视频—动作生成实现闭环异步控制，DreamZero 展示跨任务、场景和具身形态迁移。Fast-WAM 将视频协同训练与测试时未来生成分开，说明预测训练得到的表征无需显式 rollout 合成也能支持高效动作推理；其他工作还把压缩历史或边界触发历史加入 WAM 推理。这条路线主要推进模型内部的动力学表征、迁移、记忆条件和推理效率。HarnessWAM 研究的是正交问题：如何把 WAM 的局部预测和动作组织为持久任务级行为，使中间效果可验证、失败可恢复。",
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "Related Work",
+      "original_text": "Language-agent research demonstrates that foundation-model capability depends strongly on the external loop through which the model maintains state, invokes actions, and incorporates feedback (Yao et al., 2022; Shinn et al., 2023; Yang et al., 2024). Such harnesses are commonly developed for software environments with discrete interfaces, explicit return values, and repeatable execution. Physical interaction instead involves continuous control, partial observability, uncertain action outcomes, and state changes that may be irreversible. Consequently, an embodied harness must ground semantic decisions in physically executable skills and maintain task state beyond individual model calls.",
+      "translation": "语言智能体研究表明，基础模型能力强烈依赖于维护状态、调用动作和吸收反馈的外部循环。此类 harness 通常为离散接口、显式返回值和可重复执行的软件环境开发；物理交互却涉及连续控制、部分可观测、不确定动作结果和可能不可逆的状态变化。因此，具身 harness 必须把语义决策落实为物理可执行技能，并在单次模型调用之外维护任务状态。",
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "Related Work",
+      "original_text": "Robot planning provides several components of this interface. SayCan grounds language plans with skill affordances (Ahn et al., 2022); Inner Monologue introduces environment feedback into language planning (Huang et al., 2022); and SayPlan and VoxPoser ground high-level reasoning in scene geometry (Rana et al., 2023; Huang et al., 2023). Task-and-motion planning and manipulation primitives similarly connect symbolic structure to continuous feasibility (Garrett et al., 2021; Morrow & Khosla, 1997; Chen et al., 2024). Complementary work studies persistent embodied memory, stage-aware progress and outcome modeling, and failure detection or corrective execution.",
+      "translation": "机器人规划提供了该接口的若干组成部分：SayCan 用技能可供性约束语言计划；Inner Monologue 把环境反馈引入语言规划；SayPlan 和 VoxPoser 将高层推理落到场景几何。任务与运动规划及操作原语把符号结构连接到连续可行性；互补工作研究持久具身记忆、阶段感知的进度/结果建模以及失败检测与纠正执行。",
+      "confidence": "high"
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "Related Work",
+      "original_text": "HarnessWAM unifies these ingredients around a WAM executor. A Task Manager maintains an evidence-grounded belief and structured task graph, while a deterministic projection compiles open-ended semantic plans into validated WAM skills subject to task dependencies and embodiment constraints. Progress estimation and sparse semantic verification govern task transitions, and embodiment-state recovery handles local execution failures without discarding acquired scene knowledge.",
+      "translation": "HarnessWAM 围绕 WAM 执行器统一这些要素：任务管理器维护证据支撑信念和结构化任务图；确定性投影把开放语义计划编译为满足任务依赖和具身约束的已验证 WAM 技能；进度估计与稀疏语义验证控制任务转换；具身状态恢复处理局部执行失败而不丢弃已获得场景知识。",
+      "confidence": "high"
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Method §3.1",
+      "original_text": "Consider an embodied manipulation task specified by a natural-language instruction x. At time t, the environment returns multi-view RGB observations $o_t=(I_t^{agent}, I_t^{wrist})$ and the robot proprioceptive state $q_t$. Given a local skill instruction $g_k$, a World Action Model $W_\theta$ generates an action chunk of horizon $H$ conditioned on a finite interaction history:",
+      "translation": "考虑由自然语言指令 $x$ 指定的具身操作任务。在时刻 $t$，环境返回多视角 RGB 观测 $o_t=(I_t^{agent}, I_t^{wrist})$ 和机器人本体状态 $q_t$。给定局部技能指令 $g_k$，世界动作模型 $W_\theta$ 在有限交互历史条件下生成时域为 $H$ 的动作块：",
+      "confidence": "high"
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Method §3.1",
+      "original_text": "$$A_t=W_\theta(o_{\\le t},q_t,g_k)=(a_t,\\ldots,a_{t+H-1}).$$",
+      "translation": "$$A_t=W_\theta(o_{\\le t},q_t,g_k)=(a_t,\\ldots,a_{t+H-1})。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "Method §3.1",
+      "original_text": "Each WAM invocation solves a local, finite-horizon control problem defined by $g_k$. Completing the global task additionally requires maintaining latent state across execution stages, assessing physical effects, and revising subsequent decisions as new evidence arrives. We therefore define a harness as a model-external decision process $\\mathcal H$ operating over discrete task events. It transforms a global instruction into a sequence of verified WAM invocations with the objective of maximizing task-level success. At event time $\tau_k$, we define the embodied runtime state as $z_k=(B_k,G_k,M_k,r_k)$, where $B_k,G_k,M_k,r_k$ denote the scene belief, structured task graph, task memory, and execution state of the active skill, respectively. HarnessWAM recursively updates this state from a new observation and event $e_k$, and selects the next local goal:",
+      "translation": "每次 WAM 调用都解决由 $g_k$ 定义的局部有限时域控制问题。完成全局任务还需要跨执行阶段维护潜在状态、评估物理效果，并在新证据到达时修改后续决策。因此我们把 harness 定义为在离散任务事件上运行的模型外部决策过程 $\\mathcal H$，其把全局指令转为一系列经过验证的 WAM 调用，以最大化任务级成功率。在事件时刻 $\tau_k$，具身运行时状态为 $z_k=(B_k,G_k,M_k,r_k)$，其中四项分别表示场景信念、结构化任务图、任务记忆和活动技能的执行状态。HarnessWAM 根据新观测和事件 $e_k$ 递归更新该状态，并选择下一个局部目标：",
+      "confidence": "high"
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "Method §3.1",
+      "original_text": "$$ (z_{k+1},g_{k+1})=\\mathcal H(x,z_k,o_{\tau_k},e_k). $$",
+      "translation": "$$ (z_{k+1},g_{k+1})=\\mathcal H(x,z_k,o_{\tau_k},e_k)。 $$",
+      "confidence": "high"
+    },
+    {
+      "id": "S021",
+      "type": "body",
+      "section": "Method §3.1",
+      "original_text": "This formulation separates continuous WAM control from task-level deliberation. The WAM realizes a local skill, while the harness determines which skill to invoke, when its execution should terminate, how its outcome changes the task state, and how execution should proceed after failure. The overall objective is to maximize goal satisfaction at task termination.",
+      "translation": "该形式化把连续 WAM 控制与任务级审议分开：WAM 实现局部技能，harness 决定调用哪个技能、何时终止执行、结果如何改变任务状态，以及失败后如何继续。总体目标是在任务终止时最大化目标满足度。",
+      "confidence": "high"
+    },
+    {
+      "id": "S022",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "In a partially observable environment, the current image is generally insufficient for selecting future behavior. Once a drawer has been closed, for example, the current observation no longer reveals whether it contained a target object. HarnessWAM therefore maintains a scene belief $B_k$ comprising entities together with their attributes, relations, and epistemic status. Each scene fact is represented as $f=(s,p,o,v,\\eta,c,E)$, where $s,p,o,v$ denote subject, predicate, object, and value; $\\eta\\in\\{observed,inferred,unknown\\}$ distinguishes direct observations, inferred facts, and unresolved state; $c$ is confidence; and $E$ references supporting RGB evidence.",
+      "translation": "在部分可观测环境中，当前图像通常不足以选择未来行为。例如抽屉关闭后，当前观测不再显示其中是否有目标物体。因此 HarnessWAM 维护场景信念 $B_k$，包含实体、属性、关系和认识状态。每个场景事实表示为 $f=(s,p,o,v,\\eta,c,E)$，其中 $s,p,o,v$ 分别是主语、谓词、宾语和值；$\\eta\\in\\{observed,inferred,unknown\\}$ 区分直接观测、推断事实和未解析状态；$c$ 是置信度；$E$ 指向支撑 RGB 证据。",
+      "confidence": "high"
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "$$f=(s,p,o,v,\\eta,c,E).$$",
+      "translation": "$$f=(s,p,o,v,\\eta,c,E)。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S024",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "This representation distinguishes not observed from observed to be false: an object becoming occluded does not invalidate a previously established scene fact. To preserve cross-stage history and visual evidence, HarnessWAM maintains $M_k=(M_k^{task},M_k^{evidence})$, where $M_k^{task}$ stores completed and failed nodes, retry counts, variable bindings, and plan-revision history, while $M_k^{evidence}$ stores visual evidence associated with salient task events. The Task Manager invokes the VLM only at event times to jointly update the scene belief and memory:",
+      "translation": "该表示区分“未观测到”和“观测到为假”：物体被遮挡不会使已建立的场景事实失效。为保留跨阶段历史和视觉证据，HarnessWAM 维护 $M_k=(M_k^{task},M_k^{evidence})$；前者存储已完成/失败节点、重试次数、变量绑定和计划修订历史，后者存储与显著任务事件关联的视觉证据。任务管理器只在事件时调用 VLM，共同更新场景信念和记忆：",
+      "confidence": "high"
+    },
+    {
+      "id": "S025",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "$$ (B_{k+1},M_{k+1})=U_{VLM}(x,o_{\tau_k},B_k,M_k,e_k). $$",
+      "translation": "$$ (B_{k+1},M_{k+1})=U_{VLM}(x,o_{\tau_k},B_k,M_k,e_k)。 $$",
+      "confidence": "high"
+    },
+    {
+      "id": "S026",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "Long interaction histories are compressed into a queryable and updateable task state whose claims can be traced to visual observations. The Task Manager represents the task as a directed graph $G_k=(V_k,E_k,X_k,\beta_k)$, where $V_k$ is the node set, $E_k$ contains dependency edges, $X_k$ comprises unresolved symbolic variables, and $\beta_k:X_k\rightharpoonup O$ is a partial binding. Each node is $v_i=(op_i,arg_i,pre_i,eff_i,term_i,rec_i)$, specifying an operation, typed arguments, preconditions, expected effects, termination conditions, and recovery strategy. The graph includes motor nodes and cognitive nodes that acquire observations, verify state, bind variables, or update memory.",
+      "translation": "长交互历史因此被压缩为可查询、可更新且其断言可追溯到视觉观测的任务状态。任务管理器把任务表示为有向图 $G_k=(V_k,E_k,X_k,\beta_k)$，其中 $V_k$ 是节点集，$E_k$ 是依赖边，$X_k$ 是未解析符号变量，$\beta_k:X_k\rightharpoonup O$ 是部分绑定。每个节点 $v_i=(op_i,arg_i,pre_i,eff_i,term_i,rec_i)$ 指定操作、类型化参数、前置条件、预期效果、终止条件和恢复策略。图同时包含运动节点，以及获取观测、验证状态、绑定变量或更新记忆的认知节点。",
+      "confidence": "high"
+    },
+    {
+      "id": "S027",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "$$G_k=(V_k,E_k,X_k,\beta_k),\\qquad v_i=(op_i,arg_i,pre_i,eff_i,term_i,rec_i).$$",
+      "translation": "$$G_k=(V_k,E_k,X_k,\beta_k)，\\qquad v_i=(op_i,arg_i,pre_i,eff_i,term_i,rec_i)。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S028",
+      "type": "body",
+      "section": "Method §3.2",
+      "original_text": "When an entity cannot be identified from the initial observation, the Task Manager retains a symbolic variable instead of committing to an unsupported guess, and updates $\beta_k$ once sufficient evidence becomes available. This graph expresses sequential dependencies, information acquisition, conditional branches, and delayed decisions after exploration.",
+      "translation": "如果初始观测无法识别实体，任务管理器保留符号变量，而不是作出无证据猜测；获得足够证据后再更新 $\beta_k$。该图统一表达顺序依赖、信息获取、条件分支和探索后的延迟决策。",
+      "confidence": "high"
+    },
+    {
+      "id": "S029",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "A VLM can propose plans in an open semantic space, whereas a WAM can reliably execute only local skills supported by its training distribution and control interface. HarnessWAM connects these levels through a projection from open-ended semantic plans to a capability-conditioned executable space, after which the WAM produces continuous control commands.",
+      "translation": "VLM 可以在开放语义空间提出计划，而 WAM 只能可靠执行其训练分布和控制接口支持的局部技能。HarnessWAM 通过从开放语义计划到能力条件化可执行空间的投影连接两者，之后由 WAM 生成连续控制命令。",
+      "confidence": "high"
+    },
+    {
+      "id": "S030",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "$$P^\\star=P^{motion}\\cup P^{grasp}\\cup P^{contact}\\cup P^{articulation}\\cup P^{assembly}\\cup P^{tool}.$$",
+      "translation": "$$P^\\star=P^{motion}\\cup P^{grasp}\\cup P^{contact}\\cup P^{articulation}\\cup P^{assembly}\\cup P^{tool}。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S031",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "The ontology covers free-space motion, object acquisition and release, contact-rich interaction, articulated-object manipulation, assembly, and tool use. A primitive is $p=(\tau_p,\\Theta_p,Pre_p,Eff_p,Term_p,Rec_p)$, where $\tau_p$ is interaction type, $\\Theta_p$ is a typed parameter space, and the remaining terms specify preconditions, expected effects, termination criteria, and recovery rules.",
+      "translation": "该本体覆盖自由空间运动、物体获取与释放、丰富接触交互、关节物体操作、装配和工具使用。原语为 $p=(\tau_p,\\Theta_p,Pre_p,Eff_p,Term_p,Rec_p)$；其中 $\tau_p$ 是交互类型，$\\Theta_p$ 是类型化参数空间，其余项指定前置条件、预期效果、终止标准和恢复规则。",
+      "confidence": "high"
+    },
+    {
+      "id": "S032",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "The compact interface is motivated by evidence that motor behavior is low-dimensional, repetitive, and compositional: the ten most frequent human grasp types account for 81% of grasp duration and 72% of instances; two kinematic primitives explain 95% of the variance in discrete reaching motions; and two hand synergies explain more than 80% of variance in 15-DoF grasps over 57 objects.",
+      "translation": "紧凑接口的动机来自运动行为低维、重复和组合性的证据：十种最常见人类抓握类型占抓握持续时间的 81% 和实例的 72%；两个运动学原语解释离散到达运动累计方差的 95%；两个手部协同解释 57 个物体上 15 自由度抓握方差的 80% 以上。",
+      "confidence": "high"
+    },
+    {
+      "id": "S033",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "For a particular WAM, the executable primitive set is determined by acquired and empirically validated skills: $P_W=\\{p\\in P^\\star\\mid p\text{ has a validated realization under }W_\theta\\}$. Let $L(P_W)$ be the plan language generated by supported primitives and $F(z_k)$ the feasible set induced by scene, bindings, dependencies, and embodiment state. HarnessWAM projects a VLM graph as:",
+      "translation": "对于具体 WAM，可执行原语集由已习得且经验验证的技能决定：$P_W=\\{p\\in P^\\star\\mid p\text{ has a validated realization under }W_\theta\\}$。令 $L(P_W)$ 为支持原语生成的计划语言，令 $F(z_k)$ 为由场景、绑定、依赖和具身状态诱导的可行集合。HarnessWAM 将 VLM 图投影为：",
+      "confidence": "high"
+    },
+    {
+      "id": "S034",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "$$G_k^{exec}=\\Pi_{L(P_W)\\cap F(z_k)}(G_k^{vlm}).$$",
+      "translation": "$$G_k^{exec}=\\Pi_{L(P_W)\\cap F(z_k)}(G_k^{vlm})。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S035",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "The deterministic compiler checks argument types, node dependencies, precondition–effect consistency, single-arm holding state, and graph acyclicity, then canonicalizes valid nodes into local WAM instructions. PLACE(object,target) requires the object to have been acquired; POUR(object,target) requires the robot to hold it; OPEN and CLOSE must satisfy gripper and object-state constraints. A composable semantic node is expanded into a valid sequence. If no feasible projection exists, the compiler returns $\bot$ and reports violated constraints for replanning. New observations may change bindings or future branches, but revisions are restricted to the unexecuted suffix and enforce:",
+      "translation": "确定性编译器检查参数类型、节点依赖、前置—效果一致性、单臂持物状态和图无环性，再把有效节点规范化为局部 WAM 指令。PLACE(object,target) 要求物体已被获取；POUR(object,target) 要求机器人正持有该物体；OPEN 和 CLOSE 必须满足相应夹爪与物体状态约束。可组合的语义节点会展开为合法序列。如果不存在可行投影，编译器返回 $\bot$ 并向任务管理器报告违反的约束以便重规划。新观测可能改变绑定或未来分支，但修订仅限未执行后缀，并满足：",
+      "confidence": "high"
+    },
+    {
+      "id": "S036",
+      "type": "body",
+      "section": "Method §3.3",
+      "original_text": "$$G_{k+1}[V^{executed}]=G_k[V^{executed}].$$",
+      "translation": "$$G_{k+1}[V^{executed}]=G_k[V^{executed}]。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S037",
+      "type": "body",
+      "section": "Method §3.4",
+      "original_text": "Invoking a VLM at every environment step is computationally expensive and exposes decisions to transient visual fluctuations. HarnessWAM therefore adopts dual-timescale control: WAM and a lightweight progress estimator form a fast loop, while the Task Manager forms a slow loop triggered by semantic events.",
+      "translation": "每个环境步调用 VLM 计算代价高，也会使任务决策暴露于短暂视觉波动。HarnessWAM 采用双时间尺度控制：WAM 与轻量进度估计器构成快速循环，任务管理器构成由语义事件触发的慢速循环。",
+      "confidence": "high"
+    },
+    {
+      "id": "S038",
+      "type": "body",
+      "section": "Method §3.4",
+      "original_text": "$$ (p_t,c_t,\\pi_t^{bin})=F_\\phi(o_{t-L+1:t},g_k). $$",
+      "translation": "$$ (p_t,c_t,\\pi_t^{bin})=F_\\phi(o_{t-L+1:t},g_k)。 $$",
+      "confidence": "high"
+    },
+    {
+      "id": "S039",
+      "type": "body",
+      "section": "Method §3.4",
+      "original_text": "The progress estimator predicts continuous progress $p_t\\in[0,1]$, completion probability $c_t\\in[0,1]$, and a discrete interval distribution $\\pi_t^{bin}$. It uses a frozen vision-language encoder and causal temporal module, and is trained with $\\mathcal L_{prog}=\\lambda_r\\mathcal L_{reg}+\\lambda_b\\mathcal L_{bin}+\\lambda_r\\mathcal L_{rank}+\\lambda_e\\mathcal L_{endpoint}+\\lambda_s\\mathcal L_{success}+\\lambda_m\\mathcal L_{mono}$, supervising regression, intervals, temporal order, endpoints, completion, and local monotonicity. Progress alone never advances the graph.",
+      "translation": "进度估计器预测连续进度 $p_t\\in[0,1]$、完成概率 $c_t\\in[0,1]$ 和离散区间分布 $\\pi_t^{bin}$。它使用冻结视觉语言编码器和因果时间模块，并以 $\\mathcal L_{prog}=\\lambda_r\\mathcal L_{reg}+\\lambda_b\\mathcal L_{bin}+\\lambda_r\\mathcal L_{rank}+\\lambda_e\\mathcal L_{endpoint}+\\lambda_s\\mathcal L_{success}+\\lambda_m\\mathcal L_{mono}$ 训练，监督回归、区间、时间顺序、端点、完成和局部单调性。仅凭进度不会推进任务图。",
+      "confidence": "high"
+    },
+    {
+      "id": "S040",
+      "type": "body",
+      "section": "Method §3.6",
+      "original_text": "**Algorithm 1 — Event-driven HarnessWAM inference**\n\n```text\nRequire: Instruction x, initial RGB observation o₀, WAM Wθ, task budget Ω\nEnsure: Task outcome in {success, failure}\n1: (B, M) ← INITIALIZE(x, o₀)\n2: G_vlm ← PLAN(x, B, M)\n3: G ← PROJECT(G_vlm, Wθ, B)\n4: while Ω > 0 and G contains an unfinished required node do\n5:   v ← SELECT_READY_NODE(G)\n6:   if v is a cognitive node then\n7:      Acquire evidence and update B, M, bindings, and the graph suffix\n8:      Mark v complete and reproject the unexecuted graph\n9:      continue\n10:  end if\n11:  (q₀, u₀) ← current arm and gripper state; activate v\n12:  while v is active and Ω > 0 do\n13:     A_t ← Wθ(o_≤t, q_t, PROMPT(v))\n14:     Execute A_t, observe o_{t+1}, and update Ω\n15:     ŝ_prog ← Fϕ(recent RGB, PROMPT(v))\n16:     if EVENT(ŝ_prog, r, G) then\n17:        (ν, d, ΔB, Δβ, ρ) ← T_VLM(x, o_{t+1}, B, G, M, r, ŝ_prog)\n18:        Update B, M, bindings, and, if ρ, the unexecuted graph suffix\n19:        if d = advance then\n20:           Mark v complete; break\n21:        else if d = observe then\n22:           Acquire additional evidence and update the task state\n23:        else if d = replan then\n24:           Revise and reproject the graph suffix; deactivate v\n25:        else if d = recover then\n26:           Restore (q₀, u₀) and clear the local WAM state\n27:           Revise and project the recovery plan; deactivate v\n28:        else if d = terminate then\n29:           return failure\n30:        end if\n31:     end if\n32:  end while\n33: end while\n34: if all required nodes are complete and VERIFY_GOAL(x, o, B) then\n35:    return success\n36: else\n37:    return failure\n38: end if\n```\n\n算法 1 的逐行含义是：初始化状态，规划并投影；循环选择可执行节点；认知节点先获取证据并重投影；运动节点保存 $(q_0,u_0)$，调用 WAM，执行动作并更新预算；事件触发 $T_{VLM}$ 输出物理结果标签和决策；advance 完成节点，observe 补充证据，replan 修改图后缀，recover 恢复具身状态并清除局部 WAM 状态，terminate 返回 failure；最终只有所有必需节点完成且 `VERIFY_GOAL(x, o, B)` 为真才返回 success，否则返回 failure。",
+      "translation": "算法 1 的逐行中文解释已紧随原始伪代码保留；决策标签 `continue`、`advance`、`observe`、`replan`、`recover`、`terminate` 及输出 `{success, failure}` 均保持原样。",
+      "confidence": "high"
+    },
+    {
+      "id": "S041",
+      "type": "body",
+      "section": "Method §3.5",
+      "original_text": "At a candidate event $e_k$, the Task Manager jointly reasons over current RGB observations, progress-estimate history, scene belief, task graph, historical evidence, and execution state: $y_k=( u_k,d_k,\\Delta B_k,\\Delta\beta_k,\rho_k)=T_{VLM}(x,o_{\tau_k},B_k,G_k,M_k,r_k,\\hat s_k^{prog},e_k)$. Here $ u_k\\in\\{success,failure,uncertain\\}$ characterizes physical effect, $d_k\\in\\{continue,advance,observe,replan,recover,terminate\\}$ is the execution decision, $\\Delta B_k$ and $\\Delta\beta_k$ update belief and bindings, and $\rho_k$ indicates revision of the unexecuted plan.",
+      "translation": "在候选事件 $e_k$ 处，任务管理器联合推理当前 RGB 观测、进度历史、场景信念、任务图、历史证据和执行状态：$y_k=(\nu_k,d_k,\\Delta B_k,\\Delta\beta_k,\rho_k)=T_{VLM}(x,o_{\tau_k},B_k,G_k,M_k,r_k,\\hat s_k^{prog},e_k)$。其中 $\nu_k\\in\\{success,failure,uncertain\\}$ 描述物理效果，$d_k\\in\\{continue,advance,observe,replan,recover,terminate\\}$ 是执行决策，$\\Delta B_k$ 与 $\\Delta\beta_k$ 更新信念和绑定，$\rho_k$ 指示是否修订未执行计划。",
+      "confidence": "high"
+    },
+    {
+      "id": "S042",
+      "type": "body",
+      "section": "Method §3.5",
+      "original_text": "$$y_k=(\nu_k,d_k,\\Delta B_k,\\Delta\beta_k,\rho_k)=T_{VLM}(x,o_{\tau_k},B_k,G_k,M_k,r_k,\\hat s_k^{prog},e_k).$$",
+      "translation": "$$y_k=(\nu_k,d_k,\\Delta B_k,\\Delta\beta_k,\rho_k)=T_{VLM}(x,o_{\tau_k},B_k,G_k,M_k,r_k,\\hat s_k^{prog},e_k)。$$",
+      "confidence": "high"
+    },
+    {
+      "id": "S043",
+      "type": "body",
+      "section": "Method §3.5",
+      "original_text": "At the beginning of each motor node HarnessWAM records arm joint state $q_k^0$ and gripper state $u_k^0$, and assigns budget $T_k$. When $d_k=recover$, multi-step joint control drives the arm and gripper toward $(q_k^0,u_k^0)$:",
+      "translation": "每个运动节点开始时，HarnessWAM 记录机械臂关节状态 $q_k^0$ 和夹爪状态 $u_k^0$，并分配预算 $T_k$。当 $d_k=recover$ 时，多步关节控制将机械臂和夹爪驱向 $(q_k^0,u_k^0)$：",
+      "confidence": "high"
+    },
+    {
+      "id": "S044",
+      "type": "body",
+      "section": "Method §3.5",
+      "original_text": "$$ (q_t,u_t)\\\\xrightarrow[\\\\text{multi-step control}]{recover}(q_k^0,u_k^0). $$",
+      "translation": "$$ (q_t,u_t)\\\\xrightarrow[\\\\text{multi-step control}]{recover}(q_k^0,u_k^0)。 $$",
+      "confidence": "high"
+    },
+    {
+      "id": "S045",
+      "type": "body",
+      "section": "Method §3.5",
+      "original_text": "Recovery resets only the robot embodiment, preserving the environment, scene belief, and information acquired during prior execution. The local WAM state is cleared. Each attempt is recorded in $M_k$, so later recovery depends on accumulated evidence and failures rather than a fixed retry count. A task succeeds only when all required nodes are complete and final visual verification confirms the global goal; it fails if no feasible continuation remains or the bounded task-level budget is exhausted.",
+      "translation": "恢复只重置机器人具身状态，保留环境、场景信念和此前获得的信息；随后清除局部 WAM 状态。每次尝试记录在 $M_k$ 中，使后续恢复依据累积证据和失败，而不是固定重试次数。只有所有必需节点完成且最终视觉验证确认全局目标时任务才成功；若没有可行延续或任务级预算耗尽，则失败。",
+      "confidence": "high"
+    },
+    {
+      "id": "S046",
+      "type": "body",
+      "section": "Experiments §4.1",
+      "original_text": "We evaluate HarnessWAM on RoboMemArena and RoboCerebra Ideal. RoboMemArena has 26 long-horizon manipulation tasks, average trajectory length 1,076 environment steps, and 68.9% history-dependent subtasks; its families are multi-object transfer, occlusion, counting, and sequential execution with 4, 11, 7, and 4 tasks.",
+      "translation": "我们在 RoboMemArena 和 RoboCerebra Ideal 上评估 HarnessWAM。RoboMemArena 有 26 个长时操作任务，平均轨迹 1,076 个环境步，68.9% 子任务依赖历史；任务族为多物体转移、遮挡、计数和顺序执行，分别含 4、11、7、4 个任务。",
+      "confidence": "high"
+    },
+    {
+      "id": "S047",
+      "type": "body",
+      "section": "Experiments §4.1",
+      "original_text": "For each task, HarnessWAM and same-WAM variants use 20 rollouts with matched initial states, random seeds, observation interfaces, and task-level budgets. We report macro-averages across tasks and rollouts; published baselines come from benchmark evaluations.",
+      "translation": "每个任务上，HarnessWAM 和同 WAM 变体均使用 20 次 rollout，并匹配初始状态、随机种子、观测接口和任务级预算。我们对任务和 rollout 做宏平均；published baseline 来自 benchmark 评测。",
+      "confidence": "high"
+    },
+    {
+      "id": "S048",
+      "type": "body",
+      "section": "Experiments §4.1",
+      "original_text": "We use LingBot-VA as the underlying WAM, unchanged in architecture and fine-tuned separately on each benchmark. All within-benchmark comparisons share the same WAM checkpoint. The WAM receives 256×256 agent-view and wrist-view RGB plus robot state. The Task Manager is Qwen3-VL-32B-Instruct without task-specific fine-tuning and sees only multi-view RGB, not depth, segmentation, or privileged simulator state.",
+      "translation": "底层 WAM 使用 LingBot-VA，架构不变，并在每个 benchmark 的训练数据上分别微调。同一 benchmark 内的比较共享同一 WAM checkpoint。WAM 接收 256×256 的 agent-view、wrist-view RGB 和机器人状态。任务管理器为未任务特定微调的 Qwen3-VL-32B-Instruct，只看多视角 RGB，不看深度、分割或特权仿真状态。",
+      "confidence": "high"
+    },
+    {
+      "id": "S049",
+      "type": "body",
+      "section": "Experiments §4.1",
+      "original_text": "The progress estimator uses the latest five dual-view RGB timesteps and active skill instruction, a frozen SigLIP2-base-patch16-256 encoder, and a four-layer causal Transformer. Its objective combines regression, interval classification, ranking, endpoint anchoring, completion prediction, and local monotonicity. Training and validation are split by episode, and the lowest validation progress-error checkpoint is selected.",
+      "translation": "进度估计器使用最近五个双视角 RGB 时间步和活动技能指令，采用冻结的 SigLIP2-base-patch16-256 编码器及四层因果 Transformer。其目标结合回归、区间分类、排序、端点锚定、完成预测和局部单调性。训练/验证按 episode 划分，并选择验证进度误差最低的 checkpoint。",
+      "confidence": "high"
+    },
+    {
+      "id": "S050",
+      "type": "body",
+      "section": "Experiments §4.1",
+      "original_text": "Baselines include π0.5, HiF-VLA, MemoryVLA, MemER, and PrediMem on RoboMemArena; WAM + Whole Task and WAM + Static Plan use the same LingBot-VA checkpoint. On RoboCerebra Ideal we compare with π0.5, OpenVLA, GPT-4o Planner + OpenVLA, and HPE Framework.",
+      "translation": "RoboMemArena 基线包括 π0.5、HiF-VLA、MemoryVLA、MemER 和 PrediMem；WAM + Whole Task 与 WAM + Static Plan 使用同一 LingBot-VA checkpoint。RoboCerebra Ideal 比较 π0.5、OpenVLA、GPT-4o Planner + OpenVLA 和 HPE Framework。",
+      "confidence": "high"
+    },
+    {
+      "id": "S051",
+      "type": "body",
+      "section": "Experiments §4.2",
+      "original_text": "HarnessWAM achieves 59.6% full-task and 69.9% subtask success on RoboMemArena, exceeding PrediMem by 21.1 and 14.7 percentage points. Static decomposition improves WAM + Whole Task by 3.5 and 9.7 points; HarnessWAM adds 11.7 and 7.9 points over WAM + Static Plan, showing that persistent task state and closed-loop management are necessary beyond initial decomposition.",
+      "translation": "HarnessWAM 在 RoboMemArena 上整任务成功率为 59.6%、子任务成功率为 69.9%，比 PrediMem 高 21.1 和 14.7 个百分点。静态分解使 WAM + Whole Task 提升 3.5 和 9.7 个百分点；HarnessWAM 又比 WAM + Static Plan 高 11.7 和 7.9 个百分点，说明除初始分解外还需要持久任务状态和闭环管理。",
+      "confidence": "high"
+    },
+    {
+      "id": "S052",
+      "type": "body",
+      "section": "Experiments §4.2",
+      "original_text": "Relative to WAM + Static Plan, HarnessWAM improves full-task success by 16.8 points on occlusion and 12.5 points on sequence, with its largest subtask gain of 14.8 points on transfer. On counting, subtask success falls by 1.9 points while full-task success rises by 6.4 points, indicating more consistent composition of local stages into correct end-to-end execution.",
+      "translation": "相对 WAM + Static Plan，HarnessWAM 在遮挡和顺序任务上的整任务成功率分别提升 16.8 和 12.5 个百分点，转移任务的子任务增益最大，为 14.8 个百分点。计数任务的子任务成功率下降 1.9 个百分点但整任务成功率上升 6.4 个百分点，说明它更稳定地把局部完成阶段组合为正确端到端执行。",
+      "confidence": "high"
+    },
+    {
+      "id": "S053",
+      "type": "body",
+      "section": "Experiments §4.2",
+      "original_text": "On RoboCerebra Ideal, HarnessWAM reaches 23.70%, outperforming GPT-4o Planner + OpenVLA by 1.78 points and HPE Framework by 2.60 points. Since this subset is static and fully observable, the gain extends beyond explicit memory recovery to dependency-aware planning, outcome-conditioned transitions, and failure-aware adaptation.",
+      "translation": "在 RoboCerebra Ideal 上，HarnessWAM 达到 23.70%，比 GPT-4o Planner + OpenVLA 高 1.78 个百分点，比 HPE Framework 高 2.60 个百分点。由于该子集静态且完全可观测，这一增益不只来自显式记忆恢复，也来自依赖感知规划、结果条件转换和失败感知适应。",
+      "confidence": "high"
+    },
+    {
+      "id": "S054",
+      "type": "body",
+      "section": "Experiments §4.3",
+      "original_text": "Ablations use identical LingBot-VA weights, initial states, and evaluation seeds. Removing task state leaves only the current image and global instruction; removing executable projection bypasses capability, argument, precondition, holding-state, and dependency checks; removing progress events uses fixed-interval Task Manager calls; progress-only switching uses the estimator without semantic outcome verification; removing recovery terminates after detected failure or budget exhaustion.",
+      "translation": "消融使用相同 LingBot-VA 权重、初始状态和评测种子。去掉任务状态后只保留当前图像和全局指令；去掉可执行投影后绕过能力、参数、前置条件、持物状态和依赖检查；去掉进度事件后改为固定间隔调用任务管理器；仅进度切换时不做语义结果验证；去掉恢复后在检测到失败或预算耗尽时终止。",
+      "confidence": "high"
+    },
+    {
+      "id": "S055",
+      "type": "body",
+      "section": "Experiments §4.3",
+      "original_text": "Executable-space projection has the largest measured effect: removing it reduces average full-task success from 59.6% to 18.5% and subtask success from 69.9% to 38.3%, drops of 41.1 and 31.6 points across all task families. Removing progress events lowers the metrics by 21.3 and 19.2 points. Removing task state gives 47.7% and 61.1%, with the largest full-task loss on occlusion. Progress-only switching gives 55.4% full-task and 68.4% subtask success; on sequence, subtask success is 97.9% but full-task success 72.5%. Removing recovery gives 54.2% and 67.7%, with the largest loss on sequence.",
+      "translation": "可执行空间投影的测量影响最大：删除它使平均整任务成功率从 59.6% 降到 18.5%，子任务成功率从 69.9% 降到 38.3%，即四类任务均出现 41.1 和 31.6 个百分点的下降。删除进度事件使两项指标下降 21.3 和 19.2 个百分点。删除任务状态得到 47.7% 和 61.1%，遮挡任务的整任务损失最大。仅进度切换得到 55.4% 和 68.4%；顺序任务中子任务成功率为 97.9% 但整任务成功率为 72.5%。删除恢复得到 54.2% 和 67.7%，顺序任务损失最大。",
+      "confidence": "high"
+    },
+    {
+      "id": "S056",
+      "type": "body",
+      "section": "Experiments §4.3",
+      "original_text": "Plan-level diagnosis compares raw VLM graphs, lexical normalization and safe aliases, and fully projected graphs. Reference decompositions are used only offline. Raw plans have syntax/dependencies/binding/executability 60.8/58.1/21.3/13.8%; normalization gives 84.6/67.5/63.8/42.3%; full projection gives 95.2/92.9/88.3/72.9%.",
+      "translation": "计划级诊断比较原始 VLM 图、词法归一化与安全别名图，以及完整投影图；参考分解只用于离线分析。原始计划的语法/依赖/绑定/可执行性为 60.8/58.1/21.3/13.8%；归一化后为 84.6/67.5/63.8/42.3%；完整投影后为 95.2/92.9/88.3/72.9%。",
+      "confidence": "high"
+    },
+    {
+      "id": "S057",
+      "type": "body",
+      "section": "Experiments §4.4",
+      "original_text": "A representative RoboMemArena Task 4 rollout opens and closes all three drawers, records their contents, retains the top-drawer target binding after occlusion, then reopens that drawer and picks and places the object.",
+      "translation": "RoboMemArena 任务 4 的代表性 rollout 依次打开并关闭三个抽屉，记录其内容；即使目标抽屉被遮挡，仍保留顶层抽屉的目标绑定，随后重新打开该抽屉并拾取、放置物体。",
+      "confidence": "high"
+    },
+    {
+      "id": "S058",
+      "type": "body",
+      "section": "Conclusion",
+      "original_text": "HarnessWAM is a model-external framework bridging finite-horizon WAM execution and persistent deliberation. It combines evidence-grounded belief, structured task graphs, executable-space projection, high-frequency progress estimation, event-triggered verification, and embodiment-state recovery. The reported results support more reliable multi-stage composition, but future work must test real-world manipulation, broader skill repertoires, and calibrated uncertainty-aware deliberation.",
+      "translation": "HarnessWAM 是连接有限时域 WAM 执行与持续审议的模型外部框架。它结合证据支撑信念、结构化任务图、可执行空间投影、高频进度估计、事件触发验证和具身状态恢复。现有结果支持更可靠的多阶段组合，但真实操作、更广技能库和校准不确定性感知审议仍需未来验证。",
+      "confidence": "high"
+    }
+  ],
+  "assets": [
+    "assets/page_010_fig_table_2.png",
+    "assets/page_010_fig_table_1.png",
+    "assets/page_012_fig_figure_3.png",
+    "assets/page_011_fig_table_4.png",
+    "assets/page_011_fig_table_3.png",
+    "assets/page_002_fig_figure_1.png",
+    "assets/page_007_fig_algorithm_1.png",
+    "assets/page_004_fig_figure_2.png"
+  ],
+  "counts": {
+    "paragraph_pairs": 44,
+    "standalone_equations": 20,
+    "algorithm_lines": 38,
+    "tables": 4,
+    "figure_caption_pairs": 3
+  }
+}

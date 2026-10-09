@@ -1,0 +1,181 @@
+Table 3: Main Results on Video Deep-Research Agent Benchmarks. We evaluate various state-of-the-art
+Vision–Language Models (VLMs) under two distinct execution settings: Direct (tool-free baseline) and Agentic
+(equipped with the full suite of visual and text tools). Performance is reported across VIDEO-DR (Acc.) and the six
+fine-grained categories within our proposed VIDEODR-BENCH benchmark, alongside the overall average score.
+Column abbreviations for VIDEODR-BENCH denote the corresponding video categories: KNL for knowledge,
+ENT for Entertainment, DLY for daily, G&S for game&sports, NWS for news, and OTH for other.
+Model
+Video-DR
+VIDEODR-BENCH (% Acc.)
+Avg.
+Acc.
+KNL
+ENT
+DLY
+G&S
+NWS
+OTH
+Overall
+Closed-Source Models
+Gemini 2.5 Pro (Comanici et al., 2025)
+62.0
+54.2
+52.3
+51.4
+51.7
+54.2
+57.1
+53.0
+57.5
+GPT-5 (OpenAI., 2025)
+57.0
+50.8
+45.5
+48.6
+48.3
+45.8
+42.9
+48.0
+52.5
+Claude-4.5-Sonnet (Anthropic, 2025)
+63.0
+55.9
+54.5
+54.1
+58.6
+54.2
+42.9
+55.0
+59.0
+Open-Source Models
+Qwen3.5-397B-A13B (Team, 2026)
+58.0
+49.2
+61.4
+40.5
+55.2
+29.2
+14.3
+47.5
+52.8
+Kimi K2.5 (Team et al., 2026)
+61.0
+54.2
+52.3
+51.4
+51.7
+54.2
+57.1
+53.0
+57.0
+Qwen3-VL-30B-A3B-Instruct (Bai et al., 2025)
+38.0
+44.1
+43.2
+35.1
+51.7
+41.7
+42.9
+43.0
+40.5
+Video-DeepResearch-30B-A3B (Ours)
+62.0
+62.7
+61.4
+40.5
+58.6
+58.3
+42.9
+56.5
+59.3
+Improvement↑
++24.0
++18.6 +18.2
++5.4
++6.9
++16.6
+0.0
++13.5
++18.8
+Qwen3.5-35B-A3B (Team, 2026)
+42.0
+45.8
+50.0
+40.5
+44.8
+33.3
+28.6
+43.5
+42.8
+Video-DeepResearch-35B-A3B (Ours)
+68.0
+66.1
+65.9
+56.8
+62.1
+41.7
+42.9
+60.0
+64.0
+Improvement↑
++26.0
++20.3 +15.9 +16.3 +17.3
++8.4
++14.3
++16.5
++21.2
+(Qwen3.5-35B-A3B), VIDEO-DEEPRESEARCH-
+35B demonstrates a remarkable +21.2% im-
+provement, with particularly strong gains across
+knowledge-intensive (KNL: +20.3%) and entertain-
+ment (ENT: +15.9%) categories. Notably, VIDEO-
+DEEPRESEARCH-35B achieves the highest score
+on VIDEODR-BENCH (65.4%) among all evalu-
+ated models.
+Video-DeepResearch-30B-A3B. The 30B vari-
+ant achieves 59.3% average accuracy, compet-
+itive with Claude-4.5-Sonnet (59.0%) and sig-
+nificantly eclipsing GPT-5 (52.5%) and Gemini
+2.5 Pro (57.5%).
+Compared to its foundation
+model (Qwen3-VL-30B-A3B-Instruct), VIDEO-
+DEEPRESEARCH-30B achieves substantial ab-
+solute improvements:
+a +24.0% surge on the
+VideoDR benchmark and a +13.5% gain on
+VIDEODR-BENCH. This explicit performance leap
+rigorously validates the efficacy of our trajectory
+synthesis and RL optimization pipeline even at
+compact scale.
+Comparison with Proprietary Models. Despite
+their massive parameter counts and extensive train-
+ing, proprietary models exhibit notable limitations
+on Video-DR tasks. GPT-5 (52.5%) lags signifi-
+cantly behind, likely due to insufficient optimiza-
+tion for visual tool usage. Gemini 2.5 Pro (57.5%)
+shows competitive performance but still falls short
+of both our variants. These results underscore that
+raw model scale alone does not guarantee effective
+Video-DR capability; specialized training pipelines
+are essential.
+Fine-Grained Category Analysis. On the fine-
+grained level, our models exhibit distinct strengths
+across different video domains:
+• Knowledge
+(KNL):
+VIDEO-
+DEEPRESEARCH-35B
+achieves
+66.1%,
+demonstrating superior capability in factual
+reasoning over video-grounded knowledge
+queries.
+• Entertainment (ENT): Both variants excel
+(61.4% and 65.9% respectively), outperform-
+ing all proprietary models.
+• Daily Life (DLY): VIDEO-DEEPRESEARCH-
+35B significantly improves to 56.8% (+16.3%
+over base), indicating better generalization to
+common scenarios.
+• News (NWS): VIDEO-DEEPRESEARCH-30B
+shows particular robustness (58.3%), though

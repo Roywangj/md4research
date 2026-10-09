@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "script": "collect_metadata.py",
+  "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+  "translated_title": "暗中推理：潜在空间中的交错视觉-文本推理",
+  "authors": [
+    "Chao Chen",
+    "Zhixin Ma",
+    "Yongqi Li",
+    "Yupeng Hu",
+    "Yinwei Wei",
+    "Wenjie Li",
+    "Liqiang Nie"
+  ],
+  "affiliations": [
+    "The Hong Kong Polytechnic University",
+    "Singapore Management University",
+    "Shandong University",
+    "Harbin Institute of Technology (Shenzhen)"
+  ],
+  "year": "2026",
+  "venue": "arXiv preprint",
+  "arxiv_id": "2510.12603",
+  "source_url": "https://arxiv.org/abs/2510.12603",
+  "pdf_url": "https://arxiv.org/pdf/2510.12603",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EAWWASN8/Chen 等 - 2026 - Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space.pdf",
+  "zotero_key": "BY96Y7AI",
+  "source_type": "preprint",
+  "metadata_sources": [
+    "zotero_seed",
+    "arxiv"
+  ],
+  "paper_id": "arxiv:2510.12603",
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2510.12603v2",
+  "abstract": "Multimodal reasoning aims to enhance the capabilities of MLLMs by incorporating intermediate reasoning steps before reaching the final answer. It has evolved from text-only reasoning to the integration of visual information, enabling the thought process to be conveyed through both images and text. Despite its effectiveness, current multimodal reasoning methods depend on explicit reasoning steps that require labor-intensive vision-text annotations and inherently introduce significant inference latency. To address these issues, we introduce multimodal latent reasoning with the advantages of multimodal representation, reduced annotation, and inference efficiency. To facilitate it, we propose Interleaved Vision-Text Latent Reasoning (IVT-LR), which injects both visual and textual information in the reasoning process within the latent space. Specifically, IVT-LR represents each reasoning step by combining two implicit parts: latent text (the hidden states from the previous step) and latent vision (a set of selected image embeddings). We further introduce a progressive multi-stage training strategy to enable MLLMs to perform the above multimodal latent reasoning steps. Experiments on M$^3$CoT and ScienceQA demonstrate that our IVT-LR method achieves an average performance increase of 5.45\\% in accuracy, while simultaneously achieving a speed increase of over 5 times compared to existing approaches.",
+  "published": "2025-10-14T14:58:25Z",
+  "doi": "10.48550/arXiv.2510.12603",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "doi_present",
+    "arxiv_id_present",
+    "zotero_key_present"
+  ]
+}

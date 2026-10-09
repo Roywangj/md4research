@@ -1,0 +1,156 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "整体系统架构：双流MoT耦合、Wan VAE、T5/VLM条件化与因果印记引导"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "4D动态感知表征蒸馏：Track4World点追踪先验向视频专家的注入路径"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "World-Action MoT交互机制与单向注意力掩码设计"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "因果印记双重监督：显式差分重构L_Δ与截断梯度未来对准L_align"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "高效在线闭环推理架构：稀疏视觉上下文预填与固化K/V重用"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "Ego2Robot数据重定向流水线：人类手部骨骼捕捉与机器人运动学求解"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "Ego2Robot运动与接触对齐可视化定性结果"
+    },
+    {
+      "figure_id": "Figure 8",
+      "file": "images/figure_8.png",
+      "role": "探索性训练的特征离线缓存流水线：Cache Manager与4.2倍提速"
+    },
+    {
+      "figure_id": "Figure 9",
+      "file": "images/figure_9.png",
+      "role": "双流MoT主干逐层模块化编译架构：降低38%显存"
+    },
+    {
+      "figure_id": "Figure 10",
+      "file": "images/figure_10.png",
+      "role": "实体机器人8项复杂物理操作执行里程碑定性展示"
+    },
+    {
+      "figure_id": "Figure 11",
+      "file": "images/figure_11.png",
+      "role": "倒水任务中对任意连续目标液位的零样本物理泛化"
+    },
+    {
+      "figure_id": "Figure 12",
+      "file": "images/figure_12.png",
+      "role": "动作突变跳跃（Action Jetting）现象与RTC平滑机制抑制效果对比"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "规范化80维机器人动作表征槽位完整布局表"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "23,072小时多源数据集清洗前后规模与时长统计表"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "Ego2Robot流水线人类视频向机器人轨迹转换产出统计表"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "大规模多源联合预训练核心超参数与软硬件配置表"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "四大仿真评测基准下游微调（Post-training）配置表"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "实体机器人11项真实微调与评测任务数据集统计表"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "真实机器人硬件平台后训练超参数配置表"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "灵巧手实体部署端到端推理延迟累积消融分析表"
+    },
+    {
+      "table_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "LIBERO-Plus七大分布偏移轴线上的零样本鲁棒性全景对比表"
+    },
+    {
+      "table_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "RoboTwin 2.0 Clean2Random零样本随机化泛化权威对比表"
+    },
+    {
+      "table_id": "Table 11",
+      "file": "images/table_11.png",
+      "role": "EBench移动双臂长时程多阶段操作综合评测表"
+    },
+    {
+      "table_id": "Table 12",
+      "file": "images/table_12.png",
+      "role": "RoboDojo六大核心维度（含记忆与长程）全景战绩表"
+    },
+    {
+      "table_id": "Table 13",
+      "file": "images/table_13.png",
+      "role": "真实机器人在有无大规模预训练下的实测成功率暴涨对比表"
+    },
+    {
+      "table_id": "Table 14",
+      "file": "images/table_14.png",
+      "role": "LIBERO-Plus累积组件级消融实验分析表"
+    },
+    {
+      "table_id": "Table 15",
+      "file": "images/table_15.png",
+      "role": "4D点追踪教师选型与动作端注入路径消融表"
+    },
+    {
+      "table_id": "Table 16",
+      "file": "images/table_16.png",
+      "role": "LIBERO-Plus单一预训练数据源贡献消融表"
+    },
+    {
+      "table_id": "Table 17",
+      "file": "images/table_17.png",
+      "role": "RoboTwin 2.0动作控制空间与数据源消融表"
+    },
+    {
+      "table_id": "Table 18",
+      "file": "images/table_18.png",
+      "role": "接入Astra长思维链具身推理代理后的性能飞跃表"
+    }
+  ]
+}

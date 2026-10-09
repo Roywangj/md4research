@@ -1,0 +1,63 @@
+{
+  "paper": {
+    "title": "Hierarchical Denoising For Multi-Step Visual Reasoning",
+    "authors": ["Zezhong Qian", "Xiaowei Chi", "Chak-Wing Mak", "Tianze Zhou", "Ruibin Yuan", "Yuhan Rui", "Hengzhe Sun", "Zhuoqun Wu", "Yuming Li", "Siyuan Qian", "Sirui Han", "Shanghang Zhang"],
+    "year": 2026,
+    "venue": "NeurIPS 2026 / arXiv:2607.15278v1",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EI8L4DXZ/Qian 等 - 2026 - Hierarchical Denoising For Multi-Step Visual Reasoning.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "scope": "20-page edition: main text pp.1-10, references pp.11-14, appendices A-D pp.15-20"
+  },
+  "notes": {
+    "reading_order": "Natural two-column order reconstructed from selectable text and rendered-page checks.",
+    "scope_boundary": "The supplied PDF contains 20 pages and ends at Appendix D. Main-text references to Appendix I and Appendix Table 10 are unresolved within this source version and are preserved as source-authored cross-references."
+  },
+  "blocks": [
+    {"id":"S001","type":"body","section":"Metadata and Abstract","pages":"1","summary":"Paper identity and abstract","confidence":"high"},
+    {"id":"S002","type":"body","section":"Introduction","pages":"1-3","summary":"Motivation, tension, HDR overview, contributions","confidence":"high","refs":["F001"]},
+    {"id":"S003","type":"body","section":"Related Work","pages":"3","summary":"Video reasoning and autoregressive diffusion","confidence":"high"},
+    {"id":"S004","type":"body","section":"Method","pages":"3-6","summary":"Hierarchical latents, flow matching, SHAP","confidence":"high","refs":["F002"]},
+    {"id":"S005","type":"body","section":"Experiments","pages":"6-10","summary":"Benchmarks, results, ablations, robotics, RoboDojo","confidence":"high","refs":["F003","F004","F005","F006","F007","F008","T001","T002","T003"]},
+    {"id":"S006","type":"body","section":"Conclusion","pages":"10","summary":"Conclusion","confidence":"high"},
+    {"id":"S007","type":"reference","section":"References","pages":"11-14","summary":"References 1-41","confidence":"high"},
+    {"id":"S008","type":"body","section":"Appendix A","pages":"15-16","summary":"HDR-WAM details","confidence":"high","refs":["F009"]},
+    {"id":"S009","type":"body","section":"Appendix B","pages":"16-18","summary":"Benchmark and evaluation details","confidence":"high","refs":["T004"]},
+    {"id":"S010","type":"body","section":"Appendix C","pages":"19-20","summary":"Entropy-matched denoising schedules","confidence":"high","refs":["T005"]},
+    {"id":"S011","type":"body","section":"Appendix D","pages":"20","summary":"Time complexity analysis","confidence":"high","refs":[]}
+  ],
+  "pages": [
+    {"page":"1-3","block_ids":["S001","S002","S003","F001"]},
+    {"page":"3-6","block_ids":["S004","F002"]},
+    {"page":"6-10","block_ids":["S005","S006","F003","F004","F005","F006","F007","F008","T001","T002","T003"]},
+    {"page":"11-14","block_ids":["S007"]},
+    {"page":"15-20","block_ids":["S008","S009","S010","S011","F009","T004","T005"]}
+  ],
+  "figures": [
+    {"id":"F001","page":2,"image_path":"assets/page_002_fig_figure_1.png","caption":"Figure 1","placement_hint":"near_first_mention"},
+    {"id":"F002","page":4,"image_path":"assets/page_004_fig_figure_2.png","caption":"Figure 2","placement_hint":"near_first_mention"},
+    {"id":"F003","page":7,"image_path":"assets/page_007_fig_figure_3.png","caption":"Figure 3","placement_hint":"near_first_mention"},
+    {"id":"F004","page":8,"image_path":"assets/page_008_fig_figure_4.png","caption":"Figure 4","placement_hint":"near_first_mention"},
+    {"id":"F005","page":8,"image_path":"assets/page_008_fig_figure_5.png","caption":"Figure 5","placement_hint":"near_first_mention"},
+    {"id":"F006","page":9,"image_path":"assets/page_009_fig_figure_6.png","caption":"Figure 6","placement_hint":"near_first_mention"},
+    {"id":"F007","page":9,"image_path":"assets/page_009_fig_figure_7.png","caption":"Figure 7","placement_hint":"near_first_mention"},
+    {"id":"F008","page":10,"image_path":"assets/page_010_fig_figure_8.png","caption":"Figure 8","placement_hint":"near_first_mention"},
+    {"id":"F009","page":16,"image_path":"assets/page_016_fig_figure_9.png","caption":"Figure 9","placement_hint":"near_first_mention"}
+  ],
+  "tables": [
+    {"id":"T001","page":7,"image_path":"assets/page_007_table_table_1.png","caption":"Table 1"},
+    {"id":"T002","page":7,"image_path":"assets/page_007_table_table_2.png","caption":"Table 2"},
+    {"id":"T003","page":10,"image_path":"assets/page_010_table_table_3.png","caption":"Table 3"},
+    {"id":"T004","page":17,"image_path":"assets/page_017_table_table_4.png","caption":"Table 4"},
+    {"id":"T005","page":20,"image_path":"assets/page_020_table_table_5.png","caption":"Table 5"}
+  ],
+  "glossary": [
+    {"term":"HDR","translation":"面向视觉推理的分层去噪","note":"Hierarchical Denoising for Visual Reasoning"},
+    {"term":"SHAP","translation":"稀疏分层注意力模式","note":"Sparse Hierarchical Attention Pattern"},
+    {"term":"average progress","translation":"平均进度","note":"Measures partial task progress"},
+    {"term":"OOD","translation":"分布外","note":"Out-of-distribution"},
+    {"term":"WAM","translation":"世界—动作模型","note":"World Action Model"}
+  ]
+}

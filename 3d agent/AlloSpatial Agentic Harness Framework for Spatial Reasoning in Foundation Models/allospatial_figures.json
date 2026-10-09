@@ -1,0 +1,2137 @@
+{
+  "status": "ok",
+  "script": "plan_figures.py",
+  "paper_id": "arxiv:2606.08952",
+  "figure_plan": {
+    "paper_id": "arxiv:2606.08952",
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "AlloSpatial inference and training pipeline. A, At inference time, AlloSpatial takes",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+          "width": 1127,
+          "height": 856,
+          "size_bytes": 410442,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.257997,
+            "visual_rect_count": 96,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 775,
+            "table_body_rows": 0,
+            "caption_text_chars": 546,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "fig. 1",
+              "allospatial",
+              "inference",
+              "training",
+              "pipeline",
+              "time"
+            ],
+            "snippet": "representations rather than relying solely on egocentric observations. As illustrated in Fig. 1(A), at the core of AlloSpatial is World2Mind, a plug-and-play cognitive mapping sandbox t",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 504,
+                "height": 88,
+                "size_bytes": 1569
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.png",
+                "width": 160,
+                "height": 160,
+                "size_bytes": 175
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.png",
+                "width": 96,
+                "height": 96,
+                "size_bytes": 1780
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1127,
+                "height": 856,
+                "size_bytes": 410442,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.257997,
+                  "visual_rect_count": 96,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 775,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 546,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "allospatial",
+              "training",
+              "pipeline",
+              "time"
+            ],
+            "snippet": "air_02. Final Answer: 95 cm Tool Result Tool Result Figure 4: Reasoning trace produced by AlloSpatial. Table 4: Ablation results of AlloSpatial-4B. We compare Qwen3-VL-4B variants using the s",
+            "images": [
+              {
+                "filename": "page_009_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_01.png",
+                "width": 451,
+                "height": 447,
+                "size_bytes": 22698
+              },
+              {
+                "filename": "page_009_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_02.jpeg",
+                "width": 157,
+                "height": 157,
+                "size_bytes": 8421
+              },
+              {
+                "filename": "page_009_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_03.jpeg",
+                "width": 256,
+                "height": 256,
+                "size_bytes": 11768
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_table_4.png",
+                "width": 534,
+                "height": 487,
+                "size_bytes": 69308,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069652,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.106006,
+                  "paragraph_text_chars": 250,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 205,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 540,
+                "size_bytes": 249037,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected"
+                  ],
+                  "page_coverage_ratio": 0.162289,
+                  "visual_rect_count": 23,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1888,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Table 4"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 3,
+            "matched_terms": [
+              "allospatial",
+              "training",
+              "pipeline"
+            ],
+            "snippet": "Table 5: GSPO training configuration for the reported AlloSpatial checkpoints. The main paper reports the 600-step AlloSpatial-4B checkpoint and the 400-st",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_table_5.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_014_fig_table_5.png",
+                "width": 1134,
+                "height": 674,
+                "size_bytes": 125142,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.204503,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 621,
+                  "table_body_rows": 17,
+                  "caption_text_chars": 261,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "VSI-Bench performance un-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_figure_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+          "width": 444,
+          "height": 348,
+          "size_bytes": 40022,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.041402,
+            "visual_rect_count": 3,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 378,
+            "table_body_rows": 0,
+            "caption_text_chars": 69,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 7,
+            "matched_terms": [
+              "figure 2",
+              "vsi-bench",
+              "performance"
+            ],
+            "snippet": "5 28.0 3 Think3D-4B† [46] 44.0 42.5 37.5 42.5 1 AlloSpatial-4B (Ours) 69.1 82.0 65.0 65.5 Figure 2: VSI-Bench performance un- der different input-frame number. 2.4K unique prompts, with 8",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 7,
+            "matched_terms": [
+              "fig. 2",
+              "vsi-bench",
+              "performance"
+            ],
+            "snippet": "input-frame number. We study how AlloSpatial behaves under different observation budgets. Fig. 2 reports performance with 0, 3, 7, 15, and 24 uniformly sampled input frames. AlloSpatial",
+            "images": [
+              {
+                "filename": "page_009_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_01.png",
+                "width": 451,
+                "height": 447,
+                "size_bytes": 22698
+              },
+              {
+                "filename": "page_009_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_02.jpeg",
+                "width": 157,
+                "height": 157,
+                "size_bytes": 8421
+              },
+              {
+                "filename": "page_009_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_03.jpeg",
+                "width": 256,
+                "height": 256,
+                "size_bytes": 11768
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_table_4.png",
+                "width": 534,
+                "height": 487,
+                "size_bytes": 69308,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069652,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.106006,
+                  "paragraph_text_chars": 250,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 205,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 540,
+                "size_bytes": 249037,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected"
+                  ],
+                  "page_coverage_ratio": 0.162289,
+                  "visual_rect_count": 23,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1888,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Table 4"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 2,
+            "matched_terms": [
+              "vsi-bench",
+              "performance"
+            ],
+            "snippet": "Table 2: Evaluation results on the VSI-Bench benchmark (tiny split). Following the setting of Think3D [46], all models are evaluated w",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_007_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              },
+              {
+                "filename": "page_007_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 25164
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+                "width": 1134,
+                "height": 343,
+                "size_bytes": 82904,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104259,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.020093,
+                  "paragraph_text_chars": 795,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 353,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Results of AlloSpatial under the training-free setting on the VSI-Bench [41] and Mind-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_006_fig_table_1.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+          "width": 1138,
+          "height": 253,
+          "size_bytes": 43576,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.077198,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 3,
+            "caption_text_chars": 179,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "allospatial",
+              "under",
+              "training-free",
+              "setting",
+              "vsi-bench"
+            ],
+            "snippet": "Table 1: Results of AlloSpatial under the training-free setting on the VSI-Bench [41] and Mind- C",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "allospatial",
+              "under",
+              "training-free",
+              "setting",
+              "vsi-bench"
+            ],
+            "snippet": "8 43.2 47.3 54.0 37.1 26.5 71.4 – Think3D-4B† [46] − − − − − − 45.4 44.7 39.0 36.7 61.2 2 AlloSpatial-4B (Ours) 53.5 56.3 54.1 42.3 68.8 60.0 50.8 50.0 59.3 34.7 59.2 1 AlloSpatial-8B (Ours)",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_007_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              },
+              {
+                "filename": "page_007_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 25164
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+                "width": 1134,
+                "height": 343,
+                "size_bytes": 82904,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104259,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.020093,
+                  "paragraph_text_chars": 795,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 353,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "allospatial",
+              "under",
+              "training-free",
+              "setting",
+              "vsi-bench"
+            ],
+            "snippet": ".3 33.5 7 Cambrian-S-3B [42] 33.2 34.4 34.5 28.0 3 Think3D-4B† [46] 44.0 42.5 37.5 42.5 1 AlloSpatial-4B (Ours) 69.1 82.0 65.0 65.5 Figure 2: VSI-Bench performance un- der different input-fra",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Evaluation results on the VSI-Bench benchmark (tiny split). Following the setting of",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_table_2.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+          "width": 1134,
+          "height": 343,
+          "size_bytes": 82904,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.104259,
+            "visual_rect_count": 6,
+            "visual_body_ratio": 0.020093,
+            "paragraph_text_chars": 795,
+            "table_body_rows": 6,
+            "caption_text_chars": 353,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "evaluation",
+              "vsi-bench",
+              "benchmark",
+              "tiny",
+              "split"
+            ],
+            "snippet": "Table 2: Evaluation results on the VSI-Bench benchmark (tiny split). Following the setting of Thi",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_007_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              },
+              {
+                "filename": "page_007_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 25164
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+                "width": 1134,
+                "height": 343,
+                "size_bytes": 82904,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104259,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.020093,
+                  "paragraph_text_chars": 795,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 353,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "vsi-bench",
+              "benchmark",
+              "tiny",
+              "split"
+            ],
+            "snippet": "Table 1: Results of AlloSpatial under the training-free setting on the VSI-Bench [41] and Mind- Cube [35] benchmarks (tiny split). For VSI-Bench, we uniformly use 32 inpu",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "evaluation",
+              "vsi-bench",
+              "benchmark",
+              "tiny",
+              "split"
+            ],
+            "snippet": "Table 3: Evaluation on the MindCube (tiny split). Rank Models Overall Around Among Rotation 2 Gemini-2.5-Pro",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Evaluation on the MindCube (tiny split).",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_table_3.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+          "width": 638,
+          "height": 280,
+          "size_bytes": 43771,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.047827,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 378,
+            "table_body_rows": 7,
+            "caption_text_chars": 49,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "evaluation",
+              "mindcube",
+              "tiny",
+              "split"
+            ],
+            "snippet": "Table 3: Evaluation on the MindCube (tiny split). Rank Models Overall Around Among Rotation 2 Gem",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "mindcube",
+              "tiny",
+              "split"
+            ],
+            "snippet": "enchmarks (tiny split). For VSI-Bench, we uniformly use 32 input frames. Models VSI-Bench MindCube Overall Obj. Count Abs. Dist. Obj. Size Room Size Rel. Dist. Rel. Dir. Route Plan Appr. O",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "evaluation",
+              "mindcube",
+              "tiny",
+              "split"
+            ],
+            "snippet": "Table 2: Evaluation results on the VSI-Bench benchmark (tiny split). Following the setting of Think3D [46], a",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_007_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              },
+              {
+                "filename": "page_007_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 25164
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+                "width": 1134,
+                "height": 343,
+                "size_bytes": 82904,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104259,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.020093,
+                  "paragraph_text_chars": 795,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 353,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation results of AlloSpatial-4B.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_009_fig_table_4.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_table_4.png",
+          "width": 534,
+          "height": 487,
+          "size_bytes": 69308,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.069652,
+            "visual_rect_count": 2,
+            "visual_body_ratio": 0.106006,
+            "paragraph_text_chars": 250,
+            "table_body_rows": 6,
+            "caption_text_chars": 205,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 9,
+            "score": 7,
+            "matched_terms": [
+              "table 4",
+              "ablation",
+              "allospatial-"
+            ],
+            "snippet": "Answer: 95 cm Tool Result Tool Result Figure 4: Reasoning trace produced by AlloSpatial. Table 4: Ablation results of AlloSpatial-4B. We compare Qwen3-VL-4B variants using the same train",
+            "images": [
+              {
+                "filename": "page_009_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_01.png",
+                "width": 451,
+                "height": 447,
+                "size_bytes": 22698
+              },
+              {
+                "filename": "page_009_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_02.jpeg",
+                "width": 157,
+                "height": 157,
+                "size_bytes": 8421
+              },
+              {
+                "filename": "page_009_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_03.jpeg",
+                "width": 256,
+                "height": 256,
+                "size_bytes": 11768
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_table_4.png",
+                "width": 534,
+                "height": 487,
+                "size_bytes": 69308,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069652,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.106006,
+                  "paragraph_text_chars": 250,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 205,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 540,
+                "size_bytes": 249037,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected"
+                  ],
+                  "page_coverage_ratio": 0.162289,
+                  "visual_rect_count": 23,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1888,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Table 4"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 2,
+            "matched_terms": [
+              "ablation",
+              "allospatial-"
+            ],
+            "snippet": "s the limited-observation setting with 7 uniformly sampled frames, while the frame-budget ablation evaluates 0, 3, 7, 15, and 24 input frames. For training-free proprietary-model evaluatio",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_table_5.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_014_fig_table_5.png",
+                "width": 1134,
+                "height": 674,
+                "size_bytes": 125142,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.204503,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 621,
+                  "table_body_rows": 17,
+                  "caption_text_chars": 261,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 1,
+            "matched_terms": [
+              "allospatial-"
+            ],
+            "snippet": "8 43.2 47.3 54.0 37.1 26.5 71.4 – Think3D-4B† [46] − − − − − − 45.4 44.7 39.0 36.7 61.2 2 AlloSpatial-4B (Ours) 53.5 56.3 54.1 42.3 68.8 60.0 50.8 50.0 59.3 34.7 59.2 1 AlloSpatial-8B (Ours) 5",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_007_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              },
+              {
+                "filename": "page_007_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 25164
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_007_fig_table_2.png",
+                "width": 1134,
+                "height": 343,
+                "size_bytes": 82904,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.104259,
+                  "visual_rect_count": 6,
+                  "visual_body_ratio": 0.020093,
+                  "paragraph_text_chars": 795,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 353,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 5",
+        "caption": "GSPO training configuration for the reported AlloSpatial checkpoints. The main paper",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_014_fig_table_5.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_014_fig_table_5.png",
+          "width": 1134,
+          "height": 674,
+          "size_bytes": 125142,
+          "label": "Table 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.204503,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 621,
+            "table_body_rows": 17,
+            "caption_text_chars": 261,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 14,
+            "score": 8,
+            "matched_terms": [
+              "table 5",
+              "gspo",
+              "training",
+              "configuration",
+              "reported",
+              "allospatial"
+            ],
+            "snippet": "Table 5: GSPO training configuration for the reported AlloSpatial checkpoints. The main paper rep",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_table_5.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_014_fig_table_5.png",
+                "width": 1134,
+                "height": 674,
+                "size_bytes": 125142,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.204503,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 621,
+                  "table_body_rows": 17,
+                  "caption_text_chars": 261,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "gspo",
+              "training",
+              "allospatial"
+            ],
+            "snippet": "preparing the policy for subsequent optimization with Group Sequence Policy Optimization (GSPO) [48]. GSPO with Harness-Gated Trajectory Reward. To stabilize reinforcement learning ove",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "training",
+              "configuration",
+              "allospatial"
+            ],
+            "snippet": "es Proprietary Foundation Models for Spatial Reasoning We first evaluate AlloSpatial as a training-free plug-in for proprietary models by exposing World2Mind W and the Spatial Reasoning Ha",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Text-only spatial reasoning",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_figure_3.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+          "width": 466,
+          "height": 352,
+          "size_bytes": 38014,
+          "label": "Figure 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.044007,
+            "visual_rect_count": 2,
+            "visual_body_ratio": 0.837706,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 144,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "fig. 3",
+              "text-only",
+              "spatial",
+              "reasoning"
+            ],
+            "snippet": "ed spatial knowledge itself by evaluating VSI-Bench in a text- only “blind” setting [41]. Fig. 3 shows that AST text sub- stantially improves blind spatial reasoning over text-only basel",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "spatial",
+              "reasoning"
+            ],
+            "snippet": "Ego Observation Spatial Reasoning Harness World2Mind Sandbox Video Multi-view Images or 1 2 3 4 Spatial Question",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_01.png",
+                "width": 504,
+                "height": 88,
+                "size_bytes": 1569
+              },
+              {
+                "filename": "page_002_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_02.png",
+                "width": 160,
+                "height": 160,
+                "size_bytes": 175
+              },
+              {
+                "filename": "page_002_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_img_03.png",
+                "width": 96,
+                "height": 96,
+                "size_bytes": 1780
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+                "width": 1127,
+                "height": 856,
+                "size_bytes": 410442,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.257997,
+                  "visual_rect_count": 96,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 775,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 546,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 2,
+            "matched_terms": [
+              "spatial",
+              "reasoning"
+            ],
+            "snippet": "Table 1: Results of AlloSpatial under the training-free setting on the VSI-Bench [41] and Mind- Cube [35] benchmarks (tin",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Reasoning trace produced by AlloSpatial.",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_009_fig_figure_4.png",
+          "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_figure_4.png",
+          "width": 1122,
+          "height": 540,
+          "size_bytes": 249037,
+          "label": "Figure 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "multiple_caption_regions_suspected"
+            ],
+            "page_coverage_ratio": 0.162289,
+            "visual_rect_count": 23,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 1888,
+            "table_body_rows": 0,
+            "caption_text_chars": 50,
+            "other_caption_count": 1,
+            "other_caption_labels": [
+              "Table 4"
+            ]
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "fig. 4",
+              "reasoning",
+              "trace",
+              "allospatial"
+            ],
+            "snippet": "stable spatial relations beyond the observed view. A complete reasoning trace is shown in Fig. 4, and additional analysis for AlloSpatial’s reasoning cases are illustrated in Appendix D.",
+            "images": [
+              {
+                "filename": "page_008_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_img_01.png",
+                "width": 3070,
+                "height": 1813,
+                "size_bytes": 185714
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_table_3.png",
+                "width": 638,
+                "height": 280,
+                "size_bytes": 43771,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.047827,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 7,
+                  "caption_text_chars": 49,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_2.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_2.png",
+                "width": 444,
+                "height": 348,
+                "size_bytes": 40022,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.041402,
+                  "visual_rect_count": 3,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 378,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 69,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_3.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_008_fig_figure_3.png",
+                "width": 466,
+                "height": 352,
+                "size_bytes": 38014,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.044007,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.837706,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 144,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "reasoning",
+              "trace",
+              "produced",
+              "allospatial"
+            ],
+            "snippet": "smaller vertical extent, so I trust chair_02. Final Answer: 95 cm Tool Result Tool Result Figure 4: Reasoning trace produced by AlloSpatial. Table 4: Ablation results of AlloSpatial-4B. We",
+            "images": [
+              {
+                "filename": "page_009_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_01.png",
+                "width": 451,
+                "height": 447,
+                "size_bytes": 22698
+              },
+              {
+                "filename": "page_009_img_02.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_02.jpeg",
+                "width": 157,
+                "height": 157,
+                "size_bytes": 8421
+              },
+              {
+                "filename": "page_009_img_03.jpeg",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_img_03.jpeg",
+                "width": 256,
+                "height": 256,
+                "size_bytes": 11768
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_table_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_table_4.png",
+                "width": 534,
+                "height": 487,
+                "size_bytes": 69308,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.069652,
+                  "visual_rect_count": 2,
+                  "visual_body_ratio": 0.106006,
+                  "paragraph_text_chars": 250,
+                  "table_body_rows": 6,
+                  "caption_text_chars": 205,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 540,
+                "size_bytes": 249037,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected"
+                  ],
+                  "page_coverage_ratio": 0.162289,
+                  "visual_rect_count": 23,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 1888,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Table 4"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "reasoning",
+              "trace",
+              "allospatial"
+            ],
+            "snippet": "e <Answer> tag. In this way, H treats external cognitive maps as falsifiable evidence for reasoning rather than as direct pseudo-labels, enabling iterative, verifiable, and trainable alloce",
+            "images": [
+              {
+                "filename": "page_006_img_01.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_01.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14315
+              },
+              {
+                "filename": "page_006_img_02.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_02.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 14878
+              },
+              {
+                "filename": "page_006_img_03.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_img_03.png",
+                "width": 640,
+                "height": 640,
+                "size_bytes": 26081
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a339a92f2bce64536/tmp/DeepPaperNote/assets/AlloSpatial_Agentic_Harness_Framework_for_Spatial_Reasoning_in_Foundation_Models/images/page_006_fig_table_1.png",
+                "width": 1138,
+                "height": 253,
+                "size_bytes": 43576,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077198,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 3,
+                  "caption_text_chars": 179,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  }
+}

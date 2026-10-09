@@ -1,0 +1,37 @@
+{
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/SCFGDAUS/Gu 等 - 2026 - HarnessWAM Bridging Prediction and Deliberation in World Action Models.pdf",
+    "pages": 15,
+    "read_mode": "local PDF visual/text inspection",
+    "sections_confirmed": ["Abstract", "Introduction", "Related Work", "Method", "Experiments", "Conclusion", "References"]
+  },
+  "grounding": {
+    "status": "passed",
+    "abstract": ["p. 1, Abstract"],
+    "problem": ["pp. 1-2, Introduction", "p. 2, Figure 1"],
+    "formalization": ["p. 4, Eqs. (1)-(3)"],
+    "state_and_memory": ["p. 5, Eqs. (4)-(8)"],
+    "projection": ["pp. 6-7, Eqs. (9)-(13)"],
+    "event_control": ["pp. 6-8, Eqs. (14)-(17), Algorithm 1"],
+    "evaluation": ["p. 9, §4.1", "p. 10, Tables 1-2"],
+    "ablations": ["p. 11, Tables 3-4"],
+    "qualitative": ["p. 12, Figure 3"],
+    "limitations": ["pp. 9-12, experimental protocol and conclusion"]
+  },
+  "quantitative_facts": [
+    {"value": "59.6%", "meaning": "RoboMemArena full-task average", "anchor": "p. 10, Table 1"},
+    {"value": "69.9%", "meaning": "RoboMemArena subtask average", "anchor": "p. 10, Table 1"},
+    {"value": "23.70%", "meaning": "RoboCerebra Ideal success rate", "anchor": "p. 10, Table 2"},
+    {"value": "18.5% / 38.3%", "meaning": "full-task/subtask after removing executable projection", "anchor": "p. 11, Table 3"},
+    {"value": "13.8% to 72.9%", "meaning": "plan executability from raw VLM plan to full projection", "anchor": "p. 11, Table 4"},
+    {"value": "26 tasks; 1,076 steps; 68.9% history-dependent subtasks", "meaning": "RoboMemArena setup", "anchor": "p. 9, §4.1"}
+  ],
+  "unreported": [
+    "公开代码仓库",
+    "完整任务管理器提示词与输出 schema",
+    "能力本体与技能验证数据",
+    "进度损失权重、数据规模与事件频率",
+    "硬件、运行时延、VLM调用成本",
+    "置信区间、显著性检验与失败类型分布"
+  ]
+}

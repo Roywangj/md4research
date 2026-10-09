@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D99TFPBN/Shi 等 - 2025 - REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Spla.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D99TFPBN/Shi 等 - 2025 - REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Spla.pdf",
+  "title": "REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "semantic_scholar",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2510.16410",
+  "paper_id": "arxiv:2510.16410",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2510.16410v3",
+  "abstract": "Bridging the gap between complex human instructions and precise 3D object grounding remains a significant challenge in vision and robotics. Existing 3D segmentation methods often struggle to interpret ambiguous, reasoning-based instructions, while 2D vision-language models that excel at such reasoning lack intrinsic 3D spatial understanding. In this paper, we introduce REALM, an innovative MLLM-agent framework that enables open-world reasoning-based segmentation without requiring extensive 3D-specific post-training. We perform segmentation directly on 3D Gaussian Splatting representations, capitalizing on their ability to render photorealistic novel views that are highly suitable for MLLM comprehension. As directly feeding one or more rendered views to the MLLM can lead to high sensitivity to viewpoint selection, we propose a novel Global-to-Local Spatial Grounding strategy. Specifically, multiple global views are first fed into the MLLM agent in parallel for coarse-level localization, aggregating responses to robustly identify the target object. Then, several close-up novel views of the object are synthesized to perform fine-grained local segmentation, yielding accurate and consistent 3D masks. Extensive experiments show that REALM achieves remarkable performance in interpreting both explicit and implicit instructions across LERF, 3D-OVS, and our newly introduced REALM3D benchmarks. Furthermore, our agent framework seamlessly supports a range of 3D interaction tasks, including object removal, replacement, and style transfer, demonstrating its practical utility and versatility. Project page: https://ChangyueShi.github.io/REALM.",
+  "authors": [
+    "Changyue Shi",
+    "Minghao Chen",
+    "Yiping Mao",
+    "Chuxiao Yang",
+    "Xinyuan Hu",
+    "Jiajun Ding",
+    "Zhou Yu"
+  ],
+  "published": "2025-10-18T08:53:08Z",
+  "year": "2025",
+  "pdf_url": "https://arxiv.org/pdf/2510.16410v3",
+  "venue": "arXiv.org",
+  "doi": "10.48550/arXiv.2510.16410",
+  "script": "collect_metadata.py"
+}

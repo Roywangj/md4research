@@ -1,0 +1,17 @@
+{
+  "decisions": [
+    {"figure":"Figure 1","status":"insert-reconstructed","asset":"images/mllm4d_overview.svg","reason":"Core paper overview; needed to explain RGB-only inference, offline 4D metadata, and two-stage training.","source_anchor":"p.1 Fig.1","asset_type":"explanatory SVG redraw"},
+    {"figure":"Figure 2","status":"skip","asset":null,"reason":"Benchmark taxonomy is transcribed in the note; the separate donut chart adds little beyond the six-category list.","source_anchor":"p.3 Fig.2"},
+    {"figure":"Figure 3","status":"insert-reconstructed","asset":"images/mllm4d_data_pipeline.svg","reason":"Central data-curation pipeline; needed to understand how stereo geometry becomes QA.","source_anchor":"p.4 Fig.3","asset_type":"explanatory SVG redraw"},
+    {"figure":"Figure 4","status":"insert-reconstructed","asset":"images/mllm4d_rft.svg","reason":"Central RFT pipeline; needed to connect ST-CoT, group rollouts, ST-reward, and GRPO.","source_anchor":"p.5 Fig.4","asset_type":"explanatory SVG redraw"},
+    {"figure":"Figure 5","status":"insert-reconstructed","asset":"images/scaling.svg","reason":"Main scaling evidence for SFT and RFT data size.","source_anchor":"p.8 Fig.5","asset_type":"explanatory SVG redraw"},
+    {"figure":"Figure 6","status":"skip","asset":null,"reason":"Prompt screenshot is implementation detail; the entity-extraction operation is described textually.","source_anchor":"p.13 Fig.6"},
+    {"figure":"Figure 7","status":"skip","asset":null,"reason":"Dataset composition donut is supplementary to the textual dataset description.","source_anchor":"p.13 Fig.7"},
+    {"figure":"Figure 8","status":"skip","asset":null,"reason":"R1-30k composition donut is supplementary and not needed for the main method explanation.","source_anchor":"p.14 Fig.8"},
+    {"figure":"Figure 9","status":"skip","asset":null,"reason":"Monocular alternative is covered in the limitations/reproduction text; it is not the main pipeline.","source_anchor":"p.14 Fig.9"},
+    {"figure":"Figure 10","status":"skip","asset":null,"reason":"Prompt screenshot; its fields and stages are summarized in text and in the RFT redraw.","source_anchor":"p.15 Fig.10"},
+    {"figure":"Figure 11","status":"skip","asset":null,"reason":"Detailed prompt screenshot; five ST-CoT stages are transcribed in the note.","source_anchor":"p.15 Fig.11"},
+    {"figure":"Figures 12-17","status":"skip","asset":null,"reason":"Large qualitative screenshots are referenced and analyzed in prose; no source raster crop was created under the restricted extraction environment.","source_anchor":"pp.16-21 Figs.12-17"}
+  ],
+  "asset_policy": "Only four comprehension-critical diagrams are linked. All linked assets are local SVG explanatory redraws, explicitly labeled as such; the read-only source PDF was not modified, moved, renamed, or copied."
+}

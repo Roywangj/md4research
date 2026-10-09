@@ -1,0 +1,36 @@
+{
+  "paper": {
+    "title": "HarnessWAM: Bridging Prediction and Deliberation in World Action Models",
+    "arxiv_id": "2608.09516v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/SCFGDAUS/Gu 等 - 2026 - HarnessWAM Bridging Prediction and Deliberation in World Action Models.pdf",
+    "pages": 15
+  },
+  "note_type": "WJ-style deep reading note",
+  "evidence_intent": "Explain the prediction-deliberation gap, reconstruct the state/graph/projection/event/recovery mechanism, connect ablations to causal claims, and mark replication boundaries.",
+  "sections": [
+    {"heading": "核心信息", "anchors": ["p. 1, title/authors", "p. 1, arXiv metadata"]},
+    {"heading": "原文摘要翻译", "anchors": ["p. 1, Abstract"]},
+    {"heading": "创新点", "anchors": ["p. 1, Introduction", "pp. 5-8, §§3.2-3.5"]},
+    {"heading": "一句话总结", "anchors": ["pp. 4-8, §§3.1-3.6"]},
+    {"heading": "研究问题", "anchors": ["pp. 1-2, Introduction", "p. 2, Figure 1"]},
+    {"heading": "数据与任务定义", "anchors": ["p. 4, Eqs. (1)-(3)", "p. 9, §4.1"]},
+    {"heading": "方法主线", "anchors": ["pp. 5-8, §§3.2-3.6", "p. 7, Algorithm 1"]},
+    {"heading": "关键结果", "anchors": ["p. 10, Tables 1-2", "p. 11, Tables 3-4", "p. 12, Figure 3"]},
+    {"heading": "深度分析", "anchors": ["pp. 10-11, result paragraphs and ablations"]},
+    {"heading": "局限", "anchors": ["pp. 9-12, setup/results/conclusion"]},
+    {"heading": "我的笔记", "anchors": ["pp. 4-12, synthesis grounded in method and evidence"]}
+  ],
+  "required_claims": [
+    {"claim": "HarnessWAM is a model-external runtime around a fixed WAM", "anchor": "p. 9, Models and implementation details"},
+    {"claim": "Evidence state distinguishes observed, inferred, and unknown", "anchor": "p. 5, Eq. (4)"},
+    {"claim": "Executable projection is the largest measured task-level contributor", "anchor": "p. 11, Table 3 and Task-level effects"},
+    {"claim": "HarnessWAM reaches 59.6/69.9 on RoboMemArena and 23.70 on RoboCerebra Ideal", "anchor": "p. 10, Tables 1-2"},
+    {"claim": "Unreported implementation details limit reproduction", "anchor": "p. 9, Models and implementation details; pp. 6-8"}
+  ],
+  "figure_table_contract": {
+    "decision_file": "paper_DeepPaperNote.figure_decisions.json",
+    "major_items": ["Figure 1", "Figure 2", "Table 1", "Table 2", "Table 3", "Table 4", "Figure 3"],
+    "all_items_have_decisions": true,
+    "all_insert_decisions_have_local_assets": true
+  }
+}

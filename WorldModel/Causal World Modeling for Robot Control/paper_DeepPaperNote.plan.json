@@ -1,0 +1,130 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出 LingBot-VA：以 Wan2.2-5B 为视频流基础，在统一的因果自回归序列中联合建模未来视频与机器人动作，并通过 KV cache、噪声历史增强、FDM-grounded 异步执行实现闭环控制。",
+  "dominant_domain": "robot foundation models, video world models, and embodied manipulation",
+  "must_cover": [
+    "从直接 observation-to-action 的 VLA 转向视觉动力学预测加 inverse dynamics 的任务分解。",
+    "视频与动作 token 的时序交错、双流 Mixture-of-Transformers、跨 chunk 因果注意力与 chunk 内并行生成。",
+    "teacher forcing、Noisy History Augmentation、联合 flow-matching 损失和 action stream 初始化。",
+    "KV cache、部分视频去噪、异步执行以及 FDM-grounded stale-prediction correction。",
+    "16K 小时跨 embodiment 预训练、50 demos post-training、RoboTwin、LIBERO 与六项真实机器人任务的协议和数字。",
+    "证据边界：主表混合预训练与后训练收益，真实任务每项仅 20 trials，‘causal’主要指 attention factorization 而非因果识别。"
+  ],
+  "key_numbers": [
+    "LingBot-VA 总计 5.3B 参数：Wan2.2-5B 视频流宽度 3072、30 层；动作流宽度 768，新增约 350M 参数。",
+    "预训练语料约 16K 小时、1.4T tokens，来自 Agibot、RoboMind、InternData-A1、OXE、UMI、RoboCOIN 与内部数据。",
+    "视频时间下采样因子 τ=4；每个视觉帧对应 4 个动作；训练 K∈[1,4]，部署 K=4。",
+    "视频推理 Euler 3 步并只积分到 s=0.6；动作 10 步积分到 s=1；视频/动作 CFG 分别为 5.0/1.0。",
+    "RoboTwin 50-task 平均：Easy 92.93%、Hard 91.55%；次优 Motus 为 88.66%/87.02%。",
+    "RoboTwin Horizon=3：93.22%/93.28%，相对次优提升 8.2/9.1 个百分点。",
+    "LIBERO 平均 98.5%，其中 Spatial 98.5、Object 99.6、Goal 97.2、Long 98.5。",
+    "FDM-grounded async 为 90.4%，naive async 为 74.3%；Horizon=3 分别为 85.6% 与 32.9%。",
+    "从 Wan 直接后训练为 80.6%，使用 LingBot-VA 预训练为 92.9%。",
+    "真实 Make Breakfast：97.0% progress / 75.0% success；π0.5 为 73.0% / 70.0%。"
+  ],
+  "real_comparisons": [
+    "RoboTwin Easy/Hard 下 LingBot-VA 与 X-VLA、π0、π0.5、Motus 的 50-task 和按 horizon 分组比较。",
+    "LIBERO 四个 suite 下 LingBot-VA 与 17 个 VLA/robot-policy baseline 的比较。",
+    "六项真实任务上 LingBot-VA 与 π0.5 的 progress score 和 success rate，均使用 50 demonstrations。",
+    "FDM-grounded async、naive async 与完整 baseline 的部署消融。",
+    "LingBot-VA robot pretraining checkpoint 与原始 WAN video checkpoint 的相同 post-training 比较。",
+    "动作流 copy-and-scale、random init、share weights 的训练动态比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "因果自回归的视频-动作联合建模能提供持续历史并改善长时程机器人控制。",
+      "supporting_evidence": ["sec:introduction", "sec:method", "sec:methods", "sec:analysis"],
+      "what_it_actually_proves": "在作者给定训练和评测协议下，LingBot-VA 在 RoboTwin 长 horizon、LIBERO-Long 和两个专门记忆任务上优于列出的 VLA baselines。",
+      "what_it_does_not_prove": "没有用严格受控实验完全分离因果 attention、KV cache、16K 小时数据和 5.3B backbone 各自贡献，也未证明无限历史始终有效。"
+    },
+    {
+      "claim": "视频世界模型预训练提高了下游数据效率和新配置泛化。",
+      "supporting_evidence": ["sec:experiments", "sec:ablation", "sec:analysis"],
+      "what_it_actually_proves": "相同 RoboTwin 后训练下，LingBot-VA initialization 比 WAN 高 12.3 个点；低 demo regime 和新物体/位置实验也呈现优势。",
+      "what_it_does_not_prove": "WAN 与 LingBot-VA 的差异包含 16K 小时机器人动作监督，不能将净收益全部归因于‘未来想象’或纯视频预训练。"
+    },
+    {
+      "claim": "部分去噪与 FDM-grounded 异步管线可在不明显牺牲控制质量的情况下隐藏视频生成延迟。",
+      "supporting_evidence": ["sec:method", "sec:model", "sec:ablation", "sec:ablation-2"],
+      "what_it_actually_proves": "FDM-grounded async 接近完整 baseline，而 naive async 尤其在 Horizon=3 严重退化；论文还报告异步执行约 2× task completion speed。",
+      "what_it_does_not_prove": "文中没有给出完整硬件、毫秒级 latency/throughput 表，也没有单独消融 s=0.6 部分去噪对每类任务的影响。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文中的 causal 指 token 只能依赖过去 token 的时序因果结构，不是从干预数据中识别结构因果图。",
+    "chunk 内仍采用 bidirectional attention 并行生成；严格单向只发生在 chunk 之间，因此不是逐 token 全因果模型。",
+    "主结果都经过 benchmark/task-specific post-training，不能解读为零样本部署结果。",
+    "真实机器人每个任务 20 trials，且仅与 π0.5 比较；绝对差值的置信区间未报告。",
+    "16K 小时包含内部数据，数据配比、去重和质量过滤不充分公开，限制完整复现与公平归因。",
+    "‘long-term memory’证据来自 horizon 分组和两个设计任务，不等于在任意长 episode 中没有 cache drift 或容量瓶颈。"
+  ],
+  "negative_or_limiting_results": [
+    "naive async 平均只有 74.3%，Horizon=3 降到 32.9%，显示缓存陈旧预测会随任务长度放大漂移。",
+    "直接从 WAN checkpoint 后训练只有 80.6%，说明通用视频 backbone 本身不足以替代大规模 video-action robot pretraining。",
+    "真实 Fold Clothes 上 LingBot-VA progress 48.8%，低于 π0.5 的 62.9%，尽管 success 为 35% 对 30%。",
+    "真实 Insert Tubes 的 success 仅 40%，Fold Clothes 35%，显示精密与可变形操作仍远未可靠。",
+    "视频生成仍是主要计算瓶颈，作者将更高效的视频压缩列为未来工作。",
+    "模型当前只使用视觉、语言和本体/动作信息，触觉、力觉与音频尚未纳入。"
+  ],
+  "mechanism_result_map": [
+    "统一交错的 video-action 序列与 MoT 共享注意力让视觉变化和动作相互条件化；对应 joint-pretraining 相对 WAN initialization 的 92.9% 对 80.6%。",
+    "跨 chunk causal mask 与 KV cache 保存历史；对应 Horizon=3 优势以及 Wipe Plate/Search Box 记忆任务收益，但不是单一因素的因果消融。",
+    "Noisy History Augmentation 训练动作流读取部分噪声视频，支持视频只积分到 s=0.6，从而缩短推理；论文未提供独立准确率/延迟消融。",
+    "FDM-grounded async 用最新真实 observation 加当前执行动作重算视觉后果，再预测下一 chunk；对应 90.4% 对 naive async 74.3%，Horizon=3 差距 52.7 点。",
+    "copy-and-scale action initialization 对齐两模态输出方差；Figure 7 显示更低 loss、gradient norm 与 validation loss。",
+    "16K 小时跨 embodiment 预训练提供 visual-motor prior；对应 low-data post-training 与 novel object/spatial generalization，但数据量和架构贡献未解耦。"
+  ],
+  "comparative_positioning": [
+    "相对 reactive VLA，LingBot-VA 显式学习 $p(o_{t+1:t+K}|o_{\\le t},a_{<t})$，再通过 inverse dynamics 解码动作。",
+    "相对 DreamZero 一类 chunk-wise WAM，LingBot-VA 更强调跨 chunk 的严格因果 mask、视频与动作历史 KV cache，以及 FDM-grounded async。",
+    "相对分离的 video planner + IDM，LingBot-VA 用双流 MoT 在同一 attention 序列和联合 flow-matching 训练中进行端到端耦合。",
+    "相对纯 latent world model，它保留可视化未来状态和 web-video backbone 的先验，但承担高维视频 token 的推理成本。"
+  ],
+  "reuse_takeaways": [
+    "异步控制不能只把推理线程和执行线程并行；必须显式处理 observation staleness，否则生成模型会延续自己的幻觉。",
+    "训练动作头时主动注入与测试阶段相匹配的部分噪声，是减少世界模型去噪步数的一般方法。",
+    "不同模态宽度差异很大时，初始化不仅影响收敛速度，还会通过 joint attention 的分布错位破坏另一模态。",
+    "评测 world-action model 应同时报告 progress、strict success、horizon 分层结果、wall-clock latency 与真实失败类型。",
+    "要证明显式想象本身有效，需要将 robot pretraining 数据、backbone、参数量和 action supervision 严格对齐。"
+  ],
+  "followup_questions": [
+    "在相同 16K 小时机器人数据与相同参数量下，移除 future-video loss、只训练 action loss 会损失多少？",
+    "KV cache 截断到 10K、20K 或滑动窗口时，Wipe Plate/Search Box 和记忆更长任务如何退化？",
+    "s=0.5、0.6、0.8、1.0 的视频积分终点对应怎样的 latency-action quality 曲线？",
+    "FDM grounding 若遇到相机延迟、遮挡或观测掉帧，是否仍优于同步执行？",
+    "真实任务中 Fold Clothes progress 低于 π0.5 的失败来自视频想象、IDM 还是控制器执行误差？",
+    "将触觉/力觉 token 加入 MoT，是否能改善插管、折衣等接触密集任务而不显著增加延迟？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "说明 reactive VLA 的 representation entanglement、缺乏显式动力学与历史状态后，为什么需要视频动力学和 inverse dynamics 的因果分解。",
+      "evidence_sources": ["sec:preamble", "sec:introduction", "sec:method", "sec:related-work"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "解释 16K 小时预训练、统一 30D 动作、RoboTwin/LIBERO/真实六任务及 pretraining 与 post-training 的角色。",
+      "evidence_sources": ["sec:experiments", "sec:results", "sec:results-2", "sec:methods", "sec:appendix"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按 latent encoding、video-action interleaving、MoT/flow matching、teacher forcing/noisy history、KV cache/FDM async 还原完整机制链。",
+      "evidence_sources": ["sec:preliminary", "sec:method", "sec:model"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用表格比较 RoboTwin、LIBERO、真实任务，并用部署、预训练和初始化消融判断每项设计实际支撑程度。",
+      "evidence_sources": ["sec:results", "sec:results-2", "sec:methods", "sec:ablation", "sec:ablation-2", "sec:analysis", "sec:appendix"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "区分因果序列结构、显式未来想象、robot pretraining 数据规模和系统工程的贡献，分析 stale prediction 与部分去噪为何影响部署。",
+      "evidence_sources": ["sec:introduction", "sec:method", "sec:model", "sec:ablation", "sec:analysis", "sec:related-work"]
+    },
+    {
+      "section": "局限",
+      "focus": "界定 causal、long-term memory、data efficiency 与 real-time 等表述，记录私有数据、真实试验规模、视频计算成本和负结果。",
+      "evidence_sources": ["sec:experiments", "sec:ablation-2", "sec:analysis", "sec:conclusion", "sec:appendix"]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一种免训练的多模态思维链提示方法 ICoT，并通过 ADS 用现有 VLM 的注意力图选择原图局部 patch，插入中间推理步骤，在多个视觉推理基准上验证有效性。",
+  "dominant_domain": "training-free visually grounded multimodal reasoning",
+  "must_cover": [
+    "纯文本多模态 CoT 为什么难以表达与原图细粒度区域的对应关系。",
+    "ICoT 如何把中间推理从纯文本理由改成视觉理由和文本理由的交错序列。",
+    "ADS 如何用信号 token、attention map、Top-K visual tokens 和相对位置恢复实现训练自由的视觉证据插入。",
+    "Chameleon-7B 与 Qwen2-VL-7B 上的主结果、ADS/FVI 消融、KV-Copy 分析和 demonstration 设计比较。",
+    "case study 中误解、过度泛化和幻觉三类文本理由失败，以及 ICoT 如何缓解。",
+    "局限：固定 patch 数、信号 token 触发脆弱性、attention map 存储显存、人工 demonstration 依赖和 benchmark 覆盖范围。"
+  ],
+  "key_numbers": [
+    "Chameleon-7B zero-shot: ICoT 29.8 / 51.0 / 25.2 on M3CoT / ScienceQA / LLaVA-W.",
+    "Chameleon-7B one-shot: ICoT 32.3 / 53.4 / 27.6.",
+    "Qwen2-VL-7B zero-shot: ICoT 44.1 / 56.8 / 34.2.",
+    "Qwen2-VL-7B one-shot: ICoT 46.0 / 65.4 / 35.7.",
+    "Largest relative improvement: 14.0% on Chameleon-7B zero-shot LLaVA-W, 11.7% on Chameleon-7B one-shot LLaVA-W.",
+    "Ablation on Chameleon one-shot: ICoT 32.3 / 53.4 / 27.6; w/o ADS 29.2 / 52.4 / 24.5; w/o FVI 30.6 / 52.8 / 25.9.",
+    "KV-Copy one-shot: 31.5 / 52.9 / 27.0 versus ICoT 32.3 / 53.4 / 27.6.",
+    "Human-written demonstrations: 32.3 / 53.4 / 27.6; model-written: 31.5 / 51.8 / 26.7.",
+    "Supplementary selected patch analysis reports n=64 as relatively better; general benchmark improves Flickr30k 22.3 to 23.6 and OKVQA 26.2 to 28.2."
+  ],
+  "real_comparisons": [
+    "ICoT versus No-CoT, Multimodal CoT, CCoT, DDCoT, and SCAFFOLD on M3CoT, ScienceQA, and LLaVA-W.",
+    "Chameleon-7B unified-modeling VLM versus Qwen2-VL perceiver-based VLM.",
+    "zero-shot versus one-shot ICoT.",
+    "full ICoT versus w/o ADS, w/o FVI, and w/o ADS+FVI.",
+    "inserting selected patches versus copying KV cache.",
+    "human-written FVI demonstrations versus model-written demonstrations.",
+    "different selected patch counts 32, 64, 128, 256 in supplementary validation."
+  ],
+  "central_claims": [
+    {
+      "claim": "ICoT makes multimodal CoT more visually grounded by pairing selected visual rationales with textual rationales.",
+      "supporting_evidence": ["sec:abstract", "sec:models", "sec:preliminaries"],
+      "what_it_actually_proves": "实验和案例表明，在多个视觉推理基准上，插入原图局部视觉信息可以改善文本理由质量和最终答案。",
+      "what_it_does_not_prove": "它没有证明模型真正形成了可泛化的人类式视觉思维，也没有覆盖所有 VLM 架构或开放式真实任务。"
+    },
+    {
+      "claim": "ADS provides a training-free implementation of ICoT over existing VLMs.",
+      "supporting_evidence": ["sec:preliminaries", "sec:methods-2"],
+      "what_it_actually_proves": "ADS 用已有 attention map 选择视觉 token，不需要训练新参数，并能在 Chameleon 与 Qwen2-VL 上运行。",
+      "what_it_does_not_prove": "它仍需要访问内部 attention map、存储注意力分数，并依赖固定信号 token 和固定 patch 数。"
+    },
+    {
+      "claim": "The performance gain is tied to real visual insertion rather than only stronger prompts.",
+      "supporting_evidence": ["sec:methods-2", "sec:methods-3", "sec:methods-4"],
+      "what_it_actually_proves": "去掉 ADS 或去掉 demonstration 中的 FVI 都会下降，说明视觉证据插入和示例格式都对结果有贡献。",
+      "what_it_does_not_prove": "消融没有完全排除 prompt 格式、人工示例设计或 benchmark 偏好的影响。"
+    }
+  ],
+  "claim_boundaries": [
+    "training-free 指不更新模型参数，但仍需要访问模型内部 attention map 并使用 eager attention。",
+    "ICoT 的 one-shot demonstration 需要人工选择细粒度视觉信息。",
+    "LLaVA-W 参考答案由 GPT-4V 生成，因此评价可能带有模型偏好。",
+    "ADS 固定选择 patch 数，不能自适应每个样本的证据大小。",
+    "Algorithm crops were imperfect; note transcribes algorithm logic rather than relying on bad visual crops."
+  ],
+  "negative_or_limiting_results": [
+    "w/o ADS on Chameleon one-shot drops M3CoT and LLaVA-W by 3.1 points.",
+    "w/o FVI drops M3CoT by 1.8, ScienceQA by 0.6, and LLaVA-W by 1.7.",
+    "KV-Copy is computationally attractive but consistently lower than direct ICoT insertion.",
+    "Model-written demonstrations are worse than human-written demonstrations.",
+    "ADS can generate low-quality responses if the signal token appears too frequently."
+  ],
+  "mechanism_result_map": [
+    "Signal token triggers ADS at the beginning of a new rationale.",
+    "Signal attention over visual tokens identifies task-relevant patches.",
+    "Top-K selected visual tokens are restored into spatial order and concatenated with generated text embeddings.",
+    "Inserted visual tokens ground the next textual rationale in specific regions.",
+    "Few-shot FVI demonstrations teach the model the interleaved output format.",
+    "KV-Copy reduces compute but loses position-sensitive interleaving."
+  ],
+  "comparative_positioning": [
+    "相对传统文本 CoT，ICoT 把中间理由从语言描述扩展为图像局部 + 文本理由。",
+    "相对 CCoT 与 SCAFFOLD，ICoT 不用场景图或坐标描述间接指代区域，而是直接插入视觉 token。",
+    "相对训练型 thinking-with-images 方法，ICoT 不训练模型参数，是测试时 prompt/decoding 结构改造。",
+    "相对 DeepScan，ICoT 不调用外部视觉专家，而是用 VLM 自身 attention map 选择视觉证据。"
+  ],
+  "reuse_takeaways": [
+    "当文本 rationale 难以准确指向图像区域时，可以把局部视觉 token 作为中间推理证据插入。",
+    "不要让 VLM 生成新图；优先从原图选择需要的细粒度证据。",
+    "attention map 可以作为免训练 visual rationale selector，但需要处理触发频率和 patch 数量。",
+    "视觉证据插入是否有效，应同时看主结果、w/o insertion 消融和示例格式消融。",
+    "KV cache 复用需要保留位置信息，否则可能退化为非交错视觉提示。"
+  ],
+  "followup_questions": [
+    "能否用不确定性或问题难度动态决定何时触发 ADS，而不是固定信号 token？",
+    "能否用 grounding/segmentation 方法替代固定 Top-K patch，使视觉理由更连续且少噪声？",
+    "ICoT 在更强的现代 MLLM 和更长链式推理任务上是否仍有收益？",
+    "视觉 token 插入是否真的被后续文本步骤使用，还是主要改变了生成分布？",
+    "如何将 ADS 与 PRCR、VisRef 这类视觉 token/cache 方法结合，降低时延和显存？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释文本 CoT 在视觉任务中无法精确绑定原图局部证据的根因。",
+      "evidence_sources": ["sec:abstract", "sec:introduction", "sec:models"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "说明 M3CoT、ScienceQA、LLaVA-W、backbones、baselines、zero-shot/one-shot 设置。",
+      "evidence_sources": ["sec:datasets", "sec:methods", "sec:methods-2"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按 VLM/CoT formalization、ICoT、ADS、signal token、Top-K attention selection 解释机制。",
+      "evidence_sources": ["sec:methodology", "sec:preliminaries"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "整理 Table 1-5、主结果、消融、KV-Copy、demonstration、selected patch 数量和 general benchmark。",
+      "evidence_sources": ["sec:methods-2", "sec:methods-3", "sec:methods-4", "sec:supplementary-material"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析视觉证据插入为何有效、为何 LLaVA-W 收益最大、KV-Copy 为什么略差，以及和其他 TrainingFree 视觉回看方法的关系。",
+      "evidence_sources": ["sec:models", "sec:methods-2", "sec:methods-4", "sec:conclusion"]
+    },
+    {
+      "section": "局限",
+      "focus": "明确 attention access、memory overhead、fixed patch number、manual demonstration、signal-token brittleness 和评价范围。",
+      "evidence_sources": ["sec:methods-4", "sec:conclusion", "sec:supplementary-material"]
+    }
+  ]
+}

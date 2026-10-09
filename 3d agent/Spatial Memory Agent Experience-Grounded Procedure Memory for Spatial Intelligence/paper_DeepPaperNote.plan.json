@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.1",
+  "paper_title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G885K7C6/Zhang 等 - 2026 - Spatial Memory Agent Experience-Grounded Procedure Memory for Spatial Intelligence.pdf",
+    "physical_pages": 80,
+    "read_scope": "complete PDF",
+    "explicit_read_ranges": ["1-20", "21-40", "41-60", "61-80"],
+    "missing_ranges": []
+  },
+  "deliverable": "paper_DeepPaperNote.md",
+  "language": "zh-CN",
+  "evidence_policy": "Central factual and numerical claims use inline G### identifiers with PDF page/section/figure/table anchors. Interpretations are labeled 我的判断. Workflow-only observations are separated from PDF evidence.",
+  "sections": [
+    {"id":"S01","heading":"核心信息与摘要","intent":"identity, positioning and headline result","evidence_targets":["G001","G002","G003","G004","G005"]},
+    {"id":"S02","heading":"创新点与研究问题","intent":"separate procedure-memory contribution from engineering assembly","evidence_targets":["G006","G007","G008","G009","G010","G011","G012","G013","G014","G015","G016","G017"]},
+    {"id":"S03","heading":"数据、taxonomy 与 split","intent":"cover all seven benchmarks, Tables 9-27 examples/taxonomy and exact environment/deployment construction","evidence_targets":["G023","G024","G025","G026","G027","G057","G058","G059"]},
+    {"id":"S04","heading":"方法主线","intent":"acquisition, reflection, one-pass writing, retrieval, TRS and read-only deployment","evidence_targets":["G028","G029","G030","G031","G032","G033","G034","G035","G036","G054"]},
+    {"id":"S05","heading":"关键结果","intent":"main comparison, ablations, transfer, reliability diagnostics and memory protocol","evidence_targets":["G038","G039","G040","G042","G043","G044","G045","G046","G047","G048","G050","G051","G052"]},
+    {"id":"S06","heading":"完整定性与失败分析","intent":"distinguish successful transfer, wrong-to-right correction, benchmark ambiguity and base-model limitations across Figures 9-30","evidence_targets":["G065","G066","G067","G068","G069"]},
+    {"id":"S07","heading":"复现接口","intent":"record exact splits, baseline definitions, infrastructure, hyperparameters and all prompt roles/templates","evidence_targets":["G055","G059","G060","G061","G062","G070","G071","G072"]},
+    {"id":"S08","heading":"深度分析与局限","intent":"credit assignment, lifecycle, prompt-prior, ambiguity, cost and overclaim boundaries","evidence_targets":["G027","G035","G044","G049","G053","G063","G064","G068","G069","G072"]},
+    {"id":"S09","heading":"图表取舍","intent":"record kept reconstructions, transcriptions, full qualitative review and blocked optional raster export","evidence_targets":["G056","G058","G059","G065","G066","G067","G068","G069","G073"]}
+  ],
+  "figure_plan": {
+    "keep_existing_reconstructions": [
+      {"source":"Fig.2","output":"images/figure_2_sma_overview.svg"},
+      {"source":"Fig.3","output":"images/figure_3_sma_workflow.svg"},
+      {"source":"Fig.4","output":"images/figure_4_sma_diagnostics.svg"},
+      {"source":"Fig.6","output":"images/figure_6_memory_writing.svg"}
+    ],
+    "reviewed_in_prose": ["Fig.1", "Fig.5", "Fig.7", "Fig.8", "Figs.9-14", "Figs.15-22", "Figs.23-27", "Figs.28-30"],
+    "tables_transcribed_or_aggregated": ["Tables 1-8", "Tables 9-26", "Table 27", "Tables 28-31", "Table 32"],
+    "new_raster_crops": 0,
+    "raster_note": "An optional attempt to render three representative appendix pages was blocked by local command approval; no raster crops are claimed."
+  },
+  "validation_plan": [
+    "Check required WJ DeepPaperNote headings and inline G### anchors.",
+    "Check all Markdown image targets resolve under images/.",
+    "Parse all four DeepPaperNote JSON artifacts.",
+    "Search allowed outputs for stale 20-page/truncated-source claims.",
+    "Confirm the source was read in four explicit ranges totaling 80 physical pages.",
+    "Confirm only user-whitelisted outputs were edited."
+  ],
+  "updated_at": "2026-08-27"
+}

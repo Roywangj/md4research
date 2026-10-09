@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "script": "manual_grounding_gate",
+  "paper_id": "doi:10.48550/arXiv.2606.10040",
+  "passes_grounding": true,
+  "issues": [],
+  "warnings": [],
+  "source_identity": {
+    "canonical_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HPMGAGVC/Li 等 - 2026 - Efficient-WAM A 1B-Parameter World-Action Model with Low-Cost Future Imagination.pdf",
+    "sha256": "03bceaba02b236070153c14f956db378efa4aa2c8d3aaf6df6d3a70be16073d7",
+    "arxiv": "2606.10040v2",
+    "doi": "10.48550/arXiv.2606.10040"
+  },
+  "source_coverage": {
+    "total_pages": 18,
+    "pages_read": 18,
+    "text_truncated": false,
+    "main_sections": ["Abstract", "Introduction", "Related Works", "Method", "Experiments", "Conclusion", "Limitations"],
+    "appendices": ["A Training Details", "B Real-World Evaluation Details", "C Latency Measurement Protocol and Summary", "D Qualitative Future Prediction Results", "E RoboTwin Detailed Results"],
+    "figures": 8,
+    "tables": 7,
+    "equations": 8,
+    "algorithms": 0,
+    "references": 40
+  },
+  "grounding_checks": {
+    "plan_required_fields_complete": true,
+    "required_sections_have_page_grounding": true,
+    "central_claims_have_support_and_boundaries": true,
+    "all_figure_table_captions_have_decisions": true,
+    "inserted_images_manually_inspected": true,
+    "latency_hardware_and_protocol_distinction_preserved": true,
+    "negative_and_limiting_evidence_included": true,
+    "availability_impact_ethics_absence_recorded": true
+  },
+  "evidence_boundaries": [
+    "RoboTwin Table 6 and denoising Table 7 each cover 50 tasks but the note uses averages and selected configurations rather than reproducing unreadable dense tables.",
+    "A800 controlled ablation latency and RTX 4090 final deployment latency are not treated as directly additive algorithm gains.",
+    "The 98 ms protocol follows one warm-up, caches text embeddings, and excludes instruction encoding, observation acquisition, and robot execution.",
+    "Real-world success uses four tasks and 20 trials per task; no statistical significance is claimed.",
+    "The paper does not expose enough low-level action/control detail for a complete hardware-stack reproduction."
+  ]
+}

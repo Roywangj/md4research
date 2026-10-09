@@ -1,0 +1,375 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes a training-free inference-time cache reuse method for interleaved multimodal reasoning, addressing positional mismatch in historical visual KV cache reuse.",
+  "dominant_domain": "Interleaved multimodal reasoning, visual revisiting, KV cache reuse, RoPE position rebinding, efficient MLLM inference.",
+  "must_cover": [
+    "Direct historical visual KV cache reuse fails because cached keys are bound to their original RoPE positions.",
+    "The failure can cause attention perturbation, decoding collapse, and repeated-token loops.",
+    "PRCR stores pre-RoPE raw visual K/V projections and original spatial coordinates during multimodal prefill.",
+    "At a later reasoning step, selected visual entries are reassigned to positions compatible with the current decoding context.",
+    "Reconstructed visual cache is concatenated with the active decoder cache, enabling replay-free visual revisiting.",
+    "PRCR matches or slightly exceeds token replay accuracy while reducing visual-revisiting FLOPs by orders of magnitude."
+  ],
+  "key_numbers": [
+    "On M3CoT with Qwen3-VL-8B, direct KV reuse drops overall accuracy from 66.44 to 23.50 and has an 81.04 stuck rate.",
+    "Qwen3-VL-8B M3CoT ALL: baseline 66.44, Token-Replay 68.46, PRCR 68.68.",
+    "Qwen3-VL-8B MathVista: baseline 71.50, Token-Replay 72.60, PRCR 72.80.",
+    "Qwen3-VL-8B MMStar: baseline 65.95, Token-Replay 68.42, PRCR 68.96.",
+    "Qwen3-VL-8B MMMU: baseline 55.22, Token-Replay 59.45, PRCR 60.07.",
+    "Reinsertion ablation on M3CoT: Direct KV Reuse 23.50 accuracy and 81.04 stuck rate; LPA 63.03 and 7.93; UIR 67.45 and 0; PCR 68.68 and 0.",
+    "Best left extension length is L=2 on M3CoT and MathVista.",
+    "Qwen3-VL-32B with K=128: Token-Replay 7.75T FLOPs versus PRCR 125.83M FLOPs, with 192MB extra memory."
+  ],
+  "real_comparisons": [
+    "Compared with baseline MCoT, PRCR enables interleaved visual revisiting without repeatedly forwarding selected visual tokens.",
+    "Compared with Token-Replay, PRCR reconstructs visual KV cache from raw prefill memory and avoids replaying visual evidence.",
+    "Compared with Direct KV Reuse, PRCR rebinds positions before cache insertion and prevents collapse.",
+    "Compared with visual-token reinjection methods such as VisRef, PRCR focuses on cache-level systems efficiency rather than token selection quality."
+  ],
+  "central_claims": [
+    {
+      "claim": "Direct historical visual KV cache reuse fails because cached visual keys carry stale positional bindings.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The paper shows large accuracy collapse, high stuck rate, and attention perturbation under direct reuse, and links the failure to RoPE position mismatch.",
+      "what_it_does_not_prove": "It does not prove that every cache reuse failure in every positional encoding scheme has the same cause."
+    },
+    {
+      "claim": "Position rebinding can make cached visual evidence reusable without token replay.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:experiment",
+          "pages": [
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "what_it_actually_proves": "PRCR with PCR matches or slightly exceeds Token-Replay on the tested benchmarks while avoiding repeated visual forwarding.",
+      "what_it_does_not_prove": "It does not show benefits when the revisited visual evidence requires new local crops, zooms, or dynamic-resolution re-encoding."
+    },
+    {
+      "claim": "PCR is the best of the tested position reassignment strategies.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Table 2 shows PCR has the highest M3CoT accuracy and zero stuck rate among Direct Reuse, LPA, UIR, and PCR.",
+      "what_it_does_not_prove": "It does not exhaust all possible learned or model-specific cache reinsertion layouts."
+    }
+  ],
+  "claim_boundaries": [
+    "The method assumes access to pre-RoPE raw layer-wise visual K/V projections during multimodal prefill.",
+    "PRCR is training-free but implementation-dependent; it needs modification of the inference cache path.",
+    "The current method reuses visual entries that already exist in prefill; it does not support new zoomed or re-encoded evidence without extra work.",
+    "Reported gains are on M3CoT, MathVista, MMStar, and MMMU with Qwen3-VL and InternVL3.5 backbones."
+  ],
+  "negative_or_limiting_results": [
+    "Direct KV Reuse has 23.50 accuracy and 81.04 stuck rate on M3CoT, demonstrating severe failure.",
+    "LPA still has a non-zero stuck rate of 7.93, so simply inserting cache around the current position is insufficient.",
+    "The authors state that PRCR loses its computational advantage when visual revisiting requires new local zoom, scaling, or dynamic-resolution encoding.",
+    "PRCR adds raw visual evidence memory, although the reported overhead is small in percentage terms."
+  ],
+  "mechanism_result_map": [
+    "Stale RoPE positions map to Figure 3 attention perturbation and Figure 2 decoding collapse.",
+    "Raw Visual Evidence Memory maps to the ability to reconstruct visual keys at new positions.",
+    "PCR position reassignment maps to Table 2, where PCR achieves the best accuracy and zero stuck rate.",
+    "Replay-free cache decoding maps to Table 3, where PRCR reduces visual-revisiting FLOPs from trillions or hundreds of billions to millions."
+  ],
+  "comparative_positioning": [
+    "PRCR complements ICoT and DaP-ICoT by making repeated visual revisiting cheaper at the cache level.",
+    "PRCR complements SDR-MCoT because SDR-MCoT controls whether to reason and where to attend, while PRCR controls how to revisit visual evidence efficiently.",
+    "PRCR complements VisRef because VisRef selects visual token coresets, while PRCR handles replay-free reinsertion of visual evidence.",
+    "In the TrainingFree collection, PRCR is the most systems-oriented paper."
+  ],
+  "reuse_takeaways": [
+    "For 3D agent systems, cache reuse must preserve coordinate and position consistency; simply reusing old memory can corrupt later reasoning.",
+    "Store raw evidence before positional binding if future revisiting is expected.",
+    "Separate evidence selection from evidence reinsertion; PRCR assumes a selected set and solves the reinsertion problem.",
+    "When evaluating visual revisiting, report stuck loops or decoding collapse, not only accuracy."
+  ],
+  "followup_questions": [
+    "Can PRCR be combined with a visual coreset selector such as VisRef to choose the entries to rebind?",
+    "Can raw visual evidence memory be made multi-scale so local zoom evidence can also be reused?",
+    "Would learned position reassignment outperform PCR while preserving zero stuck rate?",
+    "How does PRCR behave with non-RoPE positional encodings or with architectures that encode visual positions differently?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record title, authors, institutions, arXiv ID, DOI, PDF path, and TrainingFree classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the abstract around interleaved reasoning, replay cost, direct cache reuse failure, and PRCR.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Explain the contributions: diagnosis of positional binding failure, raw visual evidence memory, PCR, and replay-free cache decoding.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Position PRCR as cache-level replay-free visual revisiting for the Reasoning/TrainingFree map.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why token replay is expensive and why naive KV reuse collapses.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Define interleaved multimodal reasoning trajectories, benchmarks, models, and methods.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:experiment",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Walk through RVEM, position reassignment, PCR formulas, and replay-free cache decoding.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Summarize Table 1 main results, Table 2 reinsertion ablation, Figure 5 length ablation, Table 3 efficiency, and qualitative analyses.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiment",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Analyze why stale RoPE bindings perturb attention and trigger decoding collapse, and connect RVEM plus PCR to the accuracy, stuck-rate, qualitative, and efficiency evidence.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": [
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "State explicit limitations around local zoom, scaling, dynamic resolution, and dependence on prefill KV.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "section": "和 3D 智能体方向的关系",
+      "focus": "Connect PRCR to persistent visual memory, view cache reuse, and coordinate-consistent revisiting in 3D agents.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "section": "术语表",
+      "focus": "Fix bilingual terminology for cache reuse, RoPE, rebinding, and visual revisiting.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Source Anchors",
+      "focus": "Point to source manifest, bundle, figure decisions, and reader translation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

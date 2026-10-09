@@ -1,0 +1,202 @@
+{
+  "paper_id": "2608.03979",
+  "decision_freeze_before": "note_plan",
+  "selected_render_dpi_equivalent": 202,
+  "items": [
+    {
+      "id": "fig_1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "page": 2,
+      "decision": "insert",
+      "section": "方法主线",
+      "subsection": "机制流程",
+      "note_path": "images/page_002_fig_figure_1.png",
+      "sha256": "7d9df0f42389b323bc2bdd2c9e5d45c22ef8cfa47f236e2f4f4270d6ec82c199",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "管线总览直接对应感知–探索执行链：对照文本捷径/整图检索与选帧裁剪再检索。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "7d9df0f42389b323bc2bdd2c9e5d45c22ef8cfa47f236e2f4f4270d6ec82c199",
+        "preserved_scientific_elements": [
+          "panel A text-only shortcut",
+          "panel B keyframe-crop-search-visit flow"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Tight left-column crop; caption excluded; body complete.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.081, 0.057, 0.524, 0.300]
+      }
+    },
+    {
+      "id": "fig_2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "page": 3,
+      "decision": "insert",
+      "section": "数据与任务定义",
+      "note_path": "images/page_003_fig_figure_2.png",
+      "sha256": "506c90bb130ceb8cb38191252ccfda06a0a6c296c40884a28bad57edbea2df4c",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "展示 VideoDR-Bench 六领域占比与必须视觉加外部知识的题型。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "506c90bb130ceb8cb38191252ccfda06a0a6c296c40884a28bad57edbea2df4c",
+        "preserved_scientific_elements": [
+          "domain pie percentages",
+          "six example QA cards"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Full-width top crop; surrounding body text excluded.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.081, 0.057, 0.921, 0.235]
+      }
+    },
+    {
+      "id": "fig_3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "page": 4,
+      "decision": "insert",
+      "section": "方法主线",
+      "subsection": "数据引擎",
+      "note_path": "images/page_004_fig_figure_3.png",
+      "sha256": "3fd99136f338dc84d6b901fec7e00eb08db66d4316b92c729b9bf0f531fb900f",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "四阶段数据/轨迹/基准构造图，是复现数据引擎的主图。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "3fd99136f338dc84d6b901fec7e00eb08db66d4316b92c729b9bf0f531fb900f",
+        "preserved_scientific_elements": [
+          "Phase I filtering",
+          "Phase II VQA generation",
+          "Phase III tool-unlock trajectories",
+          "benchmark construction agents"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Caption excluded; all four panels retained.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.081, 0.062, 0.921, 0.568]
+      }
+    },
+    {
+      "id": "tab_1",
+      "kind": "table",
+      "label": "Table 1",
+      "page": 3,
+      "decision": "skip",
+      "reason": "仅三行，已在正文用 Markdown 转写；原表嵌在双栏文字中，裁图信息增量低。"
+    },
+    {
+      "id": "tab_2",
+      "kind": "table",
+      "label": "Table 2",
+      "page": 6,
+      "decision": "skip",
+      "reason": "三行时长统计已转写为 Markdown 表，不必插图。"
+    },
+    {
+      "id": "tab_3",
+      "kind": "table",
+      "label": "Table 3",
+      "page": 7,
+      "decision": "insert",
+      "section": "关键结果",
+      "subsection": "主结果与强基线",
+      "note_path": "images/page_007_tab_table_3.png",
+      "sha256": "8f956612a7034a0a1215fed62b9c5b701b7f639ce93f321da5e871f44135b4e8",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "主结果全表，含类别分和相对基座增益。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "8f956612a7034a0a1215fed62b9c5b701b7f639ce93f321da5e871f44135b4e8",
+        "preserved_scientific_elements": [
+          "all model rows",
+          "Video-DR and VideoDR-Bench category columns",
+          "improvement rows"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Caption kept for identity; table body complete before following prose.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.087, 0.074, 0.916, 0.489]
+      }
+    },
+    {
+      "id": "tab_4",
+      "kind": "table",
+      "label": "Table 4",
+      "page": 8,
+      "decision": "insert",
+      "section": "关键结果",
+      "subsection": "工具调用与类别分析",
+      "note_path": "images/page_008_tab_table_4.png",
+      "sha256": "fa7954305e3f42dab6dce8b7555dea44ac74dab2357b2e7acb36f663b68ed21e",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "工具调用次数是模态偏见与基准设计主张的直接证据。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "fa7954305e3f42dab6dce8b7555dea44ac74dab2357b2e7acb36f663b68ed21e",
+        "preserved_scientific_elements": [
+          "visual/text counts on both benchmarks"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Left-column table crop; surrounding prose excluded.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.097, 0.378, 0.507, 0.585]
+      }
+    },
+    {
+      "id": "tab_5",
+      "kind": "table",
+      "label": "Table 5",
+      "page": 8,
+      "decision": "insert",
+      "section": "关键结果",
+      "subsection": "消融到底说明了什么",
+      "note_path": "images/page_008_tab_table_5.png",
+      "sha256": "7fc5a779cf3bcac9c6b7aa06c71c83763aba735c9849c3822baedd2c348b74eb",
+      "identity_match": "high",
+      "visual_usability": "strong",
+      "reason": "30B 训练阶段消融，解释轨迹、文本混合与 RL 各自贡献。",
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "7fc5a779cf3bcac9c6b7aa06c71c83763aba735c9849c3822baedd2c348b74eb",
+        "preserved_scientific_elements": [
+          "five training settings",
+          "VideoDR / VideoDR-Bench / Avg"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "Right-column table crop.",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": [0.501, 0.608, 0.941, 0.775]
+      }
+    },
+    {
+      "id": "tab_6",
+      "kind": "table",
+      "label": "Table 6",
+      "page": 20,
+      "decision": "skip",
+      "reason": "工具 schema 已在方法主线转写；整页参数表插入后可读性不如 Markdown。"
+    },
+    {
+      "id": "fig_4_to_8",
+      "kind": "figure",
+      "label": "Figures 4–8",
+      "page": "15-19",
+      "decision": "skip",
+      "reason": "附录提示词，精读已抽取关键约束；原图是整页英文 prompt，不增加机制理解。"
+    }
+  ]
+}

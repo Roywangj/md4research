@@ -1,0 +1,38 @@
+{
+  "paper": {
+    "title": "DepthART: Scaling Foundation Monocular Depth to Tiny Models",
+    "authors": ["Feng Xue", "Wu Chen", "Mingshuai Zhao", "Guofeng Zhong", "Anlong Ming", "Haozhe Wang", "Dianqiao Lei", "Zhaowen Lin", "Haiyang Zhang", "Nicu Sebe"],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EZEJ6U4I/Xue 等 - 2026 - DepthART Scaling Foundation Monocular Depth to Tiny Models.pdf",
+    "reader_file": "detailed_paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "pdf-text-two-column",
+    "pages": 11
+  },
+  "blocks": [
+    {"id":"S001","type":"body","section":"Abstract","pages":"1-2","summary":"Motivation, BRDS, CamFT, accuracy and deployment claims."},
+    {"id":"S002","type":"body","section":"Introduction","pages":"1-2","summary":"Foundation MDE progress, tiny-model failure modes, contributions."},
+    {"id":"S003","type":"body","section":"Related Work","pages":"2","summary":"MDE, foundation training, lightweight MDE, coreset selection."},
+    {"id":"S004","type":"method","section":"3.1 Overview","pages":"2","summary":"TinyViM+DPT and two-stage training."},
+    {"id":"S005","type":"method","section":"3.2 BRDS","pages":"2-3","summary":"VAE/PCA density-aware stratified sampling and distillation."},
+    {"id":"S006","type":"method","section":"3.3 CamFT","pages":"3-4","summary":"Forgetting analysis, camera prompts, adapters, MQSH, fine-tuning loss."},
+    {"id":"S007","type":"experiments","section":"4.1-4.3","pages":"4-6","summary":"Datasets, baselines, implementation details."},
+    {"id":"S008","type":"results","section":"4.4","pages":"6-7","summary":"Tables 1-2 and qualitative Figure 5."},
+    {"id":"S009","type":"analysis","section":"4.5","pages":"7-9","summary":"Sampling, CamFT, adapter, efficiency ablations."},
+    {"id":"S010","type":"conclusion","section":"5","pages":"9","summary":"Conclusion, limitations, future work."},
+    {"id":"F001","type":"figure","section":"Front matter","pages":"1","label":"Figure 1","asset":"assets/page-01.png","summary":"Capability and efficiency overview."},
+    {"id":"F002","type":"figure","section":"3.1","pages":"2","label":"Figure 2","asset":"assets/page-02.png","summary":"BRDS and distillation pipeline."},
+    {"id":"F003","type":"figure","section":"3.3","pages":"3","label":"Figure 3","asset":"assets/page-03.png","summary":"Geometry damage and scale stability."},
+    {"id":"F004","type":"figure","section":"3.3","pages":"4","label":"Figure 4","asset":"assets/page-04.png","summary":"Camera-conditioned fine-tuning architecture."},
+    {"id":"F005","type":"figure","section":"4.4","pages":"7","label":"Figure 5","asset":"assets/page-07.png","summary":"Qualitative relative depth and metric 3D."},
+    {"id":"F006","type":"figure","section":"4.5","pages":"9","label":"Figure 6","asset":"assets/page-09.png","summary":"Jetson Orin NX latency profiles."},
+    {"id":"T001","type":"table","section":"4.4","pages":"5-6","label":"Table 1","asset":"assets/page-06.png","summary":"Zero-shot affine-invariant depth; searchable transcription included."},
+    {"id":"T002","type":"table","section":"4.4","pages":"6","label":"Table 2","asset":"assets/page-06.png","summary":"In-domain and zero-shot metric depth; searchable transcription included."},
+    {"id":"T003","type":"table","section":"4.5","pages":"7","label":"Table 3","asset":"assets/page-07.png","summary":"BRDS vs Random and K-Means."},
+    {"id":"T004","type":"table","section":"4.5","pages":"7","label":"Table 4","asset":"assets/page-07.png","summary":"CamFT design ablation."},
+    {"id":"T005","type":"table","section":"4.5","pages":"7","label":"Table 5","asset":"assets/page-07.png","summary":"Adapter fusion and insertion ablation."},
+    {"id":"T006","type":"table","section":"4.5","pages":"8","label":"Table 6","asset":"assets/page-08.png","summary":"A6000 and Orin NX efficiency."}
+  ],
+  "assets": ["assets/page-01.png","assets/page-02.png","assets/page-03.png","assets/page-04.png","assets/page-05.png","assets/page-06.png","assets/page-07.png","assets/page-08.png","assets/page-09.png","assets/page-10.png","assets/page-11.png"],
+  "notes": {"references":"Original searchable bibliography retained; no appendix or supplementary section is present.","extraction":"Two-column PDF; page renders retained as authority for composite figures/tables."}
+}

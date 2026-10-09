@@ -1,0 +1,222 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出统一具身模型，将自回归语言骨干、世界建模监督与动作生成放入同一端到端框架。",
+  "dominant_domain": "embodied AI, VLA, WAM, robot control",
+  "must_cover": [
+    "world modeling、language reasoning、action synthesis 的统一任务定义",
+    "AR Transformer 对比 DiT WAM；textual intention、memory、meta-query 与两个 Expert",
+    "世界损失训练期影响动作而高效推理期关闭 World Expert",
+    "single-frame/multi-frame、efficient mode、TTS、跨具身和人类视频",
+    "Figure 1-10、Table 1-7、Appendix A-D、60 条参考文献",
+    "2B active/3.4B total、no embodied pretraining 与 overclaim 边界"
+  ],
+  "key_numbers": [
+    "RoboTwin Clean/Random 92.94/90.02；去 Lwm 90.98/89.34",
+    "LIBERO 98.6；K=6、horizon=2 的 TTS 为 98.9",
+    "RMBench 56.5；去 Llang 为 17.3",
+    "single-frame 98.2；multi-frame 94.2",
+    "真机 WLA-0 25.8 s/37.7 ms；pi0.5 29.0 s/190.1 ms；Motus 61.8 s/1529.8 ms",
+    "跨具身视频未见任务 28.8/27.4；同具身 34.4/30.0；Seen-Action 13.0/11.6",
+    "人类 egocentric 视频 7.8/7.8",
+    "3.4B total，efficient mode 约 2B active"
+  ],
+  "central_claims": [
+    {
+      "claim": "文本意图与紧凑物理动态可构成统一 next-state interface。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:method-2",
+        "sec:references"
+      ],
+      "what_it_actually_proves": "在作者基准中，语言损失与世界损失均改善控制。",
+      "what_it_does_not_prove": "没有与等算力、等数据的模块化系统做完全受控比较。"
+    },
+    {
+      "claim": "World Expert 可训练期改善 action、部署期关闭。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:method-2",
+        "sec:references"
+      ],
+      "what_it_actually_proves": "共享 backbone/meta-query 接收世界损失梯度，去 Lwm 后结果下降。",
+      "what_it_does_not_prove": "未直接 probing h_t 是否是最小充分物理动态。"
+    },
+    {
+      "claim": "无动作机器人视频能教授部分未见任务。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:method-2",
+        "sec:references"
+      ],
+      "what_it_actually_proves": "五项模拟任务平均提升，且跨具身视频有迁移。",
+      "what_it_does_not_prove": "任务改善不均且人类第一视角视频失败，不能外推到任意异构视频。"
+    }
+  ],
+  "claim_boundaries": [
+    "no pretraining 仅指无 embodied pretraining；主干由 pretrained RynnBrain-2B 初始化，World Expert 使用 SANA。",
+    "2B 是 efficient inference 的 active 参数，不是 3.4B 总参数。",
+    "RoboTwin Random 90.02 低于 Fast-WAM 91.78 和 LingBot-VA 91.50。",
+    "Table 3 是未见任务视频迁移，不是未见 embodiment 上直接部署。",
+    "TTS 仅提升 0.3 点却需六候选、World Expert、value model 与两步想象，缺完整成本。",
+    "真机只有四项任务、单一 Piper 双臂平台、每任务 60 demonstrations。"
+  ],
+  "negative_or_limiting_results": [
+    "多帧监督 94.2，低于单帧 98.2。",
+    "人类第一视角视频 7.8/7.8，低于基线 13.0/11.6。",
+    "跨具身视频在 Beat Block Hammer 与 Move Playingcard Away 上弱于同具身视频。",
+    "Table 7 的 Turn Switch 仅 39/32，Hanging Mug 69/47。",
+    "TTS 增益小且计算成本未完整报告。"
+  ],
+  "mechanism_result_map": [
+    "subtask window 与 memory 对应 RMBench 56.5 和去语言损失 17.3。",
+    "共享 h_t 的世界辅助损失对应去世界损失后的性能下降。",
+    "单终点帧减少过密视觉约束，对应 98.2 对 94.2。",
+    "关闭 World Expert、CUDA Graph、Triton fusion 和缓存对应约 40 ms。",
+    "K 候选、想象帧与 value model 排序对应 LIBERO 98.6 到 98.9。"
+  ],
+  "comparative_positioning": [
+    "相对 VLA，WLA 加入语言子任务和世界监督的物理 latent。",
+    "相对 DiT WAM，WLA 把语言/物理 next state 与像素细节预测分工。",
+    "相对 Fast-WAM，WLA 强调语言记忆、训练期可丢弃 world branch 和可选 TTS。",
+    "相对 Motus，WLA 端到端学习 latent action，而非预训练 action quantizer。"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "VLA、WAM 与长程控制接口缺口。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "模拟、真机与视频迁移协议。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method-2",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "窗口、记忆、meta-query、双 Expert、损失与双推理模式。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:methodology",
+        "sec:method"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "完整记录 Table 1-7 和 Figure 3-10。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:method-2",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "区分统一接口贡献、工程组合和未证明外推。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "TTS 成本、预训练口径、参数、有限真机与人类视频失败。 同时区分已证明结果、机制解释与外推边界。",
+      "evidence_sources": [
+        "sec:limitations",
+        "sec:references"
+      ]
+    }
+  ],
+  "figure_plan": [
+    {
+      "asset": "images/page_002_fig_figure_1.png",
+      "role": "positioning",
+      "placement": "研究问题",
+      "reason": "比较 VLA、WAM、WLA。"
+    },
+    {
+      "asset": "images/page_004_fig_figure_2.png",
+      "role": "mechanism",
+      "placement": "方法主线",
+      "reason": "核心架构和 TTS。"
+    },
+    {
+      "asset": "images/page_007_fig_figure3.png",
+      "role": "evidence",
+      "placement": "真机结果",
+      "reason": "任务、OOD、成功数与延迟。"
+    },
+    {
+      "asset": "images/page_006_fig_table_2.png",
+      "role": "evidence",
+      "placement": "RMBench",
+      "reason": "语言记忆核心证据。"
+    },
+    {
+      "asset": "images/page_008_fig_table_3.png",
+      "role": "evidence",
+      "placement": "视频学习",
+      "reason": "同具身与跨具身比较。"
+    },
+    {
+      "asset": "images/page_015_fig_table_6.png",
+      "role": "negative_evidence",
+      "placement": "局限",
+      "reason": "人类第一视角视频失败。"
+    }
+  ],
+  "coverage_contract": {
+    "source_pages": 19,
+    "figures": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9",
+      "Figure 10"
+    ],
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Table 6",
+      "Table 7"
+    ],
+    "appendices": [
+      "Appendix A",
+      "Appendix B",
+      "Appendix C",
+      "Appendix D"
+    ],
+    "reference_count": 60
+  },
+  "real_comparisons": [
+    "WLA-0 与主要 VLA/WAM 基线在模拟、长程与真机上的比较。",
+    "单/多帧、去世界/语言损失、efficient/TTS、同/跨具身视频比较。"
+  ],
+  "reuse_takeaways": [
+    "分开建模离散进度与连续动态。",
+    "用训练期世界头塑造部署期动作 latent。",
+    "测试时想象应按等算力报告。"
+  ],
+  "followup_questions": [
+    "语言、memory、历史帧各自贡献多少？",
+    "h_t 是否编码可验证物理量？",
+    "等 FLOPs 下 TTS 是否最优？",
+    "如何对齐人类与机器人视频？"
+  ]
+}

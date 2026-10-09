@@ -1,0 +1,123 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2603.09774",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of foundation models performing allocentric spatial reasoning via the proposed World2Mind toolkit. Given ego-",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Performance comparison under the text-only model",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:models-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_004_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Complete reasoning trace under World2Mind.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:models-2",
+      "decision": "placeholder",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Main results on the VSI-Bench [34] benchmark (Tiny subset).",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_003_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_003_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Results on the MindCube-Tiny [18] benchmark.",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_003_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_003_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/tmp/DeepPaperNote/assets/World2Mind_Cognition_Toolkit_for_Allocentric_Spatial_Reasoning_in_Foundation_Models/images/page_003_fig_table_2.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 5,
+    "by_decision": {
+      "insert": 4,
+      "low_priority": 0,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

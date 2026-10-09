@@ -1,0 +1,48 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文的主体不是单一学习模型，而是一套从程序化资产、声明式约束、分层求解到仿真器导出的完整室内场景生成系统，并以数据生成下游任务验证其价值。",
+  "dominant_domain": "procedural 3D scene generation",
+  "must_cover": ["程序化资产库", "约束语言与计算图", "分层模拟退火求解器", "实时仿真器导出", "下游泛化实验与感知研究"],
+  "key_numbers": ["79 个程序化对象生成器与 30 个材质生成器", "约束示例包含 1058 个图节点、11 个硬约束和 25 个软评分项", "完整优化约 3 倍加速；同等长时运行时评分提高 28%", "SRD 上 R+S 的全图 PSNR 由 22.83 提升到 24.56", "遮挡边界 ODS/OIS/mAP 为 29.47/30.29/19.09", "感知研究中 79.5%/76.0% 的比较更偏好整体/布局真实感"],
+  "real_comparisons": ["优化求解器与去除缓存、哈希、占位网格及离散移动的消融", "ISTD 实拍训练与加入 2K 合成对的跨域 SRD 测试", "Infinigen-Nature、Hypersim 与 Infinigen Indoors 的遮挡边界训练数据", "ProcTHOR、ATISS、SceneFormer、FastSynth 的双图人类偏好比较"],
+  "central_claims": [
+    {
+      "claim": "声明式约束接口把室内布局目标与具体求解过程分离，并能够表达数量、几何、语义、可达性和对称性等复合规则。",
+      "supporting_evidence": [{"section_id": "sec:introduction"}, {"section_id": "sec:method-2"}, {"pages": [2, 6]}],
+      "what_it_actually_proves": "作者给出可组合计算图、房间级示例约束和由求解器执行的具体操作链，证明该系统能够承载比固定布局模板更高层的可编程控制。",
+      "what_it_does_not_prove": "没有证明普通用户编写复杂约束的学习成本很低，也没有系统测量约束冲突和规模增长时的成功率。"
+    },
+    {
+      "claim": "分层模拟退火及缓存、哈希与占位几何使大规模组合布局搜索在可接受时间内工作。",
+      "supporting_evidence": [{"section_id": "sec:method-2"}, {"section_id": "sec:experiments"}, {"section_id": "sec:method-3"}, {"pages": [4, 8]}],
+      "what_it_actually_proves": "20 个随机场景、5000 步的消融显示完整系统相对未优化版本约有 3 倍加速，BVH 缓存与平面哈希贡献最大。",
+      "what_it_does_not_prove": "实验没有给出求解时间随房间数、对象数或约束图大小增长的正式复杂度曲线，也不保证全局最优。"
+    },
+    {
+      "claim": "程序化室内数据能够改善与应用域匹配的视觉任务跨域泛化。",
+      "supporting_evidence": [{"section_id": "sec:method-3"}, {"section_id": "sec:dataset-2"}, {"pages": [8, 28]}],
+      "what_it_actually_proves": "在论文设置下，加入 2000 对合成阴影图像改善 SRD 零样本结果，Infinigen Indoors 训练的遮挡边界模型也优于 Infinigen-Nature 和 Hypersim。",
+      "what_it_does_not_prove": "ISTD 同域结果略降，遮挡边界测试集仍是艺术家制作的合成场景，因此尚不能证明对所有真实室内视觉任务普遍有效。"
+    },
+    {
+      "claim": "场景可导出到 Unreal Engine 5 与 Omniverse Isaac Sim，并保持交互帧率。",
+      "supporting_evidence": [{"section_id": "sec:model"}, {"pages": [7, 7]}],
+      "what_it_actually_proves": "作者展示了 USD/网格、纹理烘焙、碰撞与 URDF 导出路径，并在 RTX 4090 上报告 60 FPS 和 50 FPS。",
+      "what_it_does_not_prove": "没有基于具体具身任务对物理真实性、关节正确性、传感器一致性或训练收益进行完整评测。"
+    }
+  ],
+  "claim_boundaries": ["场景真实感偏好可能混入资产与光照质量，而非单独反映布局求解。", "下游实验规模较小，且两项任务均不是端到端具身智能评测。", "约束求解是启发式随机搜索，结果依赖温度、移动调度和人工编写的目标。"],
+  "negative_or_limiting_results": ["加入合成数据后 ISTD 同域指标略有下降。", "去除离散变化会提高数值评分和缩短时间，却产生较弱的视觉多样性，暴露了代理目标与感知质量的错位。", "作者未能复现 ShadowFormer 代码库的预训练结果，因此只在自建一致设置内比较。", "论文未报告约束矛盾率、求解失败率或大规模复杂度曲线。"],
+  "mechanism_result_map": ["程序化参数和低层噪声扩大对象级变化，约束计算图负责场景级语义规律；二者分别覆盖外观多样性与布局合理性。", "BVH 缓存减少重复碰撞计算、平面哈希加速候选表面访问、占位网格推迟昂贵建模，因此消融中的运行时差异符合实现机制。", "室内域合成数据比自然场景更接近阴影和遮挡测试分布，因此跨域视觉任务改善具有明确的域匹配解释。"],
+  "comparative_positioning": ["相对静态资产库，Infinigen Indoors 把资产本体和场景排列都做成可随机化程序。", "相对数据驱动布局模型，系统牺牲从数据中自动学习规则的便利，换取规则可解释、可组合和可定制。", "相对原始 Infinigen，它从自然世界扩展到室内人工环境，并增加声明式约束与仿真器导出。"],
+  "reuse_takeaways": ["将场景生成拆成声明式目标层和通用搜索层，可让同一求解器复用到不同数据需求。", "对象关系可直接定义可行运动子空间，用自由度约束减少连续搜索维度。", "生成系统的评测应同时报告代理目标、运行时、人类偏好和下游迁移，避免单一分数掩盖视觉退化。"],
+  "followup_questions": ["约束图能否由语言模型从任务描述自动生成，并通过执行反馈修复冲突？", "用学习型提议分布替代均匀随机移动，是否能在不牺牲可控性的前提下显著加速退火？", "导出场景训练导航、操作或主动感知智能体时，性能增益来自外观多样性还是布局组合性？"],
+  "section_plan": [
+    {"section": "研究问题", "weight": "medium", "focus": "解释为何静态室内资产与数据驱动布局不足以同时提供无限变化、可解释控制和可移植仿真场景。", "subsections": ["现有缺口", "问题重述"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:related-work"}]},
+    {"section": "数据与任务定义", "weight": "medium", "focus": "明确程序化对象与材质的覆盖、场景生成输出，以及阴影去除、遮挡边界和感知研究三类验证任务。", "subsections": ["资产与场景覆盖", "验证任务"], "evidence_sources": [{"section_id": "sec:method-2"}, {"section_id": "sec:method-3"}, {"section_id": "sec:method-4"}]},
+    {"section": "方法主线", "weight": "high", "focus": "重建资产采样、约束计算图、分层模拟退火和仿真器导出的完整执行链，并解释每步输入输出。", "subsections": ["机制流程", "约束语言", "分层模拟退火", "导出链路"], "evidence_sources": [{"section_id": "sec:method-2"}, {"section_id": "sec:model"}, {"pages": [4, 7]}]},
+    {"section": "关键结果", "weight": "high", "focus": "用运行时消融、跨域视觉指标和人类偏好共同判断系统速度、数据有效性与场景质量，而非只看渲染示例。", "subsections": ["求解器消融", "视觉任务迁移", "人类感知"], "evidence_sources": [{"section_id": "sec:experiments"}, {"section_id": "sec:method-3"}, {"section_id": "sec:method-4"}]},
+    {"section": "深度分析", "weight": "high", "focus": "区分声明式场景编译这一真实贡献与照片真实感表象，并分析机制如何解释结果以及哪些外推尚不成立。", "subsections": ["真正贡献", "为什么成立", "容易误读之处"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:method-2"}, {"section_id": "sec:method-3"}, {"section_id": "sec:method-4"}]},
+    {"section": "局限", "weight": "medium", "focus": "审视人工约束成本、启发式搜索扩展性、合成测试偏差、同域性能下降和缺少具身任务闭环的问题。", "subsections": ["求解与约束边界", "评测与部署边界"], "evidence_sources": [{"section_id": "sec:method-2"}, {"section_id": "sec:method-3"}, {"section_id": "sec:dataset-2"}, {"section_id": "sec:method-4"}]}
+  ]
+}

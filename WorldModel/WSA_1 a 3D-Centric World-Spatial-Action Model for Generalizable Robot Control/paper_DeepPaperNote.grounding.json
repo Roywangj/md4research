@@ -1,0 +1,29 @@
+{
+  "paper_claims": [
+    {
+      "claim": "WSA1 achieves 93.1% success rate on RoboTwin2.0 benchmark across 50 bimanual tasks, outperforming all open-source models.",
+      "source": "Abstract & Table 4 & Section 4.3",
+      "verified": true
+    },
+    {
+      "claim": "On 7 real-world robot tabletop tasks, WSA1 achieves an average +20% to +46% performance boost over state-of-the-art RFMs.",
+      "source": "Abstract & Table 3 & Section 4.2",
+      "verified": true
+    },
+    {
+      "claim": "WSA1 achieves data-efficient pre-training using only 6,000 hours of demonstration data, including just 1,000 hours from real robots.",
+      "source": "Abstract & Section 3.4 & Table 1",
+      "verified": true
+    },
+    {
+      "claim": "WSA1-B obtains 97.4% and WSA1-L obtains 98.2% average success rate on the LIBERO benchmark.",
+      "source": "Section 4.4 & Table 6",
+      "verified": true
+    },
+    {
+      "claim": "Ablation on RoboTwin2.0 shows 2D visual thinking provides +16% gain (60% to 76%), 3D world prediction provides +15% gain (60% to 75%), and full WSA reaches 80% (scratch) and 93% (with pretraining).",
+      "source": "Section 4.5 & Figure 4 & Figure 5",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes DeepEyes, an end-to-end RL-trained multimodal model that learns interleaved multimodal chain-of-thought and active perception without cold-start supervised reasoning data.",
+  "dominant_domain": "Vision-language reasoning, active perception, reinforcement learning, tool use, high-resolution visual reasoning.",
+  "must_cover": [
+    "DeepEyes learns to think with images through iMCoT and active perception.",
+    "The model decides whether to answer or zoom into image regions after textual reasoning steps.",
+    "Training uses GRPO with answer, format, and conditional tool reward.",
+    "The data curation strategy combines V* visual search, ArxivQA chart data, and ThinkLite-VL reasoning data.",
+    "Main results improve high-resolution perception, MME-RealWorld-Lite, grounding, hallucination, and reasoning benchmarks.",
+    "Training dynamics show a progression from exploration to efficient visual exploitation."
+  ],
+  "key_numbers": [
+    "On V* Overall, DeepEyes reaches 90.1 versus 71.2 for Qwen2.5-VL-7B.",
+    "On HR-Bench 8K Overall, DeepEyes reaches 72.6 versus 65.3 for Qwen2.5-VL-7B.",
+    "On MME-RealWorld-Lite Overall, DeepEyes reaches 53.2 versus 42.3 for Qwen2.5-VL.",
+    "On MathVista, DeepEyes reaches 70.1 versus 68.3 for the reproduced Qwen2.5-VL baseline.",
+    "Conditional tool reward reaches V* 90.1, HR-4K 75.1, and HR-8K 72.6.",
+    "Without tool reward, results are V* 87.4, HR-4K 53.4, and HR-8K 55.4.",
+    "DeepEyes-32B reaches V* 93.3 and WeMath 55.9, with IoU 0.53.",
+    "iMCoT reaches HR-8K 72.6, while RL with text-only CoT reaches 60.8."
+  ],
+  "real_comparisons": [
+    "Compared with workflow-based methods, DeepEyes does not require manually defined active perception workflows.",
+    "Compared with cold-start SFT methods, DeepEyes learns active perception through end-to-end RL.",
+    "Compared with text-only RL, iMCoT improves ultra-high-resolution reasoning by inserting cropped visual observations.",
+    "Compared with PatchCue and MINT-CoT, DeepEyes relies less on explicit cue supervision and more on reward-induced behavior."
+  ],
+  "central_claims": [
+    {
+      "claim": "End-to-end RL can elicit active perception without cold-start SFT.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6]
+        },
+        {
+          "section_id": "sec:experiment",
+          "pages": [6, 7, 8]
+        }
+      ],
+      "what_it_actually_proves": "DeepEyes is trained with GRPO and achieves strong results while learning to trigger zoom-in actions.",
+      "what_it_does_not_prove": "It does not prove that all tool-use behaviors can emerge without cold-start data."
+    },
+    {
+      "claim": "Conditional tool reward is important for useful active perception.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method-2",
+          "pages": [8]
+        },
+        {
+          "section_id": "sec:model-8",
+          "pages": [8, 9, 10]
+        }
+      ],
+      "what_it_actually_proves": "The ablation shows conditional reward outperforms both no tool reward and unconditional reward on high-resolution benchmarks.",
+      "what_it_does_not_prove": "It does not show whether a denser process reward would be better than this sparse conditional reward."
+    },
+    {
+      "claim": "Interleaved visual perception matters most for high-resolution tasks.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:model",
+          "pages": [6]
+        },
+        {
+          "section_id": "sec:model-8",
+          "pages": [8, 9, 10]
+        }
+      ],
+      "what_it_actually_proves": "The gap between iMCoT and text-only RL is largest on HR-8K, where fine visual detail matters.",
+      "what_it_does_not_prove": "It does not establish that zoom-in is the best possible visual operation."
+    }
+  ],
+  "claim_boundaries": [
+    "The main tool is crop or zoom-in; richer tools are only tested lightly through a rotate prompt.",
+    "The primary base model is Qwen2.5-VL-7B, with limited larger-scale evidence.",
+    "The method still has localization failures and reasoning shortcuts.",
+    "The training data is curated for active perception utility."
+  ],
+  "negative_or_limiting_results": [
+    "Without tool reward, HR-4K falls to 53.4 and HR-8K falls to 55.4.",
+    "Text-only RL reaches only 60.8 on HR-8K, far below iMCoT.",
+    "POPE adversarial decreases from 85.9 to 84.0 in the reproduced comparison.",
+    "The limitations section reports insufficient reasoning richness and inaccurate target localization."
+  ],
+  "mechanism_result_map": [
+    "Conditional tool reward maps to sustained useful active perception.",
+    "Difficulty and perception-utility filtering maps to better initial RL sampling without SFT.",
+    "iMCoT state formulation maps to interleaving text tokens and image observation tokens.",
+    "Scaling challenging reasoning data maps to simultaneous gains in V*, MathVerse, and WeMath.",
+    "Adding rotate through prompt maps to HR-OCR-Rot improvement without retraining."
+  ],
+  "comparative_positioning": [
+    "DeepEyes is a Train-line active perception method, distinct from training-free visual refocusing methods such as VisRef.",
+    "Compared with PatchCue, it does not train explicit patch cue outputs.",
+    "Compared with MINT-CoT, it does not rely on step-token supervised visual alignment.",
+    "Compared with DeepEyesV2, it is narrower but cleaner as a study of active perception emergence."
+  ],
+  "reuse_takeaways": [
+    "For 3D agents, reward visual actions only when they lead to correct answers, not merely when tools are called.",
+    "A perception-utility filter is useful for selecting examples where visual action can change the result.",
+    "Training dynamics should track tool count, response length, grounding IoU, and task score together.",
+    "Text-only RL can learn reasoning style but may fail when details require visual revisiting."
+  ],
+  "followup_questions": [
+    "Would a dense localization reward improve over the sparse conditional tool reward?",
+    "Can active perception extend from crop to multi-view rendering in 3D scenes?",
+    "How sensitive is DeepEyes to the quality of the perception-utility filter?",
+    "Does the model truly use cropped observations under counterfactual crop replacement?"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "Explain why VLMs need active visual revisiting during reasoning rather than only text-based CoT.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Describe V* visual search, ArxivQA chart data, ThinkLite-VL reasoning data, and perception-utility filtering.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [17, 18, 19]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Cover iMCoT rollout state, zoom-in observations, GRPO, and conditional tool reward.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [4, 5, 6]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Report high-resolution, MME-RealWorld, grounding, reasoning, tool reward, scaling, and iMCoT ablations.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:model",
+          "pages": [6]
+        },
+        {
+          "section_id": "sec:model-2",
+          "pages": [6]
+        },
+        {
+          "section_id": "sec:model-3",
+          "pages": [6]
+        },
+        {
+          "section_id": "sec:model-4",
+          "pages": [6]
+        },
+        {
+          "section_id": "sec:model-8",
+          "pages": [8, 9, 10]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Interpret the three-stage training dynamics and hallucination mitigation mechanism through active perception.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiment",
+          "pages": [6, 7, 8]
+        },
+        {
+          "section_id": "sec:model-8",
+          "pages": [8, 9, 10]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "Record limited tool scope, localization errors, reasoning shortcuts, and dependence on foundation model capability.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:limitations",
+          "pages": [24, 25]
+        },
+        {
+          "section_id": "sec:future-work",
+          "pages": [25]
+        }
+      ]
+    }
+  ]
+}

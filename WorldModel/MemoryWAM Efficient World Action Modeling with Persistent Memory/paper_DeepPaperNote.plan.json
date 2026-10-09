@@ -1,0 +1,48 @@
+{
+  "artifact": "paper_DeepPaperNote.plan.json",
+  "paper": "MemoryWAM: Efficient World Action Modeling with Persistent Memory",
+  "paper_type": "AI/robotics method paper",
+  "status": "completed",
+  "argument_reconstruction": {
+    "problem": "bounded-window WAMs forget; full-history WAMs scale poorly",
+    "mechanism": "two full-token initial frames + four full-token recent frames + eight persistent gist tokens per historical frame",
+    "evidence_chain": [
+      "Eq. 4 defines hybrid cache",
+      "Eqs. 5-6 establish O(N) to O(N/d) sequence-dependent cost and d=15",
+      "Fig. 4 controls memory mechanism efficiency/performance",
+      "Tables 1-3 cover benchmark, real-world, and ablation evidence"
+    ],
+    "boundaries": [
+      "15x applies to long-term video KV component, not whole system",
+      "efficiency evidence is inference-focused; training cost is unreported",
+      "cross-model RMBench results are not equal-backbone controls"
+    ]
+  },
+  "required_headings": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "机制流程",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "planned_tables": [
+    "RMBench main comparison",
+    "training versus inference responsibilities",
+    "real-world trials",
+    "hybrid-memory ablation"
+  ],
+  "planned_figures": [
+    "Figure 2 architecture",
+    "Figure 3 attention mask",
+    "Figure 4 efficiency/success comparison"
+  ],
+  "quality_intent": "replication-oriented, evidence-bounded Chinese note"
+}

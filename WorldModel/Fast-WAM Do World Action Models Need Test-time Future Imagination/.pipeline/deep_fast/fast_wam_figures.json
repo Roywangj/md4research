@@ -1,0 +1,1237 @@
+{
+  "status": "ok",
+  "script": "plan_figures.py",
+  "paper_id": "arxiv:2603.16666",
+  "figure_plan": {
+    "paper_id": "arxiv:2603.16666",
+    "figures": [
+      {
+        "id": "Figure 2",
+        "caption": "Fast-WAM architecture and the structured attention mask used to disentangle video co-",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_005_fig_figure_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_fig_figure_2.png",
+          "width": 1614,
+          "height": 847,
+          "size_bytes": 136524,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.365846,
+            "visual_rect_count": 85,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 128,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 5,
+            "score": 8,
+            "matched_terms": [
+              "figure 2",
+              "fast-wam",
+              "architecture",
+              "structured",
+              "attention",
+              "mask"
+            ],
+            "snippet": "h fh a1 ah a1 ah f0 f0 a1 ah a1 ah Training Inference (b) Training and infer- ence masks. Figure 2: Fast-WAM architecture and the structured attention mask used to disentangle video co- tr",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_01.png",
+                "width": 107,
+                "height": 90,
+                "size_bytes": 129
+              },
+              {
+                "filename": "page_005_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_02.jpeg",
+                "width": 180,
+                "height": 145,
+                "size_bytes": 5188
+              },
+              {
+                "filename": "page_005_img_03.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_03.png",
+                "width": 106,
+                "height": 88,
+                "size_bytes": 128
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_fig_figure_2.png",
+                "width": 1614,
+                "height": 847,
+                "size_bytes": 136524,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.365846,
+                  "visual_rect_count": 85,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "fast-wam",
+              "architecture",
+              "attention",
+              "mask"
+            ],
+            "snippet": "rvations and then condition action prediction on the generated future representation. (C) Fast-WAM retains video co-training during training but removes explicit future generation at infer",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_002_fig_figure_1.png",
+                "width": 1323,
+                "height": 909,
+                "size_bytes": 156380,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.322087,
+                  "visual_rect_count": 101,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 196,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 447,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 2,
+            "matched_terms": [
+              "fast-wam",
+              "architecture"
+            ],
+            "snippet": "40 Average Completion Time (s) 0.0 0.2 0.4 0.6 0.8 1.0 Success Rate 0.5 0.5 w.o. pretrain Fast-WAM Fast-WAM IDM Fast-WAM Joint Fast-WAM w.o. video co-train 0.5 Fast-WAM Fast-WAM w.o. video",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 621,
+                "size_bytes": 94129,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.186377,
+                  "visual_rect_count": 12,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 405,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Real-world results on the long-horizon towel-folding task. The left panel plots success",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_009_fig_figure_4.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_009_fig_figure_4.png",
+          "width": 1122,
+          "height": 621,
+          "size_bytes": 94129,
+          "label": "Figure 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.186377,
+            "visual_rect_count": 12,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 405,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "real-world",
+              "long-horizon",
+              "towel-folding",
+              "task"
+            ],
+            "snippet": "fficiently rather than through repeated trial-and-error corrections. Results are shown in Figure 4. On this task, pretrained π0.5 remains the strongest method, achieving the highest succes",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+                "width": 1138,
+                "height": 536,
+                "size_bytes": 100677,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.163412,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 407,
+                  "table_body_rows": 11,
+                  "caption_text_chars": 230,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "real-world",
+              "long-horizon",
+              "towel-folding",
+              "task",
+              "left"
+            ],
+            "snippet": "WAM Joint Fast-WAM IDM 0 100 200 300 400 500 600 700 800 Latency (ms) 180 190 190 580 810 Figure 4: Real-world results on the long-horizon towel-folding task. The left panel plots success",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 621,
+                "size_bytes": 94129,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.186377,
+                  "visual_rect_count": 12,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 405,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "real-world",
+              "long-horizon",
+              "towel-folding",
+              "task"
+            ],
+            "snippet": "Figure 3: Real-world towel-folding task on the Galaxea R1 Lite platform. Folding a deformable object requires",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "and Table 2 summarize the results on RoboTwin and LIBERO, respectively. Overall, Fast-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+          "width": 1134,
+          "height": 558,
+          "size_bytes": 102514,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.169476,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 369,
+            "table_body_rows": 12,
+            "caption_text_chars": 241,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "summarize",
+              "robotwin",
+              "libero",
+              "respectively",
+              "overall"
+            ],
+            "snippet": "ing it a challenging benchmark for evaluating both task success and execution efficiency. Table 1: Results on RoboTwin. Fast-WAM matches strong pretrained WAM baselines without using embo",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "robotwin",
+              "libero",
+              "overall"
+            ],
+            "snippet": "te variants, while removing video co-training leads to a much larger performance drop. On RoboTwin, Fast-WAM achieves 91.8% success rate, which is highly comparable to both Fast- WAM-Joint",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+                "width": 1138,
+                "height": 536,
+                "size_bytes": 100677,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.163412,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 407,
+                  "table_body_rows": 11,
+                  "caption_text_chars": 230,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 2,
+            "matched_terms": [
+              "robotwin",
+              "libero"
+            ],
+            "snippet": "at of video co-training during training. Experiments on simulation benchmarks (LIBERO and RoboTwin) show that Fast-WAM achieves strong results without any embodied pretraining, demonstrati",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_002_fig_figure_1.png",
+                "width": 1323,
+                "height": 909,
+                "size_bytes": 156380,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.322087,
+                  "visual_rect_count": 101,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 196,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 447,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on LIBERO. Fast-WAM achieves competitive overall performance without embodied",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+          "width": 1138,
+          "height": 536,
+          "size_bytes": 100677,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.163412,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 407,
+            "table_body_rows": 11,
+            "caption_text_chars": 230,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "libero",
+              "fast-wam",
+              "achieves",
+              "competitive",
+              "overall"
+            ],
+            "snippet": "y quality. 4.3 Main Results 4.3.1 Overall comparison on simulation benchmarks Table 1 and Table 2 summarize the results on RoboTwin and LIBERO, respectively. Overall, Fast- WAM achieves p",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "libero",
+              "fast-wam",
+              "achieves",
+              "competitive",
+              "overall"
+            ],
+            "snippet": "Table 2: Results on LIBERO. Fast-WAM achieves competitive overall performance without embodied pr",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+                "width": 1138,
+                "height": 536,
+                "size_bytes": 100677,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.163412,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 407,
+                  "table_body_rows": 11,
+                  "caption_text_chars": 230,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "libero",
+              "fast-wam",
+              "achieves"
+            ],
+            "snippet": "ion from that of video co-training during training. Experiments on simulation benchmarks (LIBERO and RoboTwin) show that Fast-WAM achieves strong results without any embodied pretraining",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_002_fig_figure_1.png",
+                "width": 1323,
+                "height": 909,
+                "size_bytes": 156380,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.322087,
+                  "visual_rect_count": 101,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 196,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 447,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "Three representative WAM paradigms. (A) Joint-modeling WAMs denoise future video",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_002_fig_figure_1.png",
+          "width": 1323,
+          "height": 909,
+          "size_bytes": 156380,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.322087,
+            "visual_rect_count": 101,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 196,
+            "table_body_rows": 0,
+            "caption_text_chars": 447,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "three",
+              "representative",
+              "paradigms",
+              "joint-modeling",
+              "wams"
+            ],
+            "snippet": "Video 2. Denoise Action Video DiT f0 f1 fh … f1 fh … Action DiT a1 ah … a1 ah … KV Cache Figure 1: Three representative WAM paradigms. (A) Joint-modeling WAMs denoise future video and act",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_002_fig_figure_1.png",
+                "width": 1323,
+                "height": 909,
+                "size_bytes": 156380,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.322087,
+                  "visual_rect_count": 101,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 196,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 447,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 2,
+            "matched_terms": [
+              "representative",
+              "wams"
+            ],
+            "snippet": "sign a set of controlled variants under a shared implementation framework. We instantiate representative 5",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_01.png",
+                "width": 107,
+                "height": 90,
+                "size_bytes": 129
+              },
+              {
+                "filename": "page_005_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_02.jpeg",
+                "width": 180,
+                "height": 145,
+                "size_bytes": 5188
+              },
+              {
+                "filename": "page_005_img_03.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_img_03.png",
+                "width": 106,
+                "height": 88,
+                "size_bytes": 128
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_005_fig_figure_2.png",
+                "width": 1614,
+                "height": 847,
+                "size_bytes": 136524,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.365846,
+                  "visual_rect_count": 85,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 1,
+            "matched_terms": [
+              "wams"
+            ],
+            "snippet": "thout embodied pretraining and remaining highly competitive with the strongest pretrained WAMs. In particular, Fast-WAM substantially outperforms Motus [5] both with pretraining (87.8%",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Real-world towel-folding task on the Galaxea R1 Lite platform. Folding a deformable",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_figure_3.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+          "width": 1122,
+          "height": 445,
+          "size_bytes": 552589,
+          "label": "Figure 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.13353,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.681375,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 262,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "figure 3",
+              "real-world",
+              "towel-folding",
+              "task",
+              "galaxea",
+              "lite"
+            ],
+            "snippet": "Figure 3: Real-world towel-folding task on the Galaxea R1 Lite platform. Folding a deformable obje",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "real-world",
+              "towel-folding",
+              "task"
+            ],
+            "snippet": "prediction objective used to shape world-grounded representations during training. 4.3.3 Real-world performance and efficiency We further evaluate Fast-WAM on a long-horizon real-world towe",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+                "width": 1138,
+                "height": 536,
+                "size_bytes": 100677,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.163412,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 407,
+                  "table_body_rows": 11,
+                  "caption_text_chars": 230,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "real-world",
+              "towel-folding",
+              "task"
+            ],
+            "snippet": "Fast-WAM IDM 0 100 200 300 400 500 600 700 800 Latency (ms) 180 190 190 580 810 Figure 4: Real-world results on the long-horizon towel-folding task. The left panel plots success rate against",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_009_fig_figure_4.png",
+                "width": 1122,
+                "height": 621,
+                "size_bytes": 94129,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.186377,
+                  "visual_rect_count": 12,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 405,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Per-task success rates on RoboTwin under clean and randomized evaluation settings.",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_013_fig_table_3.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_013_fig_table_3.png",
+          "width": 1111,
+          "height": 1313,
+          "size_bytes": 336605,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.390399,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 3306,
+            "table_body_rows": 53,
+            "caption_text_chars": 91,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "per-task",
+              "success",
+              "robotwin"
+            ],
+            "snippet": "s without using embodied pretraining. Per-task results on RoboTwin are listed in Appendix Table 3. On RoboTwin, Fast-WAM achieves 91.8% success rate, exceeding all baselines without embod",
+            "images": [
+              {
+                "filename": "page_007_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_img_01.png",
+                "width": 2560,
+                "height": 720,
+                "size_bytes": 2175506
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_figure_3.png",
+                "width": 1122,
+                "height": 445,
+                "size_bytes": 552589,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.13353,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.681375,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 262,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_007_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_007_fig_table_1.png",
+                "width": 1134,
+                "height": 558,
+                "size_bytes": 102514,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.169476,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 369,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 241,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 13,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "per-task",
+              "success",
+              "rates",
+              "robotwin",
+              "under"
+            ],
+            "snippet": "Table 3: Per-task success rates on RoboTwin under clean and randomized evaluation settings. Task",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_013_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_013_fig_table_3.png",
+                "width": 1111,
+                "height": 1313,
+                "size_bytes": 336605,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.390399,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 3306,
+                  "table_body_rows": 53,
+                  "caption_text_chars": 91,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 2,
+            "matched_terms": [
+              "success",
+              "robotwin"
+            ],
+            "snippet": "0 93.5 On LIBERO, Fast-WAM also delivers strong overall performance, achieving an average success rate of 97.6% without embodied pretraining. It outperforms the strong VLA baseline π0.5 a",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/Fast_WAM_Do_World_Action_Models_Need_Test_time_Future_Imagination/images/page_008_fig_table_2.png",
+                "width": 1138,
+                "height": 536,
+                "size_bytes": 100677,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.163412,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 407,
+                  "table_body_rows": 11,
+                  "caption_text_chars": 230,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  }
+}

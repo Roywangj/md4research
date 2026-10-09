@@ -1,0 +1,26 @@
+{
+  "stage": "final_quality_review",
+  "status": "passed",
+  "reviewed_against": [
+    "fast_wam_raw_sections.jsonl",
+    "fast_wam_source_manifest.json",
+    "fast_wam_bundle.json",
+    "paper_DeepPaperNote.plan.json",
+    "paper_DeepPaperNote.figure_decisions.json"
+  ],
+  "checks": {
+    "central_evidence_chain_complete": true,
+    "key_settings_and_numbers_present": true,
+    "mechanism_mapped_to_results": true,
+    "strong_baselines_and_alternatives_positioned": true,
+    "discussion_and_limitations_explained_mechanistically": true,
+    "proven_and_unproven_claims_separated": true,
+    "reuse_takeaways_and_followups_specific": true
+  },
+  "notes": [
+    "核心论证明确区分删除推理期想象与删除训练期视频目标的结果差异。",
+    "保留 RoboTwin、LIBERO、真实折叠和统一硬件延迟的关键数字，并标注图中读取值为近似值。",
+    "明确指出单动作块、单真实任务、无等设置 DreamZero 复现和缺失统计不确定性等边界。",
+    "质量复核未发现需要增加或更改事实的缺口。"
+  ]
+}

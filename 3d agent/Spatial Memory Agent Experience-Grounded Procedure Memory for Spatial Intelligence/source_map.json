@@ -1,0 +1,27 @@
+{
+  "paper": {
+    "title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
+    "authors": ["Haokai Zhang", "Yuhang Ding", "Yunshu Zhou", "Xinze Du", "Shengtao Zhang", "Zhiyue Zhao", "Yuling Xi", "Hao Chen"],
+    "year": 2026,
+    "version": "arXiv:2608.12743v1, 13 Aug 2026",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G885K7C6/Zhang 等 - 2026 - Spatial Memory Agent Experience-Grounded Procedure Memory for Spatial Intelligence.pdf",
+    "pages": 80,
+    "reader_files": ["detailed_paper.md", "paper.md"]
+  },
+  "coverage": [
+    {"pages": "1-2", "sections": ["Abstract", "Introduction"], "figures": [1, 2]},
+    {"pages": "3", "sections": ["Related Work"]},
+    {"pages": "4-5", "sections": ["Method"], "figures": [3]},
+    {"pages": "6-11", "sections": ["Experiments", "Conclusion"], "tables": "1-6", "figures": "4-8"},
+    {"pages": "12-15", "sections": ["References"]},
+    {"pages": "16-18", "sections": ["Appendix A", "Appendix B"], "tables": [7, 8], "figures": [7]},
+    {"pages": "19-39", "sections": ["Appendix C"], "tables": "9-31"},
+    {"pages": "40-41", "sections": ["Appendix D", "Appendix E introduction"]},
+    {"pages": "42-63", "sections": ["Appendix E qualitative cases"], "figures": "9-30"},
+    {"pages": "63-80", "sections": ["Appendix F prompt templates"], "tables": [32], "prompt_benchmarks": ["RoboSpatial", "ERQA", "Omni3D", "SAT", "EmbSpatial", "SITE-image", "ViewSpatial"]}
+  ],
+  "assets": [],
+  "anchor_policy": "Every translated source block carries a PDF page or page-range anchor; tables and figures retain source numbering.",
+  "reference_policy": "Bibliographic entries are retained in searchable original form rather than translated.",
+  "prompt_policy": "Markdown whitespace and repeated explanatory wording are normalized; runtime literals, placeholders, JSON keys, anti-leakage rules, answer sentinels, numerical values, and benchmark-specific constraints are preserved."
+}

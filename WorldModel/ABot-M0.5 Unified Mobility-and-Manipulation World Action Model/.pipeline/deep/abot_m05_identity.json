@@ -1,0 +1,133 @@
+{
+  "status": "ok",
+  "run_status": "ok",
+  "script": "build_identity_contract.py",
+  "producer": "build_identity_contract.py",
+  "artifact_type": "canonical_identity",
+  "schema_version": 1,
+  "paper_id": "arxiv:2607.00678",
+  "identity_verdict": "accepted",
+  "identity_failure_class": "",
+  "failure_summary": "",
+  "work_level_identity": {
+    "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+    "translated_title": "",
+    "authors": [
+      "Ronghan Chen",
+      "Yandan Yang",
+      "Zuojin Tang",
+      "Dongjie Huo",
+      "Tong Lin",
+      "Haoning Wu",
+      "Haoyun Liu",
+      "Yuzhi Chen",
+      "Lulu Zheng",
+      "Botai Yuan",
+      "Tianlun Li",
+      "Mingxin Wang",
+      "Dekang Qi",
+      "Bin Hu",
+      "Wei Mei",
+      "Yuze Xuan",
+      "Haolong Yang",
+      "Yanqing Zhu",
+      "Mu Xu",
+      "Zhiheng Ma",
+      "Xinyuan Chang"
+    ],
+    "year": "2026",
+    "venue": "arXiv (Cornell University)",
+    "doi": "10.48550/arxiv.2607.00678",
+    "arxiv_id": "2607.00678",
+    "zotero_key": ""
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2607.00678v2",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "doi": "",
+    "arxiv_id": "2607.00678",
+    "zotero_key": ""
+  },
+  "selected_identity_evidence": [
+    {
+      "kind": "doi",
+      "value": "10.48550/arxiv.2607.00678",
+      "trust": "strong",
+      "source": "metadata"
+    },
+    {
+      "kind": "arxiv_id",
+      "value": "2607.00678",
+      "trust": "strong",
+      "source": "metadata"
+    },
+    {
+      "kind": "title",
+      "value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+      "trust": "metadata",
+      "source": "metadata"
+    },
+    {
+      "kind": "trusted_source_path",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+      "trust": "strong",
+      "source": "source_manifestation"
+    },
+    {
+      "kind": "pdf_url",
+      "value": "https://arxiv.org/pdf/2607.00678v2",
+      "trust": "source_manifestation",
+      "source": "metadata"
+    },
+    {
+      "kind": "source_url",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+      "trust": "source_manifestation",
+      "source": "metadata"
+    },
+    {
+      "kind": "source_url",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+      "trust": "source_manifestation",
+      "source": "source_manifestation"
+    }
+  ],
+  "equivalence_decision": {
+    "status": "equivalent",
+    "reason": "shared_work_identifier",
+    "location_binding": "source_manifestation",
+    "evidence": [
+      {
+        "kind": "shared_identifier",
+        "value": "arxiv_id:2607.00678"
+      },
+      {
+        "kind": "title_similarity",
+        "status": "match",
+        "score": 1.0,
+        "source_value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+        "work_value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model"
+      }
+    ]
+  },
+  "warnings": [],
+  "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_identity_repair_trace.json",
+  "provenance": {
+    "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_resolve.json",
+    "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_metadata.json"
+  },
+  "diagnostics": {
+    "identity_confidence": "high",
+    "identity_confidence_reasons": [
+      "arxiv_id_present",
+      "pdf_metadata_title_used",
+      "local_pdf_artifact_title",
+      "doi_present"
+    ]
+  }
+}

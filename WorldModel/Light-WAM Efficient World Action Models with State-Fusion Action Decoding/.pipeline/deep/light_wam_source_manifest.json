@@ -1,0 +1,849 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2606.08242",
+  "title": "Light-WAM: Efficient World Action Models with State-Fusion Action Decoding",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Light-WAM Efficient World Action Models with State-Fusion Action Decoding/.pipeline/deep/light_wam_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Light-WAM Efficient World Action Models with State-Fusion Action Decoding/.pipeline/deep/light_wam_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/S7BIWD7S/Li 等 - 2026 - Light-WAM Efficient World Action Models with State-Fusion Action Decoding.pdf",
+    "total_pages": 15,
+    "text_pages_extracted": 15,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 15,
+    "text_max_pages": null,
+    "text_pages_extracted": 15,
+    "text_pages_scanned": 15,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 9
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1797,
+      "text_hash_sha256": "c620f03eff984e9fd12c9f0be24a853355458ca4d933655b43d3be8dde588593"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 3830,
+      "text_hash_sha256": "9eb3e0b858825d3f0da702347eccf7ff4888c13527ef31f3703f624fc9c48a51"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 2731,
+      "text_hash_sha256": "09b21e97c562ed5d7cd85ce1c2bc17d7654d17d893a719a0d021d57240af524d"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "Methodology",
+      "page_start": 3,
+      "page_end": 5,
+      "char_count": 5815,
+      "text_hash_sha256": "bae5c547824390ce2818f4f2bfec4b901865edce6ae1d3970c9b93abc912de50"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 5,
+      "page_end": 6,
+      "char_count": 2943,
+      "text_hash_sha256": "36679db5273f0ff8870bdb5b85f8467fabba23d70b16bb6e27f5c758ff478bcf"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 6,
+      "char_count": 536,
+      "text_hash_sha256": "5d3b8ea40f013ac61489e56778cf20bdf1949043df5ad0e35ea030450c5843f8"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 6,
+      "page_end": 7,
+      "char_count": 3447,
+      "text_hash_sha256": "8522fb8ea301d9df34ac0fb2a67cdd5d9b953d8628c0087b43b6e44115a43579"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 7,
+      "page_end": 9,
+      "char_count": 6243,
+      "text_hash_sha256": "872e82de43289a33c152e1f62c1d5d386fb529482800389d661fd09f6742837c"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 9,
+      "page_end": 15,
+      "char_count": 14803,
+      "text_hash_sha256": "42b1d874471f85d9c85d31f7129f290cbae94d771a1824e1739272f11a3c5997"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3475,
+      "section_ids": [
+        "sec:preamble",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4109,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 2833,
+      "section_ids": [
+        "sec:related-work",
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3222,
+      "section_ids": [
+        "sec:methodology"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 3411,
+      "section_ids": [
+        "sec:methodology",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3332,
+      "section_ids": [
+        "sec:experiments",
+        "sec:method",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4051,
+      "section_ids": [
+        "sec:method-2",
+        "sec:model"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3259,
+      "section_ids": [
+        "sec:model"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3374,
+      "section_ids": [
+        "sec:model",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3450,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 1088,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3116,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 1970,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 2701,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 421,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview of Light-WAM. Light-WAM shares an adapted video backbone between video",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "RoboTwin 2.0 inference",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Qualitative analysis. Top: future-video predictions compared with reference rollout frames at",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:model"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Real-world evaluation. Robot setup and success rates on three dual-arm tasks.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:model"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Light-WAM training on RoboTwin 2.0",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "Light-WAM inference",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Additional real-world rollouts. Rollout frames on three dual-arm tasks and future-video",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:references"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "reports LIBERO results. Light-WAM achieves 97.2% average success, ranking first among",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:methodology"
+      },
+      {
+        "id": "Table 1",
+        "caption": "LIBERO success rates on the four official suites. We report average success, rank among",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "RoboTwin 2.0 success rates on 50 tasks.",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "We therefore use 2× latent downsampling to balance performance and training efficiency.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Inference efficiency on RoboTwin 2.0 inputs. Latency is measured per action query with",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 5",
+        "caption": "using the original-resolution video latent for co-training improves success from 98.2% to",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 6",
+        "caption": "reports the parameter composition of the default Light-WAM",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Parameter breakdown of Light-WAM. Numbers are reported in millions of parameters.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Full RoboTwin 2.0 per-task results.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "!!<=",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": ">:?.2 −?/5/?",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "#$%&",
+      "section_id": "sec:related-work",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "ˆA = πϕ (hθ(o, l, p)) ,",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "H0 = PatchEmbed(z) ∈RB×N×d,",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "C = [c1, . . . , cL, cprop].",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Uℓ= Fℓ(Hℓ−1, C),",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Hℓ=",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "ℓ∈I,",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "H = {Hℓ}ℓ∈I.",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Let ¯zvid = D(zvid) be the latent video after spatial downsampling, and let ¯zt denote its flow-",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Lvideo =",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "zact = z(0)",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "bone once and obtains the multi-level backbone states H = {Hℓ}ℓ∈I. The StateFusionActionExpert",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "press dense input tokens into compact representations [31, 32]. For each backbone state Hℓ∈H,",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Qℓ∈RNq×d.",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "The query tokens attend to the video tokens of the corresponding backbone level, producing Pℓ∈",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "Pℓ= MHA(Qℓ, Hℓ, Hℓ),",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "sℓ= LN",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "h = ϕtrunk (ϕfuse ([Mℓ(sℓ)]ℓ∈I)) .",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "k=1, where K is the action horizon. Each",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "rk = h + ψ(ek),",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "ˆak = ϕout (LN(rk)) ,",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "ˆA = [ˆa1, . . . , ˆaK] ∈RB×K×da.",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "L = Lvideo + λLaction( ˆA, A),",
+      "section_id": "sec:methodology",
+      "page_start": 3,
+      "page_end": 5
+    },
+    {
+      "text": "> 8GiB",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +8",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +16",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +24",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +32",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "$%&&'() *+,",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +8",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +16",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +24",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "# = +32",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "t = {+8, +16, +24, +32}. Bottom: learned-query visualizations from the StateFusionActionExpert.",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "T!\"# $:",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 9
+    },
+    {
+      "text": "Aℓ(x) = γ W up",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Hℓ= Uℓ+ Aℓ(Uℓ),",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "γ = 1.0. The adapted states from the selected layers are exposed to the StateFusionActionExpert",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "chunks through query-based pooling and lightweight state fusion. For each selected layer ℓ∈I, we",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Pℓ= MHA(Qℓ, Hℓ, Hℓ),",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "sℓ= LN",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "j=1",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "In our default configuration, each layer uses Nq = 16 queries and 8 attention heads. The pooled",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Require: Observation sequence I0:32, target action chunk A = {ak}K−1",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "k=0 , language embedding c,",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Require: Selected adapter layers I = {8, 16, 24}",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Vsub = [I0, I4, I8, . . . , I32].",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "C = [c1, . . . , c128, cprop].",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "4: Spatially downsample the video latents, ¯zvid = D(zvid), and sample a flow-matching timestep",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "ˆut = Gvid",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Lvideo = ∥ˆut −ut∥2",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "zact = z(0)",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "H = {Hℓ}ℓ∈I = hθ(zact, C).",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "ˆA = {ˆak}K−1",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "k=0 = πϕ(H).",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Laction =",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "k=0",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "L = Lvideo + Laction.",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "Require: Selected adapter layers I = {8, 16, 24}",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "C = [c1, . . . , c128, cprop],",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "H = {Hℓ}ℓ∈I = hθ(zact, C).",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "ˆA = {ˆak}K−1",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "k=0 = πϕ(H).",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "T!\"# $: &'(!) *+( ,!,() -!'' ./*0 *)!\"+ -./.",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "&;))(/* <-\"",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "=> ?;*;)(",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "&;))(/* <-\"",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "=> ?;*;)(",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +0",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +24",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +24",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +0",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +24",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    },
+    {
+      "text": "@ = +24",
+      "section_id": "sec:references",
+      "page_start": 9,
+      "page_end": 15
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "9c2c282b1319d36294f320c39b25330ed4e362ff90dcf301a5c8e02ab835c29c"
+}

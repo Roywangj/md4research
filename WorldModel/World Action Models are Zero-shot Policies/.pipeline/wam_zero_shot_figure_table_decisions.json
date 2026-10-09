@@ -1,0 +1,483 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2602.15922",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Joint Video and Action Prediction. DreamZero jointly generates video and action. We observe",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Free-form Evaluation. DreamZero performs a diverse range of tasks when conditioned on natural",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Model Architecture of DreamZero. The model takes three inputs: visual context (encoded via a",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_006_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_006_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Decoupled Noise Schedules. DreamZero (blue) uses coupled noise for video and action (both",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:future-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Distribution statistics for the AgiBot pretraining corpus: episode durations, subtask density, and",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:future-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "AgiBot Evaluation Set-up. We are first-citizens of generalization evals, where the default setting is",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:future-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Seen Task Evaluation. DreamZero effectively learns from diverse data and generalizes to new",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:future-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "evaluates generalization to 10 tasks entirely absent from the pretraining distribution, including untying",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:data",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Posttraining Results. WAMs enable stronger post-training results across three tasks, indicating that",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:data",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_015_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_015_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Cross-Embodiment Transfer. We explore robot-to-robot (YAM →AgiBot) and human-to-robot",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:data",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_015_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_015_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Few-shot Embodiment Adaptation. We explore few-shot embodiment adaptation by post-training",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:data",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_016_fig_figure_12.png",
+      "relative_markdown_embed": "![Figure 12](images/page_016_fig_figure_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_figure_12.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Bidirectional vs. Autoregressive WAMs. When the sampling point falls mid-task (T=20), bidirec-",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:data-2",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_020_fig_figure_13.png",
+      "relative_markdown_embed": "![Figure 13](images/page_020_fig_figure_13.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_fig_figure_13.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Attention startegy of DreamZero. (a) QKV Self-Attention mask for DreamZero training. Y-axis",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:data-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "DreamZero Training (Flow Matching)",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:data-2",
+      "decision": "visual_defect",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_022_fig_algorithm_1.png",
+      "relative_markdown_embed": "![Algorithm 1](images/page_022_fig_algorithm_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_1.png"
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "DreamZero Inference (Closed-Loop",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:data-2",
+      "decision": "visual_defect",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "page_022_fig_algorithm_2.png",
+      "relative_markdown_embed": "![Algorithm 2](images/page_022_fig_algorithm_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_2.png"
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Data Collection Environments. We collect teleoperation data across 22 diverse real-world environ-",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:data-2",
+      "decision": "insert",
+      "reason": "这张图解释任务或数据集如何被构造；如果候选图质量足够，适合放在数据与任务定义部分帮助读者理解数据来源。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task_overview",
+      "source_image_filename": "page_025_fig_figure_15.png",
+      "relative_markdown_embed": "![Figure 15](images/page_025_fig_figure_15.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_fig_figure_15.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 16",
+      "source_id": "Figure 16",
+      "kind": "figure",
+      "label": "Figure 16",
+      "caption": "Illustration of generated and executed pair. We illustrate the generated video and action execution",
+      "pages": [
+        29
+      ],
+      "section_id": "sec:data-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Cumulative inference speedups. Each row",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:future-work",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_010_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_010_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Cross-Embodiment Transfer Results. Average task progress on unseen tasks (± standard error).",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:data",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_016_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_016_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "DreamZero-Flash Evaluation. Task progress on table bussing with varying denoising steps (±",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Model and Data Ablations. Task progress on PnP Easy tasks (± standard error). AR = autoregressive,",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_017_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_017_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_017_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Seen Tasks Evaluation Setup for AgiBot G1",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:data-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Unseen Tasks Evaluation Setup for AgiBot G1",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:data-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    }
+  ],
+  "summary": {
+    "total_items": 24,
+    "by_decision": {
+      "insert": 10,
+      "low_priority": 12,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

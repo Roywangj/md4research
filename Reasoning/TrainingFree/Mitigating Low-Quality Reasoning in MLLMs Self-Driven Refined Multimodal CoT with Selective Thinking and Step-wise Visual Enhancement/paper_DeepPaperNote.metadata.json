@@ -1,0 +1,39 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TTWS8WL8/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinkin.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TTWS8WL8/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinkin.pdf",
+  "title": "Mitigating Low-Quality Reasoning in MLLMs: Self-Driven Refined Multimodal CoT with Selective Thinking and Step-wise Visual Enhancement",
+  "metadata_sources": [
+    "local_pdf",
+    "openalex",
+    "crossref"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "paper_id": "title:8d98ae569727",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "pdf_metadata_title_used",
+    "doi_present"
+  ],
+  "authors": [
+    "Chongjun Tu",
+    "Peng Ye",
+    "Dongzhan Zhou",
+    "Tao Chen",
+    "Wanli Ouyang"
+  ],
+  "affiliations": [
+    "The Future University",
+    "Chinese University of Hong Kong",
+    "Fudan University"
+  ],
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "year": "2026",
+  "doi": "10.1609/aaai.v40i12.37919",
+  "source": "openalex",
+  "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/37919/41881",
+  "published": "2026",
+  "abstract": "Current Multimodal Chain-of-Thought (MCoT) methods suffer from low-quality multimodal reasoning, characterized by overthinking on simple queries and inefficient utilization of visual information, resulting in vast inefficient and ineffective computations. In this paper, we discover that Multimodal Large Language Models (MLLMs) possess inherent capabilities to distinguish between simple and difficult queries and enhance task-related visual information, which remain underutilized by existing approaches. Based on this insight, we propose Self-Driven Refined Multimodal CoT (SDR-MCoT), a training-free framework that mitigates these issues through two self-driven modules. First, our selective thinking module employs entropy-based confidence estimation to determine whether queries require detailed reasoning, preventing overthinking on simple questions. Second, our step-wise visual enhancement module strengthens attention to relevant visual regions at each reasoning step without inserting additional tokens, achieving fine-grained visual grounding and enhancement with minimal overhead. Moreover, SDR-MCoT can be seamlessly integrated into various MLLMs, offering a practical solution for improving multimodal reasoning. Comprehensive experiments across eight benchmarks from diverse domains (multimodal reasoning, visual understanding, hallucination, and mathematical reasoning) demonstrate that SDR-MCoT consistently outperforms existing MCoT methods on four different base models with reduced overhead. For instance, on Qwen2-VL-7B, our method improves average accuracy by over 6% while reducing token consumption by approximately 60% compared to zero-shot CoT.",
+  "script": "collect_metadata.py"
+}

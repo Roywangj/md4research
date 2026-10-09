@@ -1,0 +1,152 @@
+VIDEO-DEEPRESEARCH-35B (41.7%) sug-
+gests potential domain transfer challenges for
+the larger variant.
+Scaling Insight. A critical observation emerges
+from our experiments: the improvement margins
+are not uniform across model sizes. While VIDEO-
+DEEPRESEARCH-30B achieves +18.8% over
+its base, VIDEO-DEEPRESEARCH-35B achieves
++21.2%. This suggests that our training pipeline
+synergizes better with increased model capacity,
+particularly for complex multi-hop reasoning tasks.
+However, the relatively smaller improvement on
+News category (8.4% vs. 16.6% for 30B) indicates
+potential brittleness on temporally dynamic content
+that warrants further investigation.
+4.3
+Tool Usage Analysis
+Table 4: Average number of visual and text tool usages
+on VideoDR and our benchmarks.
+Model
+VideoDR
+VideoDR-Bench
+Visual
+Text
+Visual
+Text
+Claude-4.5-Sonnet
+1.83
+3.38
+2.25
+3.24
+GPT-5
+0.00
+0.12
+0.31
+1.43
+Gemini-2.5-Pro
+0.31
+0.84
+1.93
+2.07
+Qwen3.5-35B
+0.04
+0.58
+0.20
+0.70
+Qwen3.5-397B
+0.10
+1.27
+0.04
+2.77
+Base
+1.82
+2.21
+1.75
+2.40
+Ours
+2.33
+4.24
+2.98
+3.81
+To understand the behavioral patterns underlying
+our performance gains, we profile the tool invoca-
+tion frequencies across different evaluation sets in
+Table 4.
+Benchmark Characteristics. From the bench-
+mark perspective, VIDEODR-BENCH rigorously
+compels models to execute significantly more vi-
+sual and textual operations compared to VideoDR.
+For instance, GPT-5 increases visual tool calls from
+0.00 to 0.31 and text calls from 0.12 to 1.43. This
+explicitly demonstrates that our benchmark circum-
+vents parametric knowledge leakage prevalent in
+existing datasets, successfully enforcing genuine
+multi-step, tool-augmented open-web exploration.
+Methodological Analysis. Our proposed VIDEO-
+DEEPRESEARCH exhibits a profound shift in tool
+utilization compared to baseline models:
+• Modality
+Bias
+Correction:
+Baseline
+Qwen3.5-397B executes only 0.10 visual
+operations per task while heavily favoring
+text tools (1.27).
+In contrast, VIDEO-
+DEEPRESEARCH-30B achieves 2.33 visual
+and 4.24 text tool invocations on VideoDR,
+representing a fundamental restructuring of
+the agent’s exploration strategy.
+• Balanced Multimodal Search: Driven by
+our carefully curated trajectory pipeline,
+VIDEO-DEEPRESEARCH internalizes active
+spatiotemporal perception. Augmented by
+mixed-text training data, this leads to a
+highly balanced and exhaustive multimodal
+search strategy that dynamically overcomes
+the modality bias observed in baseline models.
+• Scale-Appropriate Efficiency:
+Notably,
+VIDEO-DEEPRESEARCH-30B
+achieves
+higher tool usage than even the 397B baseline,
+confirming that training methodology out-
+weighs raw parameter count in determining
+agentic capability.
+Key Insight. The strong correlation between tool
+usage diversity and task performance validates our
+core hypothesis: effective Video-DR agents must
+overcome the modality bias that causes models
+to rely on parametric knowledge. Our training
+pipeline successfully instills this capability, as evi-
+denced by both the quantitative performance gains
+and the behavioral shift toward more exhaustive
+exploration.
+4.4
+Ablation Study
+Table 5: Performance comparison of different models
+on VideoDR and our benchmarks.
+Setting
+VideoDR
+VideoDR-Bench
+Avg
+Base
+38.0
+43.0
+40.5
+4k-SFT
+44.0
+48.0
+46.0
+7K-SFT
+55.0
+51.0
+53.0
+7K-SFT+7k-text-SFT
+59.0
+54.5
+56.8
+14k-SFT+2K-RL
+62.0
+56.5
+59.3
+To meticulously disentangle the contribution of
+each data curation and training phase, we conduct
+an ablation study on VIDEO-DEEPRESEARCH-
+30B, as detailed in Table 5.
+Video-Centric SFT (Base →7K-SFT). Starting
+from the baseline (40.5%), introducing 4K synthe-
+sized Video-DR trajectories immediately yields a
++5.5% average gain. Scaling this multimodal cor-
+pus to 7K further propels the performance to 53.0%.

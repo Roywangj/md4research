@@ -1,0 +1,748 @@
+                                         SelfWAM: A Self-Grounded Unified World Action Model for Fast Robot Control
+                                                        Bikang Pan1,2,∗            Fan Liu1,2,∗             Haotao Lu1,2       Jingya Wang1           Ye Shi1,2
+                                                                                        1                   2
+                                                                                ShanghaiTech University       InstAdapt
+                                                                                        ∗
+                                                                                          Equal contribution.
+                                                                    {panbk2023, liufan2025, shiye}@shanghaitech.edu.cn
+                                                                                     https://selfwam.github.io/
+
+
+
+                                                                    Abstract                                      FastWAM further demonstrates that most of these gains can
+                                                                                                                  be realized without future-video generation at inference. It
+                                          World Action Models (WAMs) improve robot policy learning                uses future-video prediction only as a co-training objective,
+                                          by jointly modeling actions and future observations. How-
+                                                                                                                  while the deployed policy predicts actions directly (Yuan
+                                          ever, conditioning future prediction only on the task prompt
+                                          and observation context risks capturing generic task pro-               et al. 2026). This design supports efficient closed-loop con-
+                                          gression rather than the action-specific consequences of the            trol. However, in FastWAM, future-video prediction is con-
+
+
+
+
+arXiv:2608.00725v1 [cs.RO] 1 Aug 2026
+                                          executed action. We introduce SelfWAM, a unified self-                  ditioned on the current observation but not on the demon-
+                                          grounded WAM built on a modality-specialized Mixture-of-                strated action that produced the target future. Consequently,
+                                          Transformers (MoT) architecture that jointly predicts actions,          the auxiliary objective does not explicitly require the model
+                                          action-conditioned future RGB frames, and robot self-masks,             to distinguish the visual consequences of different actions.
+                                          thereby grounding future prediction in the robot’s visible body         This motivates an action-conditioned formulation that ex-
+                                          and its action-induced motion. During joint training, Self-             plicitly links each target future to the demonstrated action
+                                          WAM allows future visual queries to attend to a clean copy              that produced it.
+                                          of the demonstrated action, turning the video branch into
+                                          an action-specific consequence model while leaving the fast                Action conditioning alone, however, does not necessarily
+                                          action-only inference path unchanged. To focus video learn-             direct the visual objective toward the most action-relevant
+                                          ing on action-relevant visual changes, we use prompt-specific           changes. RGB future prediction must also account for ob-
+                                          objectives for future robot self-mask prediction, which re-             ject appearance, texture, lighting, and background variation,
+                                          moves appearance details and provides a target whose tempo-             much of which is only weakly related to the robot action.
+                                          ral evolution is tightly coupled with the conditioning action.          These details can dominate the learning objective without
+                                          Together, clean-action conditioning and future self-mask su-            providing direct supervision for how the robot moves through
+                                          pervision make future predictions more directly reflect how             the scene. Robot self-mask prediction complements RGB
+                                          the executed action changes the robot’s visible motion and
+                                          the surrounding scene. Experiments on RoboTwin 2.0 and
+                                                                                                                  prediction by suppressing appearance-related variation and
+                                          real-world manipulation tasks show that SelfWAM produces                isolating the robot’s visible motion. Because the temporal
+                                          more action-sensitive futures and preserves fast policy infer-          evolution of the mask is directly determined by the condi-
+                                          ence, while improving policy performance.                               tioning action, it provides a more focused learning signal
+                                                                                                                  for action-specific embodied dynamics. Moreover, the pre-
+                                                                                                                  trained video backbones underlying WAMs already provide
+                                                             1    Introduction                                    the generative capacity needed to model both RGB and self-
+                                        A policy-facing world model should answer not only what                   mask futures within a unified action-learning framework.
+                                        is likely to happen next, but also what will change under                    We propose SelfWAM, a unified self-grounded action-
+                                        a particular robot action, where those changes will occur,                conditioned WAM that couples a deployable policy with
+                                        and how the robot’s own body will mediate them. This calls                an action-conditioned world model. SelfWAM retains the
+                                        for self-grounded future prediction that explicitly models                modality specialized two stream Mixture-of-Transformers
+                                        the robot’s visible body and its action-induced motion. This              (MoT) architecture of FastWAM, which consists of a pre-
+                                        form of grounding is particularly important for manipulation,             trained video backbone and a lightweight action expert cou-
+                                        where the same observation can admit multiple plausible ac-               pled through mixed attention (Yuan et al. 2026). During
+                                        tions, each inducing a different future. World Action Models              training, a clean copy of the demonstrated action is encoded
+                                        (WAMs) provide a natural framework for this goal by cou-                  by the action expert and exposed only to future visual queries,
+                                        pling action prediction with future visual modeling, thereby              allowing the shared video backbone to predict either future
+                                        bringing pretrained video dynamics priors into policy learn-              RGB observations or robot self-mask videos under sepa-
+                                        ing.                                                                      rate output prompts. In contrast, the noisy action-prediction
+                                           Recent WAMs exploit pretrained video generators to im-                 queries attend only to the current observation, language in-
+                                        prove visuomotor policies by jointly learning visual dynam-               struction, proprioceptive state, and their own noisy action
+                                        ics and robot actions (Ye et al. 2026b; Ma et al. 2026b).                 states; they cannot access the clean-action copy or any future
+visual tokens. This asymmetric information flow prevents tar-     2026a). τ0 -WM further uses action-conditioned futures to
+get leakage while grounding predicted visual consequences         evaluate and refine candidate actions at test time (Zhou et al.
+in both the executed action and the robot’s own motion.           2026).
+At deployment, SelfWAM retains current-context encoding              SelfWAM retains the efficient policy interface of Fast-
+and the lightweight action expert while omitting clean-action     WAM but makes future prediction explicitly dependent on
+conditioning and future visual denoising, thereby preserving      the demonstrated action. A clean action copy is exposed
+a fast action-only inference path.                                only to future visual queries, preventing target leakage into
+   Our contributions are:                                         action prediction. Beyond RGB prediction, SelfWAM pre-
+ • We extend the two-stream MoT with a conditioning path          dicts future robot self masks to provide embodiment-focused
+   for a clean copy of the demonstrated action, unifying          supervision without changing the deployed action path.
+   action prediction and action-conditioned future model-         Structured Visual and Robot Body Modeling
+   ing within a single architecture. By exposing this action
+   condition only to future visual tokens, the model can          Structured visual targets can focus predictive learning on ge-
+   distinguish the future consequences induced by differ-         ometry, semantics, or task-relevant entities. GeoSem-WAM
+   ent actions while preserving the lightweight action-only       augments RGB prediction with future geometry and semantic
+   inference path.                                                supervision, while Mask World Model and MaskWAM use
+                                                                  semantic or object masks as predictive targets or prompts (Ma
+ • Building on this unified design, we introduce future robot     et al. 2026a; Lou et al. 2026; Yu et al. 2026). These repre-
+   self-mask sequence prediction as an auxiliary objective.       sentations primarily describe scene structure or task objects.
+   By excluding appearance and background variation, self-        In contrast, SelfWAM predicts future robot self masks to
+   mask prediction focuses action-conditioned modeling on         directly supervise action-induced motion of the visible robot
+   the robot’s future visible motion and strengthens the self-    body.
+   grounding of future prediction.                                   Prior work on robot self-recognition has segmented robot
+ • Experiments on RoboTwin 2.0 and real-world manipula-           hands, learned visual body models, and associated visual
+   tion tasks show that SelfWAM improves future predic-           observations with proprioceptive signals (Almeida, Vicente,
+   tion fidelity and sensitivity to action changes, strengthens   and Bernardino 2021; Chen et al. 2022, 2026). Robot masks
+   policy performance, and keeps the action-only inference        have also been used to reduce appearance differences across
+   cost nearly unchanged.                                         embodiments (Lepert, Doshi, and Bohg 2025). These stud-
+                                                                  ies motivate explicit robot-centric representations, but do not
+                   2    Related Work                              integrate action-conditioned future RGB and self-mask pre-
+                                                                  diction with an independently deployable policy.
+World-Action Models
+Modern robot policies directly map visual observations, lan-                            3    SelfWAM
+guage, and proprioception to continuous actions, ranging          Problem Formulation
+from task-specific diffusion policies to large-scale generalist   At control step t, the current context is defined as
+vision-language-action models (Chi et al. 2023; Kim et al.
+                                                                                           ct = (ot , qt , ℓt ),             (1)
+2024; Octo Model Team et al. 2024; Black et al. 2024; Phys-
+ical Intelligence et al. 2025). Although effective for action     where ot is the current multi-view RGB observation, qt is
+prediction, their training objectives do not explicitly require   proprioception, and ℓt is the language instruction. The target
+modeling the visual consequences of a selected action.            is an H-step action chunk with action dimension da
+   Earlier unified formulations establish that video and ac-                   at = (at , . . . , at+H−1 ) ∈ RH×da .         (2)
+tion prediction can be learned within a shared generative         For world-model supervision, we use the next K consecutive
+model. UVA learns joint video-action representations with         frames within the temporal horizon covered by the action
+decoupled output heads, allowing policy inference to bypass       chunk:
+video generation, while UWM uses modality-specific dif-                             ofut
+                                                                                      t = (ot+1 , . . . , ot+K ).            (3)
+fusion timesteps to represent policies, forward and inverse       The optimal policy output is defined as the action chunk that
+dynamics, and video prediction within a single model (Li          minimizes the conditional expected action prediction loss:
+et al. 2025; Zhu et al. 2025).
+                                                                               π ∗ (ct ) = arg min E[ℓa (â, at ) | ct ] .   (4)
+   More recent World-Action Models integrate future visual                                        â
+prediction more directly into policy learning. DreamZero,         Similarly, the optimal world-model output is defined as the
+LingBot-VA, DiT4DiT, and ImageWAM jointly generate ac-            future observation sequence that minimizes the conditional
+tions and visual futures or use video representations to sup-     expected visual-prediction loss given the current context and
+port action prediction (Ye et al. 2026b; Li et al. 2026; Ma       the conditioning action:
+et al. 2026b; Zhang et al. 2026). FastWAM instead uses fu-               F ∗ (ct , at ) = arg min E dv (ô, ofut
+                                                                                                                         
+                                                                                                             t ) | ct , at . (5)
+ture video prediction only as a training objective, enabling                                 ô
+direct action inference without future visual generation (Yuan      Thus, the policy branch learns which action is best sup-
+et al. 2026). GigaWorld-Policy instead makes future predic-       ported by the demonstrations for the current observation,
+tion action-conditioned within a shared Transformer while         while the world branch learns which future observation is
+retaining optional visual rollout at deployment (Ye et al.        most consistent with the observation-action pair.
+Figure 1: Overview of SelfWAM. Compared with action-unconditioned video prediction, SelfWAM shifts the model from a
+passive observer to an actor that predicts the visual consequences of its own actions, making future generation both action-
+sensitive and action-consistent. As shown in the top comparison, its predicted motion follows the same slow-to-fast progression
+as the ground truth when the executed action is scaled. Given robot videos, trajectories, and instructions, it couples a lightweight
+action expert with a shared video backbone. During training, the executed action conditions a shared video backbone that is
+trained on both future RGB and future self-mask prediction through separate prompts, aligning visual dynamics with control
+while directing attention toward action-induced robot motion rather than background appearance and texture. At deployment,
+future-video denoising and mask generation are omitted. The current observation is encoded once, after which iterative action
+denoising proceeds only through the lightweight action expert.
+
+
+Architecture                                                         video, as described below. The video stream is used only
+SelfWAM builds on the two-stream MoT design shown in                 for co-training and optional rollout. Action-only inference
+Fig. 2. The video stream uses a pretrained video diffusion           retains the current-observation encoding and the lightweight
+backbone to jointly process the encoded current observation          action expert.
+and noisy future-video latents. The action stream contains
+noisy future-action tokens processed by a lightweight action         Information Flow
+expert. All parameters of the action expert are initialized by       In the original FastWAM information flow, the action and
+interpolating the corresponding weights from the pretrained          video streams are co-trained but remain action-agnostic on
+video expert to match the action-stream architecture. The two        the world-model side: noisy future-action queries attend
+experts retain modality-specific projections and feed-forward        to the current context and noisy action sequence, whereas
+layers, while mixed attention controls which token groups            future-video queries attend only to the current context and
+may exchange information. After mixed attention, the tokens          their own video tokens (Yuan et al. 2026). Consequently,
+are routed back to their respective modality streams and pro-        the video stream is not explicitly informed of the action
+cessed by the corresponding modality-specific feed-forward           that produced the demonstrated future. SelfWAM preserves
+networks. Language and proprioceptive features condition             the original policy-side dependency and introduces one ad-
+both streams.                                                        ditional one-way route: the executed action is exposed to
+   The architecture produces future actions through the action       future-video queries while remaining hidden from noisy
+expert and future visual targets through the video backbone.         future-action queries.
+The visual target can be either RGB video or robot self-mask            To instantiate this route, the standard action stream re-
+Figure 2: SelfWAM architecture and attention design. Left: the modality-specialized MoT contains a video backbone and a
+lightweight action expert coupled through mixed attention. Middle: during training, clean executed-action tokens condition only
+future-video queries, aligning the predicted dynamics with the executed control while preventing ground-truth action leakage
+into future-action prediction. This keeps the policy path consistent with action-only deployment. Right: SelfWAM supports two
+inference modes. For fast control, the action expert predicts actions directly from the current observation without generating
+future video. For optional world-model rollout, a supplied action and output prompt condition the video backbone to generate
+either future RGB or future self-mask video.
+
+
+ceives a corrupted future-action chunk and learns to denoise      temporal-position convention, turning the video stream into
+it from the current context. We create a second copy of the       an action-conditioned world model.
+same action chunk as a clean conditioning stream. This copy
+is kept uncorrupted, encoded by the same action tokenizer
+and action blocks, and assigned the clean denoising timestep      Robot Mask Prediction
+t = 0. At action index i, the clean token uses the same tem-
+poral position encoding as the corresponding noisy future-
+action token. The two streams therefore share action seman-       We reuse the same video backbone for RGB prediction
+tics and horizon alignment, while their timestep embeddings       and robot self-mask prediction. Each demonstration yields
+distinguish a clean condition from a denoising state.             two world-model training instances with identical current
+   Let O denote the current-context tokens, Ae the noisy          RGB observation, instruction, proprioception, and clean-
+                                                                  action condition. They differ only in the output prompt and
+future-action tokens, A the clean-action tokens, and V e the
+                                                                  the future target. The RGB prompt selects the future RGB
+noisy future-visual tokens. For a query group QX , we write       clip, while the self-mask prompt selects the aligned robot-
+QX → S to indicate that its queries may attend to the token       segmentation clip. Both output modes use the same spa-
+groups in S:                                                      tiotemporal token layout, noise schedule, position encodings,
+                     QAe → {O, A}, e                              and directed attention pattern.
+                     QVe → {O, V,
+                               e A},                      (6)        This formulation treats self-mask prediction as a second
+                                                                  output domain of the video model rather than a separate
+                    QA → {O, A}.                                  expert. The observation remains RGB in both cases, so the
+   Thus, future-video prediction is explicitly tied to the        model must infer the robot body from the same visual context
+demonstrated action, while the policy cannot recover its tar-     used by the policy. The action condition is also unchanged,
+get from either the clean-action copy or future-video repre-      requiring the generated mask sequence to follow the demon-
+sentations. The policy-side computation graph remains iden-       strated robot motion.
+tical to action-only deployment.                                     The mask-prompted instance does not supervise action
+   The clean-action stream serves only as a world-model           prediction. It contains the clean action only as a condition for
+condition rather than a second action-prediction target. It       the video backbone; no noisy future-action target or action-
+is enabled during world-model co-training and optional vi-        denoising loss is added for this duplicated instance. The pol-
+sual rollout, but removed during action-only inference. For       icy target is therefore counted once, while RGB and mask
+rollout, a policy sample or any candidate action can be in-       prediction provide two complementary world-model objec-
+serted into the clean-action slots using the same t = 0 and       tives.
+Training and Inference                                                      Table 1: RoboTwin 2.0 success rates (%).
+We use the standard flow-matching objectives of the base ac-
+tion and video models. Let Lact denote the action-denoising           Method                  Clean     Random       Average
+loss, and let Lrgb and Lmask denote the video-denoising               π0                      65.92      58.40        62.16
+losses under the RGB and self-mask prompts, respectively.             π0.5                    82.74      76.76        79.75
+We define Lrgb/mask as their mixture expectation. The over-           Motus                   88.66      87.02        87.84
+all training objective is                                             GigaWorld-Policy        86.36      85.04        85.70
+             L = λact Lact + λvideo Lrgb/mask .            (7)        FastWAM                 91.82      91.86        91.84
+                                                                      SelfWAM                 92.16      93.08        92.62
+The action loss is evaluated once for each policy-training
+example. The mask-prompted copy contributes only Lmask .
+   At deployment, SelfWAM follows the action-only path: it
+                                                                  RoboTwin 2.0. RoboTwin 2.0 is a large-scale benchmark
+encodes the current context, denoises an action chunk with
+                                                                  for coordinated bimanual manipulation, covering more than
+the lightweight action expert, executes the first actions, and
+                                                                  50 diverse tasks (Chen et al. 2025). Following the multi-
+replans. Clean-action and future-video tokens are not in-
+                                                                  task protocols adopted in prior work (Bi et al. 2026; Yuan
+stantiated. For optional diagnosis or counterfactual rollout,
+                                                                  et al. 2026), we train each model on a combined dataset
+a candidate action is inserted through the clean-action path
+                                                                  consisting of 2,500 demonstrations from clean environments
+and the output prompt selects either a future RGB video or a
+                                                                  and 25,000 demonstrations collected with extensive scene
+future self-mask video.
+                                                                  randomization. We evaluate performance separately in clean
+                                                                  and randomized settings and report the mean task success
+                    4    Experiments                              rate over 100 rollouts per task. The simulator provides exact
+Our experiments span RoboTwin 2.0 and real-world manip-           per-camera robot masks, enabling controlled evaluation of
+ulation settings, with the goal of evaluating policy perfor-      body motion and background randomization.
+mance, action-grounded future prediction, and deployment
+efficiency. We further analyze the contribution of each com-      Real robot. We evaluate SelfWAM on the AgileX
+ponent through controlled ablations and action perturbation       ALOHA dual-arm platform. The training dataset covers
+studies.                                                          diverse tabletop manipulation tasks and contains approxi-
+                                                                  mately 17K episodes and 9.5M transitions. For comparison,
+Implementation Details                                            all compared methods are trained on the same dataset. For
+We initialize the shared video backbone from WAN2.2-5B            real-world self-mask supervision, we apply RoboSeg (Mei
+(Wan Team 2025). The lightweight action expert is initialized     et al. 2026a) offline to the collected RGB observations, pro-
+from the same WAN2.2-5B checkpoint through parameter in-          ducing robot-body masks that serve as future self-mask tar-
+terpolation. The policy receives three camera views, which        gets during training.
+are arranged into a T-shaped composite image with a reso-
+lution of 384 × 320. The action horizon is 32 steps, and the      Policy Performance
+corresponding 32-frame future video sequence is temporally        Baselines. We compare SelfWAM with representative
+downsampled to 8 frames for visual prediction.                    VLA and WAM baselines. The VLA baselines include π0
+   We assign equal weights to the action and visual flow-         (Black et al. 2024) and π0.5 (Physical Intelligence et al. 2025),
+matching objectives, i.e., λact = 1, λvideo = 1. RGB-             two strong generalist visuomotor policies. We also include
+prompted and self-mask-prompted visual examples are sam-          three recent WAMs, Motus (Bi et al. 2026), GigaWorld-
+pled at a ratio of 9 : 1. We train all models for 5 epochs        Policy (Ye et al. 2026a), and FastWAM (Yuan et al. 2026),
+using AdamW with a learning rate of 1 × 10−4 . All training       which jointly learn robot actions and future visual dynamics.
+runs are conducted on Ubuntu 22.04 with 1 TB of system
+memory, using Python 3.10.12 and PyTorch 2.7.1 compiled
+with CUDA 12.8. Training is distributed across 64 NVIDIA          RoboTwin 2.0 evaluation. Table 1 reports policy perfor-
+A800 GPUs with a global batch size of 1024, corresponding         mance on RoboTwin 2.0. SelfWAM achieves performance
+to a per-GPU batch size of 16, and takes approximately 30         comparable to or better than all baselines in both clean
+hours.                                                            and randomized settings. These results show that intro-
+   At inference, the policy uses 10 denoising steps to predict    ducing action-conditioned future prediction and robot self-
+a 32-step action chunk. It executes the first 24 actions before   grounding does not compromise policy performance, while
+replanning from the latest observation.                           preserving the lightweight action-only inference path. The
+                                                                  improvement under visual randomization further suggests
+Benchmarks                                                        that self-grounded supervision helps maintain robustness to
+                                                                  appearance variation.
+We conduct experiments in RoboTwin 2.0 and on a physical
+bimanual robot. Together, these benchmarks measure policy         Real-robot evaluation. We further evaluate SelfWAM on
+performance in controlled simulation and physical environ-        four real-world pick-and-place tasks: placing a brown cup
+ments, with task success as the primary metric and inference      on a wooden stand, inserting a black pen into a blue cup,
+latency reported to characterize deployment efficiency.           placing a black mouse on a gray mouse pad, and deposit-
+Figure 3: Representative real-robot manipulation rollouts. Each column shows a closed-loop execution of SelfWAM on
+one of four tasks: Cup → Stand, Pen → Cup, Mouse → Pad, and Ball → Bin. The rows depict the initial scene, the main
+interaction stage, and the final outcome, respectively. Zoomed-in insets highlight the manipulated object and the corresponding
+target region.
+
+
+Table 2: Success rates (%) on four real-world manipulation               Table 3: Future-video quality on 275 trajectories.
+tasks.
+                                                                       Model                   LPIPS↓    PSNR↑      FVD-I3D↓
+Task                               SelfWAM      FastWAM     π0.5       FastWAM (uncond.)       0.0636     29.24       45.92
+Brown Cup on Wooden Stand             100          80        90        SelfWAM                 0.0429     32.79       34.55
+Black Pen in Blue Cup                 90           90        90
+Black Mouse on Gray Mouse Pad         100          80        90
+Paper Ball in Desktop Bin             90           90        90
+                                                                    jectory subset, differing only in whether future prediction is
+Average                                95          85        90
+                                                                    conditioned on the observation context alone or additionally
+                                                                    on the clean demonstrated action. We evaluate future-video
+                                                                    fidelity using LPIPS (Zhang et al. 2018), PSNR (Huynh-Thu
+ing a paper ball into a desktop bin. These tasks cover both         and Ghanbari 2008), and FVD with I3D features (Unterthiner
+precise placement onto a target surface and insertion into a        et al. 2018).
+receptacle. We compare SelfWAM against FastWAM and                     Compared with the observation-conditioned FastWAM
+π0.5 under the same initial-state distribution and evaluation       objective, action conditioning yields lower LPIPS and FVD-
+protocol. Each method is evaluated for 10 trials per task, and      I3D together with higher PSNR, indicating improved per-
+a trial is considered successful only when the target object        ceptual similarity, pixel-level fidelity, and overall video-
+is grasped and placed in the specified destination without          distribution quality. This improvement primarily arises from
+human intervention.                                                 conditioning future prediction on the controllable action se-
+   As shown in Table 2, SelfWAM achieves policy perfor-             quence aligned with each offline trajectory, allowing the
+mance comparable to or better than the strong baselines             model to generate consequences that more closely match
+across all four real-world tasks. These results indicate that the   the demonstrated future.
+proposed world-model objectives transfer effectively to phys-
+ical deployment without compromising closed-loop control            Directional action perturbation. To construct perturbed
+performance. Figure 3 presents representative rollouts.             action conditions, we apply a joint-space offset that ramps
+                                                                    from 0 to ±0.10 rad over the first eight steps and remains
+Action-Conditioned Future Prediction                                fixed thereafter. Directional labels are determined by the
+Future prediction evaluation. We next examine the effect            induced robot-arm displacement in the high-camera image
+of demonstrated-action conditioning on future prediction.           plane, yielding upward, downward, leftward, and rightward
+We uniformly sample 275 trajectories, corresponding to 1%           variants. For each variant, we keep the observation, instruc-
+of the 27,500 demonstrations in the RoboTwin 2.0 multi-task         tion, and sampling noise fixed to isolate the effect of action
+dataset, and evaluate future prediction over the full duration      perturbation. Figure 4 compares the resulting self-mask pre-
+of each trajectory. Both models are evaluated on the same tra-      dictions with the corresponding ground-truth motion trends.
+Figure 4: Directional action perturbation. We perturb the demonstrated action along the vertical and horizontal translation
+axes. The action-unconditioned baseline remains largely invariant across action variants, whereas SelfWAM moves the predicted
+robot self-mask in the commanded direction and follows the corresponding ground-truth trend. Orange dashed lines provide
+fixed spatial references.
+
+
+Component Ablation                                                         Table 5: Inference efficiency after warm-up, averaged over
+                                                                           four runs. Relative changes are computed from the unrounded
+Table 4 examines the incremental contributions of clean-                   timings.
+action conditioning and future self-mask supervision. In-
+troducing action-conditioned future RGB prediction alone
+                                                                              Measurement           FastWAM       SelfWAM       Change
+largely preserves the policy performance of FastWAM, sug-
+gesting that the modified information flow does not sub-                      Action only (ms)         320.7         323.9      +0.97%
+stantially interfere with action learning. Adding future self-                Action + video (ms)      668.4         677.5      +1.36%
+mask supervision then improves performance in both clean                      Peak memory (GiB)       13.959        13.959      0.00%
+and randomized settings, leading to the strongest overall re-
+sults. This indicates that clean-action conditioning can en-
+rich the world-modeling objective without severely compro-                 bility without materially changing the deployment cost of the
+mising control, while self-mask prediction provides a more                 iterative policy path.
+embodiment-focused training signal that better supports pol-
+icy learning.                                                                                   5    Conclusion
+                                                                           We introduced SelfWAM, a self-grounded World Action
+Table 4: Component ablation on RoboTwin 2.0. Action Cond.                  Model that turns future prediction from a generic auxiliary
+denotes clean-action conditioning for future-RGB prediction,               objective into action-conditioned consequence modeling. Its
+and Self-Mask denotes future robot self-mask supervision.                  asymmetric conditioning scheme allows the visual branch to
+Success rates are reported in %.                                           learn futures associated with the demonstrated action while
+                                                                           keeping policy learning isolated from clean target actions and
+Method               Action Cond.   Self-Mask   Clean   Random   Average   future observations. Future self-mask supervision further fo-
+FastWAM                   ×            ×        91.82    91.86    91.84    cuses this predictive objective on the robot’s visible motion,
+Ours w/o self-mask        ✓            ×        90.80    90.80    90.80
+SelfWAM                   ✓            ✓        92.16    93.08    92.62
+                                                                           providing an embodiment-specific signal complementary to
+                                                                           RGB prediction. Across RoboTwin 2.0 and real-world ma-
+                                                                           nipulation tasks, SelfWAM improves policy performance,
+Inference Efficiency                                                       future-video fidelity, and sensitivity to controlled action per-
+We evaluate inference efficiency on a single NVIDIA H200                   turbations, while retaining fast action-only inference.
+GPU using a fixed episode, a 32-step action prediction
+horizon, and 10 denoising steps. Action-only inference en-                                   Acknowledgements
+codes the current context once and omits the clean-action                  This work was supported by the National Natural Science
+and future-visual streams; the joint setting additionally per-             Foundation of China under Grants 62406195, the HPC Plat-
+forms action-conditioned future-RGB denoising, but not fu-                 form of ShanghaiTech University, and Key Laboratory of
+ture self-mask generation.                                                 Intelligent Perception and Human-Machine Collaboration
+   SelfWAM increases action-only latency by only 0.97%                     (ShanghaiTech University), Ministry of Education. Compu-
+and joint action and video latency by 1.36%, with no mea-                  tational resources were also provided in part by Fcloud Co.,
+sured increase in peak memory. The auxiliary clean-action                  Ltd.
+and future-visual streams therefore add world-model capa-
+                                                                    Appendix
+   This supplementary material provides implementation and               horizon and downsample them to 8 frames in temporal order.
+reproducibility details, task-level simulation results, con-             The RGB and self-mask targets use the same frame offsets,
+trolled analyses of action sensitivity, diagnostics of the clean         so each mask frame is aligned with the matching RGB frame
+and noisy action paths, and the real robot protocol.                     and the corresponding part of the action chunk.
+                                                                            At each selected time step, the three camera views are
+    A       Implementation and Reproducibility                           placed in a fixed T-shaped layout and represented as a
+                         Details                                         384 × 320 composite. The view order and spatial placement
+                                                                         are shared by the current RGB observation, future RGB tar-
+This section specifies how training instances are assembled,             get, and future self-mask target. For the physical robot, the
+how action and visual targets are aligned, and which opti-               three sources are one fixed high camera and the left and right
+mization and inference settings are used. Architectural defi-            wrist cameras. RoboTwin uses the corresponding three sim-
+nitions and the directed attention pattern are presented in the          ulator views. Figure S1 illustrates the resulting eight-frame
+main paper and are not repeated here.                                    sequence and multi-view composition.
+                                                                            RGB and mask composites follow the same video encod-
+Training Instance Construction                                           ing path, temporal positions, latent dimensions, and flow-
+Each demonstration window is used to construct either an                 matching noise schedule. The mask targets are binary robot
+RGB training instance or a self-mask training instance.                  self-masks and are used only as prediction targets; the policy
+Both instance types share the current RGB observation, lan-              input remains RGB in both instance types.
+guage instruction, proprioceptive state, clean action condi-
+tion, video noise schedule, and spatiotemporal positions.                Configuration
+They differ in the video prompt, visual target, and action               Following FastWAM (Yuan et al. 2026), we initialize the
+supervision, as summarized in Table S1.                                  shared video backbone from WAN2.2-5B (Wan Team 2025)
+                                                                         and transfer its pretrained parameters to the action ex-
+Table S1: Construction of the two training instance types.               pert through weight interpolation. Parameters with match-
+Both use the clean action as a condition for future visual               ing shapes are copied directly, while semantically corre-
+prediction, while only the RGB instance receives action su-              sponding parameters with different shapes are resized to the
+pervision.                                                               action-expert dimensions. For each mismatched axis, we ap-
+                                                                         ply one-dimensional linear interpolation with aligned end-
+Instance    Noisy action Action target     Visual target   Losses        points. When resizing an axis from dv to da , target index
+RGB             Yes           Yes           Future RGB     Lact + Lrgb   j ∈ {0, . . . , da − 1} is mapped to the source coordinate
+Self-mask       No            No         Future robot mask Lmask
+                                                                                                      j(dv − 1)
+                                                                                               uj =             ,
+                                                                                                       da − 1
+Video prompts. For RGB instances, we use the
+prompt        A video recorded from a robot’s                            and its value is obtained by linear interpolation between the
+point of view executing the following                                    two neighboring source entries. For tensors with multiple
+instruction: task. For self-mask instances, we                           mismatched axes, the operation is applied sequentially along
+use A robot-arm mask video recorded from                                 each axis. When the resized axis is the input dimension
+a robot’s point of view executing the                                    of a weight p tensor, we additionally scale the interpolated
+following instruction: task. Here, task is                               weights by dv /da to compensate for the change in in-
+replaced with the natural-language task instruction from                 put width and maintain comparable activation magnitudes.
+RoboTwin. A self-mask instance uses the corresponding                    Action-specific input and output layers without correspond-
+initial RGB frame as its visual condition and predicts a                 ing video-backbone parameters are initialized separately. Ta-
+sequence of binary robot-arm masks. Because the target                   ble S2 summarizes the settings used in the reported experi-
+includes only the robot arm, the prompt does not require an              ments.
+actor-color legend. The clean action condition is constructed               During deployment, the policy encodes the latest observa-
+using the standard RGB prompt and reused by the self-mask                tion, predicts a 32-step action chunk with 10 denoising steps,
+instance.                                                                executes the first 24 actions, and then replans. The clean-
+   RGB and self-mask instances are sampled at a ratio of                 action and future-visual streams are not instantiated. Optional
+9:1. We set λact = λvideo = 1 for the action and visual                  visual rollout instead inserts a candidate action through the
+flow-matching losses.                                                    clean-action path and selects future RGB or future self-mask
+                                                                         prediction with the corresponding output prompt.
+Temporal Sampling and Multi-View Preprocessing
+For a window starting at control step t, the policy target               Datasets and Splits
+contains the 32 actions from at to at+31 . We collect the                For RoboTwin 2.0, every method is trained on the same multi-
+corresponding 32 future visual observations over the same                task dataset of 27,500 demonstrations. This dataset contains
+Figure S1: Temporal sampling and multi-view composition. A representative 32-step future observation window after temporal
+downsampling to 8 frames, ordered from left to right. Each frame uses the fixed T-shaped composition of the three camera
+views. Future RGB and self-mask targets share the same temporal offsets and spatial layout.
+
+
+Table S2: Optimization, inference, and system configuration.      ation episodes for each setting. We use the simulator’s task
+                                                                  success signal and report the unweighted mean success rate
+Setting                              Value                        across tasks. Clean and randomized results are reported sep-
+Video backbone                       WAN2.2-5B                    arately because the latter changes scene appearance and con-
+Input views                          3                            figuration while preserving the task objective.
+Composite resolution                 384 × 320
+Action horizon                       32 steps                     Task-Level Results
+Visual target length                 8 frames                     Table S4 reports the complete task-level results for the meth-
+Optimizer                            AdamW                        ods included in our per-task evaluation export. Relative to
+Learning rate                        1 × 10−4                     FastWAM, SelfWAM achieves higher mean success rates
+Training epochs                      5                            in both clean and randomized environments, with a more
+λact , λvideo                        1, 1                         pronounced improvement under randomization. The largest
+RGB:self-mask sampling ratio         9:1                          randomized gains occur on Open Microwave, Hanging Mug,
+Global batch size                    1024                         Handover Block, and Place Mouse Pad. The gains are not
+Per-GPU batch size                   16                           uniform across all tasks, which is consistent with the mod-
+Action denoising steps               10                           est aggregate improvement reported in the main paper. The
+Executed actions before replanning   24                           overall pattern indicates that self-grounded supervision is
+Training hardware                    64 NVIDIA A800 GPUs          most useful on a subset of tasks requiring stronger spatial
+Training time                        Approximately 30 hours       alignment between visible robot motion and the manipulated
+Operating system                     Ubuntu 22.04                 scene.
+Python / PyTorch                     3.10.12 / 2.7.1
+CUDA                                 12.8                         Future-Video Fidelity Protocol
+System memory                        1 TB
+                                                                  We evaluate the observation-conditioned FastWAM objec-
+                                                                  tive and the clean-action-conditioned SelfWAM objective.
+                                                                  For every trajectory, future predictions are generated across
+2,500 demonstrations from clean environments and 25,000           its full duration using matched context windows. The two
+demonstrations collected under the benchmark’s scene ran-         models use the same observation, instruction, target tra-
+domization protocol. The future-video analysis uses a uni-        jectory, and evaluation subset; the only intended change is
+formly sampled subset of 275 trajectories, corresponding to       whether the future visual stream receives the clean demon-
+1% of this offline dataset. This analysis measures fidelity       strated action.
+to demonstrated futures under matched context and action             We report LPIPS (Zhang et al. 2018), PSNR (Huynh-Thu
+conditions; it should not be interpreted as a separate test of    and Ghanbari 2008), and FVD with I3D features (Unterthiner
+held-out video generalization.                                    et al. 2018). These reference-based metrics measure similar-
+   The physical-robot dataset contains 17,307 episodes and        ity to the recorded future, but they do not establish whether
+9,557,419 transitions. We use a fixed episode-level random        a model responds to controlled changes in the conditioning
+split with seed 42. The training split contains 17,133 episodes   action. We therefore pair them with the action sensitivity
+and 9,461,919 transitions, while the validation split contains    analyses reported below.
+174 episodes and 95,500 transitions. All real robot baselines
+are trained on the same training split. The validation episodes   Table S3: WorldArena-based action sensitivity and raw con-
+are excluded from gradient updates.                               sistency scores. Higher is better for all reported metrics.
+          B   Extended RoboTwin Evaluation                                                  Action     Subject   Background   Photometric
+                                                                  Model                   Following↑    Raw↑       Raw↑         Raw↑
+Evaluation Protocol
+We evaluate 50 RoboTwin 2.0 tasks in both clean and ran-          FastWAM                   0.0000     0.9138      0.9309       0.8126
+                                                                  SelfWAM w/o self-mask     0.0181     0.9321      0.9380       1.5168
+domized environments. Each method is evaluated for 100
+                                                                  SelfWAM                   0.0184     0.9326      0.9385       1.4361
+simulator rollouts per task and setting, giving 5,000 evalu-
+       Table S4: Task-level success rates (%) on RoboTwin 2.0 under the clean and randomized settings.
+
+                              SelfWAM         w/o Mask        FastWAM              π0.5            Motus
+Task
+                            Clean   Rand.   Clean   Rand.   Clean   Rand.    Clean    Rand.     Clean   Rand.
+Adjust Bottle                100     100     100      99     100      99     100           99    89         93
+Beat Block Hammer            100      99     100      94      98      97     96           93     95        88
+Blocks Ranking RGB           100      97      98      95     100      99     92           85    99         97
+Blocks Ranking Size           98      98      89      92      93      96     49           26    75         63
+Click Alarmclock             100     100     100     100     100     100      98           89   100        100
+Click Bell                   100     100     100     100     100     100      99           66   100        100
+Dump Bin Bigbin               95      91      95      98     98      98      92           97    95         91
+Grab Roller                  100     100     100     100     100     100     100          100   100        100
+Handover Block                93      93      88      77     96      84      66           57    86         73
+Handover Mic                  97     100      98      99     100      98     98           97    78         63
+Hanging Mug                   61      65      57      48     48      53      18           17    38         38
+Lift Pot                      99     100     100      99     100     100      96           85    96        99
+Move Can Pot                  91      98      79      88     90      96      51           55    34         74
+Move Pillbottle Pad           99      96      99      98     100     100     84           61     93        96
+Move Playingcard Away         99     100     100     100     100      99      96           84   100         96
+Move Stapler Pad              73      75      79      72      72      69     56           42    83         85
+Open Laptop                   98      98     100     100      97      97     90           96     95        91
+Open Microwave                74      67      68      72     54      41      34           77    95         91
+Pick Diverse Bottles          77      87      80      86     88      84      81           71    90         91
+Pick Dual Bottles             89      97      99     93      98      96      93           63    96         90
+Place A2B Left                96      99      89     97      94      96      87           82    88         79
+Place A2B Right               97     100      95     96      97      97      87           84    91         87
+Place Bread Basket            91      95      95      96      92      95     77           64    91         94
+Place Bread Skillet           87      95      95      93     94      96      85           66    86         83
+Place Burger Fries            99      99      93      99     98      99      94           87    98         98
+Place Can Basket              68      63      71      55     70      67      62           62    81         76
+Place Cans Plasticbox         98      97     100      97      99      97     94           84    98         94
+Place Container Plate        100      99      98      96     98      98      99           95    98         99
+Place Dual Shoes              95      94      86      89     86      91      75           75    93         87
+Place Empty Cup              100     100      98     100     100      98     100           99    99         98
+Place Fan                     93      96      97      96     97      94      87           85    91         87
+Place Mouse Pad               94      94      86      85      86      85     60           39    66         68
+Place Object Basket           88      86      80      76     87      86      80           76    81         87
+Place Object Scale            96      98      89      95     93      99      86           80    88         85
+Place Object Stand            97      93      95      87     96      96      91           85    98         97
+Place Phone Stand             97      95      97      98     99      98      81           81    87         86
+Place Shoe                    95     100      95      96     97      99      92           93    99         97
+Press Stapler                 95      97      89      94     90      91      87           83    93         98
+Put Bottles Dustbin           96      89      87      87     92      95      84           79    81         79
+Put Object Cabinet            89      90      87      91     90      95      80           79    88         71
+Rotate QRcode                 94      85      86      88      89      90     89           87    89         73
+Scan Object                   92      91      87      87     93      93      72           65    67         66
+Shake Bottle                 100     100     100     100     100     100     99           97    100        97
+Shake Bottle Horizontally    100     100     100     100     100     100      99           99   100         98
+Stack Blocks Three            98      95      97      96      98      96     91           76    91         95
+Stack Blocks Two             100     100      99      99     100     100     97           100   100         98
+Stack Bowls Three             73      81      82      83     77      78      77           71    79         87
+Stack Bowls Two               91      94      94     93      93      96      95           96    98         98
+Stamp Seal                    80      95      80      88     85      93      79           55    93         92
+Turn Switch                   66      73      64      73     69      69      62           54    84         78
+Average                     92.16   93.08   90.80   90.80   91.82    91.86   82.74    76.76     88.66   87.02
+C     Action Sensitivity and Controlled Rollouts                                               Ac�on Interpola�on Coeﬃcient
+                                                                                    0%            25%               75%             100%
+WorldArena Metrics
+Standard reference-based metrics measure how closely a pre-            Ground
+                                                                        Truth
+dicted future matches the ground-truth video, but do not re-
+veal whether the prediction responds to the supplied action.
+We therefore adopt Action Following and three consistency             w\o ac�on
+metrics from WorldArena (Shang et al. 2026). For each con-            condi�on
+
+text, we fix the initial observation and sampling noise while
+varying only the conditioning action chunk.
+                                                                       w\ ac�on
+   Given M generated futures and their global CLIP features            condi�on
+{fi }M
+     i=1 , Action Following is the average pairwise feature
+dissimilarity                                                                      Hold                                             Expert
+
+                             X          fi⊤ fj
+                                                  
+                      2
+       Sact =                      1−               .    (S1)         Figure S2: Continuous action interpolation. We interpolate
+               M (M − 1) i<j           ∥fi ∥∥fj ∥
+                                                                      from a stationary hold action (0%) to the demonstrated action
+                                                                      (100%). The action-unconditioned baseline produces nearly
+A larger value indicates that the model produces more distinct
+                                                                      invariant futures, whereas SelfWAM changes progressively
+futures when the conditioning action changes. This metric
+                                                                      toward the demonstrated-action outcome.
+diagnoses action sensitivity rather than physical correctness.
+   For a generated video V = {It }Tt=1 , Subject Raw Consis-
+tency uses DINO features dt , and Background Raw Consis-              of the chunk. We keep the observation, instruction, and sam-
+tency uses CLIP image features ct :                                   pling noise fixed across variants to isolate the effect of action
+                     T                                                conditioning. The qualitative results in the main paper show
+     raw        1 X cos(dt , d1 ) + cos(dt , dt−1 )
+    Ssubj =                                         ,         (S2)    that the action-unconditioned baseline remains nearly invari-
+              T − 1 t=2            2                                  ant, whereas SelfWAM shifts the predicted robot self-mask
+                                                                      in the perturbed direction and follows the corresponding sim-
+                     T
+     raw        1 X cos(ct , c1 ) + cos(ct , ct−1 )                   ulator motion trend.
+    Sbg  =                                          .         (S3)
+              T − 1 t=2            2
+                                                                      Continuous Action Interpolation
+Photometric Raw Consistency is based on forward and back-             We additionally test whether the learned response changes
+ward optical-flow warping. Let Ephoto be the mean round-              continuously between a stationary action and the demon-
+trip endpoint error and Sdyn the WorldArena dynamic-degree            strated action. Let ahold denote the hold action and ademo
+score. We report the pre-normalized quantity                          the demonstrated action. We construct
+                                                                          a(α) = (1 − α)ahold + αademo ,
+                                            
+               raw        1            Sdyn                                                                               α ∈ [0, 1].        (S5)
+             Sphoto  =          min 1,         ,      (S4)
+                        Ephoto           γ                            The visualization uses α ∈ {0, 0.25, 0.75, 1} and keeps the
+where γ is the benchmark’s motion threshold. Because this             context and sampling noise fixed.
+is a raw reciprocal error score, it is not restricted to [0, 1]. We      As shown in Figure S2, the action-unconditioned base-
+report raw consistency values to avoid dependence on em-              line predicts nearly unchanged RGB futures as α increases.
+pirical normalization bounds from a different model pool.             In contrast, SelfWAM progresses from the hold outcome
+High consistency can still result from nearly static predic-          toward the demonstrated-action outcome in the same quali-
+tions, so all three consistency metrics are interpreted jointly       tative direction as the corresponding rollout. The metric re-
+with Action Following and the controlled rollouts below.              sults, directional perturbations, and interpolation study pro-
+   Table S3 shows that clean-action conditioning accounts             vide complementary evidence that the learned future predic-
+for most of the improvement in action sensitivity. Adding             tion is action dependent, directionally aligned, and locally
+self-mask supervision further improves subject and back-              continuous around demonstrated actions.
+ground consistency, while photometric consistency de-
+creases slightly. Overall, the complete model preserves strong        D      Consistency of the Clean and Noisy Action
+action sensitivity while achieving broader improvements in                                     Paths
+visual consistency.                                                   Our training design represents each demonstrated action
+                                                                      through two paths: a clean copy that conditions future vi-
+Directional Action Perturbation                                       sual prediction and a noise-perturbed copy used for action
+To construct directional action variants, we perturb the              denoising. The two paths share the same action-side network,
+demonstrated action along the vertical and horizontal transla-        but their tokens serve different roles under the directed at-
+tion axes, producing upward, downward, leftward, and right-           tention pattern. We therefore examine whether they produce
+ward variants. The perturbation magnitude increases linearly          consistent representations when the perturbation on the noisy
+over the first eight action steps and remains fixed for the rest      path is removed.
+Figure S3: Consistency of the clean and noisy action paths at σ = 0. We compare aligned action representations from the
+two paths at every Transformer layer using (a) NRMSE and (b) cosine distance. Solid curves and shaded regions show the mean
+and ±1 standard deviation, respectively.
+
+
+   Let hclean
+        l     and hnoisy
+                   l      (σ) denote the aligned action-token    full teleoperation setup pairs the two follower arms with
+representations after Transformer layer l on the clean and       two leader arms for data collection. Visual observations are
+noisy paths, respectively. At σ = 0, the noisy path receives     captured by two wrist cameras and one fixed high camera,
+the original demonstrated action without perturbation. We        following the standard Cobot Magic camera configuration
+compare hclean
+            l    and hnoisy
+                        l     (0) at every Transformer layer     (AgileX Robotics 2026b). No mobile-base command is in-
+using normalized root mean squared error (NRMSE) and             cluded during training or evaluation.
+cosine distance. Specifically, we define                            The policy uses joint-position control. Low-level robot
+                              q P
+                                      N
+                                                                 commands are executed at 30 Hz. Each action contains six
+                                 1                  2
+                                 N    i=1 (xi − yi )             target joint angles and one gripper command for each arm,
+          NRMSE(x, y) = q P                           ,          giving a 14-dimensional action vector; proprioception fol-
+                                   1    N     2+ϵ
+                                   N    i=1 x i                  lows the same 14-dimensional ordering (AgileX Robotics
+where x is the clean-path representation, y is the corre-        2026a).
+sponding noisy-path representation, and N is the number of
+aligned token-channel elements. Both metrics are computed        RobotSeg Mask Generation
+over aligned action tokens and feature channels.
+   As shown in Figure S3, the discrepancies remain small         RobotSeg is a robot-specific image and video segmentation
+throughout the action network. They increase gradually with      model built on SAM 2 (Mei et al. 2026a). It introduces a
+network depth, with no abrupt increase at any individual         Robot Prompt Generator that initializes segmentation from
+layer. Across the sampled validation windows and all Trans-      semantic robot categories without manual spatial prompts,
+former layers, the maximum NRMSE and cosine distance are         together with a Structure-Enhanced Memory Associator that
+approximately 1 × 10−5 and 6 × 10−11 , respectively. These       preserves articulated robot structure during temporal prop-
+results indicate that the clean and noisy paths produce nu-      agation. RobotSeg supports arm, gripper, and whole-robot
+merically consistent representations when evaluated on the       categories; we use the whole-robot category for all physical-
+same unperturbed action. In particular, we observe no layer-     robot targets.
+specific mismatch attributable to their different roles in the
+directed attention pattern. The clean action representation      Robot mask generation. We generate robot-arm masks
+can therefore be viewed as the zero-noise endpoint of the        offline using the released RobotSeg checkpoint (Mei et al.
+action denoising path.                                           2026b). Each camera stream is processed independently us-
+                                                                 ing the automatic robot category, without manual points,
+                                                                 bounding boxes, or reference masks. The resulting binary
+      E    Real Robot Experimental Details                       masks are arranged into the same T-shaped layout as the
+Platform and Data                                                RGB observations and used only as future self-mask targets.
+We conduct physical experiments on a stationary AgileX           The policy receives no mask input, and RobotSeg is not used
+ALOHA dual-arm platform (AgileX Robotics 2026a). The             during deployment.
+Real-Robot Evaluation Details                                     Chen, Y.; Gao, T.; Ge, Y.; Ban, S.; Wang, Y.; Xiong, H.;
+We use one fixed language instruction for each task:              Zeng, W.; and Zhu, W. 2026. Proprioceptive-Visual Cor-
+                                                                  respondence Enables Self-Other Distinction in Humanoid
+1. Pick up the brown cup and place it on the wooden stand.        Robots. arXiv:2606.13222.
+2. Pick up the black pen and place it in the blue cup.            Chi, C.; Xu, Z.; Feng, S.; Cousineau, E.; Du, Y.; Burchfiel,
+3. Pick up the black mouse and place it on the gray mouse         B.; Tedrake, R.; and Song, S. 2023. Diffusion Policy: Visuo-
+   pad.                                                           motor Policy Learning via Action Diffusion. In Robotics:
+                                                                  Science and Systems.
+4. Pick up the paper ball and place it in the desktop bin.
+                                                                  Huynh-Thu, Q.; and Ghanbari, M. 2008. Scope of Validity
+   For each trial, we randomly place both the manipu-             of PSNR in Image/Video Quality Assessment. Electronics
+lated object and the target within predefined regions of the      Letters, 44(13): 800–801.
+workspace. The policy may make multiple attempts within
+                                                                  Kim, M. J.; Pertsch, K.; Karamcheti, S.; Xiao, T.; Balakr-
+the same episode, such as regrasping the object or correcting
+                                                                  ishna, A.; Nair, S.; Rafailov, R.; Foster, E.; Lam, G.; Sanketi,
+an unsuccessful placement, without resetting the scene. An
+                                                                  P.; Vuong, Q.; Kollar, T.; Burchfiel, B.; Tedrake, R.; Sadigh,
+episode ends when the task is completed or when the current
+                                                                  D.; Levine, S.; Liang, P.; and Finn, C. 2024. OpenVLA:
+scene state no longer allows the policy to complete the task
+                                                                  An Open-Source Vision-Language-Action Model. In Con-
+without human intervention.
+                                                                  ference on Robot Learning.
+                                                                  Lepert, M.; Doshi, R.; and Bohg, J. 2025. Shadow: Lever-
+        F     Limitations and Future Work                         aging Segmentation Masks for Cross-Embodiment Policy
+SelfWAM predicts future RGB observations and robot                Transfer. arXiv:2503.00774.
+masks, but does not explicitly model contact, force, or in-       Li, L.; Zhang, Q.; Luo, Y.; Yang, S.; Wang, R.; Han, F.; Yu,
+teractions hidden by occlusion. Extending the prediction          M.; Gao, Z.; Xue, N.; Zhu, X.; et al. 2026. Causal World Mod-
+targets with these signals could provide richer supervision       eling for Robot Control. arXiv preprint arXiv:2601.21998.
+for contact-rich manipulation and partially observed interac-
+tions.                                                            Li, S.; Gao, Y.; Sadigh, D.; and Song, S. 2025. Unified
+                                                                  Video Action Model. In Proceedings of Robotics: Science
+                                                                  and Systems. Los Angeles, CA, USA.
+                        References
+                                                                  Lou, Y.; Chi, X.; Zhang, X.; Qian, Z.; Li, C.; Zhang, R.;
+AgileX Robotics. 2026a. ALOHA Modality Configu-                   Lyu, Y.; Song, G.; Fu, C.; Xu, H.; Wang, P.; and Zhang,
+ration. https://github.com/agilexrobotics/gr00t-agilex/blob/      S. 2026. Mask World Model: Predicting What Matters for
+master/examples/aloha/modality.json. Official configuration       Robust Robot Policy Learning. arXiv:2604.19683.
+file, accessed July 30, 2026.
+                                                                  Ma, F.; Peng, D.; Yue, W.; Cao, J.; Wang, B.; Zhang,
+AgileX Robotics. 2026b. COBOT Magic. https://global.              Q.; and Ma, J. 2026a. GeoSem-WAM: Geometry-and
+agilex.ai/products/cobot-magic. Product page, accessed July       Semantic-Aware World Action Models. arXiv preprint
+30, 2026.                                                         arXiv:2606.03188.
+Almeida, A.; Vicente, P.; and Bernardino, A. 2021. Where          Ma, T.; Zheng, J.; Wang, Z.; Jiang, C.; Cui, A.; Liang, J.;
+Is My Hand? Deep Hand Segmentation for Visual Self-               and Yang, S. 2026b. DiT4DiT: Jointly Modeling Video
+Recognition in Humanoid Robots. Robotics and Autonomous           Dynamics and Actions for Generalizable Robot Control.
+Systems, 145: 103857.                                             arXiv:2603.10448.
+Bi, H.; Tan, H.; Xie, S.; Wang, Z.; Huang, S.; Liu, H.; Zhao,     Mei, H.; Huang, Q.; Ci, H.; and Shou, M. Z. 2026a. Robot-
+R.; Feng, Y.; Xiang, C.; Rong, Y.; Zhao, H.; Liu, H.; Su,         Seg: A Model and Dataset for Segmenting Robots in Image
+Z.; Ma, L.; Su, H.; and Zhu, J. 2026. Motus: A Unified            and Video. In Proceedings of the IEEE/CVF Conference on
+Latent Action World Model. In Proceedings of the IEEE/CVF         Computer Vision and Pattern Recognition.
+Conference on Computer Vision and Pattern Recognition,            Mei, H.; Huang, Q.; Ci, H.; and Shou, M. Z. 2026b. Robot-
+35101–35113.                                                      Seg Official Implementation. https://github.com/showlab/
+Black, K.; Brown, N.; Driess, D.; Esmail, A.; Equi, M.; Finn,     RobotSeg. Accessed July 30, 2026.
+C.; Fusai, N.; Groom, L.; Hausman, K.; Ichter, B.; et al.         Octo Model Team; Ghosh, D.; Walke, H.; Pertsch, K.; Black,
+2024. π0 : A Vision-Language-Action Flow Model for Gen-           K.; Mees, O.; Dasari, S.; Hejna, J.; Kreiman, T.; Xu, C.; et al.
+eral Robot Control. arXiv preprint arXiv:2410.24164.              2024. Octo: An Open-Source Generalist Robot Policy. In
+Chen, B.; Kwiatkowski, R.; Vondrick, C.; and Lipson, H.           Robotics: Science and Systems.
+2022. Full-Body Visual Self-Modeling of Robot Morpholo-           Physical Intelligence; Black, K.; Brown, N.; Darpinian, J.;
+gies. Science Robotics, 7(68): eabn1944.                          Dhabalia, K.; Driess, D.; Esmail, A.; Equi, M.; Finn, C.;
+Chen, T.; Chen, Z.; Chen, B.; Cai, Z.; Liu, Y.; Li, Z.; Liang,    Fusai, N.; et al. 2025. π0.5 : A Vision-Language-Action
+Q.; Lin, X.; Ge, Y.; Gu, Z.; et al. 2025. RoboTwin 2.0: A Scal-   Model with Open-World Generalization. arXiv preprint
+able Data Generator and Benchmark with Strong Domain              arXiv:2504.16054.
+Randomization for Robust Bimanual Robotic Manipulation.           Shang, Y.; Li, Z.; Ma, Y.; Su, W.; Jin, X.; Wang, Z.; Jin,
+arXiv:2506.18088.                                                 L.; Zhang, X.; Tang, Y.; Su, H.; et al. 2026. WorldArena:
+A unified benchmark for evaluating perception and func-
+tional utility of embodied world models. arXiv preprint
+arXiv:2602.08971.
+Unterthiner, T.; van Steenkiste, S.; Kurach, K.; Marinier,
+R.; Michalski, M.; and Gelly, S. 2018. Towards Accurate
+Generative Models of Video: A New Metric and Challenges.
+arXiv preprint arXiv:1812.01717.
+Wan Team. 2025. Wan: Open and Advanced Large-Scale
+Video Generative Models. arXiv:2503.20314.
+Ye, A.; Wang, B.; Ni, C.; Huang, G.; Zhao, G.; et al.
+2026a. GigaWorld-Policy: An Efficient Action-Centered
+World–Action Model. arXiv:2603.17240.
+Ye, S.; Ge, Y.; Zheng, K.; Gao, S.; Yu, S.; et al. 2026b. World
+Action Models Are Zero-shot Policies. arXiv:2602.15922.
+Yu, H.; Lin, H.; Zhang, J.; Zhang, W.; Gu, C.; Li, H.; and
+Tan, P. 2026. MaskWAM: Unifying Mask Prompting and
+Prediction for World-Action Models. arXiv:2606.13515.
+Yuan, T.; Dong, Z.; Liu, Y.; and Zhao, H. 2026. Fast-WAM:
+Do World Action Models Need Test-time Future Imagina-
+tion? arXiv:2603.16666.
+Zhang, R.; Isola, P.; Efros, A. A.; Shechtman, E.; and Wang,
+O. 2018. The Unreasonable Effectiveness of Deep Features
+as a Perceptual Metric. In IEEE Conference on Computer
+Vision and Pattern Recognition.
+Zhang, Y.; Zhang, W.; Qi, Z.; Zhang, H.; Lin, H.; et al. 2026.
+ImageWAM: Do World Action Models Really Need Video
+Generation, or Just Image Editing? arXiv:2606.19531.
+Zhou, P.; Chen, S.; Chen, D.; Wang, J.; Jin, R.; Zhu, B.; Pan,
+Y.; Gu, S.; Wang, K.; Nan, S.; Qiu, X.; Qiu, C.; Yang, P.;
+Cai, Y.; Gao, J.; Li, Y.; Fu, Y.; Yue, X.; Chen, Z.; and Luo,
+J. 2026. τ0 -WM: A Unified Video-Action World Model for
+Robotic Manipulation. arXiv preprint arXiv:2606.01027.
+Zhu, C.; Yu, R.; Feng, S.; Burchfiel, B.; Shah, P.; and Gupta,
+A. 2025. Unified World Models: Coupling Video and Ac-
+tion Diffusion for Pretraining on Large Robotic Datasets. In
+Proceedings of Robotics: Science and Systems. Los Angeles,
+CA, USA.
+

@@ -1,0 +1,348 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.01538",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "MPMWorlds dataset overview. The dataset includes diverse materials and physical",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_002_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Reconstruction and extrapolation pipelines. Models must predict a full video sequence",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_004_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Dataset statistics for MPMWorlds across base scenes. (a) Distribution of number of object",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Comparison of VLM- and VDM-based extrapolation across input conditions and evaluation",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:models",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_007_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_007_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "VDM failure modes in long-horizon physical extrapolation. Left: In an elastoplastic",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:models",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Performance change af-",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:models",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_008_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_008_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "aggregates normalized metric performance",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:models",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_009_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_009_fig_figure_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Moving-average W-MAE",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:models",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Comparison of VLM- and VDM-based extrapolation across input conditions and",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_figure_12.png",
+      "relative_markdown_embed": "![Figure 12](images/page_009_fig_figure_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_009_fig_figure_12.png"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "VLM sensitivity to spatial inputs and compositional scaling. Left: When explicit",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:materials",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Failure modes in object permanence and material inference. Left: In an elastoplastic",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_013_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_013_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_013_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Contrasting failure modes in complex dynamics and spatial reasoning. Left: In a",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_014_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_014_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_014_fig_figure_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Cumulative collapse rate over extrapolated frames. VDM rollouts collapse earlier and",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_016_fig_figure_13.png",
+      "relative_markdown_embed": "![Figure 13](images/page_016_fig_figure_13.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_016_fig_figure_13.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "VLM vs VDM vs Threshold Gate (top-1) on the test set. Blue = best, red = worst per metric.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:materials",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_010_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_010_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Visual metrics for shared input regimes across VLM and VDM on test holdout set (top-1",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_013_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_013_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_013_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Visual metrics for shared input regimes across VLM and VDM on modification validation",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_015_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_015_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MPMWorlds_Material_Point_Method_Simulations_for_Inferring_and_Extrapolating_Physical_Dynamics/images/page_015_fig_table_3.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 16,
+    "by_decision": {
+      "insert": 11,
+      "low_priority": 4,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

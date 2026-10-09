@@ -1,0 +1,134 @@
+Others
+3.5%
+Which royalty-free video platform is the source of the slow-motion footage of the insect 
+with orange and black wings collecting nectar from a flower
+Q
+Storyblocks.
+A
+Game
+14.5%
+Which fighting game features a strong character wearing a blue uniform, red cape, 
+and a yellow and red \"S\" logo, as shown in this video?
+Q
+Superman 
+Injustice2.
+A
+News
+12.0%
+In the CBS News exclusive report, what is the name of the uniformed officer prominently 
+displayed in the foreground of the footage?
+Q
+Greg Bovino.
+A
+Knowledge
+29.5%
+What is the duration of the free trial period mentioned in the FAQ section of the 
+streaming service shown in the video?
+Q
+14 days.
+A
+Entertain.
+22.0%
+According to the title shown in the video, what is the name of the 3D animated clown 
+character?
+Q
+Pomni.
+A
+Daily.
+18.5%
+What is the specific model name and target gender group of the dark-colored slide 
+sandals with three white stripes placed on the wooden table in the image?
+Q
+Adidas Adilette 
+Aqua Slides.
+A
+Figure 2: Overview of VIDEODR-BENCH. The benchmark spans six video domains: Knowledge (29.5%),
+Entertainment (22.0%), Daily Life (18.5%), Game & Sports (14.5%), News (12.0%), and Others (3.5%). Every
+instance requires joint visual grounding and multi-hop external knowledge reasoning.
+ment. To operationalize the spatiotemporal ground-
+ing pipeline, the action space A encompasses
+our defined tools alongside standard web oper-
+ations: A = {Select_Keyframe, Crop_Search,
+Text_Search, . . . }. Specifically, the temporal tool
+selects a specific index t ∈{1, . . . , T} to isolate
+an informative frame vt. Subsequently, the spatial
+tool takes vt and a bounding box B ∈R4 to crop
+a target entity, yielding a localized visual context
+cvis = Crop(vt, B) for downstream search. Alter-
+natively, these two tools can be encapsulated into a
+single joint operation.
+Empirical Study
+To empirically evaluate this
+naive formulation, we instantiate the agent with
+three representative models on a VideoDR (Liu
+et al., 2026) benchmark, specifically tracking the
+execution frequencies of each tool to analyze their
+behavioral patterns.
+Table 1: Comparison of Accuracy and Average Tool
+Invocation Counts between Models on VideoDR (Liu
+et al., 2026).
+Model
+Acc.
+Vision Tool
+Text Tools
+Qwen3.5-35B-A3B
+41
+0.04
+0.58
+Qwen3.5-397B-A17B
+58
+0.10
+1.27
+GPT-5
+57
+0.00
+0.12
+As shown in Table 1, our preliminary evaluation
+yields two critical findings:
+Finding 1: Severe Modality Bias and Visual Tool
+Aversion. Current models exhibit an inherent re-
+luctance to invoke visual tools. Even the most
+capable open-source model, Qwen3.5-397B-A17B,
+executes an average of only 0.10 visual operations
+per task, overwhelmingly favoring text tools (1.27).
+This indicates that agents predominantly default to
+textual search, completely bypassing the intended
+active visual exploration.
+Finding 2: Susceptibility to Parametric Knowl-
+edge Leakage. Existing evaluation setups suffer
+from severe prior knowledge leakage. Notably,
+GPT-5 achieves a highly competitive score of 57
+while making virtually zero tool calls (0.00 for
+vision and 0.12 for text). This suggests that the
+model bypasses the multi-step grounding process
+entirely, relying solely on its vast internal memory
+to hallucinate or directly guess the correct answers.
+3
+VIDEO-DEEPRESEARCH
+We first detail a generative pipeline for synthesiz-
+ing Video QA data (Sec. 3.1), which serves as the
+foundation for constructing high-quality execution
+trajectories (Sec. 3.2). Building on this curated
+data, we then describe the multi-modal training
+procedure for our agent (Sec. 3.3), and finally es-
+tablish a robust benchmark to evaluate Video-DR
+capabilities (Sec. 3.4).
+3.1
+VQA Generation
+Given the absence of dedicated datasets for Video-
+DR, we initiate our pipeline by synthesizing foun-
+dational Video QA pairs. This procedure trans-
+forms raw videos into explicit VQA pairs. To en-
+sure high data quality, we annotate intermediate
+evidence for each instance, thereby ensuring the
+visual groundability and answerability of the gen-
+erated queries.
+Step 0: Multi-Domain Video Filtering. We be-
+gin by curating a diverse collection of raw videos
+across multiple domains. These videos are sourced
+from both established video datasets (Ben-Ami
+et al., 2025; Ataallah et al., 2025; Wu et al., 2024;
+Wang et al., 2025; Tao et al., 2026; Li et al., 2024,
+2025a; Goel et al., 2026; Li et al., 2026; Cheng
+et al., 2025a; Fu et al., 2025a; Hu et al., 2025; Yang
+et al., 2025a; Hong et al., 2026; Yang et al., 2025b;

@@ -1,0 +1,169 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文以预训练视频模型为底座，提出像素空间动作条件表示，报告训练、推理、跨具身泛化和下游机器人操控实验，核心是可复现的方法机制而非数据集构建。",
+  "dominant_domain": "具身智能、机器人世界模型、可控视频生成",
+  "must_cover": [
+    "将动作重述为实体的时空像素掩码，而不是关节向量、末端位姿或稀疏骨架。",
+    "通过改变条件实体集合，将同一视频补全模型查询为前向模型或逆向模型。",
+    "分割式和渲染式训练条件的构造、互补性与标定依赖。",
+    "训练配置、规划、策略评估和动作提取的完整协议。",
+    "主结果、消融、可证明结论与因果、校准和复现边界。"
+  ],
+  "key_numbers": [
+    {
+      "value": "15 小时",
+      "meaning": "真实视频和仿真掩码样例的高效微调数据规模。",
+      "evidence_sources": [{"section_id": "sec:abstract", "pages": [1, 2]}]
+    },
+    {
+      "value": "Wan-Fun-Control 2.2 14B；LoRA 秩 256；批量大小 4；8 张 H200；约 10,000 步、4 天",
+      "meaning": "主模型与训练计算配置。",
+      "evidence_sources": [{"section_id": "sec:method-2", "pages": [6]}]
+    },
+    {
+      "value": "约 1,000 条 DROID 示范与 4,000 个 RoboCasa 样例",
+      "meaning": "附录披露的训练数据构成，包含保留或生成的失败轨迹。",
+      "evidence_sources": [{"section_id": "sec:method-4", "pages": [17]}]
+    },
+    {
+      "value": "DROID：0.0945、0.887、23.74；BEHAVIOR：0.123、0.843、22.90",
+      "meaning": "相对三个基线的 LPIPS、SSIM、PSNR 主结果。",
+      "evidence_sources": [{"section_id": "sec:method-2", "pages": [6]}]
+    },
+    {
+      "value": "规划每任务 10 场景、N=10；增益为 7 至 26 个百分点；策略评估 r=0.982；动作提取 90%",
+      "meaning": "下游世界模型用途的关键实验规模与结果。",
+      "evidence_sources": [{"section_id": "sec:method-3", "pages": [7, 10]}]
+    }
+  ],
+  "real_comparisons": [
+    {
+      "comparison": "可控视频主结果",
+      "systems": ["图像到视频", "Wan-Move", "Ctrl-World", "Masked Visual Actions"],
+      "datasets": ["DROID", "BEHAVIOR"],
+      "metrics": ["LPIPS", "SSIM", "PSNR"],
+      "interpretation": "本方法在两个报告数据集的三项视觉指标中均最佳；BEHAVIOR 为未见的双臂具身。",
+      "evidence_sources": [{"section_id": "sec:method-2", "pages": [6]}]
+    },
+    {
+      "comparison": "视觉条件消融",
+      "systems": ["末端执行器可视化", "骨架可视化", "Masked Visual Actions"],
+      "datasets": ["DROID", "未见夹爪真实数据", "BEHAVIOR"],
+      "metrics": ["LPIPS", "SSIM", "PSNR"],
+      "interpretation": "域内三者接近；未见夹爪与未见具身时稠密掩码在多数指标上更稳，但真实世界 SSIM 由骨架条件略高。",
+      "evidence_sources": [{"section_id": "sec:method-3", "pages": [7, 10]}]
+    },
+    {
+      "comparison": "动作提取",
+      "systems": ["Diffusion Policy", "ACT", "SmolVLA", "Masked Visual Actions 加逆动力学"],
+      "datasets": ["RoboCasa 的 COFFEESERVEMUG"],
+      "metrics": ["成功率"],
+      "interpretation": "20 次试验中作者报告本方法 90%，高于三个对照的 50%、80%、85%。",
+      "evidence_sources": [{"section_id": "sec:method-3", "pages": [7, 10]}]
+    }
+  ],
+  "central_claims": [
+    {
+      "claim": "将条件输入改为与视频坐标系对齐的实体像素轨迹，使视频模型可接收跨具身的显式动作外观。",
+      "supporting_evidence": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method-3", "pages": [7, 10]}],
+      "what_it_actually_proves": "在 DROID、未见夹爪真实数据和 BEHAVIOR 上，稠密掩码相对于两种稀疏视觉条件有更稳的重建表现。",
+      "what_it_does_not_prove": "它不证明模型获得了与运动学、接触或因果动力学无关的普适理解，也不覆盖所有机器人、视角和对象。"
+    },
+    {
+      "claim": "改变条件实体集合可使同一检查点承担前向响应预测与逆向机器人运动合成。",
+      "supporting_evidence": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method-3", "pages": [7, 10]}],
+      "what_it_actually_proves": "作者报告训练主要采用机器人掩码，却能在物体轨迹条件下零样本生成相容机器人视频，并在动作提取中达到 90%。",
+      "what_it_does_not_prove": "该证据只覆盖一个 RoboCasa 任务，且可执行控制仍依赖另训的逆动力学模型；它不是端到端通用逆动力学证明。"
+    },
+    {
+      "claim": "视频滚动可用作策略评估和候选排序，从而支持模型式规划的测试时扩展。",
+      "supporting_evidence": [{"section_id": "sec:method-3", "pages": [7, 10]}, {"section_id": "sec:method-4", "pages": [17]}],
+      "what_it_actually_proves": "RoboCasa 报告协议下，想象与真值成功率相关为 r=0.982，六项任务的候选重排带来 7 至 26 个百分点增益。",
+      "what_it_does_not_prove": "相关性不是校准保证；排序依赖 Gemini 3.1 Pro 与任务规则，且作者观察到任务进展的正偏差。"
+    }
+  ],
+  "claim_boundaries": [
+    "模型学习交互相关性而非因果关系；视觉上像完成的结果可能来自虚假接触、物体自主运动或跳帧。",
+    "未见具身量化规模有限：附录表 C1 标注 DROID n=50、BEHAVIOR-1K n=50、真实世界 n=13。",
+    "视觉重建指标不直接测量可执行动作精度、闭环鲁棒性、碰撞安全或长时程物理一致性。",
+    "Ctrl-World 的域内比较存在训练数据重叠提示，故不能视为严格同等训练预算比较。"
+  ],
+  "negative_or_limiting_results": [
+    "图像到视频和 Wan-Move 在作者的 DROID 定性示例中不能稳定执行机器人运动或保持输入场景。",
+    "稀疏末端执行器或骨架条件在域内接近本方法，却会在未见夹爪或双臂具身时变形或幻觉训练机器人。",
+    "策略评估中想象轨迹对任务进展存在系统性正偏差。",
+    "模型受基础视频模型的表达能力和推理速度限制，端到端控制时延与安全失败率未量化。"
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "以实体掩码 M(S) 在像素空间揭示条件轨迹",
+      "result_pattern": "稠密画面配准输入避免从稀疏符号反推机器人几何和接触，对未见具身的视觉重建更稳。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method-3", "pages": [7, 10]}]
+    },
+    {
+      "mechanism": "把主动实体集合或被动物体集合设为条件集合",
+      "result_pattern": "同一个视频补全目标分别成为前向响应预测和逆向机器人运动合成，无需两个视频主干。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method-3", "pages": [7, 10]}]
+    },
+    {
+      "mechanism": "分割掩码和渲染掩码混合训练",
+      "result_pattern": "前者接入不依赖标定的真实视频，后者允许测试时渲染任意候选动作；后者也依赖标定和已知几何。",
+      "evidence_sources": [{"section_id": "sec:method", "pages": [4, 6]}]
+    },
+    {
+      "mechanism": "候选策略、视频滚动和视觉语言模型排序的规划链路",
+      "result_pattern": "候选数增加时选中轨迹的表现上升；收益来自候选重排，不是视频模型直接输出控制。",
+      "evidence_sources": [{"section_id": "sec:method-3", "pages": [7, 10]}, {"section_id": "sec:method-4", "pages": [17]}]
+    }
+  ],
+  "comparative_positioning": [
+    "相对 Ctrl-World，本文以同画布实体掩码替代具身绑定的低维机器人状态，换取跨具身接口，但继承大型视频模型的计算成本。",
+    "相对 Wan-Move 与普通图像到视频，本文显示机器人实体的稠密可见外观，不只是指定稀疏轨迹。",
+    "相对以模态通道掩码统一视频和向量动作的模型，本文将统一开关放在空间实体选择上。",
+    "相对端到端视频策略，本文逆向路径仍要由逆动力学模型把生成视频转换为十二维动作。"
+  ],
+  "reuse_takeaways": [
+    "复现的首要前提是渲染掩码与相机严格配准；新机器人须提供匹配的几何、状态轨迹和相机外参。",
+    "训练集应同时有成功和失败交互，否则规划器难以区分虚假成功与真实接触。",
+    "评估应分别报告视觉保真、动作可执行性和因果接触；仅用外观指标会奖励不可执行视频。",
+    "规划复现应固定候选生成策略、候选数、视觉语言模型版本与排序键，并给出随机选择和真值排序上界。"
+  ],
+  "followup_questions": [
+    "训练时若显式混合主动和被动实体掩码，逆向生成能否减少对额外逆动力学模型的依赖？",
+    "用几何接触、多视角一致性或不确定性估计后，能否降低虚假接触、物体自主运动和跳帧导致的正偏差？",
+    "在严格未见机器人、视角、对象材质和长时程多接触任务上，排序与真实回报的校准曲线如何，所需候选数和推理成本是多少？",
+    "渲染掩码的标定误差、网格误差和遮挡策略会怎样影响跨具身泛化？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "界定预训练视频模型接入机器人动作的表示失配，说明低维命令和稀疏提示的具身绑定与像素先验不对齐，并交代本文的实体时空掩码接口。",
+      "evidence_sources": [{"section_id": "sec:introduction", "pages": [2]}, {"section_id": "sec:related-work", "pages": [2, 4]}]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "解释视频、实体、主动与被动角色、参考帧、掩码和条件分布，再交代 DROID、RoboCasa、真实世界与 BEHAVIOR 的用途和视觉重建指标边界。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method", "pages": [4, 6]}, {"section_id": "sec:appendix-overview", "pages": [16, 17]}]
+    },
+    {
+      "section": "方法主线",
+      "focus": "以四步可复现流程讲清分割或渲染构造、条件编码和轻量微调、前向与逆向查询切换、以及规划或动作提取链路，并给出关键公式和训练参数。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method", "pages": [4, 6]}, {"section_id": "sec:method-2", "pages": [6]}, {"section_id": "sec:model", "pages": [17, 21]}]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用紧凑表格汇总 DROID、真实世界和 BEHAVIOR 的可控生成指标，解释跨具身消融，并补充规划增益、策略评估相关性、动作提取成功率及其协议。",
+      "evidence_sources": [{"section_id": "sec:method-2", "pages": [6]}, {"section_id": "sec:method-3", "pages": [7, 10]}, {"section_id": "sec:method-4", "pages": [17]}]
+    },
+    {
+      "section": "深度分析",
+      "focus": "把像素对齐、实体条件切换、混合分割与渲染训练、候选排序分别映射到结果，并比较具身状态输入、稀疏视觉提示和模态掩码统一路线。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2, 4]}, {"section_id": "sec:method", "pages": [4, 6]}, {"section_id": "sec:method-3", "pages": [7, 10]}]
+    },
+    {
+      "section": "局限",
+      "focus": "区分论文测得的视觉可控性与尚未建立的因果正确性、闭环安全、长时程一致性和广泛泛化，具体说明评分器、样本量、基础模型速度和标定依赖。",
+      "evidence_sources": [{"section_id": "sec:method-3", "pages": [7, 10]}, {"section_id": "sec:method-4", "pages": [17]}, {"section_id": "sec:model", "pages": [17, 21]}]
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "paper": {
+    "title": "InternW0-Δ: A World Action Model Bridging Predictive Dynamics and Actions with 20K+ Hours of Open Data",
+    "authors": [
+      "Xingyu Miao",
+      "Zizun Li",
+      "Baole Fang",
+      "Kaiwen Song",
+      "Tenghui Wang",
+      "Hanxue Zhang",
+      "Yating Wang",
+      "Xudong Li",
+      "Yuping He",
+      "Xueyuan Wei",
+      "Chao Gao",
+      "Xijie Yang",
+      "Yingxiang Xu",
+      "Kerui Ren",
+      "Wenqi Guo",
+      "Jianjun Zhou",
+      "Xinzhe Wang",
+      "Weiguang Zhao",
+      "Ni Yang",
+      "Zetao Cai",
+      "Yufei Xue",
+      "Hengjie Li",
+      "Zeyu He",
+      "Yuanzhen Zhou",
+      "Rong Fu",
+      "Jianyang Zhang",
+      "Siwei Cui",
+      "Fuxian Huang",
+      "Yunsong Zhou",
+      "Xing Gao",
+      "Yifei Yao",
+      "Qiaojun Yu",
+      "Kailin Li",
+      "Ming Zhou",
+      "Mu Huang",
+      "Xinyue Li",
+      "Wenze Cui",
+      "Bingqi Jiang",
+      "Xueyue Zhu",
+      "Junting Dong",
+      "Haoyu Guo",
+      "Tao Lu",
+      "Mulin Yu",
+      "Bowen Zhou",
+      "Bin Zhao",
+      "Tianfan Xue",
+      "Weinan Zhang",
+      "Chunhua Shen"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/PSJ9YU3M/Miao 等 - 2026 - InternW0-$Δ$ A World Action Model Bridging Predictive Dynamics and Actions with 20K+ Hours of Open.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text"
+  },
+  "notes": {
+    "pipeline": "nature-reader-detail-wj",
+    "verified_identical": true,
+    "total_pages": 49,
+    "total_paragraphs": 76,
+    "figures": 12,
+    "tables": 18
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1-2",
+      "summary": "Core challenge of WAMs and InternW0-Δ solution with 20K+ hour corpus."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2-3",
+      "summary": "Motivation, predictive dynamics transfer, contributions, and open-source commitments."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3-5",
+      "summary": "VLA models, large-scale multimodal pretraining, and 4D tracking."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3 InternW0-Δ Model Design",
+      "pages": "5-12",
+      "summary": "MoT architecture, Causal Imprint, 4D distillation, flow matching, and inference caching."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "3.1 Architecture Overview",
+      "pages": "5",
+      "file": "assets/figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3.5 4D Distillation",
+      "pages": "8",
+      "file": "assets/figure_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "3.6 MoT Attention Mask",
+      "pages": "9",
+      "file": "assets/figure_3.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "3.7 CI Supervision",
+      "pages": "10",
+      "file": "assets/figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "3.8 Inference Caching",
+      "pages": "11",
+      "file": "assets/figure_5.png"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "4 Data",
+      "pages": "12-21",
+      "summary": "Canonical 80-D action space, filtering pipeline, Ego2Robot conversion."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "4.1 Canonical 80-D Space",
+      "pages": "13",
+      "file": "assets/table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "4.2 Filtering Stats",
+      "pages": "15",
+      "file": "assets/table_2.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.3 Ego2Robot Pipeline",
+      "pages": "17",
+      "file": "assets/figure_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "4.3 Ego2Robot Synthesis",
+      "pages": "20",
+      "file": "assets/figure_7.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "4.3 Ego2Robot Output",
+      "pages": "20",
+      "file": "assets/table_3.png"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "5 Training",
+      "pages": "21-25",
+      "summary": "Stage 1 pretraining and Stage 2 simulation and real-robot post-training."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "5.1 Pretraining Settings",
+      "pages": "22",
+      "file": "assets/table_4.png"
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "5.2 Simulation Configurations",
+      "pages": "23",
+      "file": "assets/table_5.png"
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "5.3 Real-Robot Datasets",
+      "pages": "24",
+      "file": "assets/table_6.png"
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "5.3 Real-Robot Settings",
+      "pages": "25",
+      "file": "assets/table_7.png"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "6 Infrastructure",
+      "pages": "25-29",
+      "summary": "Feature caching, layerwise compilation, and asynchronous inference."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "6.1.1 Feature Caching",
+      "pages": "26",
+      "file": "assets/figure_8.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "6.1.2 Layerwise MoT Compilation",
+      "pages": "27",
+      "file": "assets/figure_9.png"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "7 Experiments",
+      "pages": "29-38",
+      "summary": "Simulation and real-robot evaluations, component ablations, data source analysis."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "7.1 Latency Ablation",
+      "pages": "29",
+      "file": "assets/table_8.png"
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "7.2.1 LIBERO-Plus",
+      "pages": "30",
+      "file": "assets/table_9.png"
+    },
+    {
+      "id": "T010",
+      "type": "table",
+      "section": "7.2.2 RoboTwin 2.0",
+      "pages": "31",
+      "file": "assets/table_10.png"
+    },
+    {
+      "id": "T011",
+      "type": "table",
+      "section": "7.2.3 EBench",
+      "pages": "31",
+      "file": "assets/table_11.png"
+    },
+    {
+      "id": "T012",
+      "type": "table",
+      "section": "7.2.4 RoboDojo",
+      "pages": "32",
+      "file": "assets/table_12.png"
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "7.3 Real Robot Execution",
+      "pages": "33",
+      "file": "assets/figure_10.png"
+    },
+    {
+      "id": "T013",
+      "type": "table",
+      "section": "7.3 Real Robot Results",
+      "pages": "33",
+      "file": "assets/table_13.png"
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "7.3 Fluid Generalization",
+      "pages": "34",
+      "file": "assets/figure_11.png"
+    },
+    {
+      "id": "F012",
+      "type": "figure",
+      "section": "7.4 Action Jetting",
+      "pages": "35",
+      "file": "assets/figure_12.png"
+    },
+    {
+      "id": "T014",
+      "type": "table",
+      "section": "7.4.1 Cumulative Ablation",
+      "pages": "35",
+      "file": "assets/table_14.png"
+    },
+    {
+      "id": "T015",
+      "type": "table",
+      "section": "7.4.1 Distillation Design",
+      "pages": "36",
+      "file": "assets/table_15.png"
+    },
+    {
+      "id": "T016",
+      "type": "table",
+      "section": "7.4.2 LIBERO Data Source",
+      "pages": "37",
+      "file": "assets/table_16.png"
+    },
+    {
+      "id": "T017",
+      "type": "table",
+      "section": "7.4.2 RoboTwin Data Source",
+      "pages": "37",
+      "file": "assets/table_17.png"
+    },
+    {
+      "id": "T018",
+      "type": "table",
+      "section": "7.5 GPT Astra Integration",
+      "pages": "38",
+      "file": "assets/table_18.png"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "8 Conclusion",
+      "pages": "38-39",
+      "summary": "Summary and limitations."
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "9 Team",
+      "pages": "39",
+      "summary": "Core contributors and team members."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "References",
+      "pages": "40-48",
+      "summary": "Searchable bibliographic references."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Appendix A Human-to-Robot IK Details",
+      "pages": "49",
+      "summary": "Damped pseudoinverse kinematics with contact and null-space constraints."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12.png",
+    "assets/table_13.png",
+    "assets/table_14.png",
+    "assets/table_15.png",
+    "assets/table_16.png",
+    "assets/table_17.png",
+    "assets/table_18.png"
+  ]
+}

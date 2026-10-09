@@ -1,0 +1,50 @@
+{
+  "paper": {
+    "title": "SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation",
+    "paper_id": "arxiv:2608.14138v1",
+    "source": "local PDF",
+    "source_pages": 9,
+    "source_format": "pdf-text"
+  },
+  "coverage": {
+    "status": "partial-but-anchored",
+    "anchored_sections": [
+      "Abstract",
+      "Introduction",
+      "Related Work",
+      "Method",
+      "Experiments",
+      "Conclusion",
+      "Limitations"
+    ],
+    "anchors": [
+      "PDF pp.1-3",
+      "PDF pp.3-5",
+      "PDF pp.5-8"
+    ],
+    "notes": "Core mechanisms, equations, main tables, captions, training details, ablations and conclusion are anchored. The supplied 9-page PDF has no separately detected appendix; bibliography entries are retained by source-page anchor rather than translated entry by entry."
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "SPARGen uses native autoregressive and rectified-flow pathways of a shared MoT backbone for sequence and dense-field spatial outputs.",
+      "evidence": "PDF pp.2-5, Fig.2, Eq.(1)-(12)"
+    },
+    {
+      "id": "C2",
+      "claim": "The model jointly covers depth, point maps, optical flow, pose and spatial reasoning.",
+      "evidence": "PDF pp.1-6, Tables 1-4"
+    },
+    {
+      "id": "C3",
+      "claim": "Ablations show both transfer between heterogeneous supervision and capacity competition.",
+      "evidence": "PDF pp.6-8, Table 4"
+    }
+  ],
+  "passes_grounding": true,
+  "translation_reader": {
+    "status": "full-page-transcribed",
+    "file": "detailed_paper.md",
+    "source_map": "source_map.json"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "title:8cc41398b86f",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Illustration of the “Thinking with Images” frame-",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Attention maps of “Thinking with Images” models. We visualize the attention heatmaps on both the input and interleaved",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_005_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_005_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_005_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Ablation study of interleaved images within the visual CoT of “Thinking with Images” models. All results are obtained",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:preliminaries",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_004_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_004_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Results on HRBench (Wang et al., 2025c). Qwen3-VL",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:preliminaries",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_004_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_004_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_004_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Effectiveness of vanilla SFT. DeepEyes-7B is the “Think-",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_006_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_006_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Results on V∗(Wu & Xie, 2024) with masked images.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method-6",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_007_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_007_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Results on V∗(Wu & Xie, 2024) combining VLMs with Hide (Liu et al., 2025a). “Better context” refers to augmenting visual",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_013_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Position_Your_VLM_May_Not_Be_Thinking_with_Interleaved_Images/images/page_013_fig_table_5.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 7,
+    "by_decision": {
+      "insert": 6,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

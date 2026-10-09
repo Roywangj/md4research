@@ -1,0 +1,280 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.01057",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of 3DCodeBench. (Top Left) Generating 3D via procedural code. (Bottom Left) 212 classes. (Top Right) Visual comparisons. (Bottom Right) 3DCodeArena Elo.",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "概括整体基准架构与评测全景，包含多模态提示、编译沙盒、前沿模型对比与竞技场 Elo，极适合置于机制流程起点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_002_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_figure_1.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Agentic data-curation pipeline. Transforming Infinigen factories into standalone Blender Python scripts via Skills Library and Experience Library.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:curation",
+      "decision": "insert",
+      "reason": "详细展示如何通过技能库与经验库将复杂 Infinigen 资产解构成高质量独立 Blender 5.0 脚本，适合置于核心组件与沙盒章节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "核心组件: 3DCodeBench 评测流水线与可执行性沙盒",
+      "plan_kind": "curation_pipeline",
+      "source_image_filename": "page_004_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_figure_2.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "3DCodeBench dataset statistics: (a) semantic word cloud, (b) code line count distribution (mean 531, median 387), (c) file size distribution (mean 20.5 KB).",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:statistics",
+      "decision": "insert",
+      "reason": "量化展现基准涵盖的 212 个类别、代码长度和文件体积分布，有力支撑任务复杂度论述。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "数据与任务定义",
+      "plan_kind": "dataset_statistics",
+      "source_image_filename": "page_006_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_006_figure_3.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Automated perception metrics vs. human preference Elo on 12 evaluated VLMs (SigLIP-2 r=0.964, Uni3D r=0.923, DINOv3 rho=0.972, Executability r=0.459).",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:human-metrics-correlation",
+      "decision": "insert",
+      "reason": "证明自动化指标能够替代昂贵人类偏好的核心证据图，展示 SigLIP-2 与 DINOv3 对人类 Elo 的超高预测能力。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "3DCodeArena 人类偏好与 Bradley-Terry Elo 评分机制",
+      "plan_kind": "metrics_correlation",
+      "source_image_filename": "page_007_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_007_figure_4.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Single-turn ablations: (a,b) thinking budget sweeps across 12 VLMs, (c,d) number of input views N in {1,2,3,4} sweeps.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:single-turn-ablation",
+      "decision": "insert",
+      "reason": "展现思考 token 对轻量模型的收益与前沿模型的饱和现象，以及视角预算的边际收益递减。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "思考预算与执行消融",
+      "plan_kind": "ablation_curves",
+      "source_image_filename": "page_008_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_008_figure_5.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Multi-turn error-feedback on 3DCodeBench. Aggregate executability jumps from 0.692 to 0.972 (+27.2 pp) with large penalized metric lifts.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:multi-turn-error-feedback",
+      "decision": "insert",
+      "reason": "多轮执行纠错的核心数据，直观展示 Traceback 反馈对所有模型执行率的强力拉升与惩罚均值收益。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "思考预算与执行消融",
+      "plan_kind": "multiturn_results",
+      "source_image_filename": "page_009_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_009_table_1.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Coding-agent harness on 3DCodeBench text-to-3D. Harness boosts executability to 0.995 but conditional shape metrics remain virtually identical.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:coding-agent-harness",
+      "decision": "insert",
+      "reason": "揭示当前编程智能体 Harness（Claude Code, Codex CLI 等）'能跑但不变美'的关键论据表。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "多模态代码生成中的反思迭代与 Agentic 工具链",
+      "plan_kind": "agent_harness_results",
+      "source_image_filename": "page_010_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_010_table_2.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Qualitative comparison of Gemini 3.1 Pro, Claude Opus 4.7, and GPT-5.5 against 3DCodeBench reference on six prompts.",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:qualitative",
+      "decision": "insert",
+      "reason": "最关键的定性网格图，直观展现模型虽然能够成功渲染，但频繁产生碎片化脱节部件与浮空图元的物理常识缺陷。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "主结果与强基线",
+      "plan_kind": "qualitative_renders",
+      "source_image_filename": "page_011_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_011_figure_6.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure A.1",
+      "source_id": "Figure A.1",
+      "kind": "figure",
+      "label": "Figure A.1",
+      "caption": "Cost versus human-preference Elo across 10 paid frontier VLMs and Pareto frontier.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:pareto",
+      "decision": "insert",
+      "reason": "展示 10 款商业模型的性价比前沿，揭示 Gemini 3.5 Flash 与 Gemini 3.1 Pro 的性价比优势及 GPT-5.5 的顶级 Elo 表现。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "主结果与强基线",
+      "plan_kind": "pareto_cost_elo",
+      "source_image_filename": "page_016_figure_a_1.png",
+      "relative_markdown_embed": "![Figure A.1](images/page_016_figure_a_1.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "table:Table A.1",
+      "source_id": "Table A.1",
+      "kind": "table",
+      "label": "Table A.1",
+      "caption": "Main results on 3DCodeBench (212 categories) across 12 frontier models at best thinking level.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:main-results",
+      "decision": "insert",
+      "reason": "全文最核心的主基准大表，涵盖全部 12 个模型的执行率、感知相似度、3D 形状指标、Elo 评分及单次查询成本。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "主结果与强基线",
+      "plan_kind": "main_benchmark_table",
+      "source_image_filename": "page_017_table_a_1.png",
+      "relative_markdown_embed": "![Table A.1](images/page_017_table_a_1.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "table:Table D.1",
+      "source_id": "Table D.1",
+      "kind": "table",
+      "label": "Table D.1",
+      "caption": "Multi-turn error-feedback retry (T=3) detailed per-track recovery decomposition and penalized delta.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:error-feedback-details",
+      "decision": "insert",
+      "reason": "包含所有 11 个模型在文本与图像双轨道上的重试恢复明细及实际耗费美金数，极具实证指导价值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "思考预算与执行消融",
+      "plan_kind": "multiturn_breakdown",
+      "source_image_filename": "page_032_table_d_1.png",
+      "relative_markdown_embed": "![Table D.1](images/page_032_table_d_1.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "table:Table D.2",
+      "source_id": "Table D.2",
+      "kind": "table",
+      "label": "Table D.2",
+      "caption": "Visual self-critique loop showing task-asymmetry between Text-to-3D and Image-to-3D tracks.",
+      "pages": [
+        33
+      ],
+      "section_id": "sec:visual-self-critique",
+      "decision": "insert",
+      "reason": "定量支撑'视觉自反思跨任务不对称性'反直觉结论的核心实证表。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "多模态代码生成中的反思迭代与 Agentic 工具链",
+      "plan_kind": "visual_critique_asymmetry",
+      "source_image_filename": "page_033_table_d_2.png",
+      "relative_markdown_embed": "![Table D.2](images/page_033_table_d_2.png)",
+      "materialization_status": "verified"
+    },
+    {
+      "item_id": "figure:Figure E.3",
+      "source_id": "Figure E.3",
+      "kind": "figure",
+      "label": "Figure E.3",
+      "caption": "3DCodeArena live head-to-head win-rate matrix.",
+      "pages": [
+        38
+      ],
+      "section_id": "sec:arena-matrix",
+      "decision": "insert",
+      "reason": "直观展示 12 个模型两两胜率分布与领头羊优势热力图。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "3DCodeArena 人类偏好与 Bradley-Terry Elo 评分机制",
+      "plan_kind": "winrate_matrix",
+      "source_image_filename": "page_038_figure_e_3.png",
+      "relative_markdown_embed": "![Figure E.3](images/page_038_figure_e_3.png)",
+      "materialization_status": "verified"
+    }
+  ]
+}

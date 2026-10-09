@@ -1,0 +1,1287 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2607.00678",
+  "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "total_pages": 33,
+    "text_pages_extracted": 33,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 33,
+    "text_max_pages": null,
+    "text_pages_extracted": 33,
+    "text_pages_scanned": 33,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 29
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 151,
+      "text_hash_sha256": "6b3c5a4d64d9bc5679037d84fe7c3d397851b0c209ca454bf17702f9d8f0a3aa"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 1941,
+      "text_hash_sha256": "48168f8a274efee846d15f598245807afee01ee0e0412d26c87b9dea134930d4"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "page_start": 2,
+      "page_end": 2,
+      "char_count": 1446,
+      "text_hash_sha256": "e4769f65eb277744c9b6b1fb0ceb4c6e7ec1d9b1ba855cafbc2368ea95e6ad83"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 746,
+      "text_hash_sha256": "5bd9d72f4c9f1545eb945e839a1de636a4f66497dc13c8f60d92fb86a4eb1ccd"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 484,
+      "text_hash_sha256": "c60f8fdaca7b96500b4a9db49059c1542565ffe151a35836da7fa996c3f794c9"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 1324,
+      "text_hash_sha256": "8b9bd574ebe2fc2aaa0a2afe76595364d8ecc9c8ad97efc143e668c927947d76"
+    },
+    {
+      "section_id": "sec:introduction-2",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 3,
+      "page_end": 17,
+      "char_count": 50873,
+      "text_hash_sha256": "5ced642e64ba34f084802344e9a3f3501c67b513d0854aced1fa43fb58e12679"
+    },
+    {
+      "section_id": "sec:experiments-2",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 17,
+      "page_end": 19,
+      "char_count": 5407,
+      "text_hash_sha256": "0ff6e97f01e1d5059a5f8e030038ba002e50c220ea780408d138a0bba3a20ff1"
+    },
+    {
+      "section_id": "sec:discussion",
+      "kind": "conclusion",
+      "title": "Discussion.",
+      "page_start": 19,
+      "page_end": 20,
+      "char_count": 1078,
+      "text_hash_sha256": "61c6b87d486f820d937368ffea15342eb1e09554b8c90f5bbfed9f2197580eab"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 20,
+      "page_end": 20,
+      "char_count": 639,
+      "text_hash_sha256": "3f59277d548659c59655726bb1b1ceb700a2d5f2370ec32ce290c77a464b7e80"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 20,
+      "page_end": 21,
+      "char_count": 2123,
+      "text_hash_sha256": "d4fb5519fac0caacb4699b9cad375703adeb9b2aa40150888985aa0f5867b7c1"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 21,
+      "page_end": 22,
+      "char_count": 3123,
+      "text_hash_sha256": "490745b3c740fa4cb8d8deb0ab3c94c111c3a550aaba37987baeb9d80835af2c"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 23,
+      "char_count": 2332,
+      "text_hash_sha256": "6f72cba555b47c8a32c1c6b5eec501ce844dccb1cc6c05b6db2cbfdf223b2250"
+    },
+    {
+      "section_id": "sec:method-4",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 23,
+      "char_count": 27,
+      "text_hash_sha256": "cc458c3987e0828ff0b38cbed3a9caebe498fef10e9d4cefd6e5dafd3170409c"
+    },
+    {
+      "section_id": "sec:background",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 23,
+      "page_end": 26,
+      "char_count": 8845,
+      "text_hash_sha256": "ed71f4a0fddf78df9228b652abf8065b184a1657949697e0de68805ab7fd4adc"
+    },
+    {
+      "section_id": "sec:experimental-results",
+      "kind": "experiment",
+      "title": "Experimental Results.",
+      "page_start": 26,
+      "page_end": 28,
+      "char_count": 4766,
+      "text_hash_sha256": "e56bf135022d22dff6ce01b51985d6048bb6962732c2a5a8422644e3e035dce1"
+    },
+    {
+      "section_id": "sec:acknowledgments",
+      "kind": "acknowledgments",
+      "title": "Acknowledgments.",
+      "page_start": 28,
+      "page_end": 29,
+      "char_count": 385,
+      "text_hash_sha256": "369267ad56fe20e39f60f361186384b2e3c183d202cc431d91e6c5684b2d8713"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 29,
+      "page_end": 33,
+      "char_count": 18882,
+      "text_hash_sha256": "d9eb08959dab3576ebb2979893e6bd931b82e9ed4b33cc279d4f8727fb0925df"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 2095,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 2478,
+      "section_ids": [
+        "sec:abstract",
+        "sec:introduction",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 2901,
+      "section_ids": [
+        "sec:experiments",
+        "sec:model-2",
+        "sec:model-3",
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4353,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4134,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 4450,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 3546,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 2833,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 4146,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 2773,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3815,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3567,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4098,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3321,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3648,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 2009,
+      "section_ids": [
+        "sec:introduction-2"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 4353,
+      "section_ids": [
+        "sec:introduction-2",
+        "sec:experiments-2"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 1407,
+      "section_ids": [
+        "sec:experiments-2"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 4059,
+      "section_ids": [
+        "sec:experiments-2",
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 3076,
+      "section_ids": [
+        "sec:discussion",
+        "sec:method",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 3138,
+      "section_ids": [
+        "sec:method-2",
+        "sec:model-4"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 1971,
+      "section_ids": [
+        "sec:model-4",
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 3631,
+      "section_ids": [
+        "sec:method-3",
+        "sec:method-4",
+        "sec:background"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 2298,
+      "section_ids": [
+        "sec:background"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 2718,
+      "section_ids": [
+        "sec:background"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 1441,
+      "section_ids": [
+        "sec:background",
+        "sec:experimental-results"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 3442,
+      "section_ids": [
+        "sec:experimental-results"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 1052,
+      "section_ids": [
+        "sec:experimental-results",
+        "sec:acknowledgments"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 4208,
+      "section_ids": [
+        "sec:acknowledgments",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 4203,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 4152,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 4179,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 2162,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview of ABot-M0.5. ABot-M0.5 is a granularity-aligned, action-disentangled, and train-test-consistent",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Overall architecture of ABot-M0.5. The model jointly predicts future video latents, frame-level latent",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Dual-level Mixture-of-Transformers. The architecture disentangles modality-specific representations and",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Training paradigms for World Action Models. Existing WAM training paradigms (a) and (b) suffer",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Illustration of two-phase training strategy in Dream Forcing. In Phase A, the model performs a",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Model structure of ALAM.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Attention masks of different training stages.",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Visualization of some results on RoboCasa365. We show video frames of both real camera observations",
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "section_id": "sec:experiments-2"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "presents representative qualitative rollout examples on RoboCasa365. ABot-",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:experiments-2"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Different structures of latent action embeddings.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Training dynamics of different MoT architecture designs. Adding action-decoupled MoT demonstrates",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Attention maps of different training strategies. We calculate Text-video Text-conditioned attention",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:background"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Results of real-world experiments. The performance of ABot-M0.5 was evaluated on five manipulation",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:background"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Visualization of some real-world results of ABot-M0.5. We show video frames of both real camera",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:background"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Main notation used in ABot-M0.5.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:introduction-2"
+      },
+      {
+        "id": "Table 2",
+        "caption": "summarizes the comparison between ABot-M0.5 and representative baselines.",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:experiments-2"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Evaluation results on RoboCasa365 Benchmark (pretraining). ABot-M0.5 outperforms prior methods,",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Evaluation results on RoboCasa365 benchmark (Target). The suffixes -S and -U denote seen and unseen",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Evaluation results on RoboTwin 2.0 benchmark.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Evaluation results on LIBERO benchmark.",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:model-4"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Zero-shot performance on LIBERO-Plus benchmark. All methods are trained only on the standard LIBERO",
+        "page": 23,
+        "pages": [
+          23
+        ],
+        "section_id": "sec:method-3"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Ablation study of latent-action strategies",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:background"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Ablation study on Dream Forcing (DF) and",
+        "page": 24,
+        "pages": [
+          24
+        ],
+        "section_id": "sec:background"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "GT<t",
+      "section_id": "sec:experiments",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "GT<t",
+      "section_id": "sec:experiments",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "GT<t",
+      "section_id": "sec:model-2",
+      "page_start": 3,
+      "page_end": 3
+    },
+    {
+      "text": "Formally, let ot = {I(1)",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "is the image captured by the i-th camera. Given an observation history o≤t, an action",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "history a<t, and a language instruction l, the policy aims to predict future behavior over a horizon H. In",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "at:t+H−1 ∼π(· | o≤t, a<t, l).",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "(zt+1:t+H, at:t+H−1) ∼p(· | o≤t, a<t, l).",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Diffusion time step (τ ∈[0, 1])",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "At the perception stage, a 3D VAE compresses continuous video observations ot = {I(1)",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Lz = Ezt+1,ϵ,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t+1; z<t+1, m<t, a<t, τ, l",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t+1 = τzt+1 + (1 −τ)ϵ is the interpolated state, and vz",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "field. Crucially, the conditioning context for zt+1 strictly includes only historical states (z≤t, m<t, a<t) and",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Xt = [Xz",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "mt = Em(It, It+1) ∈Rdm,",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "the aggregated latent action tensor is structured as M = {mview",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "} ∈RH×Nc×dm.",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Lm = Emt,ϵ,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t ; z≤t+1, m<t, a<t, τ, l",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t = τmt +(1−τ)ϵ is the interpolated state, and vθ is the neural network regressing the target velocity",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "\"#$%&",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "video latents z≤k+1 and latent actions m≤k. Furthermore, we make the noisy actions within the same chunk",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "representations and clean historical actions a<t = {amove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "}j<t. We sample a shared denoising timestep",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "τ ∈[0, 1] for both action subspaces and independently draw Gaussian noises ϵmove, ϵmanip ∼N(0, I). The",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= τamove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= τamanip",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= Eamove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "; z≤t+1, m≤t, a<t, amanip,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= Eamanip",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "; z≤t+1, m≤t, a<t, amove,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "La = λmoveLmove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑡!, 𝑡\" ≠(𝑡#, 𝑡$)",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!\"#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̃!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$%",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̃!$%",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚&!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧!$% 𝑚!$# 𝑎!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̃!$# 𝑚&!",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$# 𝑚$!",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$%",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑚$!\"#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑎(!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧̂!$# 𝑚$!",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑧!$% 𝑚!$# 𝑎!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝑎)!$#",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "at ∼pa(· | z≤t+1, m≤t, a<t, l),",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "at ∼pa(· | ˆzt+1, z≤t, ˆmt, m< t, a<t, l),",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝒌 = 𝒎𝒊",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "𝒋= −𝒎𝒋",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= Ezt,ϵ,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t ; z<t, τ, l",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "t is the interpolated latent at noise level τ, z<t represents",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "in Figure 6. Given a triplet of temporally ordered observations (oi, oj, ok) with i < j < k, the latent action",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Ladd =",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "Lrev =",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "LLAM = λvqLvq + λrecLrec + λpercLperc + λaddLadd + λrevLrev.",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "zt+1 ∼pz(· | z≤t, m<t, a<t, l),",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "mt ∼pm(· | z≤t+1, m<t, a<t, l),",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "at ∼pa(· | z≤t+1, m≤t, a<t, l).",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "LSFT1 = λzLz + λmLm + λaLa.",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "at ∼pa(· | ˆzt+1, z≤t, ˆmt, m<t, a<t, l).",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= Eamove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "; ˆz≤t+1, ˆm≤t, a<t, amanip,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= Eamanip",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "; ˆz≤t+1, ˆm≤t, a<t, amove,τ",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "LSFT2 = λzLz + λmLm + λa ˜La",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "= λzLz + λmLm + λa(λmove",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "s ∈{0, 1, . . . , H −1}.",
+      "section_id": "sec:introduction-2",
+      "page_start": 3,
+      "page_end": 17
+    },
+    {
+      "text": "actions are always available. Consequently, setting pdrop = 0.2 degrades the success rate to 91.06% due to an",
+      "section_id": "sec:method-3",
+      "page_start": 22,
+      "page_end": 23
+    },
+    {
+      "text": "unstable conditioning signal during training. Conversely, setting pdrop = 0 ensures perfect attention alignment",
+      "section_id": "sec:method-3",
+      "page_start": 22,
+      "page_end": 23
+    },
+    {
+      "text": "\u0013$\u0017\u0017\u0019\"\"\u0001\u0012\u0016#\u0019",
+      "section_id": "sec:background",
+      "page_start": 23,
+      "page_end": 26
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "f5d94eacb67351da4c59d4132ea4ed170a7abf229914f79bb123ec841a826725",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2607.00678",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+      "translated_title": "",
+      "authors": [
+        "Ronghan Chen",
+        "Yandan Yang",
+        "Zuojin Tang",
+        "Dongjie Huo",
+        "Tong Lin",
+        "Haoning Wu",
+        "Haoyun Liu",
+        "Yuzhi Chen",
+        "Lulu Zheng",
+        "Botai Yuan",
+        "Tianlun Li",
+        "Mingxin Wang",
+        "Dekang Qi",
+        "Bin Hu",
+        "Wei Mei",
+        "Yuze Xuan",
+        "Haolong Yang",
+        "Yanqing Zhu",
+        "Mu Xu",
+        "Zhiheng Ma",
+        "Xinyuan Chang"
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2607.00678",
+      "arxiv_id": "2607.00678",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2607.00678v2",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+      "doi": "",
+      "arxiv_id": "2607.00678",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2607.00678",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2607.00678",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.00678v2",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2607.00678"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+          "work_value": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/ABot-M0.5 Unified Mobility-and-Manipulation World Action Model/.pipeline/deep/abot_m05_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2607.00678v2",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/W37BGA56/Chen 等 - 2026 - ABot-M0.5 Unified Mobility-and-Manipulation World Action Model.pdf",
+    "doi": "",
+    "arxiv_id": "2607.00678",
+    "zotero_key": ""
+  }
+}

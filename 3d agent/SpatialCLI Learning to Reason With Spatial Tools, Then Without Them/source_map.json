@@ -1,0 +1,1544 @@
+{
+  "paper": {
+    "title": "SpatialCLI Learning to Reason With Spatial Tools, Then Without Them",
+    "paper_id": "arXiv:2607.27703v2",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/NRWBTWDX/Zhou 等 - 2026 - SpatialCLI Learning to Reason With Spatial Tools, Then Without Them.pdf",
+    "source_format": "pdf-text",
+    "source_pages": 48
+  },
+  "coverage": {
+    "status": "full-text-transcribed",
+    "pages_present": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "bilingual_pairs": 156,
+    "note": "All source page ranges are retained in source order. Visual crops are indexed separately from searchable prose blocks."
+  },
+  "blocks": [
+    {
+      "id": "S0001",
+      "type": "body",
+      "page": 1,
+      "original": "Vision-language models (VLMs) are increasingly used in embodied agents to interpret visual inputs, reason about spatial relationships, and make task-level decisions based on that reasoning. However, a fundamental capability mismatch remains: general VLMs can reason about the overall task but often miss the visual details that determine success, while specialist vision models can capture those details but cannot translate them into task-level decisions. In this work, we propose SpatialCLI, a framework that teaches VLMs to reason with spatial tools and progressively internalize the specialist perceptual capabilities they provide. SpatialCLI proceeds in three stages: (1) **Call** exposes specialist vision models as spatial tools to augment the VLM’s perception; (2) **Learn** uses Cold-Start SFT and agentic RL to improve tool use; and (3) **Internalize** verbalizes successful tool-use trajectories to internalize specialist perceptual capabilities. We further introduce SpatialCLI-Bench, a 516-example benchmark for compositional spatial reasoning across localization, segmentation, depth, and pose. On MindCube, SpatialCLI raises Qwen3-VL-8B-Instruct from 29.3% to 84.6% with tools, surpassing GPT-5.6 Sol with tools (72.1%), while retaining 73.8% without tools after internalization.",
+      "translation": "视觉语言模型（VLM）正越来越多地用于具身智能体，以解释视觉输入、推理空间关系，并基于这些推理做出任务级决策。然而，当前仍存在一个根本性的能力不匹配：通用 VLM 能够推理整体任务，却经常忽略决定任务成功的视觉细节；而专业视觉模型能够捕捉这些细节，却无法将其转化为任务级决策。在本文中，我们提出 SpatialCLI，这是一个教会 VLM 使用空间工具进行推理，并逐步内化这些工具所提供的专业感知能力的框架。SpatialCLI 分为三个阶段：（1）**调用（Call）**将专业视觉模型作为空间工具，以增强 VLM 的感知能力；（2）**学习（Learn）**使用 Cold-Start SFT 和智能体强化学习来改进工具使用；（3）**内化（Internalize）**将成功的工具使用轨迹转换为文字，使模型内化专业感知能力。我们进一步提出 SpatialCLI-Bench，这是一个包含 516 个样例、覆盖定位、分割、深度和姿态的组合空间推理基准。在 MindCube 上，SpatialCLI 将 Qwen3-VL-8B-Instruct 的成绩从 29.3% 提升至使用工具时的 84.6%，超过了使用工具时 GPT-5.6 Sol 的 72.1%，同时在内化后不使用工具仍保留 73.8% 的成绩。",
+      "reading_order": 1,
+      "confidence": "high"
+    },
+    {
+      "id": "S0002",
+      "type": "body",
+      "page": 1,
+      "original": "As physical AI moves into open-ended real-world environments, task success increasingly depends on composing multiple spatial perceptual capabilities on demand rather than improving any single capability in isolation [21, 63]. As shown in Figure 1, finding the farthest teddy bear requires first using segmentation to identify all candidate bears, then comparing their distances using depth information, and finally localizing the selected bear. Different real-world tasks require different combinations of spatial perceptual capabilities, requiring general physical intelligence to select and coordinate complementary capabilities according to the task objective.",
+      "translation": "随着物理智能进入开放式现实世界环境，任务成功越来越依赖于按需组合多种空间感知能力，而不是孤立地提升某一种能力 [21, 63]。如图 1 所示，寻找最远的泰迪熊需要首先使用分割识别出所有候选泰迪熊，然后利用深度信息比较它们的距离，最后定位被选中的泰迪熊。不同的现实世界任务需要不同的空间感知能力组合，因此需要通用物理智能根据任务目标选择并协调互补能力。",
+      "reading_order": 2,
+      "confidence": "high"
+    },
+    {
+      "id": "S0003",
+      "type": "body",
+      "page": 1,
+      "original": "However, general VLMs and specialist vision models exhibit a fundamental capability mismatch under this requirement. General VLMs can interpret instructions, decompose tasks, and organize multi-step reasoning, but become unreliable when an answer hinges on precise localization, object boundaries, metric depth, or pose. Specialist vision models such as SAM 3 [4], DA3 [25], and VGGT [45] provide more reliable local perceptual evidence, but each primarily handles a specific perceptual operation and cannot understand which capabilities a task requires, compose outputs from multiple specialists, or translate those outputs into task-level decisions. Recent systems such as SpaceTools [7], AlloSpatial [37], and S-Agent [10] take important steps by organizing external tools and spatial priors into agentic reasoning processes and training VLMs on the resulting interactions. An open question is whether the perceptual evidence accumulated during tool interaction can be converted into supervision that enables VLMs to internalize specialist perceptual capabilities",
+      "translation": "然而，在这一要求下，通用 VLM 与专业视觉模型存在根本性的能力不匹配。通用 VLM 能够理解指令、分解任务并组织多步推理，但当答案依赖精确定位、目标边界、度量深度或姿态时，就会变得不可靠。SAM 3 [4]、DA3 [25] 和 VGGT [45] 等专业视觉模型能够提供更可靠的局部感知证据，但每个模型主要处理一种特定的感知操作，无法理解任务需要哪些能力、组合多个专业模型的输出，或将这些输出转化为任务级决策。SpaceTools [7]、AlloSpatial [37] 和 S-Agent [10] 等近期系统通过将外部工具和空间先验组织进智能体推理过程，并在由此产生的交互上训练 VLM，迈出了重要一步。一个尚未解决的问题是：在工具交互过程中积累的感知证据，能否转化为监督信号，使 VLM 能够内化专业感知能力",
+      "reading_order": 3,
+      "confidence": "high"
+    },
+    {
+      "id": "S0004",
+      "type": "body",
+      "page": 2,
+      "original": "capabilities and reason without invoking spatial tools. This would bring VLMs closer to becoming *foundation models native to the physical world.*",
+      "translation": "与空间工具无关地进行感知和推理。这将使 VLM 更接近于成为*原生面向物理世界的基础模型*。",
+      "reading_order": 4,
+      "confidence": "high"
+    },
+    {
+      "id": "S0005",
+      "type": "body",
+      "page": 2,
+      "original": "In this work, we introduce SpatialCLI, a three-stage framework that enables VLMs to reason with spatial tools and then internalize the specialist perceptual capabilities they provide: (1) **Call: Inference-Time Tool Augmentation.** The Call stage exposes specialist vision models for localization, segmentation, depth, and pose as spatial tools, augmenting the VLM’s perception with fine-grained visual evidence. (2) **Learn: Agentic Fine-Tuning.** The Learn stage uses Cold-Start SFT to establish basic tool-use behaviors and agentic RL to improve tool planning, response, and result utilization through task-level feedback. (3) **Internalize: Trajectory-Guided Capability Internalization.** SpatialCLI converts successful tool-use trajectories collected from SpatialCLI-RL into evidence-grounded perceptual reasoning chains, and then applies **Dual-View Capability Internalization** to train the final SpatialCLI model to internalize specialist perceptual capabilities while preserving its learned tool-use policy. Existing benchmarks predominantly evaluate spatial abilities in isolation, leaving it unclear whether models can coordinate multiple complementary capabilities to solve complex spatial problems. To address this evaluation gap, we construct SpatialCLI-Bench, a 516-example six-choice benchmark for compositional perceptual reasoning across localization, segmentation, depth, and pose. Our main contributions are summarized as follows:",
+      "translation": "在本文中，我们提出 SpatialCLI，这是一个使 VLM 能够使用空间工具进行推理，并进一步内化这些工具所提供的专业感知能力的三阶段框架：（1）**调用：推理时工具增强。** Call 阶段将用于定位、分割、深度和姿态的专业视觉模型作为空间工具，使 VLM 的感知获得细粒度视觉证据增强。（2）**学习：智能体微调。** Learn 阶段使用 Cold-Start SFT 建立基本的工具使用行为，并通过任务级反馈进行智能体强化学习，以改进工具规划、响应和结果利用。（3）**内化：轨迹引导的能力内化。** SpatialCLI 将从 SpatialCLI-RL 收集的成功工具使用轨迹转换为基于证据的感知推理链，然后应用**双视角能力内化**训练最终的 SpatialCLI 模型，使其在保留已学习工具使用策略的同时内化专业感知能力。现有基准主要孤立地评估空间能力，因此尚不清楚模型能否协调多种互补能力来解决复杂空间问题。为弥补这一评测空白，我们构建了 SpatialCLI-Bench，这是一个包含 516 个样例、每题六个选项的组合感知推理基准，覆盖定位、分割、深度和姿态。我们的主要贡献总结如下：",
+      "reading_order": 5,
+      "confidence": "high"
+    },
+    {
+      "id": "S0006",
+      "type": "body",
+      "page": 2,
+      "original": "- We propose SpatialCLI, a *Call–Learn–Internalize* framework that equips VLMs with specialist vision models as spatial tools. Through agentic fine-tuning, SpatialCLI learns to coordinate these tools and turns successful tool-use trajectories into evidence-grounded supervision for internalizing specialist perceptual capabilities.",
+      "translation": "- 我们提出 SpatialCLI，这是一个 *Call–Learn–Internalize（调用—学习—内化）*框架，将专业视觉模型作为空间工具赋予 VLM。通过智能体微调，SpatialCLI 学会协调这些工具，并将成功的工具使用轨迹转换为基于证据的监督信号，以内化专业感知能力。",
+      "reading_order": 6,
+      "confidence": "high"
+    },
+    {
+      "id": "S0007",
+      "type": "body",
+      "page": 2,
+      "original": "- We construct SpatialCLI-Bench, a 516-example benchmark that evaluates compositional perceptual reasoning across localization, segmentation, depth, and pose. The benchmark exposes a substantial limitation of current frontier models: GPT-5.6 Sol achieves only 48.8%.",
+      "translation": "- 我们构建 SpatialCLI-Bench，这是一个包含 516 个样例、评估定位、分割、深度和姿态组合感知推理的基准。该基准揭示了当前前沿模型的一项显著局限：GPT-5.6 Sol 的成绩仅为 48.8%。",
+      "reading_order": 7,
+      "confidence": "high"
+    },
+    {
+      "id": "S0008",
+      "type": "body",
+      "page": 2,
+      "original": "- Extensive experiments show that SpatialCLI effectively improves both tool-enabled and tool-free reasoning. On SpatialCLI-Bench, SpatialCLI-8B reaches 91.3% with tools and 72.7% without tools, with consistent gains on other embodied and spatial benchmarks. These results show that external tool use and internalized direct reasoning can coexist in one model, providing a path toward *foundation models native to the physical world.*",
+      "translation": "- 大量实验表明，SpatialCLI 能够有效提升使用工具和不使用工具时的推理能力。在 SpatialCLI-Bench 上，SpatialCLI-8B 使用工具时达到 91.3%，不使用工具时达到 72.7%，并在其他具身和空间基准上取得一致提升。这些结果表明，外部工具使用与内化的直接推理能够在同一个模型中共存，为通向*原生面向物理世界的基础模型*提供了一条路径。",
+      "reading_order": 8,
+      "confidence": "high"
+    },
+    {
+      "id": "S0009",
+      "type": "body",
+      "page": 2,
+      "original": "**Learning Spatial Capabilities in Vision-Language Models.** Embodied VLMs and VLAs acquire grounded visual-language knowledge through pretraining and robot demonstrations [21, 43, 63]. However, current multimodal models still struggle with spatial relations, viewpoint transformation, and 3D understanding [51, 54, 57]. SpatialVLM, SpatialGPT, and RoboRefer directly train spatial capabilities with spatial question answering, depth cues, 3D annotations, and task-specific supervision [5, 9, 62]. VLM3 further shows that standard VLM architectures can learn depth, pixel coordinates, camera pose, and object-level 3D understanding from text-based supervision and scaled data mixtures [3]. SpatialCLI follows a different route: the VLM",
+      "translation": "**视觉语言模型中的空间能力学习。**具身 VLM 和视觉语言动作模型（VLA）通过预训练和机器人示范获得有依据的视觉语言知识 [21, 43, 63]。然而，当前的多模态模型在空间关系、视角变换和三维理解方面仍然存在困难 [51, 54, 57]。SpatialVLM、SpatialGPT 和 RoboRefer 通过空间问答、深度线索、三维标注和任务特定监督，直接训练空间能力 [5, 9, 62]。VLM3 进一步表明，标准 VLM 架构能够通过基于文本的监督和扩展的数据混合学习深度、像素坐标、相机姿态和目标级三维理解 [3]。SpatialCLI 采取了不同的路径：VLM",
+      "reading_order": 9,
+      "confidence": "high"
+    },
+    {
+      "id": "S0010",
+      "type": "body",
+      "page": 3,
+      "original": "invokes external specialist perception tools, then learns direct reasoning from supervision derived from its own successful tool-use trajectories.",
+      "translation": "调用外部专业感知工具，然后从其自身成功的工具使用轨迹所产生的监督中学习直接推理。",
+      "reading_order": 10,
+      "confidence": "high"
+    },
+    {
+      "id": "S0011",
+      "type": "body",
+      "page": 3,
+      "original": "**Tool-Augmented Agents and Spatial Reasoning.** Building on advances in LLM reasoning [13, 19, 48], agents can plan, interact with environments, and invoke tools [14, 38, 40, 42, 56], enabling applications in search and information seeking [20, 29, 32], coding [52, 59], and GUI interaction [34, 61]. In robotics, hierarchical agents use VLMs as high-level planners and VLAs as low-level executors [6, 17, 24, 55, 60], but their reliability remains constrained by the spatial perception of the VLM planner. Spatial reasoning systems use 3D priors or constraints [8, 31], geometric computation or multi-tool coordination [7, 15], and egocentric representations or spatiotemporal evidence [10, 37]. SpatialCLI not only learns to use multiple specialist perception tools through interaction, but also transforms the VLM’s own successful tool-use trajectories into supervision for direct reasoning, enabling reasoning both with external tools and directly without them.",
+      "translation": "**工具增强智能体与空间推理。**基于大语言模型推理方面的进展 [13, 19, 48]，智能体能够进行规划、与环境交互并调用工具 [14, 38, 40, 42, 56]，从而支持搜索和信息获取 [20, 29, 32]、代码编写 [52, 59] 以及图形用户界面交互 [34, 61] 等应用。在机器人领域，分层智能体使用 VLM 作为高级规划器、使用 VLA 作为低级执行器 [6, 17, 24, 55, 60]，但其可靠性仍受 VLM 规划器空间感知能力的限制。空间推理系统使用三维先验或约束 [8, 31]、几何计算或多工具协调 [7, 15]，以及自我中心表示或时空证据 [10, 37]。SpatialCLI 不仅通过交互学习使用多个专业感知工具，还将 VLM 自身成功的工具使用轨迹转换为直接推理的监督信号，使模型能够既借助外部工具推理，也能够直接在不使用工具时推理。",
+      "reading_order": 11,
+      "confidence": "high"
+    },
+    {
+      "id": "S0012",
+      "type": "body",
+      "page": 3,
+      "original": "SpatialCLI aims to turn external specialist perceptual capabilities into abilities that VLMs can **call, learn, and internalize**. As shown in Figure 2, it proceeds in three stages. (1) *inference-time tool augmentation* equips VLMs with specialist vision models as spatial tools. (2) *agentic fine-tuning* fine-tunes the model to learn effective tool-use policies. (3) *trajectory-guided capability internalization* verbalizes tool-use trajectories to internalize specialist perceptual capabilities while preserving tool-use ability. The complete end-to-end procedure is summarized in Algorithm 1 of Appendix A. In the following, we first introduce the three stages of SpatialCLI and then describe the construction of SpatialCLI-Bench.",
+      "translation": "SpatialCLI 旨在将外部专业感知能力转化为 VLM 能够**调用、学习和内化**的能力。如图 2 所示，该过程分为三个阶段。（1）*推理时工具增强*将专业视觉模型作为空间工具赋予 VLM。（2）*智能体微调*对模型进行微调，使其学习有效的工具使用策略。（3）*轨迹引导的能力内化*将工具使用轨迹转换为文字，使模型在保留工具使用能力的同时内化专业感知能力。完整的端到端过程总结于附录 A 的算法 1 中。下文首先介绍 SpatialCLI 的三个阶段，然后描述 SpatialCLI-Bench 的构建过程。",
+      "reading_order": 12,
+      "confidence": "high"
+    },
+    {
+      "id": "S0013",
+      "type": "body",
+      "page": 3,
+      "original": "Neither VLMs nor specialist vision models can independently solve complex embodied tasks, but they offer complementary strengths. (1) VLMs excel at semantic understanding and task-level reasoning, but remain unreliable for fine-grained localization, segmentation, depth, and pose perception. (2) Specialist vision models provide precise perceptual outputs, but lack the task-level understanding needed to determine when they should be invoked or how their outputs should be combined.",
+      "translation": "VLM 和专业视觉模型都无法独立解决复杂的具身任务，但二者具有互补优势。（1）VLM 擅长语义理解和任务级推理，但在细粒度定位、分割、深度和姿态感知方面仍不可靠。（2）专业视觉模型能够提供精确的感知输出，但缺乏判断何时调用这些模型以及如何组合其输出所需的任务级理解。",
+      "reading_order": 13,
+      "confidence": "high"
+    },
+    {
+      "id": "S0014",
+      "type": "body",
+      "page": 3,
+      "original": "To combine these complementary strengths, SpatialCLI builds an inference-time tool-augmented agent framework that equips the VLM with specialist vision models as spatial tools. Within this framework, the VLM understands the task, selects tools, composes evidence, and completes reasoning, while specialist vision models provide reliable local perceptual evidence. Following ReAct [56], at each interaction step, the VLM first reasons internally and then either produces a final answer or makes a tool call. When the VLM makes a tool call, SpatialCLI executes the corresponding spatial tool and returns the tool result to the VLM. The",
+      "translation": "为了结合这些互补优势，SpatialCLI 构建了一个推理时工具增强的智能体框架，将专业视觉模型作为空间工具赋予 VLM。在该框架中，VLM 理解任务、选择工具、组合证据并完成推理，而专业视觉模型提供可靠的局部感知证据。遵循 ReAct [56]，在每一步交互中，VLM 首先进行内部推理，然后生成最终答案或发出工具调用。当 VLM 发出工具调用时，SpatialCLI 执行相应的空间工具，并将工具结果返回给 VLM。该",
+      "reading_order": 14,
+      "confidence": "high"
+    },
+    {
+      "id": "S0015",
+      "type": "body",
+      "page": 4,
+      "original": "VLM then continues reasoning with the updated interaction history until it produces a final answer or exhausts the tool-call budget. Following budget-aware tool use agents [30], SpatialCLI exposes the remaining tool-call budget after each tool response, allowing the VLM to decide whether to gather additional evidence or terminate the interaction. We observe that discarding reasoning content across interaction turns causes redundant reasoning and token inefficiency [26]; we therefore retain the VLM’s reasoning throughout the entire interaction.",
+      "translation": "VLM 随后基于更新后的交互历史继续推理，直到生成最终答案或耗尽工具调用预算。遵循预算感知工具使用智能体 [30] 的做法，SpatialCLI 在每次工具响应后公开剩余的工具调用预算，使 VLM 能够决定是收集更多证据还是终止交互。我们观察到，在交互轮次之间丢弃推理内容会导致重复推理和 token 使用效率低下 [26]；因此，我们保留 VLM 在整个交互过程中的推理内容。",
+      "reading_order": 15,
+      "confidence": "high"
+    },
+    {
+      "id": "S0016",
+      "type": "body",
+      "page": 4,
+      "original": "SpatialCLI provides four spatial tools. (1) **Locate**, backed by Locate Anything [46] and Grounding DINO [28], takes a language query and returns object bounding boxes. (2) **Segment**, backed by SAM 3 [4], takes a language query and returns polygonal object boundaries. (3) **Depth**, backed by Depth Anything 3 [25], takes queried image points and returns metric depth. (4) **Pose**, backed by Orient Anything V2 [47] and VGGT [45], takes an object or camera-motion query and returns object orientation or cross-view camera motion. The complete interfaces and registrations are provided in Appendix D.2 and Boxes D.1–D.4, while the shared agentic tool-use prompt is shown in Box G.1. SpatialCLI records the returned tool calls, returned results, and final answer. We represent the executed tool-interaction trace and the corresponding complete interaction sample as",
+      "translation": "SpatialCLI 提供四种空间工具。（1）**Locate** 由 Locate Anything [46] 和 Grounding DINO [28] 支持，接收语言查询并返回目标边界框。（2）**Segment** 由 SAM 3 [4] 支持，接收语言查询并返回多边形目标边界。（3）**Depth** 由 Depth Anything 3 [25] 支持，接收查询的图像点并返回度量深度。（4）**Pose** 由 Orient Anything V2 [47] 和 VGGT [45] 支持，接收目标或相机运动查询，并返回目标方向或跨视角相机运动。完整的接口和注册方式见附录 D.2 以及框 D.1–D.4，共享的智能体工具使用提示词见框 G.1。SpatialCLI 记录工具调用、工具返回结果和最终答案。我们将执行的工具交互轨迹以及相应的完整交互样例表示为",
+      "reading_order": 16,
+      "confidence": "high"
+    },
+    {
+      "id": "S0017",
+      "type": "body",
+      "page": 4,
+      "original": "where $z_t$ is the reasoning preceding the $t$-th executed tool call, $a_t$ is that tool call, $o_t$ is its returned result, $T$ is the number of executed tool calls, and $y$ is the final answer produced after the trace.",
+      "translation": "其中，$z_t$ 是第 $t$ 次已执行工具调用之前的推理，$a_t$ 是该工具调用，$o_t$ 是其返回结果，$T$ 是已执行工具调用的数量，$y$ 是轨迹之后生成的最终答案。",
+      "reading_order": 17,
+      "confidence": "high"
+    },
+    {
+      "id": "S0018",
+      "type": "body",
+      "page": 4,
+      "original": "Within this agent framework, the VLM can interact with spatial tools to produce complete interaction trajectories, but it cannot reliably determine when to use which tool, how to specify appropriate arguments, or how to use the returned results to guide subsequent reasoning. Directly applying multi-turn tool RL to the initial model requires exploration over a large hybrid action space, where the model is prone to several failure patterns: incorrect tool-call formats, invalid arguments, unnecessary repeated calls, and ignoring tool results when they conflict with its prior beliefs. SpatialCLI therefore first uses Cold-Start SFT to establish basic tool-interaction behaviors and then applies agentic RL to improve tool-use planning, argument generation, result utilization, and termination through task-level feedback.",
+      "translation": "在该智能体框架中，VLM 能够与空间工具交互并生成完整的交互轨迹，但无法可靠地判断何时使用哪种工具、如何指定合适的参数，或如何利用返回结果指导后续推理。直接对初始模型应用多轮工具强化学习，需要在庞大的混合动作空间中进行探索，此时模型容易出现多种失败模式：工具调用格式错误、参数无效、不必要的重复调用，以及当工具结果与先前信念冲突时忽略工具结果。因此，SpatialCLI 首先使用 Cold-Start SFT 建立基本的工具交互行为，然后应用智能体强化学习，通过任务级反馈改进工具使用规划、参数生成、结果利用和终止决策。",
+      "reading_order": 18,
+      "confidence": "high"
+    },
+    {
+      "id": "S0019",
+      "type": "body",
+      "page": 4,
+      "original": "**Cold-Start SFT.** Effective RL exploration requires an initial policy capable of selecting appropriate tools and specifying valid arguments. SpatialCLI therefore uses Qwen3.5-397B-A17B [35] as the teacher model, equips it with the inference-time agent framework, and records the complete multi-turn trajectories it produces while solving the training tasks. As illustrated by the cases in Appendix H, these trajectories provide reusable reasoning and common tool-use patterns, such as planning before execution. We discard samples with invalid tool-call formats, failed tool execution, or incorrect final answers, yielding the SFT dataset $\\mathcal{D}_{\\mathrm{SFT}}$. During training, returned tool results serve only as context for subsequent generation, while the loss is computed over model-generated reasoning, tool calls, and final-answer tokens. This stage transfers these patterns to the initial model and yields the SpatialCLI-SFT checkpoint $\\pi_{\\mathrm{SFT}}$ for RL.",
+      "translation": "**Cold-Start SFT[CN]。** 有效的强化学习探索需要一个能够选择合适工具并指定有效参数的初始策略。因此，SpatialCLI 使用 Qwen3.5-397B-A17B [35] 作为教师模型，为其配备推理时智能体框架，并记录它在解决训练任务时产生的完整多轮轨迹。如附录 H 的案例所示，这些轨迹提供了可复用的推理和常见工具使用模式，例如执行前进行规划。我们丢弃工具调用格式无效、工具执行失败或最终答案错误的样例，得到 SFT 数据集 $\\mathcal{D}_{\\mathrm{SFT}}$。训练期间，工具返回结果仅作为后续生成的上下文，而损失则在模型生成的推理、工具调用和最终答案 token 上计算。该阶段将这些模式迁移到初始模型，并得到用于强化学习的 SpatialCLI-SFT 检查点 $\\pi_{\\mathrm{SFT}}$。",
+      "reading_order": 19,
+      "confidence": "high"
+    },
+    {
+      "id": "S0020",
+      "type": "body",
+      "page": 4,
+      "original": "**Agentic RL.** SFT can only imitate filtered teacher trajectories and cannot use task outcomes to improve tool-use decisions beyond the demonstrations. Starting from the SpatialCLI-SFT checkpoint $\\pi_{\\mathrm{SFT}}$, the model follows the same interaction loop as inference-time tool augmentation during rollout, with tool results dynamically appended to the interaction history to guide subsequent decisions. For each task $x = (I, q, y^*) \\sim \\mathcal{D}_{\\mathrm{RL}}$, GRPO [39] samples a group of $G$ complete interactions $\\{\\xi_i\\}_{i=1}^{G}$ from the old policy $\\pi_{\\mathrm{old}}$. Each interaction receives an outcome reward $R_i = V(y_i, y^*)$ based on its final answer. Optimizing these rewards yields the SpatialCLI-RL checkpoint $\\pi_{\\mathrm{RL}}$; the complete objective and training configuration are provided in Appendix B.1.",
+      "translation": "**Agentic RL[CN]。** SFT 只能模仿经过筛选的教师轨迹，无法利用任务结果超越示范来改进工具使用决策。从 SpatialCLI-SFT 检查点 $\\pi_{\\mathrm{SFT}}$ 出发，模型在 rollout 期间遵循与推理时工具增强相同的交互循环，并将工具结果动态追加到交互历史中，以指导后续决策。对于每个任务 $x = (I, q, y^*) \\sim \\mathcal{D}_{\\mathrm{RL}}$，GRPO [39] 从旧策略 $\\pi_{\\mathrm{old}}$ 中采样一组包含 $G$ 个完整交互的样本 $\\{\\xi_i\\}_{i=1}^{G}$。每个交互根据其最终答案获得结果奖励 $R_i = V(y_i, y^*)$。优化这些奖励得到 SpatialCLI-RL 检查点 $\\pi_{\\mathrm{RL}}$；完整目标函数和训练配置见附录 B.1。",
+      "reading_order": 20,
+      "confidence": "high"
+    },
+    {
+      "id": "S0021",
+      "type": "body",
+      "page": 4,
+      "original": "Moving toward foundation models native to the physical world requires perceptual capabilities to reside in the model itself rather than depending entirely on external tools. Inspired by learning from visual-program",
+      "translation": "要迈向原生面向物理世界的基础模型，需要让感知能力存在于模型自身，而不是完全依赖外部工具。受从视觉程序",
+      "reading_order": 21,
+      "confidence": "high"
+    },
+    {
+      "id": "S0022",
+      "type": "body",
+      "page": 5,
+      "original": "execution traces [18], SpatialCLI therefore uses successful SpatialCLI-RL trajectories as the source of supervision for internalizing the specialist perceptual capabilities supplied by spatial tools while preserving the learned tool-use policy. This process consists of two steps: (1) **Progressive Evidence-Grounded Trajectory Verbalization** converts successful tool-use trajectories into explicit perceptual reasoning chains, and (2) **Dual-View Capability Internalization** jointly trains on capability-internalization and tool-use views to internalize specialist perceptual capabilities without sacrificing tool use.",
+      "translation": "执行轨迹 [18] 的启发，SpatialCLI 使用成功的 SpatialCLI-RL 轨迹作为监督来源，在保留已学习工具使用策略的同时，内化空间工具所提供的专业感知能力。该过程包含两个步骤：（1）**渐进式基于证据的轨迹文字化**将成功的工具使用轨迹转换为显式的感知推理链；（2）**双视角能力内化**联合训练能力内化视角和工具使用视角，在不牺牲工具使用能力的情况下内化专业感知能力。",
+      "reading_order": 22,
+      "confidence": "high"
+    },
+    {
+      "id": "S0023",
+      "type": "body",
+      "page": 5,
+      "original": "**Progressive Evidence-Grounded Trajectory Verbalization.** Raw SpatialCLI-RL trajectories contain lengthy model reasoning, tool-call syntax, heterogeneous tool returns, and repeated interaction history, making them unsuitable as direct natural-language supervision. Verbalizing an entire trajectory in a single pass requires processing a long context and can obscure dependencies between evidence collected across turns. SpatialCLI therefore processes each successful trajectory ($y = y^*$) in two successive steps. (1) **Turn-wise evidence consolidation.** To preserve cross-turn dependencies without repeatedly processing the full raw history, SpatialCLI consolidates the newly collected evidence after each tool interaction. Let $e_t$ denote the resulting evidence-reasoning unit at turn $t$, and let $e_{<t} = (e_1, \\ldots, e_{t-1})$, with $e_{<1} = \\varnothing$. The extractor combines the visual input and task instruction with the previously consolidated units and the current interaction:",
+      "translation": "**渐进式基于证据的轨迹文字化。**原始 SpatialCLI-RL 轨迹包含冗长的模型推理、工具调用语法、异构工具返回结果以及重复的交互历史，因此不适合作为直接的自然语言监督。一次性将整个轨迹转换为文字需要处理很长的上下文，并且可能模糊不同轮次所收集证据之间的依赖关系。因此，SpatialCLI 对每条成功轨迹（$y = y^*$）分两个连续步骤进行处理。（1）**逐轮证据整合。**为了在不重复处理完整原始历史的情况下保留跨轮次依赖，SpatialCLI 在每次工具交互之后整合新收集的证据。令 $e_t$ 表示第 $t$ 轮得到的证据—推理单元，并令 $e_{<t} = (e_1, \\ldots, e_{t-1})$，其中 $e_{<1} = \\varnothing$。提取器将视觉输入和任务指令、此前整合的单元以及当前交互结合起来：",
+      "reading_order": 23,
+      "confidence": "high"
+    },
+    {
+      "id": "S0024",
+      "type": "body",
+      "page": 5,
+      "original": "Each $e_t$ exhaustively verbalizes the current tool result, preserves explicit visual observations from $z_t$, and records how they update the accumulated evidence without repeating unchanged content. Any perceptual statement must be traceable to the current tool result, an explicit visual observation in $z_t$, or a previous unit; the correct answer $y^*$ is withheld to prevent answer-conditioned evidence reconstruction. (2) **Global trajectory verbalization.** To integrate evidence distributed across turns into a coherent task-level reasoning chain, SpatialCLI passes the visual input, task instruction, consolidated evidence trajectory $E_T = (e_1,\\ldots,e_T)$, and correct answer to a global verbalizer:",
+      "translation": "每个 $e_t$ 都详尽地将当前工具结果转换为文字，保留 $z_t$ 中明确的视觉观察，并记录这些观察如何更新累积证据，同时不重复未改变的内容。任何感知陈述都必须能够追溯到当前工具结果、$z_t$ 中明确的视觉观察或先前的单元；正确答案 $y^*$ 被隐藏，以避免基于答案重建证据。（2）**全局轨迹文字化。**为了将分布在不同轮次的证据整合为连贯的任务级推理链，SpatialCLI 将视觉输入、任务指令、整合后的证据轨迹 $E_T = (e_1,\\ldots,e_T)$ 以及正确答案传递给全局文字化器：",
+      "reading_order": 24,
+      "confidence": "high"
+    },
+    {
+      "id": "S0025",
+      "type": "body",
+      "page": 5,
+      "original": "The verbalizer removes redundancy and organizes the dependencies from perceptual observations to the correct answer into a concise reasoning chain $c$, without introducing entities, attributes, values, or relations absent from $E_T$. The complete turn-wise consolidation and global verbalization prompts are provided in Appendix G, Boxes G.2 and G.3.",
+      "translation": "文字化器去除冗余，并将从感知观察到正确答案的依赖关系组织成简洁的推理链 $c$，且不引入 $E_T$ 中不存在的实体、属性、数值或关系。完整的逐轮整合和全局文字化提示词见附录 G 的框 G.2 和 G.3。",
+      "reading_order": 25,
+      "confidence": "high"
+    },
+    {
+      "id": "S0026",
+      "type": "body",
+      "page": 5,
+      "original": "**Dual-View Capability Internalization.** To internalize specialist perceptual capabilities while preserving the model’s learned tool-use policy, SpatialCLI constructs two training views from each successful trajectory. (1) The **Capability-Internalization View** uses a direct-answer prompt and forms each training sample from the image, task instruction, explicit perceptual reasoning chain, and final answer. The model learns to generate the reasoning chain and answer without accessing external tools, thereby internalizing the specialist perceptual capabilities originally supplied by spatial tools. (2) The **Tool-Use View** uses a prompt containing tool descriptions and preserves the original interaction structure, with the returned tool results serving as context for subsequent generation. Training supervises model-generated reasoning, tool calls, and final-answer tokens, preserving the model’s ability to decide when to invoke tools and how to use returned results. The two views are jointly optimized as:",
+      "translation": "为了在保留模型已学习工具使用策略的同时内化专业感知能力，SpatialCLI 从每条成功轨迹中构造两个训练视角。（1）**能力内化视角**使用直接回答提示词，并将图像、任务指令、显式感知推理链和最终答案构成每个训练样本。模型学习生成推理链和答案，而无需访问外部工具，从而内化原本由空间工具提供的专业感知能力。（2）**工具使用视角**使用包含工具描述的提示词，并保留原始交互结构，将工具返回结果作为后续生成的上下文。训练监督模型生成的推理、工具调用和最终答案 token，保留模型决定何时调用工具以及如何使用返回结果的能力。两个视角联合优化为：",
+      "reading_order": 26,
+      "confidence": "high"
+    },
+    {
+      "id": "S0027",
+      "type": "body",
+      "page": 5,
+      "original": "Here, $\\mathcal{L}_{\\mathrm{internal}}$ supervises tool-free explicit perceptual reasoning and the final answer, while $\\mathcal{L}_{\\mathrm{agentic}}$ supervises model-generated tokens in the tool-interaction trajectory. Both terms are mean negative log-likelihoods over their respective supervised tokens, and $\\lambda$ controls the relative weight of the Tool-Use View.",
+      "translation": "其中，$\\mathcal{L}_{\\mathrm{internal}}$ 监督不使用工具时的显式感知推理和最终答案，而 $\\mathcal{L}_{\\mathrm{agentic}}$ 监督工具交互轨迹中模型生成的 token。两项均是在各自受监督 token 上计算的平均负对数似然，$\\lambda$ 控制工具使用视角的相对权重。",
+      "reading_order": 27,
+      "confidence": "high"
+    },
+    {
+      "id": "S0028",
+      "type": "body",
+      "page": 5,
+      "original": "Existing benchmarks predominantly evaluate spatial capabilities in isolation, making it difficult to assess whether models can coordinate multiple perceptual capabilities. We therefore construct SpatialCLI-Bench, a 516-example English six-choice visual question answering benchmark for compositional reasoning across localization, segmentation, depth, and pose.",
+      "translation": "现有基准主要孤立地评估空间能力，因此难以判断模型是否能够协调多种感知能力。为此，我们构建 SpatialCLI-Bench，这是一个包含 516 个样例、每题六个选项的英文视觉问答基准，用于评估跨定位、分割、深度和姿态的组合推理。",
+      "reading_order": 28,
+      "confidence": "high"
+    },
+    {
+      "id": "S0029",
+      "type": "body",
+      "page": 6,
+      "original": "The construction follows four stages: (1) Gemini 3.1 Pro [11] inventories reliable entities and scene relations; (2) specialist vision models provide localization, segmentation, metric-depth, and pose evidence, which is used to filter candidates with missing, inconsistent, or ambiguous evidence; (3) conditioned on the verified evidence, Gemini 3.1 Pro generates the question, correct answer, and five plausible distractors; and (4) human experts independently answer the questions without seeing Gemini’s answers, and only examples with matching answers are retained. Further details are provided in Appendix C.",
+      "translation": "构建过程分为四个阶段：（1）Gemini 3.1 Pro [11] 盘点可靠的实体和场景关系；（2）专业视觉模型提供定位、分割、度量深度和姿态证据，并利用这些证据过滤掉存在证据缺失、不一致或歧义的候选样例；（3）以经过验证的证据为条件，Gemini 3.1 Pro 生成问题、正确答案和五个合理的干扰项；（4）人类专家在不知道 Gemini 答案的情况下独立回答问题，仅保留答案匹配的样例。更多细节见附录 C。",
+      "reading_order": 29,
+      "confidence": "high"
+    },
+    {
+      "id": "S0030",
+      "type": "body",
+      "page": 6,
+      "original": "**Models and Training Settings.** We instantiate SpatialCLI with three base VLMs: Qwen3-VL-8B-Instruct [1], Qwen3.6-35B-A3B [35], and Qwen3.6-27B [35]. All SFT and RL experiments are conducted using verl [41]. Detailed training configurations are provided in Appendix B.1.",
+      "translation": "**Models and Training Settings[CN]。** 我们使用三个基础 VLM 实例化 SpatialCLI：Qwen3-VL-8B-Instruct [1]、Qwen3.6-35B-A3B [35] 和 Qwen3.6-27B [35]。所有 SFT 和强化学习实验均使用 verl [41] 完成。详细的训练配置见附录 B.1。",
+      "reading_order": 30,
+      "confidence": "high"
+    },
+    {
+      "id": "S0031",
+      "type": "body",
+      "page": 6,
+      "original": "**Evaluation Benchmarks.** We evaluate SpatialCLI on SpatialCLI-Bench, MindCube [57], MMSI [54], DA-2K [53], and BOPASK [2]. We evaluate each model both w/o Tools and w/ Tools. Detailed evaluation settings, including decoding parameters, tool-call budgets, and repeated evaluations, are provided in Appendix B.2.",
+      "translation": "**Evaluation Benchmarks[CN]。** 我们在 SpatialCLI-Bench、MindCube [57]、MMSI [54]、DA-2K [53] 和 BOPASK [2] 上评估 SpatialCLI。每个模型均在不使用工具和使用工具两种条件下进行评估。详细的评测设置，包括解码参数、工具调用预算和重复评估，见附录 B.2。",
+      "reading_order": 31,
+      "confidence": "high"
+    },
+    {
+      "id": "S0032",
+      "type": "body",
+      "page": 6,
+      "original": "**Baselines.** We compare SpatialCLI with general-purpose models, including GPT-5.6 Sol [33], Gemini 3.1 Pro [11], Qwen3.7-Plus [36], and Qwen3.5-397B-A17B [35]. We further compare with SpaceTools [7] and AlloSpatial [37], two agentic methods for improving model spatial capabilities.",
+      "translation": "**Baselines[CN]。** 我们将 SpatialCLI 与通用模型进行比较，包括 GPT-5.6 Sol [33]、Gemini 3.1 Pro [11]、Qwen3.7-Plus [36] 和 Qwen3.5-397B-A17B [35]。我们还与 SpaceTools [7] 和 AlloSpatial [37] 进行比较，这两种方法都是用于提升模型空间能力的智能体方法。",
+      "reading_order": 32,
+      "confidence": "high"
+    },
+    {
+      "id": "S0033",
+      "type": "body",
+      "page": 7,
+      "original": "**SpatialCLI Tools provide effective runtime spatial augmentation.** Table 1 shows that SpatialCLI Tools provide broad gains across both frontier and smaller models. The gains are generally larger for less capable base models: averaged over benchmarks, SpatialCLI Tools improve GPT-5.6 Sol by 6.1 points, compared with 21.0 points for Qwen3-VL-8B-Instruct. This suggests that external specialist perception is particularly valuable when the base model’s native spatial capabilities are limited. Under the controlled Qwen3-VL-8B-Instruct comparison, SpatialCLI Tools outperform the other tool frameworks on most subsets and AlloSpatial on every subset, showing that effective tool interfaces and tool-use policies are critical for transferring specialist perception into task performance.",
+      "translation": "**SpatialCLI Tools provide effective runtime spatial augmentation[CN]。** 表 1 表明，SpatialCLI Tools 在前沿模型和较小模型上都带来了广泛提升。对于能力较弱的基础模型，提升通常更大：在各基准的平均结果上，SpatialCLI Tools 将 GPT-5.6 Sol 提升了 6.1 个百分点，而将 Qwen3-VL-8B-Instruct 提升了 21.0 个百分点。这表明，当基础模型自身的空间能力有限时，外部专业感知尤其有价值。在受控的 Qwen3-VL-8B-Instruct 比较中，SpatialCLI Tools 在大多数子集上超过了其他工具框架，并在每个子集上超过了 AlloSpatial，说明有效的工具接口和工具使用策略对于将专业感知迁移为任务性能至关重要。",
+      "reading_order": 33,
+      "confidence": "high"
+    },
+    {
+      "id": "S0034",
+      "type": "body",
+      "page": 7,
+      "original": "**Training jointly improves direct answering and practical tool use.** After training, every SpatialCLI variant outperforms its corresponding initial model w/o Tools on every reported evaluation subset, demonstrating consistent capability internalization. Training also strengthens practical tool use: compared with applying SpatialCLI Tools directly to the corresponding initial models, the trained variants achieve higher w/ Tools performance on most evaluation subsets. For example, SpatialCLI-8B improves from 35.3 to 72.7 on SpatialCLI-Bench w/o Tools and further reaches 91.3 w/ Tools. These results indicate that capability internalization need not trade off against tool use; training strengthens native spatial reasoning while preserving, and often further improving, the model’s ability to benefit from external tools.",
+      "translation": "**Training jointly improves direct answering and practical tool use[CN]。** 训练后，每个 SpatialCLI 变体在报告的每个评测子集上都超过了其对应的初始模型在不使用工具时的表现，体现出一致的能力内化效果。训练还增强了实际工具使用能力：与直接将 SpatialCLI Tools 应用于对应初始模型相比，训练后的变体在大多数评测子集上取得了更高的使用工具性能。例如，SpatialCLI-8B 在 SpatialCLI-Bench 不使用工具时从 35.3 提升至 72.7，并在使用工具时进一步达到 91.3。这些结果表明，能力内化不必以牺牲工具使用为代价；训练能够增强原生空间推理，同时保留并且通常进一步提升模型从外部工具中受益的能力。",
+      "reading_order": 34,
+      "confidence": "high"
+    },
+    {
+      "id": "S0035",
+      "type": "body",
+      "page": 7,
+      "original": "In this subsection, we analyze RL training dynamics, the progression of capability internalization with increasing training data, and its scaling behavior across model capacities. To quantify internalization, we use the Capability Internalization Index (CII), which measures how closely a model can reproduce the corre-",
+      "translation": "在本小节中，我们分析强化学习训练动态、随着训练数据增加而产生的能力内化进展，以及其在不同模型容量下的缩放行为。为了量化内化程度，我们使用能力内化指数（CII），该指标衡量模型能够多大程度上复现相应的",
+      "reading_order": 35,
+      "confidence": "high"
+    },
+    {
+      "id": "S0036",
+      "type": "body",
+      "page": 8,
+      "original": "sponding spatial-tool outputs without invoking the tools; higher values indicate stronger internalization, and the complete definition is provided in Appendix E.",
+      "translation": "空间工具输出而无需调用工具；数值越高表示内化程度越强，完整定义见附录 E。",
+      "reading_order": 36,
+      "confidence": "high"
+    },
+    {
+      "id": "S0037",
+      "type": "body",
+      "page": 8,
+      "original": "**Training Dynamics.** Figure 3 compares RL w/ Tools + SFT, RL w/ Tools w/o SFT, and RL w/o Tools. RL w/ Tools + SFT starts from a strong tool-use policy, remains stable on both evaluation benchmarks, and finishes with the highest training reward and substantially better MindCube performance than RL w/ Tools w/o SFT. RL w/ Tools w/o SFT expands from 3.36 to 6.74 executed tool calls per trajectory, whereas RL w/ Tools + SFT remains near 2.56 throughout training, indicating that SFT provides a stable tool-use policy before RL. RL w/o Tools generally improves direct-answer performance, but its w/ Tools performance begins to decline after approximately 100 training steps, indicating degraded tool-use competence. Moreover, its direct-answer performance reaches only 52.7, well below the 72.7 achieved through capability internalization. This gap indicates that SpatialCLI uses the available training data substantially more effectively than direct SFT or RL. Appendix F.1 provides the complete comparison.",
+      "translation": "**Training Dynamics[CN]。** 图 3 比较了 RL w/ Tools + SFT、RL w/ Tools w/o SFT 和 RL w/o Tools。RL w/ Tools + SFT 从较强的工具使用策略开始，在两个评测基准上保持稳定，并以最高的训练奖励结束，其 MindCube 性能也显著优于 RL w/ Tools w/o SFT。RL w/ Tools w/o SFT 将每条轨迹执行的工具调用次数从 3.36 扩大到 6.74，而 RL w/ Tools + SFT 在整个训练过程中保持在约 2.56，说明 SFT 在强化学习之前提供了稳定的工具使用策略。RL w/o Tools 通常能够提升直接回答性能，但其使用工具性能在大约 100 个训练步之后开始下降，表明工具使用能力退化。此外，其直接回答性能仅达到 52.7，远低于通过能力内化达到的 72.7。这一差距表明，与直接 SFT 或强化学习相比，SpatialCLI 更充分地利用了可用训练数据。附录 F.1 给出了完整比较。",
+      "reading_order": 37,
+      "confidence": "high"
+    },
+    {
+      "id": "S0038",
+      "type": "body",
+      "page": 8,
+      "original": "**Data Scaling of Capability Internalization.** Figures 4a and 4b show that, as the model is exposed to more internalization data, its w/o Tools score rises from 40.1% to 74.0%, while the four-capability macro-averaged CII increases from 45.6 to 61.6; the curves exhibit closely aligned upward trends. This synchronized improvement establishes a clear data-scaling trend: as internalization data increases, both task performance and CII continue to rise, indicating genuine transfer of specialist perceptual capabilities rather than final-answer memorization. Although the w/ Tools score temporarily declines, it recovers close to its starting level, indicating that Dual-View Capability Internalization restores the learned tool-use policy after transient interference and avoids catastrophic forgetting. Finally, the narrowing performance gap shows that, with increasing internalization data, SpatialCLI tools shift from an external capability source for solving the tasks to an optional augmentation of the model’s native capabilities.",
+      "translation": "**Data Scaling of Capability Internalization[CN]。** 图 4a 和图 4b 表明，随着模型接触更多内化数据，其不使用工具得分从 40.1% 上升到 74.0%，而四种能力宏平均的 CII 从 45.6 提升到 61.6；这些曲线呈现出高度一致的上升趋势。这种同步提升确立了清晰的数据缩放趋势：随着内化数据增加，任务性能和 CII 都持续上升，说明发生了专业感知能力的真实迁移，而不是对最终答案的记忆。尽管使用工具得分暂时下降，但其恢复到接近起始水平，表明双视角能力内化能够在短暂干扰之后恢复已学习的工具使用策略，并避免灾难性遗忘。最后，性能差距的缩小表明，随着内化数据增加，SpatialCLI 工具从解决任务所需的外部能力来源，转变为对模型原生能力的可选增强。",
+      "reading_order": 38,
+      "confidence": "high"
+    },
+    {
+      "id": "S0039",
+      "type": "body",
+      "page": 8,
+      "original": "**Internalization continues to scale with model capacity after tool-use performance saturates.** Figure 4d reveals a clear separation between tool-use and internalization scaling: across the three model variants, w/ Tools scores vary by at most 1.0 point on each benchmark, whereas both larger variants substantially outperform SpatialCLI-8B w/o Tools. The saturation of w/ Tools performance is consistent with tool use requiring a relatively compact invocation-and-integration policy; once this policy is learned, the shared external specialists supply most of the required perceptual capability and thereby compress capacity-dependent differences. Internalization is less prone to saturation because the model must instead encode and reproduce multiple specialist capabilities in its own parameters; accordingly, Figure 4c shows that SpatialCLI-35B-A3B and SpatialCLI-27B substantially outperform SpatialCLI-8B across all four capability-specific CII values. These results show that external tools reduce performance differences across model sizes, whereas capability internalization continues to scale along two complementary dimensions: data exposure determines how fully a given model learns from the specialists, and model capacity affects how much of their capability it can absorb.",
+      "translation": "**Internalization continues to scale with model capacity after tool-use performance saturates[CN]。** 图 4d 揭示了工具使用和能力内化之间清晰的缩放差异：在三个模型变体中，使用工具得分在每个基准上的差异最多为 1.0 分，而两个更大的变体在不使用工具时都显著超过 SpatialCLI-8B。使用工具性能的饱和与工具使用只需要相对紧凑的调用—整合策略相一致；一旦学会该策略，共享的外部专业模型就会提供大部分所需的感知能力，从而压缩与模型容量相关的差异。内化不易饱和，因为模型需要在自身参数中编码并复现多种专业能力；相应地，图 4c 表明，在四种特定能力的 CII 指标上，SpatialCLI-35B-A3B 和 SpatialCLI-27B 都显著超过 SpatialCLI-8B。这些结果表明，外部工具能够减小不同模型规模之间的性能差异，而能力内化则沿着两个互补维度持续缩放：数据暴露量决定给定模型从专业模型中学习的充分程度，模型容量则影响其能够吸收多少专业模型的能力。",
+      "reading_order": 39,
+      "confidence": "high"
+    },
+    {
+      "id": "S0040",
+      "type": "body",
+      "page": 8,
+      "original": "Using Qwen3-VL-8B-Instruct, we ablate how tools expose perceptual evidence and how tool-use trajectories are converted into capability-internalization supervision.",
+      "translation": "我们使用 Qwen3-VL-8B-Instruct，消融研究工具如何呈现感知证据，以及工具使用轨迹如何转换为能力内化监督。",
+      "reading_order": 40,
+      "confidence": "high"
+    },
+    {
+      "id": "S0041",
+      "type": "body",
+      "page": 8,
+      "original": "**Structured returns provide more effective tool evidence.** Table 2 compares the current structured tool returns with two red-border visual-return variants for Locate and Segment. The structured-plus-visual variant retains the structured coordinates and polygons while appending each visualization as a new image, whereas the visual-only variant returns the visualization without the corresponding structured result; Depth and Pose return remain unchanged.",
+      "translation": "**Structured returns provide more effective tool evidence[CN]。** 表 2 比较了当前的结构化工具返回结果，以及 Locate 和 Segment 的两种红框视觉返回变体。结构化加视觉的变体保留结构化坐标和多边形，同时将每个可视化结果作为新图像追加；而仅视觉变体返回可视化结果，不返回相应的结构化结果；Depth 和 Pose 的返回结果保持不变。",
+      "reading_order": 41,
+      "confidence": "high"
+    },
+    {
+      "id": "S0042",
+      "type": "body",
+      "page": 8,
+      "original": "Visual Only improves over the initial model on all three evaluations, showing that tool-provided perceptual evidence remains useful even without structured Locate and Segment outputs. Adding structured coordinates and polygons yields substantially stronger performance, including a 20.1-point gain on SpatialCLI-Bench over Visual Only and consistent improvements on BOPASK. Structured Only performs comparably to Structured + Visual across all evaluations. Thus, explicit coordinates and polygons are the primary source of the improvement, while rendering the same evidence as additional images introduces extra visual context",
+      "translation": "仅视觉在三个评测上都优于初始模型，表明即使没有结构化的 Locate 和 Segment 输出，工具提供的感知证据仍然有用。加入结构化坐标和多边形能够带来显著更强的性能，包括在 SpatialCLI-Bench 上相比仅视觉提升 20.1 分，并在 BOPASK 上取得一致提升。仅结构化在所有评测中都与结构化加视觉表现相当。因此，显式坐标和多边形是性能提升的主要来源，而将相同证据渲染为额外图像则引入了额外的视觉上下文",
+      "reading_order": 42,
+      "confidence": "high"
+    },
+    {
+      "id": "S0043",
+      "type": "body",
+      "page": 9,
+      "original": "without a consistent score benefit. Structured returns can also be directly converted into textual capability-internalization supervision, making them easier for current VLMs to internalize than multimodal tool outputs such as annotated images.",
+      "translation": "而没有带来一致的得分收益。结构化返回结果还可以直接转换为文本形式的能力内化监督，这使其比标注图像等多模态工具输出更容易被当前 VLM 内化。",
+      "reading_order": 43,
+      "confidence": "high"
+    },
+    {
+      "id": "S0044",
+      "type": "body",
+      "page": 9,
+      "original": "**Progressive verbalization and dual-view training are both necessary.** Table 3 compares different forms of capability-internalization supervision. One-Pass Dual-View replaces Progressive Evidence-Grounded Trajectory Verbalization with a single pass over the complete trajectory while retaining the same dual-view training.",
+      "translation": "**Progressive verbalization and dual-view training are both necessary[CN]。** 表 3 比较了不同形式的能力内化监督。One-Pass Dual-View 在保留相同双视角训练的同时，用对完整轨迹进行一次处理替代渐进式基于证据的轨迹文字化。",
+      "reading_order": 44,
+      "confidence": "high"
+    },
+    {
+      "id": "S0045",
+      "type": "body",
+      "page": 9,
+      "original": "For the untrained Qwen3-VL-8B-Instruct, external tools improve the score while reducing trajectory length from 2738 to 949 tokens, indicating that tool use can also lower decoding cost. The Qwen3.5-397B-A17B case studies in Appendix H exhibit the same qualitative trend, with tools enabling more direct and reliable problem solving. Final Answer Only yields concise but limited direct answers and loses tool use, while CoT + Answer is verbose and weaker, showing that neither outcome supervision nor ungrounded reasoning transfers the perceptual process. Internalization View Only produces strong and compact w/o Tools reasoning but weakens tool use, whereas Tool-Use View Only preserves w/ Tools performance without internalizing the capability, demonstrating the complementary roles of the two views. One-Pass Dual-View supports both modes, but Full Dual-View reaches the best w/o Tools and w/ Tools scores of 72.7 and 91.3 with shorter outputs, validating progressive evidence consolidation. Appendix F.3 further confirms that Full Dual-View retains the controlled calling behavior learned from the tool-use view.",
+      "translation": "对于未经训练的 Qwen3-VL-8B-Instruct，外部工具在将轨迹长度从 2738 个 token 减少到 949 个 token 的同时提升了得分，说明工具使用也能够降低解码成本。附录 H 中 Qwen3.5-397B-A17B 的案例研究呈现出相同的定性趋势，工具使问题求解更加直接和可靠。仅最终答案能够产生简洁但有限的直接答案，并且会失去工具使用能力；而 CoT + Answer 冗长且性能更弱，表明无论是结果监督还是无依据的推理，都不能迁移感知过程。仅内化视角能够产生强且紧凑的不使用工具推理，但会削弱工具使用；仅工具使用视角能够保留使用工具时的性能，却无法内化能力，展示了两个视角的互补作用。One-Pass Dual-View 同时支持两种模式，但 Full Dual-View 以更短的输出取得了最佳的不使用工具和使用工具得分 72.7 和 91.3，验证了渐进式证据整合的有效性。附录 F.3 进一步确认，Full Dual-View 保留了从工具使用视角学习到的受控调用行为。",
+      "reading_order": 45,
+      "confidence": "high"
+    },
+    {
+      "id": "S0046",
+      "type": "body",
+      "page": 9,
+      "original": "General VLMs lack the fine-grained perceptual capabilities required for embodied and spatial reasoning and cannot readily learn them from specialist vision models. SpatialCLI addresses this gap by connecting specialist models as runtime tools, learning agentic tool use, and converting successful trajectories into dual-view supervision for capability internalization. Across embodied and spatial benchmarks, SpatialCLI consistently improves both w/ Tools and w/o Tools reasoning, showing that external specialist capabilities can augment inference and be transferred into the VLM without sacrificing tool use.",
+      "translation": "通用 VLM 缺乏具身和空间推理所需的细粒度感知能力，也无法轻易从专业视觉模型中学习这些能力。SpatialCLI 通过将专业模型连接为运行时工具、学习智能体式工具使用，并将成功轨迹转换为用于能力内化的双视角监督，弥补了这一差距。在具身和空间基准上，SpatialCLI 持续提升使用工具和不使用工具时的推理能力，表明外部专业能力能够增强推理，并且能够在不牺牲工具使用的情况下迁移到 VLM 中。",
+      "reading_order": 46,
+      "confidence": "high"
+    },
+    {
+      "id": "S0047",
+      "type": "body",
+      "page": 9,
+      "original": "SpatialCLI remains limited by specialist-tool coverage and reliability, with its current scope restricted to structured perceptual outputs and perception-centric tasks. Future work will extend internalization to multimodal outputs using unified multimodal models capable of both understanding and generation, and integrate VLA tools under VLM planning for joint perception and action.",
+      "translation": "SpatialCLI 仍受专业工具覆盖范围和可靠性的限制，目前的范围局限于结构化感知输出和以感知为中心的任务。未来工作将使用同时具备理解和生成能力的统一多模态模型，把内化扩展到多模态输出，并在 VLM 规划下集成 VLA 工具，以实现感知与动作的联合。",
+      "reading_order": 47,
+      "confidence": "high"
+    },
+    {
+      "id": "S0048",
+      "type": "body",
+      "page": 11,
+      "original": "[1] Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen, Xionghui Chen, Zesen Cheng, Lianghao Deng, Wei Ding, Chang Gao, Chumeng Ge, et al. Qwen3-vl technical report. *arXiv preprint arXiv:2511.21631*, 2025.",
+      "translation": "[1] Shuai Bai、Yuxuan Cai、Ruizhe Chen、Keqin Chen、Xionghui Chen、Zesen Cheng、Lianghao Deng、Wei Ding、Chang Gao、Chumeng Ge 等。Qwen3-vl 技术报告。*arXiv 预印本 arXiv:2511.21631*，2025。",
+      "reading_order": 48,
+      "confidence": "high"
+    },
+    {
+      "id": "S0049",
+      "type": "body",
+      "page": 11,
+      "original": "[2] Vineet Bhat, Sungsu Kim, Valts Blukis, Greg Heinrich, Prashanth Krishnamurthy, Ramesh Karri, Stan Birchfield, Farshad Khorrami, and Jonathan Tremblay. Bop-ask: Object-interaction reasoning for vision-language models. In *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*, pages 16746–16757, 2026.",
+      "translation": "[2] Vineet Bhat、Sungsu Kim、Valts Blukis、Greg Heinrich、Prashanth Krishnamurthy、Ramesh Karri、Stan Birchfield、Farshad Khorrami 和 Jonathan Tremblay。Bop-ask：面向视觉语言模型的目标交互推理。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 16746–16757 页，2026。",
+      "reading_order": 49,
+      "confidence": "high"
+    },
+    {
+      "id": "S0050",
+      "type": "body",
+      "page": 11,
+      "original": "[3] Zhipeng Cai, Zhuang Liu, Yunyong Xiong, Zechun Liu, Vikas Chandra, and Yangyang Shi. Vlm3: Vision language models are native 3d learners. *arXiv preprint arXiv:2605.30561*, 2026.",
+      "translation": "[3] Zhipeng Cai、Zhuang Liu、Yunyong Xiong、Zechun Liu、Vikas Chandra 和 Yangyang Shi。Vlm3：视觉语言模型是原生三维学习器。*arXiv 预印本 arXiv:2605.30561*，2026。",
+      "reading_order": 50,
+      "confidence": "high"
+    },
+    {
+      "id": "S0051",
+      "type": "body",
+      "page": 11,
+      "original": "[4] Nicolas Carion, Laura Gustafson, Yuan-Ting Hu, Shoubhik Debnath, Ronghang Hu, Didac Suris, Chaitanya Ryali, Kalyan Vasudev Alwala, Haitham Khedr, Andrew Huang, et al. Sam 3: Segment anything with concepts. *arXiv preprint arXiv:2511.16719*, 2025.",
+      "translation": "[4] Nicolas Carion、Laura Gustafson、Yuan-Ting Hu、Shoubhik Debnath、Ronghang Hu、Didac Suris、Chaitanya Ryali、Kalyan Vasudev Alwala、Haitham Khedr、Andrew Huang 等。Sam 3：使用概念分割一切。*arXiv 预印本 arXiv:2511.16719*，2025。",
+      "reading_order": 51,
+      "confidence": "high"
+    },
+    {
+      "id": "S0052",
+      "type": "body",
+      "page": 11,
+      "original": "[5] Boyuan Chen, Zhuo Xu, Sean Kirmani, Brain Ichter, Dorsa Sadigh, Leonidas Guibas, and Fei Xia. Spatialvlm: Endowing vision-language models with spatial reasoning capabilities. In *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*, pages 14455–14465, 2024.",
+      "translation": "[5] Boyuan Chen、Zhuo Xu、Sean Kirmani、Brain Ichter、Dorsa Sadigh、Leonidas Guibas 和 Fei Xia。Spatialvlm：赋予视觉语言模型空间推理能力。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 14455–14465 页，2024。",
+      "reading_order": 52,
+      "confidence": "high"
+    },
+    {
+      "id": "S0053",
+      "type": "body",
+      "page": 11,
+      "original": "[6] Siyi Chen, Hugo Hadfield, Alex Zook, Mikaela Angelina Uy, Chan Hee Song, Erwin Coumans, Xuning Yang, Faisal Ladhaq, Qing Qu, Stan Birchfield, et al. Volo: A physical orchestrator for open-vocabulary long-horizon manipulation. *arXiv preprint arXiv:2606.07713*, 2026.",
+      "translation": "[6] Siyi Chen、Hugo Hadfield、Alex Zook、Mikaela Angelina Uy、Chan Hee Song、Erwin Coumans、Xuning Yang、Faisal Ladhaq、Qing Qu、Stan Birchfield 等。Volo：面向开放词汇长时程操作的物理协调器。*arXiv 预印本 arXiv:2606.07713*，2026。",
+      "reading_order": 53,
+      "confidence": "high"
+    },
+    {
+      "id": "S0054",
+      "type": "body",
+      "page": 11,
+      "original": "[7] Siyi Chen, Mikaela Angelina Uy, Chan Hee Song, Faisal Ladhak, Adithyavairavan Murali, Qing Qu, Stan Birchfield, Valts Blukis, and Jonathan Tremblay. Spacetools: Tool-augmented spatial reasoning via double interactive rl. In *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*, pages 37109–37120, 2026.",
+      "translation": "[7] Siyi Chen、Mikaela Angelina Uy、Chan Hee Song、Faisal Ladhak、Adithyavairavan Murali、Qing Qu、Stan Birchfield、Valts Blukis 和 Jonathan Tremblay。Spacetools：通过双重交互式强化学习实现工具增强的空间推理。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 37109–37120 页，2026。",
+      "reading_order": 54,
+      "confidence": "high"
+    },
+    {
+      "id": "S0055",
+      "type": "body",
+      "page": 11,
+      "original": "[8] Zeren Chen, Xiaoya Lu, Zhijie Zheng, Pengmou Li, Lehan He, Yijin Zhou, Jinxue Shao, Bohan Zhuang, and Lu Sheng. Geometrically-constrained agent for spatial reasoning. In *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*, pages 38689–38699, 2026.",
+      "translation": "[8] Zeren Chen、Xiaoya Lu、Zhijie Zheng、Pengmou Li、Lehan He、Yijin Zhou、Jinxue Shao、Bohan Zhuang 和 Lu Sheng。用于空间推理的几何约束智能体。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 38689–38699 页，2026。",
+      "reading_order": 55,
+      "confidence": "high"
+    },
+    {
+      "id": "S0056",
+      "type": "body",
+      "page": 11,
+      "original": "[9] An-Chieh Cheng, Hongxu Yin, Yang Fu, Qianqiao Guo, Ruihan Yang, Jan Kautz, Xiaolong Wang, and Sifei Liu. Spatialgpt: Grounded spatial reasoning in vision-language models. In *Advances in Neural Information Processing Systems*, volume 37, pages 135062–135093, 2024.",
+      "translation": "[9] An-Chieh Cheng、Hongxu Yin、Yang Fu、Qianqiao Guo、Ruihan Yang、Jan Kautz、Xiaolong Wang 和 Sifei Liu。Spatialgpt：视觉语言模型中的有依据空间推理。载于 *神经信息处理系统进展*，第 37 卷，第 135062–135093 页，2024。",
+      "reading_order": 56,
+      "confidence": "high"
+    },
+    {
+      "id": "S0057",
+      "type": "body",
+      "page": 11,
+      "original": "[10] Yalun Dai, Hao Li, Shulin Tian, Runmao Yao, Yuhao Dong, Fangzhou Hong, Zhaoxi Chen, Fangfu Liu, Baoliang Tian, Dingwen Zhang, et al. S-agent: Spatial tool-use elicits reasoning for spatial intelligence. *arXiv preprint arXiv:2606.20515*, 2026.",
+      "translation": "[10] Yalun Dai、Hao Li、Shulin Tian、Runmao Yao、Yuhao Dong、Fangzhou Hong、Zhaoxi Chen、Fangfu Liu、Baoliang Tian、Dingwen Zhang 等。S-agent：空间工具使用激发空间智能推理。*arXiv 预印本 arXiv:2606.20515*，2026。",
+      "reading_order": 57,
+      "confidence": "high"
+    },
+    {
+      "id": "S0058",
+      "type": "body",
+      "page": 11,
+      "original": "[11] Google DeepMind. Gemini 3.1 Pro model card, February 2026. https://deepmind.google/models/model-cards/gemini-3-1-pro/.",
+      "translation": "[11] Google DeepMind。Gemini 3.1 Pro 模型卡，2026 年 2 月。https://deepmind.google/models/model-cards/gemini-3-1-pro/。",
+      "reading_order": 58,
+      "confidence": "high"
+    },
+    {
+      "id": "S0059",
+      "type": "body",
+      "page": 11,
+      "original": "[12] Andrew Guo, Bowen Wen, Jianhe Yuan, Jonathan Tremblay, Stephen Tyree, Jeffrey Smith, and Stan Birchfield. A dataset of real-world manipulable object categories with pose annotations, affordances, and reconstructions. In *2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, pages 11428–11435. IEEE, 2023.",
+      "translation": "[12] Andrew Guo、Bowen Wen、Jianhe Yuan、Jonathan Tremblay、Stephen Tyree、Jeffrey Smith 和 Stan Birchfield。带有姿态标注、可供性和重建信息的真实世界可操作目标类别数据集。载于 *2023 IEEE/RSJ 智能机器人与系统国际会议（IROS）*，第 11428–11435 页。IEEE，2023。",
+      "reading_order": 59,
+      "confidence": "high"
+    },
+    {
+      "id": "S0060",
+      "type": "body",
+      "page": 11,
+      "original": "[13] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang, Qihao Zhu, Runxin Xu, Ruoyu Zhang, Shirong Ma, Xiao Bi, et al. Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. *arXiv preprint arXiv:2501.12948*, 2025.",
+      "translation": "[13] Daya Guo、Dejian Yang、Haowei Zhang、Junxiao Song、Peiyi Wang、Qihao Zhu、Runxin Xu、Ruoyu Zhang、Shirong Ma、Xiao Bi 等。Deepseek-r1：通过强化学习激励大语言模型中的推理能力。*arXiv 预印本 arXiv:2501.12948*，2025。",
+      "reading_order": 60,
+      "confidence": "high"
+    },
+    {
+      "id": "S0061",
+      "type": "body",
+      "page": 11,
+      "original": "[14] Tanmay Gupta and Aniruddha Kembhavi. Visual programming: Compositional visual reasoning without training. In *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*, pages 14953–14962, 2023.",
+      "translation": "[14] Tanmay Gupta 和 Aniruddha Kembhavi。视觉编程：无需训练的组合视觉推理。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 14953–14962 页，2023。",
+      "reading_order": 61,
+      "confidence": "high"
+    },
+    {
+      "id": "S0062",
+      "type": "body",
+      "page": 11,
+      "original": "[15] Yi Han, Enshen Zhou, Shanyu Rong, Jingkun An, Pengwei Wang, Zhongyuan Wang, Cheng Chi, Lu Sheng, and Shanghang Zhang. Tiger: Tool-ontin rated geometric reasoning in vision-language models for robotics. *arXiv preprint arXiv:2510.07181*, 2025.",
+      "translation": "[15] Yi Han、Enshen Zhou、Shanyu Rong、Jingkun An、Pengwei Wang、Zhongyuan Wang、Cheng Chi、Lu Sheng 和 Shanghang Zhang。Tiger：面向机器人的视觉语言模型中的工具导向几何推理。*arXiv 预印本 arXiv:2510.07181*，2025。",
+      "reading_order": 62,
+      "confidence": "high"
+    },
+    {
+      "id": "S0063",
+      "type": "body",
+      "page": 11,
+      "original": "[16] Stefan Hinterstoisser, Vincent Lepetit, Slobodan Ilic, Stefan Holzer, Gary Bradski, Kurt Konolige, and Nassir Navab. Model based training, detection and pose estimation of texture-less 3d objects in heavily cluttered scenes. In *Asian conference on computer vision*, pages 548–562. Springer, 2012.",
+      "translation": "[16] Stefan Hinterstoisser、Vincent Lepetit、Slobodan Ilic、Stefan Holzer、Gary Bradski、Kurt Konolige 和 Nassir Navab。在高度杂乱场景中对无纹理三维目标进行基于模型的训练、检测和姿态估计。载于 *亚洲计算机视觉会议*，第 548–562 页。Springer，2012。",
+      "reading_order": 63,
+      "confidence": "high"
+    },
+    {
+      "id": "S0064",
+      "type": "body",
+      "page": 12,
+      "original": "[17] Jiaheng Hu, Monit Shridhara, Caden Lu, Dhruv Shah, Hao-Tien Lewis Chiang, Jie Tan, and Annie Xie. What matters in orchestrating robot policies: A systematic study of hierarchical vla agents. *arXiv preprint arXiv:2606.10267*, 2026.",
+      "translation": "[17] Jiaheng Hu、Monit Shridhara、Caden Lu、Dhruv Shah、Hao-Tien Lewis Chiang、Jie Tan 和 Annie Xie。编排机器人策略时什么最重要：分层 VLA 智能体的系统性研究。*arXiv 预印本 arXiv:2606.10267*，2026。",
+      "reading_order": 64,
+      "confidence": "high"
+    },
+    {
+      "id": "S0065",
+      "type": "body",
+      "page": 12,
+      "original": "[18] Yushi Hu, Elliott Tretter, Chun-Tan Lu, Krishnamurthy Viswanathan, Kenji Hata, Enming Luo, Ranjay Krishna, and Ariel Fuxman. Visual program distillation: Distilling tools and programmatic reasoning into vision-language models. In *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*, pages 9580–9601, 2024.",
+      "translation": "[18] Yushi Hu、Elliott Tretter、Chun-Tan Lu、Krishnamurthy Viswanathan、Kenji Hata、Enming Luo、Ranjay Krishna 和 Ariel Fuxman。视觉程序蒸馏：将工具和程序化推理蒸馏到视觉语言模型中。载于 *IEEE/CVF 计算机视觉与模式识别会议论文集*，第 9580–9601 页，2024。",
+      "reading_order": 65,
+      "confidence": "high"
+    },
+    {
+      "id": "S0066",
+      "type": "body",
+      "page": 12,
+      "original": "[19] Zixuan Huang, Xin Xia, Yuxi Ren, Jianbin Zheng, Xuanda Wang, Zhixia Zhang, Hongyan Xie, Songshi Jiang, Zehao Chen, Xuefeng Xiao, et al. Does your reasoning model implicitly know when to stop thinking? *arXiv preprint arXiv:2602.08584*, 2026.",
+      "translation": "[19] Zixuan Huang、Xin Xia、Yuxi Ren、Jianbin Zheng、Xuanda Wang、Zhixia Zhang、Hongyan Xie、Songshi Jiang、Zehao Chen、Xuefeng Xiao 等。你的推理模型是否隐式地知道何时停止思考？*arXiv 预印本 arXiv:2602.08584*，2026。",
+      "reading_order": 66,
+      "confidence": "high"
+    },
+    {
+      "id": "S0067",
+      "type": "body",
+      "page": 12,
+      "original": "[20] Bowen Jin, Hansi Zeng, Zhenrui Yue, Jinsung Yoon, Sercan Arik, Dong Wang, Hamed Zamani, and Jiawei Han. Search-r1: Training llms to reason and leverage search engines with reinforcement learning. *arXiv preprint arXiv:2503.09516*, 2025.",
+      "translation": "[20] Bowen Jin、Hansi Zeng、Zhenrui Yue、Jinsung Yoon、Sercan Arik、Dong Wang、Hamed Zamani 和 Jiawei Han。Search-r1：通过强化学习训练大语言模型进行推理并利用搜索引擎。*arXiv 预印本 arXiv:2503.09516*，2025。",
+      "reading_order": 67,
+      "confidence": "high"
+    },
+    {
+      "id": "S0068",
+      "type": "body",
+      "page": 12,
+      "original": "[21] Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael Rafailov, Ethan Foster, Grace Lam, Pannag Sanketi, et al. Openvla: An open-source vision-language-action model. *arXiv preprint arXiv:2406.09246*, 2024.",
+      "translation": "[21] Moo Jin Kim、Karl Pertsch、Siddharth Karamcheti、Ted Xiao、Ashwin Balakrishna、Suraj Nair、Rafael Rafailov、Ethan Foster、Grace Lam、Pannag Sanketi 等。Openvla：一种开源视觉语言动作模型。*arXiv 预印本 arXiv:2406.09246*，2024。",
+      "reading_order": 68,
+      "confidence": "high"
+    },
+    {
+      "id": "S0069",
+      "type": "body",
+      "page": 12,
+      "original": "[22] Alina Kuznetsova, Hassan Rom, Neil Alldrin, Jasper Uijlings, Ivan Krasin, Jordi Pont-Tuset, Shahab Kamali, Stefan Popov, Matteo Matalto, Alexander Koloskov, et al. The open images dataset v4: Unified image classification, object detection, and visual relationship detection at scale. *arXiv preprint arXiv:1811.11819*, 2018.",
+      "translation": "[22] Alina Kuznetsova、Hassan Rom、Neil Alldrin、Jasper Uijlings、Ivan Krasin、Jordi Pont-Tuset、Shahab Kamali、Stefan Popov、Matteo Matalto、Alexander Koloskov 等。Open Images 数据集 v4：大规模统一图像分类、目标检测和视觉关系检测。*arXiv 预印本 arXiv:1811.11819*，2018。",
+      "reading_order": 69,
+      "confidence": "high"
+    },
+    {
+      "id": "S0070",
+      "type": "body",
+      "page": 12,
+      "original": "[23] Justin Lazarow, David Griffiths, Gefen Kohavi, Francisco Crespo, and Afshin Dehghan. Cubify anything: Scaling indoor 3d object detection. *arXiv preprint arXiv:2412.04458*, 2024.",
+      "translation": "[23] Justin Lazarow、David Griffiths、Gefen Kohavi、Francisco Crespo 和 Afshin Dehghan。Cubify anything：扩展室内三维目标检测。*arXiv 预印本 arXiv:2412.04458*，2024。",
+      "reading_order": 70,
+      "confidence": "high"
+    },
+    {
+      "id": "S0071",
+      "type": "body",
+      "page": 12,
+      "original": "[24] Zixing Lei, Changxing Liu, Yichen Xiong, Minhao Xiong, Yuanzhuo Ding, Zhipeng Zhang, Weixin Li, and Siheng Chen. Towards long-horizon embodied agents with tool-aligned vision-language-action models. *arXiv preprint arXiv:2605.12119*, 2026.",
+      "translation": "[24] Zixing Lei、Changxing Liu、Yichen Xiong、Minhao Xiong、Yuanzhuo Ding、Zhipeng Zhang、Weixin Li 和 Siheng Chen。迈向具有工具对齐视觉语言动作模型的长时程具身智能体。*arXiv 预印本 arXiv:2605.12119*，2026。",
+      "reading_order": 71,
+      "confidence": "high"
+    },
+    {
+      "id": "S0072",
+      "type": "body",
+      "page": 12,
+      "original": "[25] Haotong Lin, Sili Chen, Junhao Liew, Donny Y Chen, Zhenyu Li, Guang Shi, Jiashi Feng, and Bingyi Kang. Depth anything 3: Recovering the visual space from any views. *arXiv preprint arXiv:2511.10647*, 2025.",
+      "translation": "[25] Haotong Lin、Sili Chen、Junhao Liew、Donny Y Chen、Zhenyu Li、Guang Shi、Jiashi Feng 和 Bingyi Kang。Depth anything 3：从任意视角恢复视觉空间。*arXiv 预印本 arXiv:2511.10647*，2025。",
+      "reading_order": 72,
+      "confidence": "high"
+    },
+    {
+      "id": "S0073",
+      "type": "body",
+      "page": 12,
+      "original": "[26] Aixin Liu, Aoxue Mei, Bangcai Lin, Bing Xue, Bingxuan Wang, Bingzhang Xu, Bochao Wu, Bowei Zhang, Chaofan Lin, Chen Dong, et al. Deepseek-v3.2: Pushing the frontier of open large language models. *arXiv preprint arXiv:2512.02556*, 2025.",
+      "translation": "[26] Aixin Liu、Aoxue Mei、Bangcai Lin、Bing Xue、Bingxuan Wang、Bingzhang Xu、Bochao Wu、Bowei Zhang、Chaofan Lin、Chen Dong 等。Deepseek-v3.2：推动开放大语言模型的前沿。*arXiv 预印本 arXiv:2512.02556*，2025。",
+      "reading_order": 73,
+      "confidence": "high"
+    },
+    {
+      "id": "S0074",
+      "type": "body",
+      "page": 12,
+      "original": "[27] Haowen Liu, Xirui Li, Shaoxiong Yao, Peng Shi, Tianyi Zhou, Jia-Bin Huang, Furong Huang, and Jiayuan Mao. Guava: An effective and universal harness for embodied manipulation. *arXiv preprint arXiv:2606.18638*, 2026.",
+      "translation": "[27] Haowen Liu、Xirui Li、Shaoxiong Yao、Peng Shi、Tianyi Zhou、Jia-Bin Huang、Furong Huang 和 Jiayuan Mao。Guava：一种有效且通用的具身操作框架。*arXiv 预印本 arXiv:2606.18638*，2026。",
+      "reading_order": 74,
+      "confidence": "high"
+    },
+    {
+      "id": "S0075",
+      "type": "body",
+      "page": 12,
+      "original": "[28] Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jinglin Yang, Qing Jiang, Chunyuang Li, Jianwei Yang, Hang Su, et al. Grounding dino: Marrying dino with grounded pre-training for open-set object detection. In *European conference on computer vision*, pages 358–355. Springer, 2024.",
+      "translation": "[28] Shilong Liu、Zhaoyang Zeng、Tianhe Ren、Feng Li、Hao Zhang、Jinglin Yang、Qing Jiang、Chunyuang Li、Jianwei Yang、Hang Su 等。Grounding DINO：将 DINO 与基于 grounding 的预训练结合，用于开放集目标检测。载于 *欧洲计算机视觉会议*，第 358–355 页。Springer，2024。",
+      "reading_order": 75,
+      "confidence": "high"
+    },
+    {
+      "id": "S0076",
+      "type": "body",
+      "page": 12,
+      "original": "[29] Shunyu Liu, Minghao Liu, Huichi Zhou, Zhenyu Cui, Yang Zhou, Yuhao Zhou, Jiahao Gao, Heng Zhou, Yunhao Yang, Wendong Fan, et al. Veriwbe: Verifiable long-chain web benchmark for agentic information-seeking. *arXiv preprint arXiv:2508.04026*, 2025.",
+      "translation": "[29] Shunyu Liu、Minghao Liu、Huichi Zhou、Zhenyu Cui、Yang Zhou、Yuhao Zhou、Jiahao Gao、Heng Zhou、Yunhao Yang、Wendong Fan 等。Veriwbe：面向智能体信息检索的可验证长链网页基准。*arXiv 预印本 arXiv:2508.04026*，2025。",
+      "reading_order": 76,
+      "confidence": "high"
+    },
+    {
+      "id": "S0077",
+      "type": "body",
+      "page": 12,
+      "original": "[30] Tengxiao Liu, Zifeng Wang, Jin Miao, I Hsu, Jun Yan, Jiefeng Chen, Rujun Han, Fangyuan Xu, Yanfei Chen, Ke Jiang, et al. Budget-aware tool-use enables effective agent scaling. *arXiv preprint arXiv:2511.17006*, 2025.",
+      "translation": "[30] Tengxiao Liu、Zifeng Wang、Jin Miao、I Hsu、Jun Yan、Jiefeng Chen、Rujun Han、Fangyuan Xu、Yanfei Chen、Ke Jiang 等。预算感知工具使用实现有效的智能体扩展。*arXiv 预印本 arXiv:2511.17006*，2025。",
+      "reading_order": 77,
+      "confidence": "high"
+    },
+    {
+      "id": "S0078",
+      "type": "body",
+      "page": 12,
+      "original": "[31] Chenyang Ma, Kai Lu, Ta-Ying Cheng, Niki Trigoni, and Andrew Markham. Spatialpin: Enhancing spatial reasoning capabilities of vision-language models through prompting and interacting 3d priors. In *Advances in neural information processing systems*, volume 37, pages 68803–68832, 2024.",
+      "translation": "[31] Chenyang Ma、Kai Lu、Ta-Ying Cheng、Niki Trigoni 和 Andrew Markham。Spatialpin：通过提示和交互式三维先验增强视觉语言模型的空间推理能力。载于 *神经信息处理系统进展*，第 37 卷，第 68803–68832 页，2024。",
+      "reading_order": 78,
+      "confidence": "high"
+    },
+    {
+      "id": "S0079",
+      "type": "body",
+      "page": 12,
+      "original": "[32] Reichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, et al. Webgpt: Browser-assisted question-answering with human feedback. *arXiv preprint arXiv:2112.09332*, 2021.",
+      "translation": "[32] Reichiro Nakano、Jacob Hilton、Suchir Balaji、Jeff Wu、Long Ouyang、Christina Kim、Christopher Hesse、Shantanu Jain、Vineet Kosaraju、William Saunders 等。WebGPT：带有人类反馈的浏览器辅助问答。*arXiv 预印本 arXiv:2112.09332*，2021。",
+      "reading_order": 79,
+      "confidence": "high"
+    },
+    {
+      "id": "S0080",
+      "type": "body",
+      "page": 12,
+      "original": "[33] OpenAI. Gpt-5.6: Frontier intelligence that scales with your ambition, July 2026. https://openai.com/index/gpt-5-6/.",
+      "translation": "[33] OpenAI。Gpt-5.6：随您的抱负扩展的前沿智能，2026 年 7 月。https://openai.com/index/gpt-5-6/。",
+      "reading_order": 80,
+      "confidence": "high"
+    },
+    {
+      "id": "S0081",
+      "type": "body",
+      "page": 12,
+      "original": "[34] Yujia Qin, Ying Ye, Junjie Fang, Haoming Wang, Shihao Liang, Shizuo Tian, Junda Zhang, Jiahao Li, Yunxin Li, Shijue Huang, et al. Ui-tars: Pioneering automated gui interaction with native agents. *arXiv preprint arXiv:2501.12326*, 2025.",
+      "translation": "[34] Yujia Qin、Ying Ye、Junjie Fang、Haoming Wang、Shihao Liang、Shizuo Tian、Junda Zhang、Jiahao Li、Yunxin Li、Shijue Huang 等。Ui-tars：使用原生智能体开创自动化 GUI 交互。*arXiv 预印本 arXiv:2501.12326*，2025。",
+      "reading_order": 81,
+      "confidence": "high"
+    },
+    {
+      "id": "S0082",
+      "type": "body",
+      "page": 25,
+      "original": "",
+      "translation": "",
+      "reading_order": 82,
+      "confidence": "high"
+    },
+    {
+      "id": "S0083",
+      "type": "body",
+      "page": 25,
+      "original": "",
+      "translation": "",
+      "reading_order": 83,
+      "confidence": "high"
+    },
+    {
+      "id": "S0084",
+      "type": "body",
+      "page": 25,
+      "original": "The sector is converted into the complementary fields `visible_side` and `facing_direction_camera`; in the latter, front points into the image and back points toward the camera.",
+      "translation": "该扇区被转换为互补字段 `visible_side` 和 `facing_direction_camera`；在后一个字段中，front 指向图像内部，而 back 指向相机。",
+      "reading_order": 84,
+      "confidence": "high"
+    },
+    {
+      "id": "S0085",
+      "type": "body",
+      "page": 25,
+      "original": "For camera motion, VGGT jointly estimates world-to-camera extrinsics $E_i=[R_i\\mid t_i]$ for the selected views in their given order. The camera center and the adjacent-view translation expressed in the source-camera frame are",
+      "translation": "对于相机运动，VGGT 按给定顺序联合估计所选视图的世界到相机外参 $E_i=[R_i\\mid t_i]$。相机中心以及在源相机坐标系中表示的相邻视图平移为",
+      "reading_order": 85,
+      "confidence": "high"
+    },
+    {
+      "id": "S0086",
+      "type": "body",
+      "page": 25,
+      "original": "",
+      "translation": "",
+      "reading_order": 86,
+      "confidence": "high"
+    },
+    {
+      "id": "S0087",
+      "type": "body",
+      "page": 25,
+      "original": "Before serializing $\\hat{\\Delta}_i$ as signed axes, we negate its $Y$ and $Z$ components to obtain the exposed convention of $+X$ right, $+Y$ up, and $-Z$ forward. The relative view rotation is",
+      "translation": "在将 $\\hat{\\Delta}_i$ 序列化为带符号坐标轴之前，我们对其 $Y$ 和 $Z$ 分量取反，以得到公开使用的约定：$+X$ 向右、$+Y$ 向上、$-Z$ 向前。相对视图旋转为",
+      "reading_order": 87,
+      "confidence": "high"
+    },
+    {
+      "id": "S0088",
+      "type": "body",
+      "page": 25,
+      "original": "",
+      "translation": "",
+      "reading_order": 88,
+      "confidence": "high"
+    },
+    {
+      "id": "S0089",
+      "type": "body",
+      "page": 25,
+      "original": "Translation and view rotation are summarized separately using these right-handed camera axes. A translation norm below 0.002 is treated as the same position, while rotations below $2^\\circ$ are suppressed. For $N_{\\mathrm{view}}$ selected images, the tool returns $N_{\\mathrm{view}}-1$ summaries for adjacent pairs rather than all pairwise relations. Only scale-independent motion directions and signed axes are exposed; metric translation magnitudes, continuous angles, and camera matrices remain internal.",
+      "translation": "平移和视图旋转使用这些右手相机坐标轴分别进行概括。平移范数低于 0.002 时被视为位置相同，而低于 $2^\\circ$ 的旋转则被抑制。对于所选的 $N_{\\mathrm{view}}$ 幅图像，该工具返回相邻图像对的 $N_{\\mathrm{view}}-1$ 个概括，而不是所有成对关系。仅公开与尺度无关的运动方向和带符号坐标轴；公制平移幅度、连续角度和相机矩阵仍保留在内部。",
+      "reading_order": 89,
+      "confidence": "high"
+    },
+    {
+      "id": "S0090",
+      "type": "body",
+      "page": 25,
+      "original": "",
+      "translation": "",
+      "reading_order": 90,
+      "confidence": "high"
+    },
+    {
+      "id": "S0091",
+      "type": "body",
+      "page": 26,
+      "original": "",
+      "translation": "",
+      "reading_order": 91,
+      "confidence": "high"
+    },
+    {
+      "id": "S0092",
+      "type": "body",
+      "page": 26,
+      "original": "The cache granularity follows each backend’s computation. Depth caches the full metric-depth map, intrinsics, confidence, image size, and scale factor per image, allowing different queried points on the same image to reuse one forward pass. Segment maintains both a two-entry image-state cache, which reuses the SAM 3 image encoding across text queries, and 128-entry result caches keyed by image, query, and segmentation settings. Locate and Pose each maintain 128-entry result LRUs; their disk entries store the corresponding",
+      "translation": "缓存粒度遵循各后端的计算方式。Depth 为每幅图像缓存完整的公制深度图、内参、置信度、图像尺寸和尺度因子，使同一图像上的不同查询点能够复用一次前向传播。Segment 同时维护一个双条目的图像状态缓存，以便跨文本查询复用 SAM 3 图像编码，并维护按图像、查询和分割设置作为键的 128 条目结果缓存。Locate 和 Pose 各自维护 128 条目的结果 LRU；其磁盘条目存储相应的",
+      "reading_order": 92,
+      "confidence": "high"
+    },
+    {
+      "id": "S0093",
+      "type": "body",
+      "page": 27,
+      "original": "structured outputs, while Pose additionally persists raw camera matrices for camera-motion requests. Pose keys distinguish the ordered image sequence, object-or-camera mode, selected camera backend, resolution, model fingerprints, and, for object orientation, the localization service. The equal-weight macro-average of the reported Depth, Segment, Pose, and Locate rates is approximately 58.8%; a request-weighted rate would additionally depend on the tool-call composition. The bounded LRU capacities limit memory growth, while cache hits bypass repeated specialist forward passes and therefore add negligible accelerator compute beyond lookup and output serialization. Table 8 reports the observed cache hit rates for each spatial tool.",
+      "translation": "结构化输出，而 Pose 还会为相机运动请求持久化原始相机矩阵。Pose 的键区分有序图像序列、对象或相机模式、所选相机后端、分辨率、模型指纹，以及对象朝向所使用的定位服务。所报告的 Depth、Segment、Pose 和 Locate 命中率的等权宏平均值约为 58.8%；按请求加权的命中率还会取决于工具调用的组成。容量受限的 LRU 限制了内存增长，而缓存命中会绕过重复的专家模型前向传播，因此除了查找和输出序列化之外，几乎不会增加加速器计算量。表 8 报告了各空间工具观测到的缓存命中率。",
+      "reading_order": 93,
+      "confidence": "high"
+    },
+    {
+      "id": "S0094",
+      "type": "body",
+      "page": 27,
+      "original": "",
+      "translation": "",
+      "reading_order": 94,
+      "confidence": "high"
+    },
+    {
+      "id": "S0095",
+      "type": "body",
+      "page": 27,
+      "original": "The CII validation suite contains 1,000 held-out examples, balanced across five query types: 200 each for Locate, Segment, Depth, object orientation, and camera motion. The last two query types correspond to the two modes of the Pose interface. Each example contains the required image or image pair, a capability-specific request, and a structured reference output.",
+      "translation": "CII 验证套件包含 1,000 个留出样例，在五种查询类型之间保持均衡：Locate、Segment、Depth、对象朝向和相机运动各 200 个。最后两种查询类型对应 Pose 接口的两种模式。每个样例均包含所需的图像或图像对、特定于能力的请求，以及结构化参考输出。",
+      "reading_order": 95,
+      "confidence": "high"
+    },
+    {
+      "id": "S0096",
+      "type": "body",
+      "page": 27,
+      "original": "Candidate examples are converted into capability-specific requests, and the corresponding registered specialist tool is executed to produce each structured reference output. After the independent human verification described below, each retained tool output is serialized in the registered tool’s JSON result format. At evaluation time, the model receives only the image input and an instruction to return the requested tool format; no spatial tool is registered or executed. We use temperature 0.0, with a maximum of 512 output tokens for Locate, Depth, and both Pose modes, and 4,096 tokens for Segment because polygon serialization is substantially longer. A deterministic parser extracts the structured JSON response; a response from which no valid JSON object can be recovered receives zero similarity.",
+      "translation": "候选样例被转换为特定于能力的请求，并执行对应的已注册专家工具，以生成各个结构化参考输出。经过下文所述的独立人工验证后，每个保留的工具输出都按已注册工具的 JSON 结果格式进行序列化。在评估时，模型仅接收图像输入和一条要求返回指定工具格式的指令；不会注册或执行任何空间工具。我们使用 0.0 的温度；对于 Locate、Depth 和 Pose 的两种模式，最大输出长度为 512 个 token；对于 Segment，则为 4,096 个 token，因为多边形序列化要长得多。确定性解析器提取结构化 JSON 响应；如果无法从某个响应中恢复任何有效 JSON 对象，则其相似度为零。",
+      "reading_order": 96,
+      "confidence": "high"
+    },
+    {
+      "id": "S0097",
+      "type": "body",
+      "page": 27,
+      "original": "Two human experts independently verify each capability-specific request and its tool-produced reference against the image input. Neither expert can see the other’s judgment, and each checks that the request is unambiguous and the specialist-tool output is valid and consistent with the visual input. We retain a candidate only when both experts approve it; all other candidates are discarded. This independent agreement rule filters ambiguous requests and unreliable tool outputs before CII evaluation.",
+      "translation": "两名人类专家分别将每个特定于能力的请求及其由工具生成的参考结果与图像输入进行核验。两名专家都无法看到对方的判断，并且各自检查请求是否无歧义，以及专家工具输出是否有效并与视觉输入一致。仅当两名专家均予以认可时，我们才保留该候选样例；其他所有候选样例均被丢弃。该独立一致性规则在 CII 评估之前过滤掉有歧义的请求和不可靠的工具输出。",
+      "reading_order": 97,
+      "confidence": "high"
+    },
+    {
+      "id": "S0098",
+      "type": "body",
+      "page": 27,
+      "original": "We evaluate whether a model can reproduce spatial-tool outputs without executing external tools. For a capability type $\\kappa\\in\\{\\mathrm{Locate},\\mathrm{Segment},\\mathrm{Depth}\\}$, let $\\hat{o}_i$ be the model prediction and $o_i^*$ the corresponding",
+      "translation": "我们评估模型能否在不执行外部工具的情况下复现空间工具输出。对于能力类型 $\\kappa\\in\\{\\mathrm{Locate},\\mathrm{Segment},\\mathrm{Depth}\\}$，令 $\\hat{o}_i$ 为模型预测，$o_i^*$ 为对应的",
+      "reading_order": 98,
+      "confidence": "high"
+    },
+    {
+      "id": "S0099",
+      "type": "body",
+      "page": 28,
+      "original": "spatial-tool output. For each capability, samples are indexed locally by $i=1,\\ldots,N_\\kappa$. We define",
+      "translation": "空间工具输出。对于每种能力，样例在该能力内按 $i=1,\\ldots,N_\\kappa$ 编号。我们定义",
+      "reading_order": 99,
+      "confidence": "high"
+    },
+    {
+      "id": "S0100",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 100,
+      "confidence": "high"
+    },
+    {
+      "id": "S0101",
+      "type": "body",
+      "page": 28,
+      "original": "where $N_\\kappa$ is the number of samples for capability $\\kappa$ and $s_\\kappa\\in[0,1]$ is a capability-specific similarity function. Because the Pose interface supports both object orientation and camera motion, we evaluate these two modes separately and macro-average them as defined below. Unless stated otherwise, a malformed prediction or one missing a required field receives zero similarity.",
+      "translation": "其中，$N_\\kappa$ 是能力 $\\kappa$ 的样例数，$s_\\kappa\\in[0,1]$ 是特定于能力的相似度函数。由于 Pose 接口同时支持对象朝向和相机运动，我们分别评估这两种模式，并按下文定义对其进行宏平均。除非另有说明，格式错误或缺少必需字段的预测会得到零相似度。",
+      "reading_order": 101,
+      "confidence": "high"
+    },
+    {
+      "id": "S0102",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 102,
+      "confidence": "high"
+    },
+    {
+      "id": "S0103",
+      "type": "body",
+      "page": 28,
+      "original": "This denominator assigns zero contribution to every unmatched prediction or reference box. If both sets are empty, the similarity is defined as one.",
+      "translation": "该分母使每个未匹配的预测框或参考框贡献为零。如果两个集合均为空，则相似度定义为一。",
+      "reading_order": 103,
+      "confidence": "high"
+    },
+    {
+      "id": "S0104",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 104,
+      "confidence": "high"
+    },
+    {
+      "id": "S0105",
+      "type": "body",
+      "page": 28,
+      "original": "As in Locate, unmatched instances contribute zero, and two empty sets receive similarity one.",
+      "translation": "与 Locate 一样，未匹配实例的贡献为零，两个空集合的相似度为一。",
+      "reading_order": 105,
+      "confidence": "high"
+    },
+    {
+      "id": "S0106",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 106,
+      "confidence": "high"
+    },
+    {
+      "id": "S0107",
+      "type": "body",
+      "page": 28,
+      "original": "Because lower AbsRel indicates better depth prediction, we convert it to a bounded similarity with",
+      "translation": "由于较低的 AbsRel 表示更好的深度预测，我们将其转换为有界相似度：",
+      "reading_order": 107,
+      "confidence": "high"
+    },
+    {
+      "id": "S0108",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 108,
+      "confidence": "high"
+    },
+    {
+      "id": "S0109",
+      "type": "body",
+      "page": 28,
+      "original": "Metric depth is evaluated directly without median or scale alignment.",
+      "translation": "公制深度直接进行评估，不采用中位数或尺度对齐。",
+      "reading_order": 109,
+      "confidence": "high"
+    },
+    {
+      "id": "S0110",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 110,
+      "confidence": "high"
+    },
+    {
+      "id": "S0111",
+      "type": "body",
+      "page": 28,
+      "original": "Let $\\hat{\\phi}_i$ and $\\phi_i^*$ be the predicted and reference angles, and define their circular distance as",
+      "translation": "令 $\\hat{\\phi}_i$ 和 $\\phi_i^*$ 分别为预测角和参考角，并将它们的圆周距离定义为",
+      "reading_order": 111,
+      "confidence": "high"
+    },
+    {
+      "id": "S0112",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 112,
+      "confidence": "high"
+    },
+    {
+      "id": "S0113",
+      "type": "body",
+      "page": 28,
+      "original": "The object-orientation similarity is",
+      "translation": "对象朝向相似度为",
+      "reading_order": 113,
+      "confidence": "high"
+    },
+    {
+      "id": "S0114",
+      "type": "body",
+      "page": 28,
+      "original": "",
+      "translation": "",
+      "reading_order": 114,
+      "confidence": "high"
+    },
+    {
+      "id": "S0115",
+      "type": "body",
+      "page": 29,
+      "original": "The auxiliary `visible_side` field and the returned box are not included in this score; localization is evaluated separately by Locate CII.",
+      "translation": "辅助字段 `visible_side` 和返回的框不计入该分数；定位由 Locate CII 单独评估。",
+      "reading_order": 115,
+      "confidence": "high"
+    },
+    {
+      "id": "S0116",
+      "type": "body",
+      "page": 29,
+      "original": "For a camera-motion query, we evaluate translation and view rotation separately from the signed axes returned by `position.axes` and `view_rotation.dominant_axis`. Let $\\operatorname{vec}(\\alpha)$ be the unit vector denoted by signed axis $\\alpha$, where, for example, $\\operatorname{vec}(+X)=(1,0,0)$ and $\\operatorname{vec}(-Z)=(0,0,-1)$, and define",
+      "translation": "对于相机运动查询，我们根据 `position.axes` 和 `view_rotation.dominant_axis` 返回的带符号坐标轴，分别评估平移和视图旋转。令 $\\operatorname{vec}(\\alpha)$ 表示带符号轴 $\\alpha$ 所指代的单位向量；例如，$\\operatorname{vec}(+X)=(1,0,0)$，$\\operatorname{vec}(-Z)=(0,0,-1)$。定义",
+      "reading_order": 116,
+      "confidence": "high"
+    },
+    {
+      "id": "S0117",
+      "type": "body",
+      "page": 29,
+      "original": "",
+      "translation": "",
+      "reading_order": 117,
+      "confidence": "high"
+    },
+    {
+      "id": "S0118",
+      "type": "body",
+      "page": 29,
+      "original": "This mapping is defined only for a nonempty signed-axis set with a nonzero vector sum. Using $\\hat{A}_i^{\\mathrm{trans}}$ for the translation axes and the singleton $A_i^{\\mathrm{rot}}$ containing the dominant rotation axis, we define",
+      "translation": "该映射仅对向量和非零的非空带符号轴集合有定义。使用 $\\hat{A}_i^{\\mathrm{trans}}$ 表示平移轴，并使用包含主导旋转轴的单元素集合 $A_i^{\\mathrm{rot}}$，我们定义",
+      "reading_order": 118,
+      "confidence": "high"
+    },
+    {
+      "id": "S0119",
+      "type": "body",
+      "page": 29,
+      "original": "",
+      "translation": "",
+      "reading_order": 119,
+      "confidence": "high"
+    },
+    {
+      "id": "S0120",
+      "type": "body",
+      "page": 29,
+      "original": "and",
+      "translation": "以及",
+      "reading_order": 120,
+      "confidence": "high"
+    },
+    {
+      "id": "S0121",
+      "type": "body",
+      "page": 29,
+      "original": "",
+      "translation": "",
+      "reading_order": 121,
+      "confidence": "high"
+    },
+    {
+      "id": "S0122",
+      "type": "body",
+      "page": 29,
+      "original": "For Pose, an unrecognized direction label or an axis set for which $\\operatorname{dir}(A)$ is undefined receives zero similarity. Finally, to prevent the more frequent query mode from dominating the metric, we compute",
+      "translation": "对于 Pose，无法识别的方向标签，或使 $\\operatorname{dir}(A)$ 无定义的轴集合，均得到零相似度。最后，为防止出现频率更高的查询模式主导该指标，我们计算",
+      "reading_order": 122,
+      "confidence": "high"
+    },
+    {
+      "id": "S0123",
+      "type": "body",
+      "page": 29,
+      "original": "",
+      "translation": "",
+      "reading_order": 123,
+      "confidence": "high"
+    },
+    {
+      "id": "S0124",
+      "type": "body",
+      "page": 29,
+      "original": "Here, $N_{\\mathrm{obj}}>0$ and $N_{\\mathrm{cam}}>0$ are the numbers of object-orientation and camera-motion samples, respectively. We additionally report the two components separately. The four-capability macro-average reported in the main paper is",
+      "translation": "这里，$N_{\\mathrm{obj}}>0$ 和 $N_{\\mathrm{cam}}>0$ 分别是对象朝向样例数和相机运动样例数。我们还分别报告这两个组成部分。主论文中报告的四能力宏平均为",
+      "reading_order": 124,
+      "confidence": "high"
+    },
+    {
+      "id": "S0125",
+      "type": "body",
+      "page": 29,
+      "original": "",
+      "translation": "",
+      "reading_order": 125,
+      "confidence": "high"
+    },
+    {
+      "id": "S0126",
+      "type": "body",
+      "page": 29,
+      "original": "All capability-specific similarities lie in $[0,1]$ and equal one for an exact match; lower values indicate greater divergence from the spatial-tool output. Every capability-level CII and $\\mathrm{CII}_{\\mathrm{macro}}$ therefore lie in $[0,100]$, with a higher value indicating stronger internalization.",
+      "translation": "所有特定于能力的相似度均位于 $[0,1]$ 内，精确匹配时等于一；较低的值表示与空间工具输出的偏离更大。因此，每个能力级 CII 和 $\\mathrm{CII}_{\\mathrm{macro}}$ 均位于 $[0,100]$ 内，数值越高表示内化越强。",
+      "reading_order": 126,
+      "confidence": "high"
+    },
+    {
+      "id": "S0127",
+      "type": "body",
+      "page": 29,
+      "original": "Table 9 compares conventional Direct fine-tuning with inference-time tool augmentation, agentic fine-tuning, and capability internalization on SpatialCLI-Bench using Qwen3-VL-8B-Instruct. Every variant is evaluated both w/o Tools and w/ Tools. For Direct variants, w/ Tools evaluation exposes the same spatial-tool interfaces at inference time, even though their training does not include explicit tool-interaction supervision.",
+      "translation": "表 9 使用 Qwen3-VL-8B-Instruct，在 SpatialCLI-Bench 上比较了传统直接微调、推理时工具增强、智能体式微调和能力内化。每个变体均在 w/o Tools 和 w/ Tools 两种条件下评估。对于 Direct 变体，w/ Tools 评估会在推理时公开相同的空间工具接口，尽管其训练不包含显式的工具交互监督。",
+      "reading_order": 127,
+      "confidence": "high"
+    },
+    {
+      "id": "S0128",
+      "type": "body",
+      "page": 30,
+      "original": "",
+      "translation": "",
+      "reading_order": 128,
+      "confidence": "high"
+    },
+    {
+      "id": "S0129",
+      "type": "body",
+      "page": 30,
+      "original": "The Inference Only row uses the same initial checkpoint on both sides; its Inference w/ Tools result denotes enabling the spatial tools without fine-tuning. Inference-time tool augmentation alone yields a clear improvement w/ Tools, showing that spatial tools effectively compensate for the fine-grained perceptual limitations of the initial model. SFT w/ Tools learns the basic tool-interaction protocol, while RL w/ Tools w/o SFT optimizes tool selection and termination from task feedback without Cold-Start SFT. SFT w/ Tools raises the w/ Tools score from 66.5 to 86.4, and RL w/ Tools + SFT further raises it to 91.3. Although RL w/ Tools w/o SFT eventually reaches 90.5, the training dynamics in Figure 3 show that it does so with substantially longer and more tool-intensive trajectories. Capability internalization then raises the w/o Tools score from 40.1 to 72.7 while preserving the 91.3 w/ Tools score reached by RL w/ Tools + SFT. In contrast, SFT w/o Tools, RL w/o Tools w/o SFT, and RL w/o Tools + SFT improve the w/o Tools score but do not acquire a comparably strong tool-use policy. The results therefore isolate complementary roles for the three stages: immediate perceptual support, stable tool-policy learning, and transfer of tool-supplied capabilities into w/o Tools inference.",
+      "translation": "Inference Only 行在两侧使用相同的初始检查点；其中 Inference w/ Tools 结果表示在不进行微调的情况下启用空间工具。仅进行推理时工具增强就能在 w/ Tools 条件下带来明显提升，这表明空间工具有效弥补了初始模型在细粒度感知方面的局限。SFT w/ Tools 学习基本的工具交互协议，而 RL w/ Tools w/o SFT 则在没有冷启动 SFT 的情况下，根据任务反馈优化工具选择和终止。SFT w/ Tools 将 w/ Tools 分数从 66.5 提升至 86.4，RL w/ Tools + SFT 又进一步将其提升至 91.3。尽管 RL w/ Tools w/o SFT 最终达到 90.5，但图 3 中的训练动态表明，它通过明显更长且工具使用更密集的轨迹才达到这一水平。随后，能力内化将 w/o Tools 分数从 40.1 提升至 72.7，同时保留 RL w/ Tools + SFT 达到的 91.3 w/ Tools 分数。相比之下，SFT w/o Tools、RL w/o Tools w/o SFT 和 RL w/o Tools + SFT 虽然提高了 w/o Tools 分数，却没有获得同等强大的工具使用策略。因此，这些结果分离出了三个阶段的互补作用：即时感知支持、稳定的工具策略学习，以及将工具提供的能力迁移至 w/o Tools 推理。",
+      "reading_order": 129,
+      "confidence": "high"
+    },
+    {
+      "id": "S0130",
+      "type": "body",
+      "page": 30,
+      "original": "To isolate the contribution of each spatial-tool group, we evaluate the initial Qwen3-VL-8B-Instruct checkpoint while varying only the registered tool set. The task inputs, shared agentic prompt template, decoding configuration, and evaluation protocol remain identical across variants. Each single-tool variant exposes only one of the Locate, Segment, Depth, or Pose interfaces, whereas All Tools exposes all four interfaces. The evaluated benchmarks, subsets, metrics, and reporting order exactly match those in the main-paper overall results (Table 1). Table 10 reports the resulting benchmark scores.",
+      "translation": "为了分离每组空间工具的贡献，我们仅改变已注册工具集，对初始 Qwen3-VL-8B-Instruct 检查点进行评估。各变体的任务输入、共享智能体提示模板、解码配置和评估协议均保持相同。每个单工具变体仅公开 Locate、Segment、Depth 或 Pose 接口之一，而 All Tools 则公开全部四个接口。所评估的基准、子集、指标和报告顺序与主论文总体结果（表 1）完全一致。表 10 报告了所得基准分数。",
+      "reading_order": 130,
+      "confidence": "high"
+    },
+    {
+      "id": "S0131",
+      "type": "body",
+      "page": 30,
+      "original": "",
+      "translation": "",
+      "reading_order": 131,
+      "confidence": "high"
+    },
+    {
+      "id": "S0132",
+      "type": "body",
+      "page": 30,
+      "original": "The single-tool variants exhibit clear capability-aligned specialization. Depth alone matches All Tools on DA-2K (91.6); among the single-tool settings, Pose performs best on SpatialCLI-Bench, MindCube, and both MMSI subsets, while Locate and Segment are most effective on BOPASK-Trajectory and BOPASK-Object-Rearrangement, respectively. No single tool is uniformly beneficial across benchmarks. Jointly exposing all four tools raises the macro-average from 35.7 to 56.7 and achieves the best or tied-best result on six of the seven reported evaluations, supporting the complementarity of the four spatial interfaces.",
+      "translation": "单工具变体表现出明显的能力对齐专门化。仅使用 Depth 在 DA-2K 上与 All Tools 持平（91.6）；在单工具设置中，Pose 在 SpatialCLI-Bench、MindCube 和两个 MMSI 子集上表现最佳，而 Locate 和 Segment 分别在 BOPASK-Trajectory 和 BOPASK-Object-Rearrangement 上最有效。没有任何单一工具能在所有基准上统一带来收益。联合公开全部四个工具将宏平均从 35.7 提升至 56.7，并在所报告的七项评估中的六项上取得最佳或并列最佳结果，从而支持四种空间接口之间的互补性。",
+      "reading_order": 132,
+      "confidence": "high"
+    },
+    {
+      "id": "S0133",
+      "type": "body",
+      "page": 31,
+      "original": "To complement the score and output-length ablation in main-paper Table 3, Table 11 reports the actual tool invocations made by each capability-internalization variant w/ Tools across all evaluated benchmarks. We report the mean number of tool calls over all samples, the percentage of samples that invoke at least one tool, and the mean number of calls among those samples. To reveal each variant’s unconstrained calling tendency, this diagnostic retains the maximum generation length of 40,960 tokens but does not apply the ten-call cap used in the task-performance evaluations.",
+      "translation": "为补充主论文表 3 中的分数和输出长度消融，表 11 报告了每个能力内化变体在所有已评估基准的 w/ Tools 条件下实际进行的工具调用。我们报告所有样例上的平均工具调用次数、至少调用一次工具的样例百分比，以及这些样例中的平均调用次数。为了揭示每个变体不受约束的调用倾向，该诊断保留 40,960 个 token 的最大生成长度，但不应用任务性能评估所使用的十次调用上限。",
+      "reading_order": 133,
+      "confidence": "high"
+    },
+    {
+      "id": "S0134",
+      "type": "body",
+      "page": 31,
+      "original": "",
+      "translation": "",
+      "reading_order": 134,
+      "confidence": "high"
+    },
+    {
+      "id": "S0135",
+      "type": "body",
+      "page": 31,
+      "original": "The initial model calls tools on 99.3% of samples, averaging 2.00 calls per sample. Final Answer Only never calls a tool, while CoT + Answer does so on only 0.4% of samples. Internalization View Only calls tools on 40.3% of samples, but averages 51.35 calls within those samples and 20.70 calls overall. This excessive number of calls indicates unstable and repetitive tool use rather than effective interaction. By contrast, Tool-Use View Only and Full Dual-View exhibit nearly identical controlled behavior: they call tools on 81.0% and 81.5% of samples and average 1.28 and 1.27 calls overall, respectively. Thus, dual-view training preserves the tool-use behavior learned from the tool-use view while obtaining the score and compact w/o Tools reasoning benefits reported in main-paper Table 3.",
+      "translation": "初始模型在 99.3% 的样例上调用工具，平均每个样例调用 2.00 次。Final Answer Only 从不调用工具，而 CoT + Answer 仅在 0.4% 的样例上调用工具。Internalization View Only 在 40.3% 的样例上调用工具，但在这些样例中平均调用 51.35 次，总体平均调用 20.70 次。如此过多的调用表明其工具使用不稳定且重复，而不是有效交互。相比之下，Tool-Use View Only 和 Full Dual-View 表现出几乎相同的受控行为：二者分别在 81.0% 和 81.5% 的样例上调用工具，总体平均调用次数分别为 1.28 和 1.27。因此，双视图训练在获得主论文表 3 所报告的分数提升和紧凑 w/o Tools 推理优势的同时，保留了从工具使用视图中学到的工具使用行为。",
+      "reading_order": 135,
+      "confidence": "high"
+    },
+    {
+      "id": "S0136",
+      "type": "body",
+      "page": 31,
+      "original": "To study the trade-off controlled by the Tool-Use View loss weight in $\\mathcal L_{\\mathrm{CII}}=\\mathcal L_{\\mathrm{internal}}+\\lambda\\mathcal L_{\\mathrm{agentic}}$, we compare $\\lambda\\in\\{0.2,0.5,1.0,1.5\\}$ using Qwen3-VL-8B-Instruct. All variants use the same training data, optimization configuration, training steps, and checkpoint-selection protocol. We evaluate the four-capability macro-average CII together with w/o Tools and w/ Tools performance on SpatialCLI-Bench, thereby measuring both capability internalization and tool-use retention. Table 12 reports the resulting sensitivity analysis.",
+      "translation": "为研究工具使用视图损失权重在 $\\mathcal L_{\\mathrm{CII}}=\\mathcal L_{\\mathrm{internal}}+\\lambda\\mathcal L_{\\mathrm{agentic}}$ 中控制的权衡，我们使用 Qwen3-VL-8B-Instruct 比较 $\\lambda\\in\\{0.2,0.5,1.0,1.5\\}$。所有变体均使用相同的训练数据、优化配置、训练步数和检查点选择协议。我们同时评估四能力宏平均 CII，以及 SpatialCLI-Bench 上的 w/o Tools 和 w/ Tools 性能，从而同时衡量能力内化和工具使用保留。表 12 报告了所得敏感性分析。",
+      "reading_order": 136,
+      "confidence": "high"
+    },
+    {
+      "id": "S0137",
+      "type": "body",
+      "page": 31,
+      "original": "",
+      "translation": "",
+      "reading_order": 137,
+      "confidence": "high"
+    },
+    {
+      "id": "S0138",
+      "type": "body",
+      "page": 31,
+      "original": "The results reveal a clear trade-off between capability internalization and tool-policy retention. Reducing $\\lambda$ to 0.2 leaves CII and w/o Tools performance comparable to $\\lambda=0.5$, but lowers w/ Tools performance from 91.3 to 89.2, suggesting that underweighting the Tool-Use View weakens retention of the learned tool-use policy. Increasing $\\lambda$ to 1.0 maintains w/ Tools performance at 91.4 while slightly reducing CII and w/o Tools performance; further increasing it to 1.5 substantially lowers CII and w/o Tools performance to 55.6 and 62.9 without an additional w/ Tools gain. Therefore, $\\lambda=0.5$ provides the most balanced trade-off rather than maximizing either training view alone.",
+      "translation": "结果揭示了能力内化与工具策略保留之间的明确权衡。将 $\\lambda$ 降至 0.2 时，CII 和 w/o Tools 性能仍与 $\\lambda=0.5$ 相当，但 w/ Tools 性能从 91.3 降至 89.2，这表明对工具使用视图赋予过低权重会削弱对已学工具使用策略的保留。将 $\\lambda$ 提高至 1.0，可使 w/ Tools 性能维持在 91.4，但会略微降低 CII 和 w/o Tools 性能；进一步提高至 1.5，则会使 CII 和 w/o Tools 性能显著降至 55.6 和 62.9，同时不会带来额外的 w/ Tools 收益。因此，$\\lambda=0.5$ 提供了最均衡的权衡，而不是单独最大化任一训练视图。",
+      "reading_order": 138,
+      "confidence": "high"
+    },
+    {
+      "id": "S0139",
+      "type": "body",
+      "page": 32,
+      "original": "The prompt injects the applicable tool registrations and examples into a shared calling protocol. The interaction permits at most ten executed tool calls per sample. After every tool result, SpatialCLI appends `[Tool-call budget: at most N more tool calls can be made.]`; when the budget reaches zero, it instead appends `[Tool-call budget exhausted: no more tool calls are allowed. Answer the question immediately using the available information.]`. In thinking mode, the complete thinking content is retained in the multi-turn history and passed back to the model in subsequent turns. The complete template is shown in Box G.1.",
+      "translation": "该提示将适用的工具注册信息和示例注入共享调用协议。每个样例的交互最多允许执行十次工具调用。每次得到工具结果后，SpatialCLI 都会附加 `[Tool-call budget: at most N more tool calls can be made.]`；当预算降为零时，则改为附加 `[Tool-call budget exhausted: no more tool calls are allowed. Answer the question immediately using the available information.]`。在思考模式下，完整思考内容会保留在多轮历史记录中，并在后续轮次中再次传递给模型。完整模板见框 G.1。",
+      "reading_order": 139,
+      "confidence": "high"
+    },
+    {
+      "id": "S0140",
+      "type": "body",
+      "page": 32,
+      "original": "",
+      "translation": "",
+      "reading_order": 140,
+      "confidence": "high"
+    },
+    {
+      "id": "S0141",
+      "type": "body",
+      "page": 32,
+      "original": "This prompt implements the first stage of Progressive Evidence-Grounded Trajectory Verbalization by converting one newly completed tool interaction into an evidence–reasoning unit conditioned on the visual input, task instruction, and previously consolidated units, while withholding the correct answer. Its rules are designed to preserve every exposed specialist output and explicit visual observation without promoting plans, uncertain guesses, or answer-option analysis to observed facts. The tool catalog standardizes the interpretation of heterogeneous return fields, while calibrated wording and exact-value preservation retain the uncertainty and numerical fidelity of perceptual estimates. The complete template is shown in Box G.2.",
+      "translation": "该提示实现渐进式证据落地轨迹言语化的第一阶段：它将一次新完成的工具交互转换为一个以视觉输入、任务指令和先前已整合单元为条件的证据—推理单元，同时隐藏正确答案。其规则旨在保留所有已公开的专家输出和明确视觉观察，同时避免将计划、不确定猜测或答案选项分析提升为已观察事实。工具目录对异构返回字段的解释进行标准化，而经过校准的措辞和精确数值保留则维持感知估计的不确定性和数值保真度。完整模板见框 G.2。",
+      "reading_order": 141,
+      "confidence": "high"
+    },
+    {
+      "id": "S0142",
+      "type": "body",
+      "page": 32,
+      "original": "",
+      "translation": "",
+      "reading_order": 142,
+      "confidence": "high"
+    },
+    {
+      "id": "S0143",
+      "type": "body",
+      "page": 33,
+      "original": "",
+      "translation": "",
+      "reading_order": 143,
+      "confidence": "high"
+    },
+    {
+      "id": "S0144",
+      "type": "body",
+      "page": 34,
+      "original": "",
+      "translation": "",
+      "reading_order": 144,
+      "confidence": "high"
+    },
+    {
+      "id": "S0145",
+      "type": "body",
+      "page": 34,
+      "original": "This prompt implements the second stage by converting the ordered evidence–reasoning units into a single tool-free perceptual reasoning target conditioned on the correct final answer. The answer is introduced only after turn-wise evidence consolidation, so it can guide the organization of already extracted evidence without influencing its collection. The rules merge repeated or superseded statements in dependency order, prohibit unsupported additions and construction-process leakage, and require exact preservation of the final answer. The complete template is shown in Box G.3.",
+      "translation": "该提示实现第二阶段：将有序的证据—推理单元转换为一个以正确最终答案为条件的、单一的无工具感知推理目标。答案仅在逐轮证据整合之后引入，因此它可以指导已提取证据的组织，而不会影响证据收集。规则按依赖顺序合并重复或已被取代的陈述，禁止添加无依据内容和泄露构建过程，并要求精确保留最终答案。完整模板见框 G.3。",
+      "reading_order": 145,
+      "confidence": "high"
+    },
+    {
+      "id": "S0146",
+      "type": "body",
+      "page": 34,
+      "original": "",
+      "translation": "",
+      "reading_order": 146,
+      "confidence": "high"
+    },
+    {
+      "id": "S0147",
+      "type": "body",
+      "page": 35,
+      "original": "",
+      "translation": "",
+      "reading_order": 147,
+      "confidence": "high"
+    },
+    {
+      "id": "S0148",
+      "type": "body",
+      "page": 35,
+      "original": "We present 2 w/o Tools versus w/ Tools comparisons for Qwen3.5-397B-A17B. The first examines depth comparison and camera view rotation, whereas the second examines instance-level bounding boxes and camera translation. Together, they show how the agent decomposes a question into grounding, measurement, and cross-checking steps and uses tool evidence to revise unreliable visual judgments. Section H.3 separately compares two correct SpatialCLI-8B results after capability internalization: direct answering and tool-augmented answering.",
+      "translation": "我们为 Qwen3.5-397B-A17B 展示了 2 组 w/o Tools 与 w/ Tools 对比。第一组考察深度比较和相机视图旋转，第二组考察实例级边界框和相机平移。二者共同展示了智能体如何将问题分解为定位、测量和交叉核验步骤，并利用工具证据修正不可靠的视觉判断。H.3 节另外比较了能力内化后 SpatialCLI-8B 的两个正确结果：直接作答和工具增强作答。",
+      "reading_order": 148,
+      "confidence": "high"
+    },
+    {
+      "id": "S0149",
+      "type": "body",
+      "page": 35,
+      "original": "The task input and ground truth are shown in Box H.1. In the comparison below, the direct answer infers that the beige receptacle is closer from apparent size and image position. It therefore selects C despite correctly identifying the rightward view rotation. The tool-augmented agent first grounds the two receptacles, queries two-image camera motion, and then passes the grounded centers to Depth. The measured depths, 0.928 m for the beige receptacle and 0.776 m for the blue one, overturn the initial visual guess. Combining the blue receptacle’s right-side location with the rightward rotation returned by Pose yields D. The trajectory follows a ground–measure–cross-check–verify logic.",
+      "translation": "任务输入和真实答案见框 H.1。在下方比较中，直接作答根据表观尺寸和图像位置推断米色垃圾桶更近。因此，尽管它正确识别出向右的视图旋转，仍选择了 C。工具增强智能体首先定位两个垃圾桶，查询双图像相机运动，然后将定位所得中心传给 Depth。测得的深度为：米色垃圾桶 0.928 m，蓝色垃圾桶 0.776 m；这些结果推翻了最初的视觉猜测。将蓝色垃圾桶位于右侧这一位置与 Pose 返回的向右旋转相结合，得到 D。该轨迹遵循“定位—测量—交叉核验—验证”的逻辑。",
+      "reading_order": 149,
+      "confidence": "high"
+    },
+    {
+      "id": "S0150",
+      "type": "body",
+      "page": 36,
+      "original": "",
+      "translation": "",
+      "reading_order": 150,
+      "confidence": "high"
+    },
+    {
+      "id": "S0151",
+      "type": "body",
+      "page": 36,
+      "original": "In the first image, there are two large plastic waste receptacles in the foreground: a beige one with a black bag and a blue one with a clear bag. Compare their distances from the camera to find the closer one. In the first image, is this closer receptacle located on the left or the right? Finally, when moving from the first image to the second image, what is the dominant direction of the camera’s view rotation?",
+      "translation": "在第一幅图像中，前景里有两个大型塑料垃圾桶：一个是套有黑色袋子的米色垃圾桶，另一个是套有透明袋子的蓝色垃圾桶。比较它们与相机之间的距离，找出更近的一个。在第一幅图像中，这个更近的垃圾桶位于左侧还是右侧？最后，从第一幅图像移动到第二幅图像时，相机视图旋转的主导方向是什么？",
+      "reading_order": 151,
+      "confidence": "high"
+    },
+    {
+      "id": "S0152",
+      "type": "body",
+      "page": 36,
+      "original": "",
+      "translation": "",
+      "reading_order": 152,
+      "confidence": "high"
+    },
+    {
+      "id": "S0153",
+      "type": "body",
+      "page": 36,
+      "original": "Before choosing, briefly state the relevant facts and verify every clause of the selected option against all evidence available during solving. For any depth observations, smaller values mean closer; do not retain an earlier visual guess after receiving stronger evidence. Please show your choice in the answer field with only the choice letter, e.g., `{\"answer\": \"C\"}`.",
+      "translation": "在选择之前，请简要陈述相关事实，并根据求解过程中可用的所有证据核验所选选项的每个分句。对于任何深度观察，较小的值表示更近；在获得更强证据后，不要保留先前的视觉猜测。请在答案字段中仅用选项字母表示你的选择，例如 `{\"answer\": \"C\"}`。",
+      "reading_order": 153,
+      "confidence": "high"
+    },
+    {
+      "id": "S0154",
+      "type": "body",
+      "page": 36,
+      "original": "Correct option: D.",
+      "translation": "正确选项：D。",
+      "reading_order": 154,
+      "confidence": "high"
+    },
+    {
+      "id": "S0155",
+      "type": "body",
+      "page": 36,
+      "original": "",
+      "translation": "",
+      "reading_order": 155,
+      "confidence": "high"
+    },
+    {
+      "id": "S0156",
+      "type": "body",
+      "page": 36,
+      "original": "",
+      "translation": "",
+      "reading_order": 156,
+      "confidence": "high"
+    },
+    {
+      "id": "F0157",
+      "type": "figure",
+      "page": null,
+      "path": "assets/exp-06.png",
+      "reading_order": 157,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    },
+    {
+      "id": "F0158",
+      "type": "figure",
+      "page": null,
+      "path": "assets/exp-07.png",
+      "reading_order": 158,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    },
+    {
+      "id": "F0159",
+      "type": "figure",
+      "page": null,
+      "path": "assets/exp-08.png",
+      "reading_order": 159,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    },
+    {
+      "id": "F0160",
+      "type": "figure",
+      "page": null,
+      "path": "assets/exp-09.png",
+      "reading_order": 160,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    },
+    {
+      "id": "F0161",
+      "type": "figure",
+      "page": 2,
+      "path": "assets/page_002.png",
+      "reading_order": 161,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    },
+    {
+      "id": "F0162",
+      "type": "figure",
+      "page": 3,
+      "path": "assets/page_003.png",
+      "reading_order": 162,
+      "confidence": "medium",
+      "note": "Visual crop retained; searchable transcription is in detailed_paper.md."
+    }
+  ],
+  "assets": [
+    "assets/case12-36.png",
+    "assets/case12-37.png",
+    "assets/case12-38.png",
+    "assets/cases34-40.png",
+    "assets/cases34-41.png",
+    "assets/cases34-42.png",
+    "assets/cases34-43.png",
+    "assets/cases34-44.png",
+    "assets/cases34-45.png",
+    "assets/cases34-46.png",
+    "assets/cases34-47.png",
+    "assets/cases34-48.png",
+    "assets/exp-06.png",
+    "assets/exp-07.png",
+    "assets/exp-08.png",
+    "assets/exp-09.png",
+    "assets/page_002.png",
+    "assets/page_003.png"
+  ]
+}

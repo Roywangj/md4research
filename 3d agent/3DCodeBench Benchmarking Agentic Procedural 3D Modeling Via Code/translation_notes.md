@@ -1,0 +1,41 @@
+# Translation Notes / 翻译说明
+
+- **Source format / 源格式:** 41-page searchable PDF (arXiv:2602.04944v1, dated Feb 2026), titled *"3DCodeBench: Benchmarking Agentic Procedural 3D Modeling Via Code"* by Yipeng Gao, Haoxiang Gao, Jiahao Wang, et al. Text was extracted using layout-aware extraction; multi-column reading order and visual figures/tables were verified against page renders.
+- **Coverage / 覆盖范围:** Full 41-page coverage including Title, Author Affiliations, Abstract, Sections 1–7, searchable References (59 entries), and comprehensive Appendices A through G:
+  - **Section 1 (Introduction):** Motivation, comparison between procedural and asset generation, Figure 1.
+  - **Section 2 (Related Work):** Procedural modeling, LLM coding agents, 3D benchmarks, Figure 2.
+  - **Section 3 (3DCodeBench Dataset and Representation):** Task formulation, 3-stage agentic curation pipeline, dataset statistics across 1,000 tasks and 50 categories, Figure 3.
+  - **Section 4 (Evaluation Protocol & 3DCodeArena):** Multi-modal automated metric suite (Executability, CD, F-Score, NC, MV-CLIP) and crowdsourced 3DCodeArena platform.
+  - **Section 5 (Experiments and Benchmarks):** Comprehensive benchmarking of 18 leading models (Claude 3.7 Sonnet, GPT-4.5, Gemini 2.0 Flash, DeepSeek-V3/R1, Qwen2.5-Coder, etc.), Figure 4, Figure 5, Table 1 (Main Benchmark), Table 2 (3DCodeArena Elo Ratings), and Figure 6 (Visual feedback analysis).
+  - **Section 6 (Analysis & Discussion):** Failure taxonomy, code complexity scaling, syntax vs. geometric reasoning gaps.
+  - **Section 7 (Conclusion and Future Work):** Summary of findings and roadmap for agentic 3D modeling.
+  - **References:** Full 59 bibliographic records retained in original searchable format with Chinese title glosses.
+  - **Appendix A:** Dataset Details, Extended Curation Pipeline, and Categorical Statistics (Figures A.1–A.4, Tables A.1–A.4).
+  - **Appendix B:** Evaluation Metric Implementation and Mathematical Formulations (Equations 1–6).
+  - **Appendix C:** Inference Setup, System Prompts, and Execution Failure Taxonomy (Sections C.1–C.7).
+  - **Appendix D:** Iterative Multi-Turn Procedural Modeling Pipelines (Sections D.1–D.3, Tables D.1–D.3).
+  - **Appendix E:** 3DCodeArena Web Interface, Model-Pair Win-Rate Matrix, and Human Calibration (Figures E.1–E.3).
+  - **Appendix F:** LLM/VLM-as-a-Judge Alignment Evaluation (Sections F.1–F.2, Tables F.1–F.2).
+  - **Appendix G:** Sampling Temperature Ablation Study (Figure G.1).
+- **Pairing / 对照:** Formatted as adjacent English/Chinese blockquotes using `> <span style="color:#3B82F6"><strong>Para. X:</strong></span>` and `> <span style="color:#F59E0B"><strong>Para. X[CN]:</strong></span>`. Exactly 92 bilingual paragraph pairs are cleanly aligned.
+- **Figures and Tables / 图表:** Exactly 25 asset cards linking to local crops in `assets/` (`figure_1.png`–`figure_6.png`, `table_1.png`–`table_2.png`, `figure_a_1.png`–`figure_a_4.png`, `table_a_1.png`–`table_a_4.png`, `table_d_1.png`–`table_d_3.png`, `figure_e_1.png`–`figure_e_3.png`, `table_f_1.png`–`table_f_2.png`, `figure_g_1.png`). All 25 cards contain balanced bilingual captions (`**Caption:**` and `**Caption[CN]:**`). Full searchable Markdown tables are provided for all 11 tables.
+- **Mathematical Formulations / 数学公式:** Inline math (`$...$`) is used throughout prose; display math (`$$...$$`) is placed strictly outside blockquotes on standalone lines in accordance with strict markdown reader standards.
+- **Terminology Decisions / 术语规范:**
+  - *Procedural 3D Modeling* -> 程序化 3D 建模
+  - *Agentic Curation Pipeline* -> 智能体数据整理管线
+  - *Multi-Turn Refinement* -> 多轮迭代优化
+  - *Code Simplifier* -> 代码简化器
+  - *Simulator* -> 模拟器 (Blender 5.0 沙箱运行环境)
+  - *Visual Critic* -> 视觉评价器 / 视觉评判器 (VLM)
+  - *Mesh Analyzer* -> 网格分析器
+  - *Experience Library* -> 经验库
+  - *Skills Library* -> 技能库
+  - *Executability* -> 可执行率 / 可执行性
+  - *Chamfer Distance (CD)* -> 倒角距离
+  - *F-Score@1% / F-Score@2%* -> F 值（阈值 1% / 2%）
+  - *Normal Consistency (NC)* -> 法线一致性
+  - *Multi-View CLIP-Score (MV-CLIP)* -> 多视角 CLIP 分数
+  - *3DCodeArena* -> 3D代码竞技场
+  - *Bradley-Terry Model* -> Bradley-Terry 概率模型 (Elo 评分系统)
+  - *LLM/VLM-as-a-Judge* -> 大语言模型/视觉语言模型裁判
+- **Validation / 校验:** Validated with `validate_detailed_paper.py --require-identical`. Result: 92 bilingual paragraph pairs, 25 caption pairs, 25 image links (0 missing), 0 errors, `passes: True`. `paper.md` is byte-for-byte identical to `detailed_paper.md`.

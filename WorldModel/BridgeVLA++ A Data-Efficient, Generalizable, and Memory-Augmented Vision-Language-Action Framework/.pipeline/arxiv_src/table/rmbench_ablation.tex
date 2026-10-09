@@ -1,0 +1,33 @@
+\begin{table*}[p]
+\centering
+\caption{\textbf{Memory ablations on RMBench.}
+Success rates (\%) over 100 episodes per task for the full \memmethod\ and
+its memory ablations: the two single-memory variants (indented) and the
+memory-free \method.}
+\label{tab:rmbench_ablation}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{l cccccc ccccc c}
+\toprule
+& \multicolumn{6}{c}{\textbf{$M(1)$ tasks}}
+& \multicolumn{5}{c}{\textbf{$M(n)$ tasks}} & \\
+\cmidrule(lr){2-7} \cmidrule(lr){8-12}
+& \textbf{Observe \&} & \textbf{Rearrange} & \textbf{Put Back} & \textbf{Swap} & \textbf{Swap} &
+& \textbf{Battery} & \textbf{Blocks} & \textbf{Cover} & \textbf{Press} &
+& \textbf{Overall} \\
+\multirow{-2}{*}{\textbf{Variant}}
+& \textbf{Pick Up} & \textbf{Blocks} & \textbf{Block} & \textbf{Blocks} & \textbf{T} & \multirow{-2}{*}{\textbf{\textit{Avg.}}}
+& \textbf{Try} & \textbf{Ranking Try} & \textbf{Blocks} & \textbf{Button} & \multirow{-2}{*}{\textbf{\textit{Avg.}}}
+& \textbf{Avg.} \\
+\midrule
+\textbf{Full \memmethod}                    & 81 & 100 & 100 & 99 & 96 & 95.2 & 96 & 100 & 99 & 93 & 97.0 & 96.0 \\
+\tbranch w/o~$\mathcal{S}$ (spatial memory) & 85 & 100 & 100 & 99 & 97 & 96.2 & 95 & 100 & 91 & 92 & 94.5 & 95.4 \\
+\tlast w/o~$\mathcal{T}$ (temporal memory)  & 74 & 11  & 38  & 1  & 11 & 27.0 & 51 & 1   & 5  & 0  & 14.3 & 21.3 \\
+\method\ (no memory)                        & 75 & 0   & 1   & 11 & 8  & 19.0 & 72 & 0   & 3  & 0  & 18.8 & 18.9 \\
+\bottomrule
+\end{tabular}
+\end{table*}

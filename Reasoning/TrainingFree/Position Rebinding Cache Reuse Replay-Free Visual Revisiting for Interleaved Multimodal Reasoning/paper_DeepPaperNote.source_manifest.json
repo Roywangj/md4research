@@ -1,0 +1,787 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2606.26631",
+  "title": "Position Rebinding Cache Reuse: Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.prcr_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.prcr_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TA2B3XTE/Wang 等 - 2026 - Position Rebinding Cache Reuse Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning.pdf",
+    "total_pages": 14,
+    "text_pages_extracted": 14,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 14,
+    "text_max_pages": null,
+    "text_pages_extracted": 14,
+    "text_pages_scanned": 14,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 12
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 360,
+      "text_hash_sha256": "000fdc66aad65838c2e335500ce0599ef3b80a1ca8dd7e5c7fb28d8f1f5e1545"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1513,
+      "text_hash_sha256": "ad67da4ca606fbaf49d9d884284af91ff889fcbc1e01c64bda39f1e8699dcc5c"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 4,
+      "char_count": 11273,
+      "text_hash_sha256": "1479697f6cf14a49e88d762307421a87e1d24a1e57bfa2db7aa1efd274a91a5f"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 10260,
+      "text_hash_sha256": "9adc81dd5f7700c6f4a3cf5059c1e6874de1c3859a104b116d74fbe0267087be"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 1549,
+      "text_hash_sha256": "c7d82edf032d35849dd5cef027b486ba8ad5e0c075e224bd516b3f09d7957808"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 1348,
+      "text_hash_sha256": "a9546bc2e02b8ed97b6eb26f63b19ee989c9472b6f18de2c227b8cc62d0b64c8"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 3054,
+      "text_hash_sha256": "e77dae233511953b2882f4df9345b71949bc59b6b9c3a5cbf7d39b793a19ee2e"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 9036,
+      "text_hash_sha256": "50a7c564ad4a714712d8e5f97a95952afe0fc31cade2a27f83cb0a1bdf673dff"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 10,
+      "page_end": 11,
+      "char_count": 2679,
+      "text_hash_sha256": "4a788f2e79109a52a0dac81d12de7159c77008dff3a90ac56c81f54b69df6e02"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 11,
+      "page_end": 12,
+      "char_count": 2324,
+      "text_hash_sha256": "aeb3532cfb7db27419276e9d02b7ae5b9b8586a5d4fa9256b40eb1925a923038"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 12,
+      "page_end": 14,
+      "char_count": 11033,
+      "text_hash_sha256": "dfc71d9b5777d4bcbe00485309ef706e6770dc6979510f674e3fa12eb89e356e"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3791,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3646,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3530,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4074,
+      "section_ids": [
+        "sec:introduction",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 6354,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 2880,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2859,
+      "section_ids": [
+        "sec:method",
+        "sec:model",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3237,
+      "section_ids": [
+        "sec:experiment",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 6186,
+      "section_ids": [
+        "sec:method-2",
+        "sec:model-2"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4027,
+      "section_ids": [
+        "sec:model-2",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4238,
+      "section_ids": [
+        "sec:related-work",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3751,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3690,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3610,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Fig 1",
+        "caption": "Motivation and efficiency of PRCR. (a) Category-level results on M3CoT show that Direct",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Fig 2",
+        "caption": "Decoding collapse under direct historical KV reuse. (a) Example generation trajectories",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Fig 3",
+        "caption": "Attention perturbation under direct historical KV",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Fig 4",
+        "caption": "Overview of Position Rebinding Cache Reuse (PRCR). PRCR enables replay-free visual",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "Position Rebinding Cache Reuse (PRCR)",
+        "page": 6,
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Fig 5",
+        "caption": "Effect of left extension length 𝐿in PRCR. Accuracy",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Fig 6",
+        "caption": "Qualitative results of baseline and PRCR. The baseline predicts 0 inches, whereas PRCR",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Fig 7",
+        "caption": "Effect of PRCR on next-token generation. (a)",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-2"
+      },
+      {
+        "id": "Fig 6",
+        "caption": "illustrates PRCR’s effectiveness",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-2"
+      },
+      {
+        "id": "Fig 8",
+        "caption": "visualizes attention patterns for Token-Replay and PRCR. Fig. 8(a) shows attention over the",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:model-2"
+      },
+      {
+        "id": "Fig 8",
+        "caption": "Attention visualization for PRCR. (a) Token-Replay:",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:related-work"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Quantitative comparison across multimodal reasoning benchmarks. M3CoT is evaluated",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Effect of position reinsertion strategies on M3CoT. We evaluate different ways of reinserting",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 1",
+        "caption": "reports the main quantitative results across four MLLMs and four benchmarks. Compared",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 3",
+        "caption": "reports representative visual-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Efficiency and memory cost of PRCR. We report representative visual-revisiting FLOPs",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method-2"
+      },
+      {
+        "id": "Table 2",
+        "caption": "compares different coordinate assignment rules",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "PDCR (Ours) > Token-Replay (+0.2)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝑆text = {𝑟1, 𝑟2, . . . , 𝑟𝑁, 𝑎},",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝑆interleaved = {𝑟1, e1, 𝑟2, e2, . . . , 𝑟𝑁, e𝑁, 𝑎},",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "where e𝜏denotes the visual evidence revisited at the decoding step 𝜏. Let V = {v𝑚}𝑀",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝑚=1 denote",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "I𝜏= {𝑚1, . . . , 𝑚𝐾𝜏} ⊆{1, . . . , 𝑀},",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "e𝜏= {v𝑚𝑗}𝐾𝜏",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝑗=1,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝑗=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "p𝑚= (ℎ𝑚, 𝑤𝑚), let 𝑘raw",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "˜𝑘𝑚= RoPE(𝑘raw",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "˜𝑣𝑚= 𝑣raw",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "𝜏= (𝑝txt",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 4
+    },
+    {
+      "text": "Specifically, following the notation in Section 2.1, let V = {v𝑚}𝑀",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚=1 denote the visual tokens and",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "p𝑚= (ℎ𝑚, 𝑤𝑚) denote the original 2D spatial coordinate of token v𝑚. During multimodal prefill, we",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "representation of token v𝑚entering the attention module at layer ℓ∈L. We define the layer-wise raw",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Pm = (tm,hm,wm)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "= v",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Pm = (tm,hm,wm)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "= v",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚,ℓ= 𝑊ℓ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚,ℓ= 𝑊ℓ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚= 1, . . . , 𝑀, ℓ∈L.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "M =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚,ℓ)}ℓ∈L, p𝑚",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚=1 .",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "entries and denote the selected raw visual evidence memory as M𝜏= M[I𝜏].",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏+ 1), where 𝐿≥0 controls the left extension length. The selected",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "For each spatial axis 𝑎∈{ℎ, 𝑤}, we first compute the coordinate range of the selected subset:",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,min = min",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚∈I𝜏𝑝(𝑎)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,max = max",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑚∈I𝜏",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Require: Position Rebinding visual memory M; selected indices I𝜏= {𝑚1, . . . , 𝑚𝐾𝜏}; current text",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ}ℓ∈L.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ}ℓ∈L.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "2: for 𝑎∈{ℎ, 𝑤} do",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "for 𝑗= 1, . . . , 𝐾𝜏do",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "9: Form reassigned coordinates ˆp𝜏, 𝑗= ( ˆ𝑝(ℎ)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "10: for ℓ∈L do",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ}ℓ∈L.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,max > 𝑝(𝑎)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏, 𝑗=",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑎∈{ℎ, 𝑤}.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏, 𝑗= (𝑝txt",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝑎∈{ℎ, 𝑤}.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "The final reassigned position is ˆp𝜏, 𝑗= ( ˆ𝑝(ℎ)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "cache entries. For each layer ℓ, given the selected index set I𝜏= {𝑚1, . . . , 𝑚𝐾𝜏}, we collect the",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "The reassigned positions are stacked as bP𝜏= [ˆp𝜏,1; . . . ; ˆp𝜏,𝐾𝜏] ∈R𝐾𝜏×2. The reconstructed visual",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ= RoPE",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ= 𝑉raw",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ= (𝐾ctx",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "𝜏,ℓ=",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Decoding then proceeds normally with the next text position 𝑝next = 𝑝txt",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 7
+    },
+    {
+      "text": "HW positional interface as pnext = (𝑝next, 𝑝next). For a raw query 𝑞raw",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 7
+    },
+    {
+      "text": "𝑜next,ℓ= softmax",
+      "section_id": "sec:model",
+      "page_start": 7,
+      "page_end": 7
+    },
+    {
+      "text": "Best at L=2",
+      "section_id": "sec:method-2",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "on M3CoT and MathVista peaks at 𝐿= 2.",
+      "section_id": "sec:method-2",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "Instruct, when 𝐾= 32, Token-Replay",
+      "section_id": "sec:method-2",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "requires only 14.16M FLOPs. In Qwen3-VL-32B-Instruct, when 𝐾= 128, Token-Replay requires",
+      "section_id": "sec:method-2",
+      "page_start": 8,
+      "page_end": 9
+    },
+    {
+      "text": "reaches the best result at 𝐿= 2. Smaller values provide insufficient space to preserve the relative visual",
+      "section_id": "sec:model-2",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "and slightly reduce performance. We therefore set 𝐿= 2 as the default value in all experiments.",
+      "section_id": "sec:model-2",
+      "page_start": 9,
+      "page_end": 10
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "ac59c2f984be20cbe8e803d9f423001924cf90d26481553b3feddda160b9cf57"
+}

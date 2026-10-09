@@ -1,0 +1,569 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2603.03857",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Comparison of grounding pipelines in existing methods and the proposed DeepScan. (a) Existing methods depend on one-shot",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Performance of LVLMs and visually grounded reasoning",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_002_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_002_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Overall architecture of DeepScan: Hierarchical Scanning progressively recovers visual evidence from in-patch cues formulated",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_003_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_003_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Illustration of morphological post-processing. + marks",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，形态学处理前后掩码与点代理均完整清晰，可用于解释后处理机制。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "fig4.png",
+      "relative_markdown_embed": "![Figure 4](images/fig4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/fig4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Analysis of (left) performance gain w.r.t. target area ratio",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，目标面积与增益、时延与候选数量两张曲线均完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "fig5.png",
+      "relative_markdown_embed": "![Figure 5](images/fig5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/fig5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Illustration of Refocusing, where V ∗denotes its results.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，放大与缩小上下文的两类再聚焦示例完整清晰。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "fig6.png",
+      "relative_markdown_embed": "![Figure 6](images/fig6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/fig6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Ablations of DeepScan across LVLMs on V*, where the",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_006_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_006_fig_figure_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Ablation of the Zoom-Out scale on V*, where the left y-",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_007_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_007_fig_figure_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Case study of grounding results and model responses of GPT-4o, DyFo, and the proposed DeepScan. Panels (a–b) are from V*",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_9.png",
+      "relative_markdown_embed": "![Figure 9](images/page_008_fig_figure_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_008_fig_figure_9.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Qualitative analysis of the grounding paradigms with",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Performance of Qwen2.5-VL series with the varying",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，不同模型规模与候选数量的准确率曲线完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "fig11.png",
+      "relative_markdown_embed": "![Figure 11](images/fig11.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/fig11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Case study of grounding failure",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Case study of reasoning failure",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Hierarchical Scanning with Acceleration",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的算法资产，22 行伪代码从输入、代理提取、分割、去重到候选筛选均完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "algorithm1.png",
+      "relative_markdown_embed": "![Algorithm 1](images/algorithm1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/algorithm1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "Refocusing",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的算法资产，四状态构造、完整性判断与奖励选择的伪代码完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail",
+      "source_image_filename": "algorithm2.png",
+      "relative_markdown_embed": "![Algorithm 2](images/algorithm2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/algorithm2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Qualitative analysis of the grounding paradigms with the attention map S of the search expert",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:methods",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Comparisons on V* Bench and HR-Bench, where all the",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_005_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_005_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Comparison with state-of-the-art alternatives on TreeBench [35]. All the baselines are developed from Qwen2.5-VL-7B, and the",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_006_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_006_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation of external experts on V*; Mem denotes the",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，BLIP-ITM 与 LangSAM 的全部规模、显存和时延行均完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table3.png",
+      "relative_markdown_embed": "![Table 3](images/table3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/table3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Ablation of Hierarchical Scanning on V*.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，检测、分层扫描与去后处理三组完整消融均清晰可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table4.png",
+      "relative_markdown_embed": "![Table 4](images/table4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/table4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Ablation of the Local Cue Exploration on V*. left: proxy",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_007_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_007_fig_table_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Left: effects of each action; Right: comparison of search",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "人工检查了全文阅读器中的同编号资产，放大/缩小动作组合和四状态搜索对比的全部数据行均完整可读。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table6.png",
+      "relative_markdown_embed": "![Table 6](images/table6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models/assets/table6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Quantitative analysis of the grounding paradigms on V*.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_008_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_008_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_008_fig_table_7.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Comparisons between the proposed DeepScan and existing visually grounded reasoning approaches. Like most test-time scaling",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_8.png",
+      "relative_markdown_embed": "![Table 8](images/page_013_fig_table_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_013_fig_table_8.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Additional comparison results on V* Bench between our",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:supplementary-material",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_9.png",
+      "relative_markdown_embed": "![Table 9](images/page_013_fig_table_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_013_fig_table_9.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "Performance–efficiency comparison on V* Benchmark. End-to-End Latency is the wall-clock time per sample from input to",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:methods",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_015_fig_table_10.png",
+      "relative_markdown_embed": "![Table 10](images/page_015_fig_table_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/DeepScan_A_Training_Free_Framework_for_Visually_Grounded_Reasoning_in_Large_Vision_Language_Models/images/page_015_fig_table_10.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 26,
+    "by_decision": {
+      "insert": 15,
+      "low_priority": 4,
+      "placeholder": 2,
+      "skip": 0,
+      "visual_defect": 5
+    }
+  }
+}

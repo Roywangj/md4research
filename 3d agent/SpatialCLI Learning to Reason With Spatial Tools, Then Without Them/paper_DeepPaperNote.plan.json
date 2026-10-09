@@ -1,0 +1,23 @@
+{
+  "note_plan": {
+    "paper_id": "arxiv:2607.27703v2",
+    "title": "SpatialCLI: Learning to Reason With Spatial Tools, Then Without Them",
+    "source_manifest": "local PDF",
+    "source_pages": 48,
+    "sections": ["核心信息", "原文摘要翻译", "创新点", "一句话总结", "研究问题", "数据与任务定义", "方法主线", "训练流程与复现性", "关键结果", "消融分析", "深度分析", "局限", "我的笔记", "引用"],
+    "appendices": ["A Algorithm 1", "B Settings", "C Benchmark", "D Tools", "E CII", "F Additional experiments", "G Prompt literals", "H Cases"],
+    "evidence_intent": {
+      "problem": "PDF pp.1-2, Abstract and Introduction",
+      "mechanism": "PDF pp.3-5, Sec.3 and Appendix A",
+      "data_training": "PDF pp.6-9 and Appendix B-C",
+      "results": "PDF pp.6-9 and Appendix E-F",
+      "limitations": "PDF p.10 and source-grounded analysis"
+    },
+    "writing_contract": {
+      "requires_source_anchors": true,
+      "requires_material_caveat": true,
+      "requires_image_links": true,
+      "partial_coverage_disclosure": true
+    }
+  }
+}

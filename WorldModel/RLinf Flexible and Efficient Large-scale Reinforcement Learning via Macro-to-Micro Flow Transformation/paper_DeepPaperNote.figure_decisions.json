@@ -1,0 +1,29 @@
+{
+  "paper_id": "arxiv:2509.15965v2",
+  "decision_scope": "论文中所有图、表、算法及抽取器识别出的重复正文引用",
+  "decisions": [
+    {"source_id":"Figure 1","kind":"figure","page":2,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"工作流类别示意可由任务定义表更紧凑表达"},
+    {"source_id":"Figure 2","kind":"figure","page":3,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"动机曲线信息可由长尾数值与文字表达"},
+    {"source_id":"Figure 3","kind":"figure","page":3,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"组件剖析仅为动机案例，非核心架构"},
+    {"source_id":"Figure 4","kind":"figure","page":4,"decision":"insert","visual_quality_status":"manually_inspected","reason":"完整且清晰的系统分层架构，已目视检查","source_image_path":"images/page_004_fig_figure_4.png"},
+    {"source_id":"Figure 5","kind":"figure","page":5,"decision":"skip","visual_quality_status":"asset_candidate_missing","skip_reason":"抽取器未生成完整图5，正文以接口伪代码解释"},
+    {"source_id":"Figure 5a","kind":"figure","page":5,"decision":"skip","visual_quality_status":"not_selected","skip_reason":"这是正文引用误识别，并非独立源视觉"},
+    {"source_id":"Figure 6","kind":"figure","page":5,"decision":"insert","visual_quality_status":"manually_inspected","reason":"最直接解释宏观逻辑流到微观执行流，已目视检查","source_image_path":"images/page_005_fig_figure_6.png"},
+    {"source_id":"Figure 7","kind":"figure","page":6,"decision":"insert","visual_quality_status":"manually_inspected","reason":"时间、空间和混合模式的核心对照，已目视检查","source_image_path":"images/page_006_fig_figure_7_selected.png"},
+    {"source_id":"Figure 6-duplicate","kind":"figure","page":6,"decision":"skip","visual_quality_status":"not_selected","skip_reason":"正文引用重复识别，不是第二幅图"},
+    {"source_id":"Algorithm 1","kind":"algorithm","page":7,"decision":"low_priority","visual_quality_status":"visual_defect","skip_reason":"自动裁剪只含标题且正文已重建算法"},
+    {"source_id":"Figure 8","kind":"figure","page":9,"decision":"insert","visual_quality_status":"manually_inspected","reason":"GRPO跨模型与规模结果清晰可读，已目视检查","source_image_path":"images/page_009_fig_figure_8.png"},
+    {"source_id":"Figure 9","kind":"figure","page":10,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"阶段分解重要但裁剪与图10交叠，正文保留关键比例"},
+    {"source_id":"Figure 10","kind":"figure","page":10,"decision":"insert","visual_quality_status":"manually_inspected","reason":"PPO跨模型与规模结果可读，已目视检查","source_image_path":"images/page_010_fig_figure_10_selected.png"},
+    {"source_id":"Figure 13-inline","kind":"figure","page":10,"decision":"skip","visual_quality_status":"not_selected","skip_reason":"正文引用误识别，不是独立图注"},
+    {"source_id":"Figure 11","kind":"figure","page":11,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"单一PPO分解可由数字解释"},
+    {"source_id":"Figure 12","kind":"figure","page":11,"decision":"visual_defect","visual_quality_status":"reject_visual_quality","skip_reason":"裁剪混入图11、13与正文，不能独立展示"},
+    {"source_id":"Figure 13","kind":"figure","page":11,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"MoE延迟分解用关键尾部现象表达"},
+    {"source_id":"Figure 14","kind":"figure","page":11,"decision":"visual_defect","visual_quality_status":"reject_visual_quality","skip_reason":"裁剪混入图16，避免污染笔记"},
+    {"source_id":"Figure 15","kind":"figure","page":11,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"具身阶段分解由正文机制解释"},
+    {"source_id":"Figure 16","kind":"figure","page":11,"decision":"visual_defect","visual_quality_status":"reject_visual_quality","skip_reason":"自动裁剪仅剩图注和正文，视觉主体缺失"},
+    {"source_id":"Table 1","kind":"table","page":12,"decision":"placeholder","visual_quality_status":"asset_candidate_missing","skip_reason":"抽取器未生成表1图像；核心数值已转写为Markdown表"},
+    {"source_id":"Table 2","kind":"table","page":12,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"两行任务得分转写为Markdown更清晰"},
+    {"source_id":"Table 3","kind":"table","page":12,"decision":"low_priority","visual_quality_status":"not_selected","skip_reason":"两行任务得分转写为Markdown更清晰"}
+  ]
+}

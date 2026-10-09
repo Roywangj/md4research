@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "review": "final_readability_review",
+  "checks": {
+    "natural_chinese": true,
+    "stable_terminology": true,
+    "no_mechanical_mixed_language": true,
+    "math_readable": true,
+    "figures_near_discussion": true
+  },
+  "edits_applied": [
+    "将非必要英文术语改写为自然中文，保留 LingBot-VA、MoT、FDM、KV cache 等稳定名称。",
+    "拆分高密度长句，统一 chunk 为块、token 为词元、latent 为潜变量。",
+    "将所有图片说明紧贴图片，并把占位图统一为 Obsidian figure callout。"
+  ]
+}

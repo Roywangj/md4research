@@ -1,0 +1,672 @@
+# NoiseGate: Learning Per-Latent Timestep Schedules as Information Gating in World Action Models
+
+**Authors:** Wen Huang; Haoran Sun; Yongjian Guo; Yunxuan Ma; Haoran Li; Jing Long; Zhouying Mo; Zhong Guan; Yucheng Guo; Shuai Di; Junwu Xiong  
+**Affiliations:** Tsinghua University; Peking University; JDT AI Infra; Tianjin University  
+**Version:** arXiv:2605.07794v1 [cs.RO], 8 May 2026  
+**Canonical source:** `/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AWLP29XD/Huang 等 - 2026 - NoiseGate Learning Per-Latent Timestep Schedules as Information Gating in World Action Models.pdf`  
+**Source format:** selectable-text PDF (`pdf-text`), 17 pages  
+**Author note:** $\dagger$ Equal contribution (co-first authors).  
+**Document status:** Preprint.  
+**Reader role:** authoritative complete paragraph-level Chinese–English reader; `paper.md` and `detailed_paper.md` are byte-identical.  
+**Evidence note:** The PDF is the sole primary source. Figure/table crops in `assets/` are rendered from the PDF pages; crop bounds are tight but approximate where the page contains multiple panels.
+
+## Page / Section Index
+
+| Pages | Content |
+|---|---|
+| 1 | Title, authors, Abstract, §1 Introduction, Fig. 1 |
+| 2–3 | §1 Introduction continued; §2 Related Work; §3 Problem Formulation; Fig. 2 |
+| 4–5 | §3.3; §4 NoiseGate; §4.1–§4.4; Eqs. (1)–(9) |
+| 6–7 | §5 Experiments; Table 1; Table 2; main-result and ablation discussion |
+| 8–9 | Figs. 3–5; §5.4 qualitative analysis; §5.5 case study; §6 Conclusion |
+| 10–12 | References [1]–[41] |
+| 13 | Appendix A Limitations; Appendix B Broader applicability; Appendix C GPN architecture and inference; Eq. (10) |
+| 14 | Appendix C continued; Algorithm 1; Eq. (11); Appendix D; Table 3 |
+| 15 | Appendix E; Table 4; Appendix F and §F.1–§F.2 |
+| 16 | Table 5 and full 50-task context |
+| 17 | Fig. 6; Fig. 7 and captions |
+
+## Terminology Ledger
+
+| Canonical term | 中文 | Definition / decision |
+|---|---|---|
+| World Action Model (WAM) | 世界动作模型 | A policy that jointly models future visual latents and robot actions; retain WAM after first use. |
+| NoiseGate | NoiseGate | Method name; keep in English. |
+| per-latent timestep schedule | 逐潜变量时间步调度 | A vector of noise/denoising times, one for each future latent. |
+| information-gating policy | 信息门控策略 | The learned policy that controls latent reliability through noise level. |
+| Gating Policy Network (GPN) | 门控策略网络 | Lightweight scheduler that emits per-latent time increments. |
+| Mixture-of-Transformers (MoT) | Transformer 混合架构 | Shared self-attention with modality-specific feed-forward experts. |
+| Diffusion Forcing | Diffusion Forcing | Retain method name; its noise-as-masking interpretation motivates independent times. |
+| chunk-bidirectional | chunk 双向 | Non-causal backbone operating over a predicted chunk. |
+| latent frame | 潜在帧 | A future video latent $v_f$. |
+| action chunk | 动作块 | Co-generated sequence $a\in\mathcal A^H$. |
+| shared-t / shared-scalar | 共享 $t$ / 共享标量 | Baseline in which all future latent frames use one scalar timestep. |
+| Hand-crafted schedule | 手工设计调度 | Fixed monotone per-latent schedule. |
+| GRPO | GRPO | Group-relative policy optimization used for Stage 2 scheduler training. |
+| RoboTwin random-scene | RoboTwin 随机场景 | Evaluation condition randomizing object poses, colors, and backgrounds. |
+| action→video attention | 动作→视频注意力 | Attention from action tokens to video-latent tokens. |
+| Key/Value (K/V) | 键/值 | Shared-attention projections whose reliability is modulated by noise. |
+
+## Abstract
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> World Action Models (WAMs) are an emerging family of policies that tie robot action generation to future-observation modeling. In this work, we focus on the joint video–action modeling paradigm, where actions and imagined future observations are co-generated along a shared denoising or flow trajectory, so that perception, prediction, and control are coupled within one generative process. Existing WAMs typically realize this paradigm with a Mixture-of-Transformers (MoT), where video and action tokens interact through shared self-attention. This architecture can in principle assign a separate timestep $t_f$ to each predicted latent frame, yet current systems collapse this degree of freedom onto a single shared scalar $t$. Under the noise-as-masking view of Diffusion Forcing, this shared schedule imposes the unjustified prior that every predicted latent is equally reliable for action generation. We instead view the per-latent schedule as a learnable information-gating policy: by changing a latent frame’s noise level, the policy modulates the reliability of its Key/Value contribution to the action tokens. We propose NoiseGate, which combines independent per-latent timestep sampling during backbone training, a lightweight Gating Policy Network that emits per-latent time increments during denoising, and task-reward optimization that trains the schedule policy without hand-crafted shape priors. Built on a joint video–action MoT backbone, NoiseGate delivers consistent gains on diverse RoboTwin random-scene manipulation tasks.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 世界动作模型（WAM）是一个新兴的策略家族，将机器人动作生成与未来观测建模联系起来。本文关注视频—动作联合建模范式：动作与想象的未来观测沿着共享的去噪或流匹配轨迹共同生成，使感知、预测和控制在一个生成过程中耦合。现有 WAM 通常用 Transformer 混合架构（MoT）实现该范式，其中视频 token 与动作 token 通过共享自注意力交互。原则上，该架构可以为每个预测的潜在帧分配独立时间步 $t_f$，但当前系统将这一自由度压缩为单一共享标量 $t$。在 Diffusion Forcing 的“噪声即掩码”视角下，共享调度施加了一个没有依据的先验，即每个预测潜变量对动作生成都同样可靠。我们转而将逐潜变量调度视为可学习的信息门控策略：改变潜在帧的噪声水平，策略即可调节其 Key/Value 对动作 token 的贡献可靠性。我们提出 NoiseGate，将骨干训练期间的逐潜变量独立时间步采样、在去噪期间发出逐潜变量时间增量的轻量级门控策略网络，以及不依赖手工形状先验的任务奖励优化结合起来，从而训练调度策略。NoiseGate 构建在视频—动作联合 MoT 骨干上，在多种 RoboTwin 随机场景操作任务上取得稳定增益。
+
+## 1 Introduction
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> World Action Models (WAMs) [1, 2, 3, 4, 5] generalize classical video-language-action policies by modeling the joint distribution $p(v,a\mid v_0,l)$ over a chunk of $F$ future latent frames $v=(v_1,\ldots,v_F)$ and an action chunk $a$, given the current observation latent $v_0$ and language instruction $l$. Among the various WAM designs [1, 2, 6, 7], one prominent and effective family jointly denoises future latents and actions through a diffusion or flow-matching backbone. This paradigm, exemplified by recent systems such as Motus [1] and Fast-WAM [2], unifies perception, prediction, and control along a common denoising trajectory, offering conceptual simplicity and strong empirical efficiency.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 世界动作模型（WAM）[1, 2, 3, 4, 5] 通过建模条件于当前观测潜变量 $v_0$ 和语言指令 $l$ 的未来 $F$ 个潜在帧块 $v=(v_1,\ldots,v_F)$ 与动作块 $a$ 的联合分布 $p(v,a\mid v_0,l)$，将经典视频—语言—动作策略加以推广。在多种 WAM 设计 [1, 2, 6, 7] 中，有一类突出且有效的方法通过扩散或流匹配骨干联合去噪未来潜变量与动作。Motus [1] 和 Fast-WAM [2] 等近期系统体现了这一范式：它们沿共同的去噪轨迹统一感知、预测与控制，在概念简洁性和实证效率方面都很有吸引力。
+
+![Figure 1](assets/fig1.png)
+
+**Caption:** Figure 1: Method preview. NoiseGate learns per-latent schedules as task-adaptive information gates in a joint video-action denoising backbone.
+
+**Caption[CN]:** 图 1：方法预览。NoiseGate 在视频—动作联合去噪骨干中学习逐潜变量调度，将其作为任务自适应的信息门控。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> The backbones used by common joint video–action WAMs (e.g., chunk-bidirectional Wan 2.2 [8]) are in principle agnostic to how noise levels are distributed across predicted latents: each future latent $v_f$ could in principle carry its own timestep $t_f$. Yet standard practice [1, 2] forces every predicted latent frame to share a single scalar $t$, collapsing the per-latent timestep vector $t\in\mathbb R^F$ to a scalar at every denoising step. Diffusion Forcing [9] offers a useful lens: since noise level is a form of partial masking, a shared scalar $t$ encodes the strong prior that every predicted latent frame is equally “visible” to the action generation process. This prior is unmotivated, because the influence of each $v_f$ on predicting the correct action is heterogeneous, task-dependent, and unknown in advance. For example, when the model is uncertain about upcoming critical events, such as grasping or placing, it may be beneficial to keep the corresponding imagined latents blurrier. Any handcrafted shape (e.g., monotonic in the latent-frame $f$) merely swaps one prior for another, leading to suboptimal action generation.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 常见视频—动作联合 WAM 所使用的骨干（例如 chunk 双向 Wan 2.2 [8]）原则上并不依赖噪声水平如何分布在预测潜变量上：每个未来潜变量 $v_f$ 原则上都可以拥有自己的时间步 $t_f$。然而，标准做法 [1, 2] 强制所有预测潜在帧共享一个标量 $t$，在每一步去噪时把逐潜变量时间向量 $t\in\mathbb R^F$ 压缩为标量。Diffusion Forcing [9] 提供了有用的解释视角：由于噪声水平是一种部分掩码，共享标量 $t$ 编码了一个强先验，即每个预测潜在帧对动作生成过程都同样“可见”。这一先验并无依据，因为每个 $v_f$ 对正确动作预测的影响具有异质性、任务依赖性，并且事先未知。例如，当模型对即将发生的关键事件（如抓取或放置）不确定时，让对应的想象潜变量保持更模糊可能更有益。任何手工规定的形状（例如随潜在帧 $f$ 单调变化）都只是用一个先验替换另一个先验，可能导致次优动作生成。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> In this work, we move beyond the fixed shared schedule and reframe the per-latent timestep assignment as a learnable information-gating policy. A natural realization of the joint video–action modeling paradigm couples a video DiT with an action-expert DiT through a Mixture-of-Transformers (MoT) [10]: video and action tokens share a single self-attention layer, while each modality retains its own feed-forward expert. This joint self-attention makes the gating interpretation concrete: the noise level on a latent frame directly modulates the reliability of its Key/Value contribution at every denoising step, so $t$ acts as a bank of continuous gates controlling how much evidence from each future latent propagates into the action tokens (see Fig. 1). The optimal gating pattern is inherently task-dependent and should be learned from data rather than prescribed by a fixed schedule.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 本文超越固定的共享调度，将逐潜变量时间步分配重新表述为可学习的信息门控策略。联合视频—动作建模范式的一种自然实现，是通过 Transformer 混合架构（MoT）[10] 将视频 DiT 与动作专家 DiT 耦合：视频 token 和动作 token 共享一个自注意力层，而每种模态保留自己的前馈专家。这种联合自注意力使门控解释具体化：潜在帧上的噪声水平会在每一步去噪中直接调节其 Key/Value 贡献的可靠性，因此 $t$ 充当一组连续门，控制来自每个未来潜变量的多少证据传播到动作 token（见图 1）。最优门控模式本质上依赖任务，应当从数据中学习，而不应由固定调度预先规定。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> We instantiate this view as NoiseGate with three coupled ingredients. First, during training, we sample timesteps independently per latent, borrowing the recipe of Diffusion Forcing [9] but applying it to a chunk-bidirectional (non-causal) backbone, so that the model can handle arbitrary per-latent timestep profiles at inference. Second, a lightweight Gating Policy Network (GPN) reads the current latents and their timesteps at each denoising step and emits per-latent increments $\Delta t_f$ for the future latents $v_{1:F}$. Third, we train the GPN with GRPO [11] against a sparse task-success reward, grounding the gating policy in actual task utility rather than any hand-crafted prior.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 我们用三个相互耦合的组成部分将这一观点实例化为 NoiseGate。第一，在训练时对每个潜变量独立采样时间步，借用 Diffusion Forcing [9] 的做法，但应用于 chunk 双向（非因果）骨干，使模型在推理时能够处理任意逐潜变量时间步轮廓。第二，轻量级门控策略网络（GPN）在每一步去噪时读取当前潜变量及其时间步，并为未来潜变量 $v_{1:F}$ 发出逐潜变量增量 $\Delta t_f$。第三，我们用稀疏的任务成功奖励，通过 GRPO [11] 训练 GPN，使门控策略以实际任务效用为依据，而不是依赖手工先验。
+
+> <span style="color:#3B82F6"><strong>Para. 5:</strong></span> Our contributions are summarized as follows:
+>
+> - We reframe per-latent timestep scheduling in joint video–action WAMs as a learnable information-gating policy over the shared self-attention, and show that the conventional shared-scalar schedule is a strong implicit prior (§3).
+> - We propose NoiseGate, which realizes this view via independent per-latent timestep sampling, a per-step GPN, and GRPO optimization against task reward, requiring no hand-crafted shape prior (§4).
+> - On RoboTwin under random-scene conditions, NoiseGate outperforms both shared-scalar and hand-crafted per-latent schedules, confirming that learning the gating policy is essential to exploit the per-latent degree of freedom (§5).
+
+> <span style="color:#F59E0B"><strong>Para. 5[CN]:</strong></span> 我们的贡献总结如下：
+>
+> - 将联合视频—动作 WAM 中的逐潜变量时间步调度重新表述为作用于共享自注意力的可学习信息门控策略，并表明传统共享标量调度是一个强隐式先验（§3）。
+> - 提出 NoiseGate，通过逐潜变量独立时间步采样、逐步 GPN 以及针对任务奖励的 GRPO 优化实现这一观点，不需要手工形状先验（§4）。
+> - 在 RoboTwin 随机场景条件下，NoiseGate 优于共享标量调度和手工逐潜变量调度，说明要利用逐潜变量自由度，学习门控策略是必要的（§5）。
+
+## 2 Related Work
+
+### Video–action generative policies
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Diffusion-based policy learning, beginning with Diffusion Policy [12], has been scaled to large visual backbones and language-conditioned VLA systems [13, 14, 15, 16, 17, 18, 19, 20, 21, 22]. A recent line of World Action Models (WAMs) [1, 2, 3, 23, 24, 25, 26, 27, 4, 28, 7] goes beyond action-only prediction by co-generating future observations and actions, modeling $p(v,a\mid v_0,l)$ rather than only $p(a\mid v_0,l)$. We focus on the joint video–action denoising/flow-matching variant, exemplified by Motus [1] and Fast-WAM [2], where a video DiT and an action expert interact through shared self-attention in a Mixture-of-Transformers architecture [10]. This design exposes a rarely studied degree of freedom: each predicted latent frame could carry its own diffusion time, yet existing systems usually collapse the whole predicted chunk to one shared scalar timestep.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 以 Diffusion Policy [12] 为起点的扩散策略学习已经扩展到大型视觉骨干和语言条件 VLA 系统 [13, 14, 15, 16, 17, 18, 19, 20, 21, 22]。近期一系列世界动作模型（WAM）[1, 2, 3, 23, 24, 25, 26, 27, 4, 28, 7] 通过共同生成未来观测和动作，超越了只预测动作的设定，建模 $p(v,a\mid v_0,l)$ 而不仅是 $p(a\mid v_0,l)$。本文关注 Motus [1] 与 Fast-WAM [2] 所代表的视频—动作联合去噪/流匹配变体，其中视频 DiT 与动作专家通过 Transformer 混合架构 [10] 中的共享自注意力交互。这一设计暴露出一个很少被研究的自由度：每个预测潜在帧都可以携带自己的扩散时间，但现有系统通常把整个预测块压缩到一个共享标量时间步。
+
+### Per-token noise levels and adaptive diffusion schedules
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> Diffusion Forcing [9] provides the closest training-time precedent for departing from a shared timestep: it interprets noise level as partial masking and trains causal sequence models with independently sampled per-token noise levels. We borrow this noise-as-masking view and the independent noise sampling recipe, but use them for a different purpose. Our backbone is chunk-bidirectional rather than causal, and independent noise is not used as a rollout mechanism; it is a substrate that makes arbitrary per-latent noise profiles valid at inference time. Classical samplers such as DDIM [29] and EDM [30] improve the global denoising trajectory, while learned schedule methods such as TPDM [31] predict scalar timesteps for single-modality image generation. In contrast, our scheduler emits a vector $t=(t_1,\ldots,t_F)$ over future video latents inside a joint video–action backbone, where each $t_f$ controls the reliability of that latent’s Key/Value contribution to action tokens.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> Diffusion Forcing [9] 是偏离共享时间步的最接近训练时先例：它将噪声水平解释为部分掩码，并用逐 token 独立采样的噪声水平训练因果序列模型。我们借用这种“噪声即掩码”视角和独立噪声采样方法，但用途不同。我们的骨干是 chunk 双向而非因果的，独立噪声不是作为 rollout 机制使用，而是作为使任意逐潜变量噪声轮廓在推理时有效的训练基础。DDIM [29] 和 EDM [30] 等经典采样器改进全局去噪轨迹，TPDM [31] 等学习式调度方法则为单模态图像生成预测标量时间步。相比之下，我们的调度器在联合视频—动作骨干中对未来视频潜变量输出向量 $t=(t_1,\ldots,t_F)$，其中每个 $t_f$ 控制该潜变量的 Key/Value 对动作 token 的贡献可靠性。
+
+### Reinforcement learning for VLA policies
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> Recent work [32, 33, 34, 35, 36, 37, 38, 39] has also shown that reinforcement learning can substantially improve VLA policies after supervised imitation. Frameworks such as RLinf-vla [32] and SimpleVLA-RL [35] scale outcome-driven RL, including PPO- or GRPO-style optimization, to large VLA models across simulated manipulation benchmarks and real-robot settings. These methods optimize the action-producing policy itself, typically improving the model’s ability to map observations and language instructions to successful action trajectories. Our use of RL is complementary: the pretrained video–action backbone is frozen, and reward optimization is applied only to a lightweight scheduler that controls how future latent frames are revealed to the action tokens during denoising. Thus the learned object is not the VLA action policy directly, but a per-latent information-gating policy inside the WAM’s generative process.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 近期工作 [32, 33, 34, 35, 36, 37, 38, 39] 也表明，在监督模仿之后，强化学习能够显著改进 VLA 策略。RLinf-vla [32] 和 SimpleVLA-RL [35] 等框架把结果驱动的强化学习（包括 PPO 或 GRPO 风格优化）扩展到大型 VLA 模型，覆盖仿真操作基准和真实机器人场景。这些方法直接优化产生动作的策略，通常提升模型将观测与语言指令映射为成功动作轨迹的能力。本文的强化学习用途与之互补：预训练视频—动作骨干保持冻结，奖励优化只作用于一个轻量调度器，该调度器控制去噪时未来潜在帧如何向动作 token 显露。因此，学习对象不是 VLA 动作策略本身，而是 WAM 生成过程内部的逐潜变量信息门控策略。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> Taken together, prior WAMs establish joint video–action generation, Diffusion Forcing motivates independent noise levels as masking, learned diffusion schedulers show that timestep selection can be optimized, and VLA-RL methods demonstrate the value of task-reward fine-tuning for embodied policies. NoiseGate combines these threads in a different setting: it learns a task-reward-optimized, per-latent timestep schedule for a joint video–action denoising backbone.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 总体而言，既有 WAM 建立了视频—动作联合生成，Diffusion Forcing 将独立噪声水平作为掩码的动机带入这一问题，学习式扩散调度器说明时间步选择可以优化，而 VLA-RL 方法展示了任务奖励微调对具身策略的价值。NoiseGate 在不同设定中组合这些线索：它为视频—动作联合去噪骨干学习一个经过任务奖励优化的逐潜变量时间步调度。
+
+## 3 Problem Formulation
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> This section establishes the notation for video–action generation (§3.1), identifies how the conventional shared-scalar schedule limits the model’s ability to handle intra-chunk information density (§3.2), and formulates the per-frame latent scheduling problem (§3.3).
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 本节建立视频—动作生成的记号（§3.1），说明传统共享标量调度如何限制模型处理块内信息密度的能力（§3.2），并形式化逐帧潜变量调度问题（§3.3）。
+
+### 3.1 Preliminaries: Video–Action Generation in WAMs
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> **Notation and setup.** Let $v=\{v_1,\ldots,v_F\}\in\mathcal V^F$ denote a chunk of $F$ future latent frames. We take $v_0$ as the clean current observation, $l$ as the language instruction, and $a\in\mathcal A^H$ as the action chunk co-generated with the video. The model captures the conditional distribution $p_\theta(v,a\mid v_0,l)$.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> **记号与设置。** 令 $v=\{v_1,\ldots,v_F\}\in\mathcal V^F$ 表示由 $F$ 个未来潜在帧组成的块。取 $v_0$ 为干净的当前观测，$l$ 为语言指令，$a\in\mathcal A^H$ 为与视频共同生成的动作块。模型刻画条件分布 $p_\theta(v,a\mid v_0,l)$。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> **Joint video–action denoising backbone.** Current WAMs typically use a diffusion or flow-matching Mixture-of-Transformers [10] to jointly denoise future latents and action tokens. While the architecture nominally admits an independent timestep for every token, standard practice collapses the per-element times into two global scalars:
+
+$$g_\theta(v^{t_v},a^{t_a},t_v,t_a,v_0,l),\qquad t_v=[t_1,\ldots,t_F]\in[0,T]^F,\quad t_a\in[0,T].\tag{1}$$
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> **视频—动作联合去噪骨干。** 当前 WAM 通常使用扩散或流匹配 Transformer 混合架构 [10]，联合去噪未来潜变量和动作 token。虽然该架构名义上允许每个 token 拥有独立时间步，标准做法却将逐元素时间压缩为两个全局标量（见公式（1））。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> Crucially, in existing WAMs, even the video timesteps are collapsed such that $t_1=\cdots=t_F=t$. We re-examine this choice, specifically focusing on the flexibility of $t_v$ while maintaining a synchronous schedule for action $a$ to ensure a stable execution trajectory.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 关键在于，现有 WAM 甚至将视频时间步也压缩为 $t_1=\cdots=t_F=t$。我们重新审视这一选择，重点研究 $t_v$ 的灵活性，同时为动作 $a$ 保持同步调度，以确保执行轨迹稳定。
+
+### 3.2 Per-Latent Timesteps as Information Gates
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> **The Hidden Prior of a Shared Scalar $t$.** Setting all $t_f=t$ imposes a strong prior: every future frame and every action token is assumed to be equally “visible” or “reliable” at any given step $k$. However, due to temporal causal dependencies and varying task complexity, certain future frames are inherently harder to predict or more critical for action grounding than others.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> **共享标量 $t$ 的隐含先验。** 令所有 $t_f=t$ 会施加一个强先验：在任意步骤 $k$，每个未来帧和每个动作 token 都被假设同样“可见”或“可靠”。然而，由于时间因果依赖和任务复杂度不同，某些未来帧天然比其他帧更难预测，或对动作落地更关键。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> **Video as a Gated Memory for Action.** In the MoT backbone, video and action tokens interact through shared self-attention. Following the “noise-as-masking” interpretation [9], a higher noise level $t_f$ renders the $f$-th latent frame less reliable, effectively “gating” its contribution to the action tokens’ hidden representations. By allowing $t_v$ to be heterogeneous, we allow the model to prioritize the denoising of specific frames that are most informative for the current action, without needing to alter the action’s own denoising pace $t_a$.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> **作为动作门控记忆的视频。** 在 MoT 骨干中，视频 token 和动作 token 通过共享自注意力交互。遵循“噪声即掩码”的解释 [9]，更高的噪声水平 $t_f$ 会使第 $f$ 个潜在帧的可靠性降低，实质上“门控”其对动作 token 隐表示的贡献。允许 $t_v$ 异质化，就能让模型优先去噪对当前动作最有信息量的特定帧，而无需改变动作自身的去噪节奏 $t_a$。
+
+![Figure 2](assets/fig2.png)
+
+**Caption:** Figure 2: Overview of NoiseGate. The unified framework figure summarizes both the joint-sequence MoT backbone and the Gating Policy Network (GPN). At every denoising step, the GPN reads the current predicted-chunk latents and per-latent times, and emits increments $\Delta t_f$ for $v$. The observation $v_0$ is pinned at $t_0=0$, and the action follows its own global schedule.
+
+**Caption[CN]:** 图 2：NoiseGate 概览。统一框架图同时总结联合序列 MoT 骨干与门控策略网络（GPN）。在每个去噪步骤，GPN 读取当前预测块潜变量及逐潜变量时间，并为 $v$ 发出增量 $\Delta t_f$。观测 $v_0$ 固定在 $t_0=0$，动作遵循自身的全局调度。
+
+### 3.3 Learning the Per-Frame Schedule as a Policy
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> We cast the video scheduling as a policy $\pi_\phi$. At each step $k$, the policy observes the current state and determines the individual time increments for latent frames only:
+
+$$\Delta t_v^{(k)}=\pi_\phi\!\left(v_{t_v^{(k)}},t_v^{(k)};v_0\right).\tag{2}$$
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 我们将视频调度表述为策略 $\pi_\phi$。在每个步骤 $k$，策略观察当前状态，并只为潜在帧决定各自的时间增量（见公式（2））。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> The action schedule $t_a$ follows a fixed linear or cosine decay, acting as a global “clock,” while $t_v$ adapts its trajectory to maximize the task-success reward $R$.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 动作调度 $t_a$ 遵循固定的线性或余弦衰减，充当全局“时钟”；而 $t_v$ 自适应地调整轨迹，以最大化任务成功奖励 $R$。
+
+## 4 NoiseGate: Per-Latent Schedule as a Learned Gating Policy
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> NoiseGate turns the per-latent timestep schedule into a first-class learned object. It has three coupled parts: a joint-sequence MoT backbone (§4.1) on which the gating interpretation lives; independent per-latent timestep sampling (§4.2) that makes arbitrary per-latent timestep profiles feasible at inference; and the Gating Policy Network (GPN, §4.3) trained with GRPO (§4.4) to emit per-latent time increments $\Delta t_f$ at every denoising step. Operationally, these components are trained in two stages: first the WAM backbone is demonstration-finetuned under independent per-latent timesteps, and then the backbone is frozen while the GPN is optimized from task reward. Figure 2 gives an overview.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> NoiseGate 将逐潜变量时间步调度变成一等可学习对象。它包含三个耦合部分：承载门控解释的联合序列 MoT 骨干（§4.1）；使推理时任意逐潜变量时间步轮廓成为可能的逐潜变量独立时间步采样（§4.2）；以及用 GRPO（§4.4）训练、在每个去噪步骤发出逐潜变量时间增量 $\Delta t_f$ 的门控策略网络（GPN，§4.3）。在操作上，这些组件分两个阶段训练：首先在逐潜变量独立时间步下对 WAM 骨干进行示范微调，然后冻结骨干，仅依据任务奖励优化 GPN。图 2 给出了概览。
+
+### 4.1 World Action Model and MoT Backbone
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Following the notation in §3.1, we instantiate NoiseGate in the joint video–action modeling paradigm of World Action Models (WAMs), as shown in Fig. 2. Rather than modeling an action-only policy $p_\theta(a\mid v_0,l)$, a WAM co-generates future latents and actions under the current observation and language instruction:
+
+$$p_\theta(v,a\mid v_0,l),\qquad g_\theta(v^{t_v},a^{t_a},t_v,t_a,v_0,l).\tag{3}$$
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 根据 §3.1 的记号，我们如图 2 所示在世界动作模型（WAM）的联合视频—动作建模范式中实例化 NoiseGate。WAM 不建模仅动作策略 $p_\theta(a\mid v_0,l)$，而是在当前观测和语言指令条件下共同生成未来潜变量与动作（见公式（3））。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> Here $t_v=(t_1,\ldots,t_F)$ collects per-frame video timesteps, $t_a$ is the action timestep, and superscripts indicate the current noise level. The backbone head $g_\theta$ denotes the per-step prediction target of the generative backbone, e.g., diffusion noise prediction or flow-matching velocity prediction. This formulation ties prediction and control to the same denoising/flow trajectory: the future latents provide an explicit imagined context, while the action tokens are refined in the same process.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 其中 $t_v=(t_1,\ldots,t_F)$ 收集逐帧视频时间步，$t_a$ 是动作时间步，上标表示当前噪声水平。骨干头 $g_\theta$ 表示生成骨干逐步预测的目标，例如扩散噪声预测或流匹配速度预测。该形式将预测和控制绑定到同一去噪/流轨迹：未来潜变量提供显式的想象上下文，而动作 token 在相同过程中得到细化。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> The backbone realizes this WAM with a Mixture-of-Transformers (MoT) [10] architecture, integrating a chunk-bidirectional video DiT (Wan 2.2-TI2V-5B [8]) with an Action-Expert DiT [40]. The clean observation latent $v_0$ is pinned at $t_0=0$, while predicted latent frames $\{v_f^{t_f}\}_{f=1}^F$ and action tokens $a^{t_a}$ are processed within a joint sequence where all modalities share self-attention blocks but utilize modality-specific feed-forward layers.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 该骨干用 Transformer 混合架构（MoT）[10] 实现 WAM，将 chunk 双向视频 DiT（Wan 2.2-TI2V-5B [8]）与动作专家 DiT [40] 集成。干净观测潜变量 $v_0$ 固定在 $t_0=0$；预测潜在帧 $\{v_f^{t_f}\}_{f=1}^F$ 和动作 token $a^{t_a}$ 在联合序列中处理：所有模态共享自注意力块，但使用模态特定的前馈层。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> As established in §3.2, this shared attention serves as the physical layer for information gating: the individual noise level $t_f$ modulates the reliability of the $f$-th predicted latent frame’s contribution to the action tokens’ representations. Notably, while each predicted latent frame $v_f$ is assigned a unique $t_f$, the action tokens $a$ share a single, global $t_a$ at any given step, ensuring the backbone learns to extract features from a heterogeneously-noised video context to predict a consistent action chunk.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 如 §3.2 所述，共享注意力是信息门控的物理层：各自的噪声水平 $t_f$ 调节第 $f$ 个预测潜在帧对动作 token 表示的贡献可靠性。值得注意的是，虽然每个预测潜在帧 $v_f$ 都被分配独特的 $t_f$，但在任意给定步骤，动作 token $a$ 共享一个全局 $t_a$，从而确保骨干学会从具有异质噪声的视频上下文中提取特征，以预测一致的动作块。
+
+### 4.2 Training Substrate: Independent Per-Latent Timestep Sampling
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> To enable the backbone to generalize to arbitrary per-frame schedules at inference, Stage 1 trains the joint video–action backbone with a per-latent timestep sampling regime inspired by Diffusion Forcing [9]. For each training sample, we draw independent timesteps $t_v=(t_1,\ldots,t_F)$ and a separate action timestep $t_a$, construct the heterogeneously noised input $(v^{t_v},a^{t_a})$, and optimize the backbone with the corresponding diffusion noise target or flow-matching velocity target. This objective ensures the model can effectively “read” through varying levels of uncertainty across the video chunk, making the per-frame schedule a controllable degree of freedom for the policy.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 为使骨干在推理时泛化到任意逐帧调度，Stage 1 使用受 Diffusion Forcing [9] 启发的逐潜变量时间步采样方案训练视频—动作联合骨干。对每个训练样本，我们独立抽取时间步 $t_v=(t_1,\ldots,t_F)$ 及一个单独的动作时间步 $t_a$，构造具有异质噪声的输入 $(v^{t_v},a^{t_a})$，并用相应的扩散噪声目标或流匹配速度目标优化骨干。该目标确保模型能够有效“读取”视频块中不同程度的不确定性，使逐帧调度成为策略可控制的自由度。
+
+### 4.3 Gating Policy Network (GPN)
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> **Policy interface.** The GPN $\pi_\phi$ makes the per-latent schedule a learned control variable. At denoising step $k$, let $t_v^{(k)}=(t_1^{(k)},\ldots,t_F^{(k)})$ denote the current timesteps of the predicted video latents. The policy observes the heterogeneously noised video chunk $v_{t_v^{(k)}}$, the clean observation latent $v_0$, and $t_v^{(k)}$, and outputs timestep decrements only for the predicted video latents:
+
+$$\Delta t_v^{(k)}=\pi_\phi\!\left(v_{t_v^{(k)}},t_v^{(k)};v_0\right),\qquad \Delta t_v^{(k)}\in\mathbb R_+^F.\tag{4}$$
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> **策略接口。** GPN $\pi_\phi$ 将逐潜变量调度变成可学习的控制变量。在去噪步骤 $k$，令 $t_v^{(k)}=(t_1^{(k)},\ldots,t_F^{(k)})$ 表示预测视频潜变量的当前时间步。策略观察具有异质噪声的视频块 $v_{t_v^{(k)}}$、干净观测潜变量 $v_0$ 以及 $t_v^{(k)}$，并只为预测视频潜变量输出时间步递减量（见公式（4））。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> The observation remains pinned at $t_0\equiv0$, while the action tokens follow the original global schedule $t_a^{(k)}$ and are not directly controlled by the GPN. This keeps action denoising synchronized for execution while allowing the video context to be selectively unmasked.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 观测始终固定在 $t_0\equiv0$，动作 token 遵循原始全局调度 $t_a^{(k)}$，不受 GPN 直接控制。这样既保持动作去噪与执行同步，又允许有选择地解掩码视频上下文。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> **Relative-scale action.** Rather than predicting unconstrained absolute decrements, the policy is parameterized through bounded relative scales $r^{(k)}=(r_1^{(k)},\ldots,r_F^{(k)})\in(0,2)^F$. A lightweight spatiotemporal encoder and squashed-Gaussian actor head parameterize this distribution; the layer-wise architecture and log-density are given in Appendix C. Let $\delta t^{(k)}$ denote the nominal time decrement that the original scalar denoising schedule would take at step $k$. Each component of the decrement vector is
+
+$$\Delta t_f^{(k)}=\delta t^{(k)}r_f^{(k)},\qquad f\in\{1,\ldots,F\}.\tag{5}$$
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> **相对尺度动作。** 策略不预测无约束的绝对递减量，而是通过有界相对尺度 $r^{(k)}=(r_1^{(k)},\ldots,r_F^{(k)})\in(0,2)^F$ 参数化。轻量时空编码器和压缩高斯 actor 头对该分布进行参数化；逐层架构和对数密度见附录 C。令 $\delta t^{(k)}$ 表示原始标量去噪调度在步骤 $k$ 将采取的名义时间递减量，则递减向量的每个分量如公式（5）。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> This parameterization preserves the global pace of the sampler while letting the policy decide which predicted latents should be denoised faster or slower at each step. It also avoids asking the policy to learn both the absolute magnitude and the relative priority of each frame from sparse rollout reward.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 这种参数化保留采样器的全局节奏，同时让策略在每一步决定哪些预测潜变量应更快或更慢去噪。它还避免让策略仅凭稀疏 rollout 奖励同时学习每帧的绝对幅度和相对优先级。
+
+> <span style="color:#3B82F6"><strong>Para. 5:</strong></span> **Per-latent denoising trajectory.** The predicted-video timestep vector is then updated component-wise:
+
+$$t_f^{(k+1)}=\max\{0,t_f^{(k)}-\Delta t_f^{(k)}\},\qquad f\in\{1,\ldots,F\}.\tag{6}$$
+
+> <span style="color:#F59E0B"><strong>Para. 5[CN]:</strong></span> **逐潜变量去噪轨迹。** 随后按分量更新预测视频时间步向量，如公式（6）。
+
+> <span style="color:#3B82F6"><strong>Para. 6:</strong></span> We impose no monotonicity or hand-crafted shape prior across frames; the schedule is learned end-to-end from task reward via GRPO (§4.4). Figure 2 shows the GPN in the full framework, and Appendix C gives the inference algorithm.
+
+> <span style="color:#F59E0B"><strong>Para. 6[CN]:</strong></span> 我们不对帧间关系施加单调性或手工形状先验；该调度通过 GRPO（§4.4）从任务奖励端到端学习。图 2 展示完整框架中的 GPN，附录 C 给出推理算法。
+
+### 4.4 Training with GRPO
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> In Stage 2, we freeze the trained WAM backbone and optimize only the scheduler policy $\pi_\phi$ with GRPO [11], which replaces a learned value network by a group-relative baseline. The simulator provides a binary episodic reward $r\in\{0,1\}$. For a group of $G$ trajectories sampled under a frozen snapshot $\pi_{\phi_{\mathrm{old}}}$, the advantage is
+
+$$\hat A_i=\frac{r_i-\bar r}{\operatorname{std}(\{r_j\}_{j=1}^G)+\epsilon},\qquad \bar r=\frac1G\sum_{j=1}^G r_j.\tag{7}$$
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 在 Stage 2，我们冻结训练好的 WAM 骨干，只使用 GRPO [11] 优化调度策略 $\pi_\phi$；GRPO 用组相对基线替代学习式价值网络。模拟器提供二值回合奖励 $r\in\{0,1\}$。对于在冻结快照 $\pi_{\phi_{\mathrm{old}}}$ 下采样的一组 $G$ 条轨迹，优势如公式（7）。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> We then perform $E$ epochs of updates on $\pi_\phi$ over the same batch, using a per-latent importance ratio
+
+$$\rho_f=\frac{\pi_\phi(\Delta t_f\mid v_t,t)}{\pi_{\phi_{\mathrm{old}}}(\Delta t_f\mid v_t,t)},\tag{8}$$
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 然后在同一批次上对 $\pi_\phi$ 更新 $E$ 个 epoch，并使用逐潜变量重要性比率（见公式（8））。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> and optimize the clipped surrogate with an entropy bonus
+
+$$\mathcal L_{\mathrm{GRPO}}(\phi)=-\mathbb E\left[\sum_f\min\left(\rho_f\hat A,\operatorname{clip}(\rho_f,1-\epsilon,1+\epsilon)\hat A\right)+\beta\,\mathcal H[\pi_\phi]\right].\tag{9}$$
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 并优化带熵奖励的裁剪代理目标（见公式（9））。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> where $\mathcal H[\pi_\phi]$ is the per-step entropy of the Squashed Gaussian and $\beta$ is decayed exponentially. We omit a KL term since $\pi_\phi$ is trained from scratch with no meaningful reference policy; ratio clipping and the entropy bonus suffice for stability. The backbones are frozen; only $\phi$ is optimized.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 其中 $\mathcal H[\pi_\phi]$ 是压缩高斯的逐步熵，$\beta$ 按指数衰减。由于 $\pi_\phi$ 从头训练且没有有意义的参考策略，我们省略 KL 项；比率裁剪与熵奖励足以保证稳定性。骨干保持冻结，仅优化 $\phi$。
+
+## 5 Experiments
+
+### 5.1 Setup
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> **Benchmark and evaluation protocol.** We evaluate on RoboTwin [41] under its random-scene condition, where object poses, colors, and backgrounds are randomized at every episode. We report two complementary studies: a scaled comparison against strong baselines, and a controlled ablation that isolates the effect of per-latent scheduling. All methods within each study use the same task list, backbone configuration, rollout budget, and 100-episode-per-task success metric; Appendix E gives the task-selection details and full 50-task context.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> **基准与评估协议。** 我们在 RoboTwin [41] 的随机场景条件下评估，其中每个回合都会随机化物体位姿、颜色和背景。我们报告两项互补研究：与强基线的规模化比较，以及隔离逐潜变量调度作用的受控消融。每项研究内的所有方法使用相同任务列表、骨干配置、rollout 预算和每任务 100 回合的成功率指标；附录 E 给出任务选择细节和完整 50 任务上下文。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> **Backbone configurations.** All experiments use the same joint video–action WAM/MoT substrate: a Wan 2.2 [8] video DiT coupled with an Action-Expert DiT through shared self-attention. We instantiate it in two training-scale configurations: (i) a Motus-derived configuration with the VLM removed and a batch size of 128, used for controlled ablations and diagnostics, and (ii) a scaled Fast-WAM-style configuration with a batch size of 1024, used for the main performance comparison. This treats Motus-derived and Fast-WAM-style runs as two configurations of the same WAM/MoT family rather than different architectural claims.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> **骨干配置。** 所有实验使用相同的视频—动作联合 WAM/MoT 基础：Wan 2.2 [8] 视频 DiT 通过共享自注意力与动作专家 DiT 耦合。我们实例化两种训练规模配置：（i）移除 VLM、batch size 为 128 的 Motus 派生配置，用于受控消融和诊断；（ii）batch size 为 1024 的 Fast-WAM 风格规模化配置，用于主要性能比较。这样将 Motus 派生运行和 Fast-WAM 风格运行视为同一 WAM/MoT 家族的两种配置，而非不同架构主张。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> **Training protocol.** Following the two-stage procedure introduced in §4, Stage 1 produces a demonstration-trained WAM backbone, denoted Stage-1 WAM, using the official RoboTwin training data. Stage 2 freezes this backbone and trains only the GPN with GRPO. This protocol lets the main comparison, Stage-1 WAM vs. NoiseGate, isolate the effect of learning the per-latent denoising schedule on top of the same video–action backbone.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> **训练协议。** 按照 §4 引入的两阶段流程，Stage 1 使用官方 RoboTwin 训练数据生成示范训练的 WAM 骨干，记为 Stage-1 WAM。Stage 2 冻结该骨干，仅用 GRPO 训练 GPN。该协议使主要比较 Stage-1 WAM 对 NoiseGate 能够在相同视频—动作骨干之上隔离学习逐潜变量去噪调度的效果。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> **Baselines.** The main comparison evaluates NoiseGate against Stage-1 WAM and representative RoboTwin baselines: Fast-WAM, LingBot-VA, $\pi$0.5, and Motus. The ablation compares against Shared-$t$, Stage-1 WAM, and Hand-crafted schedule variants that progressively remove the learned schedule policy.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> **基线。** 主要比较将 NoiseGate 与 Stage-1 WAM 以及代表性 RoboTwin 基线 Fast-WAM、LingBot-VA、$\pi$0.5 和 Motus 对比。消融则比较 Shared-$t$、Stage-1 WAM，以及逐步移除学习式调度策略的 Hand-crafted 调度变体。
+
+> <span style="color:#3B82F6"><strong>Para. 5:</strong></span> **Metric and implementation.** We report task success rate averaged over 100 episodes per task under the random-scene condition of RoboTwin. Full GRPO hyperparameters are given in Appendix D, and detailed RoboTwin tables are given in Appendix E.
+
+> <span style="color:#F59E0B"><strong>Para. 5[CN]:</strong></span> **指标与实现。** 我们报告 RoboTwin 随机场景条件下每任务 100 个回合平均得到的任务成功率。完整 GRPO 超参数见附录 D，详细 RoboTwin 表格见附录 E。
+
+### 5.2 Main Results
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Table 1 gives the primary RoboTwin random-scene comparison, with the omitted rows expanded in Appendix E. The rightmost block separates the demonstration-tuned Stage-1 WAM from the GRPO-trained NoiseGate policy and reports the absolute gain $\Delta$ for each task. Across the displayed tasks, NoiseGate usually preserves already-saturated behavior while improving tasks with remaining headroom: Hanging Mug, Blocks Ranking Size, Put Object Cabinet, and Place Bread Skillet gain 6–9 points, and many medium-difficulty placement and manipulation tasks gain another 2–5 points.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 表 1 给出 RoboTwin 随机场景的主要比较，省略的行在附录 E 中展开。最右侧区分示范调优的 Stage-1 WAM 与经 GRPO 训练的 NoiseGate 策略，并报告每项任务的绝对增益 $\Delta$。在展示的任务中，NoiseGate 通常保持已经饱和的表现，同时改善仍有提升空间的任务：Hanging Mug、Blocks Ranking Size、Put Object Cabinet 和 Place Bread Skillet 提升 6–9 个百分点，许多中等难度放置与操作任务另有 2–5 个百分点提升。
+
+![Table 1](assets/table1.png)
+
+**Caption:** Table 1: Primary RoboTwin random-scene comparison. Success rates are percentages over 100 episodes per task. Stage-1 WAM is the scaled WAM backbone after demonstration fine-tuning; NoiseGate is the Stage-2 model after GRPO training of the per-latent gating policy. Best per row in bold; $\Delta$ denotes the absolute improvement of NoiseGate over Stage-1 WAM.
+
+**Caption[CN]:** 表 1：RoboTwin 随机场景主要比较。成功率是每项任务 100 个回合上的百分比。Stage-1 WAM 是示范微调后的规模化 WAM 骨干；NoiseGate 是对逐潜变量门控策略进行 GRPO 训练后的 Stage-2 模型。每行最优值以粗体表示；$\Delta$ 表示 NoiseGate 相对于 Stage-1 WAM 的绝对提升。
+
+| Task | Fast-WAM | LingBot-VA | $\pi$0.5 | Motus | Stage-1 WAM | NoiseGate (ours) | $\Delta$ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Adjust Bottle | 100 | 94 | 99 | 93 | 100 | 100 | 0 |
+| Beat Block Hammer | 97 | 98 | 93 | 88 | 98 | 98 | 0 |
+| Blocks Ranking RGB | 100 | 98 | 85 | 97 | 97 | 99 | +2 |
+| Blocks Ranking Size | 98 | 96 | 26 | 63 | 80 | 87 | +7 |
+| Dump Bin Bigbin | 96 | 96 | 97 | 91 | 94 | 99 | +5 |
+| Handover Block | 81 | 78 | 57 | 73 | 81 | 84 | +3 |
+| Hanging Mug | 62 | 28 | 17 | 38 | 60 | 69 | +9 |
+| Move Can Pot | 88 | 97 | 55 | 74 | 100 | 100 | 0 |
+| Pick Diverse Bottles | 85 | 82 | 71 | 91 | 87 | 89 | +2 |
+| Pick Dual Bottles | 96 | 99 | 63 | 90 | 99 | 100 | +1 |
+| Place A2B Left | 93 | 93 | 82 | 79 | 97 | 100 | +3 |
+| Place A2B Right | 99 | 95 | 84 | 87 | 94 | 98 | +4 |
+| Place Bread Basket | 93 | 95 | 64 | 94 | 97 | 98 | +1 |
+| Place Bread Skillet | 93 | 90 | 66 | 83 | 90 | 96 | +6 |
+| Place Burger Fries | 99 | 95 | 87 | 98 | 96 | 100 | +4 |
+| $\cdots$ |  |  |  |  |  |  |  |
+| Place Cans Plasticbox | 96 | 99 | 84 | 94 | 97 | 100 | +3 |
+| Place Container Plate | 100 | 97 | 95 | 99 | 99 | 100 | +1 |
+| Place Dual Shoes | 88 | 89 | 75 | 87 | 94 | 94 | 0 |
+| Place Fan | 96 | 93 | 85 | 87 | 95 | 98 | +3 |
+| Place Mouse Pad | 89 | 96 | 39 | 68 | 94 | 94 | 0 |
+| Place Object Basket | 88 | 88 | 76 | 87 | 76 | 79 | +3 |
+| Place Object Scale | 97 | 95 | 80 | 85 | 99 | 98 | −1 |
+| Place Object Stand | 94 | 96 | 85 | 97 | 96 | 100 | +4 |
+| Press Stapler | 97 | 82 | 83 | 98 | 94 | 96 | +2 |
+| Put Bottles Dustbin | 90 | 91 | 79 | 79 | 90 | 93 | +3 |
+| Put Object Cabinet | 89 | 87 | 79 | 71 | 87 | 94 | +7 |
+| Rotate QRcode | 89 | 91 | 87 | 73 | 86 | 86 | 0 |
+| Stack Blocks Three | 97 | 98 | 76 | 95 | 96 | 98 | +2 |
+| Stack Bowls Three | 81 | 83 | 71 | 87 | 89 | 89 | 0 |
+| Turn Switch | 59 | 45 | 54 | 78 | 76 | 78 | +2 |
+| **Average** | **91.78** | **91.50** | **76.76** | **87.02** | **92.58** | **94.28** | **1.70** |
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> The few zero-gain rows are mostly tasks where Stage-1 WAM is already near the ceiling, while the only small regressions shown are on Place Object Scale and Open Microwave. Relative to the prior RoboTwin baselines, this pattern indicates that the learned per-latent schedule is not merely increasing average performance uniformly; it selectively helps tasks where action generation benefits from task-adaptive control over which predicted video latents are made reliable during denoising.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 少数没有增益的行主要是 Stage-1 WAM 已接近上限的任务；展示出的唯一小幅回退出现在 Place Object Scale 和 Open Microwave。相对于既有 RoboTwin 基线，这一模式表明学习式逐潜变量调度并非仅仅均匀提升平均性能，而是有选择地帮助那些动作生成能够从任务自适应控制中受益的任务，即在去噪期间决定哪些预测视频潜变量应变得可靠。
+
+### 5.3 Ablation Studies
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Table 2 isolates the role of the schedule design; the per-task breakdown is deferred to Appendix E, Table 4. Removing both the GPN and independent-noise training (Shared-$t$) causes the largest drop (67.5 → 57.5), confirming that the per-latent timestep schedule—training substrate plus learned gating—is the primary driver. Keeping the Stage-1 WAM setting (independent per-latent noise training with shared-scalar inference) recovers most of the substrate gain (61.3) but leaves the learned schedule unexploited. Replacing the GPN with a hand-crafted monotone timestep schedule adds a further 2.1 points (63.4), showing that some per-latent structure is beneficial—but an arbitrary fixed shape is not sufficient; the schedule must be task-adaptive to realize the full gain. Only the full NoiseGate closes the remaining gap to 67.5%, consistent with our framing of the per-latent timestep schedule as a learnable information-gating policy rather than a fixed prior.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 表 2 隔离调度设计的作用；逐任务分解推迟到附录 E 的表 4。移除 GPN 和独立噪声训练（Shared-$t$）会造成最大下降（67.5 → 57.5），说明逐潜变量时间步调度——训练基础加学习式门控——是主要驱动因素。保留 Stage-1 WAM 设置（逐潜变量独立噪声训练、推理时共享标量）可以恢复大部分训练基础收益（61.3），但没有利用学习式调度。用手工单调时间步调度替换 GPN 又增加 2.1 个百分点（63.4），表明某些逐潜变量结构有益，但任意固定形状并不足够；调度必须任务自适应，才能实现完整增益。只有完整 NoiseGate 将剩余差距缩小到 67.5%，这与我们将逐潜变量时间步调度视为可学习信息门控策略而非固定先验的论点一致。
+
+![Table 2](assets/table2.png)
+
+**Caption:** Table 2: Schedule ablation summary on the controlled RoboTwin random-scene study (overall average success rate). Each row removes one component of NoiseGate.
+
+**Caption[CN]:** 表 2：受控 RoboTwin 随机场景研究中的调度消融摘要（总体平均成功率）。每一行移除 NoiseGate 的一个组件。
+
+| Configuration | Overall Success (%) |
+|---|---:|
+| NoiseGate (full) | 67.5 |
+| w/o GPN, hand-crafted per-latent timestep schedule | 63.4 |
+| w/o GPN (Stage-1 WAM) | 61.3 |
+| w/o GPN, w/o independent per-latent noise training (Shared-$t$) | 57.5 |
+
+### 5.4 Qualitative Analysis: Gating, Schedules, and Noise-as-Masking
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> The primary comparison and schedule ablations establish that learning the per-latent timestep schedule helps; we now use two diagnostic views to explain why it helps. First, we verify the mechanism predicted by the noise-as-masking interpretation: a noisier latent frame contributes less reliable evidence to the action tokens. Second, we visualize the actual timestep trajectories selected by the GPN for individual chunks from two different tasks, showing that the learned schedule is non-uniform and task-dependent rather than a fixed shared-scalar trajectory. Both probes are taken on the trained NoiseGate policy under the random-scene evaluation protocol.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 主要比较和调度消融已经证明学习逐潜变量时间步调度有帮助；现在我们用两个诊断视角解释其原因。第一，验证“噪声即掩码”解释所预测的机制：噪声更大的潜在帧向动作 token 提供的证据可靠性更低。第二，可视化 GPN 为两个不同任务的单个块选择的实际时间步轨迹，展示学习到的调度是非均匀且依赖任务的，而不是固定的共享标量轨迹。两项探测都在随机场景评估协议下训练好的 NoiseGate 策略上进行。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> **Noise level acts as a reliability gate.** The noise-as-masking view of Diffusion Forcing [9] predicts that, inside the shared self-attention, the noise level $t_f$ on a video token should monotonically attenuate the contribution of its Key/Value projections to the action representations. We test this directly by recording the mean attention from action tokens to each latent frame at every probe step and binning it against that frame’s current $t_f$. As shown in Fig. 3, attention scores exhibit a clear monotone decay, so the per-latent vector $t$ functions empirically—not just nominally—as a bank of continuous reliability gates.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> **噪声水平充当可靠性门。** Diffusion Forcing [9] 的“噪声即掩码”视角预测，在共享自注意力内部，视频 token 上的噪声水平 $t_f$ 应当单调削弱其 Key/Value 投影对动作表示的贡献。我们通过在每个探测步骤记录动作 token 到每个潜在帧的平均注意力，并将其按该帧当前 $t_f$ 分箱，直接测试这一点。如图 3 所示，注意力分数呈现清晰的单调衰减，因此逐潜变量向量 $t$ 在实证上（而不仅是名义上）充当一组连续可靠性门。
+
+![Figure 3](assets/fig3.png)
+
+**Caption:** Figure 3: Noise as masking in the joint self-attention. Mean action→video attention versus each predicted frame’s current noise level $t_f$. The monotone decay confirms that $t_f$ empirically attenuates each frame’s K/V contribution to the action tokens.
+
+**Caption[CN]:** 图 3：联合自注意力中的噪声即掩码。平均动作→视频注意力随每个预测帧当前噪声水平 $t_f$ 的变化。单调衰减证实 $t_f$ 在实证上削弱每帧对动作 token 的 K/V 贡献。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> **The GPN uses those gates through task-specific schedules.** The attention probe only shows that noise can serve as a gate; the scheduler is useful only if it learns when to open or close those gates. Fig. 4 therefore visualizes the full timestep trajectory of a single denoising chunk from two different tasks. This view exposes the policy decision made at every denoising step: the predicted latents separate into distinct trajectories instead of following one shared curve. Interpreted through Fig. 3, a faster drop in $t_f$ means the corresponding future frame is made visible to the action tokens earlier, whereas a slower drop keeps that frame partially masked and prevents unreliable K/V features from dominating the action update. The important point is not merely that the curves are non-identical, but that their ordering and separation change across tasks. This rules out both the shared-scalar sampler, which has no per-frame degree of freedom, and a fixed monotone hand-crafted schedule, which would impose the same ordering on every chunk. The learned GPN instead allocates the denoising budget according to the current task context, selectively trusting the future latents that are useful for the action while suppressing those that remain ambiguous.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> **GPN 通过任务特定调度使用这些门。** 注意力探测只说明噪声可以充当门；只有当调度器学会何时打开或关闭这些门时，它才有用。因此图 4 可视化了来自两个不同任务的单个去噪块的完整时间步轨迹。这一视角揭示了策略在每个去噪步骤作出的决定：预测潜变量分成不同轨迹，而不是沿一条共享曲线变化。结合图 3 解读，$t_f$ 更快下降意味着相应未来帧更早对动作 token 可见；下降更慢则使该帧保持部分掩码，防止不可靠的 K/V 特征主导动作更新。重要的不只是曲线彼此不同，而是它们的排序和分离会随任务改变。这排除了共享标量采样器（没有逐帧自由度）和固定的单调手工调度（会在每个块上施加相同排序）。学习式 GPN 则根据当前任务上下文分配去噪预算，有选择地信任对动作有用的未来潜变量，同时抑制仍然含糊的潜变量。
+
+![Figure 4](assets/fig4.png)
+
+**Caption:** Figure 4: Task-specific timestep schedules. Per-frame timestep trajectories for one denoising chunk from two representative tasks. The observation latent is fixed at $t_0=0$, while the predicted latents follow different task-dependent trajectories. Under the noise-as-masking interpretation, these curves show how the GPN decides which future latents to expose early to the action tokens and which to keep partially masked.
+
+**Caption[CN]:** 图 4：任务特定时间步调度。两个代表性任务中一个去噪块的逐帧时间步轨迹。观测潜变量固定在 $t_0=0$，预测潜变量沿不同的任务依赖轨迹变化。在“噪声即掩码”解释下，这些曲线展示 GPN 如何决定哪些未来潜变量较早暴露给动作 token，哪些保持部分掩码。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> Together, these probes connect the controlled ablations in Table 2 to the mechanism of NoiseGate: independent per-latent noise training makes heterogeneous timestep profiles meaningful, and the GPN learns to choose those profiles so that predicted latent frames are unmasked only to the extent that they are useful for action generation.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 这些探测将表 2 的受控消融与 NoiseGate 的机制联系起来：逐潜变量独立噪声训练使异质时间步轮廓具有意义，而 GPN 学会选择这些轮廓，使预测潜在帧只在对动作生成有用的程度上被解掩码。
+
+### 5.5 Case Study
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Finally, Fig. 5 presents a representative test case illustrating how the learned scheduler improves action generation over Stage-1 WAM. Each method is shown with two rows: executed observations on top and predicted future frames on the bottom. Stage-1 WAM produces visually clean future predictions, but appears overconfident about the grasp outcome in the second predicted frame, which leads to a premature grasp and failure. In contrast, NoiseGate keeps the critical grasp frame less fully denoised, reflecting higher uncertainty about the contact event. This uncertainty prevents the action tokens from over-relying on an unreliable future latent; instead, the model integrates evidence from the remaining predicted frames and the current observation, enabling a successful grasp at the critical moment.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 最后，图 5 给出一个代表性测试案例，说明学习式调度器如何相对于 Stage-1 WAM 改进动作生成。每种方法展示两行：上排为执行后的观测，下排为预测的未来帧。Stage-1 WAM 生成视觉上干净的未来预测，但对第二个预测帧中的抓取结果似乎过度自信，导致过早抓取并失败。相比之下，NoiseGate 使关键抓取帧保持较少的完全去噪状态，反映出对接触事件更高的不确定性。这种不确定性防止动作 token 过度依赖不可靠的未来潜变量；相反，模型整合其余预测帧与当前观测的证据，使机器人能够在关键时刻成功抓取。
+
+![Figure 5](assets/fig5.png)
+
+**Caption:** Figure 5: Visualization of a real test case comparing Stage-1 WAM and NoiseGate. For each method, the top row shows the true frames after executing the predicted actions, and the bottom row shows the predicted frames. Stage-1 WAM’s standard denoising leads to overconfident grasp prediction (second frame) and premature failure, whereas NoiseGate maintains higher uncertainty in the grasp frame through the learnable scheduler, leveraging other predicted frames to achieve successful grasping.
+
+**Caption[CN]:** 图 5：比较 Stage-1 WAM 与 NoiseGate 的真实测试案例可视化。对于每种方法，上排显示执行预测动作后的真实帧，下排显示预测帧。Stage-1 WAM 的标准去噪导致抓取预测过度自信（第二帧）并过早失败；NoiseGate 则通过学习式调度器在抓取帧中保持更高不确定性，并利用其他预测帧实现成功抓取。
+
+## 6 Conclusion
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> We presented NoiseGate, which reframes the per-latent timestep schedule of a World Action Model as a learnable information-gating policy and optimizes it against task reward. The approach combines independent per-latent noise sampling during training (from Diffusion Forcing, applied to a chunk-bidirectional backbone), a lightweight GPN emitting per-latent time increments at every step, and GRPO grounded in task success, without hand-crafted shape priors. On RoboTwin random-scene evaluation, NoiseGate improves a strong Stage-1 WAM on the primary comparison and yields a +10.0 point gain over the shared-$t$ baseline in controlled schedule ablations, supporting the view that the per-latent timestep schedule in a WAM is a first-class design object rather than an implicit hyperparameter.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 我们提出 NoiseGate，将世界动作模型的逐潜变量时间步调度重新表述为可学习的信息门控策略，并针对任务奖励对其进行优化。该方法结合训练期间的逐潜变量独立噪声采样（来自 Diffusion Forcing，并应用于 chunk 双向骨干）、每一步发出逐潜变量时间增量的轻量 GPN，以及以任务成功为依据的 GRPO，不使用手工形状先验。在 RoboTwin 随机场景评估中，NoiseGate 在主要比较中改进了强大的 Stage-1 WAM，并在受控调度消融中相对共享-$t$ 基线取得 +10.0 个百分点的增益，支持这样的观点：WAM 中的逐潜变量时间步调度是一等设计对象，而非隐式超参数。
+
+## References
+
+References are retained in searchable bibliographic form as source-native entries; titles and author strings are not paraphrased so that citation identity remains auditable.
+
+1. Hongzhe Bi, Hengkai Tan, Shenghao Xie, Zeyuan Wang, Shuhe Huang, Haitian Liu, Ruowen Zhao, Yao Feng, Chendong Xiang, Yinze Rong, et al. Motus: A unified latent action world model. *arXiv preprint arXiv:2512.13030*, 2025.
+2. Tianyuan Yuan, Zibin Dong, Yicheng Liu, and Hang Zhao. Fast-wam: Do world action models need test-time future imagination? *arXiv preprint arXiv:2603.16666*, 2026.
+3. Seonghyeon Ye, Yunhao Ge, Kaiyuan Zheng, Shenyuan Gao, Sihyun Yu, George Kurian, Suneel Indupuru, You Liang Tan, Chuning Zhu, Jiannan Xiang, et al. World action models are zero-shot policies. *arXiv preprint arXiv:2602.15922*, 2026.
+4. Yichao Shen, Fangyun Wei, Zhiying Du, Yaobo Liang, Yan Lu, Jiaolong Yang, Nanning Zheng, and Baining Guo. Videovla: Video generators can be generalizable robot manipulators. *arXiv preprint arXiv:2512.06963*, 2025.
+5. Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Grace Lam, Percy Liang, Shuran Song, Ming-Yu Liu, Chelsea Finn, et al. Cosmos policy: Fine-tuning video models for visuomotor control and planning. *arXiv preprint arXiv:2601.16163*, 2026.
+6. Jun Cen, Siteng Huang, Yuqian Yuan, Kehan Li, Hangjie Yuan, Chaohui Yu, Yuming Jiang, Jiayan Guo, Xin Li, Hao Luo, et al. Rynnvla-002: A unified vision-language-action and world model. *arXiv preprint arXiv:2511.17502*, 2025.
+7. Shuang Li, Yihuai Gao, Dorsa Sadigh, and Shuran Song. Unified video action model. *arXiv preprint arXiv:2503.00200*, 2025.
+8. Team Wan, Ang Wang, Baole Ai, Bin Wen, Chaojie Mao, Chen-Wei Xie, Di Chen, Feiwu Yu, Haiming Zhao, Jianxiao Yang, Jianyuan Zeng, Jiayu Wang, Jingfeng Zhang, Jingren Zhou, Jinkai Wang, Jixuan Chen, Kai Zhu, Kang Zhao, Keyu Yan, Lianghua Huang, Mengyang Feng, Ningyi Zhang, Pandeng Li, Pingyu Wu, Ruihang Chu, Ruili Feng, Shiwei Zhang, Siyang Sun, Tao Fang, Tianxing Wang, Tianyi Gui, Tingyu Weng, Tong Shen, Wei Lin, Wei Wang, Wei Wang, Wenmeng Zhou, Wente Wang, Wenting Shen, Wenyuan Yu, Xianzhong Shi, Xiaoming Huang, Xin Xu, Yan Kou, Yangyu Lv, Yifei Li, Yijing Liu, Yiming Wang, Yingya Zhang, Yitong Huang, Yong Li, You Wu, Yu Liu, Yulin Pan, Yun Zheng, Yuntao Hong, Yupeng Shi, Yutong Feng, Zeyinzi Jiang, Zhen Han, Zhi-Fan Wu, and Ziyu Liu. Wan: Open and advanced large-scale video generative models. *arXiv preprint arXiv:2503.20314*, 2025.
+9. Boyuan Chen, Diego Martí Monsó, Yilun Du, Max Simchowitz, Russ Tedrake, and Vincent Sitzmann. Diffusion forcing: Next-token prediction meets full-sequence diffusion. *Advances in Neural Information Processing Systems*, 37:24081–24125, 2024.
+10. Weixin Liang, Lili Yu, Liang Luo, Srinivasan Iyer, Ning Dong, Chunting Zhou, Gargi Ghosh, Mike Lewis, Wen-tau Yih, Luke Zettlemoyer, et al. Mixture-of-transformers: A sparse and scalable architecture for multi-modal foundation models. *arXiv preprint arXiv:2411.04996*, 2024.
+11. Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Yang Wu, et al. Deepseekmath: Pushing the limits of mathematical reasoning in open language models. *arXiv preprint arXiv:2402.03300*, 2024.
+12. Cheng Chi, Zhenjia Xu, Siyuan Feng, Eric Cousineau, Yilun Du, Benjamin Burchfiel, Russ Tedrake, and Shuran Song. Diffusion policy: Visuomotor policy learning via action diffusion. *The International Journal of Robotics Research*, 44(10–11):1684–1704, 2025.
+13. Mustafa Shukor, Dana Aubakirova, Francesco Capuano, Pepijn Kooijmans, Steven Palma, Adil Zouitine, Michel Aractingi, Caroline Pascal, Martino Russi, Andres Marafioti, et al. Smolvla: A vision-language-action model for affordable and efficient robotics. *arXiv preprint arXiv:2506.01844*, 2025.
+14. Wei Li, Renshan Zhang, Rui Shao, Jie He, and Liqiang Nie. Cogvla: Cognition-aligned vision-language-action model via instruction-driven routing & sparsification. *arXiv preprint arXiv:2508.21046*, 2025.
+15. Johan Bjorck, Fernando Castañeda, Nikita Cherniadev, Xingye Da, Runyu Ding, Linxi Fan, Yu Fang, Dieter Fox, Fengyuan Hu, Spencer Huang, et al. Gr00t n1: An open foundation model for generalist humanoid robots. *arXiv preprint arXiv:2503.14734*, 2025.
+16. Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, et al. pi0.5: A vision-language-action model with open-world generalization. *arXiv preprint arXiv:2504.16054*, 2025.
+17. Songming Liu, Lingxuan Wu, Bangguo Li, Hengkai Tan, Huayu Chen, Zhengyi Wang, Ke Xu, Hang Su, and Jun Zhu. Rdt-1b: A diffusion foundation model for bimanual manipulation. *arXiv preprint arXiv:2410.07864*, 2024.
+18. Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael Rafailov, Ethan Foster, Grace Lam, Pannag Sanketi, et al. Openvla: An open-source vision-language-action model. *arXiv preprint arXiv:2406.09246*, 2024.
+19. Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Lachy Groom, Karol Hausman, Brian Ichter, et al. pi0: A vision-language-action flow model for general robot control. *arXiv preprint arXiv:2410.24164*, 2024.
+20. Brianna Zitkovich, Tianhe Yu, Sichun Xu, Peng Xu, Ted Xiao, Fei Xia, Jialin Wu, Paul Wohlhart, Stefan Welker, Ayzaan Wahid, et al. Rt-2: Vision-language-action models transfer web knowledge to robotic control. In *Conference on Robot Learning*, pages 2165–2183. PMLR, 2023.
+21. Gemini Robotics Team, Saminda Abeyruwan, Joshua Ainslie, Jean-Baptiste Alayrac, Montserrat Gonzalez Arenas, Travis Armstrong, Ashwin Balakrishna, Robert Baruch, Maria Bauza, Michiel Blokzijl, et al. Gemini robotics: Bringing ai into the physical world. *arXiv preprint arXiv:2503.20020*, 2025.
+22. Hao Shi, Bin Xie, Yingfei Liu, Lin Sun, Fengrong Liu, Tiancai Wang, Erjin Zhou, Haoqiang Fan, Xiangyu Zhang, and Gao Huang. Memoryvla: Perceptual-cognitive memory in vision-language-action models for robotic manipulation. *arXiv preprint arXiv:2508.19236*, 2025.
+23. Chi-Lam Cheang, Guangzeng Chen, Ya Jing, Tao Kong, Hang Li, Yifeng Li, Yuxiao Liu, Hongtao Wu, Jiafeng Xu, Yichu Yang, et al. Gr-2: A generative video-language-action model with web-scale knowledge for robot manipulation. *arXiv preprint arXiv:2410.06158*, 2024.
+24. Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, Johan Bjorck, Yu Fang, Fengyuan Hu, Spencer Huang, Kaushil Kundalia, Yen-Chen Lin, et al. Dreamgen: Unlocking generalization in robot learning through video world models. *arXiv preprint arXiv:2505.12705*, 2025.
+25. Niket Agarwal, Arslan Ali, Maciej Bala, Yogesh Balaji, Erik Barker, Tiffany Cai, Prithvijit Chattopadhyay, Yongxin Chen, Yin Cui, Yifan Ding, et al. Cosmos world foundation model platform for physical ai. *arXiv preprint arXiv:2501.03575*, 2025.
+26. Hongtao Wu, Ya Jing, Chilam Cheang, Guangzeng Chen, Jiafeng Xu, Xinghang Li, Minghuan Liu, Hang Li, and Tao Kong. Unleashing large-scale video generative pre-training for visual robot manipulation. *arXiv preprint arXiv:2312.13139*, 2023.
+27. Siyuan Zhou, Yilun Du, Jiaben Chen, Yandong Li, Dit-Yan Yeung, and Chuang Gan. Robodreamer: Learning compositional world models for robot imagination. *arXiv preprint arXiv:2404.12377*, 2024.
+28. Yucheng Hu, Yanjiang Guo, Pengchao Wang, Xiaoyu Chen, Yen-Jen Wang, Jianke Zhang, Koushil Sreenath, Chaochao Lu, and Jianyu Chen. Video prediction policy: A generalist robot policy with predictive visual representations. *arXiv preprint arXiv:2412.14803*, 2024.
+29. Jiaming Song, Chenlin Meng, and Stefano Ermon. Denoising diffusion implicit models. *arXiv preprint arXiv:2010.02502*, 2020.
+30. Tero Karras, Miika Aittala, Timo Aila, and Samuli Laine. Elucidating the design space of diffusion-based generative models. *Advances in Neural Information Processing Systems*, 35:26565–26577, 2022.
+31. Zilyu Ye, Zhiyang Chen, Tiancheng Li, Zemin Huang, Weijian Luo, and Guo-Jun Qi. Schedule on the fly: Diffusion time prediction for faster and better image generation. In *Proceedings of the Computer Vision and Pattern Recognition Conference*, pages 23412–23422, 2025.
+32. Hongzhi Zang, Mingjie Wei, Si Xu, Yongji Wu, Zhen Guo, Yuanqing Wang, Hao Lin, Liangzhi Shi, Yuqing Xie, Zhexuan Xu, et al. Rlinf-vla: A unified and efficient framework for vla+ rl training. *arXiv preprint arXiv:2510.06710*, 2025.
+33. Chao Yu, Yuanqing Wang, Zhen Guo, Hao Lin, Si Xu, Hongzhi Zang, Quanlu Zhang, Yongji Wu, Chunyang Zhu, Junhao Hu, et al. Rlinf: Flexible and efficient large-scale reinforcement learning via macro-to-micro flow transformation. *arXiv preprint arXiv:2509.15965*, 2025.
+34. Zhong Guan, Haoran Sun, Yongjian Guo, Shuai Di, Xiaodong Bai, Jing Long, Tianyun Zhao, Mingxi Luo, Chen Zhou, Yucheng Guo, et al. Rl-vla3: Reinforcement learning vla accelerating via full asynchronism. *arXiv preprint arXiv:2602.05765*, 2026.
+35. Haozhan Li, Yuxin Zuo, Jiale Yu, Yuhao Zhang, Zhaohui Yang, Kaiyan Zhang, Xuekai Zhu, Yuchen Zhang, Tianxing Chen, Ganqu Cui, et al. Simplevla-rl: Scaling vla training via reinforcement learning. *arXiv preprint arXiv:2509.09674*, 2025.
+36. Jijia Liu, Feng Gao, Bingwen Wei, Xinlei Chen, Qingmin Liao, Yi Wu, Chao Yu, and Yu Wang. What can rl bring to vla generalization? an empirical study. *arXiv preprint arXiv:2505.19789*, 2025.
+37. Jie Liu, Gongye Liu, Jiajun Liang, Yangguang Li, Jiaheng Liu, Xintao Wang, Pengfei Wan, Di Zhang, and Wanli Ouyang. Flow-grpo: Training flow matching models via online rl. *arXiv preprint arXiv:2505.05470*, 2025.
+38. Tonghe Zhang, Chao Yu, Sichang Su, and Yu Wang. Reinflow: Fine-tuning flow matching policy with online reinforcement learning. *arXiv preprint arXiv:2505.22094*, 2025.
+39. Kang Chen, Zhihao Liu, Tonghe Zhang, Zhen Guo, Si Xu, Hao Lin, Hongzhi Zang, Quanlu Zhang, Zhaofei Yu, Guoliang Fan, et al. πrl: Online rl fine-tuning for flow-based vision-language-action models. *arXiv preprint arXiv:2510.25889*, 2025.
+40. William Peebles and Saining Xie. Scalable diffusion models with transformers. In *Proceedings of the IEEE/CVF international conference on computer vision*, pages 4195–4205, 2023.
+41. Tianxing Chen, Zanxin Chen, Baijun Chen, Zijian Cai, Yibin Liu, Zixuan Li, Qiwei Liang, Xianliang Lin, Yiheng Ge, Zhenyu Gu, et al. Robotwin 2.0: A scalable data generator and benchmark with strong domain randomization for robust bimanual robotic manipulation. *arXiv preprint arXiv:2506.18088*, 2025.
+
+## Appendix A Limitations
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> The main limitation of the current schedule-policy training is data-collection efficiency in simulation. GRPO uses sparse task-success rewards, so each update depends on simulator rollouts to obtain learning signal; rollout collection remains the dominant cost and can slow convergence when successful trajectories are rare. Learning a general schedule policy that scales across large-scale multi-task suites is therefore left to future work.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 当前调度策略训练的主要局限是仿真中的数据收集效率。GRPO 使用稀疏的任务成功奖励，因此每次更新都依赖模拟器 rollout 获取学习信号；rollout 收集仍是主要成本，在成功轨迹稀少时会减慢收敛。因此，学习一个能够扩展到大规模多任务套件的通用调度策略留待未来工作。
+
+## Appendix B Broader applicability
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> The view of per-latent noise as a learnable information-gating policy is not specific to robotics: any generative setting in which a downstream consumer reads, via shared attention, from jointly-denoised tokens with heterogeneous utility—video prediction, autonomous driving, embodied navigation—can in principle be framed the same way.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 将逐潜变量噪声视为可学习信息门控策略的观点并不专属于机器人：任何下游消费者通过共享注意力从具有异质效用的联合去噪 token 中读取信息的生成设定——例如视频预测、自动驾驶和具身导航——原则上都可以用相同方式表述。
+
+## Appendix C GPN Architecture and Inference Details
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> This appendix specifies the Gating Policy Network (GPN) used in §4.3. The goal is to make explicit how the policy maps the current heterogeneously noised video chunk and timestep vector to per-latent scheduling actions.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 本附录说明 §4.3 使用的门控策略网络（GPN）。目标是明确策略如何将当前具有异质噪声的视频块和时间步向量映射为逐潜变量调度动作。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> **Interface and notation.** Let $F'=F+1$ denote the observation latent together with the $F$ predicted latents. At denoising step $k$, the GPN consumes the current latent stack $v_t^{(k)}\in\mathbb R^{B\times C\times F'\times H\times W}$ and per-latent video times $t^{(k)}\in\mathbb R^{B\times F'}$, with $t_0^{(k)}=0$. It returns a sampled relative scale $r^{(k)}\in(0,1)^F$, the corresponding updated video times $t^{(k+1)}$, and the sampled-action log-probability used by GRPO. The action timestep $t_a$ is not an input to the GPN policy head; it is advanced by the fixed global schedule.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> **接口与记号。** 令 $F'=F+1$ 表示观测潜变量与 $F$ 个预测潜变量的组合。在去噪步骤 $k$，GPN 接收当前潜变量堆栈 $v_t^{(k)}\in\mathbb R^{B\times C\times F'\times H\times W}$ 和逐潜变量视频时间 $t^{(k)}\in\mathbb R^{B\times F'}$，其中 $t_0^{(k)}=0$。它返回采样的相对尺度 $r^{(k)}\in(0,1)^F$、相应更新的视频时间 $t^{(k+1)}$，以及 GRPO 所用的采样动作对数概率。动作时间步 $t_a$ 不是 GPN 策略头的输入，而是由固定全局调度推进。
+
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> **Network architecture.** The network first converts the latent stack into one token per video latent. Two strided 3-D convolutions with GroupNorm and SiLU reduce the spatial resolution, producing $z\in\mathbb R^{B\times F'\times C'\times H'\times W'}$. For each latent, attention pooling, average pooling, and max pooling over $(H',W')$ are concatenated and projected to a $D=256$ dimensional token, yielding $x\in\mathbb R^{B\times F'\times D}$. The observation token $x_0$ is used only as conditioning. Predicted-frame tokens $x_{1:F}$ are first reweighted by a channel-attention MLP, then fused with $x_0$ through a gated residual update:
+
+$$f_f\leftarrow f_f+\sigma\!\left(W_g[f_f;x_0]\right)\odot W_vx_0.\tag{10}$$
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> **网络架构。** 网络首先将潜变量堆栈转换为每个视频潜变量一个 token。两个带 GroupNorm 和 SiLU 的步幅 3-D 卷积降低空间分辨率，产生 $z\in\mathbb R^{B\times F'\times C'\times H'\times W'}$。对每个潜变量，在 $(H',W')$ 上进行注意力池化、平均池化和最大池化，将结果拼接并投影到 $D=256$ 维 token，得到 $x\in\mathbb R^{B\times F'\times D}$。观测 token $x_0$ 只用作条件。预测帧 token $x_{1:F}$ 首先由通道注意力 MLP 重加权，然后通过门控残差更新与 $x_0$ 融合（见公式（10））。
+
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> Here $W_g\in\mathbb R^{D\times2D}$ produces the sigmoid gate from $[f_f;x_0]$, and $W_v\in\mathbb R^{D\times D}$ projects the observation token before the residual add. The resulting predicted-frame tokens receive a learnable frame-position embedding and pass through a three-layer pre-norm Transformer encoder with eight attention heads and GELU feed-forward blocks of width $4D$. In parallel, the current times $t_{1:F}^{(k)}$ are embedded with sinusoidal features and a two-layer MLP. The latent token and time embedding for each frame are concatenated, normalized, and projected to produce $h_f\in\mathbb R^D$. An attention-pooling head forms a global summary $g=\sum_f w_fh_f$, where $w_f=\operatorname{softmax}_f(\operatorname{MLP}_{\mathrm{score}}(h_f))$.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 其中 $W_g\in\mathbb R^{D\times2D}$ 从 $[f_f;x_0]$ 产生 sigmoid 门，$W_v\in\mathbb R^{D\times D}$ 在残差相加前投影观测 token。得到的预测帧 token 加入可学习的帧位置嵌入，并通过三层 pre-norm Transformer 编码器；编码器有八个注意力头和宽度为 $4D$ 的 GELU 前馈块。与此同时，当前时间 $t_{1:F}^{(k)}$ 用正弦特征和两层 MLP 嵌入。每帧的潜变量 token 与时间嵌入拼接、归一化并投影，产生 $h_f\in\mathbb R^D$。注意力池化头形成全局摘要 $g=\sum_f w_fh_f$，其中 $w_f=\operatorname{softmax}_f(\operatorname{MLP}_{\mathrm{score}}(h_f))$。
+
+> <span style="color:#3B82F6"><strong>Para. 5:</strong></span> **Squashed-Gaussian policy.** The actor is a three-layer MLP applied to $[g;h_1;\ldots;h_F]$ and outputs $\mu\in\mathbb R^F$. The log standard deviation $\log\sigma\in\mathbb R^F$ is a learned parameter clamped to $[-5,2]$. For each predicted latent, the policy samples a pre-squash variable $u_f\sim\mathcal N(\mu_f,\sigma_f^2)$ and sets $r_f=2\sigma(u_f)$. Equivalently, for an observed relative-scale action $r_f\in(0,2)$ with $u_f=\operatorname{logit}(r_f)$, the corresponding per-latent log-density is
+
+$$\log\pi_\phi(r_f\mid s^{(k)})=\log\mathcal N(u_f;\mu_f,\sigma_f^2)-u_f-2\operatorname{softplus}(u_f).\tag{11}$$
+
+> <span style="color:#F59E0B"><strong>Para. 5[CN]:</strong></span> **压缩高斯策略。** actor 是作用于 $[g;h_1;\ldots;h_F]$ 的三层 MLP，输出 $\mu\in\mathbb R^F$。对数标准差 $\log\sigma\in\mathbb R^F$ 是可学习参数，并裁剪到 $[-5,2]$。对于每个预测潜变量，策略采样压缩前变量 $u_f\sim\mathcal N(\mu_f,\sigma_f^2)$，并设 $r_f=2\sigma(u_f)$。等价地，对于观测到的相对尺度动作 $r_f\in(0,2)$，令 $u_f=\operatorname{logit}(r_f)$，则相应逐潜变量对数密度如公式（11）。
+
+> <span style="color:#3B82F6"><strong>Para. 6:</strong></span> where $s^{(k)}$ denotes the GPN input state $(v_t^{(k)},t^{(k)})$. GRPO stores the log-probability of the sampled pre-clipping relative-scale action, $\sum_{f=1}^F\log\pi_\phi(r_f\mid s^{(k)})$. Since $\Delta t_f=\delta t^{(k)}r_f$ differs from $r_f$ only by a fixed step-dependent scale, the additional log-Jacobian term cancels in the new/old policy ratio for a fixed denoising step.
+
+> <span style="color:#F59E0B"><strong>Para. 6[CN]:</strong></span> 其中 $s^{(k)}$ 表示 GPN 输入状态 $(v_t^{(k)},t^{(k)})$。GRPO 存储采样的裁剪前相对尺度动作的对数概率 $\sum_{f=1}^F\log\pi_\phi(r_f\mid s^{(k)})$。由于 $\Delta t_f=\delta t^{(k)}r_f$ 与 $r_f$ 的差别只是固定的、依赖步骤的尺度，因此对于固定去噪步骤，额外的对数雅可比项会在新旧策略比率中抵消。
+
+> <span style="color:#3B82F6"><strong>Para. 7:</strong></span> **Inference loop.** Algorithm 1 summarizes how the GPN is invoked inside one denoising step. The algorithm is intentionally written at the scheduling level; the architectural mapping from latents and times to $(\mu,\sigma)$ is the network described above.
+
+> <span style="color:#F59E0B"><strong>Para. 7[CN]:</strong></span> **推理循环。** 算法 1 总结 GPN 如何在一个去噪步骤内被调用。该算法有意在调度层面书写；从潜变量和时间到 $(\mu,\sigma)$ 的架构映射就是上文描述的网络。
+
+#### Algorithm 1 Per-step GPN scheduling inside the denoising loop
+
+**Require:** Current latents $v_t^{(k)}$; video times $t^{(k)}$ with $t_0=0$; scalar-schedule decrement $\delta t^{(k)}$; action time $t_a^{(k)}$.  
+**Ensure:** Updated video times $t^{(k+1)}$; next action time $t_a^{(k+1)}$; sampled-action log-probability.
+
+1. Encode $(v_t^{(k)},t^{(k)})$ with the GPN to obtain $(\mu,\sigma)$.  
+   **中文：** 用 GPN 编码 $(v_t^{(k)},t^{(k)})$，得到 $(\mu,\sigma)$。
+2. Sample $u_f\sim\mathcal N(\mu_f,\sigma_f^2)$ and set $r_f\leftarrow\sigma(u_f)$ for $f=1,\ldots,F$.  
+   **中文：** 采样 $u_f\sim\mathcal N(\mu_f,\sigma_f^2)$，并对 $f=1,\ldots,F$ 设 $r_f\leftarrow\sigma(u_f)$。
+3. Set $\Delta t_f^{(k)}\leftarrow2\,\delta t^{(k)}r_f$ for $f=1,\ldots,F$.  
+   **中文：** 对 $f=1,\ldots,F$ 设 $\Delta t_f^{(k)}\leftarrow2\,\delta t^{(k)}r_f$。
+4. Update $t_f^{(k+1)}\leftarrow\max(0,t_f^{(k)}-\Delta t_f^{(k)})$ for $f=1,\ldots,F$; keep $t_0^{(k+1)}\leftarrow0$.  
+   **中文：** 对 $f=1,\ldots,F$ 更新 $t_f^{(k+1)}\leftarrow\max(0,t_f^{(k)}-\Delta t_f^{(k)})$；保持 $t_0^{(k+1)}\leftarrow0$。
+5. Advance $t_a^{(k+1)}$ using the fixed global action schedule.  
+   **中文：** 使用固定的全局动作调度推进 $t_a^{(k+1)}$。
+6. Run the frozen MoT backbone with $(t^{(k+1)},t_a^{(k+1)})$ to produce the next denoising state.  
+   **中文：** 使用 $(t^{(k+1)},t_a^{(k+1)})$ 运行冻结的 MoT 骨干，产生下一个去噪状态。
+7. Store $\sum_{f=1}^F\log\pi_\phi(r_f\mid s^{(k)})$ for the GRPO update.  
+   **中文：** 存储 $\sum_{f=1}^F\log\pi_\phi(r_f\mid s^{(k)})$，供 GRPO 更新使用。
+
+> <span style="color:#3B82F6"><strong>Para. 8:</strong></span> During GRPO training, only the GPN parameters $\phi$ are optimized. The Wan 2.2 video DiT and Action-Expert DiT backbone remain frozen throughout the rollout collection and policy update.
+
+> <span style="color:#F59E0B"><strong>Para. 8[CN]:</strong></span> 在 GRPO 训练期间，仅优化 GPN 参数 $\phi$。在 rollout 收集和策略更新的整个过程中，Wan 2.2 视频 DiT 与动作专家 DiT 骨干始终冻结。
+
+## Appendix D GRPO Hyperparameters
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Table 3 lists the GRPO training hyperparameters used in all experiments.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 表 3 列出了所有实验使用的 GRPO 训练超参数。
+
+![Table 3](assets/table3.png)
+
+**Caption:** Table 3: GRPO hyperparameters.
+
+**Caption[CN]:** 表 3：GRPO 超参数。
+
+| Hyperparameter | Value |
+|---|---:|
+| Group size $G$ | 8 |
+| Clip range $\epsilon$ | 0.2 |
+| Inner epochs $E$ | 4 |
+| Optimizer | AdamW |
+| Learning rate | $1\times10^{-4}$ |
+| Gradient-norm clip | 1.0 |
+| Entropy coefficient $\beta_0$ | 0.01 |
+| Entropy decay rate | 0.999 per step (floored at 0) |
+| Denoising steps $K$ | 10 |
+| Training epochs | 50 |
+| Episodes per epoch | 8 |
+| Rollout workers (GPUs) | 8 |
+| Seed | 42 |
+
+## Appendix E Detailed RoboTwin Results
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> The controlled ablation uses the Motus-derived batch-128 configuration to support exhaustive component comparisons and diagnostics; the primary comparison uses the scaled Fast-WAM-style batch-1024 configuration. Table 4 gives the per-task breakdown behind the schedule ablation summary in Table 2. Table 5 provides the full 50-task RoboTwin random-scene context. Unavailable full-method entries are marked with “–”.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 受控消融使用 Motus 派生的 batch-128 配置，以支持穷尽的组件比较与诊断；主要比较使用规模化 Fast-WAM 风格的 batch-1024 配置。表 4 给出表 2 调度消融摘要背后的逐任务分解。表 5 提供完整的 50 任务 RoboTwin 随机场景上下文。不可用的完整方法条目以“–”标记。
+
+![Table 4](assets/table4.png)
+
+**Caption:** Table 4: Per-task schedule ablation on RoboTwin random-scene tasks (100 episodes each). All variants in this table use the same controlled Motus-derived backbone configuration and evaluation protocol. “Shared-$t$” is the shared-scalar baseline; “Stage-1 WAM” uses independent per-latent noise training but denoises with a shared scalar at inference; “Hand-crafted” uses a fixed monotone per-latent timestep schedule; “NoiseGate” learns the per-latent timestep schedule via GRPO. Best per row in bold.
+
+**Caption[CN]:** 表 4：RoboTwin 随机场景任务上的逐任务调度消融（每项 100 个回合）。本表所有变体使用相同的受控 Motus 派生骨干配置和评估协议。“Shared-$t$”是共享标量基线；“Stage-1 WAM”使用逐潜变量独立噪声训练，但在推理时用共享标量去噪；“Hand-crafted”使用固定的单调逐潜变量时间步调度；“NoiseGate”通过 GRPO 学习逐潜变量时间步调度。每行最优值以粗体表示。
+
+| Task | Shared-$t$ | Stage-1 WAM | Hand-crafted | NoiseGate (Ours) |
+|---|---:|---:|---:|---:|
+| Adjust Bottle | 0.88 | 0.85 | 0.85 | **0.94** |
+| Open Microwave | 0.87 | 0.86 | 0.84 | **0.91** |
+| Move Playingcard Away | 0.86 | 0.87 | 0.90 | **0.91** |
+| Place Bread Basket | 0.75 | 0.82 | 0.87 | **0.92** |
+| Place A2B Right | 0.75 | 0.68 | 0.70 | **0.78** |
+| Beat Block Hammer | 0.76 | 0.70 | 0.73 | **0.82** |
+| Blocks Ranking RGB | 0.72 | 0.76 | 0.73 | **0.82** |
+| Place Fan | 0.56 | 0.57 | 0.60 | **0.62** |
+| Lift Pot | 0.51 | 0.56 | 0.51 | **0.57** |
+| Place Mouse Pad | 0.50 | 0.49 | 0.52 | **0.54** |
+| Place Dual Shoes | 0.36 | 0.46 | 0.51 | **0.59** |
+| Place Can Basket | 0.40 | 0.44 | 0.44 | **0.49** |
+| Move Pillbottle Pad | 0.32 | 0.47 | 0.50 | **0.51** |
+| Move Can Pot | 0.21 | 0.27 | 0.30 | **0.32** |
+| Pick Diverse Bottles | 0.11 | 0.34 | 0.39 | **0.39** |
+| **Average** | **0.575** | **0.613** | **0.634** | **0.675** |
+
+## Appendix F Additional Qualitative Analyses
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> This appendix collects additional diagnostic views that complement the two qualitative probes in §5.4. They provide layer-stratified attention statistics and broader schedule summaries beyond the compact main-text visualization.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 本附录汇集补充诊断视图，用于补充 §5.4 的两个定性探测。它们提供分层注意力统计以及超越正文紧凑可视化的更广泛调度摘要。
+
+### F.1 Mechanism: layer-stratified action→video attention vs. noise level
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Fig. 3 reports the mechanism aggregated across the recorded probe layers. Fig. 6 stratifies the same scatter into three layer groups (early / middle / late). The monotone decay of action→video attention with respect to $t_f$ is preserved in the early- and late-layer groups, while the middle-layer group is near-flat. The mechanism is therefore not an artifact of any single probe layer, but it is also non-uniform across depth: the gating effect is strongest where the action tokens directly read out video features (early and late layers), and weakest in the intermediate layers, where representations are already largely modality-agnostic.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 图 3 报告了跨记录探测层聚合的机制。图 6 将同一散点按三组层（早期/中间/后期）分层。动作→视频注意力相对于 $t_f$ 的单调衰减在早期层和后期层组中得到保持，而中间层组近乎平坦。因此，该机制并非某个单独探测层的伪影，但其在深度方向也并不均匀：在动作 token 直接读出视频特征的层（早期和后期）门控效应最强，在表示已经很大程度上与模态无关的中间层最弱。
+
+![Figure 6](assets/fig6.png)
+
+**Caption:** Figure 6: Layer-stratified version of Fig. 3. Same binned-mean ±1 std curve of action→video attention vs. frame noise level $t_f$, separated into three layer groups (early: layers 0–9; middle: 10–19; late: 20–29). The gating effect is concentrated in the early and late layers, with the middle layers behaving near-uniformly in $t_f$.
+
+**Caption[CN]:** 图 6：图 3 的分层版本。相同的动作→视频注意力相对于帧噪声水平 $t_f$ 的分箱均值 ±1 标准差曲线，分为三组层（早期：0–9 层；中间：10–19 层；后期：20–29 层）。门控效应集中在早期和后期层，中间层随 $t_f$ 的表现近乎均匀。
+
+### F.2 Cross-task structure of final-step residual noise
+
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Fig. 7 further examines the timestep schedule learned by the GPN from a task-level perspective. For each task, we collect all evaluated chunks and report the mean final-step noise level $\bar t$ of each predicted future frame, with horizontal bars denoting ±1 standard deviation. The conditioning frame is omitted because it is fixed at $t_0\equiv0$. Tasks are sorted by their success rate, so the figure jointly shows task difficulty and the residual masking pattern selected by the learned schedule.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 图 7 进一步从任务层面考察 GPN 学习到的时间步调度。对于每个任务，我们收集所有评估块，并报告每个预测未来帧在最后一步的平均噪声水平 $\bar t$，水平条表示 ±1 个标准差。由于条件帧固定为 $t_0\equiv0$，将其省略。任务按成功率排序，因此图中同时显示任务难度以及学习式调度选择的残余掩码模式。
+
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> The learned policy does not simply drive all predicted frames to the same clean endpoint. Instead, the two future frames exhibit distinct residual-noise levels, and the gap is task-dependent. In several tasks, frame 1 is almost fully denoised while frame 2 retains a larger residual $t$, indicating that the policy chooses to keep the farther future latent partially masked at the end of action generation. The effect is especially visible on tasks such as place_a2b_right and place_can_basket, where the uncertainty over future contact or placement outcomes is higher. This supports the information-gating interpretation: the GPN learns when a predicted latent should contribute as reliable evidence and when it should remain attenuated rather than forcing every latent through a shared scalar schedule.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 学习到的策略并不会简单地将所有预测帧都推向同一个干净终点。相反，两个未来帧呈现不同的残余噪声水平，且差距依赖任务。在若干任务中，帧 1 几乎完全去噪，而帧 2 保留更大的残余 $t$，这表明策略选择在动作生成结束时让更远的未来潜变量保持部分掩码。在 place_a2b_right 和 place_can_basket 等任务中，这一效应尤其明显，因为未来接触或放置结果的不确定性更高。这支持信息门控解释：GPN 学会何时让预测潜变量作为可靠证据贡献，何时让它保持衰减，而不是强制所有潜变量都经过共享标量调度。
+
+![Figure 7](assets/fig7.png)
+
+**Caption:** Figure 7: Final-step residual noise by task and future-frame index. For each RoboTwin task, dots show the mean final-step noise level $\bar t$ of each predicted future frame over all evaluated chunks, and horizontal bars show ±1 standard deviation. Tasks are sorted by success rate. The non-uniform, task-dependent residuals show that the learned GPN does not collapse to a shared denoising endpoint; instead, it selectively leaves some future latents partially masked when their contribution should be attenuated.
+
+**Caption[CN]:** 图 7：按任务和未来帧索引统计的最后一步残余噪声。对于每个 RoboTwin 任务，点表示所有评估块上每个预测未来帧的平均最后一步噪声水平 $\bar t$，水平条表示 ±1 个标准差。任务按成功率排序。非均匀、依赖任务的残余量表明学习式 GPN 没有坍缩到共享去噪终点；相反，当某些未来潜变量的贡献应被衰减时，它会有选择地让它们保持部分掩码。
+
+![Table 5](assets/table5.png)
+
+**Caption:** Table 5: Full 50-task RoboTwin random-scene context. All entries are success rates in percent. The Fast-WAM-family and prior-method columns are adapted from the corresponding RoboTwin detail table; the Stage-1 WAM column uses our 50-task random-scene evaluation. “–” denotes full-method entries not reported.
+
+**Caption[CN]:** 表 5：完整 50 任务 RoboTwin 随机场景上下文。所有条目均为百分比形式的成功率。Fast-WAM 家族和先前方法列改编自相应的 RoboTwin 详细表；Stage-1 WAM 列使用我们在 50 任务随机场景上的评估。“–”表示未报告完整方法条目。
+
+| Task | Fast-WAM | Fast-WAM-Joint | Fast-WAM-IDM | LingBot-VA | $\pi$0.5 | Motus | Stage-1 WAM | NoiseGate |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Adjust Bottle | 100 | 99 | 99 | 94 | 99 | 93 | 100 | 100 |
+| Beat Block Hammer | 97 | 98 | 98 | 98 | 93 | 88 | 98 | 98 |
+| Blocks Ranking RGB | 100 | 100 | 99 | 98 | 85 | 97 | 97 | 99 |
+| Blocks Ranking Size | 98 | 91 | 90 | 96 | 26 | 63 | 80 | 87 |
+| Click Alarmclock | 100 | 100 | 100 | 100 | 89 | 100 | 100 | 100 |
+| Click Bell | 100 | 98 | 96 | 100 | 66 | 100 | 100 | 100 |
+| Dump Bin Bigbin | 96 | 95 | 98 | 96 | 97 | 91 | 94 | 99 |
+| Grab Roller | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 |
+| Handover Block | 81 | 91 | 94 | 78 | 57 | 73 | 81 | 84 |
+| Handover Mic | 100 | 100 | 99 | 96 | 97 | 63 | 100 | 100 |
+| Hanging Mug | 62 | 56 | 62 | 28 | 17 | 38 | 60 | 69 |
+| Lift Pot | 100 | 100 | 100 | 99 | 85 | 99 | 99 | 99 |
+| Move Can Pot | 88 | 99 | 100 | 97 | 55 | 74 | 100 | 100 |
+| Move Pillbottle Pad | 99 | 100 | 100 | 99 | 61 | 96 | 100 | 100 |
+| Move Playingcard Away | 100 | 100 | 100 | 99 | 84 | 96 | 100 | 100 |
+| Move Stapler Pad | 64 | 81 | 85 | 79 | 42 | 85 | 81 | 85 |
+| Open Laptop | 100 | 92 | 92 | 94 | 96 | 91 | 99 | 99 |
+| Open Microwave | 45 | 14 | 53 | 86 | 77 | 91 | 77 | 69 |
+| Pick Diverse Bottles | 85 | 87 | 89 | 82 | 71 | 91 | 87 | 89 |
+| Pick Dual Bottles | 96 | 99 | 98 | 99 | 63 | 90 | 99 | 100 |
+| Place A2B Left | 93 | 96 | 96 | 93 | 82 | 79 | 97 | 100 |
+| Place A2B Right | 99 | 95 | 98 | 95 | 84 | 87 | 94 | 98 |
+| Place Bread Basket | 93 | 94 | 97 | 95 | 64 | 94 | 97 | 98 |
+| Place Bread Skillet | 93 | 93 | 95 | 90 | 66 | 83 | 90 | 96 |
+| Place Burger Fries | 99 | 100 | 99 | 95 | 87 | 98 | 96 | 100 |
+| Place Can Basket | 69 | 23 | 28 | 84 | 62 | 76 | 58 | 62 |
+| Place Cans Plasticbox | 96 | 98 | 96 | 99 | 84 | 94 | 97 | 100 |
+| Place Container Plate | 100 | 98 | 96 | 97 | 95 | 99 | 99 | 100 |
+| Place Dual Shoes | 88 | 89 | 87 | 89 | 75 | 87 | 94 | 94 |
+| Place Empty Cup | 100 | 100 | 100 | 100 | 99 | 98 | 100 | 100 |
+| Place Fan | 96 | 96 | 95 | 93 | 85 | 87 | 95 | 98 |
+| Place Mouse Pad | 89 | 91 | 93 | 96 | 39 | 68 | 94 | 94 |
+| Place Object Basket | 88 | 81 | 82 | 88 | 76 | 87 | 76 | 79 |
+| Place Object Scale | 97 | 99 | 99 | 95 | 80 | 85 | 99 | 98 |
+| Place Object Stand | 94 | 98 | 100 | 96 | 85 | 97 | 96 | 100 |
+| Place Phone Stand | 99 | 100 | 99 | 97 | 81 | 86 | 98 | 98 |
+| Place Shoe | 99 | 97 | 98 | 98 | 93 | 97 | 97 | 99 |
+| Press Stapler | 97 | 50 | 57 | 82 | 83 | 98 | 94 | 96 |
+| Put Bottles Dustbin | 90 | 95 | 92 | 91 | 79 | 79 | 90 | 93 |
+| Put Object Cabinet | 89 | 90 | 90 | 87 | 79 | 71 | 87 | 94 |
+| Rotate QRcode | 89 | 92 | 86 | 91 | 87 | 73 | 86 | 86 |
+| Scan Object | 92 | 92 | 90 | 91 | 65 | 66 | 87 | 92 |
+| Shake Bottle | 100 | 100 | 100 | 97 | 97 | 97 | 100 | 100 |
+| Shake Bottle Horizontally | 100 | 100 | 100 | 99 | 99 | 98 | 100 | 100 |
+| Stack Blocks Three | 97 | 97 | 95 | 98 | 76 | 95 | 96 | 98 |
+| Stack Blocks Two | 100 | 100 | 100 | 98 | 100 | 98 | 100 | 100 |
+| Stack Bowls Three | 81 | 86 | 83 | 83 | 71 | 87 | 89 | 89 |
+| Stack Bowls Two | 98 | 95 | 96 | 98 | 96 | 98 | 99 | 100 |
+| Stamp Seal | 94 | 99 | 94 | 97 | 55 | 92 | 96 | 97 |
+| Turn Switch | 59 | 72 | 74 | 45 | 54 | 78 | 76 | 78 |
+| **Average** | **91.78** | **90.32** | **91.34** | **91.50** | **76.76** | **87.02** | **92.58** | **94.28** |
+
+## Reading Notes and Material Caveats
+
+- **Coverage:** All 17 PDF pages are inventoried; the body, equations (1)–(11), Algorithm 1, Figures 1–7, Tables 1–5, Appendices A–F, limitations, broader applicability, and all 41 searchable references are included.
+- **Source quality:** The PDF has a selectable text layer and no OCR was required. Multi-column pages were checked against rendered page images. Equation glyphs in the extracted text were reconstructed from the rendered PDF where the text layer interleaved symbols; source notation and numeric literals were retained.
+- **Figures and tables:** Assets are rendered page crops from the supplied PDF. `fig3.png` and `fig4.png` are split from the two-panel page crop; table values are transcribed from the PDF and remain searchable in this file. Crops are approximate rectangles and intentionally exclude surrounding prose and page numbers.
+- **Availability:** The supplied PDF contains no separate code-availability, data-availability, competing-interests, or acknowledgments statement beyond the methodological and benchmark descriptions reproduced above. No such statement was invented.
+- **References strategy:** Bibliographic entries are kept in source-native searchable form rather than translated, preserving author names, titles, identifiers, venues, years, and page ranges for auditability.
+- **Material-level caveat:** The paper is an arXiv preprint (`v1`, 8 May 2026); reported comparisons and availability claims are those stated in this source and were not independently reproduced.

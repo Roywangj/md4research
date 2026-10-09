@@ -1,0 +1,241 @@
+\section{Experiments}
+\label{sec:experiments}
+
+In this section, we conduct extensive evaluations in both simulation and
+real-world environments to assess \method and its memory-augmented extension,
+\memmethod.
+Specifically, our experiments are designed to answer the following research
+questions:
+\begin{itemize}
+    \item[Q1:] How effectively do \method and \memmethod learn 3D manipulation
+    compared with state-of-the-art methods when sufficient demonstrations are
+    available?
+
+    \item[Q2:] How robust are \method and \memmethod under
+    out-of-distribution conditions, including distractors, lighting changes,
+    background variations, novel object--skill combinations, and unseen
+    object categories?
+
+    \item[Q3:] How important are the proposed architectural components,
+    including heatmap-based action decoding, 2D heatmap pre-training, and
+    unified spatio-temporal memory, to the overall performance?
+
+    \item[Q4:] Can \method and \memmethod be deployed effectively across
+    different real-world robot platforms while retaining high sample
+    efficiency, such as learning each task from only 10 demonstrations?
+
+    \item[Q5:] How effectively can \memmethod address memory-dependent manipulation tasks?
+\end{itemize}
+
+\subsection{RLBench: General 3D Manipulation}
+\label{sec:exp:bridgevla}
+\label{sec:exp:rlbench}
+
+To evaluate the base model's capacity for general 3D manipulation, we primarily evaluate \method\ and \memmethod\ on the RLBench benchmark.
+
+\input{table/rlbench18}
+
+\paragraph{Setup} 
+RLBench~\cite{james2020rlbench} serves as a standard multi-task suite for evaluating manipulation policies.
+It implements tasks in CoppeliaSim~\cite{rohmer2013v} using a Franka Panda robot equipped with a parallel-jaw gripper, with observations provided by four RGB-D cameras (front, left shoulder, right shoulder, and wrist). 
+Following previous works~\cite{shridhar2023perceiver,goyal2023rvt,goyal2024rvt}, we evaluate on 18 tasks spanning non-prehensile manipulation such as \textit{Slide Block to Target}, pick-and-place tasks like \textit{Stack Cups}, and high-precision insertion tasks including \textit{Sort Shape}. 
+We train on 100 demonstrations per task and report the mean success rate over five evaluation runs of 25 episodes per task.
+
+\paragraph{Baselines}
+We compare \method\ with state-of-the-art baselines encompassing both 2D and 3D methods.
+(1) \textbf{PerAct}~\cite{shridhar2023perceiver} operates in the voxel space and predicts the action with a Perceiver transformer~\cite{jaegleperceiver}.
+(2) \textbf{Act3D}~\cite{gervet2023act3d} predicts the next keyframe action by selecting the point with the highest score from a set of randomly sampled points in the workspace.
+(3) \textbf{RVT}~\cite{goyal2023rvt} uses a multi-view transformer to aggregate information from multiple orthographic views of the point cloud observation.
+(4) \textbf{3D Diffuser Actor}~\cite{3d-da} generates 3D trajectories via a diffusion process conditioned on the 3D observation and language instruction.
+(5) \textbf{RVT-2}~\cite{goyal2024rvt} further improves the precision of its prior via a coarse-to-fine strategy.
+(6) \textbf{SAM2Act}~\cite{fang2025sam2act}, the previous state-of-the-art method on this benchmark, builds upon the multi-view transformer and integrates the SAM2 visual foundation model to strengthen scene representation.
+
+\paragraph{Results} 
+Table~\ref{tab:rlbench} summarizes the performance comparison. \method\ achieves a 90.5\% average success rate across the 18 tasks, outperforming SAM2Act by 3.7 absolute percentage points, establishing a new state-of-the-art and addressing Q1.
+This improvement is particularly pronounced in precision-critical tasks such as \emph{Stack Cups}, underscoring the efficacy of our dense per-view heatmap representation for fine-grained localization. The high success rates showcase its strong capability in precise manipulation. 
+The primary failure modes emerge in occlusion-heavy tasks, where the robot's arm obscures the target during the fine-localization stage.
+These occlusions are later resolved by \memmethod's spatio-temporal memory, which elevates the overall success rate to 93.7\% and brings significant gains to \emph{Sort Shape} (+16.8\%) and \emph{Place Cups} (+18.4\%).
+The indented rows of Table~\ref{tab:rlbench} report ablated variants of both models, which we analyze in Sec.~\ref{sec:exp:ablation}.
+% RMBench (the main memory experiment) is declared first so it takes the lower
+% table number and both full-width tables float together onto a page before the
+% real-robot setup figure; its discussion follows in Sec.~\ref{sec:exp:rmbench}.
+\input{table/rmbench_main}
+\input{table/colosseum}
+\subsection{COLOSSEUM \& GemBench: Generalization}
+\label{sec:exp:additional}
+
+To further evaluate the robustness and generalization capabilities of
+\method and \memmethod (Q2), we conduct experiments on
+COLOSSEUM~\cite{pumacay2024colosseum} and
+GemBench~\cite{garcia2024towards}.
+Both benchmarks extend RLBench to evaluate out-of-distribution
+generalization.
+COLOSSEUM introduces 12 perturbation axes that are unseen during training,
+including variations in object color, texture, and size, as well as changes
+in background, lighting, distractors, and camera pose.
+Together with the original RLBench setting and a combined
+all-perturbations setting, it comprises 14 evaluation conditions in total.
+GemBench evaluates hierarchical systematic generalization to novel rigid and
+articulated objects, as well as unseen object--color compositions.
+As reported in Table~\ref{tab:colosseum}, \method achieves a
+state-of-the-art average success rate of 64.0\% on COLOSSEUM, outperforming
+strong recent 2D and 3D manipulation methods, including RVT-2, 3D-LOTUS,
+and 3D Diffuser Actor.
+In particular, it exceeds RVT-2 by more than 7 percentage points.
+Similarly, \method achieves a state-of-the-art average success rate of
+50.0\% on GemBench, as shown in Table~\ref{tab:gembench}.
+These results demonstrate the strong robustness of \method under diverse
+out-of-distribution conditions.
+Importantly, the memory-augmented \memmethod preserves this generalization
+capability.
+It matches or slightly improves upon \method on both benchmarks, achieving
+65.2\% versus 64.0\% on COLOSSEUM and 51.1\% versus 50.0\% on GemBench.
+Thus, introducing spatio-temporal memory does not compromise the
+out-of-distribution robustness of the original framework.
+Additional baseline details and analyses are provided in
+Appendices~\ref{app:colosseum_results} and~\ref{app:gembench_results}.
+
+\subsection{RMBench: Memory-Dependent Bimanual Manipulation}
+\label{sec:exp:bridgevla_plus}
+\label{sec:exp:rmbench}
+
+To answer Q5, we explicitly evaluate \memmethod\ on memory-dependent manipulation tasks, utilizing the RMBench suite.
+
+\paragraph{Setup}
+RMBench~\cite{chen2026rmbench} is a dual-arm benchmark specifically designed to test episodic reasoning. Its nine tasks cannot be solved from the current frame alone, requiring the policy to retain past observations across short-term $M(1)$ and long-term $M(n)$ horizons. This concurrently validates our bimanual extension (Sec.~\ref{sec:memmethod:bimanual}). Following the benchmark protocol, we train on 50 demonstrations per task and report success rates over 100 evaluation episodes.
+
+\paragraph{Baselines} 
+We compare against strong memory-augmented manipulation methods including Mem-0, MemoryWAM, and several other baseline variants from the benchmark. We also compare against our memory-free base model, \method, to quantify the direct impact of the memory modules.
+
+\paragraph{Results} 
+Table~\ref{tab:rmbench_main} summarizes the results. 
+The memory-free base model, \method, suffers a severe performance drop, yielding an 18.9\% overall success rate, confirming the necessity of episodic memory.
+In stark contrast, \memmethod\ achieves a near-perfect 96.0\% overall success rate, outperforming the strongest memory-augmented baseline MemoryWAM by 13.0 points and the reference Mem-0 by 54.0 points.
+It ranks best or tied for best on eight of the nine tasks.
+Temporal memory $\mathcal{T}$ proves indispensable for these long-horizon tasks. For instance, in \emph{Battery Try}, a trial-and-error sorting task requiring the tracking of past attempts, \memmethod\ achieves 96\% success compared to the strongest baseline's 41\% (MemoryWAM).
+We dissect the distinct roles of the spatial and temporal memories underlying these gains in Sec.~\ref{sec:exp:ablation}.
+
+\subsection{MemoryBench: Single-Arm Memory Validation}
+
+We additionally validate \memmethod\ on MemoryBench~\cite{fang2025sam2act}, a suite of single-arm memory-dependent scenarios. 
+In these tasks, \memmethod\ achieves a $99.7{\pm}0.3\%$ success rate, firmly confirming its generalized efficacy in handling episodic memory requirements beyond bimanual coordination. A detailed per-task breakdown and comparison against baselines are provided in Appendix~\ref{app:memorybench_results} (Table~\ref{tab:memorybench}).
+
+\subsection{Real-World Experiments}
+\label{sec:exp:real_world}
+
+To address Q4, we deploy both models on real robotic hardware. We first evaluate the base \method\ on general manipulation, probing its sample efficiency and generalization under diverse real-world disturbances; we then evaluate \memmethod, validating the spatio-temporal memory in the physical world while verifying that the memory extension leaves the base manipulation competence intact.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/real_setting_overview.pdf}
+  \caption{\textbf{Real-Robot Evaluation Setup.}
+  \emph{Top left:} the general-manipulation platform---a 7-DoF Franka
+  Research~3 arm observed by a static ZED~2i stereo camera.
+  \emph{Top right:} the memory platform---a 6-DoF Dobot CR5A arm with
+  the same camera configuration.
+  \emph{Bottom:} the evaluation settings of the two suites.
+  The bars at the top show the average gain of our models over the
+  strongest prior method in each task group: RVT-2 across the seven
+  Franka settings and SAM2Act+ in the Dobot basic setting.}
+  \label{fig:real_setup}
+\end{figure*}
+
+\subsubsection{General Manipulation}
+
+\paragraph{Setup}
+We evaluate \method\ on a 7-DoF Franka Research 3 manipulator with a parallel-jaw gripper, observed via a static ZED~2i depth camera (Fig.~\ref{fig:real_setup}). The evaluation covers 13 tasks ranging from simple pick-and-place to complex long-horizon manipulation, with 10 expert demonstrations per task for training. Beyond the basic setting, we design six challenging generalization settings: Distractor, Lighting, Background, Height, Combination (unseen object--skill pairings), and Category (unseen object categories). Full setup details, per-task results, and analyses are provided in Appendix~\ref{app:real_franka}.
+\input{table/real_robot}
+
+\paragraph{Results}
+To demonstrate the advantages of \method over existing manipulation
+policies, we compare it with four representative baselines spanning different
+model categories: SpatialVLA~\cite{qu2025spatialvla}, a 3D VLA model;
+$\pi_{0.5}$~\cite{intelligence2025pi_}, a 2D VLA model;
+ACT~\cite{zhao2023learning}, a 2D non-VLA policy; and
+RVT-2~\cite{goyal2024rvt}, a 3D non-VLA policy.
+
+We first evaluate all methods under the basic setting.
+For each task, every method is evaluated over 10 trials.
+To ensure a fair comparison, we photograph each test scene and manually
+reproduce the same scene configuration across methods.
+The results are reported in Table~\ref{tab:real_robot}.
+When trained with only 10 trajectories per task, most baselines fail almost
+completely, whereas the two methods that explicitly exploit 3D spatial
+structure, RVT-2 and \method, achieve substantially stronger performance.
+Notably, although SpatialVLA also incorporates 3D information, it remains
+considerably less data-efficient.
+Even when its training set is increased to 50 trajectories per task, its
+success rate remains substantially lower than that of \method.
+This result suggests that incorporating 3D information alone is insufficient
+for constructing a data-efficient 3D VLA model; the architectural design used
+to align the observation and action spaces is also critical.
+
+Remarkably, when the training data are further reduced to only three
+demonstrations per task, \method still achieves a success rate of 95.4\%,
+highlighting its exceptional sample efficiency and directly addressing Q4.
+Because only RVT-2 and \method achieve reliable performance under the basic
+setting, we further compare these two methods across the remaining
+generalization settings.
+As summarized in Fig.~\ref{fig:real_results}, \method consistently
+outperforms RVT-2 across all seven settings, with an average improvement of
+32\%.
+The gains are particularly pronounced under novel lighting conditions and
+unseen object--skill combinations, demonstrating that \method can
+effectively transfer the semantic knowledge of the pre-trained VLM to
+real-world manipulation.
+Additional details on the experimental setup, baseline implementations,
+per-task results, and analyses are provided in
+Appendix~\ref{app:real_franka}.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/BridgeVLA_real_results.pdf}
+  \caption{\textbf{Real-Robot Generalization Results.}
+  Average success rate over the 13 Franka tasks in the basic setting and
+  the six generalization settings;
+  the \emph{w/o Pre-train} bars ablate the 2D-heatmap pre-training
+  (Sec.~\ref{sec:exp:ablation}).}
+  \label{fig:real_results}
+\end{figure}
+
+\subsubsection{Memory-Augmented Manipulation}
+\paragraph{Setup}
+To validate \memmethod\ in the real world, we deploy the model on a Dobot CR5A equipped with an external RGB-D camera to capture the workspace (Fig.~\ref{fig:real_setup}). The evaluation suite pairs three memory-dependent tasks---\emph{Cover Blocks}, \emph{Press Button}, and \emph{Swap Eggplant}---with two memory-free standard manipulation tasks, \emph{Put in Drawer} and \emph{Put on Shelf}. The former probe whether the spatio-temporal memory transfers to physical hardware; the latter verify that the memory extension does not erode the policy's general manipulation capability. Each memory-dependent task is driven by a single language instruction, while \emph{Put in Drawer} and \emph{Put on Shelf} use two instructions that differ in target height. Similar to the setup on the Franka platform, we train on 10 demonstrations per language instruction and evaluate every instruction over 10 trials in each of five settings---Basic, Distractor, Background, Height, and Lighting---against memory-free \method\ and the memory-augmented SAM2Act+~\cite{fang2025sam2act}. Full details are provided in Appendix~\ref{app:real_dobot}.
+
+\paragraph{Results}
+Consistent with our simulation findings, the proposed spatio-temporal memory effectively transfers to physical hardware. In the basic setting (Table~\ref{tab:real_dobot_basic}), \memmethod\ achieves an average success rate of 93.3\% on the three memory-dependent tasks, yielding a threefold improvement over the memory-augmented SAM2Act+ (30.0\%). Conversely, the memory-free \method\ largely fails (20.0\%), confirming that these tasks intrinsically require episodic memory. This substantial performance margin over SAM2Act+ stems from architectural differences in memory management. Because SAM2Act+ indiscriminately stores every step and retrieves only a fixed temporal window, near-duplicate frames tend to dilute critical historical information. \memmethod\ overcomes this limitation via its targeted spatio-temporal memory design (Sec.~\ref{sec:memmethod}). Furthermore, owing to its pre-trained VLM backbone, \memmethod\ exhibits strong robustness against visual disturbances (Table~\ref{tab:real_dobot_generalization}). Importantly, this memory integration comes at no cost to general manipulation capabilities: on the two memory-free tasks, \memmethod\ matches or exceeds \method\ in both success rate and generalization across all settings. Collectively, these results demonstrate that \memmethod\ successfully acquires memory-dependent competencies in real-world scenarios while fully preserving the foundational manipulation skills and visual robustness of the base model. Per-instruction counts are detailed in Table~\ref{tab:app:real_dobot_all}.
+\input{table/real_dobot_basic}
+\input{table/real_dobot_generalization}
+
+\subsection{Ablation Studies}
+\label{sec:exp:ablation}
+
+To address Q3, we conduct two groups of ablation studies: we first ablate the core architectural designs of the base model \method\ (upper ablation rows of Table~\ref{tab:rlbench}), and then dissect the spatio-temporal memory of \memmethod\ (lower ablation rows of Table~\ref{tab:rlbench} and Table~\ref{tab:rmbench_ablation}).
+
+\textbf{Whether we need to predict heatmaps before predicting actions.}
+Replacing the convex upsampling module with a parameter-matched Transformer decoder that directly regresses target positions (Appendix~\ref{app:finetune_hparams}) causes the average success rate on RLBench to collapse from 90.5\% to 31.4\% (Table~\ref{tab:rlbench}).
+The ablated model is also markedly harder to optimize, demanding a threefold larger batch size (192 vs. 64) and careful learning-rate tuning.
+We attribute this gap to three properties of the heatmap as an intermediate representation: it provides denser supervision than sparse 3D position vectors, the 3D-to-2D projection injects a helpful spatial prior, and the heatmaps share the spatial structure of the input images, keeping input and output aligned.
+
+\textbf{Whether we need to remove the 3D position input to the VLM backbone.}
+Unlike typical 3D VLA models such as SpatialVLA, \method\ feeds the backbone only RGB projection images.
+Fusing per-pixel 3D positions into the image features via a 3D convolutional module (Appendix~\ref{app:finetune_hparams}) injects richer spatial cues, yet degrades the success rate from 90.5\% to 56.2\% (Table~\ref{tab:rlbench}), which we attribute to the resulting shift of the image features away from the distribution seen during VLM pre-training.
+For a pre-trained VLM, preserving input alignment thus outweighs adding explicit 3D inputs.
+
+\textbf{Whether we need the 2D heatmap pre-training.}
+Without the pre-training stage, \method\ w/o Pre-train fails to generalize in both language-related real-world settings and cannot even match RVT-2, whereas the full \method\ performs best in both, especially in Combination (Fig.~\ref{fig:real_results}).
+We hypothesize that the 2D heatmap pre-training teaches the model to ground language semantics in image observations directly within the heatmap space, an ability that fine-tuning on a handful of robot trajectories alone cannot instill.
+
+\textbf{Whether a continuous rotation representation outperforms a discretized one.}
+Replacing the continuous 6D rotation representation (Sec.~\ref{sec:bridgevla:finetune}) with the discretized per-axis Euler-angle classification head from our preliminary conference version degrades the RLBench average from 90.5\% to 88.2\% (Table~\ref{tab:rlbench}), with the drop concentrated in tasks demanding high-precision end-effector orientations.
+The 6D representation also stays robust in near-vertical gripper poses, avoiding the gimbal lock inherent to discretized Euler angles (Appendix~\ref{app:finetune_hparams}).
+
+\textbf{Whether we need the spatial memory $\mathcal{S}$.}
+Since $\mathcal{S}$ targets fine-grained geometric alignment under arm-induced occlusions (Sec.~\ref{sec:memmethod:spatial}), we ablate it mainly on RLBench, whose precision tasks are exactly where such occlusions arise.
+Removing $\mathcal{S}$ lowers the RLBench average of \memmethod\ (93.7\% vs. 92.0\%), and the loss concentrates exactly in occlusion-heavy precision tasks, \eg, \emph{Sort Shape} (72.0\% vs. 60.8\%, Table~\ref{tab:rlbench}); on RMBench, whose tasks stress temporal sequencing rather than geometric alignment, the removal is nearly harmless (Table~\ref{tab:rmbench_ablation}).
+This benchmark-selective effect indicates that $\mathcal{S}$ contributes complementary geometric detail for precise alignment rather than duplicating the temporal memory.
+
+\textbf{Whether we need the temporal memory $\mathcal{T}$.}
+Removing $\mathcal{T}$ collapses the RMBench success rate of \memmethod\ from 96.0\% to 21.3\%, close to the memory-free base model (18.9\%, Table~\ref{tab:rmbench_ablation}).
+Notably, $\mathcal{T}$ also benefits RLBench (93.7\% vs. 91.9\%) despite its tasks not being intrinsically memory-dependent: the anchor views and neighboring keyframes provide a stable global reference and local motion cues that help general manipulation (Table~\ref{tab:rlbench}).
+
+All the above results address Q3: heatmap-based action prediction, input alignment, and the temporal memory account for the largest gains; the heatmap pre-training underpins language-conditioned generalization; and the continuous rotation and the spatial memory contribute smaller, targeted gains on orientation-critical and occlusion-heavy tasks, respectively.

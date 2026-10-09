@@ -1,0 +1,528 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2508.11630",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Benchmark performance of Thyme. The comprehensive set of image manipulation capabilities",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "人工检查了既有翻译包中的原始裁图：雷达图编号、图例与各基准轴均完整清晰，可用于总览不同能力维度的提升。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/fig1_benchmark_performance.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overall pipeline of the Thyme, illustrating the interaction between the model and the sandbox",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_003_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "SFT Data Construction Pipeline. First, samples are taken from an existing dataset and prompts",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:introduction-2",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_005_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_005_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_005_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Visualization of SFT Data instances. The left side presents a sample of data related to image",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:dataset",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Visualization of RL Data Instances. Thyme RL data focuses on complex scenarios and high-",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:dataset",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "GRPO-ATS Sampling Pieline.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:dataset",
+      "decision": "insert",
+      "reason": "人工检查原始裁图后确认流程框、温度切换标记与采样箭头均完整清晰；该图直接解释 GRPO-ATS 的关键机制。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_010_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_010_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/fig6_grpo_ats_pipeline.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Key Metrics During the RL Training Phase. The plots illustrate the dynamic changes in average",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:model-2",
+      "decision": "insert",
+      "reason": "人工检查原始裁图后确认三条训练曲线坐标、图例和趋势均可辨认；它直接支撑 RL 学会缩短响应并提高结果与一致性奖励的分析。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "diagnostic_figure",
+      "source_image_filename": "page_015_fig_figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/page_015_fig_figure_7.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/fig7_rl_training_metrics.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Cropping & Zooming Case 1. Thyme first evaluates the size and distance of the sign, determin-",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Cropping & Zooming Case 2. Thyme accurately locates the phone number’s position, success-",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Cropping & Zooming Case 3. Thyme first analyzes the size of the awning-tricycles and the",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:model-2",
+      "decision": "skip",
+      "reason": "该定性案例不承担核心机制或定量结论，且自动抽取候选未通过视觉质量门；正文改用作者归纳的成功与失败模式进行证据化分析。",
+      "skip_reason": "non_core_qualitative_case_and_rejected_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_018_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_018_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_018_fig_figure_10.png"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Rotation Case. Thyme realizes that the input image is not properly oriented, so it performs a",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Contrast Enhancement Case. Thyme accurately locates the phone number’s position, success-",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Complex Calculations Case. After deducing the mathematical expressions for x and y, Thyme",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Failure Case 1. In this case, the image resolution is high, but Thyme does not perform the",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Failure Case 2. The case requires only trivial calculations, yet Thyme opts to write code,",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 16",
+      "source_id": "Figure 16",
+      "kind": "figure",
+      "label": "Figure 16",
+      "caption": "Failure Case 3. In this case, although Thyme eventually arrives at the correct answer, the",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:model-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "From the entire pool of samples requiring no tool intervention, we randomly select 100k samples",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:dataset",
+      "decision": "skip",
+      "reason": "该表实际是训练数据提示词示例而非结果表；自动裁图也未通过视觉质量门，因此不作为核心图表插入。",
+      "skip_reason": "supplementary_prompt_example_and_rejected_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_006_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_006_fig_table_7.png"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "System Prompt for SFT.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:dataset",
+      "decision": "skip",
+      "reason": "该表仅给出 SFT 系统提示词，不是方法流程或实验结果；自动裁图未通过视觉质量门，正文以文字记录必要约束。",
+      "skip_reason": "supplementary_system_prompt_and_rejected_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_008_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_008_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_008_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "User Prompt for SFT.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:dataset",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_008_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_008_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_008_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Performance Comparison on Perception, Reasoning, and General Tasks. For all open-source",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:evaluation-results-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_013_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/table3_main_results.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Performance Comparison on the MME-Realworld. Thyme-7B demonstrates substantial im-",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:evaluation-results-2",
+      "decision": "insert",
+      "reason": "人工检查既有翻译包中的原始裁图：MME-RealWorld 各场景、感知/推理分组及增益均完整清晰，可直接支撑分场景分析。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_014_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_014_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/table4_mme_realworld.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Impact of Different SFT Strategies. Directly mixing all SFT datasets for training does not yield",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:evaluation-results-2",
+      "decision": "insert",
+      "reason": "人工检查原始裁图后确认所有 SFT 策略行与六组指标均清晰；该表是判断遮蔽沙箱输出、末轮训练及数学退火作用的直接证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "ablation_table",
+      "source_image_filename": "page_014_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_014_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Thyme Think Beyond Images/assets/table5_sft_strategies.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Investigation of Different Reward Design Strategies. An ablation study is performed on various",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:evaluation-results-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_014_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_014_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_014_fig_table_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Prompt template for visual QA with cropping based on bounding box.",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:related-work-2",
+      "decision": "skip",
+      "reason": "该表是附录中的裁剪问答提示词模板而非实验结果；自动裁图未通过视觉质量门，且不影响核心证据链。",
+      "skip_reason": "supplementary_prompt_template_and_rejected_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_031_fig_table_8.png",
+      "relative_markdown_embed": "![Table 8](images/page_031_fig_table_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_031_fig_table_8.png"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Prompt template for visual QA with image rotation.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:related-work-2",
+      "decision": "skip",
+      "reason": "该表是附录中的旋转问答提示词模板而非实验结果；自动裁图未通过视觉质量门，且不影响核心证据链。",
+      "skip_reason": "supplementary_prompt_template_and_rejected_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_032_fig_table_9.png",
+      "relative_markdown_embed": "![Table 9](images/page_032_fig_table_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Thyme_Think_Beyond_Images/images/page_032_fig_table_9.png"
+    }
+  ],
+  "summary": {
+    "total_items": 25,
+    "by_decision": {
+      "insert": 10,
+      "low_priority": 10,
+      "placeholder": 0,
+      "skip": 5,
+      "visual_defect": 0
+    }
+  },
+  "manual_visual_review": {
+    "reviewed_on": "2026-06-29",
+    "reviewed_items": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 6",
+      "Figure 7",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Table 6"
+    ],
+    "observation": "所有 insert 项均已打开检查；编号、主体、图例或表格数值完整可辨，无相邻图表污染。Figure 1、Figure 6、Figure 7、Table 3、Table 4、Table 5 使用现有全文翻译包中的高质量独立裁图替换自动候选。"
+  }
+}

@@ -1,0 +1,993 @@
+{
+  "paper": {
+    "title": "WAM4D: Fast 4D World Action Model via Spatial Register Tokens",
+    "authors": [
+      "Ying Li",
+      "Xiaobao Wei",
+      "Jiajun Cao",
+      "Hao Wang",
+      "Xiaowei Chi",
+      "Chengyu Bai",
+      "Qianpu Sun",
+      "Jiajun Li",
+      "Xiaojie Zhang",
+      "Peidong Jia",
+      "Jian Tang",
+      "Sirui Han",
+      "Shanghang Zhang"
+    ],
+    "year": 2026,
+    "date": "2026-07-08",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UMKJ276I/Li 等 - 2026 - WAM4D Fast 4D World Action Model via Spatial Register Tokens.pdf",
+    "source_sha256": "35ab949057809b5e150f6b2c6dff3d2f559bfc61b29dfa371c07fa1894d02b6f",
+    "page_count": 19,
+    "reader_file": "detailed_paper.md",
+    "canonical_reader_mirror": "paper.md",
+    "code_url": "https://github.com/myendless1/wam4d"
+  },
+  "inventory": {
+    "main_text_pages": "1-15",
+    "references_pages": "16-19",
+    "appendix_pages": null,
+    "supplement_pages": null,
+    "sections": [
+      {
+        "title": "Abstract",
+        "pages": "1"
+      },
+      {
+        "title": "1 Introduction",
+        "pages": "1-3"
+      },
+      {
+        "title": "2 Related Work",
+        "pages": "3"
+      },
+      {
+        "title": "3 Method",
+        "pages": "3-7",
+        "subsections": [
+          "3.1 WAM4D Backbone",
+          "3.2 Spatial Register Distillation",
+          "3.3 Causal Mixture Attention",
+          "3.4 Training Objective",
+          "3.5 Implementation Details"
+        ]
+      },
+      {
+        "title": "4 Experiments",
+        "pages": "7-15",
+        "subsections": [
+          "4.1 Experimental Setup",
+          "4.2 Simulation Results on RoboTwin 2.0",
+          "4.3 Real-World Results",
+          "4.4 Model Analysis and Ablations",
+          "4.4.1 Spatial Register Attention Analysis",
+          "4.4.2 Spatial Register Design Ablation",
+          "4.4.3 Geometric Head Ablation",
+          "4.5 Qualitative 4D Rollout Visualization",
+          "4.6 Failure Analysis",
+          "4.7 Compute Details"
+        ]
+      },
+      {
+        "title": "5 Conclusion and Limitation",
+        "pages": "15"
+      },
+      {
+        "title": "References",
+        "pages": "16-19"
+      }
+    ],
+    "figures": 7,
+    "tables": 9,
+    "display_equations": 10,
+    "algorithms": 1,
+    "algorithm_steps": 11,
+    "prompts_or_code_blocks": 0,
+    "acknowledgments": 0,
+    "availability_statements": 1,
+    "limitations_sections": 2,
+    "references_count": 70,
+    "dense_table_rows": {
+      "Table 3": 51,
+      "Table 6": 36
+    }
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "paragraph_or_list_group",
+      "order": 1,
+      "label": "1",
+      "original_text": "World action models (WAMs) have recently shown promise in jointly modeling future observations and executable robot actions. However, most existing WAMs still operate in 2D video or latent spaces, where visually plausible rollouts miss the 3D spatial constraints and occluded contact geometry required for precise manipulation. While geometric foundation models offer strong priors for recovering dense 3D structure and motion from visual observations, forcing WAMs to predict the dense 4D representation introduces costly geometric decoding and slows down causal action generation. To address the trade-off, we present WAM4D, a fast 4D world action model that uses lightweight spatial register tokens as training-time future-depth readouts to transfer pretrained geometric priors into a causal video-action transformer, then removes the register branch for lightweight action inference. To prevent non-causal shortcuts, we further design causal mixture attention for the Mixture-of-Transformers (MoT) WAM backbone, defining modality-specific visibility among video, action, and geometry tokens. Comprehensive experiments on RoboTwin 2.0 and challenging real-world manipulation tasks show that WAM4D improves spatial consistency and achieves competitive action prediction while maintaining efficient inference.",
+      "translation": "世界动作模型（WAM）近期在联合建模未来观测与可执行机器人动作方面展现出潜力。然而，现有大多数 WAM 仍运行在二维视频或潜空间中；这类视觉上合理的展开会遗漏精确操作所需的三维空间约束与被遮挡的接触几何。几何基础模型虽能从视觉观测恢复稠密三维结构和运动的强先验，但强迫 WAM 预测稠密四维表征会引入昂贵的几何解码，并拖慢因果动作生成。为权衡二者，我们提出 WAM4D：一种快速四维世界动作模型，它以轻量空间寄存器 token 作为训练时的未来深度读出，将预训练几何先验迁移到因果视频—动作 Transformer 中，并在轻量动作推理时移除寄存器分支。为避免非因果捷径，我们还为 Mixture-of-Transformers（MoT）WAM 骨干设计了因果混合注意力，规定视频、动作与几何 token 之间按模态区分的可见性。RoboTwin 2.0 与具有挑战性的真实世界操作任务上的综合实验表明，WAM4D 在维持高效推理的同时改善了空间一致性，并取得有竞争力的动作预测性能。",
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "type": "paragraph_or_list_group",
+      "order": 2,
+      "label": "1",
+      "original_text": "World models have been viewed as a foundation for embodied intelligence by predicting how the physical environment evolves under interaction (Wan et al., 2025; Yang et al., 2025; Ding et al., 2025). With the rapid progress of video generative models, this predictive capability has begun to transfer from general video modeling to embodied domains (Chi et al., 2025; Li et al., 2026a,b; Zeng et al., 2026; Chen et al., 2026). As robotic simulators of future scene evolution, world models support data generation and policy evaluation (Fan et al., 2026; Zhou et al., 2024; Yu et al., 2025; Wu et al., 2026). The generated videos are further converted into executable actions using inverse dynamics models.",
+      "translation": "世界模型通过预测物理环境在交互下如何演化，被视为具身智能的基础（Wan et al., 2025; Yang et al., 2025; Ding et al., 2025）。随着视频生成模型快速发展，这种预测能力已开始从通用视频建模迁移到具身领域（Chi et al., 2025; Li et al., 2026a,b; Zeng et al., 2026; Chen et al., 2026）。作为未来场景演化的机器人模拟器，世界模型支持数据生成与策略评估（Fan et al., 2026; Zhou et al., 2024; Yu et al., 2025; Wu et al., 2026），生成的视频再通过逆动力学模型转换成可执行动作。",
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "type": "paragraph_or_list_group",
+      "order": 3,
+      "label": "2",
+      "original_text": "VLA policies have become a dominant route for robot control by directly mapping visual observations and language instructions to actions (Brohan et al., 2022; Black et al., 2024; Physical Intelligence et al., 2025; Cao et al., 2026; Intelligence et al., 2026). However, manipulation is not a simple observation to action mapping. It requires reasoning about scene geometry, contacts, and object dynamics. Current VLAs learn these factors mainly from action supervision, which leads to weak generalization ability (Zhang et al., 2026). Recent spatially grounded VLAs address this issue by injecting 3D inputs or geometric foundation priors into policy learning (Qu et al., 2025; Li et al., 2026; Sun et al., 2025; Li et al., 2025; Wang et al., 2026). These methods improve the spatial representation of direct policies, but future scene evolution and robot dynamics remain implicit in the action prediction objective. Therefore, recent works have turned to world action models (WAMs). WAMs extend world models from robotic video generation to joint prediction of future observations and executable robot actions (Li et al., 2026; Yuan et al., 2026; Team et al., 2026; Zhang et al., 2026). By using the priors of video generative foundation models, this end-to-end formulation couples imagination and control in one pipeline. It learns an implicit transition model that predicts how the scene and robot may evolve from the initial observation and task instruction.",
+      "translation": "VLA 策略通过把视觉观测和语言指令直接映射为动作，已成为机器人控制的主流路线（Brohan et al., 2022; Black et al., 2024; Physical Intelligence et al., 2025; Cao et al., 2026; Intelligence et al., 2026）。然而，操作并非简单的观测到动作映射，而需要推理场景几何、接触与物体动力学。现有 VLA 主要从动作监督学习这些因素，因而泛化能力较弱（Zhang et al., 2026）。近期具备空间落地能力的 VLA 通过向策略学习注入三维输入或几何基础先验来解决这一问题（Qu et al., 2025; Li et al., 2026; Sun et al., 2025; Li et al., 2025; Wang et al., 2026）。这些方法改善了直接策略的空间表征，但未来场景演化和机器人动力学在动作预测目标中仍是隐式的。因此，近期工作转向世界动作模型（WAM）。WAM 将世界模型从机器人视频生成扩展为联合预测未来观测与可执行机器人动作（Li et al., 2026; Yuan et al., 2026; Team et al., 2026; Zhang et al., 2026）。借助视频生成基础模型的先验，该端到端形式在同一流水线中耦合想象与控制，并学习一个隐式转移模型，以预测场景和机器人可能如何从初始观测与任务指令演化。",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "type": "paragraph_or_list_group",
+      "order": 4,
+      "label": "3",
+      "original_text": "Despite this progress, most WAMs represent future states in 2D video or latent spaces. Such rollouts are useful for learning visual dynamics, but they provide an incomplete physical state for manipulation (Ai et al., 2025). Precise manipulation requires reasoning over object extent, occluded surfaces, free space, contacts, and robot motion across future steps. A visually plausible rollout hides errors in contact geometry, which directly affect spatially precise robotic manipulation. Recent 4D embodied world models address this limitation by augmenting future prediction with depth maps, surface normals, point clouds, or point maps (Guo et al., 2026; Wang et al., 2026; Xu et al., 2026; Zhen et al., 2025; Tian et al., 2026). These representations make predicted futures more aligned with the physical state needed for action inference. However, existing designs often treat dense 4D geometry as an explicit inference target. These methods improve reconstruction fidelity but require dense geometry decoding or optimization during action inference, which increases deployment costs and latency. More fundamentally, explicit 4D prediction may shift the WAM objective toward geometric reconstruction. Current methods do not ensure that geometric priors strengthen the causal coupling between video prediction and action generation.",
+      "translation": "尽管已有进展，多数 WAM 仍以二维视频或潜空间表示未来状态。这类展开有助于学习视觉动力学，却只能为操作提供不完整的物理状态（Ai et al., 2025）。精确操作要求跨未来时刻推理物体范围、遮挡表面、自由空间、接触和机器人运动。视觉上合理的展开会掩盖接触几何错误，而这些错误会直接影响空间精确的机器人操作。近期四维具身世界模型通过为未来预测增加深度图、表面法线、点云或点图来处理这一局限（Guo et al., 2026; Wang et al., 2026; Xu et al., 2026; Zhen et al., 2025; Tian et al., 2026），使预测未来更贴近动作推理所需的物理状态。然而，已有设计常把稠密四维几何作为显式推理目标；虽提高重建保真度，却要求动作推理期间进行稠密几何解码或优化，从而增加部署成本与时延。更根本地，显式四维预测可能把 WAM 目标推向几何重建。现有方法并不能保证几何先验会增强视频预测与动作生成间的因果耦合。",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "type": "paragraph_or_list_group",
+      "order": 5,
+      "label": "4",
+      "original_text": "To address these issues, we propose WAM4D, a fast 4D world action model that uses spatial register tokens as a compact bridge between 2D WAM latents and geometric priors. WAM4D uses geometry as a training-time readout target rather than an additional sensory input or inference-time output: spatial registers query history video tokens, decode depth through a pretrained geometric head, and backpropagate the depth loss into the history video features used for action prediction. At deployment, the geometric head and depth readout are removed, so the policy keeps the same lightweight 2D observation-to-action interface.",
+      "translation": "为解决这些问题，我们提出 WAM4D：一种以空间寄存器 token 作为二维 WAM 潜变量与几何先验之间紧凑桥梁的快速四维世界动作模型。WAM4D 不把几何作为额外感知输入或推理时输出，而将其作为训练时读出目标：空间寄存器查询历史视频 token，经预训练几何头解码深度，并把深度损失反向传播至动作预测所用的历史视频特征。部署时移除几何头与深度读出，因此策略保留同样轻量的二维观测到动作接口。",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "type": "paragraph_or_list_group",
+      "order": 6,
+      "label": "5",
+      "original_text": "Our main contributions are: (1) We propose WAM4D, a fast 4D world action model that brings geometric foundation priors into a causal video-action model through a compact spatial-register interface. (2) We design causal mixture attention for Mixture-of-Transformers (MoT). It defines visibility across video, action and spatial register tokens, enabling geometry supervision during training and lightweight inference at deployment. (3) We evaluate WAM4D on RoboTwin 2.0 and real-world long-horizon tasks. Experiments show improved spatial consistency and success rates while preserving efficient causal action inference.",
+      "translation": "主要贡献如下：（1）提出 WAM4D，通过紧凑空间寄存器接口把几何基础先验引入因果视频—动作模型；（2）为 Mixture-of-Transformers（MoT）设计因果混合注意力，规定视频、动作和空间寄存器 token 间的可见性，使训练时几何监督与部署时轻量推理兼得；（3）在 RoboTwin 2.0 和真实世界长时程任务上评估 WAM4D，实验显示其在保持高效因果动作推理的同时改善空间一致性与成功率。",
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "type": "paragraph_or_list_group",
+      "order": 7,
+      "label": "1",
+      "original_text": "**Embodied World Models.** Video generative models have made strong progress in modeling temporal visual dynamics (Ho et al., 2022; Blattmann et al., 2023; Wan et al., 2025; Yang et al., 2025; Seedance et al., 2026). This progress has motivated embodied world models that use video generation as learned simulators for interactive environments (Chi et al., 2025; Li et al., 2026a,b; Zeng et al., 2026; Chen et al., 2026). Several works learn interactive world models from mixed embodied data and Internet videos (Yang et al., 2023; Yin et al., 2026). Other works predict robotic videos and convert them into actions with inverse dynamics models (Du et al., 2023; Zhou et al., 2024; Wang et al., 2025). These works show that video priors can model future scene evolution, but future prediction and action generation are separated. Recent world action models jointly model future observations and executable robot actions (Wang et al., 2026; Bi et al., 2025; Team et al., 2026; Li et al., 2026; Yuan et al., 2026; Guo et al., 2026). In contrast, WAM4D uses lightweight spatial registers to transfer 4D geometric priors into video-action representations.",
+      "translation": "**具身世界模型。** 视频生成模型在时间视觉动力学建模上取得显著进展（Ho et al., 2022; Blattmann et al., 2023; Wan et al., 2025; Yang et al., 2025; Seedance et al., 2026），推动了用视频生成充当交互环境学习式模拟器的具身世界模型（Chi et al., 2025; Li et al., 2026a,b; Zeng et al., 2026; Chen et al., 2026）。一些工作从混合具身数据与互联网视频学习交互式世界模型（Yang et al., 2023; Yin et al., 2026），另一些预测机器人视频并用逆动力学模型将其转换为动作（Du et al., 2023; Zhou et al., 2024; Wang et al., 2025）。这些工作说明视频先验能够建模未来场景演化，但未来预测与动作生成彼此分离。近期 WAM 则联合建模未来观测与可执行机器人动作（Wang et al., 2026; Bi et al., 2025; Team et al., 2026; Li et al., 2026; Yuan et al., 2026; Guo et al., 2026）。WAM4D 与之不同：它用轻量空间寄存器把四维几何先验迁移到视频—动作表征中。",
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "type": "paragraph_or_list_group",
+      "order": 8,
+      "label": "2",
+      "original_text": "**Geometric Foundation Models.** Explicit geometry provides important priors for embodied perception and control. One line of work represents scenes with optimized 3D structures, such as neural radiance fields and 3D Gaussian primitives, which support view synthesis, planning, data generation, and manipulation (Mildenhall et al., 2020; Kerbl et al., 2023; Ze et al., 2023; Lu et al., 2024; Shorinwa et al., 2024; Duan et al., 2024; Huang et al., 2024; Wei et al., 2025, 2026). Another line develops feed-forward geometric foundation models that recover depth, point maps, camera poses, and dense correspondence directly from images (Wang et al., 2024, 2025; Lin et al., 2025; Wang et al., 2025; Wei et al., 2025; Wang et al., 2025; Wu et al., 2026; Wang et al., 2026). These models enable scalable geometric supervision from large-scale robot videos. Recent embodied world models further inject geometry into future prediction by generating RGBD videos, normals, point maps, 3D trajectories, or 4D robot world interactions (Zhen et al., 2025; Shen et al., 2026; Huang et al., 2026; Yang et al., 2026; Xu et al., 2026; Tian et al., 2026; Tu et al., 2026). Collectively, these methods indicate that explicit geometry improves physical consistency and spatial reasoning. However, they often require geometry to appear as an input, output, or reconstructed scene state during generation. WAM4D instead uses future depth as a training signal through spatial registers.",
+      "translation": "**几何基础模型。** 显式几何为具身感知与控制提供重要先验。一条路线用优化的三维结构表示场景，例如神经辐射场与三维高斯基元，以支持新视角合成、规划、数据生成和操作（Mildenhall et al., 2020; Kerbl et al., 2023; Ze et al., 2023; Lu et al., 2024; Shorinwa et al., 2024; Duan et al., 2024; Huang et al., 2024; Wei et al., 2025, 2026）。另一条路线发展前馈几何基础模型，直接从图像恢复深度、点图、相机姿态和稠密对应（Wang et al., 2024, 2025; Lin et al., 2025; Wang et al., 2025; Wei et al., 2025; Wang et al., 2025; Wu et al., 2026; Wang et al., 2026），使大规模机器人视频能够提供可扩展几何监督。近期具身世界模型进一步通过生成 RGB-D 视频、法线、点图、三维轨迹或四维机器人—世界交互，把几何注入未来预测（Zhen et al., 2025; Shen et al., 2026; Huang et al., 2026; Yang et al., 2026; Xu et al., 2026; Tian et al., 2026; Tu et al., 2026）。总体上，这些方法表明显式几何改善物理一致性与空间推理，但常要求几何在生成时作为输入、输出或重建场景状态出现。WAM4D 则通过空间寄存器把未来深度用作训练信号。",
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "type": "paragraph_or_list_group",
+      "order": 9,
+      "label": "3",
+      "original_text": "**Robotic Manipulation Policy.** Robot manipulation policies commonly learn a direct mapping from observations to actions. Early methods model action sequences from demonstrations (Zhao et al., 2023; Chi et al., 2025). Recent policies scale this paradigm with large language models. RT series formulate robot control as sequence prediction over visual, language, and action tokens (Brohan et al., 2022; Zitkovich et al., 2023). Several works provide open generalist policies trained on large robot datasets (Kim et al., 2024; Team et al., 2024; Liu et al., 2026). Pi series further improve cross-embodiment generalization with larger training mixtures and stronger action modeling (Liu et al., 2025; Black et al., 2024; Physical Intelligence et al., 2025; Intelligence et al., 2026). Recent spatially grounded VLAs further improve action prediction by injecting geometric foundation priors (Qu et al., 2025; Li et al., 2026; Sun et al., 2025; Li et al., 2025; Wang et al., 2026). However, they usually learn geometry, contacts, and dynamics only through action labels. In contrast, WAMs turn video generative models into robot policies by jointly modeling future observations and executable actions.",
+      "translation": "**机器人操作策略。** 机器人操作策略通常学习从观测到动作的直接映射。早期方法从示范建模动作序列（Zhao et al., 2023; Chi et al., 2025），近期策略则借助大语言模型扩展这一范式。RT 系列把机器人控制表述为视觉、语言和动作 token 上的序列预测（Brohan et al., 2022; Zitkovich et al., 2023）。若干工作提供在大型机器人数据集上训练的开放通用策略（Kim et al., 2024; Team et al., 2024; Liu et al., 2026）；Pi 系列借助更大训练混合与更强动作建模进一步改善跨具身泛化（Liu et al., 2025; Black et al., 2024; Physical Intelligence et al., 2025; Intelligence et al., 2026）。近期空间落地 VLA 注入几何基础先验以进一步改善动作预测（Qu et al., 2025; Li et al., 2026; Sun et al., 2025; Li et al., 2025; Wang et al., 2026），但它们通常仅通过动作标签学习几何、接触与动力学。相比之下，WAM 通过联合建模未来观测和可执行动作，把视频生成模型转化为机器人策略。",
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "type": "paragraph_or_list_group",
+      "order": 10,
+      "label": "1",
+      "original_text": "WAM4D builds on the causal video-action backbone of LingBot-VA (Li et al., 2026). At decision step $t$, the model conditions on a language instruction $l$, multi-view RGB history, and a queue of historical actions. Let $O_t^{hist}$ denote the history RGB mosaic sequence, $O_t^{fut}$ the future RGB targets used during training, and $a_{i:j}$ the action sequence from step $i$ to $j$. With historical action length $L_a$ and action prediction horizon $H_a$, the causal context is",
+      "translation": "WAM4D 基于 LingBot-VA 的因果视频—动作骨干（Li et al., 2026）。在决策时刻 $t$，模型以语言指令 $l$、多视角 RGB 历史和历史动作队列为条件。令 $O_t^{hist}$ 表示历史 RGB 拼图序列，$O_t^{fut}$ 表示训练时使用的未来 RGB 目标，$a_{i:j}$ 表示从时刻 $i$ 到 $j$ 的动作序列。给定历史动作长度 $L_a$ 与动作预测时域 $H_a$，因果上下文为",
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "type": "paragraph_or_list_group",
+      "order": 11,
+      "label": "2",
+      "original_text": "Future RGB frames and future actions are prediction targets rather than additional causal inputs. The noised future video and action tokens are still included in the transformer sequence only as flow-matching states, so that the model can predict their corresponding flow targets.",
+      "translation": "未来 RGB 帧和未来动作是预测目标，而不是额外因果输入。加噪未来视频与动作 token 仍被纳入 Transformer 序列，但仅作为流匹配状态，使模型能够预测相应流目标。",
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "type": "paragraph_or_list_group",
+      "order": 12,
+      "label": "3",
+      "original_text": "For the video stream, a video VAE encodes the RGB sequence and splits the resulting latents into history tokens and clean future targets:",
+      "translation": "对视频流，视频 VAE 编码 RGB 序列，并将所得潜变量拆分为历史 token 与干净未来目标：",
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "type": "paragraph_or_list_group",
+      "order": 13,
+      "label": "4",
+      "original_text": "During flow-matching training, the future video tokens fed to the backbone are noised states of these clean future targets, denoted as $\\widetilde Z_t^{fut}$.",
+      "translation": "在流匹配训练中，送入骨干的未来视频 token 是这些干净未来目标的加噪状态，记作 $\\widetilde Z_t^{fut}$。",
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "type": "paragraph_or_list_group",
+      "order": 14,
+      "label": "5",
+      "original_text": "The action stream is embedded in the same way:",
+      "translation": "动作流以相同方式嵌入：",
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "type": "paragraph_or_list_group",
+      "order": 15,
+      "label": "6",
+      "original_text": "where $E_a$ is a lightweight action embedding layer, and $\\widetilde a_{t:t+H_a-1}$ denotes the flow-matching state of the future action chunk.",
+      "translation": "其中 $E_a$ 是轻量动作嵌入层，$\\widetilde a_{t:t+H_a-1}$ 表示未来动作块的流匹配状态。",
+      "confidence": "high"
+    },
+    {
+      "id": "S016",
+      "type": "paragraph_or_list_group",
+      "order": 16,
+      "label": "7",
+      "original_text": "WAM4D then follows causal WAMs (Li et al., 2026) by jointly modeling future video latents and future actions in one video-action token sequence:",
+      "translation": "随后 WAM4D 遵循因果 WAM（Li et al., 2026），在同一视频—动作 token 序列中联合建模未来视频潜变量与未来动作：",
+      "confidence": "high"
+    },
+    {
+      "id": "S017",
+      "type": "paragraph_or_list_group",
+      "order": 17,
+      "label": "8",
+      "original_text": "The sequence is processed by a video-action Mixture-of-Transformers (MoT) backbone:",
+      "translation": "该序列由视频—动作 Mixture-of-Transformers（MoT）骨干处理：",
+      "confidence": "high"
+    },
+    {
+      "id": "S018",
+      "type": "paragraph_or_list_group",
+      "order": 18,
+      "label": "9",
+      "original_text": "Here $M_{VA}$ is the causal visibility mask for the main video-action stream. The video and action heads predict flow targets for the noised future video and action tokens, respectively. The clean future video latents $Z_t^{fut}$ and clean future action chunk $a_{t:t+H_a-1}$ construct the corresponding training targets. This main path follows the causal WAM formulation; the contribution is a training-time geometry readout attached to intermediate history video features.",
+      "translation": "其中 $M_{VA}$ 是主视频—动作流的因果可见性掩码。视频头与动作头分别为加噪未来视频 token 和动作 token 预测流目标；干净未来视频潜变量 $Z_t^{fut}$ 与干净未来动作块 $a_{t:t+H_a-1}$ 构造相应训练目标。该主路径遵循因果 WAM 形式；本文贡献在于把训练时几何读出连接至中间历史视频特征。",
+      "confidence": "high"
+    },
+    {
+      "id": "S019",
+      "type": "paragraph_or_list_group",
+      "order": 19,
+      "label": "1",
+      "original_text": "We introduce spatial register tokens as learnable geometry queries that extract future geometric information from causal video features. Before being fed into the depth branch, a shared register grid is copied over the future depth timesteps and aligned with the multi-view RGB mosaic. Since multi-camera observations are tiled into a single RGB canvas before VAE encoding, each register corresponds to a spatial region in the mosaic.",
+      "translation": "我们引入空间寄存器 token，将其作为可学习几何查询，从因果视频特征提取未来几何信息。送入深度分支前，共享寄存器网格会沿未来深度时刻复制，并与多视角 RGB 拼图对齐。由于多相机观测在 VAE 编码前被铺成单个 RGB 画布，每个寄存器对应拼图中的一个空间区域。",
+      "confidence": "high"
+    },
+    {
+      "id": "S020",
+      "type": "paragraph_or_list_group",
+      "order": 20,
+      "label": "2",
+      "original_text": "Let $R^{\\star}$ denote the learnable register grid, and let $T_t$ denote the future depth supervision timesteps paired with the prediction targets. The input registers are constructed as",
+      "translation": "令 $R^{\\star}$ 表示可学习寄存器网格，$T_t$ 表示与预测目标配对的未来深度监督时刻。输入寄存器构造为",
+      "confidence": "high"
+    },
+    {
+      "id": "S021",
+      "type": "paragraph_or_list_group",
+      "order": 21,
+      "label": "3",
+      "original_text": "Each copied register is associated with a target timestep and a mosaic pixel position.",
+      "translation": "每个复制的寄存器都关联一个目标时刻与一个拼图像素位置。",
+      "confidence": "high"
+    },
+    {
+      "id": "S022",
+      "type": "paragraph_or_list_group",
+      "order": 22,
+      "label": "4",
+      "original_text": "Let $R_t^{\\ell}$ denote register tokens at layer $\\ell$, and $Z_t^{hist,\\ell}$ the valid history video tokens from the video-action backbone at the same layer. At selected layers $\\ell\\in\\mathcal L_r$, registers are updated by a depth extraction block. Registers are queries, while the key-value set contains the registers themselves and history video tokens:",
+      "translation": "令 $R_t^{\\ell}$ 表示第 $\\ell$ 层寄存器 token，$Z_t^{hist,\\ell}$ 表示视频—动作骨干同层的有效历史视频 token。在选定层 $\\ell\\in\\mathcal L_r$，寄存器由深度提取块更新。寄存器充当查询，键值集合则包含寄存器自身与历史视频 token：",
+      "confidence": "high"
+    },
+    {
+      "id": "S023",
+      "type": "paragraph_or_list_group",
+      "order": 23,
+      "label": "5",
+      "original_text": "A standard RoPE encoding is applied inside the block using the target timestep and mosaic coordinates of register and video tokens. This update combines self-attention among registers with cross-attention from registers to history video features.",
+      "translation": "块内采用标准 RoPE 编码，使用寄存器和视频 token 的目标时刻及拼图坐标。该更新结合寄存器间自注意力与寄存器到历史视频特征的交叉注意力。",
+      "confidence": "high"
+    },
+    {
+      "id": "S024",
+      "type": "paragraph_or_list_group",
+      "order": 24,
+      "label": "6",
+      "original_text": "The updated register features are projected to the input space of a pretrained geometric head:",
+      "translation": "更新后的寄存器特征被投影至预训练几何头的输入空间：",
+      "confidence": "high"
+    },
+    {
+      "id": "S025",
+      "type": "paragraph_or_list_group",
+      "order": 25,
+      "label": "7",
+      "original_text": "Here $P_g$ is a lightweight projection layer, $G_{\\phi}$ is the pretrained geometric head, and $\\widehat D_t^{fut}$ is the predicted future depth sequence.",
+      "translation": "其中 $P_g$ 是轻量投影层，$G_{\\phi}$ 是预训练几何头，$\\widehat D_t^{fut}$ 是预测的未来深度序列。",
+      "confidence": "high"
+    },
+    {
+      "id": "S026",
+      "type": "paragraph_or_list_group",
+      "order": 26,
+      "label": "8",
+      "original_text": "The register branch is used only during training. It predicts future depth from history video features, and the depth loss backpropagates into the shared video-action backbone. By requiring future depth to be decoded from these register features, the pretrained geometric teacher distills its spatial priors into the history video features used by the backbone.",
+      "translation": "寄存器分支仅在训练时使用。它从历史视频特征预测未来深度，深度损失反向传播至共享视频—动作骨干。通过要求从这些寄存器特征解码未来深度，预训练几何教师把空间先验蒸馏进骨干所用的历史视频特征。",
+      "confidence": "high"
+    },
+    {
+      "id": "S027",
+      "type": "paragraph_or_list_group",
+      "order": 27,
+      "label": "9",
+      "original_text": "Our default readout places depth blocks after layers 12, 14, 16, and 18, and initializes the geometric head from Depth Anything V3 (Lin et al., 2025).",
+      "translation": "默认读出把深度块置于第 12、14、16、18 层之后，并以 Depth Anything V3（Lin et al., 2025）初始化几何头。",
+      "confidence": "high"
+    },
+    {
+      "id": "S028",
+      "type": "paragraph_or_list_group",
+      "order": 28,
+      "label": "1",
+      "original_text": "The model structure and causal visibility rules are summarized in Fig. 2. Text instructions are injected through cross attention and are visible to both video and action tokens. The main video-action stream follows a causal visibility pattern centered on future action prediction. At each denoising step, future action tokens can attend to history video tokens, history action tokens, and their own noised future action tokens. This gives the action predictor access to causal observation and action context while allowing interaction among action tokens being denoised.",
+      "translation": "图 2 汇总模型结构与因果可见性规则。文本指令经交叉注意力注入，并对视频及动作 token 均可见。主视频—动作流遵循以未来动作预测为中心的因果可见性模式。每一步去噪时，未来动作 token 可关注历史视频 token、历史动作 token 以及自身的加噪未来动作 token，从而既获得因果观测与动作上下文，也允许正在去噪的动作 token 彼此交互。",
+      "confidence": "high"
+    },
+    {
+      "id": "S029",
+      "type": "paragraph_or_list_group",
+      "order": 29,
+      "label": "2",
+      "original_text": "To avoid non-causal shortcuts, future action tokens are masked from future video tokens and spatial registers. Future video tokens remain prediction targets for the video objective rather than causal inputs for action generation. Spatial registers are also kept outside the policy path. They attend only to themselves and valid history video tokens, so the depth objective can shape causal video features without exposing auxiliary geometry tokens to the action predictor.",
+      "translation": "为避免非因果捷径，未来动作 token 看不到未来视频 token 与空间寄存器。未来视频 token 仍是视频目标的预测对象，而非动作生成的因果输入。空间寄存器也被置于策略路径之外，仅关注自身和有效历史视频 token，使深度目标能塑造因果视频特征，却不向动作预测器暴露辅助几何 token。",
+      "confidence": "high"
+    },
+    {
+      "id": "S030",
+      "type": "paragraph_or_list_group",
+      "order": 30,
+      "label": "3",
+      "original_text": "At inference, registers, depth blocks, and the geometric head are removed. The model reduces to a pure observation-to-action generation path. Training and inference paths are shown in Fig. 3.",
+      "translation": "推理时移除寄存器、深度块与几何头，模型退化为纯观测到动作生成路径。训练与推理路径见图 3。",
+      "confidence": "high"
+    },
+    {
+      "id": "S031",
+      "type": "paragraph_or_list_group",
+      "order": 31,
+      "label": "1",
+      "original_text": "The main video-action stream is trained with the conditional flow matching objective of the base causal WAM (Li et al., 2026). We denote future-video and future-action losses as $\\mathcal L_{video}$ and $\\mathcal L_{action}$. For geometry distillation, future depth is supervised with a SmoothL1 loss. Let $T_t=\\{t+1,\\ldots,t+H_v\\}$ be the set of future depth indices, where $H_v$ matches the future video horizon. Let $\\widehat D_{\\tau,p}$ and $D_{\\tau,p}$ denote predicted and target depth at time $\\tau$ and pixel $p$, and let $\\Omega_\\tau$ denote valid depth pixels.",
+      "translation": "主视频—动作流采用基础因果 WAM（Li et al., 2026）的条件流匹配目标训练。未来视频与未来动作损失分别记为 $\\mathcal L_{video}$ 和 $\\mathcal L_{action}$。几何蒸馏采用 SmoothL1 损失监督未来深度。令 $T_t=\\{t+1,\\ldots,t+H_v\\}$ 为未来深度索引集合，其中 $H_v$ 与未来视频时域一致；$\\widehat D_{\\tau,p}$ 与 $D_{\\tau,p}$ 分别表示时刻 $\\tau$、像素 $p$ 的预测与目标深度，$\\Omega_\\tau$ 表示有效深度像素集合。",
+      "confidence": "high"
+    },
+    {
+      "id": "S032",
+      "type": "paragraph_or_list_group",
+      "order": 32,
+      "label": "2",
+      "original_text": "The final objective is",
+      "translation": "最终目标为",
+      "confidence": "high"
+    },
+    {
+      "id": "S033",
+      "type": "paragraph_or_list_group",
+      "order": 33,
+      "label": "3",
+      "original_text": "We set $\\lambda_{act}=1$ and $\\lambda_{depth}=1$. The depth loss updates the video-action backbone, spatial registers, depth blocks, projection layer, and geometric head.",
+      "translation": "取 $\\lambda_{act}=1$、$\\lambda_{depth}=1$。深度损失更新视频—动作骨干、空间寄存器、深度块、投影层与几何头。",
+      "confidence": "high"
+    },
+    {
+      "id": "S034",
+      "type": "paragraph_or_list_group",
+      "order": 34,
+      "label": "1",
+      "original_text": "**Frame sampling strategy.** The video-action backbone is initialized from the pretrained LingBot-VA base model and uses the Wan2.2 video VAE. At most 17 frames are sampled from each sequence. A start frame id is randomly sampled; when enough preceding frames are available, the history context contains 1, 5, or 9 frames. After the start frame, eight video-prediction target frames are sampled every four collected steps to match the VAE temporal stride. If the remaining sequence is shorter than eight target frames, targets are padded to length eight. For latent video loss, only slots encodable as valid VAE latents contribute, and slots containing padding frames are masked. Depth targets use the same timestamps; unlike latent-level video loss, depth supervision is frame-level, so every valid depth frame contributes. Default action chunk size is 32. For RoboTwin and AstriBot S1, input is a three-view mosaic with one head and two wrist cameras. The main view is resized to $256\\times320$ and each wrist view to $128\\times160$.",
+      "translation": "**帧采样策略。** 视频—动作骨干以预训练 LingBot-VA 基础模型初始化，并使用 Wan2.2 视频 VAE。每段序列最多采样 17 帧；随机采样起始帧编号，在前序帧充足时，历史上下文包含 1、5 或 9 帧。起始帧后每隔四个采集步采样一个视频预测目标，共八帧，以匹配 VAE 时间步幅。若剩余序列不足八个目标帧，则补齐至八帧。潜层视频损失仅由可编码为有效 VAE 潜变量的槽位贡献，含补齐帧的槽位被掩码。深度目标使用相同时刻；不同于潜层视频损失，深度监督在帧级进行，因此每个有效深度帧都贡献损失。默认动作块大小为 32。RoboTwin 与 AstriBot S1 输入为一个头部相机加两个腕部相机组成的三视角拼图；主视角缩放为 $256\\times320$，每个腕部视角缩放为 $128\\times160$。",
+      "confidence": "high"
+    },
+    {
+      "id": "S035",
+      "type": "paragraph_or_list_group",
+      "order": 35,
+      "label": "2",
+      "original_text": "**Action Prediction.** The policy predicts only absolute end-effector poses of left and right arms. Each arm is represented by a 3D position, a quaternion, and one gripper open/close value, giving a 16-dimensional action vector. Position channels use dataset-level q01/q99 percentile min–max normalization. Quaternion and gripper channels use fixed bounds $[-1,1]$. All normalized channels lie in $[-1,1]$.",
+      "translation": "**动作预测。** 策略仅预测左右臂的绝对末端执行器位姿。每条手臂由三维位置、四元数和一个夹爪开合值表示，合计形成 16 维动作向量。位置通道使用数据集级 q01/q99 分位数最小—最大归一化；四元数与夹爪通道使用固定边界 $[-1,1]$。所有归一化动作通道均位于 $[-1,1]$。",
+      "confidence": "high"
+    },
+    {
+      "id": "S036",
+      "type": "paragraph_or_list_group",
+      "order": 36,
+      "label": "3",
+      "original_text": "**View layout strategy.** Registers align to the mosaic pixel layout. Given VAE spatial stride 16 and the WAM transformer's $2\\times2$ latent grouping, each register corresponds to a $32\\times32$ input cell. The main view contributes an $8\\times10$ grid, each wrist view a $4\\times5$ grid, and the tiled mosaic forms a $12\\times10$ grid per future depth frame. With eight future-indexed depth frames, the default model uses 960 spatial register tokens. Register cross-attention is applied after layers 12, 14, 16, and 18. Registers attend only to valid history video tokens and themselves, not action or future-video tokens.",
+      "translation": "**视角布局策略。** 寄存器与拼图像素布局对齐。VAE 空间步幅为 16，WAM Transformer 采用 $2\\times2$ 潜变量分组，因此每个寄存器对应输入图像中的一个 $32\\times32$ 单元。主视角贡献 $8\\times10$ 网格，每个腕部视角贡献 $4\\times5$ 网格，铺排后的三视角拼图在每个未来深度帧形成 $12\\times10$ 网格。八个未来索引深度帧下，默认三视角模型使用 960 个空间寄存器 token。寄存器交叉注意力置于第 12、14、16、18 层后；寄存器仅关注有效历史视频 token 与自身，不关注动作或未来视频 token。",
+      "confidence": "high"
+    },
+    {
+      "id": "S037",
+      "type": "paragraph_or_list_group",
+      "order": 37,
+      "label": "4",
+      "original_text": "**Geometric readout.** The geometric readout uses a pretrained DA3-GIANT-1.1 any-view DualDPT head. Four learned linear adapters map WAM hidden states to the geometric head input dimension.",
+      "translation": "**几何读出。** 几何读出使用预训练 DA3-GIANT-1.1 任意视角 DualDPT 头；四个可学习线性适配器把 WAM 隐状态映射到几何头输入维度。",
+      "confidence": "high"
+    },
+    {
+      "id": "S038",
+      "type": "paragraph_or_list_group",
+      "order": 38,
+      "label": "5",
+      "original_text": "**Attention mask.** The transformer sequence is partitioned into history-video tokens, future-video noise tokens, history-action tokens, future-action noise tokens, and register tokens. Allowed self-attention is: future action noise $\\rightarrow$ history video, history action, and future action noise; register $\\rightarrow$ register and history video; future video noise $\\rightarrow$ history video and future video noise; history video $\\rightarrow$ history video; history action $\\rightarrow$ history action.",
+      "translation": "**注意力掩码。** Transformer 序列划分为历史视频、未来视频噪声、历史动作、未来动作噪声与寄存器 token。允许的自注意力为：未来动作噪声可见历史视频、历史动作和未来动作噪声；寄存器可见寄存器与历史视频；未来视频噪声可见历史视频与未来视频噪声；历史视频仅见历史视频；历史动作仅见历史动作。",
+      "confidence": "high"
+    },
+    {
+      "id": "S039",
+      "type": "paragraph_or_list_group",
+      "order": 39,
+      "label": "6",
+      "original_text": "**Inference procedure.** At deployment, the geometry path is removed and the policy maintains an observation queue and executed-action history. The inference loop is:",
+      "translation": "**推理过程。** 部署时移除几何路径，策略维护观测队列与已执行动作历史。推理循环如下：",
+      "confidence": "high"
+    },
+    {
+      "id": "S040",
+      "type": "paragraph_or_list_group",
+      "order": 40,
+      "label": "7",
+      "original_text": "**Training Hyperparameters.** Unless stated otherwise, loss weights are $\\lambda_{act}=1$ and $\\lambda_{depth}=1$. Training uses AdamW with learning rate $2\\times10^{-5}\\sqrt N$, where $N$ is the number of machines for multi-machine parallel training, 10 warmup steps, gradient clipping at 2.0, bf16 parameters, a 50k-step budget for main experiments, and a 10k-step budget for ablations.",
+      "translation": "**训练超参数。** 除非另有说明，损失权重为 $\\lambda_{act}=1$、$\\lambda_{depth}=1$。训练使用 AdamW，学习率为 $2\\times10^{-5}\\sqrt N$（$N$ 为多机并行训练的机器数），预热 10 步，梯度裁剪阈值 2.0，参数使用 bf16；主实验训练预算 50k 步，消融实验为 10k 步。",
+      "confidence": "high"
+    },
+    {
+      "id": "S041",
+      "type": "paragraph_or_list_group",
+      "order": 41,
+      "label": "1",
+      "original_text": "**Datasets and Tasks.** We evaluate WAM4D across simulation control, video and geometry quality, and real-world manipulation.",
+      "translation": "**数据集与任务。** WAM4D 的评估覆盖仿真控制、视频与几何质量，以及真实世界操作。",
+      "confidence": "high"
+    },
+    {
+      "id": "S042",
+      "type": "paragraph_or_list_group",
+      "order": 42,
+      "label": "2",
+      "original_text": "**RoboTwin 2.0.** A unified policy is trained on the complete RoboTwin 2.0 task suite. The clean setting comprises relatively uncluttered scenes, whereas the randomized setting varies clutter, illumination, background, tabletop height, object placement, and language instruction. Geometry-supervised training uses re-collected demonstrations with depth annotations. Each task contains 50 clean trajectories and 500 randomized trajectories.",
+      "translation": "**RoboTwin 2.0。** 在完整 RoboTwin 2.0 任务套件上训练一个统一策略。简洁设置包含相对无杂乱的场景，随机化设置则改变杂乱程度、照明、背景、桌面高度、物体放置与语言指令。几何监督训练使用重新采集并带深度标注的 RoboTwin 示范；每个任务含 50 条简洁轨迹和 500 条随机化轨迹。",
+      "confidence": "high"
+    },
+    {
+      "id": "S043",
+      "type": "paragraph_or_list_group",
+      "order": 43,
+      "label": "3",
+      "original_text": "**Real-world tasks.** Evaluation uses the AstriBot S1 robot on plate lifting, bottle placement, pen-cap removal, and LEGO sorting. The dataset contains 100 demonstrations per task, 400 total. Each method is evaluated with 10 physical rollouts per task. Real-world depth supervision is obtained with Depth Anything 3 using the same offline pseudo-depth pipeline.",
+      "translation": "**真实世界任务。** 在 AstriBot S1 机器人上评估抬盘、放瓶、移除笔帽和 LEGO 分类四项任务。每任务 100 条示范，共 400 条；每种方法每任务执行 10 次物理 rollout。真实世界示范的深度监督同样由 Depth Anything 3 按相同离线伪深度流程获得。",
+      "confidence": "high"
+    },
+    {
+      "id": "S044",
+      "type": "paragraph_or_list_group",
+      "order": 44,
+      "label": "4",
+      "original_text": "**Baselines.** RoboTwin compares WAM4D with VLA baselines ($\\pi_0$, $\\pi_{0.5}$) and video-action models Motus, LingBot-VA, and Fast-WAM. Whenever possible, reproduced baselines use the same splits, camera configuration, and training budget. Latency comparisons use 10 action-denoising steps; video-action models use five video-denoising steps when applicable. WAM4D deployment removes geometry and predicts actions only.",
+      "translation": "**基线。** RoboTwin 对比 VLA 基线（$\\pi_0$、$\\pi_{0.5}$）以及 Motus、LingBot-VA、Fast-WAM 等视频—动作模型。条件允许时，复现基线采用相同数据划分、相机配置与训练预算。时延比较统一使用 10 个动作去噪步；适用的视频—动作模型使用 5 个视频去噪步。WAM4D 部署时移除几何路径，仅预测动作。",
+      "confidence": "high"
+    },
+    {
+      "id": "S045",
+      "type": "paragraph_or_list_group",
+      "order": 45,
+      "label": "5",
+      "original_text": "**Metrics.** Policy performance is rollout success fraction; real-world sub-action success records completion of task-specific intermediate goals. Video quality uses FVD, PSNR, SSIM, and LPIPS. Depth uses AbsRel and threshold accuracies $\\delta_1,\\delta_2$. Point clouds are back-projected from depth with a fixed dataset-level intrinsic matrix; metrics are $CD_1$, $CD_2$, F-score, and temporal F-score-T.",
+      "translation": "**指标。** 策略性能以 rollout 成功比例报告；真实世界子动作成功率记录各任务特定中间目标是否完成。视频质量采用 FVD、PSNR、SSIM 与 LPIPS；深度采用 AbsRel 和阈值准确率 $\\delta_1,\\delta_2$。点云通过固定的数据集级相机内参从深度反投影，使用 $CD_1$、$CD_2$、F-score 及时间一致性 F-score-T 评估。",
+      "confidence": "high"
+    },
+    {
+      "id": "S046",
+      "type": "paragraph_or_list_group",
+      "order": 46,
+      "label": "1",
+      "original_text": "We evaluate the full 50-task RoboTwin 2.0 suite under clean and randomized settings. Table 1 shows competitive performance at low inference cost. For fair comparison, latency uses 10 action and five video denoising steps for applicable models; VRAM is peak allocated memory of the video-action backbone during inference.",
+      "translation": "在简洁与随机化设置下评估完整 50 任务 RoboTwin 2.0 套件。表 1 显示模型在较低推理成本下取得有竞争力的性能。公平比较时，适用模型统一采用 10 个动作去噪步和 5 个视频去噪步；显存为推理时视频—动作骨干的峰值已分配内存。",
+      "confidence": "high"
+    },
+    {
+      "id": "S047",
+      "type": "paragraph_or_list_group",
+      "order": 47,
+      "label": "2",
+      "original_text": "Full per-task results compare WAM4D with Fast-WAM, LingBot-VA, $\\pi_0$, $\\pi_{0.5}$, and Motus over 50 tasks. Easy and Hard correspond to clean and randomized protocols. Table 3 complements aggregate results with task-level behavior; baseline entries come from the full LingBot-VA RoboTwin 2.0 report and Fast-WAM paper.",
+      "translation": "完整逐任务结果在 50 个任务上比较 WAM4D、Fast-WAM、LingBot-VA、$\\pi_0$、$\\pi_{0.5}$ 与 Motus。Easy 和 Hard 分别对应简洁与随机化协议。表 3 以任务级行为补充汇总结果；基线条目取自 LingBot-VA 的完整 RoboTwin 2.0 报告与 Fast-WAM 论文。",
+      "confidence": "high"
+    },
+    {
+      "id": "S048",
+      "type": "paragraph_or_list_group",
+      "order": 48,
+      "label": "1",
+      "original_text": "WAM4D is evaluated on four AstriBot S1 scenarios. Figure 4 shows the setup, Table 4 defines sub-actions, and Table 2 reports results. WAM4D has the best overall performance across all four evaluations, covering contact-rich, geometry-sensitive, and long-horizon manipulation. LingBot-VA performs worse; its default implementation anchors action predictions to initial action history, which may cause global drift when the initial configuration changes, while a long history may introduce stale actions conflicting with current observations. In these tests, $\\pi_{0.5}$ and Fast-WAM have a narrower effective workspace and fail more when objects move farther from nominal positions.",
+      "translation": "WAM4D 在四种 AstriBot S1 场景上评估。图 4 展示设置，表 4 定义子动作，表 2 报告结果。WAM4D 在四项评估上总体最佳，覆盖接触密集、几何敏感与长时程操作。LingBot-VA 表现较低；其默认实现把动作预测锚定于初始动作历史，初始配置变化时可能造成全局轨迹漂移，较长历史还可能引入与当前观测冲突的陈旧动作信息。在作者测试中，$\\pi_{0.5}$ 与 Fast-WAM 的有效工作空间更窄，物体远离标称区域时更易失败。",
+      "confidence": "high"
+    },
+    {
+      "id": "S049",
+      "type": "paragraph_or_list_group",
+      "order": 49,
+      "label": "2",
+      "original_text": "During each rollout, a sub-action is successful when the corresponding intermediate goal is completed. Because tasks are sequential, after any sub-action failure, subsequent sub-actions are not attempted and are recorded as zero.",
+      "translation": "每次 rollout 中，完成相应中间目标即判定子动作成功。由于任务按顺序执行，任一子动作失败后，后续子动作不再尝试并记为零。",
+      "confidence": "high"
+    },
+    {
+      "id": "S050",
+      "type": "paragraph_or_list_group",
+      "order": 50,
+      "label": "1",
+      "original_text": "All ablations use the same data, backbone size, history length, action horizon, optimizer, and training budget unless stated otherwise. Each comparison changes only the studied component. Both generation quality and control are evaluated because a lower depth loss alone does not show that geometry improves manipulation. The ten-task split and full metrics are in Tables 5 and 6.",
+      "translation": "除非另有说明，所有消融采用相同数据、骨干规模、历史长度、动作时域、优化器与训练预算；每项比较仅改变待研究组件。论文同时评估生成质量与控制性能，因为仅有更低深度损失并不能说明几何改善了操作。十任务划分与完整指标见表 5、6。",
+      "confidence": "high"
+    },
+    {
+      "id": "S051",
+      "type": "paragraph_or_list_group",
+      "order": 51,
+      "label": "2",
+      "original_text": "The fixed split covers single- and multi-step tasks involving hanging, articulated-object interaction, contact pressing, placement, handover, object selection, and stacking. No Depth removes depth branch and loss. VAE DH discretizes depth to 0–255 and uses the VAE as a depth head from layer-26 output. Other variants use spatial registers. Shallow, Middle, Deep, and Uniform insert cross-attention at layers 2/4/6/8, 12/14/16/18, 22/24/26/28, and 6/12/18/24. Bi-dir uses layers 6/12/18/24 with bidirectional visibility. Rand. DA3 and Train. DA3 use middle registers with random and pretrained DA3 initialization. Best and second-best entries are bold and underlined in the source table, with ties marked together.",
+      "translation": "固定划分覆盖悬挂、关节物体交互、接触按压、放置、交接、物体选择与堆叠等单步和多步任务。No Depth 移除深度分支及损失。VAE DH 把深度离散为 0–255，并从第 26 层输出以 VAE 充当深度头。其余变体使用空间寄存器。Shallow、Middle、Deep、Uniform 分别在 2/4/6/8、12/14/16/18、22/24/26/28 和 6/12/18/24 层插入交叉注意力。Bi-dir 在 6/12/18/24 层使用双向可见性。Rand. DA3 与 Train. DA3 使用中层寄存器，分别采用随机和预训练 DA3 初始化。源表中每个汇总或逐任务行的最佳、次佳项分别加粗、加下划线，并共同标记并列项。",
+      "confidence": "high"
+    },
+    {
+      "id": "S052",
+      "type": "paragraph_or_list_group",
+      "order": 52,
+      "label": "1",
+      "original_text": "Register-to-history attention maps are extracted from selected transformer layers and averaged over heads. Spatial registers capture meaningful geometric cues: object registers often attend to the same object across views, background registers to geometrically consistent static regions, and gripper registers strongly to the initial gripper pose, suggesting use of early action-history cues for future geometry.",
+      "translation": "寄存器到历史的注意力图取自选定 Transformer 层，并在注意力头上平均。空间寄存器捕获有意义的几何线索：物体相关寄存器常跨视角关注同一物体，背景寄存器关注几何一致的静态区域，夹爪寄存器则强烈关注初始夹爪位姿，提示模型使用早期动作历史线索预测未来几何。",
+      "confidence": "high"
+    },
+    {
+      "id": "S053",
+      "type": "paragraph_or_list_group",
+      "order": 53,
+      "label": "1",
+      "original_text": "Table 7 studies depth readout interface, insertion layers, and visibility. A direct depth head on future VAE latents improves RGB generation over no depth, but geometry remains weaker than register variants, likely because RGB VAE latents are not designed for accurate metric-depth encoding and decoding without VAE retraining. Registers query only history video tokens, directly shaping action-relevant history features, while the pretrained geometric head offers more precise readout than a lightweight VAE-latent decoder.",
+      "translation": "表 7 研究深度读出接口、插入层与可见性。在未来 VAE 潜变量上接直接深度头，相比无深度设置改善 RGB 生成，但几何指标仍弱于寄存器变体；可能原因是 RGB VAE 潜变量若不重训 VAE，并不适合精确度量深度的编码与解码。寄存器仅查询历史视频 token，因而直接塑造与动作有关的历史特征；预训练几何头也比轻量 VAE 潜变量解码器提供更精确的深度读出。",
+      "confidence": "high"
+    },
+    {
+      "id": "S054",
+      "type": "paragraph_or_list_group",
+      "order": 54,
+      "label": "2",
+      "original_text": "Shallow registers give the best RGB metrics, possibly because early geometry regularization extracts useful structure from noisy features. They have weaker control and geometry than middle registers. Middle layers best balance geometric distillation and visual preservation, yielding strongest unidirectional control and overall geometry. Deep and uniform placements are less effective, possibly because late features specialize in denoising output and uniform insertion spans mismatched abstraction levels.",
+      "translation": "浅层寄存器取得最佳 RGB 指标，可能因为早期几何正则化促使骨干从噪声特征提取有用结构；但其控制与几何质量弱于中层寄存器。中层在几何蒸馏与视觉特征保留之间最均衡，获得最强单向控制表现与整体几何质量。深层和均匀放置效果较差，可能因为后期特征更专用于去噪输出，而均匀插入跨越了不同抽象层级。",
+      "confidence": "high"
+    },
+    {
+      "id": "S055",
+      "type": "paragraph_or_list_group",
+      "order": 55,
+      "label": "3",
+      "original_text": "Bidirectional registers achieve the highest success rate but make the main stream read register features, adding computation and complexity, and degrade most geometry metrics versus middle unidirectional registers. The default therefore uses unidirectional registers at layers 12, 14, 16, and 18 as a practical control/training-cost trade-off.",
+      "translation": "双向寄存器取得最高成功率，但要求主视频—动作流读取寄存器特征，增加计算与模型复杂度，并且相较中层单向设置降低多数几何指标。因此默认采用第 12、14、16、18 层的单向寄存器，在控制性能与训练成本间作实用权衡。",
+      "confidence": "high"
+    },
+    {
+      "id": "S056",
+      "type": "paragraph_or_list_group",
+      "order": 56,
+      "label": "1",
+      "original_text": "The same register interface compares randomly initialized, trainable pretrained, and fixed pretrained depth heads, testing ordinary depth prediction, adaptation of geometric prior, and fixed foundation knowledge respectively.",
+      "translation": "在相同寄存器接口下比较随机初始化、可训练预训练和固定预训练深度头，分别检验普通深度预测、几何先验适配和固定基础知识。",
+      "confidence": "high"
+    },
+    {
+      "id": "S057",
+      "type": "paragraph_or_list_group",
+      "order": 57,
+      "label": "2",
+      "original_text": "Pretrained initialization with adaptation gives the strongest selected video, depth, and point-cloud consistency. Random initialization clearly drops video and geometry quality, suggesting depth supervision alone is insufficient without a strong prior. Fixed pretrained lies between: it retains useful priors but lacks adaptation. The final setting is trainable pretrained.",
+      "translation": "预训练初始化并允许适配时，选定的视频、深度和点云一致性指标最强。随机初始化会明显降低视频与几何质量，说明缺少强几何先验时，仅靠深度监督并不充分。固定预训练设置介于二者之间：保留有用先验，却缺少适配能力。最终采用可训练预训练设置。",
+      "confidence": "high"
+    },
+    {
+      "id": "S058",
+      "type": "paragraph_or_list_group",
+      "order": 58,
+      "label": "1",
+      "original_text": "Although introduced primarily as an auxiliary training objective, the spatial-register depth branch can be retained for qualitative analysis. WAM4D then has an interpretable 4D rollout: from only the first observed frame, it autoregressively predicts future RGB frames and depth maps, whose RGB-D pairs are back-projected into point clouds. This analysis path is separate from default deployment, where the depth branch is removed and the policy interacts through lightweight action generation.",
+      "translation": "空间寄存器深度分支虽主要作为辅助训练目标引入，也可保留用于定性分析。此时 WAM4D 具有可解释四维 rollout 能力：仅从首个观测帧出发，自回归预测未来 RGB 帧与深度图，再把 RGB-D 对反投影为点云。该分析路径不同于默认部署；默认部署会移除深度分支，策略通过轻量动作生成与环境交互。",
+      "confidence": "high"
+    },
+    {
+      "id": "S059",
+      "type": "paragraph_or_list_group",
+      "order": 59,
+      "label": "1",
+      "original_text": "In long autoregressive rollout, because WAM4D lacks explicit long-term memory, objects that become occluded or leave visible context may be completed as different objects. This affects closed-loop visualization of generated futures but, according to the authors, does not compromise evaluated policy success because control continually receives fresh real or simulated observations rather than relying only on generated rollout.",
+      "translation": "在长自回归 rollout 中，由于 WAM4D 没有显式长期记忆，发生遮挡或离开可见上下文的物体可能被补全为不同物体。这会影响生成未来的闭环可视化；但作者称它未损害其评估中的策略成功率，因为控制过程持续接收真实环境或模拟器的新观测，而非仅依赖自身生成的 rollout。",
+      "confidence": "high"
+    },
+    {
+      "id": "S060",
+      "type": "paragraph_or_list_group",
+      "order": 60,
+      "label": "1",
+      "original_text": "All latency and peak-memory measurements are collected on a single A800 80GB GPU. Training includes register blocks and the pretrained geometric head. Default WAM4D inference entirely removes register tokens, register cross-attention blocks, and the geometric head.",
+      "translation": "所有时延与峰值内存测量均在单张 A800 80GB GPU 上完成。训练包含寄存器块和预训练几何头；默认 WAM4D 推理则完整移除寄存器 token、寄存器交叉注意力块与几何头。",
+      "confidence": "high"
+    },
+    {
+      "id": "S061",
+      "type": "paragraph_or_list_group",
+      "order": 61,
+      "label": "1",
+      "original_text": "We present WAM4D, a fast 4D world action model that transfers geometric foundation priors into causal video-action representations through spatial register distillation. Experiments show that WAM4D improves spatial consistency and action prediction across simulation and real-world long-horizon tasks. While WAM is still slower than VLA at present, we aim to further boost its speed in future work.",
+      "translation": "本文提出 WAM4D，通过空间寄存器蒸馏把几何基础先验迁移到因果视频—动作表征。实验显示，WAM4D 在仿真与真实世界长时程任务上改善空间一致性与动作预测。作者承认当前 WAM 仍慢于 VLA，并计划进一步提升速度。",
+      "confidence": "high"
+    },
+    {
+      "id": "S062",
+      "type": "paragraph_or_list_group",
+      "order": 62,
+      "label": "2",
+      "original_text": "WAM4D improves geometry-aware video-action representations without requiring dense geometry during policy deployment. However, the model does not maintain explicit long-term object memory during autoregressive rollout. This can lead to identity-inconsistent completions after severe occlusion in qualitative generated futures. Future work could add persistent object memory or scene-state tracking while preserving the lightweight observation-to-action deployment path.",
+      "translation": "WAM4D 无需在策略部署时使用稠密几何，即可改善具备几何意识的视频—动作表征。然而，模型在自回归 rollout 中不维护显式长期物体记忆，严重遮挡后可能在定性生成未来中产生身份不一致的补全。未来工作可加入持久物体记忆或场景状态跟踪，同时保留轻量观测到动作部署路径。",
+      "confidence": "high"
+    }
+  ],
+  "captions": [
+    {
+      "id": "C001",
+      "type": "caption",
+      "page": 2,
+      "figure_id": "F001"
+    },
+    {
+      "id": "C002",
+      "type": "caption",
+      "page": 4,
+      "figure_id": "F002"
+    },
+    {
+      "id": "C003",
+      "type": "caption",
+      "page": 6,
+      "figure_id": "F003"
+    },
+    {
+      "id": "C004",
+      "type": "caption",
+      "page": 8,
+      "figure_id": "F004"
+    },
+    {
+      "id": "C005",
+      "type": "caption",
+      "page": 10,
+      "figure_id": "F005"
+    },
+    {
+      "id": "C006",
+      "type": "caption",
+      "page": 14,
+      "figure_id": "F006"
+    },
+    {
+      "id": "C007",
+      "type": "caption",
+      "page": 15,
+      "figure_id": "F007"
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "number": 1,
+      "page": 2,
+      "caption_id": "C001",
+      "image_path": "assets/page_002_figure_1.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        315
+      ]
+    },
+    {
+      "id": "F002",
+      "number": 2,
+      "page": 4,
+      "caption_id": "C002",
+      "image_path": "assets/page_004_figure_2.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        315
+      ]
+    },
+    {
+      "id": "F003",
+      "number": 3,
+      "page": 6,
+      "caption_id": "C003",
+      "image_path": "assets/page_006_figure_3.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        275
+      ]
+    },
+    {
+      "id": "F004",
+      "number": 4,
+      "page": 8,
+      "caption_id": "C004",
+      "image_path": "assets/page_008_figure_4.png",
+      "bbox_pdf": [
+        0,
+        225,
+        612,
+        610
+      ]
+    },
+    {
+      "id": "F005",
+      "number": 5,
+      "page": 10,
+      "caption_id": "C005",
+      "image_path": "assets/page_010_figure_5.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        285
+      ]
+    },
+    {
+      "id": "F006",
+      "number": 6,
+      "page": 14,
+      "caption_id": "C006",
+      "image_path": "assets/page_014_figure_6.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        730
+      ]
+    },
+    {
+      "id": "F007",
+      "number": 7,
+      "page": 15,
+      "caption_id": "C007",
+      "image_path": "assets/page_015_figure_7.png",
+      "bbox_pdf": [
+        0,
+        0,
+        612,
+        565
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "number": 1,
+      "page": 8,
+      "image_path": "assets/page_008_table_1.png",
+      "rows": 6
+    },
+    {
+      "id": "T002",
+      "number": 2,
+      "page": 8,
+      "image_path": "assets/page_008_table_2.png",
+      "rows": 4
+    },
+    {
+      "id": "T003",
+      "number": 3,
+      "page": 9,
+      "image_path": "assets/page_009_table_3.png",
+      "rows": 51
+    },
+    {
+      "id": "T004",
+      "number": 4,
+      "page": 10,
+      "image_path": "assets/page_010_table_4.png",
+      "rows": 8
+    },
+    {
+      "id": "T005",
+      "number": 5,
+      "page": 11,
+      "image_path": "assets/page_011_table_5.png",
+      "rows": 10
+    },
+    {
+      "id": "T006",
+      "number": 6,
+      "page": 11,
+      "image_path": "assets/page_011_table_6.png",
+      "rows": 36
+    },
+    {
+      "id": "T007",
+      "number": 7,
+      "page": 12,
+      "image_path": "assets/page_012_table_7.png",
+      "rows": 7
+    },
+    {
+      "id": "T008",
+      "number": 8,
+      "page": 13,
+      "image_path": "assets/page_013_table_8.png",
+      "rows": 4
+    },
+    {
+      "id": "T009",
+      "number": 9,
+      "page": 15,
+      "image_path": "assets/page_015_table_9.png",
+      "rows": 6
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "render_inspected": true
+    },
+    {
+      "page": 2,
+      "render_inspected": true
+    },
+    {
+      "page": 3,
+      "render_inspected": true
+    },
+    {
+      "page": 4,
+      "render_inspected": true
+    },
+    {
+      "page": 5,
+      "render_inspected": true
+    },
+    {
+      "page": 6,
+      "render_inspected": true
+    },
+    {
+      "page": 7,
+      "render_inspected": true
+    },
+    {
+      "page": 8,
+      "render_inspected": true
+    },
+    {
+      "page": 9,
+      "render_inspected": true
+    },
+    {
+      "page": 10,
+      "render_inspected": true
+    },
+    {
+      "page": 11,
+      "render_inspected": true
+    },
+    {
+      "page": 12,
+      "render_inspected": true
+    },
+    {
+      "page": 13,
+      "render_inspected": true
+    },
+    {
+      "page": 14,
+      "render_inspected": true
+    },
+    {
+      "page": 15,
+      "render_inspected": true
+    },
+    {
+      "page": 16,
+      "render_inspected": true
+    },
+    {
+      "page": 17,
+      "render_inspected": true
+    },
+    {
+      "page": 18,
+      "render_inspected": true
+    },
+    {
+      "page": 19,
+      "render_inspected": true
+    }
+  ],
+  "glossary": [
+    {
+      "term": "world action model (WAM)",
+      "translation": "世界动作模型",
+      "note": "joint future-observation and action model"
+    },
+    {
+      "term": "spatial register tokens",
+      "translation": "空间寄存器 token",
+      "note": "learnable future-depth queries"
+    },
+    {
+      "term": "causal mixture attention",
+      "translation": "因果混合注意力",
+      "note": "modality-specific visibility"
+    },
+    {
+      "term": "geometry readout",
+      "translation": "几何读出",
+      "note": "training-time branch"
+    },
+    {
+      "term": "4D",
+      "translation": "四维",
+      "note": "time-indexed RGB-D/point-cloud evolution in this paper"
+    }
+  ],
+  "status": "complete_reader_built",
+  "coverage": {
+    "base_source_groups": 63,
+    "bilingual_pairs": 63,
+    "continuation_fragments": 0,
+    "caption_pairs": 16,
+    "all_19_pages_inventoried": true
+  },
+  "notes": {
+    "coverage_counts": {
+      "source_groups": 63,
+      "base_bilingual_pairs": 63,
+      "continuations": 0,
+      "caption_pairs": 16,
+      "figures": 7,
+      "tables": 9,
+      "equations": 10,
+      "algorithm_steps": 11,
+      "references": 70,
+      "table3_data_rows": 51,
+      "table6_data_rows": 36
+    },
+    "reader_identity": "paper.md and detailed_paper.md are byte-identical.",
+    "reader_sha256": "1144eb5dd75d44e63d7b00fc52fb6339fd23fa08f281a66b310f415eb1d66063",
+    "english_para_line_words": 4771
+  }
+}

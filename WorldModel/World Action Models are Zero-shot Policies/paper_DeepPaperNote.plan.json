@@ -1,0 +1,128 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出 14B World Action Model DreamZero，将预训练视频扩散模型改造成联合视频-动作生成策略，并系统解决异构数据学习、零样本物理技能泛化、跨 embodiment 迁移和实时闭环控制。",
+  "dominant_domain": "robot foundation models, world models, and embodied manipulation",
+  "must_cover": [
+    "WAM 相对 VLA 的核心变化：从直接 observation-to-action 拟合转向未来视频预测与 inverse dynamics 的联合建模。",
+    "自回归 DiT、联合 flow matching、teacher forcing、KV cache 真值回填和异步执行构成的训练与推理链。",
+    "DreamZero-Flash 如何用解耦噪声日程消除单步推理的训练-测试错配。",
+    "500 小时、22 环境、7193 episodes 的 AgiBot 数据与 DROID、YAM、人类视频所承担的不同实验角色。",
+    "seen/unseen task、post-training、cross-embodiment、few-shot embodiment adaptation 的关键数字。",
+    "结论边界：任务进度并非统一成功率；主要比较受私有数据、算力、基线预训练历史和地理 OOD 设置影响。"
+  ],
+  "key_numbers": [
+    "DreamZero 为 14B，自回归视频扩散策略；在 2×GB200 上以约 150 ms/chunk、7 Hz 运行，相对 5.7 s baseline 累计 38× 加速。",
+    "AgiBot 预训练约 500 小时、22 个环境、7193 个 episode，平均 4.4 分钟、42.4 个 subtask；训练 100K steps、global batch size 128。",
+    "AgiBot seen-task 平均 task progress 为 62.2%，最强 pretrained VLA 为 27.4%；unseen-task 为 39.5%，最强 pretrained VLA 为 16.3%。",
+    "DROID-Franka unseen tasks：DreamZero 49% task progress / 22.5% success；GR00T N1.6 为 31% / 12.5%，π0.5 为 33% / 7.5%。",
+    "跨 embodiment 视频-only 数据将 unseen-task progress 从 38.3% 提升到 Human2Robot 54.3% 与 Robot2Robot 55.4%，仅使用 12–20 分钟、每任务 8 条视频。",
+    "30 分钟、55 trajectories、11 tasks 的 YAM play data 即可完成新 embodiment 适配并保留未见物体的语言跟随。",
+    "DreamZero 4-step 为 83%/350 ms；直接 1-step 为 52%/150 ms；DreamZero-Flash 1-step 恢复到 74%/150 ms。",
+    "消融：diverse data 50% 对 repetitive 33%；14B 50% 对 5B 21%；相同 diverse data 下 5B/14B VLA 均为 0%；AR 与 BD task progress 同为 50%，但 AR 快 3–4×。"
+  ],
+  "real_comparisons": [
+    "DreamZero 与 GR00T N1.6、π0.5 的 scratch 和官方 pretrained 初始化在相同下游数据与可比训练计算下比较。",
+    "AgiBot seen tasks、AgiBot unseen tasks、DROID-Franka seen/unseen tasks 的跨 embodiment 重复趋势。",
+    "pretraining 后零样本评测与三项 task-specific post-training 后的 OOD 环境评测。",
+    "无额外视频、Human2Robot 视频和 Robot2Robot 视频三种跨 embodiment 设置。",
+    "DreamZero 4-step、DreamZero 1-step、DreamZero-Flash 1-step 的速度-精度比较。",
+    "diverse/repetitive 数据、5B/14B 规模、autoregressive/bidirectional 架构消融。"
+  ],
+  "central_claims": [
+    {
+      "claim": "联合预测未来视频与动作，使策略能利用 web-scale 视频的时空先验，从异构、低重复 robot data 中学到可迁移的物理行为。",
+      "supporting_evidence": ["sec:abstract", "sec:introduction", "sec:related-work", "sec:data", "sec:method"],
+      "what_it_actually_proves": "在作者构建的 AgiBot OOD 评测和 DROID-Franka 评测中，DreamZero 的任务进度显著高于所列 VLA；数据多样性消融也从 33% 提升到 50%。",
+      "what_it_does_not_prove": "不能据此证明任何 WAM 都优于任何 VLA，也没有隔离 video pretraining 数据、14B 容量、目标函数和工程系统各自的因果贡献。"
+    },
+    {
+      "claim": "WAM 的视觉预测接口允许只用其他机器人或人类视频、无需动作标签，提升目标 robot 的未见任务表现。",
+      "supporting_evidence": ["sec:data", "sec:method", "sec:data-2"],
+      "what_it_actually_proves": "在 9 个 AgiBot 未见任务上，12–20 分钟视频将平均 task progress 从 38.3% 提升到 54.3%/55.4%。",
+      "what_it_does_not_prove": "样本小、误差条重叠较多且 morphology 接近；尚不能外推到大规模互联网视频或差异显著的 embodiment。"
+    },
+    {
+      "claim": "自回归闭环结构与 DreamZero-Flash 使 14B 视频扩散策略达到可执行的实时控制速度。",
+      "supporting_evidence": ["sec:related-work", "sec:future-work", "sec:method", "sec:data-2"],
+      "what_it_actually_proves": "在 2×GB200 系统上，组合优化把 chunk latency 从 5.7 s 降到约 150 ms，Flash 单步在 table bussing 上为 74%。",
+      "what_it_does_not_prove": "不代表能在消费级 GPU、边缘设备或所有 robot/control frequency 上实时运行；量化、DiT caching 和异步执行的独立行为代价没有完整展开。"
+    }
+  ],
+  "claim_boundaries": [
+    "zero-shot 指目标 task motion 不在指定 robot training distribution 中，并不意味着模型没有从 web video 或其他预训练语料见过相似人类行为。",
+    "AgiBot 的默认评测同时改变地理位置、环境、物体和摆放，结果混合了 task generalization 与 environment generalization。",
+    "task progress 是按阶段完成度定义的连续分数，不等同于 episode success；不同 robot/task 的进度量尺也不完全同质。",
+    "DreamZero 使用 14B Wan2.1-I2V backbone 与 2×GB200；部署成本明显高于可在消费 GPU 上 20 Hz 以上运行的 VLA。",
+    "作者尚未评测必须依赖长期记忆的任务；可用视觉历史不等于已经证明 long-horizon memory。",
+    "AgiBot 私有数据计划未来开放，当前完整主实验仍难以独立复现。"
+  ],
+  "negative_or_limiting_results": [
+    "未经 Flash 训练把 denoising steps 从 4 减到 1，table-bussing task progress 从 83% 降到 52%。",
+    "5B DreamZero 在相同 diverse data 下仅 21%，说明较小视频 backbone 会产生视觉 hallucination 并传导到动作。",
+    "autoregressive 与 bidirectional 在 PnP Easy 的平均 task progress 都是 50%，AR 优势主要体现在运动平滑与 3–4× 推理速度，而非该表的准确率。",
+    "跨 embodiment 后的平均进度仍只有 54.3%–55.4%，标准误约 9.5%–10.4%，离可靠部署仍远。",
+    "作者明确观察大多数失败源于视频生成错误；动作头会忠实执行错误视觉未来。",
+    "DreamZero 仍需 2×GB200 才到 7 Hz，远慢于部分 VLA 在消费级 GPU 上的 20 Hz 以上。"
+  ],
+  "mechanism_result_map": [
+    "预训练 video diffusion backbone 提供物理与时空先验，联合 video-action flow matching 把预测视觉未来与动作对齐；对应 diverse-data 与 VLA 对比中的大幅差距。",
+    "teacher forcing 让当前 noisy chunk 只看前序 clean chunks；闭环时用真实 observation 替换预测帧进入 KV cache，避免纯自回归视频的误差累积。",
+    "自回归架构保留 native FPS、支持任意长度 KV cache，并让整段 action sequence 反向传播；对应 AR 与 BD 相同进度但更平滑、更快。",
+    "异步 action chunk 执行将硬约束从单步推理时延改为在当前 1.6 s chunk 结束前完成；CFG 并行、DiT caching、compile、CUDA Graph、kernel、量化逐级压缩时延。",
+    "Flash 让 video timestep 偏向高噪声而 action timestep 保持均匀，直接训练 clean action conditioned on noisy video；对应单步性能从 52% 恢复到 74%。",
+    "跨 embodiment 数据只施加 video objective，目标 robot 数据继续联合 video-action objective；共同的视觉动力学表征解释无 action label 的迁移。"
+  ],
+  "comparative_positioning": [
+    "相对 VLA，DreamZero 不只把 VLM 接一个 action head，而是把 future video 当显式 dense supervision 与 implicit visual planner。",
+    "相对分离式 video planner + inverse dynamics，DreamZero 用单一 DiT 端到端联合去噪以加强 video-action alignment。",
+    "相对 latent world model，DreamZero 依赖 web-scale video backbone 的已有物理先验，但付出高维视频生成和巨大推理计算代价。",
+    "相对既有 WAM，本文的增量不只在 joint objective，而是把 heterogeneous data scaling、autoregressive closed loop、cross-embodiment video-only transfer 与实时系统做成完整证据链。"
+  ],
+  "reuse_takeaways": [
+    "做具身 world model 时，最可复用的设计不是把视频当辅助 loss，而是让 future video 与 action 在同一噪声/注意力系统中严格对齐。",
+    "自回归世界模型进入闭环控制后，可用真实观测刷新 cache，把 open-loop generation 的累积误差问题转化为 stateful policy 机制。",
+    "少步扩散部署应显式匹配训练时的跨模态噪声状态；Flash 的 decoupled schedule 是一个直接可迁移的训练-推理对齐思路。",
+    "异构机器人数据应优先增加 state-action correspondence 覆盖，而非只堆叠同一 task 的重复 demonstration。",
+    "评测 WAM 应分开报告 task progress、success、latency、hardware、generated-video error 和 action-extraction error。"
+  ],
+  "followup_questions": [
+    "在相同参数量、相同预训练视频和相同算力下，joint video-action objective 相对纯 action objective 的净收益是多少？",
+    "Flash 的 Beta(7,1) 是否对 robot、chunk horizon、noise parameterization 和 denoising solver 敏感？",
+    "如果跨 embodiment morphology 差距更大，视频-only transfer 的提升是否仍成立，还是需要显式 retargeting？",
+    "用 latent/feature prediction 替代像素视频能否保留泛化，同时把 2×GB200 成本降到边缘设备？",
+    "如何自动检测 generated future 与真实动力学冲突，并在执行错误 action chunk 前触发拒绝或重规划？",
+    "公开 AgiBot 数据与 checkpoint 后，地理 OOD、物体 OOD、task OOD 三种因素能否被正交拆分？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释 VLA 的 semantic prior 为什么不能自动转化成未见 motion，以及 WAM 如何把未来状态预测变成动作学习接口。",
+      "evidence_sources": ["sec:abstract", "sec:introduction", "sec:related-work"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "覆盖 AgiBot 500 小时异构数据、DROID、seen/unseen task、post-training、YAM 和 human video 的角色及评测协议。",
+      "evidence_sources": ["sec:future-work", "sec:experimental-results", "sec:data", "sec:data-2"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按输入编码、联合 flow matching、chunk-wise AR、KV cache 真值回填、异步执行和 Flash 单步去噪解释机制链。",
+      "evidence_sources": ["sec:related-work", "sec:future-work", "sec:data-2"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用紧凑表格记录 seen/unseen、post-training、跨 embodiment、Flash 和 model/data/architecture ablation。",
+      "evidence_sources": ["sec:experimental-results", "sec:data", "sec:method", "sec:method-2", "sec:data-2"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "把具体机制映射到结果，区分 WAM 范式贡献、14B backbone、数据覆盖和系统工程，并说明失败为何主要来自 video generation。",
+      "evidence_sources": ["sec:introduction", "sec:related-work", "sec:future-work", "sec:data", "sec:method", "sec:data-2"]
+    },
+    {
+      "section": "局限",
+      "focus": "界定 zero-shot、task progress、私有数据、算力成本、短期记忆、跨 embodiment 样本规模和因果消融不足。",
+      "evidence_sources": ["sec:future-work", "sec:data", "sec:method", "sec:data-2"]
+    }
+  ]
+}

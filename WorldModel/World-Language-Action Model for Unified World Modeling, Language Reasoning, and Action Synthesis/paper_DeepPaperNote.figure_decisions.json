@@ -1,0 +1,248 @@
+{
+  "status": "ok",
+  "script": "manual_visual_verification_after_plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2606.05979",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "pages": [
+        2
+      ],
+      "decision": "insert",
+      "reason": "VLA/WAM/WLA 定位与核心接口。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "研究问题",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_002_fig_figure_1.png"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "pages": [
+        4
+      ],
+      "decision": "insert",
+      "reason": "总体架构及 TTS 主图。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "方法主线",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_004_fig_figure_2.png"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "pages": [
+        7
+      ],
+      "decision": "insert",
+      "reason": "真机任务、OOD、成功数和时延。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "关键结果",
+      "source_image_filename": "page_007_fig_figure3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_007_fig_figure3.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_007_fig_figure3.png"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "pages": [
+        8
+      ],
+      "decision": "low_priority",
+      "reason": "自动裁图视觉质量不足；正文转录 Seen-Action/同具身/跨具身 hammer 轨迹含义并结合 Table 3 定量。",
+      "visual_quality_status": "reject_visual_quality"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "pages": [
+        15
+      ],
+      "decision": "low_priority",
+      "reason": "任务与人类第一视角视频配对已用文字覆盖，关键负结果由 Table 6 原生表承载。",
+      "visual_quality_status": "usable_but_low_priority"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "pages": [
+        15
+      ],
+      "decision": "low_priority",
+      "reason": "Battery Try 的四个子任务已在 RMBench 分析中转录。",
+      "visual_quality_status": "reject_visual_quality"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "pages": [
+        16
+      ],
+      "decision": "low_priority",
+      "reason": "Blocks Ranking Try 的九步搜索与验证流程已转录。",
+      "visual_quality_status": "low_priority"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "pages": [
+        16
+      ],
+      "decision": "low_priority",
+      "reason": "Cover Blocks 的覆盖和揭盖顺序已转录。",
+      "visual_quality_status": "low_priority"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "pages": [
+        17
+      ],
+      "decision": "low_priority",
+      "reason": "Press Button 的计数与确认子任务已转录。",
+      "visual_quality_status": "low_priority"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "pages": [
+        19
+      ],
+      "decision": "low_priority",
+      "reason": "仅为预测帧与真值的定性拼图；笔记记录其缺少 FVD/LPIPS/几何误差，不以图片替代量化证据。",
+      "visual_quality_status": "usable_but_low_priority"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "pages": [
+        5
+      ],
+      "decision": "low_priority",
+      "reason": "自动裁图仅包含表头和第一行，改为完整 Markdown 表。",
+      "visual_quality_status": "incomplete_crop"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "pages": [
+        6
+      ],
+      "decision": "insert",
+      "reason": "RMBench 语言记忆核心消融证据。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "关键结果",
+      "source_image_filename": "page_006_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_006_fig_table_2.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_006_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "pages": [
+        8
+      ],
+      "decision": "insert",
+      "reason": "同具身和跨具身未见任务视频比较。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "关键结果",
+      "source_image_filename": "page_008_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_008_fig_table_3.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_008_fig_table_3.png"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "pages": [
+        13
+      ],
+      "decision": "low_priority",
+      "reason": "五列数字紧凑，正文完整转录并解释单/多帧边界。",
+      "visual_quality_status": "usable_but_transcribed"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "pages": [
+        14
+      ],
+      "decision": "low_priority",
+      "reason": "正文以紧凑 Markdown 表完整覆盖四任务三条件。",
+      "visual_quality_status": "low_priority"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "pages": [
+        15
+      ],
+      "decision": "insert",
+      "reason": "人类第一视角视频失败是重要负结果。",
+      "visual_quality_status": "verified_usable",
+      "target_section": "局限",
+      "source_image_filename": "page_015_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_015_fig_table_6.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a0c4c61f565631b6b/WorldModel/World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis/images/page_015_fig_table_6.png"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "pages": [
+        18
+      ],
+      "decision": "low_priority",
+      "reason": "原表 50 行过密；笔记记录完整表作用、平均值、代表性强弱任务与反例。",
+      "visual_quality_status": "low_priority_dense_table"
+    }
+  ],
+  "summary": {
+    "total_items": 17,
+    "insert": 6,
+    "transcribe": 11,
+    "visually_verified_insertions": 6,
+    "all_items_covered": true
+  }
+}

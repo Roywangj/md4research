@@ -1,0 +1,364 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes a training-free inference-time algorithm for maintaining visual grounding during extended multimodal reasoning.",
+  "dominant_domain": "Multimodal reasoning, test-time scaling, visual token reinjection, visually grounded reasoning.",
+  "must_cover": [
+    "The core problem is visual token dilution during long text-heavy reasoning.",
+    "VisRef selects a compact visual token coreset at each reasoning step.",
+    "DPP scoring balances relevance to the current reasoning state and diversity over visual content.",
+    "An entropy-based stopping criterion controls overthinking and under-reasoning.",
+    "Main results show consistent gains over standard thinking and textual self-reflection across MathVista, MathVision, and MM-Star."
+  ],
+  "key_numbers": [
+    "Main setting: entropy threshold 0.25, visual token budget 30% of total visual tokens, maximum steps 10.",
+    "InternVL3.5-8B gains over standard thinking: +5.4 on MathVision, +11.2 on MathVista, +5.9 on MM-Star.",
+    "SAIL-VL2-8B gains over standard thinking: +7.5 on MathVision, +5.1 on MathVista, +7.6 on MM-Star.",
+    "VisRef plus Look-Back reaches 83.1 on MathVista, 48.2 on MathVision, and 66.0 on MM-Star.",
+    "DPP objective reaches 79.3, 44.6, and 63.1, outperforming relevance-only selection.",
+    "Token budget from 20% to 30% improves MathVista accuracy from 76.1% to 79.2%; 40% plateaus.",
+    "Latency on MathVista with InternVL3.5-8B: standard thinking 7.1s, textual self-reflection 7.7s, Look-Back 7.6s, VisRef 8.2s.",
+    "Model scale appendix: InternVL-1B 52.0, InternVL-2B 58.1, InternVL-8B 79.3 with VisRef."
+  ],
+  "real_comparisons": [
+    "Compared with standard thinking, VisRef reinjects visual token coresets during reasoning rather than relying on the initial image encoding only.",
+    "Compared with textual self-reflection, VisRef adds visual grounding rather than only extending text reasoning.",
+    "Compared with Look-Back, VisRef is training-free but can combine with the trained method for complementary gains.",
+    "Compared with ICoT and DaP-ICoT, VisRef operates at visual-token coreset level instead of inserting object images or image crops."
+  ],
+  "central_claims": [
+    {
+      "claim": "Long text-heavy multimodal reasoning suffers from visual token dilution, and visual reinjection can counteract it.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:discussion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The paper shows that selective visual token reinjection improves performance and attention focus on the tested visual reasoning benchmarks.",
+      "what_it_does_not_prove": "It does not prove that every long multimodal reasoning failure is caused by visual dilution rather than planning or language reasoning errors."
+    },
+    {
+      "claim": "DPP-based visual token selection is better than naive or single-term selection under a fixed budget.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:model-3",
+          "pages": [
+            14,
+            15
+          ]
+        }
+      ],
+      "what_it_actually_proves": "A relevance-diversity coreset gives stronger results than random or relevance-only selection in the authors' ablations.",
+      "what_it_does_not_prove": "It does not prove DPP is the only or globally optimal way to balance visual evidence diversity and relevance."
+    },
+    {
+      "claim": "VisRef is a practical training-free test-time scaling method.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:appendix",
+          "pages": [
+            12,
+            13,
+            14
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The method is plug-and-play for the evaluated pretrained MLRMs and improves accuracy under fixed token budgets.",
+      "what_it_does_not_prove": "It does not eliminate latency overhead; the appendix reports extra inference cost from per-step DPP selection."
+    }
+  ],
+  "claim_boundaries": [
+    "The main claims are scoped to MathVista, MathVision, MM-Star, and the listed MLRM backbones.",
+    "The method is training-free for model parameters, but it still changes decoding-time computation and context composition.",
+    "Efficiency is evaluated under token budgets and latency measurements, not as a zero-overhead improvement.",
+    "The entropy threshold and 30% token budget are tuned choices and may require adaptation in new settings."
+  ],
+  "negative_or_limiting_results": [
+    "The limitations section explicitly states that DPP-based token selection adds inference latency.",
+    "Relevance-only selection is weaker than full DPP, showing that the method is sensitive to selection objective design.",
+    "Increasing the token budget beyond 30% does not improve accuracy, so more visual tokens can be wasteful.",
+    "Textual self-reflection can degrade performance on some visual-dependent settings, such as Qwen-3-VL-8B on MM-Star."
+  ],
+  "mechanism_result_map": [
+    "Visual token reinjection maps to higher visual-to-text attention and better attention localization in qualitative figures.",
+    "DPP relevance-diversity scoring maps to Table 3 and Table 7 improvements over partial or random selection.",
+    "Entropy stopping maps to controlled reasoning length and the chosen threshold of 0.25.",
+    "Parallel visual-integrated traces under fixed budget map to Figure 3 test-time scaling gains over text-only parallel thinking."
+  ],
+  "comparative_positioning": [
+    "VisRef is the visual-token-level counterpart to ICoT and DaP-ICoT, which work by inserting visual regions or object images.",
+    "VisRef is orthogonal to training-based Look-Back; combining the two yields the best Table 2 results.",
+    "VisRef differs from DeepScan because it does not discover new image regions through external visual experts; it reweights and reinjects existing visual tokens.",
+    "VisRef differs from PRCR because it focuses on coreset selection, while PRCR focuses on replay-free cache reuse and position rebinding."
+  ],
+  "reuse_takeaways": [
+    "When testing visual reasoning systems, report whether longer text reasoning actually reduces visual attention.",
+    "Use a relevance-diversity selection objective when a fixed visual token budget forces compression.",
+    "Pair test-time scaling with an adaptive stopping rule to avoid uncontrolled overthinking.",
+    "For 3D agent work, adapt VisRef's gate to decide when to reinject rendered views or visual memory into a planning trace."
+  ],
+  "followup_questions": [
+    "Would VisRef still help if the visual tokens come from multi-view 3D renders rather than a single 2D image?",
+    "How sensitive is DPP selection to the visual encoder and token granularity of each MLRM?",
+    "Can the entropy threshold be calibrated per model without validation labels?",
+    "Does visual reinjection help open-ended generation, or mainly closed-form answer benchmarks?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record metadata, arXiv identity, institutions, code availability when known, datasets, and TrainingFree classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the original abstract around visual token dilution, training-free reinjection, and the 6.4% gain.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Separate VisRef's innovations into visual token reinjection, DPP coreset selection, and entropy stopping.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Compress the paper into the local Reasoning map as visual-token-level test-time evidence reinjection.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why long text-only reasoning loses grounding and why visual refocusing is needed.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Define the input-output trajectory, benchmarks, baselines, model backbones, and evaluation settings.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:appendix",
+          "pages": [
+            12,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Trace the execution chain from reasoning state to DPP token selection, visual reinjection, entropy stopping, and final answer.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Use Table 1, Figure 3, Table 2, and appendix tables to explain accuracy, scaling, training comparison, latency, and model scale.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:appendix",
+          "pages": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "section_id": "sec:model-3",
+          "pages": [
+            14,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Assess the real contribution, why relevance-diversity helps, where latency and threshold tuning limit the claims.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:discussion",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:appendix",
+          "pages": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "section_id": "sec:model-3",
+          "pages": [
+            14,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "State the concrete limits around extra latency, benchmark scope, hyperparameter tuning, and token-level rather than object-level evidence.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:appendix",
+          "pages": [
+            12
+          ]
+        },
+        {
+          "section_id": "sec:discussion",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "Relate VisRef to ICoT, DaP-ICoT, DeepScan, REALM, and future 3D agent visual memory designs.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "Record DOI, arXiv link, Zotero item, local PDF, and a reusable citation key.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:references",
+          "pages": [
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    }
+  ]
+}

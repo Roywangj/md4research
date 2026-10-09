@@ -1,0 +1,217 @@
+{
+  "status": "ok",
+  "script": "lint_note.py",
+  "paper_id": "doi:10.48550/arxiv.2606.27504",
+  "input_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/worldmodel/ReWorld Representation Learning for World Action Models/paper_DeepPaperNote.md",
+  "headers": [
+    "ReWorld: Representation Learning for World Action Models",
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "数据集和评测任务",
+    "受控基线和训练协议",
+    "方法主线",
+    "机制流程",
+    "链式 WAM 和基础流匹配",
+    "阶段 1：未来预测的中间表征",
+    "阶段 2：跨模态世界对齐",
+    "阶段 3：行为感知动作表征",
+    "关键结果",
+    "主结果与强基线",
+    "消融到底说明了什么",
+    "定性结果",
+    "深度分析",
+    "真正贡献是什么",
+    "为什么结果可能成立",
+    "与相关 WAM 的位置",
+    "容易误读的地方",
+    "复现注意点",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "missing_sections": [],
+  "warnings": [
+    "mixed_language_lines_present"
+  ],
+  "mixed_language_issues": [
+    {
+      "line_number": 34,
+      "line": "世界动作模型（WAM）把未来环境预测与动作生成结合起来，用于自动驾驶；然而，现有方法只优化最终输出，中间表征只是附带产物。本文提出 ReWorld，这是首个专门面向自动驾驶 WAM 的表征学习框架。ReWorld 通过三种互补机制显式优化潜在的“世界到动作”路径。第一，在中间 Video DiT 状态上施加未来预测监督，使其编码时间场景动态，并支持自引导采样，使收敛速度大约提高一倍。第二，把 Action DiT 状态与其注意力读取到的视频信息对齐，使取回的世界信息保留在用于规划的表征中。第三，使用几何上接近但得分较低的困难负样本塑造动作空间，把专家轨迹与附近的不安全替代轨迹分开。ReWorld 完全从 WAM 自身的生成目标和注意力读取特征构造监督，不需要外部编码器或教师模型，并且只增加每步 Video DiT 训练成本的 0.3%。实验显示，ReWorld 在 nuScenes 上把 FVD 从 81.3 降到 61.9，在 NAVSIM 上把闭环 PDMS 从 89.1 提高到 90.4，且不使用强化学习或测试时打分；在 UCF-101 动作识别的冻结线性探测中，准确率从 68.3% 提高到 80.2%。这些结果说明，显式优化表征是把世界知识转化为 WAM 规划能力的关键。",
+      "english_word_count": 19,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 38,
+      "line": "1. **把 WAM 的瓶颈定位为中间“世界到动作”表征，而不是单纯的输出质量。** DriveLaW 已经让 Action DiT 读取 Video DiT 的中间状态；ReWorld 进一步问这些状态是否真的携带未来、跨模态和闭环决策信息。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 46,
+      "line": "ReWorld 不再把 Video DiT 的中间状态当作免费缓存，而是先让它预测未来、再让 Action DiT 保留读取到的世界信息，最后用闭环低分困难负样本塑造动作空间；在同一 DriveLaW 接口上，这同时改善视频、规划和迁移表征，但其效率与性能结论仍受单一架构、单一数据协议和缺少严格 action-only 对照的限制。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 50,
+      "line": "WAM 的目标不是只生成好看的未来视频，而是让未来世界知识帮助动作决策。链式 WAM（本文沿用 DriveLaW）把 2B Video DiT 的初始反向流步骤中间特征 $F$ 缓存给 133M Action DiT；规划时不解码未来视频，而是直接从该潜表示生成自车轨迹。这个接口给出了知识传递通道，但没有保证通道里的状态具备正确语义。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 66,
+      "line": "- **NAVSIM v1：** 基于 OpenScene 的数据驱动、非反应式闭环规划基准；Navtrain 约 103k 场景，Navtest 约 12k 场景。轨迹监督使用 2 Hz 观测，规划评价指标为 NC、DAC、TTC、舒适度、EP 和 PDMS。",
+      "english_word_count": 11,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 69,
+      "line": "视频生成报告 FID（帧级视觉保真度）与 FVD（强调时间一致性的视频质量）；闭环规划使用：无责任碰撞 NC、可行驶区域合规 DAC、碰撞时间 TTC、舒适度 Comf.、自车进度 EP，以及",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 79,
+      "line": "主系统以 DriveLaW 为架构基线：2B Video DiT 初始化自 LTX-Video，133M Action DiT 读取视频中间特征。视频先经过长低分辨率片段 $(740\\times352\\times121)$，再经过短高分辨率片段 $(1280\\times704\\times25)$ 的渐进式预训练；动作分支随后使用预训练视频潜变量做流匹配。",
+      "english_word_count": 10,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 81,
+      "line": "为了比较表征学习方法，作者从 LTX-Video 从头训练 120k 步，使用 nuPlan 与 nuScenes、$224\\times224\\times25$ 片段、无文本编码器，批量大小 32，报告 nuScenes 测试集 FVD 和相对每步 Video DiT 成本。这个协议与主 DriveLaW/ReWorld 训练不是同一个设置，不能直接把两个 FVD 数值横向比较。",
+      "english_word_count": 12,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 93,
+      "line": "*图 1（p.2）：ReWorld 总览。上方 Video DiT 生成未来场景并在中间状态提取 $F$，下方 Action DiT 用该状态生成轨迹；右侧困难负样本由候选池经轨迹安全评估得到。图中明确展示三阶段监督位置，是理解“形成—转移—塑形”顺序的最有用证据。*",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 97,
+      "line": "给定驾驶片段 $x$、历史自车运动 $s_{\\le0}$ 和导航命令 $g$，时空 VAE 得到 $z_0=E(x)$。视频流时间 $t_v\\sim U(0,1)$，噪声 $\\epsilon_z\\sim\\mathcal N(0,I)$，插值得到",
+      "english_word_count": 12,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 109,
+      "line": "未来自车轨迹 $a_0\\in\\mathbb R^{L\\times3}$ 的每个 waypoint 为 $(x_\\ell,y_\\ell,\\psi_\\ell)$。独立采样动作流时间 $t_a$ 和噪声 $\\epsilon_a$，得到 $a_{t_a}=(1-t_a)a_0+t_a\\epsilon_a$。动作编码器产生 $h_{\\mathrm{act}}=E_{\\mathrm{act}}(a_{t_a})$，历史运动与导航命令编码为 $h_{\\mathrm{ctx}}=E_{\\mathrm{ctx}}([s_{\\le0};g])$，Action DiT 通过跨注意力读取 $F$ 并预测",
+      "english_word_count": 22,
+      "function_word_hits": [
+        "in"
+      ]
+    },
+    {
+      "line_number": 121,
+      "line": "基础 DriveLaW 按视频训练、动作训练的顺序优化 $\\mathcal L_{\\mathrm{Gen}}$ 和 $\\mathcal L_{\\mathrm{FM}}$。规划推理只在第一个离散视频去噪步骤做一次 Video DiT 前向并缓存 $F$，不解码未来视频；Action DiT 用五个流匹配步骤生成轨迹。这里“缓存”是同一前向激活跨动作流步骤复用，并非离线预计算。",
+      "english_word_count": 12,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 158,
+      "line": "第 $k$ 个 Action DiT 跨注意力层中，动作标记 $i$ 的后跨注意力状态为 $a_i^{(k)}$，其对视频标记 $j$ 的注意力权重为 $\\alpha_{ij}^{(k)}$，对应值向量为 $v_j^{(k)}$。多头输出投影后的读出为",
+      "english_word_count": 9,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 182,
+      "line": "每个训练场景离线生成 $N=64$ 条候选轨迹 $\\{\\tau^{(n)}\\}$，用 NAVSIM PDM 得分 $s(\\cdot)$ 评估。给定专家轨迹 $\\tau^{\\mathrm{exp}}$，先筛出",
+      "english_word_count": 10,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 204,
+      "line": "为强调相对运动而不是绝对位置，每个 waypoint 映射为四通道增量 $\\Delta(\\tau)_\\ell=(\\Delta x_\\ell,\\Delta y_\\ell,\\sin\\psi_\\ell,\\cos\\psi_\\ell)$；正弦—余弦编码避免角度断点。对有效困难负样本场景集合 $V$，定义",
+      "english_word_count": 13,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 233,
+      "line": "表 1（p.7）显示，在 nuScenes 验证集上，ReWorld 相对 DriveLaW 的 FVD 下降 19.4，约相对改善 23.9%；FID 也从 4.6 降到 4.4。标准采样（$\\gamma=1.0$）时，仅加入中间监督把 FVD 从 81.3 降到 78.9；61.9 是中间监督与 $\\gamma=1.4$ 自引导的组合结果。因而不能把 61.9 的全部增益归因于辅助头。",
+      "english_word_count": 9,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 261,
+      "line": "表 2（p.8）中，ReWorld 相对 DriveLaW 的 PDMS 提升 1.3；DAC 从 97.1 到 98.2，TTC 从 96.7 到 97.7，NC 从 99.0 到 99.1，EP 从 81.3 到 82.0。舒适度由 100 降为 99.8，说明改善不是所有指标都同步。它在该表的世界模型组中 PDMS、NC、DAC、TTC 最高，但这是 NAVSIM 的非反应式评分，不等同于现实道路安全。",
+      "english_word_count": 13,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 294,
+      "line": "表 4（p.9）显示 ReWorld 比 Vanilla Flow 低 33.7 FVD，比最强自监督对手 Self-Flow 低 12.9。这个协议去掉文本并从头训练，结果支持“生成器原生未来流目标比外部语义空间更匹配长时程视频”的解释，但不应与表 1 的 FVD 直接比较。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 341,
+      "line": "| 配置 | $\\mathcal L_{\\mathrm{align}}$ | $\\mathcal L_{\\mathrm{RDE}}$ | PDMS↑ |",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 390,
+      "line": "真正的增量不是新的视频骨干、流匹配或 Action DiT，而是围绕既有链式接口明确设计三种表征监督：未来目标进入中间视频层，视频 readout 进入动作状态，闭环得分进入动作局部几何。第一、二阶段在特征路径上直接施加约束，第三阶段则通过轨迹梯度间接重塑共享表示。这个设计把“Video DiT 能生成未来”和“Action DiT 能输出轨迹”之间的未约束区域变成了可训练对象。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 405,
+      "line": "| DriveLaW | Video DiT 中间状态直接条件化 Action DiT | 规划时只做一次潜空间前向 | 流匹配 Action DiT |",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 424,
+      "line": "- 主干是 2B Video DiT + 133M Action DiT，视频初始化自 LTX-Video；不要把表征学习受控协议的无文本、$224\\times224\\times25$ 小片段设置误当作主系统输入。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 425,
+      "line": "- 阶段 1：20k 步、全局 batch 64、AdamW、学习率 $10^{-5}$、权重衰减 $5\\times10^{-2}$、$S=\\{8\\}$；使用 $\\mathcal L_{\\mathrm{Gen}}+\\lambda_{\\mathrm{Mid}}\\mathcal L_{\\mathrm{Mid}}$。",
+      "english_word_count": 12,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 426,
+      "line": "- 阶段 2：从 DriveLaW checkpoint 初始化，冻结 Video DiT，6k 步、batch 128，第 12 个跨注意力层、$\\lambda_{\\mathrm{align}}=0.05$。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 451,
+      "line": "1. 固定 DriveLaW 的全部架构和训练预算，只删除 $\\mathcal L_{\\mathrm{Mid}}$ / 视频协同目标，给出 action-only、video-only 和完整课程的多 seed 结果。",
+      "english_word_count": 7,
+      "function_word_hits": []
+    },
+    {
+      "line_number": 452,
+      "line": "2. 在相同视频特征和相同 Action DiT 容量下比较无 Align、余弦 Align、均方 Align、readout detach 与不 detach，验证“保留读出”而非正则强度本身带来的收益。",
+      "english_word_count": 8,
+      "function_word_hits": []
+    }
+  ],
+  "mechanical_translation_artifact_issues": [],
+  "linebreak_issues": [],
+  "code_math_issues": [],
+  "math_render_issues": [],
+  "figure_structure_issues": [],
+  "core_info_structure_issues": [],
+  "reference_hygiene_issues": [],
+  "substantive_content_issues": [],
+  "planning_artifact_found": true,
+  "planning_artifact_issues": [],
+  "passes_basic_structure": true,
+  "passes_style_gate": false,
+  "passes_math_gate": true,
+  "passes_figure_gate": true,
+  "passes_reference_hygiene_gate": true,
+  "passes_plan_gate": true,
+  "passes_substantive_content": true
+}

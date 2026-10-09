@@ -1,0 +1,54 @@
+{
+  "decisions": [
+    {
+      "figure": "Figure 1",
+      "status": "insert",
+      "asset": "images/page_002_figure_1.png",
+      "anchor": "PDF p.2, Fig. 1",
+      "description": "GR3D 整体框架概览：从多视点图像到 3D 重建、几何属性提取、文本参考编码与图像 ID 投影标注，进而赋能 MLLM 空间推理。"
+    },
+    {
+      "figure": "Figure 2",
+      "status": "insert",
+      "asset": "images/page_004_figure_2.png",
+      "anchor": "PDF p.4, Fig. 2",
+      "description": "带遮挡剔除的对象投影标注：初始无遮挡投影、3D 重建深度图以及基于深度比较 (z > D(i, j)) 剔除遮挡后的标注效果。"
+    },
+    {
+      "figure": "Figure 3",
+      "status": "insert",
+      "asset": "images/page_005_figure_3.png",
+      "anchor": "PDF p.5, Fig. 3",
+      "description": "评测所采用的提示词模板：定义右手坐标系、z 轴朝上、厘米单位、2D 平面计算原则以及向量外积规则。"
+    },
+    {
+      "figure": "Table 1",
+      "status": "insert",
+      "asset": "images/page_006_table_1.png",
+      "anchor": "PDF p.6, Tab. 1",
+      "description": "VSI-Bench 综合评测结果：比较 InternVL2-8B、VG LLM-8B、Gemini-1.5 Pro、GPT-4o 与 GPT-5 在集成 GR3D 前后的各项细分得分。"
+    },
+    {
+      "figure": "Table 2",
+      "status": "insert",
+      "asset": "images/page_006_table_2.png",
+      "anchor": "PDF p.6, Tab. 2",
+      "description": "MindCube 稀疏视角空间评测结果：在 Rotation、Among、Around 三种典型视点变换下的准确率提升。"
+    },
+    {
+      "figure": "Table 3",
+      "status": "insert",
+      "asset": "images/page_006_table_3.png",
+      "anchor": "PDF p.6, Tab. 3",
+      "description": "消融实验结果：评估去除图像 ID 标注、替换为 VGGT 重建、提供显式相机参数矩阵以及使用带引用的场景文本描述的影响。"
+    },
+    {
+      "figure": "Figure 4",
+      "status": "insert",
+      "asset": "images/page_007_figure_4.png",
+      "anchor": "PDF p.7, Fig. 4",
+      "description": "稀疏视角下的定性案例对比：基线 GPT-5 产生的空间幻觉与 GR3D + GPT-5 的向量几何解析及空间锚定推理对比。"
+    }
+  ],
+  "figure_policy": "All key figures and tables are inserted and grounded in the main text with detailed Chinese descriptions and Markdown transcriptions."
+}

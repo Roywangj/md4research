@@ -1,0 +1,517 @@
+{
+  "paper": {
+    "title": "Scaling Properties of Text Conditioning in Visual Generation",
+    "authors": [
+      "Zilong Chen",
+      "Chaorui Deng",
+      "Kunchang Li",
+      "Hongyi Yuan",
+      "Haoqi Fan"
+    ],
+    "year": 2026,
+    "venue": "Technical Report",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/MUQ6N8C7/Chen 等 - SCALING PROPERTIES OF TEXT CONDITIONING IN VISUAL GENERATION.pdf",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/MUQ6N8C7/Chen 等 - SCALING PROPERTIES OF TEXT CONDITIONING IN VISUAL GENERATION.pdf",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "pages": 61,
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md"
+  },
+  "notes": {
+    "layout": "Two-column PDF, visually verified through rendered pages",
+    "reference_policy": "Bibliography retained in original English",
+    "coverage": "Complete main text, references, Appendices A-G, exact prompts"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Complete bilingual coverage of Abstract",
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "3-4",
+      "summary": "Complete bilingual coverage of Introduction",
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Related Work",
+      "pages": "4-5",
+      "summary": "Complete bilingual coverage of Related Work",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Method overview and structured prompts",
+      "pages": "5-7",
+      "summary": "Complete bilingual coverage of Method overview and structured prompts",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Caption informativeness and scaling properties",
+      "pages": "7-10",
+      "summary": "Complete bilingual coverage of Caption informativeness and scaling properties",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Raising diffusability",
+      "pages": "10-11",
+      "summary": "Complete bilingual coverage of Raising diffusability",
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Raising promptability",
+      "pages": "11-13",
+      "summary": "Complete bilingual coverage of Raising promptability",
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Experiments",
+      "pages": "14-18",
+      "summary": "Complete bilingual coverage of Experiments",
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Conclusion and Limitations",
+      "pages": "18-19",
+      "summary": "Complete bilingual coverage of Conclusion and Limitations",
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "References",
+      "pages": "19-23",
+      "summary": "Complete bilingual coverage of References",
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "Appendix contents",
+      "pages": "24",
+      "summary": "Complete bilingual coverage of Appendix contents",
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Appendix A GPG details",
+      "pages": "25-28",
+      "summary": "Complete bilingual coverage of Appendix A GPG details",
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "Appendix B ED validation",
+      "pages": "28-30",
+      "summary": "Complete bilingual coverage of Appendix B ED validation",
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "Appendix C schema and implementation",
+      "pages": "30-36",
+      "summary": "Complete bilingual coverage of Appendix C schema and implementation",
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "Appendix D benchmark breakdowns",
+      "pages": "36-41",
+      "summary": "Complete bilingual coverage of Appendix D benchmark breakdowns",
+      "confidence": "high"
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "Appendix E exact system prompts",
+      "pages": "41-52",
+      "summary": "Complete bilingual coverage of Appendix E exact system prompts",
+      "confidence": "high"
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Appendix F retained prompts",
+      "pages": "52-55",
+      "summary": "Complete bilingual coverage of Appendix F retained prompts",
+      "confidence": "high"
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Appendix G qualitative examples",
+      "pages": "55-61",
+      "summary": "Complete bilingual coverage of Appendix G qualitative examples",
+      "confidence": "high"
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 1,
+      "caption_id": "C001",
+      "image_path": "assets/page_001_fig_figure_1.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 1 from the source PDF"
+    },
+    {
+      "id": "F002",
+      "page": 2,
+      "caption_id": "C002",
+      "image_path": "assets/page_002_fig_figure_2.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 2 from the source PDF"
+    },
+    {
+      "id": "F003",
+      "page": 3,
+      "caption_id": "C003",
+      "image_path": "assets/page_003_fig_figure_3.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 3 from the source PDF"
+    },
+    {
+      "id": "F004",
+      "page": 5,
+      "caption_id": "C004",
+      "image_path": "assets/page_005_fig_figure_4.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 4 from the source PDF"
+    },
+    {
+      "id": "F005",
+      "page": 7,
+      "caption_id": "C005",
+      "image_path": "assets/page_007_fig_figure_5.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 5 from the source PDF"
+    },
+    {
+      "id": "F006",
+      "page": 7,
+      "caption_id": "C006",
+      "image_path": "assets/page_007_fig_figure_6.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 6 from the source PDF"
+    },
+    {
+      "id": "F007",
+      "page": 8,
+      "caption_id": "C007",
+      "image_path": "assets/page_008_fig_figure_7.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 7 from the source PDF"
+    },
+    {
+      "id": "F008",
+      "page": 10,
+      "caption_id": "C008",
+      "image_path": "assets/page_010_fig_figure_8.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 8 from the source PDF"
+    },
+    {
+      "id": "F009",
+      "page": 12,
+      "caption_id": "C009",
+      "image_path": "assets/page_012_fig_figure_9.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 9 from the source PDF"
+    },
+    {
+      "id": "F010",
+      "page": 13,
+      "caption_id": "C010",
+      "image_path": "assets/page_013_fig_figure_10.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 10 from the source PDF"
+    },
+    {
+      "id": "F011",
+      "page": 14,
+      "caption_id": "C011",
+      "image_path": "assets/page_014_fig_figure_11.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 11 from the source PDF"
+    },
+    {
+      "id": "F012",
+      "page": 15,
+      "caption_id": "C012",
+      "image_path": "assets/page_015_fig_figure_12.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 12 from the source PDF"
+    },
+    {
+      "id": "F013",
+      "page": 17,
+      "caption_id": "C013",
+      "image_path": "assets/page_017_fig_figure_13.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 13 from the source PDF"
+    },
+    {
+      "id": "F014",
+      "page": 18,
+      "caption_id": "C014",
+      "image_path": "assets/page_018_fig_figure_14.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 14 from the source PDF"
+    },
+    {
+      "id": "F015",
+      "page": 18,
+      "caption_id": "C015",
+      "image_path": "assets/page_018_fig_figure_15.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 15 from the source PDF"
+    },
+    {
+      "id": "F016",
+      "page": 26,
+      "caption_id": "C016",
+      "image_path": "assets/page_026_fig_figure_16.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 16 from the source PDF"
+    },
+    {
+      "id": "F017",
+      "page": 27,
+      "caption_id": "C017",
+      "image_path": "assets/page_027_fig_figure_17.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 17 from the source PDF"
+    },
+    {
+      "id": "F018",
+      "page": 28,
+      "caption_id": "C018",
+      "image_path": "assets/page_028_fig_figure_18.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 18 from the source PDF"
+    },
+    {
+      "id": "F019",
+      "page": 34,
+      "caption_id": "C019",
+      "image_path": "assets/page_034_fig_figure_19.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 19 from the source PDF"
+    },
+    {
+      "id": "F020",
+      "page": 56,
+      "caption_id": "C020",
+      "image_path": "assets/page_056_fig_figure_20.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 20 from the source PDF"
+    },
+    {
+      "id": "F021",
+      "page": 57,
+      "caption_id": "C021",
+      "image_path": "assets/page_057_fig_figure_21.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 21 from the source PDF"
+    },
+    {
+      "id": "F022",
+      "page": 58,
+      "caption_id": "C022",
+      "image_path": "assets/page_058_fig_figure_22.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 22 from the source PDF"
+    },
+    {
+      "id": "F023",
+      "page": 60,
+      "caption_id": "C023",
+      "image_path": "assets/page_060_fig_figure_23.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 23 from the source PDF"
+    },
+    {
+      "id": "F024",
+      "page": 61,
+      "caption_id": "C024",
+      "image_path": "assets/page_061_fig_figure_24.png",
+      "placement_hint": "near_first_mention",
+      "alt_text": "Figure 24 from the source PDF"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_003_fig_figure_3.png",
+    "assets/page_005_fig_figure_4.png",
+    "assets/page_007_fig_figure_5.png",
+    "assets/page_007_fig_figure_6.png",
+    "assets/page_008_fig_figure_7.png",
+    "assets/page_010_fig_figure_8.png",
+    "assets/page_012_fig_figure_9.png",
+    "assets/page_013_fig_figure_10.png",
+    "assets/page_014_fig_figure_11.png",
+    "assets/page_015_fig_figure_12.png",
+    "assets/page_017_fig_figure_13.png",
+    "assets/page_018_fig_figure_14.png",
+    "assets/page_018_fig_figure_15.png",
+    "assets/page_026_fig_figure_16.png",
+    "assets/page_027_fig_figure_17.png",
+    "assets/page_028_fig_figure_18.png",
+    "assets/page_034_fig_figure_19.png",
+    "assets/page_056_fig_figure_20.png",
+    "assets/page_057_fig_figure_21.png",
+    "assets/page_058_fig_figure_22.png",
+    "assets/page_060_fig_figure_23.png",
+    "assets/page_061_fig_figure_24.png"
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "number": 1,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T002",
+      "number": 2,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T003",
+      "number": 3,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T004",
+      "number": 4,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T005",
+      "number": 5,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T006",
+      "number": 6,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T007",
+      "number": 7,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T008",
+      "number": 8,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T009",
+      "number": 9,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T010",
+      "number": 10,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T011",
+      "number": 11,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T012",
+      "number": 12,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T013",
+      "number": 13,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T014",
+      "number": 14,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T015",
+      "number": 15,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T016",
+      "number": 16,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T017",
+      "number": 17,
+      "transcribed_markdown": true
+    },
+    {
+      "id": "T018",
+      "number": 18,
+      "transcribed_markdown": true
+    }
+  ],
+  "glossary": [
+    {
+      "term": "structured prompt (SP)",
+      "translation": "结构化提示（SP）",
+      "note": "Typed JSON conditioning representation"
+    },
+    {
+      "term": "Grounded Perplexity Gain (GPG)",
+      "translation": "接地困惑度增益（GPG）",
+      "note": "White-box caption information measure"
+    },
+    {
+      "term": "Effective Detailness (ED)",
+      "translation": "有效细节度（ED）",
+      "note": "Black-box precision-weighted attribute measure"
+    },
+    {
+      "term": "diffusability",
+      "translation": "可扩散性",
+      "note": "Diffusion-side interface capability"
+    },
+    {
+      "term": "promptability",
+      "translation": "提示构造能力",
+      "note": "LLM-side interface instantiation capability"
+    },
+    {
+      "term": "on-policy self-distillation (OPSD)",
+      "translation": "在策略自蒸馏（OPSD）",
+      "note": "Image-conditioned teacher distillation on accepted student rollouts"
+    }
+  ]
+}

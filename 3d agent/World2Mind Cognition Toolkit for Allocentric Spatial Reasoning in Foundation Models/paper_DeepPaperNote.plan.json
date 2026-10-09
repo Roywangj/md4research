@@ -1,0 +1,154 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出无需训练的工具增强空间推理系统：从自我中心视频或多视图图像重建语义三维场景，压缩为地标与路线认知地图，再由基础模型按三阶段链路调用并交叉验证，因此核心应按推理时方法与系统协议分析。",
+  "dominant_domain": "多模态基础模型的三维空间推理与具身认知工具",
+  "must_cover": [
+    "自我中心观测到分配中心认知地图的表示转换",
+    "深度估计、开放词汇分割、双层置信过滤、点云密度过滤的几何语义对齐链",
+    "Allocentric-Spatial Tree 的椭圆足迹参数、层级关系与结构化文本输出",
+    "Landmark Cognitive Map 与 Route Cognitive Map 的任务分工",
+    "工具调用判断、模态解耦取证、几何语义交织推理三阶段协议",
+    "VSI-Bench-Tiny 与 MindCube-Tiny 的逐模型、逐子任务结果及负增益",
+    "纯文本盲测所支持与不支持的结论",
+    "短论文缺少阈值、成本、统计稳定性与充分消融带来的复现边界"
+  ],
+  "key_numbers": [
+    "VSI-Bench 平均分：GPT-5.2 46.7→54.0（+7.3），Claude-4.6-Opus 38.4→56.0（+17.7），Gemini-3-Pro 55.2→61.0（+5.8）",
+    "MindCube-Tiny 平均分：GPT-5.2 49.9→54.6（+4.7），Claude-4.6-Opus 48.5→62.9（+14.4），Gemini-3-Pro 75.1→81.6（+6.5）",
+    "VSI-Bench 中 Claude 的路线规划 +30.6、相对距离 +24.0、相对方向 +15.6",
+    "MindCube Rotation：GPT-5.2 48.5→68.0（+19.5）",
+    "VSI-Bench 负增益：GPT-5.2 对象计数 -5.1、绝对距离 -1.5、对象尺寸 -4.2；Gemini 房间尺寸 -13.5",
+    "MindCube Around：GPT-5.2 62.4→60.4（-2.0）",
+    "盲测图中 GPT-5.2 平均分约 6.0→18.2，Claude-4.6-Opus 约 23.1→52.2"
+  ],
+  "real_comparisons": [
+    "同一前沿模型在原始输入与接入 World2Mind 后的配对比较",
+    "GPT-5.2、Claude-4.6-Opus、Gemini-3-Pro 三种基础模型之间的收益差异",
+    "VSI-Bench 的视频真实场景任务与 MindCube 的稀疏多视图心理旋转任务",
+    "无视觉盲猜与仅凭 AST 结构化文本的盲测比较",
+    "训练式三维问答微调、显式三维模态对齐、主动渲染工具路线与 World2Mind 的概念定位"
+  ],
+  "central_claims": [
+    {
+      "claim": "World2Mind 在两个 Tiny 基准上总体提高三种前沿基础模型的平均空间推理成绩。",
+      "supporting_evidence": [
+        "sec:models",
+        "sec:models-2",
+        "sec:experiment"
+      ],
+      "what_it_actually_proves": "在作者选定的模型、Tiny 子集与提示/工具协议下，推理时加入结构化分配中心线索通常有效。",
+      "what_it_does_not_prove": "不能证明对完整基准、开集场景、小模型、其他重建器或所有空间子任务均稳定增益。"
+    },
+    {
+      "claim": "AST 结构化文本即使不伴随原始视觉输入，也能显著恢复部分三维空间任务表现。",
+      "supporting_evidence": [
+        "sec:models-2",
+        "sec:experiment"
+      ],
+      "what_it_actually_proves": "在 VSI-Bench-Tiny 的盲测协议中，外部计算得到的结构化几何文本比仅凭模型常识提供更多可用空间信息。",
+      "what_it_does_not_prove": "这不是模型从纯语言自身涌现三维认知的证据；AST 已携带由视觉、深度与分割模型计算出的场景信息。"
+    },
+    {
+      "claim": "椭圆化 AST 与三阶段交织推理旨在缓解重建噪声和跨模态冲突。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:models-2"
+      ],
+      "what_it_actually_proves": "论文给出了合理的稳健性设计与案例级推理链，并观察到依赖分配中心先验的子任务有较大收益。",
+      "what_it_does_not_prove": "没有组件级消融直接分离椭圆拟合、密度过滤、模态解耦和冲突解决各自贡献，也未量化冲突检测准确率。"
+    }
+  ],
+  "claim_boundaries": [
+    "所有主结果来自 Tiny 子集，论文未给样本规模、方差、置信区间或显著性检验。",
+    "平均增益掩盖多项退化，不能称为逐任务稳定提升。",
+    "工具为训练免费不等于系统无学习成本；它依赖预训练的 Depth Anything V3 与 SAM3。",
+    "盲测中的文本并非无感知输入，而是感知工具将视觉场景转换后的高密度结构化表示。",
+    "作者提出生物认知类比，但实验没有检验神经或认知机制等价性。"
+  ],
+  "negative_or_limiting_results": [
+    "GPT-5.2 在 VSI-Bench 的对象计数、绝对距离、对象尺寸分别下降 5.1、1.5、4.2 个百分点。",
+    "Gemini-3-Pro 在 VSI-Bench 房间尺寸下降 13.5 个百分点。",
+    "GPT-5.2 在 MindCube Around 下降 2.0 个百分点。",
+    "没有报告完整基准、运行时、显存、重建成功率、阈值敏感性或失败案例分布。",
+    "表格与正文对 MindCube 的编号有笔误式不一致，正文称 Tab. 1，实际为 Table 2。"
+  ],
+  "mechanism_result_map": [
+    "AST 的绝对坐标与椭圆足迹提供方向、距离、旋转所需的显式几何量，对应相对方向、相对距离、路线规划和 Rotation 的较大增益。",
+    "路线认知地图显式编码可通行网格与相机轨迹，对应 Claude 路线规划 +30.6，但缺少去除路线图的消融。",
+    "模态解耦与交叉验证允许视觉线索纠正重建误差，对应案例中的椅子实例确认；但这只是案例证据。",
+    "重建/分割错误会污染 AST，可能解释对象计数、尺寸及房间尺寸的负增益，但论文未做误差归因实验。"
+  ],
+  "comparative_positioning": [
+    "相对基于三维问答对微调的方法，World2Mind 不更新基础模型参数，把空间能力外置为推理时工具。",
+    "相对直接注入点云或深度等显式三维模态的方法，它先压缩为模型易读的结构化语义几何，降低跨模态对齐负担。",
+    "相对依赖完整重建后主动渲染的方法，它增加 AST 文本与按需地图返回，但仍继承深度和分割误差。",
+    "与 Think3D、PySpatial、SpaceTools 等同期工具路线的实证横向比较缺失，因此无法判断收益来自表示、提示协议还是底层工具质量。"
+  ],
+  "reuse_takeaways": [
+    "对 3D agent，可将世界模型状态分成面向语言推理的 AST 与面向导航控制的占据/路线图，而非强迫单一表示覆盖全部任务。",
+    "工具调用前先做问题相关性判定，并让模型声明感兴趣实例与知识类型，可减少无关的全场景重建和上下文负担。",
+    "几何与视觉证据应先独立读取再融合，避免早期将一个模态的错误固化为共同结论。",
+    "复现时必须记录阈值、聚类参数、坐标系、单位、实例匹配、提示模板、工具失败率与每题调用成本。"
+  ],
+  "followup_questions": [
+    "在完整 VSI-Bench 与 MindCube 上，配对 bootstrap 置信区间和多次采样方差是否仍支持平均增益？",
+    "分别去除双层置信过滤、KNN 密度过滤、椭圆拟合、路线图、视觉回看和冲突解决提示后，各子任务如何变化？",
+    "使用真实深度/相机位姿或人为注入不同强度噪声时，AST 的稳健性曲线和失效阈值是什么？",
+    "AST 的 token 数、端到端延迟、显存和 API 成本相对原始多帧视觉输入有何变化？",
+    "与场景图、矩形包围盒、稠密点云文本化、可执行几何程序及 Think3D/PySpatial 的公平比较结果如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释语义—几何鸿沟、现有训练式和工具式路线的不足，以及论文把自我中心观测转换为分配中心结构的目标。",
+      "evidence_sources": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "明确 VSI-Bench-Tiny 与 MindCube-Tiny 的输入形态、子任务、三类前沿模型和配对评测设置，同时指出协议细节缺失。",
+      "evidence_sources": [
+        "sec:models",
+        "sec:models-2",
+        "sec:experiment"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按输入、过滤重建、认知地图压缩和三阶段推理说明可复现链路，保留有效掩码与局部密度两个关键公式。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:models-2"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用紧凑表格报告两基准逐模型平均分和关键子任务，正负结果并列，单独解释盲测结果的严格含义。",
+      "evidence_sources": [
+        "sec:models",
+        "sec:models-2",
+        "sec:experiment"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "建立表示与结果模式的机制映射，比较训练式、原生三维模态和工具增强路线，并分析 3D agent 世界状态设计。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:models-2",
+        "sec:experiment",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "区分论文证据与推断，集中讨论 Tiny 子集、无统计不确定性、无组件消融、工程参数与成本缺失及重建误差传播。",
+      "evidence_sources": [
+        "sec:models",
+        "sec:models-2",
+        "sec:experiment"
+      ]
+    }
+  ]
+}

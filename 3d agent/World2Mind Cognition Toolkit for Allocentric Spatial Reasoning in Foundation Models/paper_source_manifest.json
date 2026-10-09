@@ -1,0 +1,464 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2603.09774",
+  "title": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/3dAgent/World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models/paper_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/3dAgent/World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models/paper_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+    "total_pages": 6,
+    "text_pages_extracted": 6,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 6,
+    "text_max_pages": null,
+    "text_pages_extracted": 6,
+    "text_pages_scanned": 6,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 5
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 383,
+      "text_hash_sha256": "9fcd2cbe936aabfcf2387c8859a028a5e19bce0ca47cc709329d8c78513e9b64"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1485,
+      "text_hash_sha256": "7c8a0f8d18c44fe6d23da49902215a4e803ebef25119b48c86fb51dfa905f61e"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "1. Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 7696,
+      "text_hash_sha256": "4302dfde1330c3ab098df9862f004eb15056dec21e22dbbd90dbdb3e8e4c5ad1"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "Models",
+      "page_start": 3,
+      "page_end": 3,
+      "char_count": 801,
+      "text_hash_sha256": "a0ec0ca90a2f4e22f4b10e8ed997717c1e097d28882f39fa13f6bda43c072de1"
+    },
+    {
+      "section_id": "sec:models-2",
+      "kind": "method",
+      "title": "Models",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 5633,
+      "text_hash_sha256": "8daa39842475fa7569981e79652c0e518c7ad939e84cd16635caa1e38283b14e"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "3. Experiment",
+      "page_start": 4,
+      "page_end": 5,
+      "char_count": 4990,
+      "text_hash_sha256": "856457b221070735c77c07aee7bfa473444ac51fa5ac74b4103de1d17c30f9f5"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 5,
+      "page_end": 6,
+      "char_count": 7894,
+      "text_hash_sha256": "59c61dcf13007bc57a91f1c7c7d27bfcc088ba1fe51d5cb63e5e5fa70bf11a23"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 4151,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 5393,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4701,
+      "section_ids": [
+        "sec:introduction",
+        "sec:models",
+        "sec:models-2"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 6501,
+      "section_ids": [
+        "sec:models-2",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 5628,
+      "section_ids": [
+        "sec:experiment",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 2643,
+      "section_ids": [
+        "sec:references"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview of foundation models performing allocentric spatial reasoning via the proposed World2Mind toolkit. Given ego-",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Performance comparison under the text-only model",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:models-2"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Complete reasoning trace under World2Mind.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:models-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Main results on the VSI-Bench [34] benchmark (Tiny subset).",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Results on the MindCube-Tiny [18] benchmark.",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "telephone_01 <Center: (-3.187, -0.371), Width: 0.109>, …",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "door_02. …… Distance = (Minimum X of door_02) - (Maximum X",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "of telephone_01) = 0.507 - (-3.1325) = 3.6395 meters. When I",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "< door >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "< telephone >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "< office desk >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "t=1, our primary objective is to transcend the lim-",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "obtaining the depth map Dt ∈RH×W and camera pose",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Tt ∈SE(3). Concurrently, we utilize SAM3 [5] to ex-",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "fidence map Ct ∈[0, 1]H×W . Specifically, we formulate a",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "binary validity mask Vt ∈{0, 1}H×W as follows:",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "Vt(u, v) = I (Ct(u, v) > τpixel ) · I (µt > τframe ) ,",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where µt =",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "x=1",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "y=1 Ct(x, y) denotes the global",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "into the subsequent reconstruction only when Vt(u, v) = 1.",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "point cloud P = {(pi, si, rgbi)}M",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "i=1 carrying semantic la-",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "bels si ∈C. Addressing the boundary outliers inherent in",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "cal density ρi =",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "j∈NK(i) ∥pi −pj∥−1, and eliminate",
+      "section_id": "sec:models-2",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "from 1.093 m to 1.628 m, giving vertical extent ≈ 0.535 m.",
+      "section_id": "sec:experiment",
+      "page_start": 4,
+      "page_end": 5
+    },
+    {
+      "text": "vertical extent ≈ 0.951 m.",
+      "section_id": "sec:experiment",
+      "page_start": 4,
+      "page_end": 5
+    },
+    {
+      "text": "among these; the largest vertical extent is for chair_02 at about 0.951 m = 95.1 cm.",
+      "section_id": "sec:experiment",
+      "page_start": 4,
+      "page_end": 5
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "de1cf6419bf05dd767afd1e6900dde51c9b429530950eec2d62ff9e28feca151",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2603.09774",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+      "translated_title": "",
+      "authors": [
+        "Shouwei Ruan",
+        "Bin Wang",
+        "Zhenyu Wu",
+        "Qihui Zhu",
+        "Yuxiang Zhang",
+        "Hang Su",
+        "Yubin Wang"
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2603.09774",
+      "arxiv_id": "2603.09774",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2603.09774v1",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+      "doi": "",
+      "arxiv_id": "2603.09774",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2603.09774",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2603.09774",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2603.09774v1",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2603.09774"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+          "work_value": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/3dAgent/World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models/paper_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/3dAgent/World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models/paper_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a818b7c32fc858303/3dAgent/World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models/paper_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "World2Mind: Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2603.09774v1",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VJJ4MCVA/Ruan 等 - 2026 - World2Mind Cognition Toolkit for Allocentric Spatial Reasoning in Foundation Models.pdf",
+    "doi": "",
+    "arxiv_id": "2603.09774",
+    "zotero_key": ""
+  }
+}

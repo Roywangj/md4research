@@ -1,0 +1,134 @@
+{
+  "paper": {
+    "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+    "authors": [
+      "Wenjie Yang",
+      "Siqi Zhu",
+      "Zengfeng Huang"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/8TG39CQY/Position Your VLM May Not Be Thinking with Interleaved Images.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "QZAED6JU",
+    "paper_id": "title:8cc41398b86f"
+  },
+  "notes": {
+    "reading_mode": "reader-style bilingual translation with analytical compression",
+    "figure_policy": "Major figures and tables are embedded. Some extracted attention-map fragments are kept in assets but not inserted separately because Figure 2 already contains the combined layout.",
+    "bibliography_policy": "References are summarized by scope rather than translated line by line."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "source_section_id": "sec:abstract",
+      "summary": "The abstract states the position that interleaved images do not appear to drive current thinking-with-images performance gains."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-2",
+      "source_section_id": "sec:introduction",
+      "summary": "The introduction motivates thinking with images and sets up the question of whether intermediate images are necessary."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Preliminaries",
+      "pages": "3-4",
+      "source_section_id": "sec:preliminaries",
+      "summary": "The paper formalizes thinking with images as a sequence where each step may be text or an interleaved image."
+    },
+    {
+      "id": "S004",
+      "type": "table",
+      "section": "Interleaved Image Ablation",
+      "pages": "4",
+      "source_section_id": "sec:method",
+      "summary": "Table 1 reports that suppressing interleaved image outputs causes little performance degradation.",
+      "asset": "assets/page_004_fig_table_1.png"
+    },
+    {
+      "id": "S005",
+      "type": "table",
+      "section": "Qwen3-VL HRBench",
+      "pages": "4",
+      "source_section_id": "sec:method-3",
+      "summary": "Table 2 shows raw Qwen3-VL and thinking-with-image Qwen3-VL perform essentially the same on HRBench.",
+      "asset": "assets/page_004_fig_table_2.png"
+    },
+    {
+      "id": "S006",
+      "type": "figure",
+      "section": "Attention Visualization",
+      "pages": "5",
+      "source_section_id": "sec:method-3",
+      "summary": "Figure 2 visualizes attention maps, showing answer-token attention mostly on original images.",
+      "asset": "assets/page_005_fig_figure_2.png"
+    },
+    {
+      "id": "S007",
+      "type": "table",
+      "section": "Vanilla SFT",
+      "pages": "6",
+      "source_section_id": "sec:method-4",
+      "summary": "Table 3 compares DeepEyes-7B with a simple SFT baseline without interleaved images.",
+      "asset": "assets/page_006_fig_table_3.png"
+    },
+    {
+      "id": "S008",
+      "type": "table",
+      "section": "Masked V*",
+      "pages": "7",
+      "source_section_id": "sec:method-7",
+      "summary": "Table 4 reports masked-target V* results.",
+      "asset": "assets/page_007_fig_table_4.png"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Call to Action and Alternative Views",
+      "pages": "7-8",
+      "source_section_id": "sec:method-7",
+      "summary": "The paper calls for interleaved-image ablations, tools that add new information, and harder benchmarks."
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "8",
+      "source_section_id": "sec:conclusion",
+      "summary": "The conclusion restates the need for mechanistic transparency and better visual reasoning benchmarks."
+    },
+    {
+      "id": "S011",
+      "type": "table",
+      "section": "Appendix Bonus",
+      "pages": "13",
+      "source_section_id": "sec:method-8",
+      "summary": "Table 5 combines better context and better prior with Hide on V*.",
+      "asset": "assets/page_013_fig_table_5.png"
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "summary": "Figure 1 illustrates the ideal thinking-with-images workflow.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_004_fig_table_1.png",
+    "assets/page_004_fig_table_2.png",
+    "assets/page_005_fig_figure_2.png",
+    "assets/page_006_fig_table_3.png",
+    "assets/page_007_fig_table_4.png",
+    "assets/page_013_fig_table_5.png"
+  ]
+}

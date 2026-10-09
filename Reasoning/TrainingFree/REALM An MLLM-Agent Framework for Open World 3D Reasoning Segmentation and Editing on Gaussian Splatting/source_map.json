@@ -1,0 +1,158 @@
+{
+  "paper_id": "arxiv:2510.16410",
+  "zotero_item_key": "BAE6PIDP",
+  "title": "REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D99TFPBN/Shi 等 - 2025 - REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Spla.pdf",
+  "source_format": "pdf-text",
+  "reader_path": "paper.md",
+  "notes_path": "paper_DeepPaperNote.md",
+  "coverage": {
+    "total_pages": 10,
+    "text_pages_extracted": 10,
+    "references_start_page": 9,
+    "appendix_detected": false,
+    "main_text_coverage": "main paper argument, methods, figures, tables, experiments, and conclusion translated at paragraph level"
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "title": "preamble",
+      "kind": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "reader_blocks": ["frontmatter", "fig:1"]
+    },
+    {
+      "section_id": "sec:abstract",
+      "title": "Abstract",
+      "kind": "abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "reader_blocks": ["abstract:p1", "abstract:p2", "abstract:p3", "abstract:p4"]
+    },
+    {
+      "section_id": "sec:introduction",
+      "title": "1. Introduction",
+      "kind": "introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "reader_blocks": ["intro:p1", "intro:p2", "intro:p3", "intro:p4", "intro:p5", "intro:p6", "intro:p7", "intro:p8", "fig:2", "fig:3"]
+    },
+    {
+      "section_id": "sec:related",
+      "title": "2. Related Work",
+      "kind": "related_work",
+      "page_start": 3,
+      "page_end": 4,
+      "reader_blocks": ["related:p1", "related:p2", "related:p3"]
+    },
+    {
+      "section_id": "sec:methodology",
+      "title": "3. Methodology",
+      "kind": "method",
+      "page_start": 4,
+      "page_end": 6,
+      "reader_blocks": ["method:feature-field:p1", "method:feature-field:p2", "method:feature-field:p3", "method:feature-field:p4", "method:lmseg:p1", "method:lmseg:p2", "method:global:p1", "method:global:p2", "method:global:p3", "method:local:p1", "method:local:p2", "fig:4", "fig:6"]
+    },
+    {
+      "section_id": "sec:experiments",
+      "title": "4. Experiments",
+      "kind": "experiment",
+      "page_start": 6,
+      "page_end": 8,
+      "reader_blocks": ["exp:p1", "exp:p2", "exp:p3", "exp:p4", "exp:p5", "exp:p6", "exp:p7", "exp:p8", "exp:p9", "fig:5", "fig:7", "fig:8", "table:1", "table:2"]
+    },
+    {
+      "section_id": "sec:conclusion",
+      "title": "5. Conclusion",
+      "kind": "conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "reader_blocks": ["conclusion:p1", "conclusion:p2"]
+    },
+    {
+      "section_id": "sec:references",
+      "title": "References",
+      "kind": "references",
+      "page_start": 9,
+      "page_end": 10,
+      "reader_blocks": ["references:note"]
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig:1",
+      "label": "Figure 1",
+      "image_path": "assets/page_001_fig_figure_1.png",
+      "page": 1,
+      "caption_summary": "REALM task examples for reasoning segmentation and 3D editing"
+    },
+    {
+      "id": "fig:2",
+      "label": "Figure 2",
+      "image_path": "assets/page_002_fig_figure_2.png",
+      "page": 2,
+      "caption_summary": "Viewpoint sensitivity of direct image inputs"
+    },
+    {
+      "id": "fig:3",
+      "label": "Figure 3",
+      "image_path": "assets/page_003_fig_figure_3.png",
+      "page": 3,
+      "caption_summary": "REALM overview with 3D Feature Field, LMSeg, and GLSpaG"
+    },
+    {
+      "id": "fig:4",
+      "label": "Figure 4",
+      "image_path": "assets/page_004_fig_figure_4.png",
+      "page": 4,
+      "caption_summary": "Global reasoning outputs for multiple views"
+    },
+    {
+      "id": "fig:5",
+      "label": "Figure 5",
+      "image_path": "assets/page_005_fig_figure_5.png",
+      "page": 5,
+      "caption_summary": "Qualitative LERF and 3D-OVS results"
+    },
+    {
+      "id": "fig:6",
+      "label": "Figure 6",
+      "image_path": "assets/page_005_fig_figure_6.png",
+      "page": 5,
+      "caption_summary": "GLSpaG ablation visualization"
+    },
+    {
+      "id": "table:1",
+      "label": "Table 1",
+      "image_path": "assets/page_006_fig_table_1.png",
+      "page": 6,
+      "caption_summary": "Quantitative results on LERF, 3D-OVS, and REALM3D"
+    },
+    {
+      "id": "fig:7",
+      "label": "Figure 7",
+      "image_path": "assets/page_007_fig_figure_7.png",
+      "page": 7,
+      "caption_summary": "Language-driven 3D editing"
+    },
+    {
+      "id": "table:2",
+      "label": "Table 2",
+      "image_path": "assets/page_007_fig_table_2.png",
+      "page": 7,
+      "caption_summary": "Ablation study on Figurines"
+    },
+    {
+      "id": "fig:8",
+      "label": "Figure 8",
+      "image_path": "assets/page_008_fig_figure_8.png",
+      "page": 8,
+      "caption_summary": "REALM3D annotation prompt"
+    }
+  ],
+  "quality_notes": [
+    "Figure 6 crop includes a small adjacent text strip but remains interpretable.",
+    "References are indexed by page range and not translated line by line."
+  ]
+}

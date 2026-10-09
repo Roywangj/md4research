@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.1",
+  "passes_yaml_gate": true,
+  "passes_required_sections_gate": true,
+  "passes_grounding_gate": true,
+  "passes_mechanism_gate": true,
+  "passes_figure_table_gate": true,
+  "passes_style_gate": true,
+  "passes_evidence_boundary_gate": true,
+  "all_seven_gates_true": true,
+  "warnings": [],
+  "canonical_heading_sequence": [
+    "## 核心信息",
+    "## 原文摘要翻译",
+    "## 创新点",
+    "## 一句话总结",
+    "## 研究问题",
+    "## 数据与任务定义",
+    "## 方法主线",
+    "## 关键结果",
+    "## 深度分析",
+    "## 局限",
+    "## 我的笔记",
+    "## 引用"
+  ],
+  "image_links": [
+    "images/figure1_method_overview.png",
+    "images/figure2_failure_scaling.png",
+    "images/figure3_false_low_score_example.png"
+  ],
+  "image_sha256": {
+    "images/figure1_method_overview.png": "27ba4bc7521a65b45f2890ef066972ed08a0dd46f809bfbef898c9fa1f60339c",
+    "images/figure2_failure_scaling.png": "f8a34ea339b3faf7bafa3f58eaaec80da9f6d8648c60a4fc5c59ab0b224fbebd",
+    "images/figure3_false_low_score_example.png": "89895eca0be0cd4aed78f12a08445ca09d1fca18eeb58fa0db5d28bdae264979"
+  },
+  "reviews": {
+    "final_analytical_review": {
+      "passed": true
+    },
+    "final_readability_review": {
+      "passed": true
+    }
+  },
+  "no_codex_compliance": true,
+  "external_llm_used": false
+}

@@ -1,0 +1,180 @@
+{
+  "paper": "DeepEyesV2: Toward Agentic Multimodal Model",
+  "paper_id": "arxiv:2511.05271",
+  "deliverable": "paper_DeepPaperNote.md",
+  "sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "evidence_targets": [
+    "direct RL pioneer experiment and tool-bonus failure modes",
+    "cold-start data curation and agentic RL objective R=R_acc+R_format",
+    "RealX-Bench composition, 300 QA pairs, capability labels, and Table 1",
+    "Tables 2-4 benchmark results and the InfoSeek negative transfer",
+    "Tables 5-6 cold-start and RL-data ablations",
+    "Figures 3, 6-8 for feedback loop and task-adaptive tool invocation",
+    "appendix implementation details, zero-shot tool-use and error analysis"
+  ],
+  "figure_table_contract": {
+    "required_decision_coverage": true,
+    "inserted_items": [
+      "Figure 3",
+      "Figure 4",
+      "Figure 6",
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Table 6"
+    ],
+    "placeholder_items": [
+      "Table 10"
+    ],
+    "visual_defect_items": [
+      "Figure 11",
+      "Table 9"
+    ],
+    "local_image_directory": "images"
+  },
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出训练型智能体式多模态模型与综合基准，重点是工具调用、交互训练和组合能力评测。",
+  "dominant_domain": "多模态基础模型与智能体式推理",
+  "must_cover": [
+    "工具反馈闭环",
+    "直接强化学习失败与冷启动动机",
+    "工具有益性导向数据构建",
+    "R_acc 与 R_format 奖励",
+    "RealX-Bench 的感知/搜索/推理组合",
+    "主结果与负增益",
+    "冷启动和 RL 数据消融",
+    "任务自适应工具分布",
+    "实现细节与安全边界"
+  ],
+  "key_numbers": [
+    "RealX-Bench 300 个问答样本、平均 28.3、人类平均 70.0",
+    "Search 子集 28.9、Integration 子集 18.1",
+    "V* Bench 81.8、HRBench-4K 77.9、OCRBench 882",
+    "MathVerse 52.7、MMSearch 63.7、InfoSeek 51.1",
+    "cold-start 最高组合 V* 78.0、MathVerse 47.1"
+  ],
+  "real_comparisons": [
+    "DeepEyesV2 与 Qwen2.5-VL-7B 的配对比较",
+    "有无文本/图像搜索工具的基线",
+    "DeepEyes、Thyme 与工具增强路线",
+    "感知、数学、搜索与综合子集的任务差异"
+  ],
+  "central_claims": [
+    {
+      "claim": "直接 RL 难以从基础 VLM 学出稳健工具使用，两阶段训练更可靠。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:model",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "在 Qwen2.5-VL-7B 先导设置与作者环境中，冷启动轨迹是后续 RL 的有效行为先验。",
+      "what_it_does_not_prove": "不证明所有基础模型、奖励或环境都必需同一两阶段流程。"
+    },
+    {
+      "claim": "DeepEyesV2 在综合、真实世界、数学和多数搜索基准上提升。",
+      "supporting_evidence": [
+        "sec:introduction",
+        "sec:experiments"
+      ],
+      "what_it_actually_proves": "在报告的模型、数据和工具配置下取得表格中的相对增益。",
+      "what_it_does_not_prove": "InfoSeek 出现负增益，且不能外推到所有搜索任务。"
+    }
+  ],
+  "claim_boundaries": [
+    "结果依赖工具环境、搜索服务与代码沙箱",
+    "RealX-Bench 规模为 300 QA，仍需更大规模验证",
+    "报告的是基准分数，不等同于真实部署可靠性",
+    "工具安全、权限和成本未被充分量化"
+  ],
+  "negative_or_limiting_results": [
+    "InfoSeek 比 Qwen2.5-VL Search 低 2.6",
+    "直接 RL 会退回文本 CoT或产生低质量占位代码",
+    "综合子集仍远低于人类表现"
+  ],
+  "mechanism_result_map": [
+    "冷启动建立合法工具轨迹，对应 RL 后更稳定调用",
+    "任务相关工具分布与感知、数学、搜索基准的优势相对应",
+    "搜索数据消融直接影响 MMSearch，说明能力覆盖不能靠间接诱导"
+  ],
+  "comparative_positioning": [
+    "相对 DeepEyes 更宽的工具动作空间",
+    "相对 Thyme 增加网络搜索与综合基准",
+    "相对测试时视觉增强路线，DeepEyesV2 将工具策略内化为训练行为"
+  ],
+  "reuse_takeaways": [
+    "先用高质量轨迹教会工具协议，再让 RL 学选择",
+    "按能力拆分数据并做独立消融",
+    "benchmark 应包含能力组合与负增益分析"
+  ],
+  "followup_questions": [
+    "更强基础模型是否仍需要冷启动？",
+    "不同工具奖励与搜索服务是否改变结论？",
+    "如何量化调用成本、延迟和安全性？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:experiments"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:model",
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:model-4",
+        "sec:experiments",
+        "sec:appendix"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "基于原文证据重建该部分的机制、结果和边界。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:experiments",
+        "sec:appendix"
+      ]
+    }
+  ]
+}

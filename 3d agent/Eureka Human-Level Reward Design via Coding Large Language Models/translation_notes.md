@@ -1,0 +1,30 @@
+# Translation notes
+
+- **Source:** `/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/B8NIC3SM/Ma 等 - 2023 - Eureka Human-Level Reward Design via Coding Large Language Models.pdf`.
+- **Version:** 45-page PDF, published as an Oral paper at ICLR 2024; `arXiv:2310.12931v2 [cs.RO]`, 30 April 2024.
+- **Mode:** New full-paper build under `nature-reader-detail`.
+- **Extraction & Alignment:** Text was extracted directly from `extracted_text.txt` and verified against the official published PDF using PyMuPDF (`fitz`). Every substantive source paragraph is preserved in English and immediately paired with a rigorous academic Chinese translation using the required blockquote labels `Para. X:` and `Para. X[CN]:`.
+- **Terminology:** Academic robotics, reinforcement learning, and LLM terminology have been translated with standard precision:
+  - EUREKA: Evolution-driven Universal REward Kit for Agent（基于进化的智能体通用奖励工具包）
+  - RDP: Reward Design Problem（奖励设计问题）
+  - RLHF: Reinforcement Learning from Human Feedback（人类反馈强化学习）
+  - PPO: Proximal Policy Optimization（近端策略优化）
+  - L2R: Language to Rewards（语言到奖励基线方法）
+  - Shadow Hand: 仿人五指灵巧手（24 自由度灵巧操作手）
+  - Pen Spinning: 灵巧转笔动作/技巧
+  - Reward Reflection: 奖励反思（基于策略训练统计和动态的文本反馈）
+  - In-Context Learning (ICL): 上下文学习
+  - Evolutionary Search: 进化搜索
+- **Figures and Tables:** All 16 figures (`figure_1.png` ~ `figure_16.png`) and 2 substantive tables (`table_3.png`, `table_4.png`) from the paper and appendices are linked using relative paths to `assets/`. Substantive tables are fully transcribed into Markdown tables with balanced bilingual captions (`**Caption:**` and `**Caption[CN]:**`).
+- **Mathematical Formulations:** Display equations are kept outside blockquotes using `$$...$$`; inline math uses `$...$`. All variables, norms, and indicator functions are faithfully preserved.
+- **Appendices:** Full coverage across all appendices:
+  - Appendix A: Full Prompts (Prompts 1, 2, 3)
+  - Appendix B: Environment Details (Detailed parameter descriptions and full Markdown table of all 29 benchmark tasks across 10 robot morphologies)
+  - Appendix C: Baseline Details (L2R prompt structures, Table 3 primitive formulations, and concrete generated reward code examples)
+  - Appendix D: EUREKA Details (Environment observation extraction, Markovian dialogue trimming, evaluation protocol, pen-spinning curriculum, human initialization, human-in-the-loop user study, and compute resources)
+  - Appendix E: EUREKA on Mujoco Environments (Table 4, full 376-dim observation space layout, and generated Python reward code)
+  - Appendix F: Additional Results (Figures 10-16 covering sample efficiency curves, aggregate IQM/probability of improvement, statistical significance profiles, Dexterity task breakdowns, reflection ablations, GPT-3.5 ablations, and correlation vs dimensionality analyses)
+  - Appendix G: EUREKA Reward Examples (Complete raw Python reward functions, reward reflection diagnostics, and multi-turn human feedback dialogues)
+  - Appendix H: Limitations and Discussion (Sim2Real transfer, sensing instrumentation, task fitness metric dependencies, VLMs for automated video reflection, and custom simulators/MPC)
+- **References:** All 58 scholarly references are retained in their original searchable bibliographic format, paired with Chinese annotations and contextual guides.
+- **Safety & Non-overwriting:** Sibling notes and assets (`paper_DeepPaperNote.*`, `images/`) were strictly untouched during generation.

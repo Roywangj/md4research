@@ -1,0 +1,13 @@
+{
+  "passes_structure_gate": true,
+  "passes_style_gate": true,
+  "passes_evidence_gate": false,
+  "passes_figure_gate": true,
+  "evidence_coverage": "partial-but-anchored",
+  "caveat": "Core sections and appendices are source-anchored, but the reader is condensed and does not duplicate repeated long case traces or the 63-entry bibliography verbatim.",
+  "translation_reader": {
+    "status": "full-page-transcribed",
+    "file": "detailed_paper.md",
+    "source_map": "source_map.json"
+  }
+}

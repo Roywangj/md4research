@@ -1,0 +1,345 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper proposes a trained vision-language reasoning model, Qwen-LookAgain, using cold start data, rule-based reinforcement learning, supervised fine-tuning, and visual token re-attention mechanisms.",
+  "dominant_domain": "Vision-language reasoning, hallucination reduction, visual token dilution, reinforcement learning, reflective multimodal reasoning.",
+  "must_cover": [
+    "Long VLRM reasoning dilutes visual tokens and can increase hallucination.",
+    "Text-only reflection does not sufficiently restore attention to visual tokens.",
+    "BRPO trains the model to decide when to generate reflection and to balance reflection count and length.",
+    "Qwen-Zero generates Qwen-Zero-40k, which is manually and model-verified for supervised fine-tuning.",
+    "Visual Token COPY inserts all original visual tokens before reflection, while Visual Token ROUTE inserts top-attended visual tokens.",
+    "Qwen-LA improves visual QA accuracy and hallucination metrics while adding inference overhead."
+  ],
+  "key_numbers": [
+    "Qwen-LA-COPY on Table 1: MMMU 60.3, MMMU-Pro 41.7, MMBench 82.7, MMStar 65.9, MathVision 26.4.",
+    "Qwen-LA-ROUTE on Table 1: MMMU 59.1, MMMU-Pro 41.3, MMBench 82.8, MMStar 64.6, MathVision 25.8.",
+    "Qwen2.5-VL-7B-Instruct baseline: MMMU 58.6, MMMU-Pro 41.0, MMBench 82.6, MMStar 63.9, MathVision 25.1.",
+    "Table 2 hallucination: Qwen-LA-COPY CHAIRi 3.7, CHAIRs 9.8, POPE 90.2, MMHAL 3.82, MME 2330.8.",
+    "Table 3 overhead on MMMU: Qwen2.5-VL 58.6 accuracy and 8.68s; Qwen-LA-COPY 60.3 and 22.33s; Qwen-LA-ROUTE 59.1 and 18.29s.",
+    "Ablation Table 4: text-only BRPO without VTC/VTR reaches 58.8 MMMU and CHAIRi 8.7, while Qwen-LA-COPY reaches 60.3 and CHAIRi 3.7.",
+    "Visual Token ROUTE uses m=50 by default; Table 5 shows larger m improves accuracy and hallucination but increases latency.",
+    "BRPO training uses 8 NVIDIA A800-SXM4 80G GPUs for 48 hours; cold start uses 2k examples and Qwen-Zero distills 40k examples."
+  ],
+  "real_comparisons": [
+    "Compared with text-only reflection, Qwen-LA adds visual tokens at reflection positions to force visual re-attention.",
+    "Compared with PAI, which adjusts attention weights, Qwen-LA physically supplements visual tokens through copy or route.",
+    "Compared with ICoT, which adds local image-feature prompts before reasoning paragraphs, Qwen-LA targets reflection moments.",
+    "Compared with non-reasoning Qwen2.5-VL, Qwen-LA improves accuracy and hallucination metrics at higher inference cost."
+  ],
+  "central_claims": [
+    {
+      "claim": "Long vision-language reasoning reduces attention to visual tokens and can increase hallucination.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The paper provides MSCOCO analyses and a formal ratio-based argument that visual-token proportion declines as generation grows.",
+      "what_it_does_not_prove": "The proof assumes visual neglect is an important cause of hallucination and does not cover every hallucination mechanism."
+    },
+    {
+      "claim": "Vision-text reflection with visual re-attention is more effective than text-only or vision-only reflection.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            16,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Table 6 and Table 4 show Qwen-LA-COPY and Qwen-LA-ROUTE outperform text-only and vision-only reflection settings on key metrics.",
+      "what_it_does_not_prove": "It does not prove that copy or route is the optimal way to select visual evidence."
+    },
+    {
+      "claim": "BRPO helps the model learn when and how much to reflect.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Figure 6 and Figure 7 show more frequent but shorter reflections and rising test accuracy during training; Table 4 shows performance drops without BRPO.",
+      "what_it_does_not_prove": "It does not isolate BRPO from all effects of cold-start data quality and the Qwen-Zero-40k distillation process."
+    }
+  ],
+  "claim_boundaries": [
+    "The implementation is based on Qwen2.5-VL-7B-Instruct due to resource limits.",
+    "Visual re-attention improves performance but increases inference overhead.",
+    "The theoretical analysis assumes hallucination is partly caused by visual information neglect.",
+    "Some training data is generated by GPT-4o and Qwen-Zero, then verified, so data quality is a key dependency."
+  ],
+  "negative_or_limiting_results": [
+    "Text-only reflection does not reduce hallucination in the initial analysis.",
+    "Without BRPO, models with visual re-attention have unstable or weaker performance.",
+    "Using BRPO without visual token copy or route is not optimal; CHAIRi remains 8.7.",
+    "Small ROUTE ratio m=25 reduces model accuracy, while larger m increases latency.",
+    "VTC and VTR overhead may be unacceptable in instant-response settings."
+  ],
+  "mechanism_result_map": [
+    "BRPO format, accuracy, and reflection-balance rewards map to Qwen-Zero's multi-stage reflection behavior.",
+    "Qwen-Zero-40k distillation maps to supervised training of Qwen-LA-COPY and Qwen-LA-ROUTE.",
+    "Visual Token COPY maps to higher accuracy and stronger hallucination reduction, but higher sequence length and latency.",
+    "Visual Token ROUTE maps to lower overhead than COPY, with slightly weaker but still competitive metrics.",
+    "Increasing m in VTR maps to higher accuracy and hallucination scores but increased runtime."
+  ],
+  "comparative_positioning": [
+    "Qwen-LA is a training-based counterpart to TrainingFree visual revisiting methods such as VisRef and SDR-MCoT.",
+    "Unlike PRCR, Qwen-LA does not optimize cache reuse; it learns behavior and modifies visual-token flow during reflection.",
+    "Compared with Position: Your VLM May Not Be Thinking with Interleaved Images, Qwen-LA must be read with the question of whether re-attended visual tokens are truly causal.",
+    "Compared with Qwen Look Again's base model, the gains are modest in accuracy but larger in hallucination reduction."
+  ],
+  "reuse_takeaways": [
+    "Reflection should be tied to actual visual evidence refresh, not only text prompts.",
+    "For 3D agents, use reflection moments as hooks to reinsert rendered views, point subsets, or spatial memory.",
+    "Report inference overhead together with hallucination reduction.",
+    "Ablate behavior learning, text reflection, and visual evidence insertion separately."
+  ],
+  "followup_questions": [
+    "Would VTR work better with diversity-aware visual token selection rather than top-attention selection?",
+    "Can PRCR-style cache reuse reduce the overhead of VTC/VTR?",
+    "How much of Qwen-LA's gain comes from Qwen-Zero-40k data quality versus visual token reinsertion?",
+    "Does Qwen-LA still use the copied or routed tokens under causal removal tests?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record metadata, arXiv ID, institutions, code link, datasets, and Train classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the abstract about visual token dilution, BRPO, VTC, VTR, and hallucination reduction.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Explain BRPO, Qwen-Zero-40k, VTC/VTR, and hallucination-oriented evaluation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Position Qwen-LA as trained visual re-attention reflection.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion-2",
+          "pages": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why long VLRM reasoning causes hallucination and why text-only reflection is insufficient.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "List training data, cold start, Qwen-Zero-40k, datasets, and metrics.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:experiment",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Explain framework, BRPO rewards, Qwen-Zero-40k, VTC, and VTR formulas.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:methodology",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Summarize Table 1-6 and Figures 1-5, 9-10.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:model",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "section_id": "sec:experiment",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Discuss whether the gains come from actual visual re-attention, reflection data, or longer generation.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "State assumptions, overhead, and base-model scope.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:limitations",
+          "pages": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "Connect to 3D agent and the surrounding Reasoning collection.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion-2",
+          "pages": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "Record citation and local source artifacts.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

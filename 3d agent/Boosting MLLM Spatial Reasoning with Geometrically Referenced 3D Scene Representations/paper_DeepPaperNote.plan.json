@@ -1,0 +1,53 @@
+{
+  "note_plan": {
+    "paper_id": "arxiv:2603.08592v2",
+    "title": "Boosting MLLM Spatial Reasoning with Geometrically Referenced 3D Scene Representations",
+    "source_manifest": "local PDF",
+    "source_pages": 10,
+    "sections": [
+      "核心信息",
+      "原文摘要翻译",
+      "创新点",
+      "一句话总结",
+      "研究问题",
+      "数据与任务定义",
+      "方法主线",
+      "关键结果",
+      "深度分析",
+      "局限",
+      "我的笔记",
+      "引用"
+    ],
+    "subsections": {
+      "方法主线": [
+        "机制流程",
+        "几何标注与遮挡剔除机制",
+        "显式空间参考系与提示构建"
+      ],
+      "关键结果": [
+        "主结果与强基线",
+        "稀疏视角与复杂空间推理评测",
+        "消融到底说明了什么"
+      ],
+      "深度分析": [
+        "真正贡献是什么",
+        "为什么结果成立",
+        "容易误读的地方",
+        "复现注意点"
+      ]
+    },
+    "evidence_intent": {
+      "problem": "PDF pp.1-2, Abstract and Introduction; failure modes of 2D MLLMs in 3D spatial reasoning",
+      "mechanism": "PDF pp.3-5, Sec. 3.1-3.3, Eq. 1, Figs. 1-3; neural reconstruction (pi^3/VGGT), voxel grouping, depth check, text formatting",
+      "data_benchmarks": "PDF pp.4-5, Sec. 4.1; VSI-Bench (5,000+ questions, 288 indoor videos) and MindCube (2-4 sparse views)",
+      "results": "PDF pp.5-7, Sec. 4.3-4.5, Tabs. 1-3, Fig. 4; GPT-5/4o/InternVL2 gains, ablations, sparse qualitative cases",
+      "limitations": "PDF pp.5, 8, Sec. 4.3, 5; voxel grouping noise, lack of end-to-end integration, metric scaling dependence"
+    },
+    "writing_contract": {
+      "requires_source_anchors": true,
+      "requires_material_caveat": true,
+      "requires_image_links": true,
+      "partial_coverage_disclosure": false
+    }
+  }
+}

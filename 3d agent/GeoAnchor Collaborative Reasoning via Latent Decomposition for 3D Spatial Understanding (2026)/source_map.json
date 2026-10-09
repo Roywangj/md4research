@@ -1,0 +1,75 @@
+{
+  "source": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+    "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+    "arxiv": "2607.13454v2",
+    "pdf_pages": 23,
+    "printed_page_ranges": ["main: 1-15", "appendix: 1-8"]
+  },
+  "output": {
+    "detailed_paper": "detailed_paper.md",
+    "paper_copy": "paper.md",
+    "assets_directory": "assets/"
+  },
+  "coverage": [
+    {"pdf_pages": "1-3", "sections": ["Abstract", "1 Introduction", "2 Related Works", "3 Method opening"]},
+    {"pdf_pages": "4-8", "sections": ["3.1 Text-Latent Interleaved Framework", "3.2 Decomposed Spatial Tokens", "3.3 Collaborative Training Strategy", "3.4 Dataset Construction", "4.1 Experimental Setup"]},
+    {"pdf_pages": "8-11", "sections": ["4 Experiment", "4.2 Main Results", "4.3 Ablation Experiments", "4.4 In-Depth Analysis", "5 Conclusion", "6 Acknowledgement"]},
+    {"pdf_pages": "12-15", "sections": ["References"]},
+    {"pdf_pages": "16-18", "sections": ["Appendix A: Datasets and Evaluation Benchmarks", "Appendix B: Training Dataset Construction opening"]},
+    {"pdf_pages": "19-20", "sections": ["Appendix B continuation", "Appendix C: Experiment Details"]},
+    {"pdf_pages": "21-23", "sections": ["Appendix C.2.2 continuation", "Appendix D: Additional Experiments", "Tables 9-14"]}
+  ],
+  "equations": {
+    "main": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+    "appendix": ["1", "2", "3", "4", "5"]
+  },
+  "figures": [
+    {"label": "Figure 1", "location": "main p. 2", "caption_preserved": true, "local_asset": null},
+    {"label": "Figure 2", "location": "main p. 4", "caption_preserved": true, "local_asset": "assets/figure_2_geoanchor_architecture.svg"},
+    {"label": "Figure 3", "location": "main p. 6", "caption_preserved": true, "local_asset": "assets/figure_3_training_strategy.svg"},
+    {"label": "Figure 4", "location": "main p. 10", "caption_preserved": true, "local_asset": "assets/figure_4_stage3_ablation.svg"},
+    {"label": "Figure 5", "location": "main p. 10", "caption_preserved": true, "local_asset": null},
+    {"label": "Figure 6", "location": "main p. 11", "caption_preserved": true, "local_asset": "assets/figure_6_attention_comparison.svg"},
+    {"label": "Figure 7", "location": "main p. 11", "caption_preserved": true, "local_asset": null},
+    {"label": "Figure 1", "location": "appendix physical p. 19 / printed p. 4", "caption_preserved": true, "local_asset": null},
+    {"label": "Figure 2", "location": "appendix physical p. 19 / printed p. 4", "caption_preserved": true, "local_asset": null}
+  ],
+  "tables": [
+    {"label": "Table 1", "location": "main p. 8", "transcribed": true, "local_asset": null},
+    {"label": "Table 2", "location": "main p. 9", "transcribed": true, "local_asset": null},
+    {"label": "Table 3", "location": "main p. 9", "transcribed": true, "local_asset": null},
+    {"label": "Table 4", "location": "main p. 9", "transcribed": true, "local_asset": null},
+    {"label": "Table 5", "location": "main p. 9", "transcribed": true, "local_asset": null},
+    {"label": "Table 1", "location": "appendix physical p. 16 / printed p. 1", "transcribed": true, "local_asset": null},
+    {"label": "Table 2", "location": "appendix physical p. 17 / printed p. 2", "transcribed": true, "local_asset": null},
+    {"label": "Table 3", "location": "appendix physical p. 18 / printed p. 3", "transcribed": true, "local_asset": null},
+    {"label": "Table 4", "location": "appendix physical p. 18 / printed p. 3", "transcribed": true, "local_asset": null},
+    {"label": "Table 5", "location": "appendix physical p. 19 / printed p. 4", "transcribed": true, "local_asset": null},
+    {"label": "Table 6", "location": "appendix physical p. 19 / printed p. 4", "transcribed": true, "local_asset": null},
+    {"label": "Table 7", "location": "appendix physical p. 20 / printed p. 5", "transcribed": true, "local_asset": null},
+    {"label": "Table 8", "location": "appendix physical p. 20 / printed p. 5", "transcribed": true, "local_asset": null},
+    {"label": "Table 9", "location": "appendix physical p. 21 / printed p. 6", "transcribed": true, "local_asset": null},
+    {"label": "Table 10", "location": "appendix physical p. 21 / printed p. 6", "transcribed": true, "local_asset": null},
+    {"label": "Table 11", "location": "appendix physical p. 22 / printed p. 7", "transcribed": true, "local_asset": null},
+    {"label": "Table 12", "location": "appendix physical p. 22 / printed p. 7", "transcribed": true, "local_asset": null},
+    {"label": "Table 13", "location": "appendix physical p. 23 / printed p. 8", "transcribed": true, "local_asset": null},
+    {"label": "Table 14", "location": "appendix physical p. 23 / printed p. 8", "transcribed": true, "local_asset": null}
+  ],
+  "assets": {
+    "created": [
+      "assets/figure_2_geoanchor_architecture.svg",
+      "assets/figure_3_training_strategy.svg",
+      "assets/figure_4_stage3_ablation.svg",
+      "assets/figure_6_attention_comparison.svg"
+    ],
+    "recreated_schematic": true,
+    "reason": "Four recreated SVG schematics were available in the concurrently shared images directory and copied read-only into assets. They are labeled as recreated in their SVG text and are not claimed to be pixel-identical PDF crops; remaining source figures/tables preserve bilingual captions and searchable transcriptions."
+  },
+  "notes": [
+    "The appendix restarts printed page numbering at 1; pdf_pages refer to physical PDF pages.",
+    "Physical PDF page count is 23; appendix physical pages 21-23 contain the restored continuation through Section D.3 and Tables 9-14.",
+    "References remain in original bibliographic form as allowed by the output contract.",
+    "The paper's visible Stage 2/3 ablation sentence contains a likely source typo; it is retained and called out in translation_notes.md."
+  ]
+}

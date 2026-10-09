@@ -1,0 +1,71 @@
+{
+  "paper": "HarnessWAM: Bridging Prediction and Deliberation in World Action Models",
+  "source_pages": 15,
+  "decisions": [
+    {
+      "id": "F1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "page": 2,
+      "decision": "insert",
+      "asset": "images/figure_1_prediction_deliberation.png",
+      "reason": "核心问题的最小反例，直接展示传统WAM与HarnessWAM在跨阶段记忆上的差异。"
+    },
+    {
+      "id": "F2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "page": 4,
+      "decision": "insert",
+      "asset": "images/figure_2_overview.png",
+      "reason": "方法总览，帮助定位任务管理器、状态、投影、WAM与运行时的接口。"
+    },
+    {
+      "id": "T1",
+      "kind": "table",
+      "label": "Table 1",
+      "page": 10,
+      "decision": "insert",
+      "asset": "images/table_1_main_results.png",
+      "reason": "主结果表；笔记另以Markdown转录关键均值，图片保留任务族细节。"
+    },
+    {
+      "id": "T2",
+      "kind": "table",
+      "label": "Table 2",
+      "page": 10,
+      "decision": "insert",
+      "asset": "images/table_1_main_results.png",
+      "reason": "RoboCerebra Ideal对比紧邻Table 1，使用同页裁剪图保留原始上下文。"
+    },
+    {
+      "id": "T3",
+      "kind": "table",
+      "label": "Table 3",
+      "page": 11,
+      "decision": "insert",
+      "asset": "images/table_3_4_ablations.png",
+      "reason": "组件消融是贡献归因的核心证据，笔记另以Markdown转录。"
+    },
+    {
+      "id": "T4",
+      "kind": "table",
+      "label": "Table 4",
+      "page": 11,
+      "decision": "insert",
+      "asset": "images/table_3_4_ablations.png",
+      "reason": "计划质量诊断直接支持可执行空间投影的机制解释。"
+    },
+    {
+      "id": "F3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "page": 12,
+      "decision": "insert",
+      "asset": "images/figure_3_rollout.png",
+      "reason": "代表性抽屉任务轨迹，展示探索、证据保留、重新打开和放置的顺序。"
+    }
+  ],
+  "skipped": [],
+  "asset_policy": "仅物化精读侧需要的主要图表；图片来自PDF页面渲染后的真实裁剪。"
+}

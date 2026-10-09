@@ -1,0 +1,42 @@
+{
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YBPYU5CT/Chen 等 - 2026 - Code World Model Coding Agent as World Brain.pdf",
+  "source_identity": {
+    "title": "Code World Model: Coding Agent as World Brain",
+    "authors": ["Yiwen Chen", "Guosheng Lin", "Chi Zhang"],
+    "arxiv": "2608.25927v1",
+    "pages": 20,
+    "format": "two-column arXiv GenPDF PDF",
+    "embedded_resources": 12
+  },
+  "target": "detailed_paper.md",
+  "mapping_policy": "Page-level and section-level traceability; English source blocks are paired immediately with Chinese translations.",
+  "sections": [
+    {"section": "front matter and abstract", "source_pages": [1], "target_anchors": ["Abstract", "Para. 1", "Figure 1"]},
+    {"section": "Introduction", "source_pages": [1, 2, 3], "target_anchors": ["Introduction", "Para. 1", "Para. 13", "Figure 2"]},
+    {"section": "Related Work", "source_pages": [4, 5], "target_anchors": ["Related Work", "3.1", "3.2", "3.3"]},
+    {"section": "Method / Code World Model", "source_pages": [5, 6, 7], "target_anchors": ["Method", "4.1", "From world state to visual observations", "Formulation", "Para. 11", "Para. 15"]},
+    {"section": "World-State Conditioning", "source_pages": [7, 8, 9], "target_anchors": ["4.2", "Proxy", "Condition bandwidth"]},
+    {"section": "Data", "source_pages": [9, 10, 11], "target_anchors": ["4.3", "Game data", "Real-world data", "Figure 3"]},
+    {"section": "Experiments", "source_pages": [11, 12], "target_anchors": ["Experiments", "Training", "Coding-agent inference", "Video-model inference", "Visual Quality Results", "Figure 4"]},
+    {"section": "Limitations and Conclusions", "source_pages": [12], "target_anchors": ["Limitations", "Conclusions"]},
+    {"section": "References", "source_pages": [13, 14, 15, 16], "target_anchors": ["References", "1.", "95."]},
+    {"section": "Appendix A: Text Prompt Examples", "source_pages": [17, 18, 19, 20], "target_anchors": ["Appendix A", "Example 1", "Example 2", "Example 3"]}
+  ],
+  "figures": [
+    {"label": "Fig. 1", "source_page": 1, "assets": ["assets/fig1_overview.png"]},
+    {"label": "Fig. 2", "source_page": 3, "assets": ["assets/fig2_pipeline.jpg"]},
+    {"label": "Fig. 3", "source_page": 9, "assets": ["assets/fig3a_rgb.png", "assets/fig3a_proxy.png", "assets/fig3b_rgb.jpg", "assets/fig3b_proxy.png"]},
+    {"label": "Fig. 4", "source_page": 10, "assets": ["assets/fig4_A.png", "assets/fig4_B.png", "assets/fig4_C.png", "assets/fig4_D.png", "assets/fig4_E.png"]}
+  ],
+  "appendix_prompt_groups": [
+    {"name": "The Rainkeeper’s Steps", "source_pages": [17]},
+    {"name": "Hollowfacet Hill", "source_pages": [18]},
+    {"name": "The Mycelial Provision Road", "source_pages": [19, 20]}
+  ],
+  "known_source_notes": [
+    "The source contains no standalone quantitative table; results are qualitative figure panels.",
+    "The source states both approximately 5.6 hours of source gameplay in implementation details and five hours of GTA V gameplay in the Figure 4 caption; both are retained.",
+    "PDF text extraction has a font mismatch warning, but all pages are text-extractable and the visual resources are embedded.",
+    "Reference entries are preserved in original searchable bibliographic form rather than translated names or titles."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "paper": {
+    "title": "Light-WAM: Efficient World Action Models with State-Fusion Action Decoding",
+    "authors": ["Ziang Li", "Dongzhou Cheng", "Yibin Wang", "Shiyue Wang", "Xiaoyang Xu", "Lingxuan Weng", "Juan Wang", "Jiaqi Wang"],
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2606.08242v1",
+    "zotero_key": "ZRZUWRII",
+    "attachment_key": "S7BIWD7S",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/S7BIWD7S/Li 等 - 2026 - Light-WAM Efficient World Action Models with State-Fusion Action Decoding.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "page_count": 15
+  },
+  "notes": {
+    "mode": "full-paper bilingual semantic reader",
+    "paragraph_numbering": "reset by major section",
+    "reference_policy": "References are retained as one source block and not translated entry by entry.",
+    "layout_note": "Table 2 was manually re-cropped from rendered page 6 to remove Figure 2 contamination.",
+    "algorithm_note": "Algorithm crops were incomplete; algorithm content is transcribed in bilingual prose."
+  },
+  "blocks": [
+    {"id":"S001","type":"body","section":"Abstract","pages":"1","summary":"WAM temporal supervision and the cost of large generative architectures."},
+    {"id":"S002","type":"body","section":"Abstract","pages":"1","summary":"Compact frozen video backbone and downsampled latent video supervision."},
+    {"id":"S003","type":"body","section":"Abstract","pages":"1","summary":"StateFusionActionExpert, 0.44B trainable parameters, 72.03 ms and 4.1 GiB."},
+    {"id":"S004","type":"body","section":"Introduction","pages":"1-2","summary":"Future-video prediction supplies temporal structure but raises WAM cost."},
+    {"id":"S005","type":"body","section":"Introduction","pages":"1-2","summary":"Test-time future video is not necessary; Light-WAM focuses on pipeline efficiency."},
+    {"id":"S006","type":"body","section":"Related Work","pages":"2-3","summary":"Positioning against efficient VLA and recent WAM systems."},
+    {"id":"S007","type":"equation","section":"Methodology 3.1","pages":"3","summary":"Action sequence is decoded from multi-level adapted video features."},
+    {"id":"S008","type":"body","section":"Methodology 3.2","pages":"3-4","summary":"Frozen Wan2.1 backbone, LoRA and sparse adapters at layers 8, 16 and 24."},
+    {"id":"S009","type":"equation","section":"Methodology 3.3","pages":"4","summary":"Flow-matching video loss on spatially downsampled latent video."},
+    {"id":"S010","type":"body","section":"Methodology 3.3","pages":"4","summary":"Original-resolution current latent is preserved for action prediction."},
+    {"id":"S011","type":"equation","section":"Methodology 3.4","pages":"4-5","summary":"Learned-query attention compresses dense tokens into per-level states."},
+    {"id":"S012","type":"equation","section":"Methodology 3.4","pages":"5","summary":"Multi-level fusion, step embeddings and direct action regression."},
+    {"id":"S013","type":"equation","section":"Methodology 3.4","pages":"5","summary":"Joint video and action training objective."},
+    {"id":"S014","type":"body","section":"Experiments 4.1","pages":"5","summary":"LIBERO, RoboTwin 2.0, training and hardware protocol."},
+    {"id":"S015","type":"body","section":"Experiments 4.2","pages":"5-6","summary":"LIBERO 97.2 average and ranking interpretation."},
+    {"id":"S016","type":"body","section":"Experiments 4.3","pages":"6","summary":"RoboTwin 76.4 average and gap to heavy WAMs."},
+    {"id":"S017","type":"body","section":"Experiments 4.4","pages":"6-7","summary":"Training efficiency component decomposition and 4.25x throughput."},
+    {"id":"S018","type":"body","section":"Experiments 4.4","pages":"7","summary":"72.03 ms inference, 4.1 GiB memory and 2.1 ms action branch."},
+    {"id":"S019","type":"body","section":"Experiments 4.5","pages":"7-8","summary":"Downsampling, adapter count and query count ablations."},
+    {"id":"S020","type":"body","section":"Experiments 4.6","pages":"8","summary":"Future-video and learned-query qualitative analysis."},
+    {"id":"S021","type":"body","section":"Experiments 4.7","pages":"8","summary":"Three IMETA Y1 real-world tasks and comparison to pi0.5."},
+    {"id":"S022","type":"body","section":"Conclusion and Limitations","pages":"8-9","summary":"Efficiency-performance conclusion and robustness limitations."},
+    {"id":"S023","type":"references","section":"References","pages":"9-12","summary":"38 bibliography entries, not translated individually."},
+    {"id":"S024","type":"algorithm","section":"Appendix A","pages":"12-13","summary":"RoboTwin training and single-pass inference algorithms."},
+    {"id":"S025","type":"body","section":"Appendix B","pages":"13-14","summary":"Adapter dimensions, state fusion sizes, optimization and checkpoint selection."},
+    {"id":"S026","type":"table","section":"Appendix B","pages":"14","summary":"Parameter breakdown: 1.99B total and 441.03M trainable."},
+    {"id":"S027","type":"table","section":"Appendix C","pages":"14","summary":"Full 50-task RoboTwin 2.0 results."},
+    {"id":"S028","type":"figure","section":"Appendix D","pages":"15","summary":"Real-world rollout and future-video examples."}
+  ],
+  "assets": [
+    "assets/page_003_fig_figure_1.png",
+    "assets/page_006_fig_figure_2.png",
+    "assets/page_006_fig_table_1.png",
+    "assets/page_006_fig_table_2_clean.png",
+    "assets/page_007_fig_table_3.png",
+    "assets/page_007_fig_table_4.png",
+    "assets/page_007_fig_table_5.png",
+    "assets/page_008_fig_figure_3.png",
+    "assets/page_008_fig_figure_4.png",
+    "assets/page_014_fig_table_6.png",
+    "assets/page_014_fig_table_7.png",
+    "assets/page_015_fig_figure_5.png"
+  ],
+  "glossary": [
+    {"term":"StateFusionActionExpert","translation":"状态融合动作专家","note":"Single-pass direct action chunk decoder."},
+    {"term":"future-video co-training","translation":"未来视频协同训练","note":"Training-only temporal supervision."},
+    {"term":"learned-query pooling","translation":"可学习查询池化","note":"Compresses dense video tokens per selected layer."},
+    {"term":"embodied pretraining","translation":"具身预训练","note":"Large-scale pretraining with robot action data."}
+  ]
+}

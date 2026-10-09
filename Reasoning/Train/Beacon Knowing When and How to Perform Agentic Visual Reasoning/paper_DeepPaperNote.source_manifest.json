@@ -1,0 +1,2173 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2607.28595",
+  "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/paper_reading/tmp/deeppapernote_beacon/beacon_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/paper_reading/tmp/deeppapernote_beacon/beacon_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+    "total_pages": 34,
+    "text_pages_extracted": 34,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 34,
+    "text_max_pages": null,
+    "text_pages_extracted": 34,
+    "text_pages_scanned": 34,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 11,
+    "references_start_page": 14
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 397,
+      "text_hash_sha256": "b1fac159796ad36d37f16228a7a49dca58763f357c51b6b55f47227e7951dbe8"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "ò Model",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 432,
+      "text_hash_sha256": "9d28a2bcd9f0d183b08f6131c91493384f3aa95b45fdaa0d6f3b1456a1f0e05e"
+    },
+    {
+      "section_id": "sec:model-2",
+      "kind": "method",
+      "title": "model",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 19,
+      "text_hash_sha256": "2344d82310202a9d6b6a2ab776bd83ec989e1220ed915ccdd21e6fd00da88fb8"
+    },
+    {
+      "section_id": "sec:model-3",
+      "kind": "method",
+      "title": "model",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 616,
+      "text_hash_sha256": "86cf7c1b50bdfe50116e2d552fb10c1f9d32ad0fa6fc222e2add51d419c77f03"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 3184,
+      "text_hash_sha256": "910be54f86b6d1d02841adf875b2c191069a65cec37c88dab7b78c83ccefbe37"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "INTRODUCTION",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 3457,
+      "text_hash_sha256": "e9f48391e75271f33685e5d17f5402bb6e212f50184c3d655cb57b663908769f"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "RELATED WORK",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 4072,
+      "text_hash_sha256": "8981b43bfe7b660d5366bdc2494e370b329d0dd2168d26d0deaae1edf89cbe44"
+    },
+    {
+      "section_id": "sec:analysis",
+      "kind": "experiment",
+      "title": "ANALYSIS",
+      "page_start": 4,
+      "page_end": 6,
+      "char_count": 6263,
+      "text_hash_sha256": "228b6f658ad408d7408a5f1c5a08fa08a0bbca9f5fc9445dc8fa9957d2541726"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "METHOD",
+      "page_start": 6,
+      "page_end": 9,
+      "char_count": 12186,
+      "text_hash_sha256": "71741cb2b681758ca30a1f9edf00ec83be854fe65965be39d91d033c56ae8197"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "EXPERIMENTS",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 1828,
+      "text_hash_sha256": "16de00511591524046d268ccbeca10d00fe3413f3b86eee4acfefad46b8a0ac7"
+    },
+    {
+      "section_id": "sec:model-4",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 934,
+      "text_hash_sha256": "d1ca75f222e1d4a9bdaddfb743433f4c763771ca9639d61ec88fe2391d82fec5"
+    },
+    {
+      "section_id": "sec:model-5",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 1290,
+      "text_hash_sha256": "660894f3255cc5fb5676bf77d9db1ab52205af400ac528d2b6da1c3e8a3c7dee"
+    },
+    {
+      "section_id": "sec:analysis-2",
+      "kind": "experiment",
+      "title": "ANALYSIS",
+      "page_start": 10,
+      "page_end": 11,
+      "char_count": 1501,
+      "text_hash_sha256": "1039ffa9b061ba89cfd4be4964d62e39a98961d1e91538bc50f5d1a999421998"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 11,
+      "page_end": 11,
+      "char_count": 4034,
+      "text_hash_sha256": "03a5cb25af9ba443433c4ed009f81154289c16c75b005d1fa78e89b632df8355"
+    },
+    {
+      "section_id": "sec:appendix-d-1",
+      "kind": "appendix",
+      "title": "Appendix D.1.",
+      "page_start": 11,
+      "page_end": 13,
+      "char_count": 5658,
+      "text_hash_sha256": "623bb8071fa98f8f0fb5482834af1f591a408ee5f42a1fbde3b6c5fa9329371e"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "CONCLUSION",
+      "page_start": 13,
+      "page_end": 14,
+      "char_count": 1621,
+      "text_hash_sha256": "6c2ae7f6a54c474d421530276c5ade14ab038027a4be1fd2756eecc7e93f2d08"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "REFERENCES",
+      "page_start": 14,
+      "page_end": 18,
+      "char_count": 11180,
+      "text_hash_sha256": "0ec932d838aa61d7d9e22b8b509415af27f4c0c4e6e84439af4c1ac8a177a5ac"
+    },
+    {
+      "section_id": "sec:appendix-contents",
+      "kind": "appendix",
+      "title": "APPENDIX CONTENTS",
+      "page_start": 18,
+      "page_end": 18,
+      "char_count": 1003,
+      "text_hash_sha256": "fd8f7872279ee1a8ac1e524a158e5191c5d8c4fd7ac075e4960cf30557818eca"
+    },
+    {
+      "section_id": "sec:discussion",
+      "kind": "conclusion",
+      "title": "Discussion",
+      "page_start": 18,
+      "page_end": 21,
+      "char_count": 6747,
+      "text_hash_sha256": "7c9eeb3d1a4d07541fda0eb47c319b2d17b07ba0b9553bb6790e13f78883f8d9"
+    },
+    {
+      "section_id": "sec:results",
+      "kind": "experiment",
+      "title": "results,",
+      "page_start": 21,
+      "page_end": 28,
+      "char_count": 18854,
+      "text_hash_sha256": "423dcdd76255dc0f066dfbb2b9fa79de1fddec8f60b0786ca5de0931bfc40425"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 28,
+      "page_end": 28,
+      "char_count": 2158,
+      "text_hash_sha256": "9cf91e2bdd65e51f9c5dae8b362fcba8fafa2bfc8f59b659e5c6f5795f24e5a7"
+    },
+    {
+      "section_id": "sec:discussion-2",
+      "kind": "conclusion",
+      "title": "DISCUSSION",
+      "page_start": 28,
+      "page_end": 34,
+      "char_count": 10447,
+      "text_hash_sha256": "7b84732e5a394ac4c55b17a0ab68050eaf1e559a1315cd975ffd4055678b26a6"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3279,
+      "section_ids": [
+        "sec:preamble",
+        "sec:model",
+        "sec:model-2",
+        "sec:model-3",
+        "sec:abstract"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 3468,
+      "section_ids": [
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4480,
+      "section_ids": [
+        "sec:introduction",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4112,
+      "section_ids": [
+        "sec:related-work",
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 2842,
+      "section_ids": [
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3921,
+      "section_ids": [
+        "sec:analysis",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 2993,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4158,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3203,
+      "section_ids": [
+        "sec:method",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3574,
+      "section_ids": [
+        "sec:experiments",
+        "sec:model-4",
+        "sec:model-5",
+        "sec:analysis-2"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 5063,
+      "section_ids": [
+        "sec:analysis-2",
+        "sec:method-2",
+        "sec:appendix-d-1"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3602,
+      "section_ids": [
+        "sec:appendix-d-1"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3163,
+      "section_ids": [
+        "sec:appendix-d-1",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3473,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3724,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3571,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 772,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 1407,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix-contents",
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 2730,
+      "section_ids": [
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 2616,
+      "section_ids": [
+        "sec:discussion"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 1663,
+      "section_ids": [
+        "sec:discussion",
+        "sec:results"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 2219,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 2078,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 3332,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 3940,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 3128,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 3530,
+      "section_ids": [
+        "sec:results"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 4103,
+      "section_ids": [
+        "sec:results",
+        "sec:method-3",
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 1286,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 1307,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 1650,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 1879,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 858,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    },
+    {
+      "page": 34,
+      "char_count": 1888,
+      "section_ids": [
+        "sec:discussion-2"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Agentic visual reasoning models should use tools adaptively and effectively.",
+        "page": 1,
+        "pages": [
+          1
+        ],
+        "section_id": "sec:preamble"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "(a) The tool-call ratio at different levels of text-only accuracy. (b) Average performance",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:abstract"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "(a) The accuracy of tool-available and tool-free reasoning. (b) The MAtext, MAtool, and",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Illustration of the RL process of Beacon.",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Training accuracy and rewards of the RL stage. (a) Mean training accuracy. (b)",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:appendix-d-1"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "(a) Proportions of pure-text and code-assisted responses during training. (b) Proportions",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:appendix-d-1"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "(a) Proportions of groups containing at least one correct pure-text response (“w/ text",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:appendix-d-1"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Training data sources of Beacon.",
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Task category distribution of the SFT and RL data.",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Detailed statistics of the SFT data. The numbers in the bars indicate the number",
+        "page": 21,
+        "pages": [
+          21
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Detailed statistics of the RL data. The numbers in the bars indicate the number of",
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "section_id": "sec:results"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Comparison on high-resolution visual search, spatial, and perceptual reasoning",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Comparison on quantitative, diagrammatic, compositional, and agentic visual reason-",
+        "page": 10,
+        "pages": [
+          10
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Table 3",
+        "caption": "The metrics that reflect the Mode Adaptiveness and Tool Effect of agentic visual rea-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:analysis-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "We observe that our full method has the best overall performance, while using the necessity-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:analysis-2"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Component-wise ablation study of Beacon. “Overall Acc.” indicates the average accu-",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:appendix-d-1"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Training data statistics. We report both the total number of raw samples and the number",
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "section_id": "sec:discussion"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Detailed ablation results for Mode Adaptiveness and Tool Effect (%). Metric definitions",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:results"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Reasoning Trajectory Example: Case 1",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:discussion-2"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Reasoning Trajectory Example: Case 2",
+        "page": 30,
+        "pages": [
+          30
+        ],
+        "section_id": "sec:discussion-2"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Reasoning Trajectory Example: Case 3",
+        "page": 31,
+        "pages": [
+          31
+        ],
+        "section_id": "sec:discussion-2"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Hint Example: Case 1",
+        "page": 32,
+        "pages": [
+          32
+        ],
+        "section_id": "sec:discussion-2"
+      },
+      {
+        "id": "Table 11",
+        "caption": "Hint Example: Case 2",
+        "page": 33,
+        "pages": [
+          33
+        ],
+        "section_id": "sec:discussion-2"
+      },
+      {
+        "id": "Table 12",
+        "caption": "Hint Example: Case 3",
+        "page": 34,
+        "pages": [
+          34
+        ],
+        "section_id": "sec:discussion-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "Δ=-0.1",
+      "section_id": "sec:abstract",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "Δ=+0.0",
+      "section_id": "sec:abstract",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "Δ=+1.7",
+      "section_id": "sec:abstract",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "Δ=+0.0",
+      "section_id": "sec:abstract",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "Δ=+3.1",
+      "section_id": "sec:abstract",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": "x under the tool-enabled prompt ptool, i.e., ux,i = 1 if the model uses tools for the i-th answer of",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "sample x and ux,i = 0 otherwise. MA consists of the following sub-metrics.",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "MAtext =",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "x∈E",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "MAtool =",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "x∈H",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "duced on ‘text-easy” samples. Let cx,i the correctness of the i-th response for sample x, i.e., cx,i = 1",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "if the model answers correctly and cx,i = 0 otherwise. Denote the total number of test samples as",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Tool-Gain =",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "x∈H",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "Tool-Harm =",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "x∈E",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:analysis",
+      "page_start": 4,
+      "page_end": 6
+    },
+    {
+      "text": "closed in <tool_call>...</tool_call> to manipulate the image or perform numerical",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "<observation>...</observation>. Based on this observation, the model may continue",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "between <tool_call>...</tool_call>). To avoid biasing the model towards code use and",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "samples with accuracy ≥0.6 among five rollouts into the SFT training data. See Appendix C.1 for",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Radaptive(yi; G) =",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Itext(G) = 1, yi is text-only and correct,",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Itext(G) = 1, yi uses code and is correct,",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Itext(G) = 0, yi uses code and is correct,",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Concretely, for each problem, we first sample a group Gn = {yn",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "i=1 from the policy using the",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "original prompt x, where N = 8 in our experiments. If none of these responses is correct, we regard",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "x. We append the hint to the original question to construct the hinted prompt xh = x ⊕h, where ⊕",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Gh =",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "i=1 .",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "R(yi; G) = 0.1Rformat(yi) + 0.9Radaptive(yi; G),",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "in which the format reward is defined as Rformat(yi) = 1 if each code block is followed by a",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "corresponding observation block and the final answer is put in <answer>...</answer>, and",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Rformat(yi) = 0 otherwise.",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Ai = R(yi; G) −µG",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "εadv = 10−6,",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "Let yi,t be the t-th trainable token and let τi,<t denote the preceding interaction history, including",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "i,t(θ) =",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "πθ (yi,t | x, τi,<t)",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "πθold (yi,t | x, τi,<t).",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "i,t(θ) =",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "πθ (yi,t | x, τi,<t)",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "πθold (yi,t | xh, τi,<t).",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "LGRPO(θ) = −1",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "b∈{n,h}",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "yi∈Bb",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "t∈Ti",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "where ϵ = 0.2 and Z = P",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "b∈{n,h}",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "yi∈Bb |Ti|. Here, Ti contains only trainable tokens and excludes",
+      "section_id": "sec:method",
+      "page_start": 6,
+      "page_end": 9
+    },
+    {
+      "text": "∆Acc = Tool-Available Acc. −Tool-Free Acc. and ∆TE = Tool-Gain −Tool-Harm. Positive and",
+      "section_id": "sec:analysis-2",
+      "page_start": 10,
+      "page_end": 11
+    },
+    {
+      "text": "net/forum?id=yDKawwfJ5O.",
+      "section_id": "sec:references",
+      "page_start": 14,
+      "page_end": 18
+    },
+    {
+      "text": "output <code> blocks or any tool-call format.",
+      "section_id": "sec:discussion",
+      "page_start": 18,
+      "page_end": 21
+    },
+    {
+      "text": "<think>...</think>",
+      "section_id": "sec:discussion",
+      "page_start": 18,
+      "page_end": 21
+    },
+    {
+      "text": "<answer>...</answer>",
+      "section_id": "sec:discussion",
+      "page_start": 18,
+      "page_end": 21
+    },
+    {
+      "text": "<tool_call>...</tool_call>",
+      "section_id": "sec:discussion",
+      "page_start": 18,
+      "page_end": 21
+    },
+    {
+      "text": "<tool_response>...</tool_response>",
+      "section_id": "sec:discussion",
+      "page_start": 18,
+      "page_end": 21
+    },
+    {
+      "text": "<observation>...</observation> for interpreting the returned evidence, and",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<answer>...</answer> for the final prediction.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "final line within each <tool_call>...</tool_call> block must be the executable",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "contrast, computing statistics, etc. Put the executable Python code inside <",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool_call></tool_call> tags. When you give the final answer, you must wrap it",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "inside <answer></answer> tags.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "img = get_image(\"q0\")",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "cropped = img.crop((120, 180, 420, 620))",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "- Use ImageDraw.Draw(annotated).line((x1, y1, x2, y2), fill=\"red\", width=4).",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "annotated = get_image(\"q0\").copy()",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw = ImageDraw.Draw(annotated)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw.line((118, 214, 612, 248), fill=\"red\", width=4)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw.line((132, 486, 628, 520), fill=\"red\", width=4)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "- Use ImageDraw.Draw(annotated).rectangle((x1, y1, x2, y2), outline=\"red\",",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "width=3).",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "annotated = get_image(\"q0\").copy()",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw = ImageDraw.Draw(annotated)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw.rectangle(box, outline=\"red\", width=3)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "- Write the calculation directly in Python, such as result = 5 / 8 * 100 or",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "result = math.sqrt(2) * 10.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "result = math.sqrt(2) * 10",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "- Use img.rotate(angle, expand=True).",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "img = get_image(\"q0\")",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "rotated = img.rotate(90, expand=True)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "source image directly. For example: annotated = get_image(\"q0\").copy().",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "4. If the current call should return an image result, the last line inside <",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool_call> should be the PIL image object itself, such as cropped, rotated, or",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "6. <tool_response>...</tool_response> is inserted by the system after the code",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "output <tool_response> tags on your own.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "7. After each code execution returns a result, you must immediately output an <",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "observation>...</observation> tag that explicitly analyzes the returned result",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "8. The order must be strictly <tool_call>...</tool_call> -> <tool_response",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": ">...</tool_response> -> <observation>...</observation>. After that, you may",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "continue with additional <tool_call> -> <tool_response> -> <observation> cycles",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "say so in <observation> and call code again to get better evidence instead of",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "img = get_image(\"q0\")",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "[The system then inserts a tool result wrapped in <tool_response>...</",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool_response>]",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<observation>I first checked the image size so that later coordinates are",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "phone itself.</observation>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "annotated = get_image(\"q0\").copy()",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw = ImageDraw.Draw(annotated)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "draw.rectangle((600, 290, 660, 380), outline=\"red\", width=3)",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "</tool_call>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "[The system then inserts a tool result wrapped in <tool_response>...</",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool_response>]",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<observation>The box covers the phone in the man’s hand. The phone is visibly",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": ".</observation>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<answer>No</answer>",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "1. Tool returns are wrapped in <tool_response>...</tool_response> and images",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "2. <tool_call>...</tool_call> is executable code.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "3. <observation>...</observation> is the observation after a tool returns.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "4. <answer>...</answer> is the final answer.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "3. For each tool call, if the tool result is followed by no meaningful <",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "observation>, add one.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "assignments, like \"<tool_call>result = 1result</tool_call>\".",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "7. Check whether each <observation> block precisely describes the preceding",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool call result. If not, try to refine the <observation> to make it more",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "response step is kept, keep its <tool_response> in the corresponding",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "9. If a <tool_call> step is removed, also remove the corresponding <",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "tool_response> and <observation>.",
+      "section_id": "sec:results",
+      "page_start": 21,
+      "page_end": 28
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img np = np.array(img)",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "blue mask = (img np[:, :, 0] < 100) &",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "(img np[:, :, 1] < 150) &",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "(img np[:, :, 2] > 200)",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "visited = np.zeros like(mask,",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "dtype=np.bool )",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "count = 0",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "h, w = mask.shape",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "count += 1",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "queue = [(i, j)]",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "visited[i, j] = True",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "cropped = img.crop((300, 450, 750, 550))",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "cropped = img.crop((600, 450, 800, 550))",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img1 = get image(\"q0\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img2 = get image(\"q1\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "img3 = get image(\"q2\")",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool call>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</tool response>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "(from x=200 to 400,",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "y=111 to 222).",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</observation>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "<answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    },
+    {
+      "text": "</answer>",
+      "section_id": "sec:discussion-2",
+      "page_start": 28,
+      "page_end": 34
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 11,
+    "sections": [
+      {
+        "title": "A Experimental Details",
+        "page": 18
+      },
+      {
+        "title": "C Training Details",
+        "page": 18
+      },
+      {
+        "title": "D Additional Experimental Results",
+        "page": 18
+      },
+      {
+        "title": "I will now",
+        "page": 29
+      },
+      {
+        "title": "I will crop",
+        "page": 30
+      },
+      {
+        "title": "B (✓)",
+        "page": 30
+      },
+      {
+        "title": "I will",
+        "page": 31
+      },
+      {
+        "title": "A smash that lands in the alley is",
+        "page": 32
+      },
+      {
+        "title": "C (✓)",
+        "page": 34
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Figure 5",
+        "caption": "Training accuracy and rewards of the RL stage. (a) Mean training accuracy. (b)",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "(a) Proportions of pure-text and code-assisted responses during training. (b) Proportions",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "(a) Proportions of groups containing at least one correct pure-text response (“w/ text",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Training data sources of Beacon.",
+        "page_hint": "p.20"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Task category distribution of the SFT and RL data.",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Detailed statistics of the SFT data. The numbers in the bars indicate the number",
+        "page_hint": "p.21"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Detailed statistics of the RL data. The numbers in the bars indicate the number of",
+        "page_hint": "p.22"
+      }
+    ],
+    "table_captions": [
+      {
+        "id": "Table 3",
+        "caption": "The metrics that reflect the Mode Adaptiveness and Tool Effect of agentic visual rea-",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Table 4",
+        "caption": "We observe that our full method has the best overall performance, while using the necessity-",
+        "page_hint": "p.11"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Component-wise ablation study of Beacon. “Overall Acc.” indicates the average accu-",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Training data statistics. We report both the total number of raw samples and the number",
+        "page_hint": "p.19"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Detailed ablation results for Mode Adaptiveness and Tool Effect (%). Metric definitions",
+        "page_hint": "p.28"
+      },
+      {
+        "id": "Table 7",
+        "caption": "Reasoning Trajectory Example: Case 1",
+        "page_hint": "p.29"
+      },
+      {
+        "id": "Table 8",
+        "caption": "Reasoning Trajectory Example: Case 2",
+        "page_hint": "p.30"
+      },
+      {
+        "id": "Table 9",
+        "caption": "Reasoning Trajectory Example: Case 3",
+        "page_hint": "p.31"
+      },
+      {
+        "id": "Table 10",
+        "caption": "Hint Example: Case 1",
+        "page_hint": "p.32"
+      },
+      {
+        "id": "Table 11",
+        "caption": "Hint Example: Case 2",
+        "page_hint": "p.33"
+      },
+      {
+        "id": "Table 12",
+        "caption": "Hint Example: Case 3",
+        "page_hint": "p.34"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "a8be4cb134a9fbb1ad269f4af23eaee58b3e24c7a1bc7df53ee6e63227a2f700",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2607.28595",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+      "translated_title": "",
+      "authors": [
+        "Qixun Wang",
+        "Yang Shi",
+        "Letian Cheng",
+        "Zhuoran Zhang",
+        "Yan He",
+        "Yuqi Tang",
+        "Qi Zhang",
+        "Xinlei Yu",
+        "Ruizhe Chen",
+        "Tianrun Xu",
+        "Yuanxing Zhang",
+        "Pengfei Wan",
+        "Haotian Wang",
+        "Xianghua Ying"
+      ],
+      "year": "2026",
+      "venue": "",
+      "doi": "10.48550/arXiv.2607.28595",
+      "arxiv_id": "2607.28595",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2607.28595v1",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+      "doi": "",
+      "arxiv_id": "2607.28595",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arXiv.2607.28595",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2607.28595",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2607.28595v1",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2607.28595"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+          "work_value": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/Documents/paper_reading/tmp/deeppapernote_beacon/beacon_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/Documents/paper_reading/tmp/deeppapernote_beacon/beacon_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/Documents/paper_reading/tmp/deeppapernote_beacon/beacon_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2607.28595v1",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+    "doi": "",
+    "arxiv_id": "2607.28595",
+    "zotero_key": ""
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "paper": {
+    "title": "Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with Dynamic and Precise Visual Thoughts",
+    "authors": [
+      "Xu Liu",
+      "Yongheng Zhang",
+      "Qiguang Chen",
+      "Yao Li",
+      "Sheng Wang",
+      "Libo Qin"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VZYTSXMW/Liu 等 - 2026 - Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "KMXAAADS",
+    "arxiv_id": "2603.21754"
+  },
+  "notes": {
+    "reading_mode": "faithful reader-style translation with source-grounded summaries",
+    "figure_policy": "Primary usable figures were embedded near the relevant discussion. Figure 7 was transcribed because its crop is visually mixed with Figure 5.",
+    "bibliography_policy": "References were summarized by scope, not translated entry by entry."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "source_section_id": "sec:abstract",
+      "summary": "DaP-ICoT addresses static visual insertion and broken visual representation through DVTI and PVTG, reporting SOTA results and 72.6% token reduction."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-3",
+      "source_section_id": "sec:introduction",
+      "summary": "The paper motivates ICoT, identifies static positioning and fragmented visual tokens as limitations, and introduces dynamic and precise visual thoughts."
+    },
+    {
+      "id": "S003",
+      "type": "equations",
+      "section": "Dynamic Visual Thought Integration",
+      "pages": "2-3",
+      "source_section_id": "sec:introduction",
+      "summary": "DVTI estimates confidence using token-level logit margins and inserts a visual thought only when confidence falls below threshold tau."
+    },
+    {
+      "id": "S004",
+      "type": "equations",
+      "section": "Precise Visual Thought Guidance",
+      "pages": "3-4",
+      "source_section_id": "sec:analysis",
+      "summary": "PVTG uses SAM2 object segmentation, attention-based relevance scoring, and interleaved reasoning with a selected object image."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Experiments and Analysis",
+      "pages": "4-7",
+      "source_section_id": "sec:methods",
+      "summary": "Experiments cover Direct, MMCoT, DDCoT, SCAFFOLD, CCoT, and ICoT across five MLLMs on M3CoT, ScienceQA, and MME."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Deep Analysis",
+      "pages": "5-7",
+      "source_section_id": "sec:analysis-2",
+      "summary": "Ablations, token accounting, insertion frequency, confidence changes, threshold search, and a qualitative case support the method claims."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Related Work and Conclusion",
+      "pages": "7-8",
+      "source_section_id": "sec:related-work",
+      "summary": "Related work places DaP-ICoT among MLLMs, MCoT, ICoT, visual sketching, and visual prompting; conclusion restates adaptive efficient visual reasoning."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "summary": "Figure 1 motivation comparison between current ICoT and DaP-ICoT.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "DaP-ICoT Reasoning",
+      "pages": "3",
+      "summary": "Figure 2 method overview.",
+      "asset": "assets/page_003_fig_figure_2.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments and Analysis",
+      "pages": "4",
+      "summary": "Table 1 main experimental results.",
+      "asset": "assets/page_004_fig_table_1.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Ablation",
+      "pages": "5",
+      "summary": "Figure 3 ablation results on Qwen2-VL-7B.",
+      "asset": "assets/page_005_fig_figure_3.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Efficiency",
+      "pages": "5",
+      "summary": "Figure 4 token consumption comparison.",
+      "asset": "assets/page_005_fig_figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Efficiency",
+      "pages": "6",
+      "summary": "Figure 5 image insertion frequency and inserted image token consumption.",
+      "asset": "assets/page_006_fig_figure_5.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Confidence",
+      "pages": "6",
+      "summary": "Figure 6 confidence improvement after image insertion.",
+      "asset": "assets/page_006_fig_figure_6.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Qualitative Analysis",
+      "pages": "7",
+      "summary": "Figure 8 case study comparing current ICoT and DaP-ICoT.",
+      "asset": "assets/page_007_fig_figure_8.png"
+    }
+  ],
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_003_fig_figure_2.png",
+    "assets/page_004_fig_table_1.png",
+    "assets/page_005_fig_figure_3.png",
+    "assets/page_005_fig_figure_4.png",
+    "assets/page_006_fig_figure_5.png",
+    "assets/page_006_fig_figure_6.png",
+    "assets/page_006_fig_figure_7.png",
+    "assets/page_007_fig_figure_8.png",
+    "assets/page_007_fig_figure_8_2.png"
+  ]
+}

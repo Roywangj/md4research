@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "source_reader": "detailed_paper.md",
+  "source_pdf_sha256": "0bf354364a18a2e504b46dcefd895ea923a63f04bc2f4ac12d9e8ea57ea80e2a",
+  "coverage": {"pages": 19, "main_pages": "1-9", "references_pages": "10-15", "supplement_pages": "16-19"},
+  "claims_checked": [
+    {"claim": "RoboTwin randomized success 93.56%", "source": "Table 1; Table 12 average", "result": "supported"},
+    {"claim": "LIBERO average 98.4%", "source": "Table 2", "result": "supported"},
+    {"claim": "LIBERO-Plus average 83.1% for FLUX.2 4B", "source": "Table 3 and Table 7", "result": "supported"},
+    {"claim": "real robot average 84.5%", "source": "Table 4", "result": "supported"},
+    {"claim": "263 ms and 9.72 TFLOPs", "source": "Table 5, A6000", "result": "supported"},
+    {"claim": "69 ms optimized latency", "source": "Appendix Table 11; prefix-only plus compile/static graph; three action denoising steps", "result": "supported_with_protocol"},
+    {"claim": "training on 8 NVIDIA H20 GPUs", "source": "Appendix 5.2 and Table 8", "result": "supported"},
+    {"claim": "Light-WAM relationship", "source": "no Light-WAM method in paper", "result": "explicitly_not_imported"}
+  ],
+  "boundary_checks": [
+    "attention evidence described as correlational",
+    "single artifact example not generalized to artifact frequency",
+    "headline efficiency denominator distinguished from cache-only FastWAM",
+    "no universal claim that video generation is unnecessary",
+    "unified-model comparison not treated as controlled ablation"
+  ],
+  "passes_grounding_gate": true
+}

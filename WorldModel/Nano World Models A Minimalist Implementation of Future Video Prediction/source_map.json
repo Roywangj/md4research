@@ -1,0 +1,205 @@
+{
+  "paper": {
+    "title": "Nano World Models: A Minimalist Implementation of Future Video Prediction",
+    "authors": [
+      "Siqiao Huang",
+      "Partha Kaushik",
+      "Michael Chen",
+      "Hengkai Pan",
+      "Kaiwen Geng",
+      "Omar Chehab",
+      "Fernando Moreno-Pino",
+      "Max Simchowitz"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AMCJCEKS/Huang 等 - 2026 - Nano World Models A Minimalist Implementation of Future Video Prediction.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "pages": 19
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1-2",
+      "paragraphs": "Para. 1",
+      "summary": "Motivation, unified diffusion-forcing interface, controlled studies, and open release."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "2-3",
+      "paragraphs": "Para. 2-14",
+      "summary": "Motivation, contributions, supported environments, tool-use applications, and mission."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Preliminaries",
+      "pages": "4",
+      "paragraphs": "Para. 15-17",
+      "summary": "Conditional sequence generation and model-based planning objective."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Methods Supported",
+      "pages": "4-8",
+      "paragraphs": "Para. 18-31",
+      "summary": "Diffusion forcing, objectives, architecture, latent spaces, datasets, long rollout, logging, 3D export, and MPC."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Findings",
+      "pages": "8-14",
+      "paragraphs": "Para. 32-53",
+      "summary": "Evaluation protocol and six findings across targets, scales, action injection, latent spaces, long horizon, and domains."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Related Works",
+      "pages": "13-14",
+      "paragraphs": "Para. 54-56",
+      "summary": "World-model paradigms, streaming video diffusion, and open-source infrastructure."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "14",
+      "paragraphs": "Para. 57",
+      "summary": "Summary of unified framework and empirical design findings."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Findings",
+      "pages": "9",
+      "label": "Table 1",
+      "summary": "Prediction target ablation on RT-1 fractal."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Findings",
+      "pages": "9",
+      "label": "Table 2",
+      "summary": "Model scale ablation on RT-1 fractal."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Findings",
+      "pages": "9",
+      "label": "Table 3",
+      "summary": "Action-injection ablations on RT-1 and PushT."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Findings",
+      "pages": "10",
+      "label": "Table 4",
+      "summary": "Goal-conditioned planning on PushT across latent spaces."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Findings",
+      "pages": "10-11",
+      "label": "Table 5",
+      "summary": "Ground-truth action rollout diagnostic on PushT."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Findings",
+      "pages": "11",
+      "label": "Table 6",
+      "summary": "Action embedding magnitude across latent spaces."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Findings",
+      "pages": "13",
+      "label": "Table 7",
+      "summary": "Shipped checkpoint results under standardized evaluation."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Overview",
+      "pages": "1",
+      "label": "Figure 1",
+      "asset": "assets/page_1.png.png",
+      "summary": "Framework overview."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Methods",
+      "pages": "6",
+      "label": "Figure 2",
+      "asset": "assets/page_6.png.png",
+      "summary": "Qualitative rollouts across domains."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Methods",
+      "pages": "7",
+      "label": "Figure 3",
+      "asset": "assets/page_7.png.png",
+      "summary": "Logging and fixed-seed evaluation."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Methods",
+      "pages": "8",
+      "label": "Figure 4",
+      "asset": "assets/page_7.png.png",
+      "summary": "Exporting rollouts to 3D scene assets."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Findings",
+      "pages": "12",
+      "label": "Figure 5",
+      "asset": "assets/page_11.png.png",
+      "summary": "Long-horizon rollout samples."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Findings",
+      "pages": "12",
+      "label": "Figure 6",
+      "asset": "assets/page_12.png.png",
+      "summary": "Error accumulation."
+    }
+  ],
+  "assets": [
+    "assets/page_1.png.png",
+    "assets/page_6.png.png",
+    "assets/page_7.png.png",
+    "assets/page_9.png.png",
+    "assets/page_10.png.png",
+    "assets/page_11.png.png",
+    "assets/page_12.png.png"
+  ],
+  "coverage": {
+    "pdf_pages": "1-19",
+    "appendices": "none present",
+    "references": "original bibliography retained in full searchable form"
+  },
+  "notes": {
+    "extraction": "pdftotext -layout plus rendered PNG page assets; multi-column body manually restored to section order."
+  }
+}

@@ -1,0 +1,42 @@
+\begin{table}[!t]
+\centering
+\caption{\textbf{Success rates on the real Dobot platform across all
+evaluation settings.}
+Each entry is the mean over the three memory-dependent or two
+memory-free tasks of Table~\ref{tab:real_dobot_basic}; \emph{Avg.}\
+averages the four disturbance settings.
+\emph{Mem.}\ marks memory-augmented policies; per-instruction counts
+are given in Table~\ref{tab:app:real_dobot_all}.}
+\label{tab:real_dobot_generalization}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+& & & \multicolumn{5}{c}{\textbf{Visual Disturbance}} \\
+\cmidrule(lr){4-8}
+\textbf{Method}
+& \textbf{Mem.}
+& \textbf{Basic}
+& \textbf{Distractor}
+& \textbf{Background}
+& \textbf{Height}
+& \textbf{Lighting}
+& \textbf{Avg.} \\
+\midrule
+\multicolumn{8}{@{}l}{\emph{Memory-dependent tasks}} \\
+SAM2Act+~\cite{fang2025sam2act} & \cmark & 30.0\% & 0.0\% & 0.0\% & 0.0\% & 3.3\% & 0.8\% \\
+\textbf{\method} & \xmark & 20.0\% & 20.0\% & 23.3\% & 6.7\% & 13.3\% & 15.8\% \\
+\textbf{\memmethod} & \cmark & 93.3\% & 73.3\% & 86.7\% & 76.7\% & 76.7\% & 78.3\% \\
+\midrule
+\multicolumn{8}{@{}l}{\emph{Memory-free tasks}} \\
+SAM2Act+~\cite{fang2025sam2act} & \cmark & 40.0\% & 0.0\% & 0.0\% & 0.0\% & 7.5\% & 1.9\% \\
+\textbf{\method} & \xmark & 95.0\% & 57.5\% & 72.5\% & 67.5\% & 67.5\% & 66.3\% \\
+\textbf{\memmethod} & \cmark & 100.0\% & 70.0\% & 100.0\% & 82.5\% & 75.0\% & 81.9\% \\
+\bottomrule
+\end{tabular}}
+\end{table}

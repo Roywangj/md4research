@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "run": 3,
+  "rerun_reason": "semantic-completeness repair replaced compressed paraphrases with complete cleaned source paragraphs and faithful translations",
+  "gates": {
+    "passes_structure_gate": true,
+    "passes_grounding_gate": true,
+    "passes_mechanism_gate": true,
+    "passes_quantitative_evidence_gate": true,
+    "passes_figure_table_gate": true,
+    "passes_style_gate": true,
+    "passes_asset_and_link_gate": true
+  },
+  "reader_coverage": {
+    "source_paragraph_or_list_groups": 59,
+    "reader_bilingual_pairs": 59,
+    "complete_one_to_one_mapping": true,
+    "cleaned_english_words": 4084,
+    "references": 98,
+    "equations": 11,
+    "figures": 5,
+    "tables": 12,
+    "caption_pairs": 17
+  },
+  "checks": {
+    "all_main_and_supplement_source_groups_preserved": true,
+    "no_source_paragraphs_summarized_or_merged": true,
+    "contribution_list_preserved": true,
+    "all_exact_metrics_and_hedges_preserved": true,
+    "canonical_yaml_and_headings": true,
+    "central_comparisons_use_markdown_tables": true,
+    "hardware_latency_protocol_distinguished": true,
+    "supported_and_unsupported_claims_separated": true,
+    "fastwam_relation_grounded": true,
+    "light_wam_not_imported": true,
+    "all_selected_images_exist": true,
+    "all_relative_links_resolve": true,
+    "no_worktree_path_leaks": true,
+    "paper_and_detailed_byte_identical": true,
+    "temporary_scripts_removed": true
+  },
+  "final_quality_review": {
+    "passed": true,
+    "central_evidence_chain_complete": true,
+    "key_settings_and_numbers_present": true,
+    "mechanisms_mapped_to_results": true,
+    "proven_vs_unproven_separated": true,
+    "replication_takeaways_specific": true
+  },
+  "final_readability_review": {
+    "passed": true,
+    "translation_faithful_and_readable": true,
+    "stable_proper_names_preserved": true,
+    "no_mechanical_mixed_language_artifacts": true
+  },
+  "errors": [],
+  "warnings": []
+}

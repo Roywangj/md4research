@@ -1,0 +1,91 @@
+{
+  "paper_id": "arxiv:2603.01229",
+  "title": "RMBench: Memory-Dependent Robotic Manipulation Benchmark with Insights into Policy Design",
+  "paper_type": "benchmark_or_dataset",
+  "paper_type_rationale": "论文以 Task Memory Complexity 定义九项操作任务并系统比较策略；Mem-0 是为受控记忆消融配套的模块化策略。",
+  "dominant_domain": "embodied AI / robotic manipulation benchmark",
+  "must_cover": [
+    "Task Memory Complexity 的 M(0)、M(1)、M(n) 定义与边界",
+    "九项任务和 M(1)/M(n) 分组",
+    "Mem-0 的三类记忆、规划—执行闭环及终止检测",
+    "Table 1-3 的主结果、消融、真实世界结果",
+    "Appendix A-C、Table 4-6 和 Figure 5-11 的训练与失败案例"
+  ],
+  "key_numbers": [
+    "M(1) 52.8%（+38.4）",
+    "M(n) 28.5%（+21.2）",
+    "总平均 42.0%（+31.6）",
+    "真实世界 22.50%",
+    "GT Classifier 45.3%",
+    "每任务 50 演示、100 rollout；真实每任务 40 rollout",
+    "执行模块 8×A800、30k iterations、约18小时/任务"
+  ],
+  "real_comparisons": [
+    "DP、ACT、Pi0.5、X-VLA 与 Mem-0 的 Table 1 比较",
+    "w/o anchor、w/o sliding、w/o key、GT Classifier 的 Table 2 比较",
+    "ACT、Pi0.5、Mem-0 的 Table 3 真实世界比较"
+  ],
+  "central_claims": [
+    {
+      "claim": "显式分槽记忆使 Mem-0 在 RMBench 的 M(1)、M(n) 和总体平均成功率上显著高于表中最强基线。",
+      "supporting_evidence": ["Table 1: 52.8% vs 14.4%", "Table 1: 28.5% vs 7.3%", "Table 1: 42.0% vs 10.4%"],
+      "what_it_actually_proves": "在作者的九任务、50 演示、100 rollout 仿真协议下，Mem-0 联合系统优于所选基线。",
+      "what_it_does_not_prove": "不能将收益唯一归因于缓存机制，因为 M(n) 还引入了子任务分解与终止器。"
+    },
+    {
+      "claim": "终止检测是 M(n) 当前端到端性能的重要瓶颈。",
+      "supporting_evidence": ["Table 2: GT Classifier 45.3% vs vanilla 28.5%", "Appendix C 的 Figure 8-10 失败案例"],
+      "what_it_actually_proves": "若用模拟器真值触发子任务结束，当前系统可获得更高的 M(n) 成功率。",
+      "what_it_does_not_prove": "45.3% 不是现实部署可达上界，真值终止信号在真实机器人中不可用。"
+    }
+  ],
+  "claim_boundaries": [
+    "TMC 是作者给出的任务标注准则；论文未证明它等价于信息论意义的最小记忆比特数，也未给出独立标注者一致性。",
+    "模拟主结果使用每任务 50 条专家演示、100 次 rollout；真实世界仅有三个任务、每任务 40 次 rollout，不能直接外推为通用双臂机器人记忆能力。",
+    "GT Classifier 的结果隔离了终止信号误差，但该信号来自模拟器，不能代表真实部署时可获得的监督。"
+  ],
+  "negative_or_limiting_results": [
+    "Press Button 在 Mem-0 主表中为 0%，视觉细粒度按键状态与终止检测困难。",
+    "Swap T 中去 sliding 优于 vanilla，表明短期记忆可能干扰初始朝向强依赖任务。",
+    "真实世界仅三任务，平均 22.50%，主要失败为低层操作精度。"
+  ],
+  "mechanism_result_map": [
+    {"mechanism": "anchor memory 固定子任务起点", "result": "多数 M(1) 任务去除后下降，说明持续参照比有限滑窗更抗遗忘", "source": "Table 2 / Sec. 5.2"},
+    {"mechanism": "sliding memory 保留近期运动趋势", "result": "多数任务下降，但 Swap T 去除后反升，说明短期线索也可能干扰初始姿态依赖任务", "source": "Table 2 / Sec. 5.2"},
+    {"mechanism": "key memory 聚合已完成子任务及终止帧", "result": "M(n) 的下一子任务推断依赖它；去除后显著退化", "source": "Eq. 4 / Table 2 / Sec. 5.2"},
+    {"mechanism": "终止分类器触发规划", "result": "GT Classifier 达 45.3%，高于 vanilla 28.5%，暴露终止检测瓶颈", "source": "Eq. 9 / Table 2"}
+  ],
+  "comparative_positioning": [
+    "相较固定短窗口的 DP/ACT/Pi0.5/X-VLA，论文针对当前观察不足的非马尔可夫任务。",
+    "相较仅追求长时程的基准，RMBench 用 TMC 显式标注最少任务相关观测需求。",
+    "相较每帧高层推理的 MemER，Mem-0 仅于子任务终止时规划，论文报告约 5–10 Hz 对比 1–2 Hz。"
+  ],
+  "reuse_takeaways": [
+    "把不同时间尺度的记忆分成固定参照、局部动态和事件摘要，并单独评测淘汰/检索错误。",
+    "将终止检测当作策略接口模块而非训练细节，单独报告其误差和上界。",
+    "在任务记忆基准中控制子任务数、时间间隔与反馈难度，避免把它们混成 M(n)。"
+  ],
+  "followup_questions": [
+    "M(n) 是否应拆解为记忆条目数、时间间隔和检索干扰的多轴指标？",
+    "触觉和本体信息能否显著降低终止分类器的误检？",
+    "结合预训练执行器后，三种记忆的消融规律是否仍保持？"
+  ],
+  "section_plan": [
+    "研究问题：固定短窗口的近似马尔可夫假设为何失效",
+    "数据与任务定义：TMC 与九项任务",
+    "方法主线：Mem-0 闭环、三种记忆和 Eq. 1-9",
+    "关键结果：主表、消融、真实世界",
+    "深度分析：机制—结果映射、协议、可比性",
+    "局限：附录失败与外推边界"
+  ],
+  "source_coverage": {"pages": "1-16", "appendices": ["A", "B", "C"], "figures": "Figure 1-11", "tables": "Table 1-6", "equations": "Eq. 1-9"},
+  "required_sections": ["核心信息", "原文摘要翻译", "创新点", "一句话总结", "研究问题", "数据与任务定义", "方法主线", "关键结果", "深度分析", "局限", "我的笔记", "引用"],
+  "evidence_anchors": [
+    {"claim": "TMC 的 POMDP 定义与 M(0)/M(1)/M(n) 解释", "pages": "3-4", "source": "Sec. 3.1, Eq. 1-2"},
+    {"claim": "九个任务及其分组", "pages": "3,12", "source": "Fig. 1, Sec. 3.3, Table 4"},
+    {"claim": "Mem-0 的规划、执行、终止闭环", "pages": "4-6", "source": "Fig. 2, Sec. 4, Eq. 3-9"},
+    {"claim": "主结果与消融", "pages": "6-8", "source": "Table 1-3, Fig. 3-4"},
+    {"claim": "训练与失败案例", "pages": "12-16", "source": "Appendix B-C, Table 5-6, Fig. 5-11"}
+  ],
+  "figure_table_contract": {"inserted": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Figure 5", "Figure 6", "Figure 7", "Figure 8", "Figure 9", "Figure 10", "Figure 11", "Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Table 6"], "policy": "均为源 PDF 的原生裁图；正文同时保留表格文字解读。"}
+}

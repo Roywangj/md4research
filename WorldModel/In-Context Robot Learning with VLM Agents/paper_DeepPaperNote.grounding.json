@@ -1,0 +1,34 @@
+{
+  "claims": [
+    {
+      "claim": "Under zero context (None), GPT-6 Astra achieves 0% success (0/3) across all evaluated tasks.",
+      "source_table": "Table 1",
+      "page": 7
+    },
+    {
+      "claim": "Supplying human video demonstration improves towel and notebook pickup success from 0/3 to 2/3.",
+      "source_table": "Table 1",
+      "page": 7
+    },
+    {
+      "claim": "Supplying Robot Video + Action achieves 100% (3/3) success on bimanual bottle cap unscrewing.",
+      "source_table": "Table 1",
+      "page": 7
+    },
+    {
+      "claim": "On red towel pickup, human video context enables GPT-6 Astra to achieve 100% progress while reducing run time from 24.63 to 15.85 min and token usage from 12.047M to 4.956M.",
+      "source_table": "Table 2",
+      "page": 12
+    },
+    {
+      "claim": "Fable 5.1 and Kimi K3 fail to pick the towel, reaching only 30% and 20% progress.",
+      "source_table": "Table 2",
+      "page": 12
+    },
+    {
+      "claim": "Numerical action references reduce target-to-demonstration gripper orientation error from 0.42 to 0.12 rad.",
+      "source_figure": "Figure 7",
+      "page": 11
+    }
+  ]
+}

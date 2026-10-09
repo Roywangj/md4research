@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "checks": {
+    "markdown_exists": true,
+    "language_is_chinese": true,
+    "required_sections_present": true,
+    "important_claims_have_page_or_figure_table_anchors": true,
+    "tables_1_to_5_covered": true,
+    "appendix_A_to_D_covered": true,
+    "appendix_C_and_D_verified_against_pages_19_20": true,
+    "no_nonexistent_appendix_invented": true,
+    "math_delimiters_use_dollar_syntax": true,
+    "relative_image_links_only": true,
+    "linked_images_exist": true,
+    "json_artifacts_parse": true,
+    "forbidden_outputs_created": false,
+    "codex_mcp_used": false
+  },
+  "required_metric_checks": {
+    "0.70s": true,
+    "34.22_to_60.29": true,
+    "76.00_to_89.56": true,
+    "2_percent_82.9_percent": true,
+    "robot_maze": true,
+    "RoboDojo": true
+  },
+  "notes": [
+    "PDF metadata reports 29 physical pages; numbered paper content relevant to the note is pages 1-20.",
+    "The appendix inventory is exactly A-D: HDR-WAM; benchmark/eval; entropy-matched hierarchy; time complexity.",
+    "Latency discussion explicitly distinguishes 0.70s steady-state from 16.19s prefill.",
+    "Table 5 is both embedded as an image and transcribed into Markdown."
+  ],
+  "errors": [],
+  "warnings": []
+}

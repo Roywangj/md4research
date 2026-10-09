@@ -1,0 +1,620 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arXiv.2508.14879",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "(a) MeshCoder can predict codes and reconstruct 41 categories of objects. (b) MeshCoder",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of MeshCoder. The input point cloud is first encoded into shape tokens via a",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_003_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Visualization of basic geometric shape types and their corresponding code. For each shape",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:methodology",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Architecture of the shape tokenizer. We first project the point cloud into the triplane and",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_006_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_006_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_006_fig_figure_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Pipeline of object-level code dataset construction using the part-to-code inference model.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:methodology",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_007_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_007_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_007_fig_figure_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Qualitative comparison of reconstruction performance between MeshCoder and baselines.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/page_008_fig_figure_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_008_fig_figure_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Parameter modification in the code conveniently to alter the geometric shape. Left: Change",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Mesh resolution adjustment by modifying the resolution parameters in the code. The figure",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Additional results and details are given",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_figure_9.png",
+      "relative_markdown_embed": "![Figure 9](images/page_009_fig_figure_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_009_fig_figure_9.png"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "A schematic illustration of the principles of Translation and Bridge Loop. In the Translation",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_013_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_013_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_013_fig_figure_10.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "The Fill Grid type, Spoon type and Fork type in basic shape code library",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_013_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_013_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_013_fig_figure_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Examples of Primitive and complete code. And the code corresponds to the first two",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Examples of Translation and complete code. And the code corresponds to the first two",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Examples of Boolean and complete code. And the code corresponds to the first two",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Examples of Bridge Loop and complete code. And the code corresponds to the first two",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 16",
+      "source_id": "Figure 16",
+      "kind": "figure",
+      "label": "Figure 16",
+      "caption": "Examples of Array and complete code. And the code corresponds to the first two objects",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 17",
+      "source_id": "Figure 17",
+      "kind": "figure",
+      "label": "Figure 17",
+      "caption": "A complete code example of converting part codes into a full object program.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 18",
+      "source_id": "Figure 18",
+      "kind": "figure",
+      "label": "Figure 18",
+      "caption": "Detailed configuration of the shape tokenizer.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 19",
+      "source_id": "Figure 19",
+      "kind": "figure",
+      "label": "Figure 19",
+      "caption": "Experiments on how GPT-4o can understand shape through given dishwasher code.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 20",
+      "source_id": "Figure 20",
+      "kind": "figure",
+      "label": "Figure 20",
+      "caption": "Experiments on how GPT-4o can understand shape through given office chair code.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 21",
+      "source_id": "Figure 21",
+      "kind": "figure",
+      "label": "Figure 21",
+      "caption": "Experiments on how GPT-4o can understand shape through given cell shelf code.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 22",
+      "source_id": "Figure 22",
+      "kind": "figure",
+      "label": "Figure 22",
+      "caption": "Implementation of the function for creating primitives",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 23",
+      "source_id": "Figure 23",
+      "kind": "figure",
+      "label": "Figure 23",
+      "caption": "Implementation of the function for creating curves",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 24",
+      "source_id": "Figure 24",
+      "kind": "figure",
+      "label": "Figure 24",
+      "caption": "An example of sofa. The input is a point cloud of a sofa, and the figure shows the code",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 25",
+      "source_id": "Figure 25",
+      "kind": "figure",
+      "label": "Figure 25",
+      "caption": "An example of bathtub. The input is a point cloud of a bathtub, and the figure shows",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 26",
+      "source_id": "Figure 26",
+      "kind": "figure",
+      "label": "Figure 26",
+      "caption": "An example of toilet. The input is a point cloud of a toilet, and the figure shows the code",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 27",
+      "source_id": "Figure 27",
+      "kind": "figure",
+      "label": "Figure 27",
+      "caption": "By modifying the scale parameters of the leg and arm parts, we adjust their thickness.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 28",
+      "source_id": "Figure 28",
+      "kind": "figure",
+      "label": "Figure 28",
+      "caption": "By modifying the resolution parameter, we change its resolution. The highlighted",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Quantitative comparison of reconstruction performance between MeshCoder and baselines.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_008_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_008_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Comparison of reconstruction metrics across all categories. Chamfer Distance (CD) and IoU",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "visual_defect",
+      "reason": "人工检查发现裁剪底部混入下一节 A.5 标题，属于表外正文污染；核心平均值可转录，但图像不安全插入。",
+      "skip_reason": "",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_018_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_018_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_018_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Comparison of standard deviation of reconstruction metrics across all categories.",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_019_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_019_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_019_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Quantitative evaluation of the part-to-code inference model across different part categories.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:datasets-2",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_020_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_020_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/MeshCoder_LLM_Powered_Structured_Mesh_Code_Generation_from_Point_Clouds/images/page_020_fig_table_4.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 32,
+    "by_decision": {
+      "insert": 11,
+      "low_priority": 20,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

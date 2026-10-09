@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "asset_policy": "DeepPaperNote-selected figures and tables only; relative images/ links",
+  "decisions": [
+    {"item": "Figure 1", "page": 2, "decision": "inserted", "file": "images/figure_1.png", "reason": "Essential paradigm positioning"},
+    {"item": "Figure 2", "page": 4, "decision": "inserted", "file": "images/figure_2_hdr_overview.png", "reason": "Core HDR latent-tree and SHAP architecture"},
+    {"item": "Figure 6", "page": 9, "decision": "inserted", "file": "images/figure_6.png", "reason": "Reduced-step and reduced-data robustness"},
+    {"item": "Figure 7", "page": 9, "decision": "inserted", "file": "images/figure_7.png", "reason": "Physical robot maze evidence"},
+    {"item": "Figure 9", "page": 16, "decision": "inserted", "file": "images/figure_9.png", "reason": "HDR-WAM training and inference design"},
+    {"item": "Table 1", "page": 7, "decision": "inserted", "file": "images/table_1.png", "reason": "Main six-task comparison; also transcribed"},
+    {"item": "Table 3", "page": 10, "decision": "inserted", "file": "images/table_3.png", "reason": "RoboDojo WAM results"},
+    {"item": "Table 5", "page": 20, "decision": "inserted", "file": "images/table_5.png", "reason": "Entropy schedule mechanism ablation; also transcribed"},
+    {"item": "Figure 3", "page": 7, "decision": "skipped", "reason": "Benchmark list is clearer as text/table"},
+    {"item": "Figure 4", "page": 8, "decision": "skipped", "reason": "Qualitative examples summarized; lower priority than robustness and robot evidence"},
+    {"item": "Figure 5", "page": 8, "decision": "skipped", "reason": "Layer-count trend described numerically in note"},
+    {"item": "Figure 8", "page": 10, "decision": "skipped", "reason": "Representative RoboDojo rollouts less evidential than Table 3 and Figure 9"},
+    {"item": "Table 2", "page": 7, "decision": "skipped", "reason": "Three latency values transcribed with metric scope"},
+    {"item": "Table 4", "page": 17, "decision": "skipped", "reason": "Benchmark difficulty inventory summarized in Markdown"}
+  ],
+  "link_check": "all inserted asset paths are expected under images/ and verified during final lint"
+}

@@ -1,0 +1,2490 @@
+{
+  "status": "ok",
+  "script": "plan_figures.py",
+  "paper_id": "doi:10.48550/arxiv.2602.15922",
+  "figure_plan": {
+    "paper_id": "doi:10.48550/arxiv.2602.15922",
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_001_fig_figure_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+          "width": 1331,
+          "height": 1804,
+          "size_bytes": 1515405,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.621246,
+            "visual_rect_count": 74,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 331,
+            "table_body_rows": 0,
+            "caption_text_chars": 307,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 1,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "jointly",
+              "predicting",
+              "video",
+              "action",
+              "world"
+            ],
+            "snippet": "Unseen Environments Few-shot Adaptation to New Embodiment > World Action Model DreamZero Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inherit wor",
+            "images": [
+              {
+                "filename": "page_001_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_01.png",
+                "width": 1085,
+                "height": 210,
+                "size_bytes": 19255
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_02.jpeg",
+                "width": 1024,
+                "height": 1024,
+                "size_bytes": 26788
+              },
+              {
+                "filename": "page_001_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_03.jpeg",
+                "width": 332,
+                "height": 220,
+                "size_bytes": 6021
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+                "width": 1331,
+                "height": 1804,
+                "size_bytes": 1515405,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.621246,
+                  "visual_rect_count": 74,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 331,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 307,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 14,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "video",
+              "action",
+              "world"
+            ],
+            "snippet": "ignment between generated videos and real-world execution, even for suboptimal behaviors (Figure 16). Most DreamZero failures stem from video generation errors rather than action predictio",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_014_fig_figure_9.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_014_fig_figure_9.png",
+                "width": 1359,
+                "height": 888,
+                "size_bytes": 113750,
+                "label": "Figure 9",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.312182,
+                  "visual_rect_count": 118,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 180,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 175,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 15,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "video",
+              "action",
+              "world"
+            ],
+            "snippet": "N1.6 (Scratch) GR00T N1.6 (Pretrained) 0.5 (Scratch) 0.5 (Pretrained) DreamZero (Scratch) Figure 10: Posttraining Results. WAMs enable stronger post-training results across three tasks, in",
+            "images": [
+              {
+                "filename": "page_015_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_01.jpeg",
+                "width": 586,
+                "height": 392,
+                "size_bytes": 14202
+              },
+              {
+                "filename": "page_015_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_02.jpeg",
+                "width": 586,
+                "height": 388,
+                "size_bytes": 13058
+              },
+              {
+                "filename": "page_015_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_03.jpeg",
+                "width": 585,
+                "height": 396,
+                "size_bytes": 11428
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_015_fig_figure_10.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_10.png",
+                "width": 1370,
+                "height": 645,
+                "size_bytes": 88002,
+                "label": "Figure 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.228621,
+                  "visual_rect_count": 37,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 95,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 184,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_015_fig_figure_9.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_9.png",
+                "width": 1653,
+                "height": 423,
+                "size_bytes": 111223,
+                "label": "Figure 9",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.18097,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 224,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 804,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_015_fig_figure_11.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_11.png",
+                "width": 1329,
+                "height": 478,
+                "size_bytes": 634367,
+                "label": "Figure 11",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.16463,
+                  "visual_rect_count": 13,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 133,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Model Architecture of DreamZero. The model takes three inputs: visual context (encoded via a",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_006_fig_figure_4.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+          "width": 1330,
+          "height": 708,
+          "size_bytes": 290301,
+          "label": "Figure 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.243788,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.59688,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 660,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "model",
+              "architecture",
+              "dreamzero",
+              "takes",
+              "three"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Figure 4: Model Architecture of DreamZero. The model takes three inputs: visual context (encoded v",
+            "images": [
+              {
+                "filename": "page_006_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_img_01.jpeg",
+                "width": 3561,
+                "height": 1173,
+                "size_bytes": 201381
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+                "width": 1330,
+                "height": 708,
+                "size_bytes": 290301,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.243788,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.59688,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 660,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "model",
+              "architecture",
+              "dreamzero",
+              "three"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Hit the Cymbal Real-world Execution Generated Fry vegetables in p",
+            "images": [
+              {
+                "filename": "page_003_img_01.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_01.jpx",
+                "width": 336,
+                "height": 357,
+                "size_bytes": 8638
+              },
+              {
+                "filename": "page_003_img_02.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_02.jpx",
+                "width": 1056,
+                "height": 714,
+                "size_bytes": 57960
+              },
+              {
+                "filename": "page_003_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_03.jpeg",
+                "width": 411,
+                "height": 277,
+                "size_bytes": 13692
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_fig_figure_2.png",
+                "width": 1329,
+                "height": 396,
+                "size_bytes": 606822,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.136182,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 212,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "model",
+              "architecture",
+              "dreamzero"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies • Torch Compile and CUDA Graphs. We apply torch.compile with CUDA",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_009_fig_figure_5.png",
+                "width": 1329,
+                "height": 583,
+                "size_bytes": 88028,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200545,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 300,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "DreamZero Training (Flow Matching)",
+        "kind": "method_detail",
+        "section": "方法主线",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "priority": 2,
+        "anchor_text": "方法主线",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_022_fig_algorithm_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_1.png",
+          "width": 1341,
+          "height": 1632,
+          "size_bytes": 346932,
+          "label": "Algorithm 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "multiple_caption_regions_suspected",
+              "large_text_block_suspected",
+              "low_visual_body_ratio"
+            ],
+            "page_coverage_ratio": 0.566119,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 2334,
+            "table_body_rows": 0,
+            "caption_text_chars": 46,
+            "other_caption_count": 1,
+            "other_caption_labels": [
+              "Algorithm 2"
+            ]
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 22,
+            "score": 8,
+            "matched_terms": [
+              "algorithm 1",
+              "dreamzero",
+              "training",
+              "flow",
+              "matching"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Algorithm 1 DreamZero Training (Flow Matching) 1: Input: Dataset 𝒟, Text condition c 2: Hyperparams:",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_algorithm_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_2.png",
+                "width": 1653,
+                "height": 180,
+                "size_bytes": 26896,
+                "label": "Algorithm 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.077326,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 281,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Algorithm 1"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_022_fig_algorithm_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_1.png",
+                "width": 1341,
+                "height": 1632,
+                "size_bytes": 346932,
+                "label": "Algorithm 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected",
+                    "large_text_block_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.566119,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2334,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 46,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Algorithm 2"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "dreamzero",
+              "training",
+              "flow",
+              "matching"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Figure 4: Model Architecture of DreamZero. The model takes three inputs: visual context (encoded via a VAE), language instructions",
+            "images": [
+              {
+                "filename": "page_006_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_img_01.jpeg",
+                "width": 3561,
+                "height": 1173,
+                "size_bytes": 201381
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+                "width": 1330,
+                "height": 708,
+                "size_bytes": 290301,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.243788,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.59688,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 660,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 3,
+            "matched_terms": [
+              "dreamzero",
+              "training",
+              "matching"
+            ],
+            "snippet": "(Uniform taction k ) Decoupled (Uniform taction k ) Figure 5: Decoupled Noise Schedules. DreamZero (blue) uses coupled noise for video and action (both uniform). DreamZero-Flash (red) bias",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_009_fig_figure_5.png",
+                "width": 1329,
+                "height": 583,
+                "size_bytes": 88028,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200545,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 300,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "DreamZero Inference (Closed-Loop",
+        "kind": "method_detail",
+        "section": "方法主线",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "priority": 2,
+        "anchor_text": "方法主线",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_022_fig_algorithm_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_2.png",
+          "width": 1653,
+          "height": 180,
+          "size_bytes": 26896,
+          "label": "Algorithm 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "multiple_caption_regions_suspected",
+              "low_visual_body_ratio"
+            ],
+            "page_coverage_ratio": 0.077326,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 281,
+            "table_body_rows": 0,
+            "caption_text_chars": 53,
+            "other_caption_count": 1,
+            "other_caption_labels": [
+              "Algorithm 1"
+            ]
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 22,
+            "score": 8,
+            "matched_terms": [
+              "algorithm 2",
+              "dreamzero",
+              "inference",
+              "closed-loop"
+            ],
+            "snippet": "[z𝑘 0, a𝑘 0] 24: Loss ℒ←||v𝑝𝑟𝑒𝑑−v𝑘||2 ◁Eq. 3 25: Update 𝜃←𝜃−𝜂∇ℒ 26: end for 27: end while Algorithm 2 DreamZero Inference (Closed-Loop Control) 1: Input: Instruction c, Initial Image oinit, S",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_022_fig_algorithm_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_2.png",
+                "width": 1653,
+                "height": 180,
+                "size_bytes": 26896,
+                "label": "Algorithm 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.077326,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 281,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 53,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Algorithm 1"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_022_fig_algorithm_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_022_fig_algorithm_1.png",
+                "width": 1341,
+                "height": 1632,
+                "size_bytes": 346932,
+                "label": "Algorithm 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "multiple_caption_regions_suspected",
+                    "large_text_block_suspected",
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.566119,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 2334,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 46,
+                  "other_caption_count": 1,
+                  "other_caption_labels": [
+                    "Algorithm 2"
+                  ]
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "dreamzero",
+              "inference",
+              "closed-loop"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Figure 4: Model Architecture of DreamZero. The model takes three inputs: visual context (encoded via a VAE), language instructions",
+            "images": [
+              {
+                "filename": "page_006_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_img_01.jpeg",
+                "width": 3561,
+                "height": 1173,
+                "size_bytes": 201381
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+                "width": 1330,
+                "height": 708,
+                "size_bytes": 290301,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.243788,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.59688,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 660,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 21,
+            "score": 3,
+            "matched_terms": [
+              "dreamzero",
+              "inference",
+              "closed-loop"
+            ],
+            "snippet": "a) Attention mask (Training) : self-attention : KV-cache Figure 14: Attention startegy of DreamZero. (a) QKV Self-Attention mask for DreamZero training. Y-axis shows the Query (Q) and X-axi",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_figure_14.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_021_fig_figure_14.png",
+                "width": 1334,
+                "height": 808,
+                "size_bytes": 116319,
+                "label": "Figure 14",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.278991,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.557181,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 694,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Posttraining Results. WAMs enable stronger post-training results across three tasks, indicating that",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_015_fig_figure_10.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_10.png",
+          "width": 1370,
+          "height": 645,
+          "size_bytes": 88002,
+          "label": "Figure 10",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.228621,
+            "visual_rect_count": 37,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 95,
+            "table_body_rows": 0,
+            "caption_text_chars": 184,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 15,
+            "score": 8,
+            "matched_terms": [
+              "figure 10",
+              "posttraining",
+              "wams",
+              "enable",
+              "stronger",
+              "post-training"
+            ],
+            "snippet": "N1.6 (Scratch) GR00T N1.6 (Pretrained) 0.5 (Scratch) 0.5 (Pretrained) DreamZero (Scratch) Figure 10: Posttraining Results. WAMs enable stronger post-training results across three tasks, ind",
+            "images": [
+              {
+                "filename": "page_015_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_01.jpeg",
+                "width": 586,
+                "height": 392,
+                "size_bytes": 14202
+              },
+              {
+                "filename": "page_015_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_02.jpeg",
+                "width": 586,
+                "height": 388,
+                "size_bytes": 13058
+              },
+              {
+                "filename": "page_015_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_03.jpeg",
+                "width": 585,
+                "height": 396,
+                "size_bytes": 11428
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_015_fig_figure_10.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_10.png",
+                "width": 1370,
+                "height": 645,
+                "size_bytes": 88002,
+                "label": "Figure 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.228621,
+                  "visual_rect_count": 37,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 95,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 184,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_015_fig_figure_9.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_9.png",
+                "width": 1653,
+                "height": 423,
+                "size_bytes": 111223,
+                "label": "Figure 9",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.18097,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 224,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 804,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_015_fig_figure_11.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_11.png",
+                "width": 1329,
+                "height": 478,
+                "size_bytes": 634367,
+                "label": "Figure 11",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.16463,
+                  "visual_rect_count": 13,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 133,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "wams",
+              "enable",
+              "post-training"
+            ],
+            "snippet": "reamZero Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics priors that enable 1) effective learning from diverse, non-repetit",
+            "images": [
+              {
+                "filename": "page_001_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_01.png",
+                "width": 1085,
+                "height": 210,
+                "size_bytes": 19255
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_02.jpeg",
+                "width": 1024,
+                "height": 1024,
+                "size_bytes": 26788
+              },
+              {
+                "filename": "page_001_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_03.jpeg",
+                "width": 332,
+                "height": 220,
+                "size_bytes": 6021
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+                "width": 1331,
+                "height": 1804,
+                "size_bytes": 1515405,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.621246,
+                  "visual_rect_count": 74,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 331,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 307,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "wams",
+              "enable",
+              "post-training"
+            ],
+            "snippet": "ideo. The examples are from totally unseen tasks. demonstrations per task. Although other WAMs show that priors learned from videos prediction improves sample efficiency for action lea",
+            "images": [
+              {
+                "filename": "page_003_img_01.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_01.jpx",
+                "width": 336,
+                "height": 357,
+                "size_bytes": 8638
+              },
+              {
+                "filename": "page_003_img_02.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_02.jpx",
+                "width": 1056,
+                "height": 714,
+                "size_bytes": 57960
+              },
+              {
+                "filename": "page_003_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_03.jpeg",
+                "width": 411,
+                "height": 277,
+                "size_bytes": 13692
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_fig_figure_2.png",
+                "width": 1329,
+                "height": 396,
+                "size_bytes": 606822,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.136182,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 212,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 15",
+        "caption": "Data Collection Environments. We collect teleoperation data across 22 diverse real-world environ-",
+        "kind": "data_or_task_overview",
+        "section": "数据与任务定义",
+        "reason": "这张图解释任务或数据集如何被构造；如果候选图质量足够，适合放在数据与任务定义部分帮助读者理解数据来源。",
+        "priority": 2,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_025_fig_figure_15.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_fig_figure_15.png",
+          "width": 1333,
+          "height": 1267,
+          "size_bytes": 3070491,
+          "label": "Figure 15",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.4372,
+            "visual_rect_count": 21,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 340,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 10,
+            "score": 8,
+            "matched_terms": [
+              "figure 15",
+              "data",
+              "collection",
+              "environments",
+              "collect",
+              "teleoperation"
+            ],
+            "snippet": "collect approximately 500 hours of teleoperation data across 22 unique environments (see Figure 15), including homes, restaurants, supermarkets, coffee shops, and offices—prioritizing task",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_010_fig_table_1.png",
+                "width": 1342,
+                "height": 779,
+                "size_bytes": 102144,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.270629,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 328,
+                  "table_body_rows": 9,
+                  "caption_text_chars": 155,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 25,
+            "score": 8,
+            "matched_terms": [
+              "figure 15",
+              "data",
+              "collection",
+              "environments",
+              "collect",
+              "teleoperation"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Figure 15: Data Collection Environments. We collect teleoperation data across 22 diverse real-world",
+            "images": [
+              {
+                "filename": "page_025_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_img_01.jpeg",
+                "width": 300,
+                "height": 200,
+                "size_bytes": 11320
+              },
+              {
+                "filename": "page_025_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_img_02.jpeg",
+                "width": 300,
+                "height": 200,
+                "size_bytes": 12398
+              },
+              {
+                "filename": "page_025_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_img_03.jpeg",
+                "width": 300,
+                "height": 200,
+                "size_bytes": 11175
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_025_fig_figure_15.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_025_fig_figure_15.png",
+                "width": 1333,
+                "height": 1267,
+                "size_bytes": 3070491,
+                "label": "Figure 15",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.4372,
+                  "visual_rect_count": 21,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 340,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "data",
+              "environments",
+              "collect"
+            ],
+            "snippet": "2% on unseen task performance for the target robot (AgiBot G1) with just 10–20 minutes of data. Second, and more surprisingly, we show that DreamZero enables few-shot embodiment adapta",
+            "images": [
+              {
+                "filename": "page_003_img_01.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_01.jpx",
+                "width": 336,
+                "height": 357,
+                "size_bytes": 8638
+              },
+              {
+                "filename": "page_003_img_02.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_02.jpx",
+                "width": 1056,
+                "height": 714,
+                "size_bytes": 57960
+              },
+              {
+                "filename": "page_003_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_03.jpeg",
+                "width": 411,
+                "height": 277,
+                "size_bytes": 13692
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_fig_figure_2.png",
+                "width": 1329,
+                "height": 396,
+                "size_bytes": 606822,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.136182,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 212,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Cumulative inference speedups. Each row",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_010_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_010_fig_table_1.png",
+          "width": 1342,
+          "height": 779,
+          "size_bytes": 102144,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.270629,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 328,
+            "table_body_rows": 9,
+            "caption_text_chars": 155,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 9,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "cumulative",
+              "inference",
+              "speedups"
+            ],
+            "snippet": "ion, apply a Savitzky-Golay filter, and downsample to original resolution. 3.2.6. Summary Table 1 summarizes cumulative speedups. System and implementation optimizations yield ∼9× speedup",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_009_fig_figure_5.png",
+                "width": 1329,
+                "height": 583,
+                "size_bytes": 88028,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.200545,
+                  "visual_rect_count": 8,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 300,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 10,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "cumulative",
+              "inference",
+              "speedups",
+              "each"
+            ],
+            "snippet": "duler Opts. 9.6× 14.8× + Quantization (NVFP4) — 16.6× Model-level + DreamZero-Flash — 38× Table 1: Cumulative inference speedups. Each row includes all optimizations above it. Entries mar",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_010_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_010_fig_table_1.png",
+                "width": 1342,
+                "height": 779,
+                "size_bytes": 102144,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.270629,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 328,
+                  "table_body_rows": 9,
+                  "caption_text_chars": 155,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 28,
+            "score": 6,
+            "matched_terms": [
+              "table 1",
+              "each"
+            ],
+            "snippet": "and put it on the bowl 3 Remove the pair of gloves from the open drawer and put it on the table 13 Pick the marker up from the table and put it in the bowl 4 Put the marker on table 14 Pl",
+            "images": [
+              {
+                "filename": "page_028_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_01.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 4393
+              },
+              {
+                "filename": "page_028_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_02.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 5219
+              },
+              {
+                "filename": "page_028_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_03.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 4898
+              }
+            ],
+            "figure_assets": []
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Cross-Embodiment Transfer Results. Average task progress on unseen tasks (± standard error).",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_016_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_table_2.png",
+          "width": 1345,
+          "height": 311,
+          "size_bytes": 51549,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.108581,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 115,
+            "table_body_rows": 4,
+            "caption_text_chars": 227,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 16,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "cross-embodiment",
+              "transfer",
+              "average",
+              "task",
+              "progress"
+            ],
+            "snippet": "eckpoint on a 1:1 mix with pretraining data for 10K steps. Results on the 9 unseen tasks (Table 2) show that both transfer settings improve performance over the baseline DreamZero. Robot-",
+            "images": [
+              {
+                "filename": "page_016_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_01.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 12716
+              },
+              {
+                "filename": "page_016_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_02.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 14475
+              },
+              {
+                "filename": "page_016_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_03.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 19830
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_016_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_table_2.png",
+                "width": 1345,
+                "height": 311,
+                "size_bytes": 51549,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.108581,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 115,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_016_fig_figure_12.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_figure_12.png",
+                "width": 1329,
+                "height": 614,
+                "size_bytes": 698271,
+                "label": "Figure 12",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.211295,
+                  "visual_rect_count": 20,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 222,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 28,
+            "score": 6,
+            "matched_terms": [
+              "table. 2",
+              "task"
+            ],
+            "snippet": "then put the marker inside the cup 11 Move the bowl on the left to the right side of the table. 2 Put the marker in the blue box 12 Pick up the pencil and put it on the bowl 3 Remove the",
+            "images": [
+              {
+                "filename": "page_028_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_01.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 4393
+              },
+              {
+                "filename": "page_028_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_02.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 5219
+              },
+              {
+                "filename": "page_028_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_028_img_03.jpeg",
+                "width": 112,
+                "height": 84,
+                "size_bytes": 4898
+              }
+            ],
+            "figure_assets": []
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "cross-embodiment",
+              "transfer",
+              "task"
+            ],
+            "snippet": "1) effective learning from diverse, non-repetitive data, 2) open-world generalization, 3) cross-embodiment learning from video-only data, and 4) few-shot adaptation to new robots. © 2026 NVIDIA. A",
+            "images": [
+              {
+                "filename": "page_001_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_01.png",
+                "width": 1085,
+                "height": 210,
+                "size_bytes": 19255
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_02.jpeg",
+                "width": 1024,
+                "height": 1024,
+                "size_bytes": 26788
+              },
+              {
+                "filename": "page_001_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_03.jpeg",
+                "width": 332,
+                "height": 220,
+                "size_bytes": 6021
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+                "width": 1331,
+                "height": 1804,
+                "size_bytes": 1515405,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.621246,
+                  "visual_rect_count": 74,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 331,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 307,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Model and Data Ablations. Task progress on PnP Easy tasks (± standard error). AR = autoregressive,",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_017_fig_table_4.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_017_fig_table_4.png",
+          "width": 1345,
+          "height": 535,
+          "size_bytes": 95514,
+          "label": "Table 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.186102,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 354,
+            "table_body_rows": 12,
+            "caption_text_chars": 180,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 17,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "model",
+              "data",
+              "ablations",
+              "task",
+              "progress"
+            ],
+            "snippet": "onal vs. AR) DreamZero (BD) 14B Diverse 50% ± 14.4% DreamZero (AR) 14B Diverse 50% ± 6.3% Table 4: Model and Data Ablations. Task progress on PnP Easy tasks (± standard error). AR = autor",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_017_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_017_fig_table_3.png",
+                "width": 1341,
+                "height": 278,
+                "size_bytes": 51985,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.09669,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 108,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 201,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_017_fig_table_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_017_fig_table_4.png",
+                "width": 1345,
+                "height": 535,
+                "size_bytes": 95514,
+                "label": "Table 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.186102,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 354,
+                  "table_body_rows": 12,
+                  "caption_text_chars": 180,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 26,
+            "score": 7,
+            "matched_terms": [
+              "table. 4",
+              "model",
+              "task"
+            ],
+            "snippet": "he creamer spill off the table. The left arm used a paper towel to wipe the water off the table. 4 PnP Fork/Spoon The left arm picks up the Pink Fork from the table and places it onto the",
+            "images": [
+              {
+                "filename": "page_026_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_026_img_01.jpeg",
+                "width": 640,
+                "height": 512,
+                "size_bytes": 46837
+              },
+              {
+                "filename": "page_026_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_026_img_02.jpeg",
+                "width": 640,
+                "height": 512,
+                "size_bytes": 39023
+              },
+              {
+                "filename": "page_026_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_026_img_03.jpeg",
+                "width": 320,
+                "height": 256,
+                "size_bytes": 25547
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_026_fig_table_5.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_026_fig_table_5.png",
+                "width": 1653,
+                "height": 396,
+                "size_bytes": 15132,
+                "label": "Table 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "table_body_missing",
+                    "caption_only_suspected"
+                  ],
+                  "page_coverage_ratio": 0.169663,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 50,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "model",
+              "data",
+              "task"
+            ],
+            "snippet": "2026-2-19 World Action Models are Zero-shot Policies Seonghyeon Ye† Yunhao Ge* Kaiyuan Zheng* Shenyuan Gao* Sihyun Yu*",
+            "images": [
+              {
+                "filename": "page_001_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_01.png",
+                "width": 1085,
+                "height": 210,
+                "size_bytes": 19255
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_02.jpeg",
+                "width": 1024,
+                "height": 1024,
+                "size_bytes": 26788
+              },
+              {
+                "filename": "page_001_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_03.jpeg",
+                "width": 332,
+                "height": 220,
+                "size_bytes": 6021
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+                "width": 1331,
+                "height": 1804,
+                "size_bytes": 1515405,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.621246,
+                  "visual_rect_count": 74,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 331,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 307,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 11",
+        "caption": "Cross-Embodiment Transfer. We explore robot-to-robot (YAM →AgiBot) and human-to-robot",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_015_fig_figure_11.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_11.png",
+          "width": 1329,
+          "height": 478,
+          "size_bytes": 634367,
+          "label": "Figure 11",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.16463,
+            "visual_rect_count": 13,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 133,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 15,
+            "score": 8,
+            "matched_terms": [
+              "figure 11",
+              "cross-embodiment",
+              "transfer",
+              "explore",
+              "robot-to-robot",
+              "agibot"
+            ],
+            "snippet": "ics and expected behavior. Robot2Robot Transfer YAM Humans AgiBot G1 Human2Robot Transfer Figure 11: Cross-Embodiment Transfer. We explore robot-to-robot (YAM →AgiBot) and human-to-robot em",
+            "images": [
+              {
+                "filename": "page_015_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_01.jpeg",
+                "width": 586,
+                "height": 392,
+                "size_bytes": 14202
+              },
+              {
+                "filename": "page_015_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_02.jpeg",
+                "width": 586,
+                "height": 388,
+                "size_bytes": 13058
+              },
+              {
+                "filename": "page_015_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_img_03.jpeg",
+                "width": 585,
+                "height": 396,
+                "size_bytes": 11428
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_015_fig_figure_10.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_10.png",
+                "width": 1370,
+                "height": 645,
+                "size_bytes": 88002,
+                "label": "Figure 10",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.228621,
+                  "visual_rect_count": 37,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 95,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 184,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_015_fig_figure_9.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_9.png",
+                "width": 1653,
+                "height": 423,
+                "size_bytes": 111223,
+                "label": "Figure 9",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.18097,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 224,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 804,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              },
+              {
+                "filename": "page_015_fig_figure_11.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_015_fig_figure_11.png",
+                "width": 1329,
+                "height": 478,
+                "size_bytes": 634367,
+                "label": "Figure 11",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.16463,
+                  "visual_rect_count": 13,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 133,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 16,
+            "score": 8,
+            "matched_terms": [
+              "figure 11",
+              "cross-embodiment",
+              "transfer",
+              "explore",
+              "robot-to-robot",
+              "agibot"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies We explore two settings (Figure 11): (1) Robot-to-robot transfer using the bimanual YAM robot, and (2) Human-to-robot transf",
+            "images": [
+              {
+                "filename": "page_016_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_01.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 12716
+              },
+              {
+                "filename": "page_016_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_02.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 14475
+              },
+              {
+                "filename": "page_016_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_03.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 19830
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_016_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_table_2.png",
+                "width": 1345,
+                "height": 311,
+                "size_bytes": 51549,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.108581,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 115,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_016_fig_figure_12.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_figure_12.png",
+                "width": 1329,
+                "height": 614,
+                "size_bytes": 698271,
+                "label": "Figure 12",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.211295,
+                  "visual_rect_count": 20,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 222,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "cross-embodiment",
+              "transfer",
+              "agibot"
+            ],
+            "snippet": "tate-of-the-art VLAs by 10% on average task progress. Lastly, we demonstrate two forms of cross-embodiment transfer. First, video-only demonstrations from another robot (YAM) or humans yield a rel",
+            "images": [
+              {
+                "filename": "page_003_img_01.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_01.jpx",
+                "width": 336,
+                "height": 357,
+                "size_bytes": 8638
+              },
+              {
+                "filename": "page_003_img_02.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_02.jpx",
+                "width": 1056,
+                "height": 714,
+                "size_bytes": 57960
+              },
+              {
+                "filename": "page_003_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_03.jpeg",
+                "width": 411,
+                "height": 277,
+                "size_bytes": 13692
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_fig_figure_2.png",
+                "width": 1329,
+                "height": 396,
+                "size_bytes": 606822,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.136182,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 212,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 12",
+        "caption": "Few-shot Embodiment Adaptation. We explore few-shot embodiment adaptation by post-training",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_016_fig_figure_12.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_figure_12.png",
+          "width": 1329,
+          "height": 614,
+          "size_bytes": 698271,
+          "label": "Figure 12",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.211295,
+            "visual_rect_count": 20,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 222,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 16,
+            "score": 8,
+            "matched_terms": [
+              "figure 12",
+              "few-shot",
+              "embodiment",
+              "adaptation",
+              "explore",
+              "post-training"
+            ],
+            "snippet": "paper bag Pick up the teddy bear Put the orange in the pumpkin Put banana in wooden shelf Figure 12: Few-shot Embodiment Adaptation. We explore few-shot embodiment adaptation by post-traini",
+            "images": [
+              {
+                "filename": "page_016_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_01.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 12716
+              },
+              {
+                "filename": "page_016_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_02.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 14475
+              },
+              {
+                "filename": "page_016_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_img_03.jpeg",
+                "width": 677,
+                "height": 380,
+                "size_bytes": 19830
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_016_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_table_2.png",
+                "width": 1345,
+                "height": 311,
+                "size_bytes": 51549,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.108581,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 115,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 227,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_016_fig_figure_12.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_016_fig_figure_12.png",
+                "width": 1329,
+                "height": 614,
+                "size_bytes": 698271,
+                "label": "Figure 12",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.211295,
+                  "visual_rect_count": 20,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 222,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 1,
+            "score": 3,
+            "matched_terms": [
+              "few-shot",
+              "embodiment",
+              "adaptation",
+              "post-training"
+            ],
+            "snippet": "the lever on the toaster Zero-shot Generalization to Unseen Tasks in Unseen Environments Few-shot Adaptation to New Embodiment > World Action Model DreamZero Figure 1: Overview. By jointl",
+            "images": [
+              {
+                "filename": "page_001_img_01.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_01.png",
+                "width": 1085,
+                "height": 210,
+                "size_bytes": 19255
+              },
+              {
+                "filename": "page_001_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_02.jpeg",
+                "width": 1024,
+                "height": 1024,
+                "size_bytes": 26788
+              },
+              {
+                "filename": "page_001_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_img_03.jpeg",
+                "width": 332,
+                "height": 220,
+                "size_bytes": 6021
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_001_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_001_fig_figure_1.png",
+                "width": 1331,
+                "height": 1804,
+                "size_bytes": 1515405,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.621246,
+                  "visual_rect_count": 74,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 331,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 307,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 3,
+            "score": 3,
+            "matched_terms": [
+              "few-shot",
+              "embodiment",
+              "adaptation",
+              "post-training"
+            ],
+            "snippet": "just 10–20 minutes of data. Second, and more surprisingly, we show that DreamZero enables few-shot embodiment adaptation: a model pretrained on AgiBot G1 adapts to an entirely new robot (Y",
+            "images": [
+              {
+                "filename": "page_003_img_01.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_01.jpx",
+                "width": 336,
+                "height": 357,
+                "size_bytes": 8638
+              },
+              {
+                "filename": "page_003_img_02.jpx",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_02.jpx",
+                "width": 1056,
+                "height": 714,
+                "size_bytes": 57960
+              },
+              {
+                "filename": "page_003_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_img_03.jpeg",
+                "width": 411,
+                "height": 277,
+                "size_bytes": 13692
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_003_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_003_fig_figure_2.png",
+                "width": 1329,
+                "height": 396,
+                "size_bytes": 606822,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.136182,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 212,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 13",
+        "caption": "Bidirectional vs. Autoregressive WAMs. When the sampling point falls mid-task (T=20), bidirec-",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_020_fig_figure_13.png",
+          "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_fig_figure_13.png",
+          "width": 1334,
+          "height": 826,
+          "size_bytes": 329646,
+          "label": "Figure 13",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.285118,
+            "visual_rect_count": 27,
+            "visual_body_ratio": 1.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 378,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 20,
+            "score": 8,
+            "matched_terms": [
+              "figure 13",
+              "bidirectional",
+              "autoregressive",
+              "wams",
+              "when",
+              "sampling"
+            ],
+            "snippet": "Mismatch Autorgressive ... ... Video Sampling Video Context Video Context Action Sampling Figure 13: Bidirectional vs. Autoregressive WAMs. When the sampling point falls mid-task (T=20), bi",
+            "images": [
+              {
+                "filename": "page_020_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_img_01.jpeg",
+                "width": 167,
+                "height": 115,
+                "size_bytes": 4752
+              },
+              {
+                "filename": "page_020_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_img_02.jpeg",
+                "width": 169,
+                "height": 104,
+                "size_bytes": 4302
+              },
+              {
+                "filename": "page_020_img_03.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_img_03.jpeg",
+                "width": 169,
+                "height": 104,
+                "size_bytes": 4244
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_020_fig_figure_13.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_020_fig_figure_13.png",
+                "width": 1334,
+                "height": 826,
+                "size_bytes": 329646,
+                "label": "Figure 13",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.285118,
+                  "visual_rect_count": 27,
+                  "visual_body_ratio": 1.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 378,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 21,
+            "score": 8,
+            "matched_terms": [
+              "figure 13",
+              "bidirectional",
+              "autoregressive",
+              "wams",
+              "when",
+              "sampling"
+            ],
+            "snippet": "World Action Models are Zero-shot Policies Figure 13 illustrates a key challenge for bidirectional WAMs when training closed-loop systems. Giv",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_021_fig_figure_14.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_021_fig_figure_14.png",
+                "width": 1334,
+                "height": 808,
+                "size_bytes": 116319,
+                "label": "Figure 14",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.278991,
+                  "visual_rect_count": 5,
+                  "visual_body_ratio": 0.557181,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 694,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "bidirectional",
+              "autoregressive",
+              "wams"
+            ],
+            "snippet": "tion heads can lead to misalignment; (2) Architectural design: it remains unclear whether bidirectional or autoregressive architectures are better suited for WAMs, with implications in modality",
+            "images": [
+              {
+                "filename": "page_006_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_img_01.jpeg",
+                "width": 3561,
+                "height": 1173,
+                "size_bytes": 201381
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/Worldmodel/tmp/DeepPaperNote/assets/World_Action_Models_are_Zero_shot_Policies/images/page_006_fig_figure_4.png",
+                "width": 1330,
+                "height": 708,
+                "size_bytes": 290301,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.243788,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.59688,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 660,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  }
+}

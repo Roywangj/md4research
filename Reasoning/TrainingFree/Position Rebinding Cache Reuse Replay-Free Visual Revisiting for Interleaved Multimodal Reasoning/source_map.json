@@ -1,0 +1,201 @@
+{
+  "paper": {
+    "title": "Position Rebinding Cache Reuse: Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning",
+    "authors": [
+      "Mengzhao Wang",
+      "Yanli Ji",
+      "Wangmeng Zuo",
+      "Peng Ye",
+      "Chongjun Tu"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TA2B3XTE/Wang 等 - 2026 - Position Rebinding Cache Reuse Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "IBQ6CTBU",
+    "arxiv_id": "2606.26631",
+    "doi": "10.48550/arXiv.2606.26631",
+    "paper_id": "arxiv:2606.26631"
+  },
+  "notes": {
+    "reading_mode": "faithful reader-style bilingual translation with source-grounded analytical compression",
+    "figure_policy": "Main mechanism figures, result tables, and qualitative figures are embedded. Algorithm 1 is described as steps because the crop is small.",
+    "bibliography_policy": "References are summarized by scope rather than translated line by line."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "source_section_id": "sec:abstract",
+      "summary": "The abstract introduces replay-free visual revisiting and PRCR's position rebinding solution."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-4",
+      "source_section_id": "sec:introduction",
+      "summary": "The introduction motivates visual revisiting, explains token replay cost, and diagnoses direct KV reuse collapse."
+    },
+    {
+      "id": "S003",
+      "type": "equations",
+      "section": "Method",
+      "pages": "4-7",
+      "source_section_id": "sec:method",
+      "summary": "The method defines standard MCoT, interleaved reasoning, RoPE-bound visual keys, RVEM, PCR, and replay-free cache decoding."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Experiment",
+      "pages": "7-8",
+      "source_section_id": "sec:experiment",
+      "summary": "The experiment section defines benchmarks, model backbones, baselines, and quantitative comparisons."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Ablation and Efficiency",
+      "pages": "8-10",
+      "source_section_id": "sec:method-2",
+      "summary": "Ablations compare reinsertion strategies, left extension length, and computational efficiency."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Qualitative Analysis",
+      "pages": "9-11",
+      "source_section_id": "sec:model-2",
+      "summary": "Qualitative figures show corrected visual revisiting, stabilized generation, and cleaner attention."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Related Work",
+      "pages": "10-11",
+      "source_section_id": "sec:related-work",
+      "summary": "Related work covers multimodal chain-of-thought, visual grounding, and efficient multimodal inference."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Conclusion",
+      "pages": "11-12",
+      "source_section_id": "sec:conclusion",
+      "summary": "The conclusion states the limitation around new local zoom or dynamic-resolution evidence and future multi-scale rebinding directions."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "2",
+      "summary": "Figure 1 motivates PRCR and shows accuracy and FLOPs comparisons.",
+      "asset": "assets/page_002_fig_fig_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "2",
+      "summary": "Figure 2 shows decoding collapse under direct historical KV reuse.",
+      "asset": "assets/page_002_fig_fig_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Method",
+      "pages": "4",
+      "summary": "Figure 3 visualizes attention perturbation under direct historical KV reuse.",
+      "asset": "assets/page_004_fig_fig_3.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Method",
+      "pages": "5",
+      "summary": "Figure 4 gives an overview of PRCR with RVEM, position reassignment, and replay-free cache decoding.",
+      "asset": "assets/page_005_fig_fig_4.png"
+    },
+    {
+      "id": "A001",
+      "type": "algorithm",
+      "section": "Method",
+      "pages": "6",
+      "summary": "Algorithm 1 describes PRCR execution; it is described in prose because the extracted crop is very small.",
+      "asset": "assets/page_006_fig_algorithm_1.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments",
+      "pages": "7",
+      "summary": "Table 1 compares PRCR with baseline and Token-Replay across four MLLMs and four benchmarks.",
+      "asset": "assets/page_007_fig_table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Ablation",
+      "pages": "8",
+      "summary": "Table 2 ablates Direct KV Reuse, LPA, UIR, and PCR position strategies.",
+      "asset": "assets/page_008_fig_table_2.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Ablation",
+      "pages": "8",
+      "summary": "Figure 5 shows that left extension length L=2 works best.",
+      "asset": "assets/page_008_fig_fig_5.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Efficiency",
+      "pages": "9",
+      "summary": "Table 3 reports visual-revisiting FLOPs and memory overhead.",
+      "asset": "assets/page_009_fig_table_3.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Qualitative",
+      "pages": "9",
+      "summary": "Figure 6 shows a ruler/twig example where PRCR revisits evidence and answers correctly.",
+      "asset": "assets/page_009_fig_fig_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Qualitative",
+      "pages": "10",
+      "summary": "Figure 7 shows higher next-token probability and lower entropy after PRCR insertion.",
+      "asset": "assets/page_010_fig_fig_7.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Qualitative",
+      "pages": "11",
+      "summary": "Figure 8 compares attention under Token-Replay and PRCR.",
+      "asset": "assets/page_011_fig_fig_8.png"
+    }
+  ],
+  "assets": [
+    "assets/page_002_fig_fig_1.png",
+    "assets/page_002_fig_fig_2.png",
+    "assets/page_004_fig_fig_3.png",
+    "assets/page_005_fig_fig_4.png",
+    "assets/page_006_fig_algorithm_1.png",
+    "assets/page_007_fig_table_1.png",
+    "assets/page_008_fig_table_2.png",
+    "assets/page_008_fig_fig_5.png",
+    "assets/page_009_fig_table_3.png",
+    "assets/page_009_fig_fig_6.png",
+    "assets/page_010_fig_fig_7.png",
+    "assets/page_011_fig_fig_8.png"
+  ]
+}

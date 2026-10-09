@@ -1,0 +1,753 @@
+ 
+
+DM0.5 | From the Lab to the Open World
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HomeModelsRobotsApplicationsDevelopersResearchAbout UsEnglish
+
+DM0.5: An Open-World Foundation Model for General-Purpose Embodied Intelligence
+
+
+GitHubHugging FaceModelScope
+
+ContentsOverviewModelDataExperimentsConclusion
+Overview
+
+ Over the past two years, Vision-Language-Action (VLA) models have moved robotics toward a unified representation
+ of perception, language, and action. Robots are no longer limited to executing fixed programs. They can begin to
+ interpret natural-language instructions, recognize objects in open-world scenes, and translate visual semantics
+ into executable control signals.
+ 
+
+ In February 2026, we released DM0, our first embodied-native foundation model built from the ground up. DM0
+ learned a range of complex manipulation tasks in controlled environments and gave us an early view of what this
+ paradigm can offer when paired with the right data, effective optimization, and reliable evaluation.
+ 
+
+ However, the real world demands far more from robots than a compelling demo. A general-purpose embodied
+ foundation model cannot simply perform predefined tasks in fixed scenes. It must understand the task
+ instruction, infer why the next action is needed, and execute reliably across different camera views, object
+ states, environments, robot embodiments, and external disturbances. It must also adapt quickly to new real-world
+ tasks after fine-tuning on limited data.
+ 
+This is the motivation behind DM0.5: moving beyond the lab and toward the open world.
+The core improvements of DM0.5 can be summarized in five areas:
+
+Improved zero-shot generalization: DM0.5 extends the zero-shot capability of VLA models to
+ unseen open environments, where it follows natural-language instructions from users to complete robotic
+ manipulation tasks.
+Efficient and reliable fine-tuning: A stronger foundation model leads to stronger
+ downstream expert policies. DM0.5 improves task-specific training quality while reducing the amount of data
+ and compute required for adaptation.
+Longer historical context modeling: The DM0.5 architecture supports learning from
+ historical observations and can incorporate up to 60 seconds of task history.
+More robust policy behavior: DM0.5 demonstrates stable policy behavior under changes in
+ lighting, camera viewpoint, and active human perturbations.
+Multi-embodiment support: Through multi-robot, multi-task training, DM0.5 can be
+ transferred through post-training to robot embodiments that were not seen during pretraining.
+
+
+
+
+Table arrangement in an open environment.
+
+
+
+Object placement under cross-container spatial constraints.
+
+
+
+Executing multi-target, constrained instructions.
+
+
+
+Multi-step stacking and precise alignment.
+
+
+Model
+Overview
+
+ DM0.5 follows a VLA architecture using a 4B Vision-Language Model (VLM) as the backbone and a 680M Action
+ Expert to generate continuous robot actions.
+ 
+
+ Compared with DM0, DM0.5 is not only a larger model trained on more data. Its main advances come from systematic
+ improvements in historical context modeling, embodied reasoning, action supervision, and data quality. These
+ changes move the model beyond a policy driven primarily by the current frame, toward an embodied foundation
+ model that can understand task progress, handle open-ended instructions, and generate stable continuous actions.
+ 
+
+ DM0.5 introduces several key designs to address long-horizon dependencies, semantic reasoning, data noise, and
+ action continuity in real robot tasks. The model supports long-horizon historical context, jointly modeling
+ current observations with key visual information from the recent past. During training, embodied reasoning tasks
+ are added so that the model learns not only to predict actions, but also to reason about task stages,
+ environmental changes, and future action intent. For action generation, DM0.5 builds on Flow Matching and
+ improves action-matching supervision, reducing temporal alignment noise caused by variations in teleoperation
+ pace. At the same time, an efficient data-cleaning pipeline enables finer-grained filtering, alignment, and
+ sampling across multi-source, multi-robot, and multi-task datasets, improving the stability of action
+ supervision.
+ 
+
+ Together, these designs improve DM0.5's instruction following, long-context memory, action robustness, and
+ cross-task generalization in open environments. The model can complete a broader range of unseen instructions in
+ zero-shot settings, adapt more efficiently during downstream fine-tuning, and maintain more stable execution
+ under camera changes, human interference, and different robot embodiments.
+ 
+
+
+
+Context Abstraction Layer: Historical Context Fusion
+
+ Traditional VLA models typically receive only the current image and current robot state at each control step.
+ This is often sufficient for short, local, approximately Markovian tasks. DM0.5 introduces historical frames so
+ that the policy can access a short-term contextual memory during decision-making.
+ 
+
+ At inference time, the model receives the current frame together with several key frames from the past. This
+ gives it access to changes in task state over a window of up to one minute: where an object was picked up,
+ whether a tool has already been used, whether an area has already been cleaned, or whether the robot has already
+ passed a particular landmark.
+ 
+
+ During training, the data pipeline samples multiple historical slots before the current timestep. Each
+ historical slot is processed through temporal sampling and spatial sampling, then compressed into a fixed number
+ of visual tokens. Randomized history lengths and history augmentation are used so that the model learns to
+ handle long histories, short histories, and cases where no useful history is available. This reduces the model's
+ dependence on a fixed history window and allows it to fall back gracefully to current-observation-driven
+ behavior when historical context is missing or partially corrupted.
+ 
+Embodiment CoT Tasks: Broad Embodied Reasoning
+
+ Embodied reasoning is not new, but in DM0.5 we make it a central part of training. The underlying motivation is
+ that an embodied foundation model should build strong representations of environmental change, instruction
+ semantics, and its own embodiment state and behavior. Language remains one of the most efficient
+ representational interfaces for this kind of learning.
+ 
+
+ DM0.5 introduces 11 autoregressive tasks into training on robot data. As a result, training is not driven solely
+ by continuous action supervision. It also reinforces instruction following, action prediction, and temporal
+ scene understanding. Given the current image, robot state, task instruction, and historical context, the model
+ is asked to answer constrained questions about the task.
+ 
+These embodied reasoning tasks fall into three categories:
+
+Task planning focuses on the current task stage, the relationship between previous and
+ future steps, and overall task progress. This helps the model understand what has already been done and what
+ should happen next.
+Event and environment prediction focuses on task boundaries, state transitions, and key
+ future events. This strengthens the model's ability to perceive scene evolution and stage changes.
+Action generation focuses on future actions or semantic summaries of action intent. This
+ helps the model form a clearer representation of intended behavior before generating continuous actions.
+
+
+ This design expands robot data from action-only supervision into joint supervision over instruction
+ understanding, temporal reasoning, and action generation. The model learns not only which action corresponds to
+ the current image, but also why that action is appropriate given the instruction and task progress, and how the
+ world state is likely to change afterward. This improves instruction following, action coherence, and task
+ completion in complex long-horizon tasks.
+ 
+Trajectory Alignment Layer: Dynamic Action Matching
+
+ Robot data collected through teleoperation often contains substantial variation in execution pace. The same task
+ may be completed at different speeds across demonstrations. If the model is forced to align its predicted
+ actions with fixed timestamps in the original trajectory, it may learn the rhythm of data collection, or overfit
+ to timing noise, rather than learning the underlying task-relevant action structure.
+ 
+
+ DM0.5 addresses this through dynamic action matching. Instead of aligning supervision by fixed time index, the
+ Trajectory Alignment Layer aligns supervision by trajectory progress.
+ 
+
+ The model outputs a fixed-length segment of future actions, while the data retains a more fine-grained
+ ground-truth action trajectory. During training, each predicted action is matched to an action anchor in the
+ ground-truth trajectory. The matching must be strictly monotonic: later predicted actions can only match later
+ positions in the trajectory, preventing time reversal. The loss for each candidate match is computed from the
+ error between the predicted action and the corresponding ground-truth anchor. The overall matching is then
+ solved by dynamic programming to minimize the total matching loss across all predicted actions.
+ 
+
+ To avoid selecting only locally easy actions, DM0.5 also considers trajectory continuity between adjacent
+ anchors. It is not enough for individual action points to be close; the ground-truth trajectory between
+ neighboring anchors should also be reasonably explained by changes in the predicted actions. This allows
+ legitimate variations in execution speed while reducing the risk that the model skips key phases of the task.
+ 
+
+ This mechanism reduces temporal phase noise in teleoperation data. It encourages the model to focus on
+ task-critical changes such as grasping, alignment, contact, and release. As a result, the learned action
+ velocity field becomes smoother and more robust, improving generalization across different demonstrators and
+ execution rhythms.
+ 
+Training
+
+ The training strategy of DM0.5 is centered on multi-source mixture training after data
+ alignment. Robotic manipulation data provides the primary supervision for action learning.
+ Vision-language data preserves the open-vocabulary understanding and spatial reasoning capabilities of the
+ visual backbone. Navigation data provides supervision for long instruction understanding and path
+ decision-making. Video understanding data further improves temporal modeling, event understanding, and dynamic
+ scene representation.
+ 
+
+ For optimization, the VLM backbone and the Action Expert use separate learning-rate groups. The VLM backbone is
+ trained with a smaller learning rate to reduce catastrophic forgetting and preserve general vision-language
+ capabilities. The Action Expert uses a larger learning rate to learn the distribution of robot actions more
+ effectively. Training uses mixed precision and distributed optimization, with additional optimization for the
+ Action Expert to support the computational overhead introduced by long context, multi-camera input, and history
+ tokens.
+ 
+Inference
+
+ DM0.5 performs inference in action chunks. By default, it uses 10 diffusion / Flow Matching steps to generate a
+ 50-step action chunk. After optimization, DM0.5 runs at 10 Hz on a single NVIDIA RTX 4090 and 20 Hz on a single
+ NVIDIA H100.
+ 
+Data
+Data Composition
+
+ DM0.5 is pretrained on large-scale heterogeneous data, covering robotic manipulation, embodied navigation,
+ first-person human manipulation, and general multimodal vision-language data.
+ 
+
+Robotic manipulation data: This includes real robot manipulation data from multiple
+ embodiments, including AgileX ALOHA, Galaxea R1 Lite, AgiBot G1, Franka Emika Panda, UR5, ARX5, and Dexmal's
+ in-house dual-arm mobile manipulation robot.
+Embodied navigation data: This includes a range of open-source vision-language navigation
+ and open-vocabulary navigation datasets, as well as internally collected navigation data from 3D reconstructed
+ scenes.
+First-person human manipulation data: These data are collected from first-person human
+ operations in everyday production environments. They include rich hand-object interactions, tool use, object
+ manipulation, and fine-grained atomic actions.
+General multimodal vision-language data: To preserve robust vision-language alignment and
+ open-world understanding, we incorporate large-scale image, video, and visual instruction data, and further
+ strengthen scene semantics, physical dynamics, and task progress through an internal automatic data generation
+ pipeline.
+
+Data Cleaning Strategy
+Outlier removal: During ROS data logging, robots may occasionally produce anomalously large,
+ small, or discontinuous values. To prevent such samples from interfering with training, we filter out records
+ that clearly exceed physically reachable ranges or violate motion continuity. We also check the consistency
+ between visual inputs, robot states, and action labels, and remove segments where the image stream shows obvious
+ motion or shaking but the robot state and action records do not reflect that motion.
+Static-frame removal: Robot datasets often contain long segments where both the image and
+ robot state remain static. These samples provide limited action information, reduce training efficiency, and may
+ hurt action responsiveness during deployment. Before training, we remove long segments with no meaningful state
+ or action change.
+Low-value action removal: Some data contain incomplete execution, unclear intent, or behaviors
+ unrelated to the current task objective. Such segments can introduce noisy supervision and reduce the stability
+ and generalization of policy learning. We remove invalid or low-value action segments so that the remaining data
+ more accurately reflect task-relevant behavior.
+Action-pattern deduplication: For some robot platforms, such as ALOHA, different joint
+ combinations may correspond to nearly equivalent end-effector motion patterns. To prevent the model from
+ learning inconsistent or mutually confusing joint mappings, we deduplicate such equivalent motion patterns and
+ retain a unified, consistent joint representation.
+Relabeling incorrect annotations: Raw datasets may contain incorrect task annotations. We
+ built an automated relabeling pipeline to verify and correct subtask labels through cross-modal consistency
+ checks, improving both label reliability and data utilization.
+Experiments
+Zero-Shot Generalization
+Task Setup
+
+ To evaluate zero-shot generalization under unseen task configurations, we systematically measure model
+ performance along two dimensions: action type and conditional constraint.
+ 
+
+ The action dimension covers eight basic manipulation primitives: pick, put,
+ move, pull, cover, wipe,
+ stack, and press. The condition dimension covers seven types of semantic
+ constraints: color, shape, size, status,
+ sequence, relative position, and absolute position.
+ 
+
+ We evaluate four model-platform configurations: Pi0.5-Droid and DM0.5-Droid on the Franka platform; DM0 and
+ DM0.5 on the Dexmal-Mirror platform.
+ 
+Results
+
+ Task success rates by action category and condition dimension are summarized in Table 1 and Table 2. The results
+ show that DM0.5 outperforms Pi0.5-Droid and DM0 across most evaluation dimensions, demonstrating stronger
+ instruction understanding and execution capability.
+ 
+
+ Overall, DM0.5 exhibits a more systematic zero-shot capability for action execution and language-conditioned
+ manipulation. The improvement is reflected in broader action coverage, more stable basic operations, and
+ stronger instruction following under multiple types of semantic constraints.
+ 
+
+
+
+
+
+
+
+
+Fine-Tuning Capability
+Real-Robot Manipulation: RoboChallenge Table30 v2
+
+ We evaluate DM0.5 on RoboChallenge Table30 v2 to measure real-robot tabletop manipulation
+ capability. The benchmark covers a range of real tabletop manipulation scenarios, including long-term memory,
+ multi-step sequential execution, visual perception and target localization, precise pick-and-place, tool
+ interaction, and bimanual coordination.
+ 
+
+ DM0.5 achieves state-of-the-art overall performance on Table30 v2, with an overall Success Rate of
+ 43% and a comprehensive Score of 54.42. In tasks that require memory of target
+ states and action order, such as stamping localization and button pressing, the historical context modeling in
+ DM0.5 improves execution stability.
+ 
+
+ DM0.5 also performs strongly on complex fine-grained manipulation tasks, supported by its vision-language-action
+ pretraining. In dual-arm manipulation tasks such as carrying a tray with both hands, the model can maintain
+ relative pose and transport stability. In tasks such as flower arrangement, which require object recognition,
+ grasp-pose selection, and precise placement, the model demonstrates strong visual grounding and end-effector
+ control.
+ 
+
+ Overall, the Table30 v2 results show that DM0.5 benefits significantly from memory in long-horizon tasks while
+ maintaining leading performance in dual-arm coordination and fine manipulation. This validates its effectiveness
+ as a real-robot multi-task generalist policy.
+ 
+
+
+
+Simulated Manipulation Benchmarks
+
+ We evaluate the fine-tuning capability of DM0.5 on two widely used simulation benchmarks: the single-arm
+ manipulation environment LIBERO and the dual-arm manipulation environment
+ RoboTwin2.0. The results show that fine-tuned DM0.5 adapts strongly in both settings and
+ reaches state-of-the-art performance levels among the compared methods.
+ 
+LIBERO
+
+
+
+Method
+Spatial
+Object
+Goal
+Long
+Average
+
+
+
+
+π0
+96.8
+98.8
+95.8
+85.2
+94.2
+
+
+π0.5
+98.8
+98.2
+98.0
+92.4
+96.9
+
+
+OpenVLA-OFT
+97.6
+98.4
+97.9
+94.5
+97.1
+
+
+GR00T N1.7
+97.7
+98.5
+97.5
+94.4
+97.0
+
+
+StarVLA
+99.0
+99.8
+98.5
+94.1
+97.9
+
+
+ABot-M0
+98.8
+99.8
+99.0
+96.6
+98.6
+
+
+Being-H0.5
+99.2
+99.6
+99.4
+97.4
+98.9
+
+
+Cosmos Policy
+98.1
+100.0
+98.2
+97.6
+98.5
+
+
+DM0.5
+99.0
+99.8
+99.6
+97.4
+99.0
+
+
+
+RoboTwin2.0
+
+
+
+Method
+Clean
+Randomized
+Average
+
+
+
+
+π0
+65.9
+58.4
+62.2
+
+
+π0.5
+82.7
+76.8
+79.8
+
+
+Motus
+88.7
+87.0
+87.9
+
+
+LingBot-VLA
+86.5
+85.3
+85.9
+
+
+LingBot-VA
+92.9
+91.5
+92.2
+
+
+ABot-M0
+86.1
+85.1
+85.6
+
+
+StarVLA
+88.2
+88.3
+88.3
+
+
+Being-H0.7
+90.2
+89.6
+89.9
+
+
+Qwen-VLA
+86.1
+87.2
+86.7
+
+
+DM0.5
+93.6
+93.3
+93.5
+
+
+
+
+Simulated Navigation Benchmarks
+
+ We evaluate DM0.5 on navigation using the R2R and RxR benchmarks. DM0.5
+ achieves the best performance on most evaluation metrics.
+ 
+
+ On R2R Val-Unseen, DM0.5-Nav achieves the best Navigation Error, Oracle Success, and Success
+ Rate among the compared methods. On the more challenging RxR Val-Unseen benchmark, DM0.5-Nav
+ ranks first across all four listed metrics.
+ 
+
+
+
+
+Method
+R2R Val-Unseen NE↓
+R2R Val-Unseen OS↑
+R2R Val-Unseen SR↑
+R2R Val-Unseen SPL↑
+RxR Val-Unseen NE↓
+RxR Val-Unseen SR↑
+RxR Val-Unseen SPL↑
+RxR Val-Unseen nDTW↑
+
+
+
+
+NaVid
+5.7
+49.2
+41.9
+36.5
+5.7
+45.7
+38.2
+-
+
+
+Uni-NaVid
+5.6
+53.3
+47.0
+42.7
+6.2
+48.7
+40.9
+-
+
+
+NaVILA
+5.2
+62.5
+54.0
+49.0
+6.8
+49.3
+44.0
+58.8
+
+
+StreamVLN
+5.0
+64.2
+56.9
+51.9
+6.2
+52.9
+46.0
+61.9
+
+
+Qwen-VLA-Instruct
+5.1
+69.0
+57.5
+51.2
+5.8
+59.6
+47.8
+57.1
+
+
+DM0.5-Nav
+4.8
+69.5
+59.7
+48.6
+4.8
+65.5
+51.0
+64.2
+
+
+
+
+Historical Context Modeling
+
+ Historical context modeling measures whether a model can integrate past observations into the context of its
+ current decision. In embodied tasks, many key conditions are not always visible in the current frame. An object
+ may have already been moved. The tabletop state may have changed due to previous actions. A task rule may have
+ appeared only at the beginning of an episode through a human demonstration.
+ 
+
+ To evaluate this capability, we designed two real-world experiments on Dexmal-Mirror, corresponding to
+ short-horizon and long-horizon contextual memory.
+ 
+
+ The first experiment, "pick up the cup and wipe the table," evaluates short-term memory. The
+ robot must first pick up a cup so that the area underneath it becomes visible, then wipe the table, and finally
+ place the cup back at its original position. After the cup is picked up, its initial location is no longer
+ directly visible in the current frame. DM0.5 uses historical visual memory to recover the cup's initial position
+ and restore it at the end of the task.
+ 
+
+ The second experiment, "learning from a human demonstration," evaluates longer-range memory. At
+ the beginning of the task, a human first demonstrates a rule. The robot must observe how the battery is placed
+ during the demonstration and preserve that rule during the later robot execution phase. DM0.5 uses long
+ historical visual context to convert the early demonstration into a subsequent manipulation policy and maintain
+ rule consistency across execution stages.
+ 
+
+ These two experiments demonstrate DM0.5's contextual memory at complementary time scales. The cup-and-table task
+ shows that the model can use recent history to track object state and task progress. The battery-placement task
+ shows that the model can retain an early demonstration and use it to constrain later robot actions. Together,
+ they suggest that context abstractions formed during pretraining can be activated during downstream supervised
+ fine-tuning and participate in action prediction under vision-language conditions.
+ 
+
+
+
+Short-horizon memory: pick up the cup, wipe the table, and restore the cup.
+
+
+
+Long-horizon memory: follow an early human demonstration to place the battery.
+
+
+
+Demonstration learning with rule consistency across execution stages.
+
+
+Policy Robustness
+Camera Viewpoint
+
+ In the Franka platform experiments, the deployed setup includes one wrist camera fixed to the robot end effector
+ and two independently movable third-person cameras. This setup is designed to quantify how changes in camera
+ spatial pose affect manipulation performance.
+ 
+
+ We evaluate nine camera configurations, corresponding to three camera poses on the left side and three camera
+ poses on the right side. Under each configuration, the model performs 10 consecutive pick-and-place trials: six
+ standard tabletop-height pick-and-place tasks, and four variants where the placement target is raised to a
+ higher position.
+ 
+
+ The results show that although the third-person camera positions vary, the model maintains a consistently high
+ success rate across configurations. A closer inspection of the model's trajectories reveals a clear two-stage
+ strategy. In the first stage, the model uses global scene information from the third-person cameras to guide the
+ end effector toward the vicinity of the target object. In the second stage, it relies primarily on local visual
+ feedback from the fixed wrist camera to perform fine-grained adjustment and alignment.
+ 
+
+ When either third-person camera is placed at an extreme viewpoint, such as Left3 or Right3, the spatial offset
+ during the first-stage coarse-localization phase becomes more noticeable. In most trials, however, the model can
+ still compensate for this offset through local refinement from the wrist camera and successfully complete the
+ task.
+ 
+Camera Positions:
+
+
+
+Success Rate:
+
+
+
+
+Pos
+L1R1
+L2R1
+L3R1
+L1R2
+L2R2
+L3R2
+L1R3
+L2R3
+L3R3
+
+
+
+
+SR
+100%
+90%
+80%
+90%
+90%
+90%
+80%
+90%
+90%
+
+
+
+
+Human Perturbations
+
+ To evaluate the robustness of DM0.5 in real robot manipulation environments, we conduct real-world tests on
+ Dexmal-Mirror under human perturbations. The results show that DM0.5 can maintain scene understanding and
+ continue the task execution when the target is moved by a human or temporarily occluded.
+ 
+
+ When the position and orientation of a container change, the model does not simply follow the original fixed
+ trajectory. Instead, it adjusts the end-effector position and action direction according to the updated visual
+ state, then continues manipulating the target object.
+ 
+
+ This behavior indicates strong adaptation to dynamic scenes and strong task continuity. When external
+ disturbances change the spatial relationship among the target object, container, and robot arm, the model can
+ re-establish the correspondence among them and avoid task interruption or action failure caused by local
+ environmental changes.
+ 
+
+ Overall, DM0.5 demonstrates stable robust behavior under human perturbations. This capability comes from
+ large-scale, diverse real-robot data and from the model's ability to efficiently learn mappings among visual
+ state, spatial relationships, and actions.
+ 
+
+
+
+Continued execution under camera perturbation.
+
+
+
+Dynamic adaptation after the target object and container are moved by a human.
+
+
+Conclusion
+
+ We believe that building for the open world is not about packing ever more tasks into a model; it is about
+ rejecting the fiction that a task list can stand in for the world.
+ 
+
+ The faster path toward general embodied intelligence is to move beyond scripted environments and train models in
+ ways that expose them, as much as possible, to the complexity of the real world.
+ 
+
+ DM0.5 is one step along this path. It gives robots longer memory, more open-ended understanding, and more stable
+ behavior. More importantly, it moves robotic systems closer to operating in a world without predefined answers.
+ 
+
+ Today, we still need to collect robot data, design tasks, and build evaluations. In the future, we hope the real
+ world itself will become the best teacher. Every interaction, every attempt, every success, and every failure
+ can become part of how a robot understands the world and improves itself. Eventually, robots should do more than
+ reproduce actions they have seen before. They should use their understanding of the world to complete tasks that
+ were never written into a script.
+ 
+DM0.5 is only the beginning of that story.
+
+
+ModelsDM0.5DW0.5DM0ApplicationsLogistics & Warehousing (Atomix)Commercial ServicesEmbodied Infrastructure ServicesRobotsGeneral-Purpose RobotVertical-Domain RobotsResearch RobotsAbout UsCompany OverviewNews & MediaCareersInvestor RelationsBrandDevelopersResearchContactBusiness Inquiries: business@dexmal.comOffice Address: N3, Jinyu Zhizao Factory, Xisanqi Street, Haidian District, Beijing, ChinaWeChatRedNote(Xiaohongshu)XChongqing ICP No. 2025054032-1Chongqing Public Security Filing No. 50019002505609DisclaimerPrivacy PolicyLegal TermsTerms of ServiceCopyright 2025-2026 Dexmal（Chongqing）Intelligent Technology Co.,Ltd.

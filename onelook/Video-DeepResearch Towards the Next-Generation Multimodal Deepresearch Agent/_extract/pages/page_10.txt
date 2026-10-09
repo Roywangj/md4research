@@ -1,0 +1,98 @@
+metric memory to an open-world collaborative ver-
+ification loop, VIDEO-DEEPRESEARCH enables
+highly robust, multi-source deep reasoning.
+5.2
+Multimodal-DeepResearch Systems.
+Autonomous deep research agents have rapidly
+evolved from text-only systems (Team et al., 2025;
+Wu et al., 2025a; Li et al., 2025b; Tao et al., 2025)
+to image-centric Vision-DR frameworks. Recent
+efforts employ reverse image search (Geng et al.,
+2025), GRPO optimization (Wu et al., 2025b; Shao
+et al., 2024), and entity-level cropping (Narayan
+et al., 2025) to navigate static visual contexts. How-
+ever, this trajectory entirely bypasses the continu-
+ous video modality. Unlike static images, Video-
+DR requires agents to decouple dense, spatiotem-
+poral dynamics and conduct multi-step verification
+across noisy frames, presenting a distinctly more
+formidable challenge.
+Concurrently, establishing rigorous evaluations
+for this new frontier remains elusive. While cur-
+rent benchmarks broadly assess static multimodal
+factuality (Cheng et al., 2025b), external knowl-
+edge grounding (Wang et al., 2017; Chen et al.,
+2023; Fu et al., 2025b), and image-based search
+workflows (Jiang et al.; Geng et al., 2025), they are
+inherently insufficient for video streams. Moreover,
+the scarce efforts to establish dedicated Video-DR
+benchmarks suffer from a critical bottleneck: a
+severe reliance on labor-intensive, unscalable man-
+ual annotation. To overcome this, we introduce a
+highly scalable, human-AI collaborative annotation
+framework for robust Video-DR evaluation.
+6
+Conclusion
+We present VIDEO-DEEPRESEARCH, the first
+unified framework for Video-DeepResearch that
+bridges scalable data synthesis, agent training, and
+rigorous evaluation. A preliminary study on exist-
+ing agents reveals two critical failure modes: sys-
+tematic visual tool aversion and parametric knowl-
+edge leakage, both of which undermine faithful
+assessment of Video-DR capabilities.
+VIDEO-
+DEEPRESEARCH addresses these issues through
+a decoupled perception-exploration pipeline with
+stage-wise tool unlocking, producing 30K video-
+grounded QA pairs and 7K curated trajectories.
+Combined with a two-stage SFT–GRPO train-
+ing recipe, our Video-DeepResearch-35B-A3B
+achieves 64.0% (SOTA), while the 30B-A3B vari-
+ant achieves 59.3%, competitive with Claude-
+4.5-Sonnet.
+We further introduce VIDEODR-
+BENCH, a 200-instance multi-hop VQA benchmark
+where every question provably demands both vi-
+sual search and external knowledge reasoning. We
+hope this work lays a solid foundation for next-
+generation video deep research agents.
+Author Information
+Full Author List: Zhen Fang1, Yu Zeng1, Wenx-
+uan Huang, Yiming Zhao1, Shiting Huang1, Tian-
+fei Ren1, Qi Lu1, Qingnan Ren1, Qisheng Su1, Li-
+onel Z. Wang4, Qingyu Yin5, Shuang Chen6, Zehui
+Chen1, Lin Chen1, Zhenfei Yin7, Yao Hu2, Shao-
+hui Lin8, Wanli Ouyang3, Shaosheng Cao2,9, Feng
+Zhao1.
+Affiliations: 1USTC, 2Xiaohongshu Inc., 3CUHK,
+4The Hong Kong Polytechnic University, 5ZJU,
+6UCLA, 7Oxford, 8ECNU, 9THU.
+The first authors with equal contribution are Zhen
+Fang, Yu Zeng, Wenxuan Huang, and Yiming
+Zhao. Yu Zeng and Wenxuan Huang serve as
+the project leaders. The corresponding authors
+are Wenxuan Huang, Shaosheng Cao and Feng
+Zhao.
+Limitation
+While VIDEO-DEEPRESEARCH pioneers the first
+comprehensive pipeline integrating data construc-
+tion and model training for the complex Video-
+DR task, this rigorous approach introduces certain
+trade-offs. Primarily, achieving our current level
+of performance incurs considerable computational
+overhead. To ensure high-quality data synthesis
+and robust model training, the framework demands
+substantial GPU resources, largely due to the con-
+current requirements of large-scale model deploy-
+ment and dynamic web search operations. Further-
+more, to guarantee accurate and reliable evaluation,
+the construction of our benchmark currently relies
+on meticulous human annotation. While this en-
+sures high fidelity of the evaluation standard, it
+restricts the rapid scalability of the dataset. In fu-
+ture work, we aim to mitigate these constraints
+by exploring computationally efficient pipelines,
+lightweight architectures, and automated LLM-
+based evaluation metrics to reduce human depen-
+dency.

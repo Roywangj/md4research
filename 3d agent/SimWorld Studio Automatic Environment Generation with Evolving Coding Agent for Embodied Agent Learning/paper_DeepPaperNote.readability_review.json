@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "paper_id": "doi:10.48550/arxiv.2605.09423",
+  "checks": {
+    "natural_chinese_prose": true,
+    "stable_proper_nouns_preserved": true,
+    "no_mechanical_translation_artifacts": true,
+    "figure_captions_readable": true,
+    "obsidian_structure_readable": true
+  },
+  "notes": [
+    "已根据 lint 结果清理混合中英术语与机械替换痕迹。",
+    "保留 SimWorld Studio、SimCoder、MCP、UE5、Gymnasium、PointNav/ObjectNav 等稳定专名。"
+  ]
+}

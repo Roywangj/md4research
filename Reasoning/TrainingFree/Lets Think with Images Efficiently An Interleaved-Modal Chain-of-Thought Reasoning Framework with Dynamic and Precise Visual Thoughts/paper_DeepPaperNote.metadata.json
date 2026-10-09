@@ -1,0 +1,41 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VZYTSXMW/Liu 等 - 2026 - Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VZYTSXMW/Liu 等 - 2026 - Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with.pdf",
+  "title": "Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with Dynamic and Precise Visual Thoughts",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex",
+    "crossref"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2603.21754",
+  "paper_id": "arxiv:2603.21754",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2603.21754v1",
+  "abstract": "Recently, Interleaved-modal Chain-of-Thought (ICoT) reasoning has achieved remarkable success by leveraging both multimodal inputs and outputs, attracting increasing attention. While achieving promising performance, current ICoT methods still suffer from two major limitations: (1) Static Visual Thought Positioning, which statically inserts visual information at fixed steps, resulting in inefficient and inflexible reasoning; and (2) Broken Visual Thought Representation, which involves discontinuous and semantically incoherent visual tokens. To address these limitations, we introduce Interleaved-modal Chain-of-Thought reasoning with Dynamic and Precise Visual Thoughts (DaP-ICoT), which incorporates two key components: (1) Dynamic Visual Thought Integration adaptively introduces visual inputs based on reasoning needs, reducing redundancy and improving efficiency. (2) Precise Visual Thought Guidance ensures visual semantically coherent and contextually aligned representations. Experiments across multiple benchmarks and models demonstrate that DaP-ICoT achieves state-of-the-art performance. In addition, DaP-ICoT significantly reduces the number of inserted images, leading to a 72.6% decrease in token consumption, enabling more efficient ICoT reasoning.",
+  "authors": [
+    "Xu Liu",
+    "Yongheng Zhang",
+    "Qiguang Chen",
+    "Yao Li",
+    "Sheng Wang",
+    "Libo Qin"
+  ],
+  "published": "2026-03-23T09:47:44Z",
+  "year": "2026",
+  "pdf_url": "https://arxiv.org/pdf/2603.21754v1",
+  "venue": "arXiv (Cornell University)",
+  "doi": "10.48550/arxiv.2603.21754",
+  "script": "collect_metadata.py"
+}

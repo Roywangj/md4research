@@ -1,0 +1,79 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Results and ablation studies on RLBench.}
+Success rates (SR, \%) across 18 tasks, together with the average SR and
+average rank (lower is better).
+The upper rows report prior methods, followed by \method
+(the memory-free base policy, also referred to as \textbf{Base}) and
+\memmethod; the indented rows below each report its architectural and
+memory ablations.
+Results are presented as mean$_{\pm\mathrm{std}}$ over five random seeds,
+with 25 evaluation episodes per seed.
+\textbf{w/o}~$\mathcal{S}$ and \textbf{w/o}~$\mathcal{T}$ denote
+\memmethod without spatial and temporal memory, respectively.
+Evaluation protocols and training details are provided in
+Appendices~\ref{app:finetune_hparams} and~\ref{app:eval_protocol}.
+The best result in each column is highlighted in bold.}
+\label{tab:rlbench}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{l *{10}{c}}
+\toprule
+& \textbf{Avg.} & \textbf{Avg.} & \textbf{Close} & \textbf{Drag} & \textbf{Insert}
+& \textbf{Meat off} & \textbf{Open} & \textbf{Place} & \textbf{Place}
+& \textbf{Push} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{SR (\%) $\uparrow$} & \textbf{Rank $\downarrow$} & \textbf{Jar} & \textbf{Stick} & \textbf{Peg}
+& \textbf{Grill} & \textbf{Drawer} & \textbf{Cups} & \textbf{Wine}
+& \textbf{Buttons} \\
+\midrule
+PerAct~\cite{shridhar2023perceiver} & 49.4 & 11.33 & 55.2$_{\pm 4.7}$ & 89.6$_{\pm 4.1}$ & 5.6$_{\pm 4.1}$ & 70.4$_{\pm 2.0}$ & 88.0$_{\pm 5.7}$ & 2.4$_{\pm 3.2}$ & 44.8$_{\pm 7.8}$ & 92.8$_{\pm 3.0}$ \\
+Act3D~\cite{gervet2023act3d} & 65.0 & 9.17 & 92.0 & 92.0 & 27.0 & 94.0 & 93.0 & 3.0 & 80.0 & 99.0 \\
+RVT~\cite{goyal2023rvt} & 62.9 & 9.08 & 52.0$_{\pm 2.5}$ & 99.2$_{\pm 1.6}$ & 11.2$_{\pm 3.0}$ & 88.0$_{\pm 2.5}$ & 71.2$_{\pm 6.9}$ & 4.0$_{\pm 2.5}$ & 91.0$_{\pm 5.2}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+3D Diffuser Actor~\cite{3d-da} & 81.3 & 6.19 & 96.0$_{\pm 2.5}$ & \textbf{100.0}$_{\pm 0.0}$ & 65.6$_{\pm 4.1}$ & 96.8$_{\pm 1.6}$ & 89.6$_{\pm 4.1}$ & 24.0$_{\pm 7.6}$ & 93.6$_{\pm 4.8}$ & 98.4$_{\pm 2.0}$ \\
+RVT-2~\cite{goyal2024rvt} & 81.4 & 5.97 & \textbf{100.0}$_{\pm 0.0}$ & 99.0$_{\pm 1.7}$ & 40.0$_{\pm 0.0}$ & 99.0$_{\pm 1.7}$ & 74.0$_{\pm 11.8}$ & 38.0$_{\pm 4.5}$ & 95.0$_{\pm 3.3}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+SAM2Act~\cite{fang2025sam2act} & 86.8$_{\pm 0.5}$ & 5.47 & 99.0$_{\pm 2.0}$ & 99.0$_{\pm 2.0}$ & 84.0$_{\pm 5.7}$ & 98.0$_{\pm 2.3}$ & 83.0$_{\pm 6.0}$ & 47.0$_{\pm 6.0}$ & 93.0$_{\pm 3.8}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+\midrule
+\textbf{\method\ (ours)} & 90.5$_{\pm 1.1}$ & 4.75 & \textbf{100.0}$_{\pm 0.0}$ & 97.6$_{\pm 3.6}$ & 91.2$_{\pm 1.8}$ & \textbf{100.0}$_{\pm 0.0}$ & 99.2$_{\pm 1.8}$ & 58.4$_{\pm 4.6}$ & 89.6$_{\pm 8.3}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+\tbranch w/ discretized rotation & 88.2 & 4.86 & \textbf{100.0}$_{\pm 0.0}$ & \textbf{100.0}$_{\pm 0.0}$ & 88.0$_{\pm 2.8}$ & \textbf{100.0}$_{\pm 0.0}$ & \textbf{100.0}$_{\pm 0.0}$ & 58.4$_{\pm 10.0}$ & 88.0$_{\pm 2.8}$ & 98.4$_{\pm 2.2}$ \\
+\tbranch w/o heatmap decoding & 31.4 & 12.78 & 49.3$_{\pm 2.3}$ & 65.3$_{\pm 2.3}$ & 0.0$_{\pm 0.0}$ & 81.3$_{\pm 4.6}$ & 74.7$_{\pm 10.1}$ & 1.3$_{\pm 2.3}$ & 32.0$_{\pm 14.4}$ & 54.7$_{\pm 6.1}$ \\
+\tlast w/ 3D position input & 56.2 & 10.14 & 96.0$_{\pm 0.0}$ & 58.7$_{\pm 6.1}$ & 26.7$_{\pm 2.3}$ & 96.0$_{\pm 0.0}$ & 97.3$_{\pm 2.3}$ & 14.7$_{\pm 4.6}$ & 81.3$_{\pm 8.3}$ & 86.7$_{\pm 2.3}$ \\
+\specialrule{1pt}{0pt}{0pt}
+\textbf{\memmethod\ (ours)} & \textbf{93.7$_{\pm 0.6}$} & \textbf{3.64} & \textbf{100.0}$_{\pm 0.0}$ & 98.4$_{\pm 2.2}$ & \textbf{99.2}$_{\pm 1.8}$ & \textbf{100.0}$_{\pm 0.0}$ & 99.2$_{\pm 1.8}$ & \textbf{76.8}$_{\pm 11.5}$ & \textbf{95.2}$_{\pm 4.4}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+\tbranch w/o spatial memory & 92.0$_{\pm 0.5}$ & 3.81 & \textbf{100.0}$_{\pm 0.0}$ & \textbf{100.0}$_{\pm 0.0}$ & 95.2$_{\pm 3.3}$ & \textbf{100.0}$_{\pm 0.0}$ & 99.2$_{\pm 1.8}$ & 74.4$_{\pm 3.6}$ & 78.4$_{\pm 3.6}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+\tlast w/o temporal memory & 91.9$_{\pm 1.0}$ & 3.81 & \textbf{100.0}$_{\pm 0.0}$ & 99.2$_{\pm 1.8}$ & 82.4$_{\pm 2.2}$ & \textbf{100.0}$_{\pm 0.0}$ & 97.6$_{\pm 2.2}$ & 57.6$_{\pm 7.3}$ & 90.4$_{\pm 4.6}$ & \textbf{100.0}$_{\pm 0.0}$ \\
+\bottomrule
+\addlinespace[5pt]
+\toprule
+& \textbf{Put in} & \textbf{Put in} & \textbf{Put in} & \textbf{Screw}
+& \textbf{Slide} & \textbf{Sort} & \textbf{Stack} & \textbf{Stack}
+& \textbf{Sweep to} & \textbf{Turn} \\
+\multirow{-2}{*}{\textbf{Method}}
+& \textbf{Cupboard} & \textbf{Drawer} & \textbf{Safe} & \textbf{Bulb}
+& \textbf{Block} & \textbf{Shape} & \textbf{Blocks} & \textbf{Cups}
+& \textbf{Dustpan} & \textbf{Tap} \\
+\midrule
+PerAct~\cite{shridhar2023perceiver} & 28.0$_{\pm 4.4}$ & 51.2$_{\pm 4.7}$ & 84.0$_{\pm 3.6}$ & 17.6$_{\pm 2.0}$ & 74.0$_{\pm 13.0}$ & 16.8$_{\pm 4.7}$ & 26.4$_{\pm 3.2}$ & 2.4$_{\pm 2.0}$ & 52.0$_{\pm 0.0}$ & 88.0$_{\pm 4.4}$ \\
+Act3D~\cite{gervet2023act3d} & 51.0 & 90.0 & 95.0 & 47.0 & 93.0 & 8.0 & 12.0 & 9.0 & 92.0 & 94.0 \\
+RVT~\cite{goyal2023rvt} & 49.6$_{\pm 3.2}$ & 88.0$_{\pm 5.7}$ & 91.2$_{\pm 3.0}$ & 48.0$_{\pm 5.7}$ & 81.6$_{\pm 5.4}$ & 36.0$_{\pm 2.5}$ & 28.8$_{\pm 3.9}$ & 26.4$_{\pm 8.2}$ & 72.0$_{\pm 0.0}$ & 93.6$_{\pm 4.1}$ \\
+3D Diffuser Actor~\cite{3d-da} & 85.6$_{\pm 4.1}$ & 96.0$_{\pm 3.6}$ & 97.6$_{\pm 2.0}$ & 82.4$_{\pm 2.0}$ & 97.6$_{\pm 3.2}$ & 44.0$_{\pm 4.4}$ & 68.3$_{\pm 3.3}$ & 47.2$_{\pm 8.5}$ & 84.0$_{\pm 4.4}$ & \textbf{99.2}$_{\pm 1.6}$ \\
+RVT-2~\cite{goyal2024rvt} & 66.0$_{\pm 4.5}$ & 96.0$_{\pm 0.0}$ & 96.0$_{\pm 2.8}$ & 88.0$_{\pm 4.9}$ & 92.0$_{\pm 2.8}$ & 35.0$_{\pm 7.1}$ & 80.0$_{\pm 2.8}$ & 69.0$_{\pm 5.9}$ & \textbf{100.0}$_{\pm 0.0}$ & 99.0$_{\pm 1.7}$ \\
+SAM2Act~\cite{fang2025sam2act} & 75.0$_{\pm 3.8}$ & 99.0$_{\pm 2.0}$ & 98.0$_{\pm 2.3}$ & 89.0$_{\pm 2.0}$ & 86.0$_{\pm 4.0}$ & 64.0$_{\pm 4.6}$ & 76.0$_{\pm 8.6}$ & 78.0$_{\pm 4.0}$ & 99.0$_{\pm 2.0}$ & 96.0$_{\pm 5.7}$ \\
+\midrule
+\textbf{\method\ (ours)} & 91.2$_{\pm 1.8}$ & 96.0$_{\pm 0.0}$ & 95.2$_{\pm 3.3}$ & 93.6$_{\pm 6.1}$ & 95.2$_{\pm 3.3}$ & 55.2$_{\pm 5.2}$ & 84.8$_{\pm 9.1}$ & 88.8$_{\pm 3.3}$ & \textbf{100.0}$_{\pm 0.0}$ & 92.8$_{\pm 3.3}$ \\
+\tbranch w/ discretized rotation & 73.6$_{\pm 4.6}$ & \textbf{99.2}$_{\pm 1.8}$ & \textbf{99.2}$_{\pm 1.8}$ & 87.2$_{\pm 6.6}$ & 96.0$_{\pm 2.8}$ & 60.8$_{\pm 7.7}$ & 76.8$_{\pm 8.7}$ & 81.6$_{\pm 3.6}$ & 87.2$_{\pm 1.8}$ & 92.8$_{\pm 3.3}$ \\
+\tbranch w/o heatmap decoding & 5.3$_{\pm 2.3}$ & 0.0$_{\pm 0.0}$ & 58.7$_{\pm 22.7}$ & 2.7$_{\pm 2.3}$ & 64.0$_{\pm 0.0}$ & 4.0$_{\pm 4.0}$ & 0.0$_{\pm 0.0}$ & 0.0$_{\pm 0.0}$ & 32.0$_{\pm 4.0}$ & 40.0$_{\pm 10.6}$ \\
+\tlast w/ 3D position input & 10.7$_{\pm 2.3}$ & 78.7$_{\pm 2.3}$ & 97.3$_{\pm 4.6}$ & 16.0$_{\pm 4.0}$ & 72.0$_{\pm 0.0}$ & 21.3$_{\pm 8.3}$ & 17.3$_{\pm 2.3}$ & 4.0$_{\pm 4.0}$ & 53.3$_{\pm 2.3}$ & 84.0$_{\pm 0.0}$ \\
+\specialrule{1pt}{0pt}{0pt}
+\textbf{\memmethod\ (ours)} & \textbf{92.0}$_{\pm 0.0}$ & \textbf{99.2}$_{\pm 1.8}$ & 92.8$_{\pm 5.9}$ & 95.2$_{\pm 5.2}$ & 96.0$_{\pm 4.0}$ & 72.0$_{\pm 6.3}$ & 85.6$_{\pm 4.6}$ & \textbf{98.4}$_{\pm 2.2}$ & 97.6$_{\pm 2.2}$ & 89.6$_{\pm 4.6}$ \\
+\tbranch w/o spatial memory & 90.4$_{\pm 2.2}$ & 91.2$_{\pm 1.8}$ & 96.0$_{\pm 4.9}$ & 95.2$_{\pm 1.8}$ & 97.6$_{\pm 3.6}$ & 60.8$_{\pm 3.3}$ & \textbf{91.2}$_{\pm 3.3}$ & 92.8$_{\pm 4.4}$ & 99.2$_{\pm 1.8}$ & 95.2$_{\pm 4.4}$ \\
+\tlast w/o temporal memory & 88.8$_{\pm 4.4}$ & 98.4$_{\pm 3.6}$ & 92.8$_{\pm 3.3}$ & \textbf{96.0}$_{\pm 4.0}$ & \textbf{100.0}$_{\pm 0.0}$ & \textbf{73.6}$_{\pm 5.4}$ & 88.8$_{\pm 3.3}$ & 93.6$_{\pm 2.2}$ & \textbf{100.0}$_{\pm 0.0}$ & 94.4$_{\pm 4.6}$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

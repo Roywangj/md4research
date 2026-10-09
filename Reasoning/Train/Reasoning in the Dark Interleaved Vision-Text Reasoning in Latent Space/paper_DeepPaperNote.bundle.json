@@ -1,0 +1,4053 @@
+{
+  "status": "ok",
+  "script": "build_synthesis_bundle.py",
+  "paper_id": "arxiv:2510.12603",
+  "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+  "metadata": {
+    "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+    "translated_title": "暗中推理：潜在空间中的交错视觉-文本推理",
+    "authors": [
+      "Chao Chen",
+      "Zhixin Ma",
+      "Yongqi Li",
+      "Yupeng Hu",
+      "Yinwei Wei",
+      "Wenjie Li",
+      "Liqiang Nie"
+    ],
+    "affiliations": [
+      "The Hong Kong Polytechnic University",
+      "Singapore Management University",
+      "Shandong University",
+      "Harbin Institute of Technology (Shenzhen)"
+    ],
+    "year": "2026",
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2510.12603",
+    "source_url": "https://arxiv.org/abs/2510.12603",
+    "abstract": "Multimodal reasoning aims to enhance the capabilities of MLLMs by incorporating intermediate reasoning steps before reaching the final answer. It has evolved from text-only reasoning to the integration of visual information, enabling the thought process to be conveyed through both images and text. Despite its effectiveness, current multimodal reasoning methods depend on explicit reasoning steps that require labor-intensive vision-text annotations and inherently introduce significant inference latency. To address these issues, we introduce multimodal latent reasoning with the advantages of multimodal representation, reduced annotation, and inference efficiency. To facilitate it, we propose Interleaved Vision-Text Latent Reasoning (IVT-LR), which injects both visual and textual information in the reasoning process within the latent space. Specifically, IVT-LR represents each reasoning step by combining two implicit parts: latent text (the hidden states from the previous step) and latent vision (a set of selected image embeddings). We further introduce a progressive multi-stage training strategy to enable MLLMs to perform the above multimodal latent reasoning steps. Experiments on M$^3$CoT and ScienceQA demonstrate that our IVT-LR method achieves an average performance increase of 5.45\\% in accuracy, while simultaneously achieving a speed increase of over 5 times compared to existing approaches.",
+    "arxiv_id": "2510.12603",
+    "zotero_key": "BY96Y7AI",
+    "metadata_sources": [
+      "zotero_seed",
+      "arxiv"
+    ],
+    "identity_confidence": "high",
+    "identity_confidence_reasons": [
+      "doi_present",
+      "arxiv_id_present",
+      "zotero_key_present"
+    ]
+  },
+  "evidence_quality": "high",
+  "coverage": {
+    "language_hint": "en",
+    "section_extraction_coverage": {
+      "coverage_status": "good",
+      "recognized_sections": [
+        "preamble",
+        "abstract",
+        "introduction",
+        "method",
+        "experiment",
+        "conclusion"
+      ],
+      "core_sections_found": [
+        "introduction",
+        "method",
+        "experiment"
+      ],
+      "missing_core_sections": [],
+      "section_text_chars": {
+        "preamble": 346,
+        "abstract": 1467,
+        "introduction": 9037,
+        "method": 15450,
+        "experiment": 4061,
+        "conclusion": 1332
+      },
+      "fallback_sections": []
+    },
+    "pdf_coverage": {
+      "total_pages": 12,
+      "text_max_pages": 32,
+      "text_pages_scanned": 12,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": true,
+      "appendix_start_page": 6,
+      "references_start_page": 9,
+      "section_stop_reason": "references",
+      "section_stop_page": 9
+    },
+    "source_coverage": {
+      "total_pages": 12,
+      "text_max_pages": null,
+      "text_pages_extracted": 12,
+      "text_pages_scanned": 12,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": true,
+      "appendix_start_page": 6,
+      "references_start_page": 9
+    },
+    "source_manifest": {
+      "raw_sections_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_raw_sections.jsonl",
+      "full_text_md_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_full_text.md",
+      "section_count": 13,
+      "page_count": 12,
+      "text_hash_sha256": "1669b319d8720f0d6179ad00fb8f0c7a1a85b1ebf1d963aa34c2463e0933e1e2"
+    },
+    "appendix_evidence_counts": {
+      "ablation": 1,
+      "implementation_details": 7,
+      "dataset_details": 8,
+      "extra_results": 8,
+      "qualitative_examples": 3
+    },
+    "extraction_failures": [],
+    "asset_coverage": {
+      "total_pages": 12,
+      "asset_max_pages": 40,
+      "asset_pages_scanned": 12,
+      "truncated_due_to_asset_page_limit": false
+    },
+    "figure_quality_summary": {
+      "usable": 8,
+      "review": 0,
+      "reject": 1,
+      "unknown": 0
+    },
+    "truncation_warnings": [],
+    "identity_confidence": "high",
+    "identity_confidence_reasons": [
+      "doi_present",
+      "arxiv_id_present",
+      "zotero_key_present"
+    ]
+  },
+  "source_manifest": {
+    "paper_id": "arxiv:2510.12603",
+    "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+    "source_kind": "pdf_text",
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_full_text.md",
+    "pdf": {
+      "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EAWWASN8/Chen 等 - 2026 - Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space.pdf",
+      "total_pages": 12,
+      "text_pages_extracted": 12,
+      "text_max_pages": null,
+      "text_truncated": false
+    },
+    "coverage": {
+      "total_pages": 12,
+      "text_max_pages": null,
+      "text_pages_extracted": 12,
+      "text_pages_scanned": 12,
+      "text_truncated": false,
+      "truncated_due_to_page_limit": false,
+      "appendix_detected": true,
+      "appendix_start_page": 6,
+      "references_start_page": 9
+    }
+  },
+  "source_index": {
+    "raw_sections_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_raw_sections.jsonl",
+    "full_text_md_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_full_text.md",
+    "sections": [
+      {
+        "section_id": "sec:preamble",
+        "kind": "preamble",
+        "title": "preamble",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 346,
+        "text_hash_sha256": "67fceff137691420c82801a905091b1ca8b0b62d32458d93d41f5863ccb9119f"
+      },
+      {
+        "section_id": "sec:abstract",
+        "kind": "abstract",
+        "title": "Abstract",
+        "page_start": 1,
+        "page_end": 1,
+        "char_count": 1467,
+        "text_hash_sha256": "9c86a19f3d030e9daee49309993357741603870f2717222fc26547b16e705669"
+      },
+      {
+        "section_id": "sec:introduction",
+        "kind": "introduction",
+        "title": "1 Introduction",
+        "page_start": 1,
+        "page_end": 2,
+        "char_count": 5114,
+        "text_hash_sha256": "47f2ee30294bdfd51324da92c00fdf4b9a37aca2e0836c39833bdec624c8c411"
+      },
+      {
+        "section_id": "sec:related-work",
+        "kind": "introduction",
+        "title": "2 Related Work",
+        "page_start": 2,
+        "page_end": 3,
+        "char_count": 3922,
+        "text_hash_sha256": "c8b6816e1d4f669b83d6c92fc9a6b76e3e47d69e1ec20cc06b9282e07bc72f64"
+      },
+      {
+        "section_id": "sec:method",
+        "kind": "method",
+        "title": "3 Method",
+        "page_start": 3,
+        "page_end": 6,
+        "char_count": 6844,
+        "text_hash_sha256": "d4c6529341b4762efb727fc10f8eba1aa0670cbefc571f825f3d256ed0efb199"
+      },
+      {
+        "section_id": "sec:methods",
+        "kind": "method",
+        "title": "Methods",
+        "page_start": 6,
+        "page_end": 6,
+        "char_count": 1148,
+        "text_hash_sha256": "ee043d48403cb58012390d7c983baf43e40f3f3f12c770c069b14a2c1855d078"
+      },
+      {
+        "section_id": "sec:experiments",
+        "kind": "experiment",
+        "title": "4 Experiments",
+        "page_start": 6,
+        "page_end": 6,
+        "char_count": 1217,
+        "text_hash_sha256": "017f50010c46b5596573ca112f9c4edf1d729199a6c764e03b6c3b044828586a"
+      },
+      {
+        "section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with",
+        "kind": "appendix",
+        "title": "Appendix A) , a batch size of four, and train with",
+        "page_start": 6,
+        "page_end": 7,
+        "char_count": 2792,
+        "text_hash_sha256": "59f56816732b2b6979ad9c7244d0c86c846dc625ad68b2dc7e268de10de12437"
+      },
+      {
+        "section_id": "sec:methods-2",
+        "kind": "method",
+        "title": "Methods",
+        "page_start": 7,
+        "page_end": 9,
+        "char_count": 7456,
+        "text_hash_sha256": "6db3691a8156d545324bcb86a4eb4e2d93ed7cbbb36fd90eac898cff7c41b73f"
+      },
+      {
+        "section_id": "sec:conclusion",
+        "kind": "conclusion",
+        "title": "5 Conclusion",
+        "page_start": 9,
+        "page_end": 9,
+        "char_count": 1332,
+        "text_hash_sha256": "631e7a95231fcd25acdb49b3eccf033e9c199df4834836faaeb27d34d8f5cf52"
+      },
+      {
+        "section_id": "sec:references",
+        "kind": "references",
+        "title": "References",
+        "page_start": 9,
+        "page_end": 10,
+        "char_count": 1467,
+        "text_hash_sha256": "70a4d03a5ee5be74b3d731cca3bcffa27cf38446cdfd987ca8040d9da02d135c"
+      },
+      {
+        "section_id": "sec:models",
+        "kind": "method",
+        "title": "models.",
+        "page_start": 10,
+        "page_end": 10,
+        "char_count": 1496,
+        "text_hash_sha256": "6f8bef6c3d4d6b1a424c3678eabe3aba1ca596cbb6cd9a1fc45c17cd768fe5a6"
+      },
+      {
+        "section_id": "sec:models-2",
+        "kind": "method",
+        "title": "models.",
+        "page_start": 10,
+        "page_end": 12,
+        "char_count": 7437,
+        "text_hash_sha256": "6154afd6dd7f85cbb7ddf20f4164b0edac1398a380dc4696e4ffd691c331f36f"
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "char_count": 3733,
+        "section_ids": [
+          "sec:preamble",
+          "sec:abstract",
+          "sec:introduction"
+        ]
+      },
+      {
+        "page": 2,
+        "char_count": 3485,
+        "section_ids": [
+          "sec:introduction",
+          "sec:related-work"
+        ]
+      },
+      {
+        "page": 3,
+        "char_count": 4443,
+        "section_ids": [
+          "sec:related-work",
+          "sec:method"
+        ]
+      },
+      {
+        "page": 4,
+        "char_count": 3044,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 5,
+        "char_count": 2997,
+        "section_ids": [
+          "sec:method"
+        ]
+      },
+      {
+        "page": 6,
+        "char_count": 3023,
+        "section_ids": [
+          "sec:method",
+          "sec:methods",
+          "sec:experiments",
+          "sec:appendix-a-a-batch-size-of-four-and-train-with"
+        ]
+      },
+      {
+        "page": 7,
+        "char_count": 4449,
+        "section_ids": [
+          "sec:appendix-a-a-batch-size-of-four-and-train-with",
+          "sec:methods-2"
+        ]
+      },
+      {
+        "page": 8,
+        "char_count": 3700,
+        "section_ids": [
+          "sec:methods-2"
+        ]
+      },
+      {
+        "page": 9,
+        "char_count": 4206,
+        "section_ids": [
+          "sec:methods-2",
+          "sec:conclusion",
+          "sec:references"
+        ]
+      },
+      {
+        "page": 10,
+        "char_count": 4933,
+        "section_ids": [
+          "sec:references",
+          "sec:models",
+          "sec:models-2"
+        ]
+      },
+      {
+        "page": 11,
+        "char_count": 2800,
+        "section_ids": [
+          "sec:models-2"
+        ]
+      },
+      {
+        "page": 12,
+        "char_count": 1493,
+        "section_ids": [
+          "sec:models-2"
+        ]
+      }
+    ],
+    "captions": {
+      "figures": [
+        {
+          "id": "Figure 1",
+          "caption": "An example of interleaved vision-text latent",
+          "page": 2,
+          "pages": [
+            2
+          ],
+          "section_id": "sec:introduction"
+        },
+        {
+          "id": "Figure 2",
+          "caption": "Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is",
+          "page": 4,
+          "pages": [
+            4
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Figure 3",
+          "caption": "Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full",
+          "page": 5,
+          "pages": [
+            5
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Algorithm 1",
+          "caption": "IVT-LR",
+          "page": 5,
+          "pages": [
+            5
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Figure 4",
+          "caption": "Accuracy comparison of IVT-LR on the length",
+          "page": 8,
+          "pages": [
+            8
+          ],
+          "section_id": "sec:methods-2"
+        },
+        {
+          "id": "Figure 5",
+          "caption": "Attention analysis comparison between explicit",
+          "page": 9,
+          "pages": [
+            9
+          ],
+          "section_id": "sec:methods-2"
+        },
+        {
+          "id": "Figure 6",
+          "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+          "page": 12,
+          "pages": [
+            12
+          ],
+          "section_id": "sec:models-2"
+        }
+      ],
+      "tables": [
+        {
+          "id": "Table 1",
+          "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+          "page": 6,
+          "pages": [
+            6
+          ],
+          "section_id": "sec:method"
+        },
+        {
+          "id": "Table 2",
+          "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+          "page": 7,
+          "pages": [
+            7
+          ],
+          "section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with"
+        },
+        {
+          "id": "Table 3",
+          "caption": "Accuracy on M3CoT across different latent rea-",
+          "page": 8,
+          "pages": [
+            8
+          ],
+          "section_id": "sec:methods-2"
+        },
+        {
+          "id": "Table 4",
+          "caption": "and 5 illustrates examples of consolidated",
+          "page": 11,
+          "pages": [
+            11
+          ],
+          "section_id": "sec:models-2"
+        },
+        {
+          "id": "Table 4",
+          "caption": "An example of consolidated rationales for clarity.",
+          "page": 12,
+          "pages": [
+            12
+          ],
+          "section_id": "sec:models-2"
+        },
+        {
+          "id": "Table 5",
+          "caption": "Another example of consolidated rationales for clarity.",
+          "page": 12,
+          "pages": [
+            12
+          ],
+          "section_id": "sec:models-2"
+        }
+      ]
+    },
+    "math_index": [
+      {
+        "text": "[19] introduces learnable <pause> tokens, giving",
+        "section_id": "sec:related-work",
+        "page_start": 2,
+        "page_end": 3
+      },
+      {
+        "text": "et al. [20] uses <plan> tokens to guide reasoning.",
+        "section_id": "sec:related-work",
+        "page_start": 2,
+        "page_end": 3
+      },
+      {
+        "text": "X = (x1, . . . , xI) and a set of visual embeddings",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "Z = (z1, . . . , zJ) from a visual encoder, a standard",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "1:t = g(x1:t) ∈Rt×d,",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "= f (etext",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "1:t , Z) ∈Rd,",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "M(xt+1 | x1:t, Z) = softmax(W · efused",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "visual fatures, and W ∈R|V|×d is trained to project",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "Et = [e1, . . . , eN, hlatent",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "= f (Et), which is projected through",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "M(xt+1 | Et) = softmax(W · efused",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "1: Input: Text input embeddings E = [e1, . . . , eI],",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "Image input embeddings Z = [z1, . . . , zJ], Whole",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "input embeddings Q = E + Z = [q1, . . . , qm],",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "Latent step positions L = [l1, . . . , lN], Number of",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "2: for i = 1 to N do",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "for n > i",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "denoted by the special token <latent>, beginning",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "same number of <latent> tokens are appended after",
+        "section_id": "sec:method",
+        "page_start": 3,
+        "page_end": 6
+      },
+      {
+        "text": "R =",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "j∈I Attn(Ej)",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "i∈T Attn(Ei),",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "H = −",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "pk =",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "F =",
+        "section_id": "sec:methods-2",
+        "page_start": 7,
+        "page_end": 9
+      },
+      {
+        "text": "A.1 Rationale for N = 4 Training Stages",
+        "section_id": "sec:models-2",
+        "page_start": 10,
+        "page_end": 12
+      },
+      {
+        "text": "steps (N −1 = 3). This design choice is not arbitrary;",
+        "section_id": "sec:models-2",
+        "page_start": 10,
+        "page_end": 12
+      },
+      {
+        "text": "distinct subtask. Therefore, setting N = 4 (three rea-",
+        "section_id": "sec:models-2",
+        "page_start": 10,
+        "page_end": 12
+      }
+    ],
+    "appendix_index": {
+      "appendix_detected": true,
+      "start_page": 6,
+      "sections": [
+        {
+          "title": "a M3CoT",
+          "page": 8
+        },
+        {
+          "title": "b ScienceQA",
+          "page": 8
+        },
+        {
+          "title": "H = −",
+          "page": 8
+        },
+        {
+          "title": "m Attn(Em),",
+          "page": 8
+        },
+        {
+          "title": "A Training Data Construction",
+          "page": 11
+        }
+      ],
+      "figure_captions": [
+        {
+          "id": "Figure 4",
+          "caption": "Accuracy comparison of IVT-LR on the length",
+          "page_hint": "p.8"
+        },
+        {
+          "id": "Figure 5",
+          "caption": "Attention analysis comparison between explicit",
+          "page_hint": "p.9"
+        },
+        {
+          "id": "Figure 6",
+          "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+          "page_hint": "p.12"
+        }
+      ],
+      "table_captions": [
+        {
+          "id": "Table 1",
+          "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+          "page_hint": "p.6"
+        },
+        {
+          "id": "Table 2",
+          "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+          "page_hint": "p.7"
+        },
+        {
+          "id": "Table 3",
+          "caption": "Accuracy on M3CoT across different latent rea-",
+          "page_hint": "p.8"
+        },
+        {
+          "id": "Table 4",
+          "caption": "and 5 illustrates examples of consolidated",
+          "page_hint": "p.11"
+        },
+        {
+          "id": "Table 4",
+          "caption": "An example of consolidated rationales for clarity.",
+          "page_hint": "p.12"
+        },
+        {
+          "id": "Table 5",
+          "caption": "Another example of consolidated rationales for clarity.",
+          "page_hint": "p.12"
+        }
+      ]
+    },
+    "language_hint": "en",
+    "text_hash_sha256": "1669b319d8720f0d6179ad00fb8f0c7a1a85b1ebf1d963aa34c2463e0933e1e2"
+  },
+  "references": {
+    "candidates": [
+      {
+        "raw_text": "[1] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. Chain-of-thought prompting elicits reasoning in large language models. Advances in neural infor- mation processing systems, 35:24824–24837, 2022.",
+        "display_text": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. Chain-of-thought prompting elicits reasoning in large language models. Advances in neural infor- mation processing systems, 35:24824–24837, 2022.",
+        "page_hint": "p. 9",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[2] Aaron Hurst, Adam Lerer, Adam P Goucher, Adam Perelman, Aditya Ramesh, Aidan Clark, AJ Os- trow, Akila Welihinda, Alan Hayes, Alec Rad- ford, et al. arXiv preprint arXiv:2410.21276, 2024.",
+        "display_text": "Aaron Hurst, Adam Lerer, Adam P Goucher, Adam Perelman, Aditya Ramesh, Aidan Clark, AJ Os- trow, Akila Welihinda, Alan Hayes, Alec Rad- ford, et al. arXiv preprint arXiv:2410.21276, 2024.",
+        "page_hint": "p. 9",
+        "doi": "",
+        "arxiv_id": "2410.21276",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[3] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al. Deepseek-r1: Incen- tivizing reasoning capability in llms via reinforce- ment learning. arXiv preprint arXiv:2501.12948, 2025.",
+        "display_text": "Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al. Deepseek-r1: Incen- tivizing reasoning capability in llms via reinforce- ment learning. arXiv preprint arXiv:2501.12948, 2025.",
+        "page_hint": "p. 9",
+        "doi": "",
+        "arxiv_id": "2501.12948",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[4] Yushi Hu, Hang Hua, Zhengyuan Yang, Weijia Shi, Noah A Smith, and Jiebo Luo. Promptcap: Prompt- guided task-aware image captioning. arXiv preprint arXiv:2211.09699, 2022.",
+        "display_text": "Yushi Hu, Hang Hua, Zhengyuan Yang, Weijia Shi, Noah A Smith, and Jiebo Luo. Promptcap: Prompt- guided task-aware image captioning. arXiv preprint arXiv:2211.09699, 2022.",
+        "page_hint": "p. 9",
+        "doi": "",
+        "arxiv_id": "2211.09699",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[5] Debjyoti Mondal, Suraj Modi, Subhadarshi Panda, Rituraj Singh, and Godawari Sudhakar Rao. Kam- cot: Knowledge augmented multimodal chain-of- thoughts reasoning. In Proceedings of the AAAI con- ference on artificial intelligence, volume 38, pages 18798–18806, 2024. doi: 10.1609/aaai.v38i17.",
+        "display_text": "Debjyoti Mondal, Suraj Modi, Subhadarshi Panda, Rituraj Singh, and Godawari Sudhakar Rao. Kam- cot: Knowledge augmented multimodal chain-of- thoughts reasoning. In Proceedings of the AAAI con- ference on artificial intelligence, volume 38, pages 18798–18806, 2024. doi: 10.1609/aaai.v38i17.",
+        "page_hint": "p. 9",
+        "doi": "10.1609/aaai.v38i17",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[6] Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna. Visual sketchpad: sketching as a visual chain of thought for multimodal language models. pages 139348–139379, 2024.",
+        "display_text": "Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna. Visual sketchpad: sketching as a visual chain of thought for multimodal language models. pages 139348–139379, 2024.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[7] Dairu Liu, Ziyue Wang, Minyuan Ruan, Fuwen Luo, Chi Chen, Peng Li, and Yang Liu. Visual abstract thinking empowers multimodal reasoning. arXiv preprint arXiv:2505.20164, 2025.",
+        "display_text": "Dairu Liu, Ziyue Wang, Minyuan Ruan, Fuwen Luo, Chi Chen, Peng Li, and Yang Liu. Visual abstract thinking empowers multimodal reasoning. arXiv preprint arXiv:2505.20164, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2505.20164",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[8] Ethan Chern, Zhulin Hu, Steffi Chern, Siqi Kou, Jiadi Su, Yan Ma, Zhijie Deng, and Pengfei Liu. arXiv preprint arXiv:2505.22525, 2025.",
+        "display_text": "Ethan Chern, Zhulin Hu, Steffi Chern, Siqi Kou, Jiadi Su, Yan Ma, Zhijie Deng, and Pengfei Liu. arXiv preprint arXiv:2505.22525, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2505.22525",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[9] Jun Gao, Yongqi Li, Ziqiang Cao, and Wenjie Li. ings of the Computer Vision and Pattern Recogni- tion Conference, pages 19520–19529, 2025. doi: 10.1109/CVPR52734.2025.01818.",
+        "display_text": "Jun Gao, Yongqi Li, Ziqiang Cao, and Wenjie Li. ings of the Computer Vision and Pattern Recogni- tion Conference, pages 19520–19529, 2025. doi: 10.1109/CVPR52734.2025.01818.",
+        "page_hint": "p. 10",
+        "doi": "10.1109/CVPR52734.2025.01818",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[10] Ziwei Zheng, Michael Yang, Jack Hong, Chenxiao Zhao, Guohai Xu, Le Yang, Chao Shen, and Xing Yu. ages\" via reinforcement learning. arXiv preprint arXiv:2505.14362, 2025.",
+        "display_text": "Ziwei Zheng, Michael Yang, Jack Hong, Chenxiao Zhao, Guohai Xu, Le Yang, Chao Shen, and Xing Yu. ages\" via reinforcement learning. arXiv preprint arXiv:2505.14362, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2505.14362",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[11] Chengzu Li, Wenshan Wu, Huanyu Zhang, Yan Xia, Shaoguang Mao, Li Dong, Ivan Vulić, and Furu Wei. Imagine while reasoning in space: Mul- timodal visualization-of-thought. arXiv preprint arXiv:2501.07542, 2025.",
+        "display_text": "Chengzu Li, Wenshan Wu, Huanyu Zhang, Yan Xia, Shaoguang Mao, Li Dong, Ivan Vulić, and Furu Wei. Imagine while reasoning in space: Mul- timodal visualization-of-thought. arXiv preprint arXiv:2501.07542, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2501.07542",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[12] Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, and Yuandong Tian. uous latent space. arXiv preprint arXiv:2412.06769, 2024.",
+        "display_text": "Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, and Yuandong Tian. uous latent space. arXiv preprint arXiv:2412.06769, 2024.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2412.06769",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[13] Ge Zheng, Bin Yang, Jiajin Tang, Hong-Yu Zhou, and Sibei Yang. Ddcot: duty-distinct chain-of-thought prompting for multimodal reasoning in language models. pages 5168–5191, 2023.",
+        "display_text": "Ge Zheng, Bin Yang, Jiajin Tang, Hong-Yu Zhou, and Sibei Yang. Ddcot: duty-distinct chain-of-thought prompting for multimodal reasoning in language models. pages 5168–5191, 2023.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[14] Chancharik Mitra, Brandon Huang, Trevor Darrell, and Roei Herzig. Compositional chain-of-thought prompting for large multimodal models. In Proceed- ings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 14420–14431, 2024. doi: 10.1109/CVPR52733.2024.01367.",
+        "display_text": "Chancharik Mitra, Brandon Huang, Trevor Darrell, and Roei Herzig. Compositional chain-of-thought prompting for large multimodal models. In Proceed- ings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 14420–14431, 2024. doi: 10.1109/CVPR52733.2024.01367.",
+        "page_hint": "p. 10",
+        "doi": "10.1109/CVPR52733.2024.01367",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[15] Zhuosheng Zhang, Aston Zhang, Mu Li, Hai Zhao, George Karypis, and Alex Smola. Multimodal chain- of-thought reasoning in language models. Transac- tions on Machine Learning Research, 2024, 2024.",
+        "display_text": "Zhuosheng Zhang, Aston Zhang, Mu Li, Hai Zhao, George Karypis, and Alex Smola. Multimodal chain- of-thought reasoning in language models. Transac- tions on Machine Learning Research, 2024, 2024.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[16] Hao Shao, Shengju Qian, Han Xiao, Guanglu Song, Zhuofan Zong, Letian Wang, Yu Liu, and Hongsheng Li. Visual cot: advancing multi-modal language mod- els with a comprehensive dataset and benchmark for chain-of-thought reasoning. In Proceedings of the 38th International Conference on Neural Information Processing Systems, pages 8612–8642, 2024.",
+        "display_text": "Hao Shao, Shengju Qian, Han Xiao, Guanglu Song, Zhuofan Zong, Letian Wang, Yu Liu, and Hongsheng Li. Visual cot: advancing multi-modal language mod- els with a comprehensive dataset and benchmark for chain-of-thought reasoning. In Proceedings of the 38th International Conference on Neural Information Processing Syst...",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[17] Xintong Zhang, Zhi Gao, Bofei Zhang, Pengxiang Li, Xiaowen Zhang, Yang Liu, Tao Yuan, Yuwei Wu, Yunde Jia, Song-Chun Zhu, et al. Chain-of-focus: Adaptive visual search and zooming for multimodal reasoning via rl. arXiv preprint arXiv:2505.15436, 2025.",
+        "display_text": "Xintong Zhang, Zhi Gao, Bofei Zhang, Pengxiang Li, Xiaowen Zhang, Yang Liu, Tao Yuan, Yuwei Wu, Yunde Jia, Song-Chun Zhu, et al. Chain-of-focus: Adaptive visual search and zooming for multimodal reasoning via rl. arXiv preprint arXiv:2505.15436, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2505.15436",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[18] Yi Xu, Chengzu Li, Han Zhou, Xingchen Wan, Caiqi Zhang, Anna Korhonen, and Ivan Vulić. Visual plan- ning: Let’s think only with images. arXiv preprint arXiv:2505.11409, 2025.",
+        "display_text": "Yi Xu, Chengzu Li, Han Zhou, Xingchen Wan, Caiqi Zhang, Anna Korhonen, and Ivan Vulić. Visual plan- ning: Let’s think only with images. arXiv preprint arXiv:2505.11409, 2025.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "2505.11409",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[19] Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Kr- ishna Menon, Sanjiv Kumar, and Vaishnavh Nagara- jan. Think before you speak: Training language models with pause tokens. In The Twelfth Interna- tional Conference on Learning Representations, 2024.",
+        "display_text": "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Kr- ishna Menon, Sanjiv Kumar, and Vaishnavh Nagara- jan. Think before you speak: Training language models with pause tokens. In The Twelfth Interna- tional Conference on Learning Representations, 2024.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      },
+      {
+        "raw_text": "[20] Xinyi Wang, Lucas Caccia, Oleksiy Ostapenko, Xingdi Yuan, William Yang Wang, and Alessandro Sordoni. Guiding language model reasoning with planning tokens. In First Conference on Language Modeling, 2024.",
+        "display_text": "Xinyi Wang, Lucas Caccia, Oleksiy Ostapenko, Xingdi Yuan, William Yang Wang, and Alessandro Sordoni. Guiding language model reasoning with planning tokens. In First Conference on Language Modeling, 2024.",
+        "page_hint": "p. 10",
+        "doi": "",
+        "arxiv_id": "",
+        "wikilink": "",
+        "vault_target": "",
+        "match_status": "vault_unavailable",
+        "match_reason": "none"
+      }
+    ]
+  },
+  "figure_plan": {
+    "paper_id": "arxiv:2510.12603",
+    "figures": [
+      {
+        "id": "Figure 2",
+        "caption": "Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_004_fig_figure_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+          "width": 1425,
+          "height": 753,
+          "size_bytes": 78502,
+          "label": "Figure 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.28729,
+            "visual_rect_count": 14,
+            "visual_body_ratio": 0.862823,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 301,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "figure 2",
+              "interleaved",
+              "vision-text",
+              "latent",
+              "reasoning",
+              "ivt-lr"
+            ],
+            "snippet": "t Vision N Latent Vision 1 Latent Text N Latent Text 1 Vision Language Model hidden state Figure 2: Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each ste",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "interleaved",
+              "vision-text",
+              "latent",
+              "reasoning",
+              "ivt-lr"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 1: An example of interleaved vision-text lat",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 3,
+            "matched_terms": [
+              "interleaved",
+              "vision-text",
+              "latent",
+              "reasoning",
+              "ivt-lr"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 3: Overview of the Multi-Stage Progressive T",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full",
+        "kind": "method_overview",
+        "section": "机制流程",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "priority": 1,
+        "anchor_text": "机制流程",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_005_fig_figure_3.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+          "width": 1423,
+          "height": 593,
+          "size_bytes": 148197,
+          "label": "Figure 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.225937,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.757548,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 318,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 4,
+            "score": 8,
+            "matched_terms": [
+              "figure 3",
+              "multi-stage",
+              "progressive",
+              "training",
+              "strategy",
+              "used"
+            ],
+            "snippet": "ry is segmented into up to N steps, followed by the final answer. At stage 0, as shown in Figure 3, the model is trained with standard CoT supervision, where all rea- soning steps are expl",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 8,
+            "matched_terms": [
+              "figure 3",
+              "multi-stage",
+              "progressive",
+              "training",
+              "strategy",
+              "used"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 3: Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "multi-stage",
+              "progressive",
+              "training",
+              "strategy",
+              "used"
+            ],
+            "snippet": "nt vision components for joint reasoning in the latent space, we introduce a progressive, multi-stage training strategy that gradually substitutes explicit CoT steps with latent reasoning ste",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "IVT-LR",
+        "kind": "method_detail",
+        "section": "方法主线",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "priority": 2,
+        "anchor_text": "方法主线",
+        "insert_mode": "placeholder",
+        "candidate_pages": [
+          {
+            "page_number": 5,
+            "score": 6,
+            "matched_terms": [
+              "algorithm 1",
+              "ivt-lr"
+            ],
+            "snippet": "ng loss is calculated exclusively over the remaining explicit steps and the final answer. Algorithm 1 IVT-LR 1: Input: Text input embeddings E = [e1, . . . , eI], Image input embeddings Z = [",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "ivt-lr"
+            ],
+            "snippet": "prove efficiency. In this work, we propose the Interleaved Vision- Text Latent Reasoning (IVT-LR) method, which en- ables both textual and visual modalities to perform reasoning entirely",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 1,
+            "matched_terms": [
+              "ivt-lr"
+            ],
+            "snippet": "ge Model hidden state Figure 2: Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is performed entirely in the latent space by fusing l",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "page-proximity-and-caption-cues"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Accuracy comparison of IVT-LR on the length",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_figure_4.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+          "width": 1700,
+          "height": 169,
+          "size_bytes": 54956,
+          "label": "Figure 4",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "reject",
+            "quality_reason_codes": [
+              "low_visual_body_ratio"
+            ],
+            "page_coverage_ratio": 0.076955,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 249,
+            "table_body_rows": 0,
+            "caption_text_chars": 151,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "reject_visual_quality"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "accuracy",
+              "comparison",
+              "ivt-lr",
+              "length"
+            ],
+            "snippet": "vision We investigate the impact of varying the latent vision length per step.As shown in Figure 4, accuracy steadily increases with this length, indicating that longer latent vision seque",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+                "width": 718,
+                "height": 402,
+                "size_bytes": 60800,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077237,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 159,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 235,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "figure 4",
+              "accuracy",
+              "comparison",
+              "ivt-lr",
+              "length"
+            ],
+            "snippet": "soning in the Dark: Interleaved Vision-Text Reasoning in Latent Space a M3CoT b ScienceQA Figure 4: Accuracy comparison of IVT-LR on the length of latent vision per reasoning step across t",
+            "images": [
+              {
+                "filename": "page_008_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_01.jpeg",
+                "width": 1577,
+                "height": 1280,
+                "size_bytes": 63171
+              },
+              {
+                "filename": "page_008_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_02.jpeg",
+                "width": 1571,
+                "height": 1280,
+                "size_bytes": 65609
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+                "width": 718,
+                "height": 299,
+                "size_bytes": 40719,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.057426,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+                "width": 1700,
+                "height": 169,
+                "size_bytes": 54956,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.076955,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 249,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 151,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "accuracy",
+              "ivt-lr",
+              "length"
+            ],
+            "snippet": "ing M3COT and ScienceQA, where our model establishes new state- of-the-art performance in accuracy and signifi- cantly improves inference efficiency, as measured by fewer autoregressive st",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Attention analysis comparison between explicit",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_009_fig_figure_5.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_fig_figure_5.png",
+          "width": 706,
+          "height": 465,
+          "size_bytes": 60696,
+          "label": "Figure 5",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.087812,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.61065,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 219,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "figure 5",
+              "attention",
+              "comparison",
+              "between",
+              "explicit"
+            ],
+            "snippet": "re concentrated attention, while lower F reflects dispersed focus. The result is shown in Figure 5. We found signif- icant differences in model behavior between latent and explicit multimo",
+            "images": [
+              {
+                "filename": "page_008_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_01.jpeg",
+                "width": 1577,
+                "height": 1280,
+                "size_bytes": 63171
+              },
+              {
+                "filename": "page_008_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_02.jpeg",
+                "width": 1571,
+                "height": 1280,
+                "size_bytes": 65609
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+                "width": 718,
+                "height": 299,
+                "size_bytes": 40719,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.057426,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+                "width": 1700,
+                "height": 169,
+                "size_bytes": 54956,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.076955,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 249,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 151,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 9,
+            "score": 8,
+            "matched_terms": [
+              "figure 5",
+              "attention",
+              "analysis",
+              "comparison",
+              "between",
+              "explicit"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 5: Attention analysis comparison between explicit and latent reasoning approaches. Left: at",
+            "images": [
+              {
+                "filename": "page_009_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_img_01.png",
+                "width": 4774,
+                "height": 2073,
+                "size_bytes": 286846
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_009_fig_figure_5.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_fig_figure_5.png",
+                "width": 706,
+                "height": 465,
+                "size_bytes": 60696,
+                "label": "Figure 5",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.087812,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.61065,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 219,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 3,
+            "matched_terms": [
+              "attention",
+              "between",
+              "explicit"
+            ],
+            "snippet": "er of selected embeddings k 2: for i = 1 to N do 3: hi ←LastHiddenState(q1:li−1) 4: Zsel ←AttentionSelect(Z, k) 5: latent[i] ←[hi, Zsel] 6: Q ←Concat(Q, latent[i]) 7: ln ←ln + (k + 1) for n",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 1",
+        "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_006_fig_table_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_006_fig_table_1.png",
+          "width": 1439,
+          "height": 860,
+          "size_bytes": 146933,
+          "label": "Table 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.331345,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 15,
+            "caption_text_chars": 343,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 6,
+            "score": 8,
+            "matched_terms": [
+              "table 1",
+              "comparison",
+              "ivt-lr",
+              "various",
+              "multimodal",
+              "reasoning"
+            ],
+            "snippet": "3 Chain-of-Focus[17] 36.5 739.4 3.09 61.2 717.1 2.56 IVT-LR 41.8 10.0 1.13 64.0 11.0 1.14 Table 1: Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and Scienc",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_006_fig_table_1.png",
+                "width": 1439,
+                "height": 860,
+                "size_bytes": 146933,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.331345,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 343,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "ivt-lr",
+              "multimodal",
+              "reasoning"
+            ],
+            "snippet": "prove efficiency. In this work, we propose the Interleaved Vision- Text Latent Reasoning (IVT-LR) method, which en- ables both textual and visual modalities to perform reasoning entirely",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "ivt-lr",
+              "multimodal",
+              "reasoning"
+            ],
+            "snippet": "ge Model hidden state Figure 2: Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is performed entirely in the latent space by fusing l",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_007_fig_table_2.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+          "width": 718,
+          "height": 402,
+          "size_bytes": 60800,
+          "label": "Table 2",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.077237,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 159,
+            "table_body_rows": 5,
+            "caption_text_chars": 235,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 7,
+            "score": 8,
+            "matched_terms": [
+              "table 2",
+              "accuracy",
+              "comparison",
+              "ivt-lr",
+              "qwen"
+            ],
+            "snippet": "t vision 46.64 (-25.19) 82.3 (-11.8) w/o the whole latent part 58.02 (-13.81) 86.4 (-7.7) Table 2: Accuracy comparison of IVT-LR on Qwen2-VL, showing the performance impact with and witho",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+                "width": 718,
+                "height": 402,
+                "size_bytes": 60800,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077237,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 159,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 235,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 6,
+            "score": 3,
+            "matched_terms": [
+              "accuracy",
+              "comparison",
+              "ivt-lr",
+              "qwen"
+            ],
+            "snippet": "ing baselines on the M3CoT and ScienceQA benchmarks. The reported metrics include: Answer Accuracy (Acc.), Average number of Autoregressive Steps (# AR Steps), and Average Generation Time",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_006_fig_table_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_006_fig_table_1.png",
+                "width": 1439,
+                "height": 860,
+                "size_bytes": 146933,
+                "label": "Table 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.331345,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 15,
+                  "caption_text_chars": 343,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 8,
+            "score": 3,
+            "matched_terms": [
+              "accuracy",
+              "comparison",
+              "ivt-lr",
+              "qwen"
+            ],
+            "snippet": "the Dark: Interleaved Vision-Text Reasoning in Latent Space a M3CoT b ScienceQA Figure 4: Accuracy comparison of IVT-LR on the length of latent vision per reasoning step across two reasoni",
+            "images": [
+              {
+                "filename": "page_008_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_01.jpeg",
+                "width": 1577,
+                "height": 1280,
+                "size_bytes": 63171
+              },
+              {
+                "filename": "page_008_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_02.jpeg",
+                "width": 1571,
+                "height": 1280,
+                "size_bytes": 65609
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+                "width": 718,
+                "height": 299,
+                "size_bytes": 40719,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.057426,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+                "width": 1700,
+                "height": 169,
+                "size_bytes": 54956,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.076955,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 249,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 151,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Accuracy on M3CoT across different latent rea-",
+        "kind": "main_result",
+        "section": "关键结果",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_008_fig_table_3.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+          "width": 718,
+          "height": 299,
+          "size_bytes": 40719,
+          "label": "Table 3",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.057426,
+            "visual_rect_count": 0,
+            "visual_body_ratio": 0.0,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 4,
+            "caption_text_chars": 128,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 8,
+            "score": 8,
+            "matched_terms": [
+              "table 3",
+              "accuracy",
+              "across",
+              "different",
+              "latent",
+              "rea-"
+            ],
+            "snippet": "ning steps to study the effect of progressively replacing explicit reasoning. As shown in Table 3, accuracy improves as more rea- soning steps are conducted in latent space, showing that",
+            "images": [
+              {
+                "filename": "page_008_img_01.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_01.jpeg",
+                "width": 1577,
+                "height": 1280,
+                "size_bytes": 63171
+              },
+              {
+                "filename": "page_008_img_02.jpeg",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_02.jpeg",
+                "width": 1571,
+                "height": 1280,
+                "size_bytes": 65609
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_008_fig_table_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+                "width": 718,
+                "height": 299,
+                "size_bytes": 40719,
+                "label": "Table 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.057426,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 4,
+                  "caption_text_chars": 128,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              },
+              {
+                "filename": "page_008_fig_figure_4.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+                "width": 1700,
+                "height": 169,
+                "size_bytes": 54956,
+                "label": "Figure 4",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "reject",
+                  "quality_reason_codes": [
+                    "low_visual_body_ratio"
+                  ],
+                  "page_coverage_ratio": 0.076955,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 249,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 151,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "reject_visual_quality"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 7,
+            "matched_terms": [
+              "table. 3",
+              "latent",
+              "rea-"
+            ],
+            "snippet": "g data, resulting in a moderate increase in training cost that remains practical and acceptable. 3.3 Inference Process. Since all rationales in training have been segmented into a certain",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 3,
+            "matched_terms": [
+              "accuracy",
+              "different",
+              "latent",
+              "rea-"
+            ],
+            "snippet": "ing M3COT and ScienceQA, where our model establishes new state- of-the-art performance in accuracy and signifi- cantly improves inference efficiency, as measured by fewer autoregressive st",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Table 4",
+        "caption": "An example of consolidated rationales for clarity.",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "candidate_pages": [
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "table 4",
+              "example",
+              "consolidated",
+              "rationales",
+              "clarity"
+            ],
+            "snippet": "the little boy. Step 3: Therefore, (C) “Entertaining the little boy” is the right answer. Table 4: An example of consolidated rationales for clarity. Question What is the purpose of the m",
+            "images": [
+              {
+                "filename": "page_012_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_img_01.png",
+                "width": 3572,
+                "height": 1771,
+                "size_bytes": 170086
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_figure_6.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+                "width": 1422,
+                "height": 765,
+                "size_bytes": 99122,
+                "label": "Figure 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.291295,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.892935,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 89,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "example"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 1: An example of interleaved vision-text latent reasoning, where the intermediate reasoning steps are c",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 1,
+            "matched_terms": [
+              "rationales"
+            ],
+            "snippet": "in- ear path. By avoiding excessive alignment between latent representations and explicit rationales, the model learns to internalize reasoning trajectories in latent space with essential im",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "page-proximity-and-caption-cues"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Another example of consolidated rationales for clarity.",
+        "kind": "table_result",
+        "section": "关键结果",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "priority": 2,
+        "anchor_text": "关键结果",
+        "insert_mode": "placeholder",
+        "candidate_pages": [
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "table 5",
+              "another",
+              "example",
+              "consolidated",
+              "rationales",
+              "clarity"
+            ],
+            "snippet": "nto the area reserved for pedestrians. Step 3: Therefore, option B is the correct answer. Table 5: Another example of consolidated rationales for clarity. 12",
+            "images": [
+              {
+                "filename": "page_012_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_img_01.png",
+                "width": 3572,
+                "height": 1771,
+                "size_bytes": 170086
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_figure_6.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+                "width": 1422,
+                "height": 765,
+                "size_bytes": 99122,
+                "label": "Figure 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.291295,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.892935,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 89,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 2,
+            "score": 1,
+            "matched_terms": [
+              "example"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 1: An example of interleaved vision-text latent reasoning, where the intermediate reasoning steps are c",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 1,
+            "matched_terms": [
+              "rationales"
+            ],
+            "snippet": "in- ear path. By avoiding excessive alignment between latent representations and explicit rationales, the model learns to internalize reasoning trajectories in latent space with essential im",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "page-proximity-and-caption-cues"
+      },
+      {
+        "id": "Figure 1",
+        "caption": "An example of interleaved vision-text latent",
+        "kind": "supporting_figure",
+        "section": "深度分析",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "priority": 3,
+        "anchor_text": "深度分析",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_002_fig_figure_1.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+          "width": 702,
+          "height": 935,
+          "size_bytes": 372711,
+          "label": "Figure 1",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.175705,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.826167,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 165,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 2,
+            "score": 8,
+            "matched_terms": [
+              "figure 1",
+              "example",
+              "interleaved",
+              "vision-text",
+              "latent"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 1: An example of interleaved vision-text latent reasoning, where the intermediate reasoning",
+            "images": [
+              {
+                "filename": "page_002_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+                "width": 1847,
+                "height": 2171,
+                "size_bytes": 1842194
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_002_fig_figure_1.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+                "width": 702,
+                "height": 935,
+                "size_bytes": 372711,
+                "label": "Figure 1",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.175705,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.826167,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 165,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "interleaved",
+              "vision-text",
+              "latent"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Answer Image Embeddings Text Embeddings Attn Attn A",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 5,
+            "score": 3,
+            "matched_terms": [
+              "interleaved",
+              "vision-text",
+              "latent"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 3: Overview of the Multi-Stage Progressive T",
+            "images": [
+              {
+                "filename": "page_005_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+                "width": 8055,
+                "height": 2628,
+                "size_bytes": 613044
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_005_fig_figure_3.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+                "width": 1423,
+                "height": 593,
+                "size_bytes": 148197,
+                "label": "Figure 3",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.225937,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.757548,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 318,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+        "kind": "data_or_task",
+        "section": "数据与任务定义",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "priority": 3,
+        "anchor_text": "数据与任务定义",
+        "insert_mode": "placeholder",
+        "figure_asset_candidate": {
+          "filename": "page_012_fig_figure_6.png",
+          "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+          "width": 1422,
+          "height": 765,
+          "size_bytes": 99122,
+          "label": "Figure 6",
+          "extraction_level": "figure",
+          "quality_signals": {
+            "visual_quality_status": "usable",
+            "quality_reason_codes": [],
+            "page_coverage_ratio": 0.291295,
+            "visual_rect_count": 1,
+            "visual_body_ratio": 0.892935,
+            "paragraph_text_chars": 0,
+            "table_body_rows": 0,
+            "caption_text_chars": 89,
+            "other_caption_count": 0,
+            "other_caption_labels": []
+          },
+          "candidate_status": "usable_candidate"
+        },
+        "candidate_pages": [
+          {
+            "page_number": 12,
+            "score": 8,
+            "matched_terms": [
+              "figure 6",
+              "distribution",
+              "native",
+              "rationale",
+              "steps",
+              "across"
+            ],
+            "snippet": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 6: Distribution of native rationale steps across the M3CoT and ScienceQA datasets. Question",
+            "images": [
+              {
+                "filename": "page_012_img_01.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_img_01.png",
+                "width": 3572,
+                "height": 1771,
+                "size_bytes": 170086
+              }
+            ],
+            "figure_assets": [
+              {
+                "filename": "page_012_fig_figure_6.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+                "width": 1422,
+                "height": 765,
+                "size_bytes": 99122,
+                "label": "Figure 6",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.291295,
+                  "visual_rect_count": 1,
+                  "visual_body_ratio": 0.892935,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 89,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 4,
+            "score": 3,
+            "matched_terms": [
+              "distribution",
+              "steps",
+              "across"
+            ],
+            "snippet": "cally selected image embeddings based on attention scores). the fused representation to a distribution over the vocabulary. This formulation illustrates how a VLM predicts the next token condi",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_004_fig_figure_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+                "width": 1425,
+                "height": 753,
+                "size_bytes": 78502,
+                "label": "Figure 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.28729,
+                  "visual_rect_count": 14,
+                  "visual_body_ratio": 0.862823,
+                  "paragraph_text_chars": 0,
+                  "table_body_rows": 0,
+                  "caption_text_chars": 301,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          },
+          {
+            "page_number": 7,
+            "score": 3,
+            "matched_terms": [
+              "rationale",
+              "steps",
+              "across"
+            ],
+            "snippet": "ting reasoning in the latent space, avoiding the need for lengthy, ex- plicitly generated rationales required by other meth- ods. 2) Lower Inference Latency. With the Qwen model, IVT-LR ach",
+            "images": [],
+            "figure_assets": [
+              {
+                "filename": "page_007_fig_table_2.png",
+                "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+                "width": 718,
+                "height": 402,
+                "size_bytes": 60800,
+                "label": "Table 2",
+                "extraction_level": "figure",
+                "quality_signals": {
+                  "visual_quality_status": "usable",
+                  "quality_reason_codes": [],
+                  "page_coverage_ratio": 0.077237,
+                  "visual_rect_count": 0,
+                  "visual_body_ratio": 0.0,
+                  "paragraph_text_chars": 159,
+                  "table_body_rows": 5,
+                  "caption_text_chars": 235,
+                  "other_caption_count": 0,
+                  "other_caption_labels": []
+                },
+                "candidate_status": "usable_candidate"
+              }
+            ]
+          }
+        ],
+        "matching_strategy": "figure-asset-candidate"
+      }
+    ]
+  },
+  "figure_table_manifest": {
+    "decisions_path": "/Users/roywangj/Documents/3d agent/.reasoning_dark_work/reasoning_dark_figure_table_decisions.json",
+    "decisions": [
+      {
+        "item_id": "figure:Figure 1",
+        "source_id": "Figure 1",
+        "kind": "figure",
+        "label": "Figure 1",
+        "caption": "An example of interleaved vision-text latent",
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction",
+        "decision": "insert",
+        "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "深度分析",
+        "plan_kind": "supporting_figure",
+        "source_image_filename": "page_002_fig_figure_1.png",
+        "relative_markdown_embed": "![Figure 1](images/page_002_fig_figure_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 2",
+        "source_id": "Figure 2",
+        "kind": "figure",
+        "label": "Figure 2",
+        "caption": "Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is",
+        "pages": [
+          4
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 1,
+        "target_section": "机制流程",
+        "plan_kind": "method_overview",
+        "source_image_filename": "page_004_fig_figure_2.png",
+        "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 3",
+        "source_id": "Figure 3",
+        "kind": "figure",
+        "label": "Figure 3",
+        "caption": "Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full",
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 1,
+        "target_section": "机制流程",
+        "plan_kind": "method_overview",
+        "source_image_filename": "page_005_fig_figure_3.png",
+        "relative_markdown_embed": "![Figure 3](images/page_005_fig_figure_3.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Algorithm 1",
+        "source_id": "Algorithm 1",
+        "kind": "figure",
+        "label": "Algorithm 1",
+        "caption": "IVT-LR",
+        "pages": [
+          5
+        ],
+        "section_id": "sec:method",
+        "decision": "placeholder",
+        "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+        "skip_reason": "asset_candidate_missing",
+        "visual_quality_status": "",
+        "priority": 2,
+        "target_section": "方法主线",
+        "plan_kind": "method_detail"
+      },
+      {
+        "item_id": "figure:Figure 4",
+        "source_id": "Figure 4",
+        "kind": "figure",
+        "label": "Figure 4",
+        "caption": "Accuracy comparison of IVT-LR on the length",
+        "pages": [
+          8
+        ],
+        "section_id": "sec:methods-2",
+        "decision": "visual_defect",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "visual_quality_gate_rejected_candidate",
+        "visual_quality_status": "reject_visual_quality",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_008_fig_figure_4.png",
+        "relative_markdown_embed": "![Figure 4](images/page_008_fig_figure_4.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png"
+      },
+      {
+        "item_id": "figure:Figure 5",
+        "source_id": "Figure 5",
+        "kind": "figure",
+        "label": "Figure 5",
+        "caption": "Attention analysis comparison between explicit",
+        "pages": [
+          9
+        ],
+        "section_id": "sec:methods-2",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_009_fig_figure_5.png",
+        "relative_markdown_embed": "![Figure 5](images/page_009_fig_figure_5.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_fig_figure_5.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "figure:Figure 6",
+        "source_id": "Figure 6",
+        "kind": "figure",
+        "label": "Figure 6",
+        "caption": "Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2",
+        "decision": "insert",
+        "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 3,
+        "target_section": "数据与任务定义",
+        "plan_kind": "data_or_task",
+        "source_image_filename": "page_012_fig_figure_6.png",
+        "relative_markdown_embed": "![Figure 6](images/page_012_fig_figure_6.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 1",
+        "source_id": "Table 1",
+        "kind": "table",
+        "label": "Table 1",
+        "caption": "Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks.",
+        "pages": [
+          6
+        ],
+        "section_id": "sec:method",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_006_fig_table_1.png",
+        "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_006_fig_table_1.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 2",
+        "source_id": "Table 2",
+        "kind": "table",
+        "label": "Table 2",
+        "caption": "Accuracy comparison of IVT-LR on Qwen2-VL,",
+        "pages": [
+          7
+        ],
+        "section_id": "sec:appendix-a-a-batch-size-of-four-and-train-with",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_007_fig_table_2.png",
+        "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 3",
+        "source_id": "Table 3",
+        "kind": "table",
+        "label": "Table 3",
+        "caption": "Accuracy on M3CoT across different latent rea-",
+        "pages": [
+          8
+        ],
+        "section_id": "sec:methods-2",
+        "decision": "insert",
+        "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+        "skip_reason": "",
+        "visual_quality_status": "usable_candidate",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "main_result",
+        "source_image_filename": "page_008_fig_table_3.png",
+        "relative_markdown_embed": "![Table 3](images/page_008_fig_table_3.png)",
+        "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+        "materialization_status": "pending"
+      },
+      {
+        "item_id": "table:Table 4",
+        "source_id": "Table 4",
+        "kind": "table",
+        "label": "Table 4",
+        "caption": "An example of consolidated rationales for clarity.",
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2",
+        "decision": "placeholder",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "skip_reason": "asset_candidate_missing",
+        "visual_quality_status": "",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "table_result"
+      },
+      {
+        "item_id": "table:Table 5",
+        "source_id": "Table 5",
+        "kind": "table",
+        "label": "Table 5",
+        "caption": "Another example of consolidated rationales for clarity.",
+        "pages": [
+          12
+        ],
+        "section_id": "sec:models-2",
+        "decision": "placeholder",
+        "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+        "skip_reason": "asset_candidate_missing",
+        "visual_quality_status": "",
+        "priority": 2,
+        "target_section": "关键结果",
+        "plan_kind": "table_result"
+      }
+    ],
+    "caption_counts": {
+      "figures": 7,
+      "tables": 6
+    },
+    "planned_items": 12,
+    "requires_full_decision_table": true
+  },
+  "pdf_assets": {
+    "asset_root": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space",
+    "images_dir": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images",
+    "page_assets": [
+      {
+        "page_number": 1,
+        "searchable_text_chars": 3733,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "2026-1-29 Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Chao Chen1 Zhixin Ma2 Yongqi Li1† Yupeng Hu3 Yinwei Wei3 Wenjie Li1 Liqiang Nie4 1 The Hong Kong Polytechnic University 2 Singapore Management University 3 S"
+      },
+      {
+        "page_number": 2,
+        "searchable_text_chars": 3485,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 1: An example of interleaved vision-text latent reasoning, where the intermediate reasoning steps are carried out entirely within the multimodal latent space. o"
+      },
+      {
+        "page_number": 3,
+        "searchable_text_chars": 4443,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Text-only reasoning. Early works attempt to con- vert visual information into text before reasoning, using tools or visual experts to generate textual rep- resentation"
+      },
+      {
+        "page_number": 4,
+        "searchable_text_chars": 3044,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Answer Image Embeddings Text Embeddings Attn Attn Attn VLM Layer N VLM Layer 2 VLM Layer 1 Latent Vision N Latent Vision 1 Latent Text N Latent Text 1 Vision Language "
+      },
+      {
+        "page_number": 5,
+        "searchable_text_chars": 2997,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 3: Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full explicit CoT and then gradually substitutes one expl"
+      },
+      {
+        "page_number": 6,
+        "searchable_text_chars": 3023,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Backbone Methods M3CoT ScienceQA Acc.(%) ↑ # AR Steps ↓ Avg. Time(s) ↓ Acc.(%) ↑ # AR Steps ↓ Avg. Time(s) ↓ Qwen2-VL No-CoT 45.4 - - 64.4 - - Multimodal CoT[15] 42.5 "
+      },
+      {
+        "page_number": 7,
+        "searchable_text_chars": 4449,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space backbones. Compared to the strongest baseline, Chain-of-Focus, IVT-LR yields improvements of 5% (Chameleon backbone) to 7.5% (Qwen2-VL back- bone) on M3CoT. Similar ga"
+      },
+      {
+        "page_number": 8,
+        "searchable_text_chars": 3700,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 2,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space a M3CoT b ScienceQA Figure 4: Accuracy comparison of IVT-LR on the length of latent vision per reasoning step across two reasoning benchmarks: (a) M3CoT and (b) Scienc"
+      },
+      {
+        "page_number": 9,
+        "searchable_text_chars": 4206,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 5: Attention analysis comparison between explicit and latent reasoning approaches. Left: attention ratios of visual part to textual part across reasoning steps."
+      },
+      {
+        "page_number": 10,
+        "searchable_text_chars": 4933,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space [6] Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna. Visual sketchpad: sketching as a visual chain of tho"
+      },
+      {
+        "page_number": 11,
+        "searchable_text_chars": 2800,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 0,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space ference on Computational Linguistics, pages 2886– 2903, 2025. [28] Qiguang Chen, Libo Qin, Jin Zhang, Zhi Chen, Xiao Xu, and Wanxiang Che. M3cot: A novel benchmark for"
+      },
+      {
+        "page_number": 12,
+        "searchable_text_chars": 1493,
+        "text_extraction_method": "text",
+        "ocr_used": false,
+        "image_count": 1,
+        "text_preview": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space Figure 6: Distribution of native rationale steps across the M3CoT and ScienceQA datasets. Question What is the purpose of the hairdryer in the adult’s hand? Rationale "
+      }
+    ],
+    "image_assets": [
+      {
+        "page_number": 2,
+        "image_index": 1,
+        "xref": 315,
+        "filename": "page_002_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_img_01.png",
+        "ext": "png",
+        "width": 1847,
+        "height": 2171,
+        "colorspace": 3,
+        "size_bytes": 1842194,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 5,
+        "image_index": 1,
+        "xref": 322,
+        "filename": "page_005_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_img_01.png",
+        "ext": "png",
+        "width": 8055,
+        "height": 2628,
+        "colorspace": 3,
+        "size_bytes": 613044,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 8,
+        "image_index": 1,
+        "xref": 327,
+        "filename": "page_008_img_01.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_01.jpeg",
+        "ext": "jpeg",
+        "width": 1577,
+        "height": 1280,
+        "colorspace": 3,
+        "size_bytes": 63171,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 8,
+        "image_index": 2,
+        "xref": 328,
+        "filename": "page_008_img_02.jpeg",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_img_02.jpeg",
+        "ext": "jpeg",
+        "width": 1571,
+        "height": 1280,
+        "colorspace": 3,
+        "size_bytes": 65609,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 9,
+        "image_index": 1,
+        "xref": 329,
+        "filename": "page_009_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_img_01.png",
+        "ext": "png",
+        "width": 4774,
+        "height": 2073,
+        "colorspace": 3,
+        "size_bytes": 286846,
+        "extraction_level": "xref"
+      },
+      {
+        "page_number": 12,
+        "image_index": 1,
+        "xref": 330,
+        "filename": "page_012_img_01.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_img_01.png",
+        "ext": "png",
+        "width": 3572,
+        "height": 1771,
+        "colorspace": 3,
+        "size_bytes": 170086,
+        "extraction_level": "xref"
+      }
+    ],
+    "figure_assets": [
+      {
+        "filename": "page_002_fig_figure_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_002_fig_figure_1.png",
+        "page_number": 2,
+        "label": "Figure 1",
+        "kind": "figure",
+        "caption_text": "Figure 1: An example of interleaved vision-text latent reasoning, where the intermediate reasoning steps are carried out entirely within the multimodal latent space.",
+        "width": 702,
+        "height": 935,
+        "size_bytes": 372711,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.175705,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.826167,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 165,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_004_fig_figure_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_004_fig_figure_2.png",
+        "page_number": 4,
+        "label": "Figure 2",
+        "kind": "figure",
+        "caption_text": "Figure 2: Overview of our Interleaved Vision-Text Latent Reasoning (IVT-LR) framework. At each step, reasoning is performed entirely in the latent space by fusing latent text (the hidden state from the previous step) and latent vision (dynamically selected image embeddings based on attention scores).",
+        "width": 1425,
+        "height": 753,
+        "size_bytes": 78502,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.28729,
+          "visual_rect_count": 14,
+          "visual_body_ratio": 0.862823,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 301,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_005_fig_figure_3.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_005_fig_figure_3.png",
+        "page_number": 5,
+        "label": "Figure 3",
+        "kind": "figure",
+        "caption_text": "Figure 3: Overview of the Multi-Stage Progressive Training Strategy used for IVT-LR. The strategy begins with full explicit CoT and then gradually substitutes one explicit reasoning step with latent text and latent vision. Training loss is calculated exclusively over the remaining explicit steps and the final answer.",
+        "width": 1423,
+        "height": 593,
+        "size_bytes": 148197,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.225937,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.757548,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 318,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_006_fig_table_1.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_006_fig_table_1.png",
+        "page_number": 6,
+        "label": "Table 1",
+        "kind": "table",
+        "caption_text": "Table 1: Comparison of IVT-LR with various multimodal reasoning baselines on the M3CoT and ScienceQA benchmarks. The reported metrics include: Answer Accuracy (Acc.), Average number of Autoregressive Steps (# AR Steps), and Average Generation Time (Avg. Time). Experiments are conducted using two backbone models: Qwen2-VL-7B and Chameleon-7B.",
+        "width": 1439,
+        "height": 860,
+        "size_bytes": 146933,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.331345,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 15,
+          "caption_text_chars": 343,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_007_fig_table_2.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_007_fig_table_2.png",
+        "page_number": 7,
+        "label": "Table 2",
+        "kind": "table",
+        "caption_text": "Table 2: Accuracy comparison of IVT-LR on Qwen2-VL, showing the performance impact with and without its core latent components (latent text and/or latent vision). Values in parentheses indicate performance drop relative to full IVT-LR.",
+        "width": 718,
+        "height": 402,
+        "size_bytes": 60800,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.077237,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 159,
+          "table_body_rows": 5,
+          "caption_text_chars": 235,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_008_fig_table_3.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_table_3.png",
+        "page_number": 8,
+        "label": "Table 3",
+        "kind": "table",
+        "caption_text": "Table 3: Accuracy on M3CoT across different latent rea- soning stages. Results are shown both overall and broken down by domain.",
+        "width": 718,
+        "height": 299,
+        "size_bytes": 40719,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.057426,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 4,
+          "caption_text_chars": 128,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_008_fig_figure_4.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_008_fig_figure_4.png",
+        "page_number": 8,
+        "label": "Figure 4",
+        "kind": "figure",
+        "caption_text": "Figure 4: Accuracy comparison of IVT-LR on the length of latent vision per reasoning step across two reasoning benchmarks: (a) M3CoT and (b) ScienceQA.",
+        "width": 1700,
+        "height": 169,
+        "size_bytes": 54956,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "reject",
+          "quality_reason_codes": [
+            "low_visual_body_ratio"
+          ],
+          "page_coverage_ratio": 0.076955,
+          "visual_rect_count": 0,
+          "visual_body_ratio": 0.0,
+          "paragraph_text_chars": 249,
+          "table_body_rows": 0,
+          "caption_text_chars": 151,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_009_fig_figure_5.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_009_fig_figure_5.png",
+        "page_number": 9,
+        "label": "Figure 5",
+        "kind": "figure",
+        "caption_text": "Figure 5: Attention analysis comparison between explicit and latent reasoning approaches. Left: attention ratios of visual part to textual part across reasoning steps. Right: attention focus measured by inverse entropy.",
+        "width": 706,
+        "height": 465,
+        "size_bytes": 60696,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.087812,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.61065,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 219,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      },
+      {
+        "filename": "page_012_fig_figure_6.png",
+        "path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Reasoning_in_the_Dark_Interleaved_Vision_Text_Reasoning_in_Latent_Space/images/page_012_fig_figure_6.png",
+        "page_number": 12,
+        "label": "Figure 6",
+        "kind": "figure",
+        "caption_text": "Figure 6: Distribution of native rationale steps across the M3CoT and ScienceQA datasets.",
+        "width": 1422,
+        "height": 765,
+        "size_bytes": 99122,
+        "extraction_level": "figure",
+        "quality_signals": {
+          "visual_quality_status": "usable",
+          "quality_reason_codes": [],
+          "page_coverage_ratio": 0.291295,
+          "visual_rect_count": 1,
+          "visual_body_ratio": 0.892935,
+          "paragraph_text_chars": 0,
+          "table_body_rows": 0,
+          "caption_text_chars": 89,
+          "other_caption_count": 0,
+          "other_caption_labels": []
+        }
+      }
+    ],
+    "ocr_available": false
+  },
+  "writing_contract": {
+    "language": "zh-CN",
+    "contract_role": "manifest_quality_contract",
+    "canonical_source": "SKILL.md defines the workflow; scripts/contracts.py defines machine-checkable contract data.",
+    "must_include_sections": [
+      "核心信息",
+      "原文摘要翻译",
+      "创新点",
+      "一句话总结",
+      "研究问题",
+      "数据与任务定义",
+      "方法主线",
+      "关键结果",
+      "深度分析",
+      "局限",
+      "我的笔记",
+      "引用"
+    ],
+    "note_plan_contract": {
+      "required_fields": [
+        "paper_type",
+        "paper_type_rationale",
+        "dominant_domain",
+        "must_cover",
+        "key_numbers",
+        "real_comparisons",
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions",
+        "section_plan"
+      ],
+      "artifact_preference": "short_json_planning_file",
+      "grounding_field": "section_plan[*].evidence_sources",
+      "analysis_coverage_field": "central_claims[*]"
+    },
+    "paper_type_selection": {
+      "source_of_truth": "note_plan.paper_type",
+      "suggested_paper_type_role": "none",
+      "allowed_paper_types": [
+        "AI_method",
+        "benchmark_or_dataset",
+        "clinical_or_psychology_empirical",
+        "humanities_or_social_science",
+        "survey_or_review"
+      ]
+    },
+    "contracts_by_paper_type": {
+      "AI_method": {
+        "paper_type": "AI_method",
+        "reader_lens": "面向能复现方法机制的技术读者",
+        "section_focus": [
+          "问题设置",
+          "方法机制",
+          "训练/推理流程",
+          "关键公式",
+          "比较基线",
+          "消融与失败边界"
+        ],
+        "required_checks": [
+          "需要说明机制流程、关键公式、实验设计、消融含义和失败边界。"
+        ],
+        "formula_rules": [
+          "仅保留理解方法必需的 1 到 3 个关键公式，并解释其工程含义。"
+        ],
+        "avoid_rules": [
+          "不要把非 AI_method 论文强行改写成模型架构。"
+        ],
+        "boundary_questions": [
+          "核心机制的收益由哪个实验或消融支撑，而不是只由主结果暗示？",
+          "哪些比较只能证明在当前数据、基线、算力或协议下有效，不能外推到通用场景？",
+          "论文是否给出失败、退化、不稳定或成本上升的证据；如果没有，结论边界是什么？"
+        ],
+        "section_semantics": {
+          "研究问题": "方法要解决的具体技术问题和现有方法短板。",
+          "数据与任务定义": "数据集、输入输出、评测任务和实验设置。",
+          "方法主线": "模型、算法、训练或推理机制。",
+          "关键结果": "主结果、强基线、消融和关键数字。",
+          "深度分析": "方法为什么有效、何处脆弱、复现和扩展代价。"
+        },
+        "recommended_subsections": {
+          "方法主线": [
+            "机制流程",
+            "模型结构",
+            "训练目标",
+            "推理与采样链路",
+            "关键实现细节"
+          ],
+          "关键结果": [
+            "主结果与强基线",
+            "消融到底说明了什么",
+            "失败或不稳定设置"
+          ],
+          "深度分析": [
+            "为什么有效",
+            "复杂度与扩展性",
+            "复现注意点"
+          ]
+        },
+        "mechanism_flow_contract": {
+          "apply_when_paper_type_in": [
+            "AI_method"
+          ],
+          "required_step_count": "3_to_4",
+          "required_step_fields": [
+            "input",
+            "operation",
+            "output_destination"
+          ]
+        }
+      },
+      "benchmark_or_dataset": {
+        "paper_type": "benchmark_or_dataset",
+        "reader_lens": "面向要判断 benchmark/dataset 可用性和偏差边界的研究者",
+        "section_focus": [
+          "任务拆分",
+          "数据来源与构建流程",
+          "标注协议",
+          "评测指标",
+          "覆盖范围与偏差",
+          "样本统计与数据开放限制"
+        ],
+        "required_checks": [
+          "需要说明数据来源、构建/标注流程、评测指标、基线表现、样本统计、数据开放或隐私限制和适用边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心评测指标、采样规则或划分定义。"
+        ],
+        "avoid_rules": [
+          "不要把数据构建流程写成模型 pipeline。"
+        ],
+        "boundary_questions": [
+          "这个 benchmark/dataset 实际测量的构念是什么，哪些能力只是间接近似？",
+          "任务、标签、采样、过滤或评测协议会引入哪些覆盖缺口或偏差？",
+          "基线结果证明了评测集有区分度，还是只证明某类模型适应该协议？",
+          "样本时长、语料长度、人口统计、类别分布、数据可访问性或隐私限制如何影响复现和外推？"
+        ],
+        "section_semantics": {
+          "研究问题": "这个 benchmark/dataset 想补足的评测或数据缺口。",
+          "数据与任务定义": "数据来源、任务拆分、标签/题目定义、样本范围。",
+          "方法主线": "数据构建、筛选、标注和评测协议，不写成模型 pipeline。",
+          "关键结果": "基线表现、难度分布、覆盖范围和偏差。",
+          "深度分析": "它真正测到了什么，以及不能代表什么。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "数据来源",
+            "任务拆分",
+            "标注/筛选协议"
+          ],
+          "方法主线": [
+            "构建流程",
+            "评测协议",
+            "Baseline 设置"
+          ],
+          "关键结果": [
+            "基线表现",
+            "难度分布",
+            "覆盖与偏差"
+          ],
+          "深度分析": [
+            "benchmark 真正测到了什么",
+            "适用边界"
+          ]
+        }
+      },
+      "clinical_or_psychology_empirical": {
+        "paper_type": "clinical_or_psychology_empirical",
+        "reader_lens": "面向关注临床/心理学样本、变量关系和外推边界的研究读者",
+        "section_focus": [
+          "样本来源",
+          "纳排标准",
+          "变量或量表",
+          "分析管线",
+          "效应量与不确定性",
+          "样本统计、伦理和数据可访问性"
+        ],
+        "required_checks": [
+          "需要区分相关、预测、组间差异和因果解释，说明样本统计、伦理/隐私约束与外推边界。"
+        ],
+        "formula_rules": [
+          "仅保留核心统计模型、效应量、置信区间或量表定义。"
+        ],
+        "avoid_rules": [
+          "不要把相关性、预测性能或组间差异写成未经证明的因果结论。"
+        ],
+        "boundary_questions": [
+          "样本来源、纳排标准、测量工具和标注流程如何限制外推？",
+          "结果支持相关、预测、组间差异还是因果解释；不要越过论文设计能证明的范围。",
+          "临床或心理学意义是否依赖未观测混杂、量表阈值、文本/语音缺失或场景约束？",
+          "样本构成、数据缺失、隐私限制或材料不可公开会怎样限制复现与再分析？"
+        ],
+        "section_semantics": {
+          "研究问题": "临床、心理学或行为科学中的研究问题、假设或变量关系。",
+          "数据与任务定义": "样本来源、纳排标准、变量/量表、测量方式。",
+          "方法主线": "研究设计、分组、测量流程和统计分析路径。",
+          "关键结果": "主要效应、相关性、组间差异、不确定性或显著性。",
+          "深度分析": "结果解释、因果边界、临床/心理学意义和外推限制。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "样本与纳排标准",
+            "变量与量表",
+            "测量流程"
+          ],
+          "方法主线": [
+            "研究设计",
+            "分析模型",
+            "主要比较"
+          ],
+          "关键结果": [
+            "主要效应",
+            "不确定性与显著性",
+            "临床或心理学解释"
+          ],
+          "深度分析": [
+            "因果解释边界",
+            "外推限制"
+          ]
+        }
+      },
+      "humanities_or_social_science": {
+        "paper_type": "humanities_or_social_science",
+        "reader_lens": "面向关注理论框架、材料解释和论证结构的研究读者",
+        "section_focus": [
+          "研究对象",
+          "材料来源",
+          "理论框架",
+          "论证路径",
+          "概念贡献",
+          "解释边界"
+        ],
+        "required_checks": [
+          "需要区分作者论证、材料证据、规范性判断和实验事实。"
+        ],
+        "formula_rules": [
+          "通常不强行保留公式；仅保留核心形式化定义或编码规则。"
+        ],
+        "avoid_rules": [
+          "不要把规范性判断、文本解释或案例分析写成实验事实。"
+        ],
+        "boundary_questions": [
+          "作者的解释依赖哪些材料、案例或理论前提？",
+          "是否存在同样能解释材料的替代解释，论文如何排除或没有排除？",
+          "哪些结论是概念贡献或规范性判断，而不是可直接当作经验事实？"
+        ],
+        "section_semantics": {
+          "研究问题": "作者要解释的社会、文化、历史、制度或理论问题。",
+          "数据与任务定义": "材料、案例、文本、访谈、档案或语料范围，不写成 ML task。",
+          "方法主线": "理论框架、概念区分和论证路径。",
+          "关键结果": "核心解释性发现、概念贡献或对既有观点的修正。",
+          "深度分析": "论证强度、材料边界、解释替代性和可迁移性。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "材料范围",
+            "选择标准",
+            "案例或语料边界"
+          ],
+          "方法主线": [
+            "理论框架",
+            "概念区分",
+            "论证路径"
+          ],
+          "关键结果": [
+            "核心解释性发现",
+            "概念贡献"
+          ],
+          "深度分析": [
+            "论证强度",
+            "替代解释",
+            "材料边界"
+          ]
+        }
+      },
+      "survey_or_review": {
+        "paper_type": "survey_or_review",
+        "reader_lens": "面向需要梳理综述脉络、分类体系和证据边界的研究读者",
+        "section_focus": [
+          "综述范围",
+          "纳入排除标准",
+          "主题分类",
+          "方法谱系",
+          "共识与分歧",
+          "开放问题"
+        ],
+        "required_checks": [
+          "需要说明综述范围、文献选择、分类体系、共识分歧和开放问题。"
+        ],
+        "formula_rules": [
+          "仅保留分类轴、纳入排除准则、证据汇总规则或 meta-analysis 统计量。"
+        ],
+        "avoid_rules": [
+          "不要把综述中的代表性结论写成作者自己完成的单项实验结果。"
+        ],
+        "boundary_questions": [
+          "检索范围、纳入排除标准或分类轴会遗漏哪些研究路线？",
+          "综述给出的是领域共识、作者分类，还是尚未解决的分歧？",
+          "哪些趋势结论来自覆盖范围内的文献分布，不能直接当作技术成熟度判断？"
+        ],
+        "section_semantics": {
+          "研究问题": "综述试图整理的领域问题、争议或知识缺口。",
+          "数据与任务定义": "纳入文献范围、检索/筛选标准和综述对象。",
+          "方法主线": "分类体系、综述组织方式和证据综合逻辑，不写成单篇方法架构。",
+          "关键结果": "领域共识、分歧、趋势、代表性方向和开放问题。",
+          "深度分析": "综述覆盖的盲区、分类体系的解释力和未来研究机会。"
+        },
+        "recommended_subsections": {
+          "数据与任务定义": [
+            "综述范围",
+            "纳入/排除标准",
+            "文献覆盖"
+          ],
+          "方法主线": [
+            "分类体系",
+            "方法谱系",
+            "证据组织方式"
+          ],
+          "关键结果": [
+            "代表性方向",
+            "共识与分歧",
+            "开放问题"
+          ],
+          "深度分析": [
+            "分类体系的局限",
+            "未覆盖区域",
+            "后续研究机会"
+          ]
+        }
+      }
+    },
+    "grounding_contract": {
+      "source_of_truth": "source_manifest",
+      "accepted_reference_forms": [
+        "section_id",
+        "pages"
+      ],
+      "required_sections": [
+        "研究问题",
+        "数据与任务定义",
+        "方法主线",
+        "关键结果",
+        "深度分析",
+        "局限"
+      ],
+      "note_plan_depth_requirements": {
+        "required_section_focus_min_chars": 20,
+        "required_section_focus_fields": [
+          "focus",
+          "reading_goal",
+          "purpose"
+        ],
+        "generic_focus_phrases": [
+          "use the raw source to explain",
+          "paper-specific role of",
+          "explain the paper-specific role",
+          "explain this section",
+          "summarize this section"
+        ]
+      },
+      "reject_old_references": [
+        "synthesis_bundle.evidence",
+        "bundle.evidence",
+        "synthesis_bundle.candidate_chunks",
+        "synthesis_bundle.section_texts",
+        "synthesis_bundle.summary",
+        "bundle.candidate_chunks",
+        "bundle.section_texts",
+        "bundle.summary"
+      ],
+      "lint_command": "scripts/lint_grounding.py --note-plan ... --source-manifest ... --bundle-json ..."
+    },
+    "figure_table_contract": {
+      "placeholder_first": true,
+      "visual_quality_gate": "fail_closed",
+      "decision_table_required": true,
+      "decision_values": [
+        "insert",
+        "placeholder",
+        "low_priority",
+        "visual_defect",
+        "skip"
+      ],
+      "usable_insert_candidate": {
+        "kinds": [
+          "figure",
+          "table"
+        ],
+        "visual_quality_status": "usable_candidate",
+        "requires_source_image_path": true
+      },
+      "allowed_usable_placeholder_reasons": [
+        "visual_defect",
+        "materialization_blocked"
+      ],
+      "manual_visual_review_required_statuses": [
+        "usable_candidate",
+        "needs_visual_quality_check",
+        "review"
+      ],
+      "automatic_fail_closed_visual_statuses": [
+        "reject_visual_quality",
+        "asset_candidate_missing"
+      ],
+      "manual_review_claim_requires_image_inspection": true
+    },
+    "analysis_coverage_contract": {
+      "central_claim_fields": [
+        "claim",
+        "supporting_evidence",
+        "what_it_actually_proves",
+        "what_it_does_not_prove"
+      ],
+      "required_plan_fields": [
+        "central_claims",
+        "claim_boundaries",
+        "negative_or_limiting_results",
+        "mechanism_result_map",
+        "comparative_positioning",
+        "reuse_takeaways",
+        "followup_questions"
+      ],
+      "final_quality_review_checks": [
+        "central_claims_are_supported_by_raw_sections_or_pages",
+        "key_experimental_settings_and_numbers_are_present",
+        "mechanisms_or_protocol_choices_are_mapped_to_results",
+        "comparisons_explain_positioning_against_alternatives",
+        "discussion_or_limitation_claims_are_explained_mechanistically",
+        "proven_claims_are_separated_from_unproven_or_unvalidated_claims",
+        "research_or_engineering_takeaways_are_specific_and_reusable",
+        "followup_questions_are_specific_to_replication_or_extension"
+      ]
+    }
+  }
+}

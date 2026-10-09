@@ -1,0 +1,1303 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2601.21998",
+  "title": "Causal World Modeling for Robot Control",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Causal World Modeling for Robot Control/.pipeline/deep_causal/causal_world_modeling_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/Causal World Modeling for Robot Control/.pipeline/deep_causal/causal_world_modeling_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/ECJKCB63/Li 等 - 2026 - Causal World Modeling for Robot Control.pdf",
+    "total_pages": 31,
+    "text_pages_extracted": 31,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 31,
+    "text_max_pages": null,
+    "text_pages_extracted": 31,
+    "text_pages_scanned": 31,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 23,
+    "references_start_page": 18
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1557,
+      "text_hash_sha256": "80fe7b67a4b35b040fe8a12365625e4e97354d6e7cbebc1e3e2f82c9f0f3091c"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 7838,
+      "text_hash_sha256": "055f072f1b69e390e2fcbd75a45122f74a7fe45a17c7fde1d668c92d865041ef"
+    },
+    {
+      "section_id": "sec:preliminary",
+      "kind": "introduction",
+      "title": "Preliminary",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 2771,
+      "text_hash_sha256": "a4b2796fe5c98afbb2bf1d0c2d7362694a178b1568309b9dd4d5adf1fc0ef529"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 4,
+      "page_end": 9,
+      "char_count": 19900,
+      "text_hash_sha256": "96d7685eeed3fcaf5cc82fed373bbe438192d78b944a0bb3102a9bc556d4e8fd"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 2350,
+      "text_hash_sha256": "a1f1886f23cd59f2e4712a80dc3ed392fc655a3bdd32b5ef276a631fd381426b"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "Experiments",
+      "page_start": 10,
+      "page_end": 12,
+      "char_count": 5701,
+      "text_hash_sha256": "cd0f0796d24066aed91411ad79209fa79f03655b8bd68e0a7cf392584980c4ca"
+    },
+    {
+      "section_id": "sec:evaluation",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 85,
+      "text_hash_sha256": "a0d2e9d812e3a948b8a29e0678a193f9e8fbc4921802053644b90aaf69f91f84"
+    },
+    {
+      "section_id": "sec:evaluation-2",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 66,
+      "text_hash_sha256": "0cd7793980d6daa65b9c33270558995f140842b78f1bbdebdef36fe19d8c3e1f"
+    },
+    {
+      "section_id": "sec:evaluation-3",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 43,
+      "text_hash_sha256": "ad68ada68dd658b9c3cc5e537477232f417eefe2cc8d7489c2daf60b19c8a7f1"
+    },
+    {
+      "section_id": "sec:evaluation-4",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 105,
+      "text_hash_sha256": "263791edf76400a5a3ae0804699335cd449f2c56628322c349f2436290b03187"
+    },
+    {
+      "section_id": "sec:evaluation-5",
+      "kind": "experiment",
+      "title": "Evaluation",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 61,
+      "text_hash_sha256": "5986364d5e066d037eae47d0a96e22653039a3820c321c77456e189011512d2d"
+    },
+    {
+      "section_id": "sec:evaluation-6",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 87,
+      "text_hash_sha256": "a5afdb33faf0a3c4f355349864376522967ea02a4000cf921c40517c0345f689"
+    },
+    {
+      "section_id": "sec:evaluation-7",
+      "kind": "experiment",
+      "title": "Evaluation",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 84,
+      "text_hash_sha256": "f86a351acc501eb1668be5a63d5891f94e9bc301b7debc011b60cca2acbf5d10"
+    },
+    {
+      "section_id": "sec:evaluation-8",
+      "kind": "experiment",
+      "title": "EVALUATION",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 903,
+      "text_hash_sha256": "e993510521f432a90bd28489eb83c59dd893122d4f12744010e099a814987ca8"
+    },
+    {
+      "section_id": "sec:results",
+      "kind": "experiment",
+      "title": "Results.",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 2897,
+      "text_hash_sha256": "b6e4d4deee1e643a36fc25f86858463a9e297133af004e4c73c3938afae64051"
+    },
+    {
+      "section_id": "sec:results-2",
+      "kind": "experiment",
+      "title": "Results",
+      "page_start": 13,
+      "page_end": 14,
+      "char_count": 1390,
+      "text_hash_sha256": "917804e7459c4bbdf442bc72051072ce040ddadb947faca0dae94a880f7513b0"
+    },
+    {
+      "section_id": "sec:methods",
+      "kind": "method",
+      "title": "Methods",
+      "page_start": 14,
+      "page_end": 14,
+      "char_count": 1839,
+      "text_hash_sha256": "7c1b337cbedfaf97a5d43dfd4c529617716461b22886185596dd9c2e2391accc"
+    },
+    {
+      "section_id": "sec:ablation",
+      "kind": "experiment",
+      "title": "Ablation",
+      "page_start": 14,
+      "page_end": 15,
+      "char_count": 1533,
+      "text_hash_sha256": "30c2dbbf9aa58b2c17bc26ad39a3f6d39f898f779703ee979a0ef45e0a6c884b"
+    },
+    {
+      "section_id": "sec:ablation-2",
+      "kind": "experiment",
+      "title": "Ablation",
+      "page_start": 15,
+      "page_end": 15,
+      "char_count": 1720,
+      "text_hash_sha256": "1bc43c095d783a1bef195ab08674671bde33dd46d79c0e625f62a27bd46837da"
+    },
+    {
+      "section_id": "sec:analysis",
+      "kind": "experiment",
+      "title": "Analysis",
+      "page_start": 15,
+      "page_end": 17,
+      "char_count": 4244,
+      "text_hash_sha256": "9d913196c9d200fce9841e6fd431967f0394820b45b5039eb8ee3aaa072e63b1"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "Related Work",
+      "page_start": 17,
+      "page_end": 18,
+      "char_count": 4991,
+      "text_hash_sha256": "56457c06278f04bfe3140d90351f43e95db0d125ef826f608725597f236eb78a"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 18,
+      "page_end": 18,
+      "char_count": 1353,
+      "text_hash_sha256": "3d4d4e9b6b4549cd72d2c85a84d1243c87c6da041bddc16bf04e228f92ab3c79"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 18,
+      "page_end": 23,
+      "char_count": 22739,
+      "text_hash_sha256": "b383c7b46a9dba487ef1e0c5b42af39dabcebb47c717cfd64eb581abf3d49965"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "Appendix",
+      "page_start": 23,
+      "page_end": 31,
+      "char_count": 7891,
+      "text_hash_sha256": "993cb4607ca4e1f8781e98d3e1bf08689cbe439650342f2b771da5d3953c39f7"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3848,
+      "section_ids": [
+        "sec:preamble",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4104,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3155,
+      "section_ids": [
+        "sec:introduction",
+        "sec:preliminary"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3012,
+      "section_ids": [
+        "sec:preliminary",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 5041,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 5030,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4380,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3694,
+      "section_ids": [
+        "sec:method"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 2448,
+      "section_ids": [
+        "sec:method",
+        "sec:model"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3544,
+      "section_ids": [
+        "sec:model",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 2149,
+      "section_ids": [
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 991,
+      "section_ids": [
+        "sec:experiments",
+        "sec:evaluation",
+        "sec:evaluation-2",
+        "sec:evaluation-3",
+        "sec:evaluation-4",
+        "sec:evaluation-5",
+        "sec:evaluation-6",
+        "sec:evaluation-7",
+        "sec:evaluation-8"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 4573,
+      "section_ids": [
+        "sec:evaluation-8",
+        "sec:results",
+        "sec:results-2"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3545,
+      "section_ids": [
+        "sec:results-2",
+        "sec:methods",
+        "sec:ablation"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3394,
+      "section_ids": [
+        "sec:ablation",
+        "sec:ablation-2",
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 1901,
+      "section_ids": [
+        "sec:analysis"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 3565,
+      "section_ids": [
+        "sec:analysis",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 4682,
+      "section_ids": [
+        "sec:related-work",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 4880,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 4472,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 4618,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 4773,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 4138,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 672,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 3426,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 1588,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 1147,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 1249,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 1116,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 781,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 846,
+      "section_ids": [
+        "sec:appendix"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "LingBot-VA : An Autoregressive World Model for Robotic Manipulation. (1) Pretraining: LingBot-VA is pretrained",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Framework overview: LingBot-VA is conditioned by autoregressive diffusion for unified video-action world modeling.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:preliminary"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "Teacher Forcing Attention Mask: Causal",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Algorithm 1",
+        "caption": "KV Cache Inference",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Asynchronous pipeline design overview: The traditional synchronous pipeline (A) suffers from delays caused by",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Algorithm 2",
+        "caption": "formalizes this asynchronous pipeline. During post training, we additionally incorporate a forward",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "Real-world deployment results. We evaluate LingBot-VA on six manipulation tasks across three categories: long-",
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Detailed task progressions and key execution steps of the six real-world tasks. Each task involves a sequence of",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:experiments"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Training dynamic comparison between different action network initialization streategy: Random initialization leads",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:ablation"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Sample efficiency comparison. LingBot-VA consistently outperforms π0.5 across various data regimes on the “Make",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Temporal memory evaluation. Left: Success rates on two memory tasks (Wipe Plate and Search Box). LingBot-VA",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:analysis"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Novel object and spatial generalization. LingBot-VA successfully generalizes to objects with varying shapes, textures,",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:analysis"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Evaluation on RoboTwin 2.0 Simulation (Easy vs Hard, 50 tasks). RoboTwin 2.0 is a challenging bimanual",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:evaluation-8"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Evaluation on LIBERO benchmarks. LIBERO tests manipulation across four task suites: Spatial, Object, Goal, and",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:results-2"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Ablation studies on RoboTwin 2.0 (Easy). We ablate three design choices: world modeling (AR vs. bidirectional),",
+        "page": 15,
+        "pages": [
+          15
+        ],
+        "section_id": "sec:ablation"
+      },
+      {
+        "id": "Table S1",
+        "caption": "Evaluation on RoboTwin 2.0 Simulation (Easy vs Hard, 50 tasks). RoboTwin 2.0 is a challenging bimanual manipulation",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S2",
+        "caption": "Detailed evaluation results for Make Breakfast task (10 steps, max score 10).",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S3",
+        "caption": "Detailed evaluation results for Pick Screws task (5 steps, max score 5).",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S4",
+        "caption": "Detailed evaluation results for Fold Clothes task (6 steps, max score 6).",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S5",
+        "caption": "Detailed evaluation results for Unpack Delivery task (5 steps, max score 5).",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S6",
+        "caption": "Detailed evaluation results for Insert Tubes task (2 categories: Grasp and Insert, max score 6).",
+        "page": 30,
+        "pages": [
+          30
+        ],
+        "section_id": "sec:appendix"
+      },
+      {
+        "id": "Table S7",
+        "caption": "Detailed evaluation results for Fold Pants task (3 steps, max score 3).",
+        "page": 31,
+        "pages": [
+          31
+        ],
+        "section_id": "sec:appendix"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "= vs(x(s)),",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "x(0) = ϵ ∼N(0, I),",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where s ∈[0, 1] denotes the flow time.",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "LFM = Es,ϵ,x1",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where ˙x(s) is the true velocity along the interpolation path, typically defined as x(s) = (1 −s)ϵ + sx1, giving",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "˙x(s) = x1 −ϵ.",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "At inference, samples are generated by solving the learned ODE from s = 0 to s = 1:",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "x1 = ϵ +",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "encoded as latent representations zt = E(ot) using encoder E (e.g., from video diffusion models).",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "of latent video frames z = {z1, . . . , zT } by predicting the vector field:",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "vθ(z(s), s | c) = d",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "where s ∈[0, 1] is the flow time and z(s) represents the latent video at flow step s. The generation process starts from",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "noise z(0) = ϵ ∼N(0, I) and integrates the learned vector field to obtain the final latent video z(1), which is then",
+      "section_id": "sec:preliminary",
+      "page_start": 3,
+      "page_end": 4
+    },
+    {
+      "text": "t, the agent receives a visual observation ot ∈O and executes an action at ∈A, which induces a transition in the",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "ot+1 ∼pθ(· | o≤t),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "ot+1:t+K ∼pθ(· | o≤t),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "visual observations into compact latent tokens zt = E(ot | o<t) ∈RN×C, where N is the number of spatial tokens",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "at ∈RD via a lightweight MLP ϕ(·) where D is the dimension of the video token after patchfication, enabling unified",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "coordinates), so the action history a<t effectively captures the trajectory of the embodiment’s configuration. Conditioning",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "zt+1:t+K ∼pθ(· | z≤t, a<t),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "The action history a<t encodes the embodiment’s state trajectory for determining feasible actions, while the observation",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "history z<t provides temporal context for multi-step interactions (e.g., whether an object was previously grasped). We",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "at:t+K−1 ∼gψ(· | ˆzt+1:t+K, z≤t, a<t),",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "observation history z≤t, and action history a<t. This mirrors recent IDM-based policies [1, 20, 22, 55, 73] that leverage",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "scenes evolve gradually. We sparsify the video sequence by temporally downsampling frames by a factor of τ = 4,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "according to the action dimension, then apply a scaling factor α =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "range during training. By training with variable chunk sizes (e.g., K ∈[1, 8]), the model learns to generate coherent",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "use K = 4 for deployment as a practical trade-off.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "randomly augment the video history z≤t with noise following the same interpolation scheme as flow matching:",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "˜z≤t =",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "(1 −saug)ϵ + saugz≤t,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "p = 0.5,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "saug ∈[0.5, 1], ϵ ∼N(0, I)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "z≤t,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "1 −p = 0.5",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "At inference time, this enables a significant speedup: instead of fully denoising video tokens from s = 0 to s = 1,",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "we only need to denoise to s = 0.5, halving the number of denoising steps for video generation while maintaining action",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "▷Generate video chunk (integrate to s = 0.5)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "▷Generate action chunk (integrate to s = 1)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "for i = t to t + K −1 do",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "Ldyn = Et,s,zt+1,ϵ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "t+1, s, ˜z≤t, a<t|c) −˙z(s)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "where s ∈[0, 1] is flow time, z(s)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "t+1 = (1 −s)ϵ + szt+1 with ϵ ∼N(0, I), ˙z(s)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "t+1 = zt+1 −ϵ, ˜z≤t is the augmented history",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "Linv = Et,s,at,ϵ",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "t , s, ˜z≤t+1, a<t|c) −˙a(s)",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "= (1 −s)ϵ + sat with ϵ ∼N(0, I), ˜zt, ˜zt+1 are the (potentially noisy) current and next video tokens, and c",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "is the language instruction. The complete objective is L = Ldyn + λLinv.",
+      "section_id": "sec:method",
+      "page_start": 4,
+      "page_end": 9
+    },
+    {
+      "text": "if t > 0 then",
+      "section_id": "sec:model",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "Lfdm = Et,s,ˆzt+1,ϵ",
+      "section_id": "sec:model",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "∥vψ(˜zt+1, s, zt, at, ˜z<t, ˆa<t|c) −˙z(s)",
+      "section_id": "sec:model",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "systems is: 7EEF + 7joints + 1gripper per arm, resulting in (7 + 7 + 1) × 2 = 30 dimensions.",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "We use Wan2.2-5B as the backbone for the video stream, with hidden dimension dv = 3072",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "and 30 transformer layers. The action stream shares the same depth but uses a reduced hidden dimension da = 768",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "dimension, resulting in a total of N = 192 spatial tokens per frame. The action encoder ϕ and decoder are implemented",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "For inference, we use Euler solver with 3 steps for video tokens (integrating to s = 0.6) and 10 steps for action",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "tokens (integrating to s = 1.0). Video CFG scale is set to 5.0, while action CFG scale is set to 1.0. During training,",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "noise augmentation is applied with probability p = 0.5 and saug ∼Uniform[0.5, 1.0]. Following LLM practices, we",
+      "section_id": "sec:experiments",
+      "page_start": 10,
+      "page_end": 12
+    },
+    {
+      "text": "seed comprising 500 evaluation trials (totally 3 × 500 = 1500) for every task suite.",
+      "section_id": "sec:results",
+      "page_start": 13,
+      "page_end": 13
+    },
+    {
+      "text": "Average Horizon = 1",
+      "section_id": "sec:results-2",
+      "page_start": 13,
+      "page_end": 14
+    },
+    {
+      "text": "Average Horizon = 2",
+      "section_id": "sec:results-2",
+      "page_start": 13,
+      "page_end": 14
+    },
+    {
+      "text": "Average Horizon = 3",
+      "section_id": "sec:results-2",
+      "page_start": 13,
+      "page_end": 14
+    },
+    {
+      "text": "π0.5, X-VLA, and Motus. Notably, the improvement becomes more pronounced for longer-horizon tasks: at Horizon =",
+      "section_id": "sec:methods",
+      "page_start": 14,
+      "page_end": 14
+    },
+    {
+      "text": "Easy Horizon = 1",
+      "section_id": "sec:ablation-2",
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "text": "Easy Horizon = 2",
+      "section_id": "sec:ablation-2",
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "text": "Easy Horizon = 3",
+      "section_id": "sec:ablation-2",
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "text": "scaling factor α =",
+      "section_id": "sec:ablation-2",
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "text": "percentage: PS = Average Progress",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "SR = # Successful Trials",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "97.0% (= 9.70/10 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "75.0% (= 15/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "73.0% (= 7.30/10 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "70.0% (= 14/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "82.5% (= 4.13/5 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "70.0% (= 14/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "74.0% (= 3.70/5 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "50.0% (= 10/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "48.8% (= 2.93/6 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "35.0% (= 7/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "62.9% (= 3.78/6 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "30.0% (= 6/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "84.5% (= 4.23/5 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "65.0% (= 13/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "73.0% (= 3.65/5 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "25.0% (= 5/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "85.8% (= 5.15/6 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "40.0% (= 8/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "79.2% (= 4.75/6 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "30.0% (= 6/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "76.7% (= 2.30/3 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "70.0% (= 14/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "30.0% (= 0.90/3 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    },
+    {
+      "text": "30.0% (= 6/20 × 100%)",
+      "section_id": "sec:appendix",
+      "page_start": 23,
+      "page_end": 31
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 23,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": [
+      {
+        "id": "Table S1",
+        "caption": "Evaluation on RoboTwin 2.0 Simulation (Easy vs Hard, 50 tasks). RoboTwin 2.0 is a challenging bimanual manipulation",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Table S2",
+        "caption": "Detailed evaluation results for Make Breakfast task (10 steps, max score 10).",
+        "page_hint": "p.26"
+      },
+      {
+        "id": "Table S3",
+        "caption": "Detailed evaluation results for Pick Screws task (5 steps, max score 5).",
+        "page_hint": "p.27"
+      },
+      {
+        "id": "Table S4",
+        "caption": "Detailed evaluation results for Fold Clothes task (6 steps, max score 6).",
+        "page_hint": "p.28"
+      },
+      {
+        "id": "Table S5",
+        "caption": "Detailed evaluation results for Unpack Delivery task (5 steps, max score 5).",
+        "page_hint": "p.29"
+      },
+      {
+        "id": "Table S6",
+        "caption": "Detailed evaluation results for Insert Tubes task (2 categories: Grasp and Insert, max score 6).",
+        "page_hint": "p.30"
+      },
+      {
+        "id": "Table S7",
+        "caption": "Detailed evaluation results for Fold Pants task (3 steps, max score 3).",
+        "page_hint": "p.31"
+      }
+    ]
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "aaa212be61edfd031e08acd31bd1111104b00b8da1d10fcd7db2de7930cbdfdf"
+}

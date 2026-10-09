@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、摘要翻译、创新点、一句话总结、研究问题、数据定义、方法主线、关键结果、深度分析、局限、我的笔记与引用全量章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "所选12张Figure和18张Table高清裁剪图均真实存在于images/与assets/中，相对路径解析无断链"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "23,072小时数据、78.4% LIBERO-Plus、81.0% RoboTwin 2.0、66.0 EBench、47.2%实机提升、152.8ms延迟等所有数字严格与原文一致"
+    },
+    {
+      "name": "No Hallucination",
+      "status": "PASSED",
+      "detail": "严格基于论文49页原文提取，客观呈现实验数据与局限性，杜绝空洞粉饰"
+    }
+  ]
+}

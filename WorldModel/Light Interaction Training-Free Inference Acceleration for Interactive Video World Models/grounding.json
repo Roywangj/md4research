@@ -1,0 +1,25 @@
+{
+  "paper_id": "arxiv:2605.31158v3",
+  "passes_grounding_gate": true,
+  "source_files": [
+    "detailed_paper.md",
+    "source_map.json",
+    "translation_notes.md"
+  ],
+  "checks": {
+    "pdf_backed": true,
+    "central_claims_grounded": true,
+    "claim_boundaries_present": true,
+    "negative_results_present": true,
+    "mechanism_result_map_present": true,
+    "figure_contract_complete": true
+  },
+  "evidence_anchors": [
+    "Equations 1–11",
+    "Table 1 full main results",
+    "Table 2 full evaluation set",
+    "Table 3 small fixed subset",
+    "Figure 5 kernel breakdown",
+    "Appendix B backend-specific implementation"
+  ]
+}

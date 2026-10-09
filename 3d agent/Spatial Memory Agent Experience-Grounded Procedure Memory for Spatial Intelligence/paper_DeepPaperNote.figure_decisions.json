@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.1",
+  "paper": {
+    "title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G885K7C6/Zhang 等 - 2026 - Spatial Memory Agent Experience-Grounded Procedure Memory for Spatial Intelligence.pdf",
+    "physical_pages": 80,
+    "explicit_read_ranges": ["1-20", "21-40", "41-60", "61-80"]
+  },
+  "asset_policy": "Keep the four existing explicitly labeled SVG reconstructions. Transcribe numeric tables. Review all appendix figures, but do not claim source-faithful crops when optional raster export was blocked.",
+  "decisions": [
+    {"type":"figure","source":"Fig.1","pages":"1","decision":"skip","reason":"Seven-benchmark headline radial display is less checkable than the transcribed tables."},
+    {"type":"figure","source":"Fig.2","pages":"3","decision":"keep_existing_reconstruction","output":"images/figure_2_sma_overview.svg","reason":"Central conceptual boundary."},
+    {"type":"figure","source":"Fig.3","pages":"4","decision":"keep_existing_reconstruction","output":"images/figure_3_sma_workflow.svg","reason":"End-to-end write/update/deploy workflow."},
+    {"type":"figure","source":"Fig.4","pages":"8","decision":"keep_existing_reconstruction","output":"images/figure_4_sma_diagnostics.svg","reason":"Core ablation and TRS-accuracy diagnostic."},
+    {"type":"figure","source":"Fig.5","pages":"9","decision":"transcribe","reason":"Similarity and atomic-ability values are summarized with interpretation caveats."},
+    {"type":"figure","source":"Fig.6","pages":"10","decision":"keep_existing_reconstruction","output":"images/figure_6_memory_writing.svg","reason":"Central one-pass versus continual protocol evidence."},
+    {"type":"figure","source":"Fig.7","pages":"17","decision":"transcribe","reason":"Omni3D sensitivity corroborates the main sweep and is stated numerically."},
+    {"type":"figure","source":"Fig.8","pages":"11","decision":"summarize","reason":"Five main-text success panels are described without duplicating a dense page."},
+    {"type":"figure_group","source":"Figs.9-14","pages":"42-47","decision":"review_all_summarize_group","reason":"Six successful-transfer cases are used as existence evidence, not a frequency estimate."},
+    {"type":"figure_group","source":"Figs.15-22","pages":"48-55","decision":"review_all_summarize_group","reason":"Eight wrong-to-right cases establish the kinds of reference-frame/procedure errors memory can correct."},
+    {"type":"figure_group","source":"Figs.23-27","pages":"56-60","decision":"review_all_summarize_group","reason":"Five benchmark-side ambiguity panels are central to the evidence boundary and are summarized explicitly."},
+    {"type":"figure_group","source":"Figs.28-30","pages":"61-63","decision":"review_all_summarize_group","reason":"Three base-model limitation panels show memory cannot replace visual grounding."},
+    {"type":"table_group","source":"Tables 1-8","pages":"6-16","decision":"transcribe_or_summarize","reason":"Main results, ablations, transfer and additional benchmark values are searchable in Markdown."},
+    {"type":"table_group","source":"Tables 9-26","pages":"21-37","decision":"aggregate_taxonomy_examples","reason":"Eighteen large image/GT example tables are represented by benchmark-to-subcategory-to-capability mappings and example types."},
+    {"type":"table","source":"Table 27","pages":"38","decision":"transcribe","reason":"Exact dataset pools and split counts are essential for reproduction."},
+    {"type":"table_group","source":"Tables 28-31","pages":"39-40","decision":"transcribe_key_settings","reason":"Fixed hyperparameters, thresholds and pass-count matrices are summarized exactly."},
+    {"type":"table","source":"Table 32","pages":"63","decision":"summarize","reason":"Prompt roles are summarized and the full templates remain anchored to pp.64-80."}
+  ],
+  "summary": {
+    "figures_or_figure_groups_reviewed": 12,
+    "source_figures_covered": 30,
+    "tables_or_table_groups_reviewed": 5,
+    "source_tables_covered": 32,
+    "existing_local_assets": 4,
+    "new_local_assets": 0,
+    "raster_crops": 0,
+    "missing_figure_ranges": []
+  },
+  "caveat": "A representative raster export attempt was blocked by the local command-approval policy. No file was claimed or linked; the PDF remains the source for appendix panels.",
+  "updated_at": "2026-08-27"
+}

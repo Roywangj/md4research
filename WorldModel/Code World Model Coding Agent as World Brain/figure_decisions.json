@@ -1,0 +1,251 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2608.25927",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig 1",
+      "caption": "Overview of Code World Model: Left: a coding agent updates state via executable code; Middle: a lightweight compiler renders",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_001_fig_fig_1_review.png",
+      "relative_markdown_embed": "![Fig 1](images/page_001_fig_fig_1_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_001_fig_fig_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "c8a8129c1def9c7b5a5c1bd7ef68b22dbb2cecb77e196785dbff43b17997000f",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_001_fig_fig_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/page_previews/page_001.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YBPYU5CT/Chen 等 - 2026 - Code World Model Coding Agent as World Brain.pdf",
+        "source_page": 1,
+        "caption": "Overview of Code World Model: Left: a coding agent updates state via executable code; Middle: a lightweight compiler renders",
+        "bbox_pt": [
+          20.259998321533203,
+          44.22859573364258,
+          566.506591796875,
+          626.20703125
+        ],
+        "normalized_bbox": [
+          0.033105,
+          0.055844,
+          0.925664,
+          0.790665
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "c8a8129c1def9c7b5a5c1bd7ef68b22dbb2cecb77e196785dbff43b17997000f",
+        "preserved_scientific_elements": [
+          "coding agent/code/proxy/video model"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "方法总览插图清晰，左侧代码、中间 proxy、右侧生成世界可辨识；图注明确标注为 AI-generated illustration。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "manual_visual_review": true,
+      "manual_review_observation": "方法总览插图清晰，左侧代码、中间 proxy、右侧生成世界可辨识；图注明确标注为 AI-generated illustration。",
+      "dest_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/worldmodel/Code World Model Coding Agent as World Brain/images/page_001_fig_fig_1_review.png"
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig 2",
+      "caption": "Pipeline of the proposed Code World Model. The coding agent serves as the brain of the world model, translating interaction intent",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_fig_2_review.png",
+      "relative_markdown_embed": "![Fig 2](images/page_003_fig_fig_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_003_fig_fig_2_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "e3c810f77b9bd6ac2c7cc54b2fea54ce95e988a93458c2b913d3e9757edc9f9d",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_003_fig_fig_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/page_previews/page_003.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YBPYU5CT/Chen 等 - 2026 - Code World Model Coding Agent as World Brain.pdf",
+        "source_page": 3,
+        "caption": "Pipeline of the proposed Code World Model. The coding agent serves as the brain of the world model, translating interaction intent",
+        "bbox_pt": [
+          45.5,
+          63.4869384765625,
+          566.4951782226562,
+          360.21038818359375
+        ],
+        "normalized_bbox": [
+          0.074346,
+          0.08016,
+          0.925646,
+          0.454811
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "e3c810f77b9bd6ac2c7cc54b2fea54ce95e988a93458c2b913d3e9757edc9f9d",
+        "preserved_scientific_elements": [
+          "interaction intent, coding agent, code, world state, video model, visual world"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "系统闭环流程清晰，intent、code/state、condition/generate、feedback 箭头完整，无正文污染。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "manual_visual_review": true,
+      "manual_review_observation": "系统闭环流程清晰，intent、code/state、condition/generate、feedback 箭头完整，无正文污染。",
+      "dest_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/worldmodel/Code World Model Coding Agent as World Brain/images/page_003_fig_fig_2_review.png"
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig 3",
+      "caption": "Paired data construction. Each adjacent RGB–proxy pair is aligned at the same frame. (a) For game data, code reads structured runtime",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_009_fig_fig_3_review.png",
+      "relative_markdown_embed": "![Fig 3](images/page_009_fig_fig_3_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_009_fig_fig_3_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "9e857f1b7f6f5def8a34ceaacb56edbdc24ca1b1eab56a7edcdd4df61b6f50b8",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_009_fig_fig_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YBPYU5CT/Chen 等 - 2026 - Code World Model Coding Agent as World Brain.pdf",
+        "source_page": 9,
+        "caption": "Paired data construction. Each adjacent RGB–proxy pair is aligned at the same frame. (a) For game data, code reads structured runtime",
+        "bbox_pt": [
+          45.5,
+          63.49554443359375,
+          566.4927978515625,
+          142.59698486328125
+        ],
+        "normalized_bbox": [
+          0.074346,
+          0.080171,
+          0.925642,
+          0.180047
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "9e857f1b7f6f5def8a34ceaacb56edbdc24ca1b1eab56a7edcdd4df61b6f50b8",
+        "preserved_scientific_elements": [
+          "RGB target, proxy frames, game pair, real pair"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "game/real 两组 RGB–proxy 对齐示例完整，实例骨架、车辆框线和跨帧排列清晰；裁图不含图注。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "manual_visual_review": true,
+      "manual_review_observation": "game/real 两组 RGB–proxy 对齐示例完整，实例骨架、车辆框线和跨帧排列清晰；裁图不含图注。",
+      "dest_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/worldmodel/Code World Model Coding Agent as World Brain/images/page_009_fig_fig_3_review.png"
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig 4",
+      "caption": "Visual quality results. Each case contains six temporally ordered frames, with frame-aligned proxies in the upper row and generated",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:data",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_fig_4_review.png",
+      "relative_markdown_embed": "![Fig 4](images/page_010_fig_fig_4_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_010_fig_fig_4_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "713ec2ac7885b0b897dc7e85994bda5e2969216efba2ff7496abc71e61252690",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/images/page_010_fig_fig_4_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/tmp/DeepPaperNote/assets/Code_World_Model_Coding_Agent_as_World_Brain/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YBPYU5CT/Chen 等 - 2026 - Code World Model Coding Agent as World Brain.pdf",
+        "source_page": 10,
+        "caption": "Visual quality results. Each case contains six temporally ordered frames, with frame-aligned proxies in the upper row and generated",
+        "bbox_pt": [
+          45.5,
+          66.736328125,
+          566.4913940429688,
+          653.0169677734375
+        ],
+        "normalized_bbox": [
+          0.074346,
+          0.084263,
+          0.92564,
+          0.824516
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "713ec2ac7885b0b897dc7e85994bda5e2969216efba2ff7496abc71e61252690",
+        "preserved_scientific_elements": [
+          "five prompt cases, proxy sequences, generated RGB sequences, prompt labels"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "五组定性结果的 proxy 行、生成 RGB 行和对应 prompt 均完整可读；适合作为主结果图，但仅支持定性观察。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      },
+      "manual_visual_review": true,
+      "manual_review_observation": "五组定性结果的 proxy 行、生成 RGB 行和对应 prompt 均完整可读；适合作为主结果图，但仅支持定性观察。",
+      "dest_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a66aa6d2ae63fb5e4/worldmodel/Code World Model Coding Agent as World Brain/images/page_010_fig_fig_4_review.png"
+    }
+  ],
+  "summary": {
+    "total_items": 4,
+    "by_decision": {
+      "insert": 4,
+      "low_priority": 0,
+      "placeholder": 0,
+      "review_pending": 0,
+      "skip": 0,
+      "visual_defect": 0
+    },
+    "materialized_count": 4
+  }
+}

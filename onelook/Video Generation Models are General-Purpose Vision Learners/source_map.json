@@ -1,0 +1,39 @@
+{
+  "paper": {
+    "title": "Video Generation Models are General-Purpose Vision Learners",
+    "authors": ["Letian Wang", "Chuhan Zhang", "Rishabh Kabra", "Jasper Uijlings", "Steven Waslander", "Andrew Zisserman", "Joao Carreira", "Kaiming He", "Misha Andriluka", "Eduard Gabriel Bazavan", "Andrei Zanfir", "Cristian Sminchisescu"],
+    "year": 2026,
+    "arxiv": "2607.09024v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D7FSTFHX/Wang 等 - 2026 - Video Generation Models are General-Purpose Vision Learners.pdf",
+    "reader_file": "detailed_paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "selectable-text PDF",
+    "pages": 19
+  },
+  "blocks": [
+    {"id":"S001","type":"body","section":"Abstract","pages":"1","summary":"GenCeption uses video generation pretraining for generalist vision."},
+    {"id":"S002","type":"body","section":"Introduction","pages":"1-2","summary":"Three requirements: spatiotemporal evolution, vision-language alignment, and scale."},
+    {"id":"F001","type":"figure","section":"Introduction","pages":"2","label":"Figure 1","asset":"assets/source_page-002.png"},
+    {"id":"S003","type":"body","section":"Related Work","pages":"3-5","summary":"Perception foundation models, representation learning, and diffusion repurposing."},
+    {"id":"F002","type":"figure","section":"Related Work","pages":"5","label":"Figure 3","asset":"assets/source_page-005.png"},
+    {"id":"S004","type":"body","section":"GenCeption / Methodology","pages":"5-6","summary":"Minimal-change generative pretraining, unified post-training, feed-forward reformulation."},
+    {"id":"F003","type":"figure","section":"Architecture","pages":"6","label":"Figure 4","asset":"assets/source_page-006.png"},
+    {"id":"S005","type":"equations","section":"Feed-forward perception","pages":"6-7","summary":"Clean latent, t=0, Rectified Flow velocity negation."},
+    {"id":"S006","type":"body","section":"Unified Task Representation","pages":"7","summary":"RGB target space, Rothko raymap, learnable sparse tokens."},
+    {"id":"F004","type":"figure","section":"Unified Task Representation","pages":"7","label":"Figure 5","asset":"assets/source_page-006.png"},
+    {"id":"S007","type":"body","section":"Synthetic Data","pages":"8-9","summary":"800 RenderPeople assets, 200 CMU motions, 7,500 videos."},
+    {"id":"S008","type":"body","section":"Training Recipe","pages":"9","summary":"Unified L2 loss and depth data-level normalization."},
+    {"id":"S009","type":"body","section":"Implementation / Cost","pages":"9-10","summary":"WAN 2.1, resolution, TPU recipe and inference cost."},
+    {"id":"F005","type":"figure","section":"Qualitative results","pages":"10","label":"Figures 6-8","asset":"assets/source_page-007.png"},
+    {"id":"T001","type":"table","section":"SOTA comparison","pages":"11-12","label":"Table 1","asset":"assets/source_page-010.png"},
+    {"id":"T002","type":"table","section":"Pretraining/scaling","pages":"11","label":"Table 2","asset":"assets/source_page-011.png"},
+    {"id":"S010","type":"body","section":"Evaluation Protocol","pages":"11-12","summary":"Datasets and metrics for all tasks."},
+    {"id":"F006","type":"figure","section":"Ablations","pages":"12","label":"Figure 9","asset":"assets/source_page-011.png"},
+    {"id":"S011","type":"body","section":"SOTA / Ablation","pages":"12-13","summary":"Generalist tradeoffs, pretraining necessity, scaling and data efficiency."},
+    {"id":"F007","type":"figure","section":"Emergent Behaviors","pages":"13","label":"Figure 10","asset":"assets/source_page-013.png"},
+    {"id":"S012","type":"body","section":"Emergent Behaviors / Conclusion","pages":"13-14","summary":"Synthetic-to-real, multiple-instance and OOD category generalization."},
+    {"id":"S013","type":"references","section":"References","pages":"14-19","summary":"References [1]-[87] retained in searchable bibliographic form."}
+  ],
+  "assets": ["assets/source_page-002.png", "assets/source_page-005.png", "assets/source_page-006.png", "assets/source_page-007.png", "assets/source_page-008.png", "assets/source_page-010.png", "assets/source_page-011.png", "assets/source_page-013.png"],
+  "notes": {"page_count_checked": true, "reference_pages": "14-19", "appendices_present": false, "page_assets": "rendered PDF page composites"}
+}

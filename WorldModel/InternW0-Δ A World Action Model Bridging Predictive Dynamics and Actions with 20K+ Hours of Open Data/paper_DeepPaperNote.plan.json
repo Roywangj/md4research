@@ -1,0 +1,59 @@
+{
+  "paper": {
+    "title": "InternW0-Δ: A World Action Model Bridging Predictive Dynamics and Actions with 20K+ Hours of Open Data",
+    "short_title": "InternW0-Δ",
+    "year": 2026,
+    "venue": "arXiv:2609.31394v1",
+    "team": "Physical Intelligence Team, Shanghai AI Laboratory"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总上海AI Lab团队、核心作者、开源主页、技术定位与各基准巅峰战绩"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达零视频在线推理与预测性表征桥接的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "深入拆解6大核心突破：因果印记、4D几何蒸馏、有向MoT双流、80维规范动作空间、Ego2Robot重定向、训练与部署基建优化"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 InternW0-Δ 在具身智能与世界模型领域的里程碑定位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深挖视频生成与动作控制脱节的核心症结，剖析高延迟自回归、特征过拟合与数据碎片化三大痛点"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详解23,072小时多源数据清洗、五级校验关卡、80维规范化槽位分配与Ego2Robot阻尼零空间IK数学推导"
+    },
+    {
+      "section": "方法主线",
+      "goal": "全面剖析模型架构（Wan2.2+ActionDiT）、因果印记差分与对准损失、4D点追踪蒸馏、有向注意力掩码与离线特征缓存"
+    },
+    {
+      "section": "关键结果",
+      "goal": "详尽对比四大仿真基准（LIBERO-Plus, RoboTwin 2.0, EBench, RoboDojo）与真实机器人8大任务数据，解析累积消融与数据源贡献"
+    },
+    {
+      "section": "深度分析",
+      "goal": "提炼'从画未来到学印记'的范式转移，分析为何结果成立、容易误读的盲区与实机复现踩坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出触觉多模态缺失、刚性接触力学未建模与高阶推理依赖等现实瓶颈"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "系统横向对比FastWAM、LightWAM、ImageWAM、WLA、SimpleMemVLA与DM0.5，给出具身世界模型技术演进路线图"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用格式记录"
+    }
+  ]
+}

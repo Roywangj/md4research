@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "status": "passed",
+  "source": {
+    "type": "local selectable-text PDF",
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HVJ283GL/Zhao 等 - 2026 - RynnWorld-4D 4D Embodied World Models for Robotic Manipulation.pdf",
+    "page_count": 26,
+    "text_extraction": "pdftotext -layout",
+    "visual_inspection": "all 26 PDF pages inspected in two page batches"
+  },
+  "coverage": {
+    "pages_read": "1-26",
+    "figures_grounded": {
+      "1": "p.2, RGB-DF synchronous generation and 3D-flow lifting",
+      "2": "p.4, 254.4M-frame source composition",
+      "3": "p.5, caption/depth/flow pseudo-label pipeline",
+      "4": "p.6, tri-branch world model and policy overview",
+      "5": "p.10, six real-robot tasks",
+      "6": "p.12, main qualitative RGB/depth/flow results",
+      "7": "p.22, TIANJI M6 and WUJI Hand platform",
+      "8": "p.23, teleoperation data collection",
+      "9": "p.26, appendix qualitative results"
+    },
+    "tables_grounded": {
+      "1": "p.8, 1106 ms total and 990 ms world-model latency",
+      "2": "p.9, three-stage training configuration",
+      "3": "p.11, 2400 world-model and 1200 policy episodes",
+      "4": "p.13, all generation/depth/flow metrics and five ablations",
+      "5": "p.13, six-task policy results and modality ablations"
+    },
+    "equations_grounded": {
+      "1-2": "pp.5-6, depth unprojection and scene flow",
+      "3-6": "p.6, JA normalization, Q/K/V, RoPE attention, gated residual",
+      "7": "p.7, multimodal flow-matching loss",
+      "8": "p.7, Flow Former",
+      "9": "p.8, implementation summary of JA",
+      "10-12": "p.24, AbsRel, delta1, AEPE",
+      "13-14": "p.24, rectified and conditional flow matching preliminaries"
+    },
+    "appendices_grounded": {
+      "A": "real robot and teleoperation setup",
+      "B": "metric definitions and nonstandard flow-color AEPE detail",
+      "C": "Wan/rectified-flow preliminaries",
+      "D": "Free4D/4DNeX/TesserAct implementation details",
+      "E": "additional qualitative visualizations"
+    }
+  },
+  "verified_claims": [
+    {"claim": "Rynn4DDataset totals 254.4M frames", "evidence": "Fig. 2 and Sec. 3.1, p.4"},
+    {"claim": "robot data is 233.8M or 91.9 percent", "evidence": "Fig. 2, p.4"},
+    {"claim": "scene flow uses depth at t and t+1 plus 2D optical flow", "evidence": "Eq. 1-2, pp.5-6"},
+    {"claim": "JA appears every three layers for 10 modules", "evidence": "Sec. 3.3 and 4.1.1, pp.6,8"},
+    {"claim": "shared JA KV reduces projection cost from 18d2 to 12d2", "evidence": "Eq. 4 discussion, p.6"},
+    {"claim": "w/o 4D pretraining AEPE is 0.729 versus full 0.170", "evidence": "Table 4, p.13"},
+    {"claim": "w/o RoPE AEPE is 0.210 and shared FFN AEPE is 0.280", "evidence": "Table 4, p.13"},
+    {"claim": "total latency is 1106 ms and world model is 990 ms", "evidence": "Table 1, p.8"},
+    {"claim": "planning rate is about 0.9 Hz while effective action rate is about 9 Hz", "evidence": "Sec. 3.5, p.8"},
+    {"claim": "Lid Placement and Bowl Stacking are each 65.71 percent", "evidence": "Table 5 and Results, pp.11,13"},
+    {"claim": "each real task uses 35 trials", "evidence": "Sec. 4.2, p.10"},
+    {"claim": "Hand-over success is 28.57 percent", "evidence": "Table 5, p.13"}
+  ],
+  "interpretive_boundaries": [
+    "RGB-DF is called projective 4D because it remains 2D-aligned; it is not a persistent explicit 4D field.",
+    "The paper does not establish complete hidden-surface or multi-view geometry.",
+    "The 9 Hz number is action-chunk throughput, not visual replanning frequency.",
+    "AEPE in this paper is measured on normalized RGB flow visualizations and is not directly comparable to standard pixel EPE.",
+    "Pseudo depth and flow inherit teacher-model biases; no claim of sensor-ground-truth 4D is made.",
+    "Causal explanations for foundation-model failure in Hand-over are author hypotheses rather than separately controlled experiments."
+  ]
+}

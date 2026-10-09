@@ -1,0 +1,182 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出 SimWorld Studio 平台和 SimCoder 工具/技能增强编码智能体，用 UE5 生成可交互环境并导出 Gym-style embodied learning interface，同时包含 self-evolution 与 environment-agent co-evolution 机制，主体是 AI 系统与方法论文。",
+  "dominant_domain": "3D embodied agent / environment generation / tool-use coding agent",
+  "must_cover": [
+    "SimWorld Studio 把静态 3D 场景生成推进到可部署、可验证、可训练的 embodied learning environment。",
+    "SimCoder 通过 MCP 工具、Markdown skill library、rule-based 与 VLM verifier、self-evolution 形成闭环环境生成。",
+    "生成环境可编译成 Gymnasium-style interface，支持 PointNav/ObjectNav 训练和评测。",
+    "Co-evolution 用 embodied agent performance feedback 形成 adaptive curriculum，使环境难度贴近 agent 能力边界。",
+    "三组 case study 分别验证 scene generation quality、generated environments 对 navigation agent 的训练收益、co-evolution 的额外收益。"
+  ],
+  "key_numbers": [
+    "PDF 共 43 页；Zotero key 6Y8DJIH6；arXiv 2605.09423v2。",
+    "Case Study 1：9 个 evaluation scenes，三种设置 S1 Text-to-Scene、S2 Image+Text-to-Scene、S3 Scene Editing；四个 LLM backbone。",
+    "Table 1：Opus 4.6 平均 S1=0.77、S2=0.79、S3=0.75；Sonnet 4.6 平均 S1=0.70、S2=0.73、S3=0.74。",
+    "Figure 5：vanilla coding agent 0.16；+ MCP tools 0.45；+ verification loop 再 +0.10；self-evolution 再 +0.21，总体到 0.76。",
+    "Case Study 2：每个任务 1.2K training episodes，329 held-out SimWorld Studio episodes；训练环境数从 1 到 30，总训练 budget 固定 200 episodes。",
+    "Table 2：Qwen3.5-9B ObjectNav SR 从 0.00 提升到 14.62；Qwen3.5-27B ObjectNav SR 从 22.56 提升到 31.59。",
+    "Figure 8：环境多样性带来 Qwen3.5-27B +5.5pp，Qwen3.5-9B +5.0pp，Qwen3.5-2B +1.0pp；SimWorld-MMNav transfer 中 2B +12.0pp。",
+    "Case Study 3：Qwen3.5-9B；co-evolving environment 达到 90% SimWorld-MMNav Success Rate；fixed environment learning 72%；untrained baseline 50%。",
+    "Co-evolution 难度由 path length 和 obstacle density 量化为 8 个 levels；25 epochs，总 500 episodes；每 epoch 生成 20 episodes。",
+    "Case Study 2 使用 8×H100，并行 8 个 SimWorld Studio instances；1.2K episode training set 每个 full pass 约 8 小时。"
+  ],
+  "real_comparisons": [
+    "SimWorld Studio vs CARLA / AI2-THOR / Habitat / ProcTHOR 等：前者强调 UE5 realistic environments、Gym interface、self-evolution、co-evolution 的组合。",
+    "SimCoder variants：vanilla coding agent、+ MCP tools、+ verification、+ self-evolution。",
+    "LLM backbone comparison：Qwen3.5-9B/27B、Claude Sonnet 4.6、Claude Opus 4.6。",
+    "Navigation learning：baseline vs + memory；不同 model scales；generated environments vs external SimWorld-MMNav transfer。",
+    "Curriculum comparison：co-evolving environment vs fixed-difficulty environment vs random-difficulty environment vs no learning。"
+  ],
+  "central_claims": [
+    {
+      "claim": "SimWorld Studio 的核心贡献是生成可交互学习环境，而不是只生成静态 3D 场景。",
+      "supporting_evidence": ["sec:introduction", "sec:results-3"],
+      "supporting_summary": "sec:introduction 说明 generated world 必须提供 observations/actions/reward/Gym interface；sec:introduction 与 sec:results-3 通过 Figure 1、Table 3 将其和静态场景/传统 simulator 区分。",
+      "what_it_actually_proves": "论文证明该平台能把 UE5 场景接成可训练导航环境，并在 PointNav/ObjectNav 与 SimWorld-MMNav 上形成可量化训练收益。",
+      "what_it_does_not_prove": "没有证明该平台已覆盖所有 embodied tasks，例如 manipulation、long-horizon planning 或真实机器人 sim-to-real。"
+    },
+    {
+      "claim": "SimCoder 的 self-evolution 能把 verifier feedback 转化为可复用工具/技能，从而提升场景生成质量。",
+      "supporting_evidence": ["sec:introduction", "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings"],
+      "supporting_summary": "sec:introduction 描述 MCP tools、skill library、verification loop 和 self-evolution；sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings 中 Figure 5 报告 self-evolution 再带来 +0.21 quality improvement。",
+      "what_it_actually_proves": "在作者定义的 9-scene scene generation evaluation 上，工具、验证和技能积累分别贡献可测增益。",
+      "what_it_does_not_prove": "没有证明 self-evolution 在开放域无限增长时仍稳定，也没有严格排除特定 asset library 和 prompt protocol 的影响。"
+    },
+    {
+      "claim": "生成环境的多样性和 Gym interface 能给 embodied navigation agent 提供有效训练信号。",
+      "supporting_evidence": ["sec:results-2"],
+      "supporting_summary": "sec:results-2 中 Table 2 报告不同 Qwen3.5 scale 的 PointNav/ObjectNav gains；Figure 8 报告环境数量增加带来的 generalization gain 和 SimWorld-MMNav transfer。",
+      "what_it_actually_proves": "在导航任务上，generated environments 与 memory/rule accumulation 结合可以提高 held-out 和外部 benchmark 的 success rate。",
+      "what_it_does_not_prove": "不能单独归因于环境质量本身，因为 embodied policy、memory design、training episodes 和 prompt update 共同参与。"
+    },
+    {
+      "claim": "Environment-agent co-evolution 比固定环境训练更能维持学习压力并避免早期饱和。",
+      "supporting_evidence": ["sec:method", "sec:results-3", "sec:method-2"],
+      "supporting_summary": "sec:method 描述 path length/obstacle density 的 8-level adaptive curriculum；sec:results-3 报告 90% success，对 fixed environment 72% 和 untrained 50%。",
+      "what_it_actually_proves": "在 Qwen3.5-9B navigation setting 中，基于 performance gating 的难度递进优于固定中等难度训练。",
+      "what_it_does_not_prove": "没有证明更复杂的 task distribution 或不同学习器下同样有效，也没有充分展开 random-difficulty baseline 的所有细节。"
+    }
+  ],
+  "claim_boundaries": [
+    "Case Study 1 的 scene generation quantitative set 只有 9 个 evaluation scenes，VLM-as-judge 指标和 prompt selection 可能影响结论稳定性。",
+    "论文的核心 embodied downstream task 是 navigation，不能直接外推到 manipulation、dexterous control 或 multi-agent embodied interaction。",
+    "SimCoder 的能力受底层 coding agent、UE5 asset library、MCP tools 和 verifier 质量共同限制。",
+    "平台需要 Unreal Engine 5、资产库、模型 API 和较重计算资源；这影响复现门槛。",
+    "作者在 limitation 中明确承认复杂 3D 环境仍依赖 coding agent 的 spatial reasoning，精细多物体布置和长程布局一致性仍会失败。"
+  ],
+  "negative_or_limiting_results": [
+    "Vanilla coding agent scene quality 只有 0.16，说明直接让 coding agent 写 UE5 场景代码不够。",
+    "Qwen3.5-9B baseline 在 ObjectNav SR 为 0.00，2B baseline 在 ObjectNav 只有 0.24，弱 embodied agent 需要 memory/training 才能从环境中获益。",
+    "Figure 5 的 plateau 说明固定工具/验证配置会卡住，self-evolution 才突破，但这也暴露出静态配置有限。",
+    "Limitation 指出复杂 3D 场景生成仍受 underlying coding agent 的 spatial reasoning 限制。"
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "MCP tools 将 UE5 scene editing 暴露为结构化 action space。",
+      "evidence": "sec:introduction 的 MCP Tools 描述；Figure 5 中 + tools 从 0.16 到 0.45。",
+      "interpretation": "工具接口是场景生成可靠性的硬前提。"
+    },
+    {
+      "mechanism": "Rule-based verifier + VLM verifier 将 collision、physics、semantic alignment 作为下一轮 observation。",
+      "evidence": "sec:introduction 的 Verification Loop；Figure 2 中 collision count 和 VLM score 反馈；Figure 5 中 verification loop +0.10。",
+      "interpretation": "验证器把错误从不可见的生成失败转化为可纠正的 agent feedback。"
+    },
+    {
+      "mechanism": "Self-evolution 将重复失败抽象为新 tool/skill。",
+      "evidence": "sec:introduction 的 Self-evolution；Figure 5 中 self-evolution +0.21。",
+      "interpretation": "经验积累比单次反思更接近长期可复用能力。"
+    },
+    {
+      "mechanism": "Gymnasium compilation 将 generated scene 转成 reset/step/reward interface。",
+      "evidence": "sec:introduction 的 Gymnasium Compilation；sec:results-2 的 navigation training results。",
+      "interpretation": "这一步把 scene generation 与 embodied learning 打通，是静态 3D generation 不能直接替代的部分。"
+    },
+    {
+      "mechanism": "Performance-gated adaptive curriculum 根据 success rate 调整 path length 和 obstacle density。",
+      "evidence": "sec:method 与 sec:method-2 的 mastery-gating threshold；sec:results-3 的 90% vs 72% vs 50%。",
+      "interpretation": "环境生成器根据 learner 能力边界调难度，避免固定环境的早期饱和。"
+    }
+  ],
+  "comparative_positioning": [
+    "相对 ProcTHOR/Infinigen 这类 procedural generation，SimWorld Studio 的重点不是更大的模板空间，而是 coding agent + verifier + skill/tool library 的可演化生成。",
+    "相对 Holodeck/SAGE/Code2Worlds 等 LLM/coding-agent 3D generation，论文强调 deployable environment、Gym interface 和 downstream embodied learning，而不仅是视觉/几何质量。",
+    "相对 Skill-3D，这篇的 skill library 服务于 UE5 环境构造和工具复用，而不是直接回答 3D spatial reasoning QA；但二者都体现了“失败经验变成可复用 skill”的路线。",
+    "相对用户当前 3D Agent 目录，SimWorld Studio 更接近 world generation / embodied learning substrate，可作为 GeoSkill-Agent 或 3D tool-use policy 的环境端基础。"
+  ],
+  "reuse_takeaways": [
+    "可复用 idea：把工具调用失败转成 registry 中的技能或工具，而不是只把失败作为一条日志。",
+    "可复用工程结构：MCP bridge + Python escape hatch + wrapper promotion，可用于 3D tool-use agent 的工具库演化。",
+    "可复用评测：同时看 rule-based physical validity、VLM semantic alignment、Gym downstream performance，不只看渲染图像质量。",
+    "对 3D agent 项目的启发：生成环境本身可以成为训练工具调用策略的 curriculum，而不只是 benchmark 场景。"
+  ],
+  "followup_questions": [
+    "如果去掉 VLM verifier，只保留 rule-based verifier，semantic fidelity 会下降多少？",
+    "Self-evolution skill library 增长到更大规模后是否会出现检索污染、技能冲突或错误技能固化？",
+    "导航之外，manipulation 或 object interaction task 的 task generation 和 reward verification 能否同样自动化？",
+    "Generated environments 与真实 benchmark 的 transfer 是否来自环境多样性、RGB-D observation、memory/rule update，还是三者叠加？",
+    "能否把 SimWorld Studio 作为 Skill-3D / GeoSkill-Agent 的训练沙箱，让模型学习 3D 工具调用而不仅是学习 navigation policy？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "记录题名、作者、机构、arXiv/DOI、Zotero/PDF 来源和论文类型。",
+      "evidence_sources": ["sec:preamble", "sec:abstract"]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "忠实翻译原摘要，覆盖数字 agent sandboxes、embodied environment gap、SimCoder、self-evolution、Gym environments、co-evolution 和三组结果。",
+      "evidence_sources": ["sec:abstract"]
+    },
+    {
+      "section": "创新点",
+      "focus": "总结从静态 scene generation 到 interactive learning environment 的转换、SimCoder self-evolution、Gym compilation、co-evolution curriculum 和三层评测。",
+      "evidence_sources": ["sec:abstract", "sec:introduction", "sec:results-3"]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "用一句话说明这篇对 3D agent 目录的定位：环境生成/具身学习 substrate，而不是普通空间问答 agent。",
+      "evidence_sources": ["sec:introduction", "sec:conclusion"]
+    },
+    {
+      "section": "研究问题",
+      "focus": "解释为什么 embodied agents 缺少类似 code/web/computer-use sandboxes 的自动可交互训练场，以及 static scene generation 为什么不够。",
+      "evidence_sources": ["sec:abstract", "sec:introduction"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "定义输入输出、三种 scene generation 设置、PointNav/ObjectNav、1.2K training episodes、329 held-out episodes、SimWorld-MMNav、co-evolution levels。",
+      "evidence_sources": ["sec:introduction", "sec:results-2", "sec:method", "sec:method-2", "sec:evaluation"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按 SimCoder、工具/技能库、verification loop、self-evolution、task generation、Gym compilation、co-evolution adaptive curriculum 展开机制。",
+      "evidence_sources": ["sec:introduction", "sec:limitation", "sec:method", "sec:method-2"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用 Table 1/Figure 5、Table 2/Figure 8、Figure 9/Table 3 的结果解释三组 case study 的证据链。",
+      "evidence_sources": ["sec:results", "sec:appendix-e-1-semantic-quality-scales-with-model-size-opus-4-6-leads-across-all-three-settings", "sec:results-2", "sec:method", "sec:results-3"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析真正贡献、为什么有效、与 Skill-3D/Code2Worlds/P3D-Bench 的关系、复现门槛和可能误读。",
+      "evidence_sources": ["sec:introduction", "sec:related-work", "sec:results-3", "sec:limitation", "sec:method-2"]
+    },
+    {
+      "section": "局限",
+      "focus": "整理作者承认的 coding-agent spatial reasoning 边界、任务覆盖不足、VLM-as-judge 和计算/资产依赖、潜在误用。",
+      "evidence_sources": ["sec:limitation", "sec:method-2", "sec:evaluation"]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "提炼对 3D agent/GeoSkill-Agent 的可复用启发和后续实验问题。",
+      "evidence_sources": ["sec:introduction", "sec:results-2", "sec:results-3", "sec:limitation"]
+    },
+    {
+      "section": "引用",
+      "focus": "列出与当前目录相关的本地/概念引用，如 Skill-3D、Code2Worlds、P3D-Bench、ProcTHOR、Habitat 等。",
+      "evidence_sources": ["sec:related-work", "sec:references"]
+    }
+  ]
+}

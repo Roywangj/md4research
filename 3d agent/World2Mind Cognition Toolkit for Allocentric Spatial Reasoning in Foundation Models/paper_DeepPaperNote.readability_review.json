@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "review": "final_readability_review",
+  "paper_id": "arxiv:2603.09774",
+  "checks": {
+    "chinese_prose_natural": true,
+    "stable_proper_nouns_only": true,
+    "no_mechanical_translation_artifacts": true,
+    "heading_progression_clear": true,
+    "tables_and_figures_explained": true,
+    "claim_boundaries_readable": true
+  },
+  "notes": [
+    "已将可替换的英文任务名改为中文，并保留模型、数据集和方法专名。",
+    "图注紧邻图片，残缺表格不插入，正文说明了替代方案。",
+    "长技术段按机制、结果、复现与局限拆分，结论和证据边界可快速定位。"
+  ],
+  "edits_required": false,
+  "lint_rerun_required": false
+}

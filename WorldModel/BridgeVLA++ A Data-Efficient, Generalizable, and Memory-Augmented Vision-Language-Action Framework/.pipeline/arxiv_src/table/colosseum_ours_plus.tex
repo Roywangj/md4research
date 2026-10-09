@@ -1,0 +1,49 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Per-Task Results of \memmethod\ on COLOSSEUM.}
+Success rates (\%) under each COLOSSEUM
+perturbation~\cite{pumacay2024colosseum}, mean$\pm$variance over three
+evaluation repetitions,
+% NOTE: subscripts computed as population std of the three runs, matching the
+% convention of Table results_bridgevla (whose caption likewise says "variance").
+under the identical protocol as Table~\ref{tab:results_bridgevla};
+``--'' marks perturbation--task combinations the benchmark does not
+define.}
+\label{tab:results_bridgevla_plus}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{l*{15}{c}}
+\toprule
+\textbf{Task} & \rotatebox[origin=c]{90}{\textbf{Original}} & \rotatebox[origin=c]{90}{\textbf{All Perturbations}} & \rotatebox[origin=c]{90}{\textbf{MO-COLOR}} & \rotatebox[origin=c]{90}{\textbf{RO-COLOR}} & \rotatebox[origin=c]{90}{\textbf{MO-TEXTURE}} & \rotatebox[origin=c]{90}{\textbf{RO-TEXTURE}} & \rotatebox[origin=c]{90}{\textbf{MO-SIZE}} & \rotatebox[origin=c]{90}{\textbf{RO-SIZE}} & \rotatebox[origin=c]{90}{\textbf{Light Color}} & \rotatebox[origin=c]{90}{\textbf{Table Color}} & \rotatebox[origin=c]{90}{\textbf{Table Texture}} & \rotatebox[origin=c]{90}{\textbf{Distractor}} & \rotatebox[origin=c]{90}{\textbf{Background Texture}} & \rotatebox[origin=c]{90}{\textbf{RLBench}} & \rotatebox[origin=c]{90}{\textbf{Camera Pose}} \\
+\midrule
+basketball\_in\_hoop & 100.0$\pm$0.0 & 41.3$\pm$3.8 & 96.0$\pm$0.0 & 100.0$\pm$0.0 & 94.7$\pm$1.9 & -- & 100.0$\pm$0.0 & 86.7$\pm$1.9 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 97.3$\pm$1.9 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+close\_box & 93.3$\pm$1.9 & 84.0$\pm$0.0 & 94.7$\pm$1.9 & -- & -- & -- & 96.0$\pm$0.0 & -- & 96.0$\pm$3.3 & 96.0$\pm$0.0 & 97.3$\pm$1.9 & 94.7$\pm$5.0 & 98.7$\pm$1.9 & 98.7$\pm$1.9 & 96.0$\pm$0.0 \\
+close\_laptop\_lid & 100.0$\pm$0.0 & 82.7$\pm$1.9 & 96.0$\pm$0.0 & -- & -- & -- & 100.0$\pm$0.0 & -- & 100.0$\pm$0.0 & 96.0$\pm$0.0 & 92.0$\pm$0.0 & 96.0$\pm$0.0 & 92.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+empty\_dishwasher & 10.7$\pm$1.9 & 16.0$\pm$0.0 & 12.0$\pm$3.3 & 25.3$\pm$5.0 & -- & 20.0$\pm$5.7 & 37.3$\pm$5.0 & 20.0$\pm$8.6 & 4.0$\pm$3.3 & 10.7$\pm$1.9 & 12.0$\pm$0.0 & 14.7$\pm$1.9 & 14.7$\pm$1.9 & 6.7$\pm$5.0 & 21.3$\pm$5.0 \\
+get\_ice\_from\_fridge & 96.0$\pm$3.3 & 22.7$\pm$6.8 & 88.0$\pm$0.0 & 98.7$\pm$1.9 & 93.3$\pm$1.9 & -- & 94.7$\pm$1.9 & 90.7$\pm$1.9 & 97.3$\pm$1.9 & 98.7$\pm$1.9 & 98.7$\pm$1.9 & 93.3$\pm$1.9 & 100.0$\pm$0.0 & 96.0$\pm$0.0 & 97.3$\pm$3.8 \\
+hockey & 38.7$\pm$7.5 & 2.7$\pm$1.9 & 48.0$\pm$5.7 & 37.3$\pm$1.9 & -- & 26.7$\pm$5.0 & 22.7$\pm$5.0 & 28.0$\pm$3.3 & 22.7$\pm$3.8 & 37.3$\pm$6.8 & 26.7$\pm$5.0 & 16.0$\pm$0.0 & 26.7$\pm$1.9 & 29.3$\pm$1.9 & 33.3$\pm$5.0 \\
+insert\_onto\_square\_peg & 24.0$\pm$6.5 & 58.7$\pm$5.0 & 18.7$\pm$8.2 & 41.3$\pm$1.9 & -- & 44.0$\pm$3.3 & 56.0$\pm$3.3 & 14.7$\pm$3.8 & 25.3$\pm$1.9 & 34.7$\pm$1.9 & 33.3$\pm$3.8 & 29.3$\pm$1.9 & 36.0$\pm$3.3 & 26.7$\pm$6.8 & 33.3$\pm$3.8 \\
+meat\_on\_grill & 100.0$\pm$0.0 & 81.3$\pm$1.9 & 97.3$\pm$1.9 & 100.0$\pm$0.0 & -- & -- & 100.0$\pm$0.0 & -- & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+move\_hanger & 20.0$\pm$0.0 & 18.7$\pm$3.8 & 52.0$\pm$9.8 & 25.3$\pm$7.5 & -- & -- & -- & -- & 26.7$\pm$8.2 & 57.3$\pm$3.8 & 37.3$\pm$3.8 & 49.3$\pm$5.0 & 24.0$\pm$5.7 & 20.0$\pm$0.0 & 21.3$\pm$6.8 \\
+open\_drawer & 100.0$\pm$0.0 & 69.3$\pm$1.9 & 100.0$\pm$0.0 & -- & -- & -- & 100.0$\pm$0.0 & -- & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 74.7$\pm$5.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+place\_wine\_at\_rack\_location & 96.0$\pm$3.3 & 77.3$\pm$5.0 & 98.7$\pm$1.9 & 100.0$\pm$0.0 & -- & 93.3$\pm$5.0 & 93.3$\pm$1.9 & 96.0$\pm$0.0 & 96.0$\pm$3.3 & 94.7$\pm$1.9 & 97.3$\pm$3.8 & 73.3$\pm$6.8 & 89.3$\pm$5.0 & 94.7$\pm$3.8 & 96.0$\pm$0.0 \\
+put\_money\_in\_safe & 90.7$\pm$3.8 & 25.3$\pm$3.8 & 86.7$\pm$5.0 & 80.0$\pm$3.3 & 65.3$\pm$11.5 & 96.0$\pm$0.0 & 89.3$\pm$3.8 & -- & 81.3$\pm$5.0 & 86.7$\pm$1.9 & 77.3$\pm$6.8 & 78.7$\pm$5.0 & 89.3$\pm$3.8 & 78.7$\pm$3.8 & 73.3$\pm$5.0 \\
+reach\_and\_drag & 86.7$\pm$6.8 & 5.3$\pm$1.9 & 85.3$\pm$5.0 & 94.7$\pm$5.0 & 82.7$\pm$3.8 & 88.0$\pm$0.0 & 92.0$\pm$3.3 & 81.3$\pm$1.9 & 86.7$\pm$5.0 & 80.0$\pm$5.7 & 86.7$\pm$1.9 & 77.3$\pm$5.0 & 93.3$\pm$1.9 & 89.3$\pm$1.9 & 76.0$\pm$5.7 \\
+scoop\_with\_spatula & 93.3$\pm$1.9 & 21.3$\pm$1.9 & 93.3$\pm$1.9 & 88.0$\pm$3.3 & 93.3$\pm$1.9 & 90.7$\pm$5.0 & 78.7$\pm$1.9 & 78.7$\pm$5.0 & 88.0$\pm$6.5 & 96.0$\pm$3.3 & 90.7$\pm$1.9 & 62.7$\pm$6.8 & 92.0$\pm$3.3 & 93.3$\pm$1.9 & 89.3$\pm$1.9 \\
+setup\_chess & 18.7$\pm$9.4 & 1.3$\pm$1.9 & 9.3$\pm$5.0 & 24.0$\pm$5.7 & 17.3$\pm$5.0 & -- & 25.3$\pm$5.0 & -- & 28.0$\pm$3.3 & 26.7$\pm$5.0 & 28.0$\pm$3.3 & 6.7$\pm$3.8 & 30.7$\pm$6.8 & 29.3$\pm$10.5 & 28.0$\pm$3.3 \\
+slide\_block\_to\_target & 100.0$\pm$0.0 & 42.7$\pm$8.2 & 92.0$\pm$0.0 & -- & 96.0$\pm$0.0 & -- & -- & -- & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 96.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+stack\_cups & 41.3$\pm$5.0 & 5.3$\pm$1.9 & 36.0$\pm$5.7 & -- & 44.0$\pm$3.3 & -- & 37.3$\pm$1.9 & -- & 46.7$\pm$8.2 & 34.7$\pm$9.4 & 36.0$\pm$6.5 & 13.3$\pm$5.0 & 41.3$\pm$5.0 & 45.3$\pm$7.5 & 40.0$\pm$3.3 \\
+straighten\_rope & 69.3$\pm$1.9 & 34.7$\pm$3.8 & 76.0$\pm$8.6 & -- & 70.7$\pm$6.8 & -- & -- & -- & 68.0$\pm$5.7 & 81.3$\pm$5.0 & 73.3$\pm$10.5 & 66.7$\pm$7.5 & 69.3$\pm$14.7 & 69.3$\pm$6.8 & 74.7$\pm$5.0 \\
+turn\_oven\_on & 98.7$\pm$1.9 & 88.0$\pm$3.3 & 94.7$\pm$1.9 & -- & -- & -- & 93.3$\pm$1.9 & -- & 97.3$\pm$1.9 & 100.0$\pm$0.0 & 97.3$\pm$1.9 & 92.0$\pm$3.3 & 93.3$\pm$1.9 & 92.0$\pm$6.5 & 93.3$\pm$5.0 \\
+wipe\_desk & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & -- & 0.0$\pm$0.0 & -- & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 \\
+\midrule
+Task Mean & 68.9$\pm$0.5 & 38.9$\pm$0.8 & 68.7$\pm$0.7 & 62.7$\pm$0.6 & 65.7$\pm$0.4 & 65.5$\pm$1.2 & 71.5$\pm$0.3 & 62.0$\pm$0.7 & 68.2$\pm$1.0 & 71.5$\pm$0.3 & 69.2$\pm$0.7 & 61.6$\pm$0.5 & 69.5$\pm$1.2 & 68.5$\pm$0.6 & 68.7$\pm$0.7 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

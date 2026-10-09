@@ -1,0 +1,145 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出可插拔认知地图工具、三阶段空间推理协议及其强化学习内化方法，核心证据来自训练自由插件、训练后模型、消融和观察预算实验。",
+  "dominant_domain": "多模态基础模型的代理式三维空间推理",
+  "must_cover": [
+    "从自我中心观测到异心结构化空间记忆的任务定义",
+    "World2Mind 的几何—语义对齐、AST 与路径地图",
+    "JUDGE—COLLECT—ARBITRATE—REFINE/ANSWER 循环",
+    "监督冷启动、GSPO 与 HGTR 奖励门控",
+    "VSI-Bench 与 MindCube 的协议差异、主结果和消融",
+    "数值测量、重建漂移、统计显著性和在线工具成本边界",
+    "与 World2Mind 工具本体以及 Skill-3D 工具调度路线的关系"
+  ],
+  "key_numbers": [
+    "VSI-Bench Tiny 392 题，MindCube Tiny 1050 题",
+    "训练自由设置使用最多 32 帧；训练后比较统一使用 7 帧",
+    "GPT-5.2、Claude-4.6-Opus、Gemini-3-Pro 在 VSI-Bench 分别提升 7.3、17.7、5.8 分，在 MindCube 分别提升 4.7、14.4、6.5 分",
+    "AlloSpatial-4B/8B 在 VSI-Bench 为 53.5/54.2；AlloSpatial-4B 在 MindCube 为 69.1",
+    "AlloSpatial-4B Stage-2 相对基座在 VSI-Bench 提升 8.4 分、MindCube 提升 40.8 分，平均输出 358 tokens",
+    "0、3、7、15、24 帧时 AlloSpatial 为 48.9、50.0、53.5、51.8、55.9；0 帧相对 Qwen3-VL 提升 18.2 分",
+    "4B/8B 分别训练至 600/400 个 RL 更新，累计 4.8K/2.4K 独立提示，每个提示 8 条 rollout",
+    "训练使用 8 张 Ascend 910B NPU，4B/8B 约 60/40 NPU-hours；392 题并发评测约 12 分钟"
+  ],
+  "real_comparisons": [
+    "训练自由的同一闭源模型有无 AlloSpatial 对照",
+    "7 帧协议下与闭源、开源及 Spatial-MLLM、Cambrian-S、Think3D 的比较",
+    "Qwen3-VL 普通思考、QA-only SFT/RL 与完整 harness 轨迹训练的消融",
+    "不同输入帧数下有无异心记忆的观察预算对照",
+    "与 Skill-3D 的结构化地图加验证协议路线和场景感知技能路由路线比较"
+  ],
+  "central_claims": [
+    {
+      "claim": "结构化异心先验配合验证协议可在不训练模型时改善闭源基础模型的空间推理。",
+      "supporting_evidence": [
+        "sec:models",
+        "sec:models-2"
+      ],
+      "what_it_actually_proves": "在 VSI-Bench 与 MindCube Tiny、论文指定帧数和提示协议下，三个闭源模型总体分数均提高，且关系、方向、路线等任务收益较集中。",
+      "what_it_does_not_prove": "不证明所有任务都提高，也不证明该增益可外推到开放世界、室外或机器人闭环。"
+    },
+    {
+      "claim": "完整工具交互轨迹的强化学习优于仅用同源 QA 答案监督。",
+      "supporting_evidence": [
+        "sec:models-2"
+      ],
+      "what_it_actually_proves": "同一 Qwen3-VL-4B 基座和训练数据下，完整 Stage-2 在两个基准均高于 QA-only RL，并以更短输出超过普通思考模式。",
+      "what_it_does_not_prove": "消融未单独拆解 World2Mind、三阶段协议和 HGTR 每一项的独立因果贡献。"
+    },
+    {
+      "claim": "AST 提供了可独立于原始图像使用的异心结构证据。",
+      "supporting_evidence": [
+        "sec:models-2"
+      ],
+      "what_it_actually_proves": "盲测和 0 帧实验中，AST 文本显著改善总体及若干关系类任务。",
+      "what_it_does_not_prove": "不证明 AST 来自无视觉信息；AST 本身仍由场景图像重建得到，也未做严格反事实因果删除。"
+    }
+  ],
+  "claim_boundaries": [
+    "训练自由与训练后表格采用 32 帧和 7 帧两种不同协议，不能直接横向解释为训练收益。",
+    "官方 Tiny 子集规模有限，论文没有误差条、置信区间或多次 RL 重复实验。",
+    "MindCube 的大幅提升可能部分来自同源训练集和任务格式适配；QA-only 对照降低了但没有完全排除基准适配解释。",
+    "训练阶段依赖闭源教师蒸馏和在线 World2Mind 服务，不能将结果归因于小模型本身。"
+  ],
+  "negative_or_limiting_results": [
+    "训练自由设置中对象计数、绝对距离和对象尺寸有时下降。",
+    "AlloSpatial-4B 的监督冷启动在 VSI-Bench 从 45.1 降至 38.2，主要收益要到 RL 后出现。",
+    "QA-only SFT 在 VSI-Bench 从 45.1 降至 43.1。",
+    "输入帧增多后相对 Qwen3-VL 的优势收窄，15 帧结果还低于 7 帧，趋势并非单调。",
+    "精细数值估计受重建漂移和度量校准限制。"
+  ],
+  "mechanism_result_map": [
+    "AST 的对象中心、足迹、朝向、高度与包含关系对应盲测、0 帧及关系/路线任务收益。",
+    "模态分离收集与几何—语义仲裁对应工具噪声下不直接把地图当伪标签，但论文缺少单模块消融。",
+    "结构门控准确率与正确性绑定的工具奖励对应 QA-only RL 和普通长思考均落后完整 Stage-2。",
+    "查询条件化重建与调用预算对应稀疏帧下收益和 358-token 输出，但在线重建成本仍由附录计算量揭示。"
+  ],
+  "comparative_positioning": [
+    "相对 World2Mind 本体，AlloSpatial 是其上层代理协议和学习化封装：地图工具提供结构化证据，Harness 决定何时调用、如何交叉验证及何时停止。",
+    "相对 Skill-3D，AlloSpatial 优先固定一种异心表示并规范证据仲裁；Skill-3D 优先从成功/失败轨迹演化场景感知工具技能并路由异构工具。前者强化表示与验证，后者强化经验复用与调度。",
+    "相对 Think3D 等重建中心路线，AlloSpatial 不把渲染或低层测量直接交给模型，而把重建压缩成模型可读 AST 和路径图。"
+  ],
+  "reuse_takeaways": [
+    "将昂贵工具输出先压缩为稳定、可解析、可反驳的中间表示，再进入语言模型推理。",
+    "对长工具轨迹的奖励应在结构合规后才支付准确率，并把工具奖励与最终正确性绑定。",
+    "必须分开报告零帧、稀疏帧和密集帧，以判断外部记忆是否真正提供新增信息。",
+    "部署时应监控重建置信度、调用次数、尾延迟和数值校准，而不仅是最终准确率。"
+  ],
+  "followup_questions": [
+    "删除 AST 或打乱对象坐标后，答案和中间推理会下降多少，从而建立工具证据的因果贡献？",
+    "把 Skill-3D 的场景技能路由用于选择 World2Mind 查询参数，是否能减少无关重建并提高 ETU？",
+    "在室外、动态物体和长序列中，AST 的身份关联与累计位姿漂移如何控制？",
+    "对完整训练至少进行三次独立重复后，53.5 与 54.2 的差异是否显著？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "focus": "解释局部自我中心观测为何难以支撑持久、可查询、可验证的全局空间推理，并区分视觉监督、几何注入和工具增强路线的缺口。",
+      "evidence_sources": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "明确两个 Tiny 子集、问题类型、输入帧预算、答案指标、训练来源与模型比较协议，防止混淆 32 帧和 7 帧结果。",
+      "evidence_sources": [
+        "sec:experiments",
+        "sec:models"
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "重建 World2Mind 从深度位姿与开放词汇分割到语义点云、AST/路径图，再到三阶段 Harness 和轨迹级强化学习的完整因果链。",
+      "evidence_sources": [
+        "sec:methodology",
+        "sec:models"
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用紧凑表格核对训练自由、训练后、输入帧及 QA-only 消融数字，并解释关系任务和数值任务的不同结果模式。",
+      "evidence_sources": [
+        "sec:models",
+        "sec:models-2"
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "判断收益来自表示、证据仲裁还是轨迹训练，定位与 World2Mind、Skill-3D 和重建中心工具代理的互补关系，并给出复现成本。",
+      "evidence_sources": [
+        "sec:introduction",
+        "sec:methodology",
+        "sec:models-2",
+        "sec:references"
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "区分作者承认的度量重建弱点与笔记进一步识别的 Tiny 子集、无统计显著性、教师依赖、模块归因和开放世界外推边界。",
+      "evidence_sources": [
+        "sec:models-2",
+        "sec:limitations"
+      ]
+    }
+  ]
+}

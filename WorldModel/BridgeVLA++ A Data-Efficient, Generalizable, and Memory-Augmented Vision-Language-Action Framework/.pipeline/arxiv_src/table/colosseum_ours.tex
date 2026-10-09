@@ -1,0 +1,48 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Per-Task Results of \method\ on COLOSSEUM.}
+Success rates (\%) under each COLOSSEUM
+perturbation~\cite{pumacay2024colosseum}, mean$\pm$variance over three
+evaluation repetitions;
+% TODO(user): confirm from the eval logs whether the subscripts are std or
+% variance; the source text says "variance", kept here for consistency.
+``--'' marks perturbation--task combinations the benchmark does not
+define.}
+\label{tab:results_bridgevla}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\resizebox{\fitwidth}{!}{%
+\begin{tabular}{l*{15}{c}}
+\toprule
+\textbf{Task} & \rotatebox[origin=c]{90}{\textbf{Original}} & \rotatebox[origin=c]{90}{\textbf{All Perturbations}} & \rotatebox[origin=c]{90}{\textbf{MO-COLOR}} & \rotatebox[origin=c]{90}{\textbf{RO-COLOR}} & \rotatebox[origin=c]{90}{\textbf{MO-TEXTURE}} & \rotatebox[origin=c]{90}{\textbf{RO-TEXTURE}} & \rotatebox[origin=c]{90}{\textbf{MO-SIZE}} & \rotatebox[origin=c]{90}{\textbf{RO-SIZE}} & \rotatebox[origin=c]{90}{\textbf{Light Color}} & \rotatebox[origin=c]{90}{\textbf{Table Color}} & \rotatebox[origin=c]{90}{\textbf{Table Texture}} & \rotatebox[origin=c]{90}{\textbf{Distractor}} & \rotatebox[origin=c]{90}{\textbf{Background Texture}} & \rotatebox[origin=c]{90}{\textbf{RLBench}} & \rotatebox[origin=c]{90}{\textbf{Camera Pose}} \\
+\midrule
+basketball\_in\_hoop & 100.0$\pm$0.0 & 4.0$\pm$3.3 & 94.7$\pm$1.9 & 96.0$\pm$0.0 & 84.0$\pm$5.7 & -- & 100.0$\pm$0.0 & 68.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 37.3$\pm$1.9 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+close\_box & 100.0$\pm$0.0 & 72.0$\pm$0.0 & 94.7$\pm$1.9 & -- & -- & -- & 93.3$\pm$1.9 & -- & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 98.7$\pm$1.9 & 98.7$\pm$1.9 & 100.0$\pm$0.0 & 97.3$\pm$1.9 & 100.0$\pm$0.0 \\
+close\_laptop\_lid & 100.0$\pm$0.0 & 11.1$\pm$15.7 & 82.7$\pm$3.8 & -- & -- & -- & 67.9$\pm$14.6 & -- & 89.3$\pm$8.2 & 92.0$\pm$0.0 & 97.3$\pm$3.8 & 82.7$\pm$6.8 & 96.0$\pm$3.3 & 100.0$\pm$0.0 & 96.0$\pm$0.0 \\
+empty\_dishwasher & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 1.3$\pm$1.9 & 1.3$\pm$1.9 & -- & 1.3$\pm$1.9 & 4.0$\pm$3.3 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 1.3$\pm$1.9 & 1.3$\pm$1.9 & 0.0$\pm$0.0 \\
+get\_ice\_from\_fridge & 94.7$\pm$1.9 & 5.3$\pm$1.9 & 86.7$\pm$1.9 & 90.7$\pm$7.5 & 90.7$\pm$5.0 & -- & 84.0$\pm$3.3 & 73.3$\pm$1.9 & 96.0$\pm$3.3 & 98.7$\pm$1.9 & 89.3$\pm$7.5 & 56.0$\pm$8.6 & 94.7$\pm$1.9 & 96.0$\pm$3.3 & 98.7$\pm$1.9 \\
+hockey & 57.3$\pm$5.0 & 9.3$\pm$3.8 & 44.0$\pm$6.5 & 50.7$\pm$8.2 & -- & 50.7$\pm$13.2 & 46.7$\pm$8.2 & 65.3$\pm$5.0 & 45.3$\pm$1.9 & 64.0$\pm$8.6 & 53.3$\pm$1.9 & 20.0$\pm$3.3 & 56.0$\pm$5.7 & 49.3$\pm$5.0 & 50.7$\pm$5.0 \\
+insert\_onto\_square\_peg & 93.3$\pm$3.8 & 23.3$\pm$2.4 & 52.0$\pm$3.3 & 94.7$\pm$1.9 & -- & 76.0$\pm$8.6 & 85.3$\pm$3.8 & 70.7$\pm$3.8 & 84.0$\pm$0.0 & 88.0$\pm$3.3 & 88.0$\pm$3.3 & 44.0$\pm$11.8 & 86.7$\pm$1.9 & 77.3$\pm$5.0 & 96.0$\pm$0.0 \\
+meat\_on\_grill & 96.0$\pm$0.0 & 9.3$\pm$1.9 & 32.0$\pm$0.0 & 88.0$\pm$5.7 & -- & -- & 100.0$\pm$0.0 & -- & 100.0$\pm$0.0 & 92.0$\pm$6.5 & 90.7$\pm$1.9 & 98.7$\pm$1.9 & 97.3$\pm$1.9 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+move\_hanger & 37.3$\pm$3.8 & 2.7$\pm$3.8 & 26.7$\pm$3.8 & 46.7$\pm$3.8 & -- & -- & -- & -- & 52.0$\pm$0.0 & 84.0$\pm$0.0 & 52.0$\pm$5.7 & 52.0$\pm$5.7 & 33.3$\pm$5.0 & 42.7$\pm$1.9 & 24.0$\pm$0.0 \\
+open\_drawer & 96.0$\pm$0.0 & 60.0$\pm$3.3 & 97.3$\pm$1.9 & -- & -- & -- & 90.7$\pm$1.9 & -- & 88.0$\pm$3.3 & 93.3$\pm$1.9 & 100.0$\pm$0.0 & 90.7$\pm$1.9 & 100.0$\pm$0.0 & 94.7$\pm$1.9 & 96.0$\pm$0.0 \\
+place\_wine\_at\_rack\_location & 88.0$\pm$5.7 & 17.3$\pm$13.6 & 82.7$\pm$5.0 & 89.3$\pm$7.5 & -- & 92.0$\pm$6.5 & 93.3$\pm$3.8 & 90.7$\pm$3.8 & 90.7$\pm$5.0 & 97.3$\pm$1.9 & 88.0$\pm$3.3 & 74.7$\pm$3.8 & 90.7$\pm$6.8 & 92.0$\pm$3.3 & 92.0$\pm$8.6 \\
+put\_money\_in\_safe & 94.7$\pm$1.9 & 6.7$\pm$5.0 & 78.7$\pm$1.9 & 74.7$\pm$1.9 & 81.3$\pm$6.8 & 89.3$\pm$5.0 & 92.0$\pm$3.3 & -- & 37.3$\pm$12.4 & 84.0$\pm$3.3 & 84.0$\pm$3.3 & 84.0$\pm$3.3 & 89.3$\pm$1.9 & 86.7$\pm$8.2 & 86.7$\pm$1.9 \\
+reach\_and\_drag & 100.0$\pm$0.0 & 0.0$\pm$0.0 & 89.3$\pm$3.8 & 96.0$\pm$0.0 & 94.7$\pm$5.0 & 84.0$\pm$5.7 & 94.7$\pm$1.9 & 38.7$\pm$5.0 & 92.0$\pm$3.3 & 88.0$\pm$5.7 & 78.7$\pm$3.8 & 28.0$\pm$8.6 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 94.7$\pm$3.8 \\
+scoop\_with\_spatula & 96.0$\pm$3.3 & 6.7$\pm$1.9 & 94.7$\pm$1.9 & 93.3$\pm$1.9 & 85.3$\pm$3.8 & 85.3$\pm$3.8 & 78.7$\pm$3.8 & 86.7$\pm$5.0 & 90.7$\pm$1.9 & 88.0$\pm$6.5 & 77.3$\pm$1.9 & 20.0$\pm$5.7 & 90.7$\pm$6.8 & 89.3$\pm$1.9 & 93.3$\pm$1.9 \\
+setup\_chess & 10.7$\pm$1.9 & 0.0$\pm$0.0 & 1.3$\pm$1.9 & 8.0$\pm$0.0 & 8.0$\pm$3.3 & -- & 13.3$\pm$1.9 & -- & 12.0$\pm$5.7 & 21.3$\pm$8.2 & 13.3$\pm$3.8 & 5.3$\pm$1.9 & 20.0$\pm$5.7 & 16.0$\pm$5.7 & 4.0$\pm$3.3 \\
+slide\_block\_to\_target & 100.0$\pm$0.0 & 24.0$\pm$3.3 & 74.7$\pm$1.9 & -- & 92.0$\pm$3.3 & -- & -- & -- & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 98.7$\pm$1.9 & 84.0$\pm$9.8 & 100.0$\pm$0.0 & 100.0$\pm$0.0 & 100.0$\pm$0.0 \\
+stack\_cups & 58.7$\pm$3.8 & 29.3$\pm$1.9 & 66.7$\pm$1.9 & -- & 50.7$\pm$1.9 & -- & 44.0$\pm$3.3 & -- & 62.7$\pm$1.9 & 64.0$\pm$3.3 & 65.3$\pm$8.2 & 26.7$\pm$7.5 & 73.3$\pm$8.2 & 64.0$\pm$14.2 & 72.0$\pm$8.6 \\
+straighten\_rope & 61.3$\pm$6.8 & 8.0$\pm$5.7 & 16.0$\pm$5.7 & -- & 48.0$\pm$3.3 & -- & -- & -- & 61.3$\pm$9.4 & 65.3$\pm$1.9 & 54.7$\pm$8.2 & 37.3$\pm$5.0 & 70.7$\pm$8.2 & 66.7$\pm$7.5 & 72.0$\pm$6.5 \\
+turn\_oven\_on & 93.3$\pm$1.9 & 85.3$\pm$3.8 & 94.7$\pm$3.8 & -- & -- & -- & 90.7$\pm$1.9 & -- & 93.3$\pm$3.8 & 94.7$\pm$7.5 & 96.0$\pm$3.3 & 96.0$\pm$3.3 & 96.0$\pm$0.0 & 88.0$\pm$3.3 & 100.0$\pm$0.0 \\
+wipe\_desk & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & -- & 0.0$\pm$0.0 & -- & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 & 0.0$\pm$0.0 \\
+\midrule
+Task Mean & 73.9$\pm$0.7 & 18.7$\pm$2.2 & 60.5$\pm$1.1 & 63.8$\pm$0.1 & 63.5$\pm$1.5 & 68.4$\pm$3.3 & 69.3$\pm$1.0 & 61.7$\pm$0.8 & 69.7$\pm$1.2 & 75.7$\pm$0.9 & 71.3$\pm$0.7 & 51.8$\pm$1.5 & 74.8$\pm$1.0 & 73.1$\pm$0.2 & 73.8$\pm$0.3 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

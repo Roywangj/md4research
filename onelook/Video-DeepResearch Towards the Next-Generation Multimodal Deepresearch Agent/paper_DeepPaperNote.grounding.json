@@ -1,0 +1,139 @@
+{
+  "paper_id": "2608.03979",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/9FZK7FJH/Fang 等 - 2026 - Video-DeepResearch Towards the Next-Generation Multimodal Deepresearch Agent.pdf",
+  "extract_dir": "_extract",
+  "claims": [
+    {
+      "id": "abstract_sota",
+      "claim": "Video-DeepResearch-35B-A3B 平均 64.0%，超过 Claude-4.5-Sonnet 59.0 计 5.0 分；GPT-5 52.5；Gemini 2.5 Pro 57.5；30B-A3B 为 59.3%。",
+      "pages": [1, 7],
+      "section": "Abstract / §4.2 / Table 3",
+      "evidence": "Abstract lines and Table 3 Avg column. 35B Video-DR 68.0, VideoDR-Bench Overall 60.0."
+    },
+    {
+      "id": "base_deltas",
+      "claim": "30B 相对 Qwen3-VL-30B-A3B-Instruct 为 38.0/43.0/40.5 → 62.0/56.5/59.3（+24.0/+13.5/+18.8）。35B 相对 Qwen3.5-35B-A3B 为 42.0/43.5/42.8 → 68.0/60.0/64.0（+26.0/+16.5/+21.2）。",
+      "pages": [7],
+      "section": "Table 3",
+      "evidence": "Improvement rows under each Ours model."
+    },
+    {
+      "id": "naive_attempt_table1",
+      "claim": "Naive 迁移在 VideoDR（Liu et al. 2026）上：Qwen3.5-35B-A3B Acc 41、视觉 0.04、文本 0.58；397B-A17B Acc 58、视觉 0.10、文本 1.27；GPT-5 Acc 57、视觉 0.00、文本 0.12。",
+      "pages": [3],
+      "section": "§2 Table 1",
+      "evidence": "Finding 1 modality bias; Finding 2 parametric leakage."
+    },
+    {
+      "id": "tool_unlock",
+      "claim": "轨迹生成采用分阶段工具解锁：感知阶段仅 Select_Keyframe 与 Crop_Search，之后才开放 Search/Visit。",
+      "pages": [4, 5, 20],
+      "section": "§3.2 / Fig. 3 / Table 6",
+      "evidence": "Sec. 3.2 stage-wise unlocking; Table 6 caption: select_crop_search only in exploration, search and visit added in answering."
+    },
+    {
+      "id": "data_engine_scale",
+      "claim": "约 30K 视频问答与 7K 成功轨迹；SFT 另混 7K VDR 文本问答。",
+      "pages": [2, 5],
+      "section": "Contributions / §3.1–3.3",
+      "evidence": "30k vqa pairs after leakage filter; 7k correct trajectories; additional 7K text-only QA from VDR (Huang et al. 2026)."
+    },
+    {
+      "id": "grpo_recipe",
+      "claim": "GRPO：每题 4 次 rollout，保留 Pass@4∈(0,1) 的 2K；稀疏 0/1 奖励由 Qwen3-VL-30B-A3B-Instruct 判定；格式/循环负梯度 20% 降采样；目标为式 (3)。",
+      "pages": [5, 6],
+      "section": "§3.3 RL",
+      "evidence": "Pages 5–6 around Eq. (3)."
+    },
+    {
+      "id": "bench_size_conflict",
+      "claim": "VideoDR-Bench 规模在文内冲突：摘要/贡献/结论写 200 道；§4.1 写 100 条人工标注问答；Table 2 合计 200。",
+      "pages": [1, 2, 6, 7, 10],
+      "section": "Abstract / Contributions / §3.4 Table 2 / §4.1 / Conclusion",
+      "evidence": "Abstract: 200 complex multi-hop VQA; §4.1: 100 human-annotated VQA pairs; Table 2 Short 92 + Medium 68 + Long 40 = 200."
+    },
+    {
+      "id": "duration_table2",
+      "claim": "时长：短 ≤2 分钟 92（46%）；中 2–10 分钟 68（34%）；长 ≥10 分钟 40（20%）。",
+      "pages": [6],
+      "section": "Table 2",
+      "evidence": "Video Length Distribution of VIDEODR-BENCH."
+    },
+    {
+      "id": "table4_tool_counts",
+      "claim": "30B Ours 在 VideoDR 上视觉/文本 2.33/4.24，对比 397B 0.10/1.27 与 GPT-5 0.00/0.12。",
+      "pages": [8],
+      "section": "Table 4 / §4.3",
+      "evidence": "Table 4; prose attributes Ours to VIDEO-DEEPRESEARCH-30B."
+    },
+    {
+      "id": "table5_ablation",
+      "claim": "30B 平均 Base 40.5 → 4k-SFT 46.0 → 7K-SFT 53.0 → 7K-SFT+7k-text-SFT 56.8 → 14k-SFT+2K-RL 59.3。",
+      "pages": [8, 9],
+      "section": "Table 5 / §4.4",
+      "evidence": "Ablation on VIDEO-DEEPRESEARCH-30B. Prose about Bench vs VideoDR gain contradicts the arithmetic."
+    },
+    {
+      "id": "judge_protocol",
+      "claim": "正确性由 Qwen3-VL-30B-A3B-Instruct 判定，采用 Tongyi DeepResearch 官方裁判提示。",
+      "pages": [6, 7],
+      "section": "§4.1",
+      "evidence": "Experimental Setups paragraph after Agentic setting."
+    },
+    {
+      "id": "sft_hparams",
+      "claim": "SFT：4 节点共 32 张 80GB GPU，Megatron-LM，80k 上下文，TP4/CP2/EP8，3 epoch，GBS 64，峰值 lr 1e-5。",
+      "pages": [5, 13],
+      "section": "§3.3 / Appendix B",
+      "evidence": "Main text: four NVIDIA H800 80GB nodes. Appendix B full SFT recipe. GRPO lr/ε/β not listed."
+    },
+    {
+      "id": "keyframe_preprocess",
+      "claim": "CLIP-ViT-L/14@336px，相似>0.8 丢相邻帧，最多 20 关键帧，训练与评测共用。",
+      "pages": [13],
+      "section": "Appendix C",
+      "evidence": "Data Details."
+    },
+    {
+      "id": "videohunt_alias",
+      "claim": "附录 D 将基准构建称为 VIDEOHUNT，与正文 VideoDR-Bench 名称不一致。",
+      "pages": [13, 14],
+      "section": "Appendix D",
+      "evidence": "The construction of VIDEOHUNT involves..."
+    },
+    {
+      "id": "bbox_schema_conflict",
+      "claim": "框坐标规范冲突：Table 6 为 [0,1]，Fig. 5/8 为 0–1000。",
+      "pages": [16, 19, 20],
+      "section": "Fig. 5 / Fig. 8 / Table 6",
+      "evidence": "Prompt bbox 0–1000; Table 6 normalised 0.0≤x1<x2≤1.0."
+    },
+    {
+      "id": "news_regression",
+      "claim": "35B 新闻类 41.7，低于 30B 的 58.3；作者承认域转移问题。",
+      "pages": [7, 8],
+      "section": "§4.2 Fine-Grained / Scaling Insight",
+      "evidence": "VIDEO-DEEPRESEARCH-35B (41.7%) suggests potential domain transfer challenges."
+    },
+    {
+      "id": "body_65_4_typo",
+      "claim": "正文写 35B 在 VideoDR-Bench 上 65.4%，Table 3 Overall 为 60.0%。",
+      "pages": [7],
+      "section": "§4.2 vs Table 3",
+      "evidence": "Narrative: highest score on VIDEODR-BENCH (65.4%); table Overall 60.0."
+    }
+  ],
+  "required_evidence_coverage": {
+    "headline_numbers": true,
+    "table1_naive_attempt": true,
+    "decoupled_perception_exploration": true,
+    "data_engine_30k_7k": true,
+    "two_stage_sft_grpo": true,
+    "bench_100_vs_200": true,
+    "table2_duration": true,
+    "table4_tool_usage": true,
+    "table5_ablation": true,
+    "judge_qwen30b": true,
+    "table6_tools": true
+  }
+}

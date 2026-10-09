@@ -1,0 +1,96 @@
+{
+  "status": "ok",
+  "script": "collect_metadata.py",
+  "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+  "translated_title": "",
+  "authors": [
+    "Li et al."
+  ],
+  "affiliations": [],
+  "year": "2026",
+  "venue": "",
+  "doi": "",
+  "arxiv_id": "",
+  "source_url": "",
+  "pdf_url": "",
+  "local_pdf_path": "/Users/roywangj/research/papers4zotero/zotero1/storage/ARI4BIJK/Li 等 - 2026 - GeoAnchor Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding.pdf",
+  "zotero_key": "",
+  "abstract": "",
+  "source_type": "pdf-text",
+  "metadata_sources": [
+    "seed_record"
+  ],
+  "paper_id": "title:8d00f94d5bee",
+  "identity_observations": [
+    {
+      "provider": "openalex",
+      "retrieved_by": {
+        "kind": "title",
+        "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+      },
+      "record": {
+        "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+        "authors": [
+          "Hao Li",
+          "Han Fang",
+          "Zixin Pan",
+          "Xin Wei",
+          "Hongbo Sun",
+          "J Q Xu",
+          "Zhiyu Lin",
+          "Ye Yuan",
+          "Zhongjiang He",
+          "Yu Yu",
+          "Hao Sun"
+        ],
+        "affiliations": [],
+        "venue": "arXiv (Cornell University)",
+        "year": "2026",
+        "doi": "10.48550/arxiv.2607.13454",
+        "source": "openalex",
+        "source_type": "openalex",
+        "source_url": "https://doi.org/10.48550/arxiv.2607.13454",
+        "pdf_url": "",
+        "abstract": "",
+        "metadata_sources": [
+          "openalex"
+        ]
+      }
+    },
+    {
+      "provider": "arxiv",
+      "retrieved_by": {
+        "kind": "title",
+        "value": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding"
+      },
+      "record": {
+        "source": "arxiv",
+        "source_type": "arxiv",
+        "metadata_sources": [
+          "arxiv"
+        ],
+        "source_url": "http://arxiv.org/abs/2607.13454v2",
+        "url": "http://arxiv.org/abs/2607.13454v2",
+        "arxiv_id": "2607.13454",
+        "title": "GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding",
+        "abstract": "Although multimodal large language models (MLLMs) have achieved remarkable progress, understanding 3D spatial relationships from 2D images remains a critical challenge. Existing methods primarily rely on symbolic text tokens, which inherently lack the fidelity to represent continuous geometric information. While recent methods use latent representations to enhance reasoning, relying on a single latent type cannot adapt to the diversity of spatial tasks, leading to misalignment in complex geometric scenarios. To address these limitations, we propose GeoAnchor, an interleaved text-latent reasoning framework. GeoAnchor decomposes 3D spatial information into three complementary components: position latents for object grounding, direction latents for relational orientation, and geometry latents for scene structure. These components are recombined in a structured space to construct local evidence while capturing global context, enabling dynamic and interpretable reasoning. Furthermore, we introduce a collaborative training strategy that guides the model from local spatial perception to comprehensive 3D understanding. Extensive experiments on diverse and complex 3D reasoning tasks demonstrate that GeoAnchor outperforms the state of the art, validating its effectiveness and generalization capabilities.",
+        "authors": [
+          "Hao Li",
+          "Han Fang",
+          "Zixin Pan",
+          "Xin Wei",
+          "Hongbo Sun",
+          "Jinglin Xu",
+          "Zhiyu Lin",
+          "Ye Yuan",
+          "Zhongjiang He",
+          "Yu Yu",
+          "Hao Sun"
+        ],
+        "published": "2026-07-15T05:27:37Z",
+        "year": "2026",
+        "pdf_url": "https://arxiv.org/pdf/2607.13454v2"
+      }
+    }
+  ]
+}

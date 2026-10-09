@@ -1,0 +1,49 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "全基准战绩总览图：直观呈现 SimpleMemVLA 在 4 大记忆基准与 2 大通用基准上的压倒性优势"
+    },
+    {
+      "figure_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "硬件配置元组表：展现跨 6 大任务平台仅需调节 (Chist, Ccur, Tw, fv, H, da) 的自适应极简适配性"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "架构与流式推断图：清晰拆解原生视频自注意力读取、极窄文本通道以及动作掩盖前缀预填充全景"
+    },
+    {
+      "figure_id": "Figure 11",
+      "file": "images/figure_11.png",
+      "role": "SWA 变体机制图：展示 8 层 Softmax 滑动逐出与 24 层线性注意力持续累积的常数显存架构"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "受限记忆接口消融图：严格固定底座下，量化证明原生视频相比检索与压缩在 16 项任务上的绝对统治"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "反事实因果干预图：实证伪造线索在 86%–98% 下引导动作偏转，证实策略真实读取时序记忆并涌现上下文学习"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "推断延迟与扩展图：展示后台预填充将延迟从 1.02s 压至 0.68s，并在 15 分钟长程下保持近乎恒定"
+    },
+    {
+      "figure_id": "Figure 12",
+      "file": "images/figure_12.png",
+      "role": "SWA 恒定延迟图：证实 SWA 变体在无界长程下将推断延迟绝对锁定在 0.92s"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "深度消融图：量化剖析窗口滑出断崖、时间戳置零衰减、帧序打乱惩罚及子任务隐状态反事实操控"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "paper_id": "arxiv:2608.09682",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HQYRZEGU/Shao 等 - 2026 - Thinking With Tools, Not With Pixels Tool Calls as Text Scaffolds for Visual Reasoning.pdf",
+  "pages": 33,
+  "decisions": [
+    {"id":"fig_main_protocol","decision":"insert","asset":"assets/page_002.png","caption":"TextCall keeps tool calls and execution confirmations while replacing returned images with [Image output skipped].","caption_cn":"TextCall 保留工具调用与执行确认，只把返回图像替换为 [Image output skipped]。","reason":"central method identity"},
+    {"id":"table_main_results","decision":"transcribe","asset":null,"caption":"Main results across LoRA, full fine-tuning, SFT and GRPO settings.","caption_cn":"LoRA、全量微调、SFT 与 GRPO 设置下的主要结果。","reason":"searchable quantitative evidence"},
+    {"id":"table_scaffold_audit","decision":"transcribe","asset":null,"caption":"Factorial audit compares question-only, image-only, scaffold-only and image-plus-scaffold conditions.","caption_cn":"析因审计比较仅问题、仅图像、仅脚手架以及图像加脚手架条件。","reason":"causal/mechanism evidence"},
+    {"id":"fig_rl_dynamics","decision":"insert","asset":"assets/page_031.png","caption":"Matched GRPO training dynamics and tool-call-rate recovery.","caption_cn":"匹配 GRPO 训练动态与工具调用率恢复。","reason":"important training-dynamics caveat"},
+    {"id":"table_latency_cost","decision":"transcribe","asset":null,"caption":"Latency, visual-token overhead, GPU hours and memory trade-offs.","caption_cn":"延迟、视觉 token 开销、GPU 时长与内存开销对比。","reason":"deployment evidence"}
+  ],
+  "coverage": {"major_figures":5,"inserted_assets":2,"transcribed_tables":3,"unresolved_visuals":0},
+  "note":"The note uses selected page-level assets; the full PDF remains the authority for every figure and reference entry."
+}

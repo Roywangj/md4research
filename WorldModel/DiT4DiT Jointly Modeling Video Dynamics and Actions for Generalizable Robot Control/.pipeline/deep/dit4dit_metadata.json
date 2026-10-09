@@ -1,0 +1,41 @@
+{
+  "status": "ok",
+  "source_type": "local_pdf",
+  "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KWEE8R4V/Ma 等 - 2026 - DiT4DiT Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control.pdf",
+  "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/KWEE8R4V/Ma 等 - 2026 - DiT4DiT Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control.pdf",
+  "title": "DiT4DiT: Jointly Modeling Video Dynamics and Actions for Generalizable Robot Control",
+  "metadata_sources": [
+    "local_pdf",
+    "arxiv",
+    "openalex"
+  ],
+  "local_pdf_title_source": "pdf_metadata_title_used",
+  "local_pdf_artifact_title": true,
+  "arxiv_id": "2603.10448",
+  "paper_id": "arxiv:2603.10448",
+  "identity_confidence": "high",
+  "identity_confidence_reasons": [
+    "arxiv_id_present",
+    "pdf_metadata_title_used",
+    "local_pdf_artifact_title",
+    "doi_present"
+  ],
+  "source": "arxiv",
+  "url": "http://arxiv.org/abs/2603.10448v2",
+  "abstract": "Vision-Language-Action (VLA) models have emerged as a promising paradigm for robot learning, but their representations are still largely inherited from static image-text pretraining, leaving physical dynamics to be learned from comparatively limited action data. Generative video models, by contrast, encode rich spatiotemporal structure and implicit physics, making them a compelling foundation for robotic manipulation. But their potentials are not fully explored in the literature. To bridge the gap, we introduce DiT4DiT, an end-to-end Video-Action Model that couples a video Diffusion Transformer with an action Diffusion Transformer in a unified cascaded framework. Instead of relying on reconstructed future frames, DiT4DiT extracts intermediate denoising features from the video generation process and uses them as temporally grounded conditions for action prediction. We further propose a dual flow-matching objective with decoupled timesteps and noise scales for video prediction, hidden-state extraction, and action inference, enabling coherent joint training of both modules. Across simulation and real-world benchmarks, DiT4DiT achieves state-of-the-art results, reaching average success rates of 98.6% on LIBERO and 50.8% on RoboCasa GR1 while using substantially less training data. On the Unitree G1 robot, it also delivers superior real-world performance and strong zero-shot generalization. Importantly, DiT4DiT improves sample efficiency by over 10x and speeds up convergence by up to 7x, demonstrating that video generation can serve as an effective scaling proxy for robot policy learning. We release code and models at https://dit4dit.github.io/.",
+  "authors": [
+    "Teli Ma",
+    "Jia Zheng",
+    "Zifan Wang",
+    "Chunli Jiang",
+    "Andy Cui",
+    "Junwei Liang",
+    "Shuo Yang"
+  ],
+  "published": "2026-03-11T06:03:53Z",
+  "year": "2026",
+  "pdf_url": "https://arxiv.org/pdf/2603.10448v2",
+  "venue": "arXiv (Cornell University)",
+  "doi": "10.48550/arxiv.2603.10448",
+  "script": "collect_metadata.py"
+}

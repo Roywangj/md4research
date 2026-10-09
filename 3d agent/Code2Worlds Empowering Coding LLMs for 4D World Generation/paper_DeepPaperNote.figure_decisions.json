@@ -1,0 +1,616 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2602.11757",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of Code2Worlds. Top: Decomposition of intrinsic attributes (lighting, color, gray). Bottom: A summer forest",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_001_fig_figure_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Code2Worlds Execution Pipeline. The framework generates 4D scenes via a dual-stream architecture: 1) an Object Stream",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_003_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_003_fig_figure_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "A detailed workflow for generating a 4D scene, integrating environmental scene, object generation, and feedback-driven",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:model",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_005_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_005_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_005_fig_figure_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "A series of environmental effects rendered in different",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Unified 4D Scene generation Framework",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:background",
+      "decision": "placeholder",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Example of leaf parameter",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Example of jellyfish parameter",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Example of cup and bowl parameter",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Example of leaf code",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Example of jellyfish code",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Example of cup and bowl code",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "visual_defect",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_019_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_019_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_019_fig_figure_10.png"
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Key frames of the wind scene.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "insert",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_020_fig_figure_11.png",
+      "relative_markdown_embed": "![Figure 11](images/page_020_fig_figure_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_020_fig_figure_11.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "Figure: Key frames of the relighting scene.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Key frames of the falling leaves scene.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 14",
+      "source_id": "Figure 14",
+      "kind": "figure",
+      "label": "Figure 14",
+      "caption": "Key frames of the rainy forest scene.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 15",
+      "source_id": "Figure 15",
+      "kind": "figure",
+      "label": "Figure 15",
+      "caption": "Key frames of the desert scene.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 16",
+      "source_id": "Figure 16",
+      "kind": "figure",
+      "label": "Figure 16",
+      "caption": "Key frames of the moving jellyfish scene.",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 17",
+      "source_id": "Figure 17",
+      "kind": "figure",
+      "label": "Figure 17",
+      "caption": "Key frames of the burning tree scene.",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 18",
+      "source_id": "Figure 18",
+      "kind": "figure",
+      "label": "Figure 18",
+      "caption": "Key frames of the spilling water scene.",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 19",
+      "source_id": "Figure 19",
+      "kind": "figure",
+      "label": "Figure 19",
+      "caption": "Key frames of the rolling bottle scene.",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 20",
+      "source_id": "Figure 20",
+      "kind": "figure",
+      "label": "Figure 20",
+      "caption": "Key frames of the coffee cup scene.",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 21",
+      "source_id": "Figure 21",
+      "kind": "figure",
+      "label": "Figure 21",
+      "caption": "Example of Prompt",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 22",
+      "source_id": "Figure 22",
+      "kind": "figure",
+      "label": "Figure 22",
+      "caption": "Example of leaf Prompt",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 23",
+      "source_id": "Figure 23",
+      "kind": "figure",
+      "label": "Figure 23",
+      "caption": "Example of leaf Prompt",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 24",
+      "source_id": "Figure 24",
+      "kind": "figure",
+      "label": "Figure 24",
+      "caption": "Example of leaf Prompt",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 25",
+      "source_id": "Figure 25",
+      "kind": "figure",
+      "label": "Figure 25",
+      "caption": "Example of leaf Prompt",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "We compare methods under the Code4D criteria. Text Control: generation conditioned on natural language prompts; Static",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:model",
+      "decision": "insert",
+      "reason": "人工检查后确认表格完整清晰，可用于比较文本控制、静态布局、对象细节、动态、时间一致性和自反思能力。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_006_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "The top panel compares our framework with code-centric methods in static object and scene generation, while the bottom panel",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_007_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Ablation on object generation components.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:background",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_008_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_008_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Ablation on self-reflection mechanisms.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:background",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_008_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_008_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_008_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Ablation on scene composition components.",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_011_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_011_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_011_fig_table_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Example of prompts",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:appendix-for-code2worlds",
+      "decision": "visual_defect",
+      "reason": "人工检查后发现候选裁图只保留了表头和第一条提示，缺失其余九条 Code4D 提示，无法完整表达表格内容。",
+      "skip_reason": "incomplete_table_crop",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_012_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_012_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/Code2Worlds_Empowering_Coding_LLMs_for_4D_World_Generation/images/page_012_fig_table_6.png",
+      "materialization_status": "rejected_after_manual_review"
+    }
+  ],
+  "summary": {
+    "total_items": 32,
+    "by_decision": {
+      "insert": 9,
+      "low_priority": 20,
+      "placeholder": 1,
+      "skip": 0,
+      "visual_defect": 2
+    }
+  }
+}

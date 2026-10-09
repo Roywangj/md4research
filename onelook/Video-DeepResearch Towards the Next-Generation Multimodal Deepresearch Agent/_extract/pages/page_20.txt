@@ -1,0 +1,59 @@
+Table 6: Tools available to the agent. select_crop_search is the only tool exposed during the exploration phase;
+search and visit are added in the answering phase.
+Parameter
+Type
+Req.
+Description
+select_crop_search — pick frames, crop a bounding box from each, run a reverse-image / visual web search per crop.
+selections
+list of objects (1–8)
+✓
+A batch of (frame, bbox) selections to crop and
+search in a single call. Use several selections to
+cast a wide net, or a single tight crop to zoom in
+on one discriminative region.
+.frame_index
+integer (≥0)
+✓
+0-based index of the frame in the video’s frame
+list.
+.bbox
+list[float], length 4
+✓
+Crop region in normalised [x1, y1, x2, y2] coordi-
+nates with 0.0 ≤x1 < x2 ≤1.0 and 0.0 ≤y1 <
+y2 ≤1.0. Use [0, 0, 1, 1] for the full frame.
+goal
+string
+✓
+Precise statement of what to identify and the fact
+to look up about it.
+Returns: for each crop, the top web results (title, URL, snippet) and any recognised entities (people, products, logos,
+landmarks).
+search — run a web search and return the top results from Google / Serper / Zhipu (with automatic fallback).
+query
+string or list[string]
+✓
+A single search query or a list of queries run in
+parallel. Prefer several short, focused queries over
+one long compound query.
+num_results
+integer
+—
+Max results returned per query (default 10).
+Returns: per query, an ordered list of { title, url, snippet } entries.
+visit — fetch one or more web pages and have a summary model distil them into a goal-conditioned JSON.
+url
+string or list[string]
+✓
+The URL to fetch, or a list of URLs to fetch in
+parallel. Typically a URL returned by an earlier
+search call.
+goal
+string
+✓
+Precise statement of what to look for on the page;
+the summary model uses it to decide what to keep
+vs. discard.
+Returns: per URL, a JSON object with rational (why the page is relevant), evidence (verbatim supporting spans), and
+summary (one-paragraph synthesis). Raw HTML is not exposed to the agent.

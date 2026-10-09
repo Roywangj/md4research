@@ -1,0 +1,40 @@
+% table* with the 13 tasks split into two side-by-side halves (7 | 6): as a
+% single-column float this table stranded on a half-empty float column at the
+% end of the appendix; full width it shares the closing table float page
+% (flushed by the \clearpage before the figure gallery) with the RMBench
+% ablation and the Dobot per-instruction table.
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Per-Task Real-Robot Results on Franka: 3 vs.\ 10 Demonstrations.}
+Success counts of \method\ over 10 trials per task in the Basic
+setting (Appendix~\ref{app:real_franka}) when trained with 3 or 10
+demonstrations per task.}
+\label{tab:app:real_episode}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{lcc@{\hspace{3em}}lcc}
+\toprule
+\textbf{Task} & \textbf{3 demos} & \textbf{10 demos}
+& \textbf{Task} & \textbf{3 demos} & \textbf{10 demos} \\
+\midrule
+Put the RedBull can in the top shelf        & 9/10  & 10/10
+& Place the red block in the purple plate    & 10/10 & 10/10 \\
+Put the soda can in the bottom shelf        & 9/10  & 9/10
+& Place the yellow block in the green plate  & 10/10 & 10/10 \\
+Put the RedBull can in the bottom shelf     & 10/10 & 10/10
+& Press sanitizer                            & 10/10 & 10/10 \\
+Put the coke can in the top shelf           & 10/10 & 10/10
+& Put the zebra in the upper drawer          & 9/10  & 9/10 \\
+Place the red block in the blue plate       & 10/10 & 10/10
+& Put the giraffe in the lower drawer        & 10/10 & 9/10 \\
+Place the orange block in the green plate   & 10/10 & 10/10
+& Put the zebra in the lower drawer          & 10/10 & 10/10 \\
+Put the wolf in the upper drawer            & 7/10  & 9/10
+&                                            &       &       \\
+\bottomrule
+\end{tabular}
+\end{table*}

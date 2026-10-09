@@ -1,0 +1,197 @@
+{
+  "paper_type": "benchmark_or_dataset",
+  "paper_type_rationale": "论文的核心交付是 P3D-Bench/P3D-Dataset 及其可执行评测协议：它不提出新的生成模型，而是把代码生成式参数化 3D 的可执行性、几何精度、拓扑、语义/参数约束和部件结构拆开测量，并用通用 LLM/MLLM 与领域模型建立基线。",
+  "dominant_domain": "executable parametric 3D generation benchmark, CAD code generation, structural reasoning and agentic code revision",
+  "must_cover": [
+    "把参数化 3D 生成定义为从条件 c 与目标格式 phi 生成程序 f_pi，并由确定性执行器 E_phi 得到 3D 输出的代码重建任务。",
+    "三类任务：Text-to-3D、Image-to-3D、Assembly-3D；四种输出格式：minimal JSON、OpenSCAD、CadQuery、Three.js。",
+    "P3D-Dataset 来自 Text2CAD v1.1 的 176,017 个单部件程序与 Fusion 360 Gallery 的 8,251 个装配体，最终形成 400/400/203 个评测案例。",
+    "数据构建包含确定性筛选、Gemini 3.1 Pro 复核、DINOv2 去近重复、复杂度平衡采样，以及 GPT-5.5/Claude Opus 4.6 生成并验证文本与部件标注。",
+    "评测先执行、渲染、对齐，再报告 Valid 和 Geo、Topo、Judge、Part 四个 bucket；无效输出在下游指标中取最差值。",
+    "Judge 同时使用 QA-S/QA-P 与 J-Sem/J-Geo/J-Aes；Part 通过固定分解 MLLM、保真门、去重、姿态对齐与匈牙利匹配得到 PartFS 和 PartMatchF1。",
+    "主结果显示 GPT-5.5、Gemini 3.1 Pro 居前，通用模型明显超过领域模型，但语义正确与参数/几何正确之间仍有巨大差距。",
+    "OpenSCAD 最稳健；CadQuery 容易在参数和几何内核阶段失败；Three.js 因三角网格表示在拓扑和部件结构上吃亏。",
+    "额外实验包括思考预算、多轮视觉反馈、Image-to-3D/Assembly-3D 共享案例、分解保真度与成本—质量分析。",
+    "边界包括闭源模型与 MLLM 评审器依赖、自动标注偏差、两类 CAD 数据源与九种任务—格式组合、单视图歧义、成本和版本漂移。"
+  ],
+  "key_numbers": [
+    "原始数据源为 Text2CAD v1.1 的 176,017 个单部件程序和 Fusion 360 Gallery 的 8,251 个多部件装配体。",
+    "最终基准包含 400 个 Text-to-3D、400 个 Image-to-3D 和 203 个 Assembly-3D 案例。",
+    "Text-to-3D 有 6 个类别，support mounting 占 67.2%；Image-to-3D 有 13 个类别，mechanical system 占 33.2%。",
+    "Text-to-3D 复杂度采样为 50/200/150，Image-to-3D 为 80/160/160。",
+    "评估 8 个多模态通用模型、3 个文本模型和 3 个领域模型。",
+    "Figure 1 中 GPT-5.5 的 Text/Image/Assembly 总分为 84.7/67.5/68.0；Gemini 3.1 Pro 为 83.5/66.7/65.9。",
+    "跨模型 bucket 均值从 Text-to-3D 的 Geo 0.67、Topo 0.98、Judge 0.73，下降到 Image-to-3D 的 0.46/0.84/0.35，再到 Assembly-3D 的 Geo 0.41、Topo 0.78、Judge 0.28、Part 0.47。",
+    "GPT-5.5 在 Assembly-3D 的跨格式平均 Geo/Topo/Judge/Part/Valid 为 0.586/0.966/0.541/0.629/0.985。",
+    "GPT-5.5 在 Assembly-3D 的 PartFS 约 0.73，而 PartMatchF1 仅约 0.5；语义 J-Sem 约 0.8，几何 J-Geo 约 0.35。",
+    "Text-to-3D 无效程序中 Syntax 占 descriptive 73%、parametric 50%；CadQuery 在 Image/Assembly 上的 Parameter 失败占 55%/54%，Geometry 失败占 24%/27%。",
+    "提高思考预算的跨模型、跨格式平均收益仅 +0.034；Kimi K2.6 收益最大，为 +0.106，MiMo 略降 -0.006。",
+    "多轮反馈使 Gemini 3.1 Pro 的 Image-to-3D/OpenSCAD 平均分从 0.715 升到 0.745，平均 7.9 轮；GPT-5.5 从 0.720 到 0.722，平均 1.5 轮。",
+    "Gemini 3.1 Pro 有 51% 的多轮运行达到 10 轮上限；GPT-5.5 有 62% 在第一轮后停止。",
+    "203 个共享案例上，Assembly-3D 相对 Image-to-3D 的跨格式共享 bucket 平均变化为 -0.040；仅 GPT-5.5 为 +0.008。",
+    "分解保真门使用 D_dec > 5e-4 且 IoU_V_dec < 0.95 的联合拒绝条件。",
+    "Gemini 3.1 Pro 在 Image-to-3D 与 Assembly-3D 上仅比 GPT-5.5 低 0.008 与 0.022，但完整任务成本约为后者四分之一。"
+  ],
+  "real_comparisons": [
+    "Text-to-3D、Image-to-3D、Assembly-3D 三类输入与结构难度比较。",
+    "minimal JSON、OpenSCAD、CadQuery、Three.js 四种程序表示比较。",
+    "GPT-5.5、Gemini 3.1 Pro、Claude Opus 4.6、Kimi K2.6 等通用模型与 Text2CAD、CADRILLE、CAD-CODER 等领域模型比较。",
+    "可执行性 Valid 与几何、拓扑、语义/参数、部件结构质量的分层比较。",
+    "描述性规格与参数化规格，以及 QA-S 与 QA-P、J-Sem 与 J-Geo 的比较。",
+    "单次生成与最大 10 轮视觉反馈修订比较。",
+    "无显式思考预算与最大思考预算比较。",
+    "同一 203 个案例上的 Image-to-3D 与 Assembly-3D 比较。",
+    "质量得分与完整任务 API 成本比较。"
+  ],
+  "central_claims": [
+    {
+      "claim": "P3D-Bench 把代码式参数化 3D 生成从‘代码是否运行’提升为对几何、拓扑、语义约束和部件结构的联合评测。",
+      "supporting_evidence": ["sec:abstract", "sec:introduction", "sec:evaluation"],
+      "what_it_actually_proves": "基准确实执行并渲染每个程序，独立报告 Valid，并以四个 bucket 汇总多个几何、拓扑、MLLM Judge 和部件级指标。",
+      "what_it_does_not_prove": "指标覆盖广不等于所有 bucket 都同样可靠；Judge 和 Part 仍依赖闭源 MLLM，且指标权重是人工设计。"
+    },
+    {
+      "claim": "当前强模型往往能生成语义上像目标的对象，却无法恢复精确参数化几何与正确部件结构。",
+      "supporting_evidence": ["sec:introduction", "sec:model-4", "sec:model-15", "sec:model-16"],
+      "what_it_actually_proves": "强模型在 J-Sem 上约 0.8，但 J-Geo 约 0.35；Assembly-3D 的 PartFS 约 0.73、PartMatchF1 约 0.5，表明全局语义领先于细粒度几何和部件计数。",
+      "what_it_does_not_prove": "这不表示模型缺乏所有空间知识，也不等于渲染质量完全无用；结论限于该数据分布、提示和评审器。"
+    },
+    {
+      "claim": "通用前沿模型在该基准上普遍超过现有领域专用模型。",
+      "supporting_evidence": ["sec:model", "sec:model-2", "sec:model-3", "sec:model-4"],
+      "what_it_actually_proves": "在领域模型各自原生任务与格式上，GPT-5.5、Gemini 3.1 Pro 等通用模型仍取得更高的几何、Judge 和总体 bucket 分数。",
+      "what_it_does_not_prove": "比较并非相同训练预算、数据规模或参数量下的受控模型消融；闭源模型可能见过相似 CAD 数据，且推理成本更高。"
+    },
+    {
+      "claim": "程序表示决定了错误发生在何处：OpenSCAD 最平衡，CadQuery 更容易后期失败，Three.js 的网格表示伤害拓扑和部件评分。",
+      "supporting_evidence": ["sec:model-3", "sec:model-4", "sec:model-12", "sec:model-13", "sec:model-14"],
+      "what_it_actually_proves": "同一批模型在不同格式上的 Valid、Topo、Judge 与错误类别呈系统差异，且 OpenSCAD 在多数设置下更稳定。",
+      "what_it_does_not_prove": "格式差异还混合了模型训练分布、API 熟悉度和执行器复杂度，不能简单归因为语言本身优劣。"
+    },
+    {
+      "claim": "更多推理和视觉反馈只有在模型持续修订时才产生稳定收益。",
+      "supporting_evidence": ["sec:model-4", "sec:model-5", "sec:model-6"],
+      "what_it_actually_proves": "最大思考预算平均仅提升 0.034；多轮反馈明显提升 Gemini 3.1 Pro，但几乎不改变倾向提前停止的 GPT-5.5。",
+      "what_it_does_not_prove": "这不是对成熟 CAD agent 的全面评测；反馈策略简单、最多 10 轮，也未提供编译错误或几何约束求解器的结构化反馈。"
+    }
+  ],
+  "claim_boundaries": [
+    "P3D-Bench 是基准与数据集，不是新的 3D 生成模型；其 agent 结论仅来自一个简化多轮修订实验。",
+    "Assembly-3D 提供额外文本标注但并未稳定优于单图输入，说明更多上下文不等于模型会整合结构约束。",
+    "跨任务总分使用的 bucket 数量不同，Figure 1 的 Text/Image/Assembly 数值不应被解释为完全同构的绝对难度。",
+    "Judge 使用 Gemini 3.1 Pro，数据筛选和部分 QA 也使用同族或其他闭源模型，存在 evaluator 与 annotation model 偏置。",
+    "Part bucket 只在固定分解 MLLM 忠实保持预测联合几何时评分；分解失败的有效程序会被排除，因此其分母与其他 bucket 不完全一致。",
+    "Text-to-3D 参数任务保留尺度，只做平移和旋转对齐；Image/Assembly 允许有界尺度优化，几何指标的可比性需结合协议理解。",
+    "成本—质量结论依赖 2026 年具体 API 定价、模型版本和 token 使用，时间上容易漂移。",
+    "数据主要是机械零件与装配体，不能直接外推到有机形状、室内场景、材质丰富资产或可动关节。"
+  ],
+  "negative_or_limiting_results": [
+    "最强模型在 Assembly-3D 的 PartMatchF1 仍约 0.5，既漏部件也产生错误部件。",
+    "J-Sem 约 0.8 但 J-Geo 约 0.35，说明外观/类别看似正确会掩盖参数和对齐错误。",
+    "参数化文本增加细节后，QA-S 从描述性规格约 0.93 降至参数化规格约 0.86，更多数值约束反而损伤整体语义建模。",
+    "CadQuery 在弱模型上有效率很低，Assembly-3D 可低至约 20%–43%；代码正确性成为几何能力之外的主要瓶颈。",
+    "最大思考预算平均收益只有 +0.034，并会降低部分模型在 CadQuery 上的有效率。",
+    "Assembly-3D 的附加标注没有带来普遍增益：共享案例平均下降 0.040。",
+    "领域模型在自己的原生格式上仍明显落后通用模型，但这不是同成本或同数据条件下的公平训练比较。",
+    "数据构建和评价都大量依赖闭源 MLLM，复现成本高且版本更新会影响结果。",
+    "单视图 Image-to-3D 天然存在不可见几何歧义，基准的唯一 ground truth 并不覆盖所有合理解。"
+  ],
+  "mechanism_result_map": [
+    "执行—渲染—对齐—分 bucket 的层级协议，使可编译失败、几何错误、拓扑错误和结构错误不会被一个视觉分数混在一起。",
+    "无效输出下游最差值填充，解释了 CadQuery 低 Valid 会同步拖低 Geo/Topo/Judge，而不是只影响单独的 Valid 列。",
+    "QA-S/QA-P 从文本规格生成问题，解释了为什么基准能测显式尺寸与计数；视觉 Judge 只看多视图渲染，补充了语义和美学层面。",
+    "固定分解 MLLM 加保真门与匈牙利匹配，把整体装配体转成可比较部件，因而能显露‘整体像但部件不对’的问题。",
+    "OpenSCAD 的 CSG/solid 表达和较简单语法对应较高 Valid 与 Topo；CadQuery 的 Python/API/几何内核链更长，对参数和布尔构造更敏感。",
+    "Three.js 输出三角网格，解释了它在 NoOE、Topo 与可分解 Part 上的结构性劣势。",
+    "多轮实验把当前代码和多视图反馈返回模型；Gemini 持续修订而 GPT-5.5 提前停止，解释了两者收益差异。",
+    "共享案例分析控制数据与格式后，额外装配文本仍使多数模型下降，说明瓶颈是约束整合而非输入信息不足。"
+  ],
+  "comparative_positioning": [
+    "相对 VoxelCodeBench 与 3DCodeBench，P3D-Bench 不只检查可执行与渲染相似，还显式检查尺寸、拓扑和部件结构。",
+    "相对 Text2CAD-Bench、UniCAD、BenchCAD，它跨 JSON/OpenSCAD/CadQuery/Three.js，并把单部件扩展到装配体；BenchCAD 是少数同样检查数字参数的近邻。",
+    "相对 MUSE，P3D-Bench 的装配结构不是只由 VLM 看渲染，而是加入显式部件分解、几何匹配和 PartMatch 指标。",
+    "相对 Code2Worlds/3DCodeBench 一类开放程序化建模工作，它更像严格诊断台：强调 ground-truth CAD、参数和结构，而不是开放世界创意质量。",
+    "相对 Skill-3D/Think3D 等空间推理代理，它评估的是把空间理解落实为可执行几何程序的能力，而不是只输出语言答案或工具轨迹。"
+  ],
+  "reuse_takeaways": [
+    "3D agent 的评价应把‘代码运行’、‘整体视觉像’、‘尺寸关系对’和‘部件拓扑对’分别报告，避免用单一 VLM 分数掩盖失败。",
+    "如果要训练 CAD agent，OpenSCAD 适合作为稳健的中间表示；CadQuery 更有工程表达力，但需要编译器错误、API 检索和几何内核反馈。",
+    "多轮 self-refinement 不能只给图片；需要停止策略、约束检查器和结构化错误信号，否则强模型可能过早停止，弱模型可能无效迭代。",
+    "PartMatchP/R/F1 的设计可迁移到 Blender/scene graph/4D world 生成，用来测对象数量、身份和层级，而不只测整体渲染。",
+    "共享案例对照是评价额外结构化提示是否被真正利用的好办法，可用于研究 agent memory、scene graph 或 tool trace。",
+    "成本—质量曲线应成为 agent benchmark 的标准输出，因为最佳模型的小幅收益可能对应数倍执行成本。",
+    "自动标注基准最好增加人工审计子集和跨评审器一致性报告，以量化 evaluator 偏差。"
+  ],
+  "followup_questions": [
+    "在同一推理成本与相同采样次数下，通用 MLLM 相对领域模型的优势还剩多少？",
+    "如果 CadQuery agent 获得真实编译错误、API 文档检索和布尔运算失败位置，多轮收益是否会显著超过纯渲染反馈？",
+    "用开源 VLM 或多个评审器替换 Gemini 3.1 Pro 后，Judge 排名和 J-Sem/J-Geo 差距是否稳定？",
+    "对单视图存在多解的案例，能否使用约束满足率与多解集合替代唯一 ground truth 几何？",
+    "Assembly-3D 额外文本为何使多数模型退化：提示长度、冲突约束、部件绑定，还是程序表示容量？",
+    "将 Part bucket 扩展到关节、自由度、接触与功能约束后，ArtiCAD/ArtiCraft 一类模型会如何变化？",
+    "若对 OpenSCAD、CadQuery 和 Three.js 使用各自专门的提示与工具代理，格式排名是否仍然成立？",
+    "基准在 Blender、Unreal、室内场景和非机械对象上是否仍能保持相同诊断价值？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "记录题名、作者、机构、时间、arXiv/DOI、项目页、数据资源和论文类型。",
+      "evidence_sources": ["sec:preamble", "sec:abstract"]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "忠实翻译摘要，不混入后续判断。",
+      "evidence_sources": ["sec:abstract"]
+    },
+    {
+      "section": "创新点",
+      "focus": "说明统一任务/格式协议、P3D-Dataset、分层指标和广泛基线的实际创新。",
+      "evidence_sources": ["sec:introduction", "sec:evaluation"]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "指出该基准真正揭示的是语义正确与参数/结构正确之间的鸿沟。",
+      "evidence_sources": ["sec:abstract", "sec:model-4", "sec:model-6"]
+    },
+    {
+      "section": "研究问题",
+      "focus": "解释为什么可执行参数化 3D 不能由代码通过率或渲染观感替代评价。",
+      "evidence_sources": ["sec:introduction", "sec:related-work", "sec:evaluation"]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "展开任务公式、三类输入、四种格式、数据来源、筛选/标注及数据分布。",
+      "evidence_sources": ["sec:evaluation", "sec:supplementary-material"]
+    },
+    {
+      "section": "方法主线",
+      "focus": "按执行评测链、Judge、Part 与多轮 agent 流程解释协议和关键公式。",
+      "evidence_sources": ["sec:evaluation", "sec:supplementary-material", "sec:model-4", "sec:model-5", "sec:model-6"]
+    },
+    {
+      "section": "关键结果",
+      "focus": "用主表、bucket 分布、Judge/Part 细项、错误类别、思考/多轮、共享案例、成本分析组织证据。",
+      "evidence_sources": ["sec:model", "sec:model-2", "sec:model-3", "sec:model-4", "sec:model-5", "sec:model-6", "sec:model-7", "sec:model-8", "sec:model-9", "sec:model-10", "sec:model-11", "sec:model-12", "sec:model-13", "sec:model-14", "sec:model-15", "sec:model-16"]
+    },
+    {
+      "section": "深度分析",
+      "focus": "分析真正贡献、指标耦合、格式效应、评审器依赖、agent 启示和与本地 3D agent 工作的关系。",
+      "evidence_sources": ["sec:related-work", "sec:evaluation", "sec:model-4", "sec:model-6", "sec:supplementary-material"]
+    },
+    {
+      "section": "局限",
+      "focus": "明确数据分布、单视图歧义、闭源模型/评审器、自动标注、成本版本与跨格式公平性问题。",
+      "evidence_sources": ["sec:evaluation", "sec:supplementary-material", "sec:model-6", "sec:model-8"]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "整理对 3D agent、程序化世界生成、结构化反馈和新 benchmark 的可复用设计建议。",
+      "evidence_sources": ["sec:model-4", "sec:model-6", "sec:supplementary-material"]
+    },
+    {
+      "section": "引用",
+      "focus": "给出 arXiv、项目页、DOI 与本地 PDF/Zotero 信息。",
+      "evidence_sources": ["sec:preamble", "sec:abstract"]
+    }
+  ]
+}

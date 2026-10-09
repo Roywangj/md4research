@@ -1,0 +1,291 @@
+{
+  "paper": {
+    "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
+    "authors": [
+      "Qixun Wang",
+      "Yang Shi",
+      "Letian Cheng",
+      "Zhuoran Zhang",
+      "Yan He",
+      "Yuqi Tang",
+      "Qi Zhang",
+      "Xinlei Yu",
+      "Ruizhe Chen",
+      "Tianrun Xu",
+      "Yuanxing Zhang",
+      "Pengfei Wan",
+      "Haotian Wang",
+      "Xianghua Ying"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/4Z8DAYXR/Wang 等 - 2026 - Beacon Knowing When and How to Perform Agentic Visual Reasoning.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "zotero_storage_key": "4Z8DAYXR",
+    "arxiv_id": "2607.28595",
+    "doi": "10.48550/arXiv.2607.28595",
+    "paper_id": "arxiv:2607.28595",
+    "classification": "Reasoning/Train"
+  },
+  "notes": {
+    "reading_mode": "paragraph-paired English-Chinese detailed reader plus analytical deep note",
+    "figure_policy": "All 23 extracted figures and tables are embedded in the detailed reader. Table 2 was manually recropped from the rendered source page after the automatic crop was found incorrect.",
+    "bibliography_policy": "References [1]-[49] remain in the source PDF in their exact searchable form; the reader maps and synthesizes their roles rather than translating bibliographic strings line by line.",
+    "prompt_policy": "Appendix prompts are retained as searchable literal excerpts, with surrounding Chinese explanation.",
+    "completeness": "Main text, equations, evaluation details, data pipeline, training prompts, hyperparameters, ablations, failed attempt, and case-study pages are covered."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Front Matter and Abstract",
+      "pages": "1-2",
+      "source_section_id": "sec:preamble;sec:abstract",
+      "summary": "Defines Mode Adaptiveness, Tool Effect, NAAR, HCE, and the paper's central claims."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Front Matter",
+      "pages": "1",
+      "summary": "Figure 1 contrasts non-agentic, redundant tool use, and Beacon's adaptive and helpful tool use.",
+      "asset": "assets/page_001_fig_figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "Abstract and Introduction",
+      "pages": "2",
+      "summary": "Figure 2 presents tool-call adaptiveness, the 13-benchmark average, and tool gain versus harm.",
+      "asset": "assets/page_002_fig_figure_2.png"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction and Related Work",
+      "pages": "2-4",
+      "source_section_id": "sec:introduction;sec:related-work",
+      "summary": "Motivates adaptive and effective tool use and positions Beacon against CodeDance, AdaTooler-V, Metis, and diagnostic studies."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Analysis",
+      "pages": "4-6",
+      "source_section_id": "sec:analysis",
+      "summary": "Defines five-run text-easy/text-hard splitting, MAtext, MAtool, Tool-Gain, Tool-Harm, and diagnoses prior models."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "Analysis",
+      "pages": "5",
+      "summary": "Figure 3 compares tool-free/tool-available accuracy, Mode Adaptiveness, and Tool Effect.",
+      "asset": "assets/page_005_fig_figure_3.png"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "Method",
+      "pages": "6-9",
+      "source_section_id": "sec:method",
+      "summary": "Covers data construction, cold-start SFT, NAAR, HCE, hinted importance ratios, and the clipped GRPO objective."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "Method",
+      "pages": "7",
+      "summary": "Figure 4 illustrates normal, all-correct, and all-wrong group routing through NAAR and HCE.",
+      "asset": "assets/page_007_fig_figure_4.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Main Results",
+      "pages": "10",
+      "summary": "Table 1 reports high-resolution search, spatial, and perceptual reasoning.",
+      "asset": "assets/page_010_fig_table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Main Results",
+      "pages": "10",
+      "summary": "Table 2 reports quantitative, diagrammatic, compositional, and agentic reasoning; the asset is a verified manual recrop.",
+      "asset": "assets/page_010_fig_table_2.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Mode and Tool Diagnostics",
+      "pages": "11",
+      "summary": "Table 3 gives per-dataset and average MA, Tool Effect, and Text-Retain metrics.",
+      "asset": "assets/page_011_fig_table_3.png"
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Ablation",
+      "pages": "11-12",
+      "summary": "Table 4 compares GRPO, NAAR, HCE, and the full method.",
+      "asset": "assets/page_012_fig_table_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Training Dynamics",
+      "pages": "12",
+      "summary": "Figure 5 shows training accuracy, adaptive reward, and format reward.",
+      "asset": "assets/page_012_fig_figure_5.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Training Dynamics",
+      "pages": "13",
+      "summary": "Figure 6 tracks response modes, adaptive labels, and mode-label alignment.",
+      "asset": "assets/page_013_fig_figure_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Training Dynamics",
+      "pages": "13",
+      "summary": "Figure 7 shows group composition and conversion of initially all-wrong groups.",
+      "asset": "assets/page_013_fig_figure_7.png"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "Conclusion and References",
+      "pages": "13-17",
+      "source_section_id": "sec:conclusion;sec:references",
+      "summary": "Concludes that tool progress should be measured by necessity and genuine capability gain; retains 49 references in the source."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Appendix A",
+      "pages": "18-19",
+      "source_section_id": "sec:appendix-contents;sec:discussion",
+      "summary": "Provides the enforced-text prompt, VLMEvalKit settings, retries, tool-call cap, temperature, and Gemini semantic judgment."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Training Data",
+      "pages": "19",
+      "summary": "Table 5 reports SFT and RL raw/retained counts.",
+      "asset": "assets/page_019_fig_table_5.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Training Data",
+      "pages": "20",
+      "summary": "Figure 8 maps task domains to public training sources.",
+      "asset": "assets/page_020_fig_figure_8.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Training Data",
+      "pages": "21",
+      "summary": "Figure 9 shows task-category distributions for SFT and RL.",
+      "asset": "assets/page_021_fig_figure_9.png"
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Training Data",
+      "pages": "21",
+      "summary": "Figure 10 shows SFT per-source counts and retention.",
+      "asset": "assets/page_021_fig_figure_10.png"
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "Training Data",
+      "pages": "22",
+      "summary": "Figure 11 shows RL per-source counts and retention.",
+      "asset": "assets/page_022_fig_figure_11.png"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Appendices B-C",
+      "pages": "21-27",
+      "source_section_id": "sec:results",
+      "summary": "Retains SFT synthesis/refinement protocols, SFT/RL hyperparameters, the shared autonomous-tool prompt, and hint-generation schema."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Detailed Ablation",
+      "pages": "28",
+      "summary": "Table 6 expands the Mode Adaptiveness and Tool Effect ablation by dataset.",
+      "asset": "assets/page_028_fig_table_6.png"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Failed Attempt and Case Studies",
+      "pages": "28-34",
+      "source_section_id": "sec:discussion-2",
+      "summary": "Documents forced-text reward collapse and provides three reasoning trajectories and three hint examples."
+    },
+    {
+      "id": "T007-T012",
+      "type": "table",
+      "section": "Case Studies",
+      "pages": "29-34",
+      "summary": "Tables 7-12 contain three tool-use trajectories and three answer-free hint examples.",
+      "assets": [
+        "assets/page_029_fig_table_7.png",
+        "assets/page_030_fig_table_8.png",
+        "assets/page_031_fig_table_9.png",
+        "assets/page_032_fig_table_10.png",
+        "assets/page_033_fig_table_11.png",
+        "assets/page_034_fig_table_12.png"
+      ]
+    }
+  ],
+  "glossary": {
+    "Mode Adaptiveness": "模式适应性",
+    "Tool Effect": "工具效应",
+    "Necessity-Aware Adaptive Reward": "必要性感知自适应奖励",
+    "Hint-Guided Capability Expansion": "提示引导能力扩展",
+    "text-easy": "纯文本稳定可解样本",
+    "text-hard": "纯文本稳定难解样本",
+    "all-wrong group": "全错组",
+    "hinted rollout": "带提示 rollout",
+    "Text-Retain": "文本能力保持率"
+  },
+  "assets": [
+    "assets/page_001_fig_figure_1.png",
+    "assets/page_002_fig_figure_2.png",
+    "assets/page_005_fig_figure_3.png",
+    "assets/page_007_fig_figure_4.png",
+    "assets/page_010_fig_table_1.png",
+    "assets/page_010_fig_table_2.png",
+    "assets/page_011_fig_table_3.png",
+    "assets/page_012_fig_table_4.png",
+    "assets/page_012_fig_figure_5.png",
+    "assets/page_013_fig_figure_6.png",
+    "assets/page_013_fig_figure_7.png",
+    "assets/page_019_fig_table_5.png",
+    "assets/page_020_fig_figure_8.png",
+    "assets/page_021_fig_figure_9.png",
+    "assets/page_021_fig_figure_10.png",
+    "assets/page_022_fig_figure_11.png",
+    "assets/page_028_fig_table_6.png",
+    "assets/page_029_fig_table_7.png",
+    "assets/page_030_fig_table_8.png",
+    "assets/page_031_fig_table_9.png",
+    "assets/page_032_fig_table_10.png",
+    "assets/page_033_fig_table_11.png",
+    "assets/page_034_fig_table_12.png"
+  ]
+}

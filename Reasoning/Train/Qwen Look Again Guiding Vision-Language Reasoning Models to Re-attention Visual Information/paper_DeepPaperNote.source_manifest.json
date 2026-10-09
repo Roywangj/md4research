@@ -1,0 +1,1423 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2505.23558",
+  "title": "Qwen Look Again: Guiding Vision-Language Reasoning Models to Re-attention Visual Information",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/Documents/3d agent/.qwen_look_again_reasoning_work/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/Documents/3d agent/.qwen_look_again_reasoning_work/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5WY2LX5P/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+    "total_pages": 17,
+    "text_pages_extracted": 17,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 17,
+    "text_max_pages": null,
+    "text_pages_extracted": 17,
+    "text_pages_scanned": 17,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": false,
+    "appendix_start_page": null,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 526,
+      "text_hash_sha256": "291fdfbb407721cc628469b601469a3ececea9a8159966d9c4910ee9ab475209"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1579,
+      "text_hash_sha256": "7626699ba52f81696058b7c9fb8a8a6249e7941a0e44dce98297e6e418ffccc4"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "Introduction",
+      "page_start": 1,
+      "page_end": 3,
+      "char_count": 7036,
+      "text_hash_sha256": "4a2147585b0c82623f2ecd6569f3456b402e27ca057ab53872f3063d649b63fa"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "<CONCLUSION>",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 2971,
+      "text_hash_sha256": "690a6ef33506c3744e827ab770fb3f50170271331c7dc32121ad8f871be1d6ed"
+    },
+    {
+      "section_id": "sec:methodology",
+      "kind": "method",
+      "title": "Methodology",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 413,
+      "text_hash_sha256": "d8f12836eb39fcbeaa6959f028fecf43b3172828374f5e014404b44dbf111f10"
+    },
+    {
+      "section_id": "sec:preliminaries",
+      "kind": "introduction",
+      "title": "Preliminaries",
+      "page_start": 4,
+      "page_end": 7,
+      "char_count": 11869,
+      "text_hash_sha256": "839b82facb12c384096e530701490dc150b39bb0889940033a58d0bccfce9de2"
+    },
+    {
+      "section_id": "sec:model",
+      "kind": "method",
+      "title": "Model",
+      "page_start": 7,
+      "page_end": 7,
+      "char_count": 641,
+      "text_hash_sha256": "6ddfc7c2297ef3d2299436c629430e5b8faa8beec4ba9ccfb0e08c2768741c69"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "Experiment",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 3995,
+      "text_hash_sha256": "9aee9e9b022782680085b06a7717a4a9eb8a95136b93498585c1c0a79f2d4eb1"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "Models",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 273,
+      "text_hash_sha256": "54103eee4d62ff96331ce025c6b97c47e6179635dc7eba84eed778e37380f44d"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 5795,
+      "text_hash_sha256": "8c66ff0b8b40d48cb0c7e9b0a5f7f47fb17c49089a98b4201a06f44daac0e936"
+    },
+    {
+      "section_id": "sec:conclusion-2",
+      "kind": "conclusion",
+      "title": "Conclusion",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 546,
+      "text_hash_sha256": "512021b149641a539cfc7140f953f3ede6751117814aa16ee4f504aa9df51eac"
+    },
+    {
+      "section_id": "sec:limitations",
+      "kind": "conclusion",
+      "title": "Limitations",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 767,
+      "text_hash_sha256": "bf2fba7728dcbc26a79af7b15de89819bb5fe276cc98d9c1d4692c19cdc633f9"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "References",
+      "page_start": 10,
+      "page_end": 16,
+      "char_count": 20882,
+      "text_hash_sha256": "3749a9d89154965be671b27953a9f6b629537c10ac321b943d060616cbd55f63"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 16,
+      "page_end": 17,
+      "char_count": 9162,
+      "text_hash_sha256": "f9825be2d9b8dcbb38d4f1d6c0b5d7c9e76661faebf885bb2bba3464814e4cc2"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3367,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4928,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 3932,
+      "section_ids": [
+        "sec:introduction",
+        "sec:conclusion"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3289,
+      "section_ids": [
+        "sec:conclusion",
+        "sec:methodology",
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4929,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3900,
+      "section_ids": [
+        "sec:preliminaries"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4280,
+      "section_ids": [
+        "sec:preliminaries",
+        "sec:model",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 3633,
+      "section_ids": [
+        "sec:experiment",
+        "sec:models",
+        "sec:method"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3686,
+      "section_ids": [
+        "sec:method",
+        "sec:conclusion-2"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3966,
+      "section_ids": [
+        "sec:conclusion-2",
+        "sec:limitations",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 4013,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 4198,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3549,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 2172,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 3427,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 3282,
+      "section_ids": [
+        "sec:references",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 6399,
+      "section_ids": [
+        "sec:method-2"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Analysis of hallucination metrics",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Analysis of visual attention pat-",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 3",
+        "caption": "The framework of Qwen-LookAgain. The collected cold-start data is used to fine-tune",
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 4",
+        "caption": "Qwen-Zero spontaneously develops multiple reflection awareness during BRPO training,",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Figure 5",
+        "caption": "We overlaid attention heatmaps from all layers of Qwen-LA on the images, as different",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Figure 6",
+        "caption": "Total reflection length and reflection",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 7",
+        "caption": "Changes in test accuracy during the",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 8",
+        "caption": "Prompt GPT-4o to generate cold start data with reflection process.",
+        "page": 14,
+        "pages": [
+          14
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 9",
+        "caption": "Changes in average attention weights of visual tokens with increasing generation length for",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:references"
+      },
+      {
+        "id": "Figure 10",
+        "caption": "Example outputs of Qwen-LA-COPY. As shown in the first four examples, the reflection",
+        "page": 17,
+        "pages": [
+          17
+        ],
+        "section_id": "sec:method-2"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Accuracy (%) of VLMs and VLRMs on visual QA datasets. Bold and underline represent",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:preliminaries"
+      },
+      {
+        "id": "Table 2",
+        "caption": "Hallucination Metrics of different models/methods. We report the average F1 score of POPE.",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Comparison of accuracy, genera-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 4",
+        "caption": "Ablation study of different components in",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 5",
+        "caption": "Results of different m for Qwen-LA-ROUTE on visual QA and hallucination datasets.",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method"
+      },
+      {
+        "id": "Table 6",
+        "caption": "Performance comparison of Qwen-LA-COPY and Qwen-LA-ROUTE against text-only and",
+        "page": 16,
+        "pages": [
+          16
+        ],
+        "section_id": "sec:references"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "generate reasoning processes with n (n≥1) reflections on its own, resulting in Qwen-Zero. Notably,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "visual information. When the model generates a reflection process (start with <REFLECTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Answer: <SUMMARY> I will count the total number of objects and subtract the number of",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "balls.</SUMMARY>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<CAPTION> The image contains six different 3D shapes.</CAPTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<REASONING> First, there are 6 objects in the image. Then, I see two balls: one red and one",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "yellow. 6-2=4. </REASONING>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<CONCLUSION> 4 </CONCLUSION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<REFLECTION> I confirm there",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "image.</REFLECTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<REFLECTION> I confirm these",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "6-2=4. The reasoning aligns with my analysis",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "</REFLECTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<CONCLUSION> 4 </CONCLUSION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<SUMMARY>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<CAPTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<REASONING>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "<REFLECTION>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 3
+    },
+    {
+      "text": "Ai = ri −mean({r1, . . . , rG})",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "LGRP O(θ) = 1",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "DKL(πθ||πref) = πref(oi|q)",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "autoregressive manner, with the conditional probability of the entire process expressed as p(y|x, c) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "t=1 p(yt | y<t, x, c), where y<t = [y1, . . . , yt−1] represents the generated tokens.",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "process (<SUMMARY></SUMMARY>), an image caption process (<CAPTION></CAPTION>),",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "<REASONING> To answer the question about the presence of both zebras and tigers, I first observe the animals in",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "observations, the image only contains zebras. </REASONING>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "<REFLECTION> Let me look the image again. The distinctive striped appearance of the zebras clearly identifies them,",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Therefore, the reasoning does not conflict with the new analysis. </REFLECTION>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "<CONCLUSION> No </CONCLUSION>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Answer: <SUMMARY> I will determine whether both zebras and tigers are",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "shown. </SUMMARY>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "<REFLECTION></REFLECTION>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "<CAPTION> The image depicts a dry, open savannah environment with sparse",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "from the zebras. </CAPTION>",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "step-by-step reasoning and thinking process (<REASONING></REASONING>), reflection pro-",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "cess (<REFLECTION></REFLECTION>), and answer summarization process (<CONCLU-",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "SION></CONCLUSION>). The relative order of all processes except reflection is restricted, and",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "expressions to check if the content within <CONCLUSION></CONCLUSION> matches the correct",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": ", where Nr is the number of reflection occurrences (i.e., occurrences of <REFLEC-",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "TION></REFLECTION>), Lrtotal is the total number of tokens in all reflection processes, and λ is",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "sequence tokens is Ly, total sequence length is Ltotal = Lx + Lc + Ly. Model’s output probability is:",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "p(y|x, c) =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "p(yt | y<t, x, c),",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "where y<t = [y1, . . . , yt−1]. The visual context proportion in the sequence is r =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "(given text prompt x), i.e., I(y; c | x) = H(y | x) −H(y | x, c), where H(·) is entropy. Assuming",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "r =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "sequence at one or multiple positions. Let k > 0 be the number of copied inserted tokens, then the",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "c = Lc +k, updated total sequence length is L′",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "total = Ltotal +k. The",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "updated visual tokens ratio becomes r′ =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "total =",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Ltotal+k. When input text prompt length Lx > 0, we",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "have r′ > r. Therefore, the updated mutual information has upper bound I(y; c | x) ≲r′ ·H(y | x, c)",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Visual Token COPY (VTC). When the model produces a reflection process (start with <REFLEC-",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "TION> token), simply copy the input image’s visual tokens completely to the beginning of the",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "reflection process (before <REFLECTION> token). That is, the reflection process begins generating",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Visual Token ROUTE (VTR). When the model produces a reflection process (start with <REFLEC-",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "TION> token), calculate previously generated tokens’ attention to visual tokens, and route visual",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "attnj = 1",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "j ∈{1, 2, . . . , Lc},",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "Ly here representing the decoded sequence length up to <REFLECTION> token. Then, rank visual",
+      "section_id": "sec:preliminaries",
+      "page_start": 4,
+      "page_end": 7
+    },
+    {
+      "text": "CHAIRi =",
+      "section_id": "sec:experiment",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "scription, and CHAIRs = # hallucinated captions",
+      "section_id": "sec:experiment",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "question-answering format to prompt the model, such as \"Is there an <object> in the image?\", to",
+      "section_id": "sec:experiment",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "<image>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "chain of thought. The answer includes a summary process (<SUMMARY></SUMMARY>), an image caption",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "process (<CAPTION></CAPTION>), step-by-step reasoning and thinking process (<REASONING></",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "REASONING>), and answer summarization process (<CONCLUSION></CONCLUSION>).",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "I need you to add a reflection process (<REFLECTION></REFLECTION>) between the thinking process and",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "summarization process (between </REASONING> and <CONCLUSION>). In this process, you should re-",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "<SUMMARY></SUMMARY>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "<CAPTION></CAPTION>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "<REASONING></REASONING>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "<REFLECTION></REFLECTION>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "<CONCLUSION></CONCLUSION>",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "H(y | x, c) =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "\u0000yt | y<t, x, c",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "H(y | x) =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "\u0000yt | y<t, x",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "I(y; c | x) = H(y | x) −H(y | x, c) =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "\u0000yt | y<t, x",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "\u0000yt | y<t, x, c",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Since Ltotal = Lx + Lc + Ly increases as more tokens are generated, the ratio r =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Initially, the proportion of visual tokens is r =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "become Lc + k and Ltotal + k respectively, thus the new proportion is r′ =",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "We need to prove r′ > r, i.e.:",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Ltotal+k >",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "(Lc + k) · Ltotal > Lc · (Ltotal + k).",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Lc · Ltotal + k · Ltotal > Lc · Ltotal + Lc · k.",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Canceling the common term Lc · Ltotal and dividing both sides by k (k > 0):",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Ltotal > Lc.",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Since Ltotal = Lx +Lc+Ly (where Lx is the number of text tokens and Ly is the number of decoding",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "text tokens), as long as Lx + Ly > 0, i.e., there exist any text tokens, then Ltotal > Lc, making r′ > r",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Lx > 0, meaning Ltotal > Lc holds, thus proving r′ > r.",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Note that when Ltotal is relatively large and k > 0,",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "Ltotal+k >",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "the addition of extra special tokens (e.g., <REFLECTION>), the embedding layer and head layer are",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "reflection (by inserting </REFLECTION>), resulting in vision-only reflection. Results show that",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 16
+    },
+    {
+      "text": "An swer from Qwen -LA-COPY: <SUMMARY> This task requires",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "within the image. </SUMMARY>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CAPTION> This is a drawing featuring two people, both of them are holding",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "round objects. </CAPTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> The person in the drawing appears to be lifting a kettlebell with",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "suggest that he is performing a kettlebell exercise. </REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> Let me look at the drawing again. The drawing includes a small",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "table tennis game rather than kettlebell exercises. </REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CONCLUSION> Playing table tennis. </CONCLUSION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> It is a calculator.</REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> The object in the man's hand seems",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "a calculator.</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> 4.</REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> At the top of the",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "2+3=5.</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> It is a calculator.</REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> The object in the man's hand seems",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "a calculator.</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> 4.</REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> At the top of the",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "2+3=5.</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Answer from GPT-4o:Williams' sales in Quarter 4: $19,302.00, Johnson's sales in Quarter 4: $9,339.00, The",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "difference: $19,302.00 - $9,339.00 = $9,963.00, So, Williams made $9,963.00 more than Johnson in Quarter 4.",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Answer from Qwen-LA-COPY: <SUMMARY> This task involves comparing the sales of Williams and Johnson in",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Quarter 4, determining the difference, and verifying the calculations step-by-step.</SUMMARY>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CAPTION> This is a table containing the columns: Last Name, Sales, Country, and Quarter. </CAPTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> In Quarter 4, Williams' sales amount to $19,302.00. Johnson's sales in Quarter 4 amount to",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "$14,808.00. To find out how much more Williams' sales are compared to Johnson's in Quarter 4, we subtract",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Johnson's sales from Williams' sales: Difference = $19,302.00 - $14,808.00 = $4,494.00 </REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> Let me look at the table again. In Quarter 4, Williams' sales amount to $19,302.00, while Johnson's",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "sales amount to $14,808.00. $19,302.00 - $14,808.00 = $4,494.00. Upon review, the reasoning is correct.",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CONCLUSION> Williams' sales in Quarter 4 are $4,494.00 higher than Johnson's sales. </CONCLUSION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Answer from GPT-4o:Williams' sales in Quarter 4: $19,302.00, Johnson's sales in Quarter 4: $9,339.00, The",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "difference: $19,302.00 - $9,339.00 = $9,963.00, So, Williams made $9,963.00 more than Johnson in Quarter 4.",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Answer from Qwen-LA-COPY: <SUMMARY> This task involves comparing the sales of Williams and Johnson in",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Quarter 4, determining the difference, and verifying the calculations step-by-step.</SUMMARY>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CAPTION> This is a table containing the columns: Last Name, Sales, Country, and Quarter. </CAPTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> In Quarter 4, Williams' sales amount to $19,302.00. Johnson's sales in Quarter 4 amount to",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "$14,808.00. To find out how much more Williams' sales are compared to Johnson's in Quarter 4, we subtract",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Johnson's sales from Williams' sales: Difference = $19,302.00 - $14,808.00 = $4,494.00 </REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> Let me look at the table again. In Quarter 4, Williams' sales amount to $19,302.00, while Johnson's",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "sales amount to $14,808.00. $19,302.00 - $14,808.00 = $4,494.00. Upon review, the reasoning is correct.",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CONCLUSION> Williams' sales in Quarter 4 are $4,494.00 higher than Johnson's sales. </CONCLUSION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Answer from Qwen-LA-COPY: <SUMMARY> This question asks what emotion the person on the left side",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "of the image is most likely feeling. I need to first analyze the events depicted in the image. </SUMMARY>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CAPTION> The image depicts a restaurant scene where the person on the left is holding a wine glass, tilting it",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "toward the person on the right, who is being drenched by the wine. </CAPTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> The person on the left appears to have just poured the wine from the glass onto the person on",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "Therefore, the person on the left is most likely expressing anger. </REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> Let me review the image again. All the individuals in the scene appear to be sad, particularly",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "anger. This reasoning aligns with my analysis after reviewing the image. </REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<CONCLUSION> Angry </CONCLUSION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REASONING> Branches.",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "</REASONING>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "<REFLECTION> The bird in",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "</REFLECTION>",
+      "section_id": "sec:method-2",
+      "page_start": 16,
+      "page_end": 17
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": false,
+    "start_page": null,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "ae218853e090e38a2747645978b0b5a6957bc9a8666d382286d0c9aa254949d1"
+}

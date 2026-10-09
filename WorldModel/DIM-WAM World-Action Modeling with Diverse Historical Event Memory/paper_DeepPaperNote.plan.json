@@ -1,0 +1,28 @@
+{
+  "paper_id": "arxiv:2606.27677",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "DiM-WAM 是面向长时程机器人操作的世界动作模型扩展；其主张依赖记忆写入机制、辅助训练目标、仿真主结果、真实机器人计数结果与消融。",
+  "dominant_domain": "embodied AI / robot manipulation / world-action models",
+  "must_cover": ["长时程时间歧义", "DHEM 多银行有界记忆", "新颖性保留与质量加权合并", "协作读取、进度监督和多样性损失", "式 (1)–(19) 与 Algorithm 1", "RMBench 协议审计", "表 I–IV 与图 1–6", "消融混杂与统计局限"],
+  "key_numbers": ["训练匹配的 LingBot-VA 至 DiM-WAM：overall 34.8% 至 69.8%，M(1) 34.2% 至 80.6%，M(n) 35.5% 至 56.3%", "Mem-0 的 contextual reference 为 42.0%", "真实平均 SSR 70.6% 至 93.5%，全任务 SR 52.5% 至 90.0%", "表 IV：1×32 为 75.5，4×8 为 90.0，8×12 为 96.5，移除进度头为 90.5", "协议审计中 wrist view 让 put_back_block 由 41% 至 86%"],
+  "real_comparisons": ["训练匹配：LingBot-VA 对 DiM-WAM", "协议匹配但非训练匹配：Fast-WAM", "benchmark-reported contextual reference：DP、ACT、π0.5、X-VLA、Mem-0", "真实机器人四任务的 SSR 与 SR", "固定 32 槽的 1×32 对 4×8", "固定 8×12 下有无进度头"],
+  "central_claims": [
+    {"claim": "DHEM 与进度监督的组合在作者指定的训练匹配 RMBench 设置中提升长时程任务成功率。", "supporting_evidence": ["sec:experiments"], "what_it_actually_proves": "相对共享 50 条示范、1,500 步训练和每任务 100 回合的 LingBot-VA，DiM-WAM 报告 overall 34.8% 至 69.8%。", "what_it_does_not_prove": "该比较没有独立分离多库、新颖性保留、质量合并、进度头和多样性损失。"},
+    {"claim": "多库结构与进度监督对两项消融任务具有增益证据。", "supporting_evidence": ["sec:experiments"], "what_it_actually_proves": "固定总容量 32 时，1×32 至 4×8 的平均为 75.5 至 90.0；固定 8×12 时移除进度头使平均 96.5 降至 90.5。", "what_it_does_not_prove": "4×8 至 8×12 同时改变库数和总容量，不能把 96.5 归因于更多库。"},
+    {"claim": "作者识别并部分修复了 put_back_block 的局部观测泄漏风险。", "supporting_evidence": ["sec:experiments"], "what_it_actually_proves": "在初始状态不在局部窗口时，加入 wrist view 将成功率 41% 提至 86%，促使作者采用 head+front、30 帧和 M(1) stride 1。", "what_it_does_not_prove": "该单任务审计无法排除其他 RMBench 任务、M(n) stride 2 或其他视图的残余泄漏。"}
+  ],
+  "claim_boundaries": ["源文件共 8 页、无附录、含 38 条参考文献。", "真实机器人每任务仅 10 个完整试验，结果是未带不确定性的点估计。", "Fast-WAM 与外部 benchmark baseline 不是统一的训练或算力匹配比较。", "进度标签是轨迹位置代理，而非语义阶段标注。", "图 6 仅为单成功回合的定性可视化。"],
+  "negative_or_limiting_results": ["M(n) 的 Cover Blocks 为 56，Press Button 为 34，长期记忆并未解决所有累积任务。", "Press Twice 的局部窗口覆盖约 85% 示范且两法均为 10/10，因此不能作为记忆优势证据。", "真实机器人无置信区间和多种子。", "图 6 的重叠 PCA 不足以证明稳定跨库语义专门化。"],
+  "mechanism_result_map": ["多库候选和多样性损失旨在产生互补历史；图 6 只给出定性一致性证据。", "新颖性丢弃和相邻冗余合并使总记忆成本保持 O(KN)。", "质量加权合并保留被压缩事件的累计表示与代表时间。", "进度监督对应固定 8×12 的 96.5 至 90.5 消融差异。", "协议审计对应 wrist view 的 41 至 86 异常变化。"],
+  "comparative_positioning": ["LingBot-VA 是论文中唯一明确的训练匹配归因基线。", "Fast-WAM 是额外协议匹配的 in-house WAM，但使用其官方优化配方。", "Mem-0 等为 benchmark-reported contextual reference，不支持记忆机制的干净归因。", "DHEM 同时条件化视频和动作去噪，而常见记忆 VLA 主要条件化动作推理。"],
+  "reuse_takeaways": ["设计长时程基准前应逐任务审计相机、姿态、窗口和采样步幅造成的泄漏。", "有界记忆可采用锚点—中间压缩—最新事件的状态机，而不是纯 FIFO。", "多库是否有意义必须在固定总容量下比较，并量化跨回合的实际功能分工。"],
+  "followup_questions": ["固定 96 槽时 1×96、4×24 和 8×12 的结果如何？", "各个维护规则和多样性损失的独立消融是否仍有增益？", "每个 RMBench 任务在多相机、窗口和 stride 下是否仍无局部泄漏？", "不同种子下真实 SR 的区间和训练方差是多少？", "跨任务、跨回合的银行语义分工能否以互信息或可预测性量化？"],
+  "section_plan": [
+    {"section": "研究问题", "focus": "以饮水机开关附近的局部画面相似而动作相反为例，解释为何短窗口无法恢复交互历史与任务进度。", "evidence_sources": ["sec:introduction"]},
+    {"section": "数据与任务定义", "focus": "记录 RMBench 的 M(1)/M(n) 任务、真实 Franka 四任务、输入输出、局部窗口以及表 I 的可见性审计。", "evidence_sources": ["sec:experiments"]},
+    {"section": "方法主线", "focus": "按候选抽取、银行维护、可读序列、联合目标四步解释 DHEM，并对式 (1)–(19) 与 Algorithm 1 给出工程含义。", "evidence_sources": ["sec:method"]},
+    {"section": "关键结果", "focus": "区分训练匹配、协议匹配和上下文参考，逐项说明表 II–IV、真实计数、ceiling effect 和消融混杂。", "evidence_sources": ["sec:experiments"]},
+    {"section": "深度分析", "focus": "将写入规则、进度代理、协议审计、算力公平性与可复现状态机映射到证据强度，而非把定性图当因果证明。", "evidence_sources": ["sec:method", "sec:experiments", "sec:conclusion"]},
+    {"section": "局限", "focus": "明确未被证明的独立组件贡献、容量混杂、残余泄漏、真实统计不足和跨银行语义分工的外推边界。", "evidence_sources": ["sec:experiments", "sec:conclusion"]}
+  ]
+}

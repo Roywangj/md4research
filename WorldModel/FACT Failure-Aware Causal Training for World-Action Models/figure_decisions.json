@@ -1,0 +1,771 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2608.10232",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "FACT first generates an action and then rolls out the resulting future video and task-",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_001_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_001_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_001_fig_figure_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "e10d07b50df60218fb487a85756c1eb56b0a153c4eb6fac5f96097fdf17ad49d",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_001_fig_figure_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_001.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 1,
+        "caption": "FACT first generates an action and then rolls out the resulting future video and task-",
+        "bbox_pt": [
+          104.0,
+          399.544921875,
+          508.1897277832031,
+          579.4061279296875
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.504476,
+          0.830375,
+          0.731573
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "e10d07b50df60218fb487a85756c1eb56b0a153c4eb6fac5f96097fdf17ad49d",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "FACT architecture. (a) A shared causal diffusion transformer denoises action, value,",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_004_fig_figure_2_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "7aebb636c1cad8deecb60713eb0a492f2bada749d4ca97810cd001deacf81177",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_004_fig_figure_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_004.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 4,
+        "caption": "FACT architecture. (a) A shared causal diffusion transformer denoises action, value,",
+        "bbox_pt": [
+          104.0,
+          67.99861145019531,
+          508.0042419433594,
+          282.19744873046875
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.085857,
+          0.830072,
+          0.35631
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "7aebb636c1cad8deecb60713eb0a492f2bada749d4ca97810cd001deacf81177",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "and jointly denoises action, value, and future-video tokens. Its lower real-world seen-task",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Real-world task overview. We show intermediate frame results for five tasks.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_006_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_006_fig_figure_4_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "4bd6c6d8ee4f44029b26dc3b9c5531a15ed8c824216ad2e03f877bc2e748126f",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_006_fig_figure_4_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_006.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 6,
+        "caption": "Real-world task overview. We show intermediate frame results for five tasks.",
+        "bbox_pt": [
+          104.0,
+          58.03496170043945,
+          507.9969787597656,
+          125.3082046508789
+        ],
+        "normalized_bbox": [
+          0.169935,
+          0.073276,
+          0.83006,
+          0.158217
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "4bd6c6d8ee4f44029b26dc3b9c5531a15ed8c824216ad2e03f877bc2e748126f",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Effect of failure data on future prediction. Under the same bad-action condition, the",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Failure-data scaling on RoboTwin.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "visualizes a Pick Cubes rollout with a missed",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Choices of different N. Relative",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Failure-aware co-training of FACT",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "placeholder",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail"
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "Rollout failures for co-training",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "placeholder",
+      "reason": "这张图解释方法内部机制或关键执行状态，适合放在方法主线部分作为机制细节占位。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "方法主线",
+      "plan_kind": "method_detail"
+    },
+    {
+      "item_id": "figure:Algorithm 3",
+      "source_id": "Algorithm 3",
+      "kind": "figure",
+      "label": "Algorithm 3",
+      "caption": "Two-stage inference with optional candidate scoring",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "placeholder",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Seen real-world tasks. Rollout image sequences for the five seen tasks reported in Table 2,",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Unseen real-world tasks. Held-out task variants used for Table 3, ordered from top to",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_015_fig_figure_10.png",
+      "relative_markdown_embed": "![Figure 10](images/page_015_fig_figure_10.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_015_fig_figure_10_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "1c93977202d943926cdc77c32a118e53ec3f52819f5771339bd528e043b1a011",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_015_fig_figure_10_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_015.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 15,
+        "caption": "Unseen real-world tasks. Held-out task variants used for Table 3, ordered from top to",
+        "bbox_pt": [
+          112.65499877929688,
+          359.3580017089844,
+          496.8110046386719,
+          466.12200927734375
+        ],
+        "normalized_bbox": [
+          0.184077,
+          0.453735,
+          0.811783,
+          0.588538
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "1c93977202d943926cdc77c32a118e53ec3f52819f5771339bd528e043b1a011",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Real-world hardware setup. As shown in (a), we use two YAM arms, three RGB",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "provides additional value-trace visualizations for the Stack Bowls and Stack Cubes tasks.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "provides an additional diagnostic for the value head discussed in Sec. 4.3. On the Stack",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "RoboTwin simulation results.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_006_fig_table_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "f85ccb36ea4d1b6b53a1946e8b0eaa71d9d09c3a94f6fbee7c68f40e72a102b8",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_006_fig_table_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_006.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 6,
+        "caption": "RoboTwin simulation results.",
+        "bbox_pt": [
+          301.93896484375,
+          454.48724365234375,
+          492.181396484375,
+          626.9701538085938
+        ],
+        "normalized_bbox": [
+          0.493364,
+          0.573848,
+          0.804218,
+          0.791629
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "f85ccb36ea4d1b6b53a1946e8b0eaa71d9d09c3a94f6fbee7c68f40e72a102b8",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Real-world results on seen tasks.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_007_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_007_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Unseen real-world task results.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_3_review.png",
+      "relative_markdown_embed": "![Table 3](images/page_007_fig_table_3_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_007_fig_table_3_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "e8e9e381da0ea9e5c86db20656ad7f0e52181bfb397ac692e1f52a5324e0e7e4",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_007_fig_table_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 7,
+        "caption": "Unseen real-world task results.",
+        "bbox_pt": [
+          312.3774719238281,
+          84.42254638671875,
+          505.72943115234375,
+          220.52066040039062
+        ],
+        "normalized_bbox": [
+          0.510421,
+          0.106594,
+          0.826355,
+          0.278435
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "fail",
+        "reviewed_asset_sha256": "e8e9e381da0ea9e5c86db20656ad7f0e52181bfb397ac692e1f52a5324e0e7e4",
+        "preserved_scientific_elements": [
+          "Table 3 主体数值"
+        ],
+        "omitted_scientific_elements": [
+          "左侧相邻表格残留导致的完整边界"
+        ],
+        "notes": "裁剪左侧混入 Table 2 的 Avg. 列，直接插入会造成表格身份歧义；正文改用人工转录。",
+        "failure_reason": "caption_contamination",
+        "repair_attempts": 1,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Future prediction quality (PSNR ↑).",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Real-world task prompts. For real-world experiments, we use the prompts listed above",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Success rate and inference time. Success rates are averages from Sec. 4; latency is",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_019_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_019_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_019_fig_table_7_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "cd9b8020da4f3766f82219a0055076710c9566091282d7681d17e9eea2a89363",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_019_fig_table_7_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_019.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 19,
+        "caption": "Success rate and inference time. Success rates are averages from Sec. 4; latency is",
+        "bbox_pt": [
+          182.8719940185547,
+          122.99714660644531,
+          429.1281433105469,
+          206.3323974609375
+        ],
+        "normalized_bbox": [
+          0.29881,
+          0.155299,
+          0.70119,
+          0.260521
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "cd9b8020da4f3766f82219a0055076710c9566091282d7681d17e9eea2a89363",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Future prediction quality. SSIM and PSNR on 512 held-out future-prediction samples,",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Detailed RoboTwin results. Per-task success rates on 50 RoboTwin tasks under clean and",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:appendix",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_018_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_018_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_018_fig_table_6_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "0f11830a7b4652b3081f1d78fc4cb1329eef7ed235117c3a594be9585360b9fe",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/images/page_018_fig_table_6_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a37eae2e099ee81b4/tmp/DeepPaperNote/assets/FACT_Failure_Aware_Causal_Training_for_World_Action_Models/page_previews/page_018.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/G7H4ME3D/Peng 等 - 2026 - FACT Failure-Aware Causal Training for World-Action Models.pdf",
+        "source_page": 18,
+        "caption": "Detailed RoboTwin results. Per-task success rates on 50 RoboTwin tasks under clean and",
+        "bbox_pt": [
+          102.0009994506836,
+          115.99407196044922,
+          509.999755859375,
+          644.0742797851562
+        ],
+        "normalized_bbox": [
+          0.166668,
+          0.146457,
+          0.833333,
+          0.813225
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "0f11830a7b4652b3081f1d78fc4cb1329eef7ed235117c3a594be9585360b9fe",
+        "preserved_scientific_elements": [
+          "图/表主体",
+          "关键标签与数值",
+          "图注对应的科学内容"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪主体与原文页码，未见科学内容缺失；用于精读笔记中的证据定位。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    }
+  ],
+  "summary": {
+    "total_items": 24,
+    "by_decision": {
+      "insert": 0,
+      "low_priority": 12,
+      "placeholder": 3,
+      "review_pending": 8,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  },
+  "decision_freeze": "frozen_after_visual_review",
+  "visual_review_summary": {
+    "inserted": [
+      "figure:Figure 1",
+      "figure:Figure 10",
+      "figure:Figure 2",
+      "figure:Figure 4",
+      "table:Table 1",
+      "table:Table 6",
+      "table:Table 7"
+    ],
+    "transcribed_without_image": [
+      "Table 3",
+      "Table 4",
+      "Table 8"
+    ],
+    "skipped_low_priority": true
+  }
+}

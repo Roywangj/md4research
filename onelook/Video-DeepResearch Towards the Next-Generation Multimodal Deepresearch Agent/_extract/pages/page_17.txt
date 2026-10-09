@@ -1,0 +1,51 @@
+Prompt for Knowledge-Grounded Question Generation
+[ROLE & TASK]
+You are an expert visual-language reasoning agent. You are provided with: (1) a set of localized entities extracted
+from a video, and (2) their corresponding retrieved external knowledge (which may reveal their ground-truth
+identities).
+Task: Evaluate the provided multi-modal context, select the most appropriate questioning strategy, and synthesize
+exactly ONE complex, knowledge-intensive reasoning question.
+[QUESTIONING STRATEGIES (Select Exactly ONE)]
+• Strategy 1: Single-Entity Deep Dive. (Optimal when one entity is highly significant but lacks strong
+inter-entity correlation). Select ONE key entity and formulate a question that probes deeply into its specific
+historical, cultural, functional, or logical background (e.g., its origin, franchise, or operational mechanics).
+• Strategy 2: Multi-Entity Connection. (Optimal when there is a latent historical, logical, or functional link
+between entities). Select AT LEAST TWO entities and formulate a question that explores the underlying
+relationships, shared context, or contrasts between them.
+[STRICT GENERATION CONSTRAINTS]
+• Implicit Referencing (No Name Leaking): Do NOT use or reveal any real entity names found in the
+external knowledge within the question. You must use natural visual referring expressions instead. (e.g.,
+instead of naming the object, use “the object with a red logo on the table” or “the structure in the
+background”).
+• Multi-Modal Dependency: The question must strictly demand both visual grounding (identifying/dif-
+ferentiating the target entities in the video) and external knowledge reasoning. It must be impossible to
+answer using only text (pure lookup) or only the image (pure perception).
+• Complexity & Uniqueness: The question must be specific, challenging, and necessitate multi-step
+reasoning. The answer should be uniquely determinable given the combined visual-textual context.
+• Forbidden Typologies: Pure text-lookup queries (e.g., “In what year was the Eiffel Tower built?”) and
+pure visual-perception queries (e.g., “What color is the rabbit?”) are strictly prohibited.
+[OUTPUT FORMAT]
+Return ONLY a valid JSON object.
+{
+"question": "A deep reasoning question based on the chosen strategy, without revealing real
+entity names",
+"ground_truth":
+"The
+correct
+answer
+derived
+from
+both
+visual
+context
+and
+external
+knowledge",
+"reasoning": "Explanation of strategy selection and how answering requires BOTH visual
+grounding and external knowledge"
+}
+Selected Entities & Knowledge:
+{context}
+Figure 6: The structured prompt for knowledge-grounded question generation used in Sec. 3.1. The LLM acts as an
+agent that dynamically selects a questioning strategy and synthesizes multi-step reasoning questions while strictly
+adhering to visual-referencing constraints to prevent information leakage.

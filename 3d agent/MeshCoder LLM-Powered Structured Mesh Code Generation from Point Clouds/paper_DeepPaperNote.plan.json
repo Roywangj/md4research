@@ -1,0 +1,48 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出点云到可执行 Blender Python 程序的多模态模型，并包含程序语言设计、两阶段数据构造、三平面形状编码和自回归代码生成。",
+  "dominant_domain": "3D shape program induction",
+  "must_cover": ["Blender 几何 API", "千万级部件代码数据", "部件到对象的伪代码构造", "三平面形状分词器", "Llama 代码生成", "可执行重建、编辑与结构理解", "数据过滤和评测边界"],
+  "key_numbers": ["部件数据约 1000 万对", "对象数据从 157 万实例中过滤得到 100 万对、覆盖 41 类", "输入 4096–16384 点，推理使用 16384 点；128 个 2048 维形状 token", "基础 LLM 为 Llama-3.2-1B，LoRA 微调", "64 张 A100 训练约 7 天 + 2 天，总计约 13824 A100 GPU 小时", "全类别平均 CD 0.06×10^-2、IoU 86.75%"],
+  "real_comparisons": ["MeshCoder 与 PLAD、Shape2Prog 的重建 CD/IoU", "部件 API 中 Primitive、Translation、Bridge Loop、Boolean、Array 的表达力与误差", "几何重建指标与代码可执行性、编辑性、语义理解主张之间的证据差异", "自身 API 生成/筛选的数据与外部真实点云泛化"],
+  "central_claims": [
+    {
+      "claim": "扩展 Blender Python API 能比简单 DSL 表达更复杂、可编辑的多部件几何。",
+      "supporting_evidence": [{"section_id": "sec:introduction"}, {"section_id": "sec:methodology"}, {"section_id": "sec:method"}, {"pages": [2, 9]}],
+      "what_it_actually_proves": "Primitive、Translation、Bridge Loop、Boolean、Array 和专门部件函数能重建多个室内类别，并可通过参数修改几何与分辨率。",
+      "what_it_does_not_prove": "没有系统报告代码长度、执行成功率、网格流形/四边面质量或与专业建模工作流的用户效率比较。"
+    },
+    {
+      "claim": "部件先验与三平面条件化 LLM 可以从点云生成结构化对象代码。",
+      "supporting_evidence": [{"section_id": "sec:methodology"}, {"section_id": "sec:datasets-2"}, {"pages": [4, 18]}],
+      "what_it_actually_proves": "模型把点云压缩为固定形状 token，并在由部件代码拼接而成的合成对象数据上取得较低 CD 和较高体素 IoU。",
+      "what_it_does_not_prove": "尚未证明对真实扫描噪声、未知类别、未分部件对象或有机形态具有稳健泛化。"
+    },
+    {
+      "claim": "MeshCoder 在重建精度上明显优于 Shape2Prog 与 PLAD。",
+      "supporting_evidence": [{"section_id": "sec:datasets"}, {"section_id": "sec:method"}, {"section_id": "sec:datasets-2"}, {"pages": [7, 19]}],
+      "what_it_actually_proves": "在统一 Infinigen 测试集和论文规定的 CD/体素 IoU 协议中，平均 CD 为 0.06 对 1.87/6.00，IoU 为 86.75 对 67.62/45.03。",
+      "what_it_does_not_prove": "方法拥有更强 API、点云输入和针对性数据构造，而基线是类别特定体素程序方法；结果不能隔离 LLM、表示能力、数据规模和筛选的各自贡献。"
+    },
+    {
+      "claim": "结构化代码能增强大语言模型对三维形状的理解。",
+      "supporting_evidence": [{"section_id": "sec:method"}, {"section_id": "sec:datasets-2"}, {"pages": [9, 20]}],
+      "what_it_actually_proves": "少量示例显示 GPT-4o 能读取带对象名、部件名和参数注释的生成代码，并回答轮子数量等结构问题。",
+      "what_it_does_not_prove": "没有量化基准、点云/渲染图基线或去除语义注释的消融，因此不能证明几何推理能力本身得到提升，可能只是文本字段读取。"
+    }
+  ],
+  "claim_boundaries": ["训练与测试都围绕程序化室内对象分布，未提供真实点云或跨数据集评测。", "对象代码标签由部件模型预测并拼接，且只有所有部件 CD 小于 5×10^-3 的对象进入配对集。", "重建指标衡量表面/占用相似度，不等价于代码正确性、拓扑质量、语义部件准确率或编辑便利性。", "所谓 LLM 形状理解只有示例性问答，没有严格实验。"],
+  "negative_or_limiting_results": ["从 157 万对象中只保留 100 万，约 36% 因至少一个部件不达阈值而被丢弃，形成可表示性选择偏差。", "部件层 Array 的 IoU 仅 78.90%，Spoon 的对象 IoU 74.00% 且低于 PLAD 的 87.04%；Fork IoU 58.86% 也低于 PLAD 的 89.28%。", "代码不含颜色信息，无法回答颜色相关问题。", "作者明确承认主要覆盖人造物体，有机动物和人体未发展。", "训练约消耗 13824 A100 GPU 小时。"],
+  "mechanism_result_map": ["更强的几何 API 降低目标形状与代码语言可表示空间之间的上限误差。", "部件归一化把复杂对象问题化为大量较简单的局部逆程序任务，再通过逆变换恢复全局位姿。", "三平面投影把无序点集转为规则二维特征，学习查询 token 再压缩到固定长度以适配 LLM。", "训练代码自带部件语义注释，解释了为何下游 GPT 能直接回答结构问题，也同时构成语义泄漏风险。"],
+  "comparative_positioning": ["相对简单 DSL，MeshCoder 使用 Blender API 扩大表达空间，但也把目标分布绑定到自定义函数库。", "相对直接网格生成，它牺牲端到端几何自由度，换取程序可执行、部件可分离和参数可编辑。", "相对 CAD 序列生成，它面向完整多部件室内对象而非单个机械零件。"],
+  "reuse_takeaways": ["先解决规范化部件逆程序，再拼成对象级代码，是将组合爆炸拆解为局部可学习问题的有效课程学习策略。", "固定长度形状 token 可以像视觉 token 一样前缀化到代码 LLM，形成点云到程序的通用接口。", "结构化中间代码适合被智能体修改和执行，但评测必须分开衡量可执行性、几何误差、语义结构和编辑成本。"],
+  "followup_questions": ["在真实扫描点云、遮挡和传感噪声下，代码执行成功率与几何精度如何？", "去掉部件名字/注释后，GPT 的结构问答是否仍优于直接输入点云渲染？", "用执行反馈、几何损失或强化学习修复生成代码，能否减少语法和局部几何错误？", "训练数据不筛除失败对象，而将失败轨迹用于自我修复训练，会不会提升长尾部件泛化？"],
+  "section_plan": [
+    {"section": "研究问题", "weight": "medium", "focus": "解释现有形状程序语言表达力和配对数据规模的双重瓶颈，以及为何输出可执行程序而非直接网格。", "subsections": ["DSL 上限", "数据缺口"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:related-work"}]},
+    {"section": "数据与任务定义", "weight": "high", "focus": "拆开千万部件对、百万对象对、筛选阈值、类别范围、点云输入、代码监督和重建指标，明确任务真实含义。", "subsections": ["部件数据", "对象数据与筛选", "评测协议"], "evidence_sources": [{"section_id": "sec:datasets"}, {"section_id": "sec:datasets-2"}]},
+    {"section": "方法主线", "weight": "high", "focus": "重建几何 API、部件模型、伪对象代码构造、三平面分词器和对象级自回归生成的两阶段完整链路。", "subsections": ["机制流程", "几何代码语言", "形状分词器", "部件到对象"], "evidence_sources": [{"section_id": "sec:methodology"}, {"section_id": "sec:datasets-2"}, {"pages": [4, 18]}]},
+    {"section": "关键结果", "weight": "high", "focus": "同时报告全类别平均优势、Fork/Spoon 等负面类别、标准差、部件误差和巨额训练成本，不把单表胜出等同通用成功。", "subsections": ["重建精度", "困难类别", "编辑与理解证据", "计算成本"], "evidence_sources": [{"section_id": "sec:method"}, {"section_id": "sec:datasets-2"}, {"section_id": "sec:limitations"}]},
+    {"section": "深度分析", "weight": "high", "focus": "区分 API 表达力、数据筛选、部件课程学习和 LLM 建模的贡献，并审视代码语义泄漏与闭环评测缺失。", "subsections": ["真正贡献", "为何有效", "不公平比较与证据缺口"], "evidence_sources": [{"section_id": "sec:methodology"}, {"section_id": "sec:datasets"}, {"section_id": "sec:method"}, {"section_id": "sec:datasets-2"}]},
+    {"section": "局限", "weight": "medium", "focus": "集中讨论合成域、筛选偏差、有机物体、颜色缺失、代码质量指标缺失、推理问答不严谨和算力门槛。", "subsections": ["数据与泛化", "表示与评测", "资源成本"], "evidence_sources": [{"section_id": "sec:datasets-2"}, {"section_id": "sec:limitations"}, {"section_id": "sec:conclusion"}]}
+  ]
+}

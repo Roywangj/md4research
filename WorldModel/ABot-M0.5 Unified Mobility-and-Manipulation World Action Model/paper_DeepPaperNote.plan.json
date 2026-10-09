@@ -1,0 +1,420 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出面向移动操作的世界动作模型架构与三阶段训练策略，核心贡献是中间潜动作、双层 Mixture-of-Transformers 和 Dream Forcing，并通过多项仿真基准、消融及五项真实机器人任务验证。",
+  "dominant_domain": "世界动作模型、移动操作、生成式机器人控制",
+  "must_cover": [
+    "移动操作相对静态操作的时间粒度、动作空间和训练推理条件三类错位",
+    "Video Latent → Frame-level Latent Action → Executable Action 的三级生成链",
+    "模态级与动作级双层 Mixture-of-Transformers",
+    "Dream Forcing 的两阶段前向与自生成未来条件",
+    "Wan2.2-5B 世界模型预训练、ALAM 潜动作预训练与 SFT1/SFT2",
+    "异构多相机语义槽位、结构化注意力和 offset latent augmentation",
+    "RoboCasa365、RoboTwin 2.0、LIBERO、LIBERO-Plus 与真实机器人评测",
+    "潜动作、动作解耦、Dream Forcing 和预训练的量化消融",
+    "论文未充分说明的 condensed memory、训练成本、动作接口和统计显著性"
+  ],
+  "key_numbers": [
+    "RoboCasa365 预训练设置：ABot-M0.5 40.4%，加入 Condensed Memory 为 46.6%；Target 100% 为 54.2%，Target 10% 为 30.1%",
+    "RoboTwin 2.0：Clean 94.00、Randomized 94.20、Average 94.10",
+    "LIBERO：L-Spatial 100.0、L-Object 99.8、L-Goal 99.4、L-Long 98.4、Average 99.4",
+    "LIBERO-Plus 零样本总分 83.4；在 WAM 对照中高于 Fast-WAM 51.5、Cosmos-Policy 82.2、ImageWAM 83.1，但低于若干 VLA 基线",
+    "潜动作策略：直接 Video→Action 87.60；2-Stage Separate 90.86；Channel Concat 91.06；3-Stage Separate+pdrop 0.2 为 91.06；pdrop 0 为 94.00",
+    "Action-Decoupled MoT 在 RoboCasa365 Composite-Seen 子集由 0.34 提升到 0.48",
+    "Dream Forcing：50k SFT1 基线 67.55；普通训练 +5k 为 66.78、+10k 为 68.90；Dream Forcing +5k 为 70.56",
+    "Target 10% 预训练模型微调后 49.0%，Wan2.2 直接微调为 17.8%，绝对差 31.2 点",
+    "真实机器人每任务 50 条示范；ABot-M0.5 五任务成功率为 70/70/80/80/60%，过程分为 96/90/90/90/88%"
+  ],
+  "real_comparisons": [
+    "RoboCasa365 上 ABot-M0.5 与 Diffusion Policy、π0/π0.5、GR00T、GigaWorld-Policy、RLDX-1、Qwen-RobotManip 的平均及分组成功率",
+    "RoboTwin 2.0 上 ABot-M0.5 与 Fast-WAM、Lingbot-VA、Qwen-RobotManip、G0.5 等强基线",
+    "LIBERO 上 ABot-M0.5 与 Motus、ImageWAM、Fast-WAM、ABot-M0 等 WAM/VLA 方法",
+    "LIBERO-Plus 上 WAM 与 VLA/VLA+WM 的零样本扰动鲁棒性，避免把 83.4 写成全方法最高",
+    "潜动作表示的四种结构与 conditioning dropout 对照",
+    "动作解耦 MoT 与仅模态级 MoT 的 Composite-Seen 表现及收敛速度",
+    "Dream Forcing 与相同步数继续 Teacher Forcing 的对照",
+    "五项真实任务上 ABot-M0.5、π0.5 和 FastWAM 的成功率与过程分"
+  ],
+  "central_claims": [
+    {
+      "claim": "移动操作中的核心困难可被统一表述为时间粒度、异构动作空间和训练推理条件三类结构错位。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            3,
+            7
+          ]
+        }
+      ],
+      "what_it_actually_proves": "论文给出与三类错位一一对应的架构设计，并通过对应消融观察到性能增益。",
+      "what_it_does_not_prove": "消融并非完全正交，不能证明三类错位是移动操作失败的唯一原因，也不能量化每类错位的独立因果贡献。"
+    },
+    {
+      "claim": "帧级潜动作可以作为粗视频潜变量与细粒度控制之间的桥接空间。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            8,
+            10
+          ]
+        },
+        {
+          "section_id": "sec:model-4",
+          "pages": [
+            21,
+            22
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在 RoboTwin Clean 消融中，三级独立流且严格因果的设计由直接 Video→Action 的 87.60 提升至 94.00，并且错误的 concat、共享索引或 dropout 均退化。",
+      "what_it_does_not_prove": "未与更多潜动作学习器或同参数量的高频视频表示充分比较，不能说明 ALAM 表征是唯一或最优桥接空间。"
+    },
+    {
+      "claim": "动作级 MoT 的显式 mobility/manipulation 解耦能减少梯度干扰并改善长时程移动操作。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            23,
+            24
+          ]
+        }
+      ],
+      "what_it_actually_proves": "选定 RoboCasa365 Composite-Seen 子集上成功率由 0.34 提升至 0.48，且训练曲线收敛更快。",
+      "what_it_does_not_prove": "论文没有报告该消融子集的任务数量、方差和统计检验，也没有同等容量的替代分支结构对照。"
+    },
+    {
+      "claim": "Dream Forcing 通过让动作预测器条件于模型自身生成的未来潜变量，减小了世界动作模型的训练推理分布差异。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            10,
+            16
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            24,
+            25
+          ]
+        }
+      ],
+      "what_it_actually_proves": "从同一 50k SFT1 检查点继续 5k 步时，Dream Forcing 达 70.56，而标准训练为 66.78；标准训练到 60k 也只有 68.90。",
+      "what_it_does_not_prove": "只在 RoboCasa365 Target Atomic-Seen 子集报告，缺少多随机种子、方差、训练成本和对 diffusion forcing 的同预算直接消融。"
+    },
+    {
+      "claim": "三种对齐设计组合后在多个仿真基准和五项真实机器人任务上取得强结果。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments-2",
+          "pages": [
+            17,
+            19
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            20,
+            20
+          ]
+        },
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "section_id": "sec:model-4",
+          "pages": [
+            21,
+            22
+          ]
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": [
+            22,
+            23
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            23,
+            26
+          ]
+        },
+        {
+          "section_id": "sec:experimental-results",
+          "pages": [
+            26,
+            28
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在所用协议下，ABot-M0.5 在 RoboTwin、LIBERO、RoboCasa365 和真实任务上形成有竞争力的结果，并在 WAM 子集的 LIBERO-Plus 对照中最高。",
+      "what_it_does_not_prove": "RoboCasa365 的 46.6 依赖正文未展开的 Condensed Memory；LIBERO-Plus 83.4 不是全表最高；真实任务样本小且只使用单臂平台。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文把 Condensed Memory 作为 RoboCasa365 最佳结果的一部分，但没有在方法章节完整定义该模块；40.4 与 46.6 必须分开解释。",
+    "LIBERO-Plus 的 83.4 是 WAM 组中的最高值之一，但低于 Qwen-RobotManip-Context 91.4 等 VLA；只能在作者强调的 WAM 子集内称 SOTA。",
+    "真实机器人使用 Agilex Piper 6-DoF 单臂和每任务 50 条示范，不能直接支持跨本体、移动底盘或开放世界泛化。",
+    "动作解耦消融只在选定 Composite-Seen 子集报告 0.34→0.48，没有误差条和任务清单。",
+    "Dream Forcing 的收益仅在一个原子任务子集和单个 warm-start 流程中报告，未提供方差或显著性。",
+    "论文未报告参数量拆分、训练 GPU 数/时长、完整推理延迟、控制频率和动作维度，因此不足以完整复现系统成本。",
+    "正文称三项长时程任务，但结果实际列出 Organize Plate、Arrange Fruits、Cup Stacking、Arrange Flower 四项，存在内部表述不一致。"
+  ],
+  "negative_or_limiting_results": [
+    "RoboCasa365 Pretraining 的 Composite-Unseen：ABot-M0.5 基础版仅 2.7%，低于 Qwen-RobotManip 14.9%；加入 Condensed Memory 后为 7.9%。",
+    "LIBERO-Plus 上 ABot-M0.5 的 Camera 70.5 和 Light 94.0 并非所有列最优，总分 83.4 低于若干 VLA 基线。",
+    "潜动作 dropout pdrop=0.2 将三级结构从 94.00 降至 91.06，说明训练时随机删条件会破坏级联推理的一致性。",
+    "继续 Teacher Forcing 5k 步从 67.55 降到 66.78，更多训练本身不能解释 Dream Forcing 的收益。",
+    "论文没有专门的失败案例、安全分析、延迟测量或真实长时程移动底盘实验。",
+    "自动抽取显示正文无独立 Limitations、Data Availability 或 Ethics 小节。"
+  ],
+  "mechanism_result_map": [
+    "中间潜动作把粗视频演化细化为逐帧运动意图，对应 RoboTwin 潜动作结构消融 87.60→94.00。",
+    "动作级 MoT 为 mobility/manipulation 使用独立 FFN 和预测头、共享注意力协调，对应 Composite-Seen 0.34→0.48 及更快收敛。",
+    "Dream Forcing 先生成 dreamed z/m、再用其监督动作， 对应相同 +5k 步下 66.78→70.56。",
+    "Wan2.2 世界模型预训练与机器人数据适配对应 Target 10% 上 17.8→49.0 的样本效率差。",
+    "固定相机语义槽位、可变长 FlashAttention 与 offset augmentation 支持异构多视角长序列训练，但论文主要给出约 5×系统速度陈述而缺少独立下游消融。"
+  ],
+  "comparative_positioning": [
+    "相对反应式 VLA，ABot-M0.5 显式预测未来视觉与动作，但没有同骨干纯 VLA 的全面对照来隔离世界建模收益。",
+    "相对 Teacher Forcing，Dream Forcing 用模型自身未来作为条件；相对 Diffusion Forcing，它试图避免训练时任意噪声组合与推理轨迹不一致。",
+    "相对 Motus/Unified World Models 等 WAM，本文的差异重点不是是否联合视频动作，而是加入帧级桥接动作、异构动作解耦和自生成条件训练。",
+    "相对 ABot-M0，M0.5 将动作流扩展到世界动作级联与移动/操作统一，但没有统一参数、数据和训练预算下的完整版本演进消融。"
+  ],
+  "reuse_takeaways": [
+    "世界动作模型的设计应同时检查表示粒度、动作子空间和训练时条件分布，而不是只增加视频模型规模。",
+    "有明确级联依赖的多流模型不应随意对关键条件做 dropout；训练 mask 必须复现推理信息流。",
+    "自生成条件训练可视为 WAM 版本的 exposure-bias 修正，但需要同预算、多随机种子和训练成本对照。",
+    "异构动作可以共享注意力做协调、在 FFN/头部做专门化，这是兼顾耦合与解耦的可复用结构。",
+    "报告 SOTA 时应区分全表、方法子类和附加模块，避免把 WAM 子集最好或外挂 memory 结果写成无条件领先。"
+  ],
+  "followup_questions": [
+    "在相同 Wan2.2 骨干和数据下，纯 VLA、Video→Action、Video→Latent Action→Action 三者的参数与延迟控制对照如何？",
+    "Dream Forcing 的两阶段前向增加多少训练 FLOPs、显存和墙钟时间，收益是否跨 RoboTwin/LIBERO 保持？",
+    "若 dreamed video 严重幻觉或目标漂移，动作分支是鲁棒补偿还是会被错误未来误导？",
+    "潜动作的维度、码本大小、每帧 token 数和跨相机聚合方式对控制精度有何影响？",
+    "动作解耦应按 mobility/manipulation、左右臂、末端/夹爪还是频率自动路由，哪种最稳？",
+    "Condensed Memory 的具体结构、训练方式和对 40.4→46.6 的独立贡献是什么？",
+    "在真实移动底盘、遮挡、动态障碍和长达数分钟的任务上，误差累积是否仍受控？",
+    "代码、模型权重、预训练数据清单和完整控制接口实际开放到什么程度？"
+  ],
+  "section_plan": [
+    {
+      "section": "研究问题",
+      "weight": "high",
+      "focus": "从移动操作中的长视角变化、细粒度接触、异构底盘与机械臂动力学，以及自回归误差累积解释三类结构错位。",
+      "subsections": [
+        "为什么静态操作 WAM 不能直接外推",
+        "三类 alignment 的统一问题定义",
+        "与 VLA、Teacher Forcing 和 Diffusion Forcing 的边界"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            3,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "说明预训练数据的多本体与多相机组成、四类仿真基准的能力维度、五项真实任务和评测指标，并标记数据规模与协议未完整披露处。",
+      "subsections": [
+        "预训练数据",
+        "仿真基准",
+        "真实机器人与指标",
+        "输入输出定义"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            13,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:experiments-2",
+          "pages": [
+            17,
+            19
+          ]
+        },
+        {
+          "section_id": "sec:experimental-results",
+          "pages": [
+            26,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "focus": "以四步机制流程重建三级生成级联、双层 MoT、Dream Forcing 两阶段前向和三阶段训练，并保留关键 CFM 与 ALAM 公式。",
+      "subsections": [
+        "机制流程",
+        "中间潜动作",
+        "双层 MoT",
+        "Dream Forcing",
+        "预训练与渐进 SFT",
+        "系统优化"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            7,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "focus": "用紧凑表格呈现 RoboCasa365、RoboTwin、LIBERO/Plus、四组关键消融和真实机器人结果，同时保留最强反例与限定条件。",
+      "subsections": [
+        "主结果与强基线",
+        "消融到底说明了什么",
+        "真实机器人结果",
+        "负结果与不稳定设置"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            20,
+            20
+          ]
+        },
+        {
+          "section_id": "sec:method-2",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "section_id": "sec:model-4",
+          "pages": [
+            21,
+            22
+          ]
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": [
+            22,
+            23
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            23,
+            26
+          ]
+        },
+        {
+          "section_id": "sec:experimental-results",
+          "pages": [
+            26,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "focus": "检查每种 alignment 的机制—证据链，区分真正的研究贡献与系统装配，并审计 SOTA、跨基准泛化和真实部署主张的边界。",
+      "subsections": [
+        "真正贡献是什么",
+        "为什么结果可能成立",
+        "容易误读的 SOTA",
+        "复现与扩展成本",
+        "替代解释"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction-2",
+          "pages": [
+            3,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            23,
+            26
+          ]
+        },
+        {
+          "section_id": "sec:experimental-results",
+          "pages": [
+            26,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "focus": "覆盖消融统计不足、Condensed Memory 未定义、真实移动性证据缺失、训练与延迟成本缺口、动作接口不透明以及安全失败分析缺失。",
+      "subsections": [
+        "证据与统计",
+        "真实移动操作外推",
+        "系统成本与复现",
+        "安全和失败边界"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:discussion",
+          "pages": [
+            19,
+            20
+          ]
+        },
+        {
+          "section_id": "sec:background",
+          "pages": [
+            23,
+            26
+          ]
+        },
+        {
+          "section_id": "sec:experimental-results",
+          "pages": [
+            26,
+            28
+          ]
+        }
+      ]
+    }
+  ]
+}

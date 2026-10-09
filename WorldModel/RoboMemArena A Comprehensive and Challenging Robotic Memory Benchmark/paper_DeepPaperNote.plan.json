@@ -1,0 +1,94 @@
+{
+  "paper_type": "benchmark_or_dataset",
+  "paper_type_rationale": "论文的主要交付是一个面向 embodied memory 的 benchmark：核心证据来自任务构造、记忆依赖标注、评测协议、基线比较与真实机器人配套评估；PrediMem 是用于验证 benchmark 区分度的参考模型，而非唯一贡献。",
+  "dominant_domain": "robotic memory benchmark / embodied AI / vision-language-action",
+  "must_cover": [
+    "benchmark 要测量的记忆构念与四类任务：transferring、occlusion、counting、sequence",
+    "26 个仿真任务、151 个 subtasks、104 个 history-dependent subtasks、长轨迹与真实机器人五任务",
+    "VLM 任务分解、AnyGrasp 原子执行、闭环 post-condition checker、多条件 keyframe 标注流程",
+    "TSR 与 CSR 定义及 stage-level verification predicates",
+    "与 14 个 benchmark 的功能比较、与 π0.5/HiF-VLA/MemoryVLA/MemER/GPT-5.4/Qwen3-VL 的基线结果",
+    "PrediMem 的 recent/keyframe memory、predictive coding、异步 S2/S1 与消融/扩展结果",
+    "数据可访问性、标注主观性、仿真到现实外推和 benchmark 构念边界"
+  ],
+  "key_numbers": [
+    "26 tasks; 151 subtasks; 104/151 = 68.9% memory-dependent",
+    "平均 1,076 steps/task；2,600 successful demonstrations；15,100 keyframe-aligned segments；2.8M frames；38.83 hours",
+    "task composition: transferring 4, occlusion 11, counting 7, sequence 4",
+    "PrediMem simulation average TSR/CSR = 38.5%/55.2%；MemER = 27.3%/49.1%；π0.5 = 21.5%/38.7%",
+    "real-world average success: π0.5 20%, MemER 40%, PrediMem 52%, each task evaluated over 10 rollouts",
+    "S2 refresh 1.06 Hz, S1 3.40 Hz, approximately 2.92 S1 chunks per S2 update",
+    "training: Qwen3-VL-8B-Instruct, frozen vision tower, 2 epochs, 4×H100, learning rate 1e-5, recent buffer 5, uncapped keyframe bank"
+  ],
+  "real_comparisons": [
+    "Table 1 compares RoboMemArena with 14 established benchmarks on eight feature dimensions.",
+    "Table 2 compares four learned baselines, frozen Qwen3-VL-8B and GPT-5.4, Ground Truth oracle, PrediMem component variants, and Qwen3 backbone variants.",
+    "Table 4 compares π0.5, MemER, and PrediMem on five physical tasks over 10 rollouts each."
+  ],
+  "central_claims": [
+    {
+      "claim": "RoboMemArena makes past-event memory a central requirement rather than an optional history feature.",
+      "supporting_evidence": [{"pages":{"start":1,"end":2}}, {"pages":{"start":5,"end":7}}, {"pages":{"start":16,"end":17}}],
+      "what_it_actually_proves": "在论文给出的任务定义和人工/LLM 辅助标注协议下，104/151 个 subtasks 被标为依赖历史，且任务平均轨迹为 1,076 steps。",
+      "what_it_does_not_prove": "不证明该比例对所有机器人任务或其他记忆定义都成立，也不等同于每个标为 memory-dependent 的 subtask 都需要同样强度的长期记忆。"
+    },
+    {
+      "claim": "The benchmark is broader and more physically grounded than the compared memory benchmarks.",
+      "supporting_evidence": [{"pages":{"start":5,"end":6}}, {"pages":6}, {"pages":{"start":4,"end":5}}],
+      "what_it_actually_proves": "按作者定义的八个 feature dimensions，RoboMemArena 是表中唯一同时满足全部条件的 benchmark，并提供五项真实机器人任务。",
+      "what_it_does_not_prove": "功能勾选表不能证明每项能力的质量、难度校准或真实世界覆盖优于所有未比较的 benchmark。"
+    },
+    {
+      "claim": "PrediMem is a strong reference model on the proposed protocol, and its two memory mechanisms are complementary.",
+      "supporting_evidence": [{"pages":8}, {"pages":{"start":9,"end":9}}, {"pages":{"start":9,"end":10}}, {"pages":10}],
+      "what_it_actually_proves": "在作者训练设置和基线实现下，PrediMem 达到仿真平均 38.5% TSR/55.2% CSR；去掉 keyframe bank 或 predictive head 均下降，且 real-world 平均为 52%。",
+      "what_it_does_not_prove": "不能把该结果外推为对所有 VLA、所有记忆架构或未控制训练数据/算力条件的普遍优越性。"
+    }
+  ],
+  "claim_boundaries": [
+    "memory-dependent 比例来自作者定义：当前观测不足以确定正确 subtask，且移除历史会造成歧义；标注包含人工检查及大规模 benchmark 的 LLM-assisted first pass，可能存在 rubric bias。",
+    "Table 1 的八维比较是作者选定的二元特征表，不是统一实验测量；‘only entry satisfies all eight’应理解为该表口径下的结论。",
+    "闭源 GPT-5.4/Qwen3 frozen 对比与 trainable baselines 的训练状态不对称，因此只支持当前协议下 transfer gap，不支持模型能力的公平排名。",
+    "真实实验每任务 10 rollouts，论文未给出置信区间；物理平台、任务编排和成功 predicates 的特定性限制外推。"
+  ],
+  "negative_or_limiting_results": [
+    "π0.5 平均仿真 TSR 仅 21.5%，在 drawer state aliasing 与 constraint forgetting 上会重复开同一抽屉或过早放置 butter。",
+    "冻结 Qwen3-VL-8B 平均 TSR/CSR 仅 6.0%/26.2%，GPT-5.4 仅 8.7%/30.5%，显示语言/视觉能力直接迁移有限。",
+    "去掉 keyframe bank 后平均 TSR/CSR 降至 17.7%/41.6%；去掉 predictive head 后为 32.3%/49.0%。",
+    "predictive loss 权重 0.5 和 1.0 的 TSR（31.0%、29.8%）低于 0.1（38.5%），说明过强辅助目标会伤害当前协议。",
+    "recent window 大于 5 帧带来冗余、延迟和异步同步问题；keyframe capacity 2 的 CSR 很低，uncapped 才最好。",
+    "RoboMemArena 仍有 3–9 个 verification stages/task、以仿真为主，且真实任务仅五项。"
+  ],
+  "mechanism_result_map": [
+    {"mechanism": "recent buffer + uncapped keyframe buffer", "protocol_or_evidence": "Figure 4; Table 2(c); Figure 5(b)", "result_pattern": "短期窗口保留局部变化，keyframe bank 保存早期抽屉/放置事件；去掉 bank 后 occlusion/sequence 明显下降。"},
+    {"mechanism": "predictive coding of next-frame ViT latent", "protocol_or_evidence": "Eq. (6); Table 2(c); Table 3; Figure 5(c)", "result_pattern": "训练时让 hidden states 对物理状态转移更敏感；去掉 head 或使用过大 loss weight 均退化，t-SNE 显示类内更紧、类间更分离。"},
+    {"mechanism": "asynchronous S2 planner and S1 VLA actor", "protocol_or_evidence": "Figure 4; Algorithm 1; Table S1", "result_pattern": "S2 以 1.06 Hz 更新 subtask/keyframe，S1 以 3.40 Hz 执行动作块；预测头推理时移除，保持无额外推理成本的声明。"},
+    {"mechanism": "VLM decomposition + AnyGrasp atomic execution + post-condition retry", "protocol_or_evidence": {"pages":{"start":5,"end":6}}, "result_pattern": "把规模化轨迹生成与细粒度 subtask/keyframe 标注连接起来，但自动生成后仍需人工 refine 不合适的 decomposition。"}
+  ],
+  "comparative_positioning": [
+    "RoboMemArena 的差异不只是任务数量，而是把 native keyframes、subtask instructions、长轨迹、可扩展自动生成和 paired real-world evaluation 放入同一评测包。",
+    "PrediMem 作为 benchmark reference baseline 采用 end-to-end robotic data fine-tuning；MemER 的 dual-system retrieval 是最接近的强基线，π0.5 则提供 reactive lower bound。",
+    "闭源 VLM 结果应视为 frozen/planner-transfer reference，而非与 trainable policies 完全同条件的竞赛。"
+  ],
+  "reuse_takeaways": [
+    "设计 memory benchmark 时，应显式检查当前观测是否会与历史状态产生 state aliasing，并把 memory dependence 写成可审计 rubric。",
+    "长轨迹评测不要只报 final binary success；stage predicates + CSR 能区分‘记忆断裂但前面完成’与完全失败。",
+    "物理转移点适合用于稀疏 keyframe：gripper state transition 与速度 minima/direction change 比固定频率抽帧更贴近事件。",
+    "复现 PrediMem 必须同时复现 recent/keyframe 容量、S2/S1 异步调度、prompt 格式和 success predicates，否则数值不可直接比较。"
+  ],
+  "followup_questions": [
+    "公开代码、数据和 checkpoint 是否足以重建 26 个任务、151 个 subtasks 及每个 verification predicate？",
+    "memory-dependent 标注在不同 annotator/LLM rubric 下的一致性是多少？哪些任务真正需要视觉 keyframe 而非语言状态摘要？",
+    "在相同训练数据、参数量、推理延迟和上下文预算下，PrediMem 与 MemER/MemoryVLA 的公平对照是否仍成立？",
+    "uncapped keyframe bank 随轨迹长度继续增长时，存储、VLM 上下文和延迟如何扩展？是否需要检索或压缩？",
+    "真实任务扩展到不同机器人、相机布局和物体集合后，TSR/CSR 的方差和失败模式如何变化？"
+  ],
+  "section_plan": [
+    {"section": "研究问题", "focus": "把论文的 benchmark gap 拆成 multimodal memory annotations、task coverage/complexity、real-world validation 三个缺口，并明确作者的五个实验问题 Q1–Q5。", "reading_goal": "判断它测的是历史依赖记忆而非一般长时程操作能力。", "purpose": "界定 benchmark 构念和比较边界。", "evidence_sources": [{"pages":{"start":1,"end":2}}, {"section_id":"sec:experiments"}]},
+    {"section": "数据与任务定义", "focus": "说明 26 个仿真任务的四类 failure modes、五项真实任务、151 subtasks、104 history-dependent 标注和任务规模统计。", "reading_goal": "重建每类任务何时使当前观测不充分，以及数据分布如何影响难度。", "purpose": "给出可复现的任务/数据规格。", "evidence_sources": [{"pages":{"start":4,"end":5}}, {"pages":{"start":5,"end":7}}, {"pages":{"start":18,"end":19}}, {"pages":{"start":21,"end":22}}]},
+    {"section": "方法主线", "focus": "按数据构建流程解释 VLM decomposition、AnyGrasp execution、post-condition retry、物理/运动学 keyframe union，以及 TSR/CSR 协议；再说明 PrediMem 作为参考模型的 S2/S1 和 predictive coding。", "reading_goal": "区分 benchmark construction pipeline 与 reference model architecture。", "purpose": "使读者能够复现数据生成、标注、评测和模型设置。", "evidence_sources": [{"pages":2}, {"pages":{"start":5,"end":6}}, {"pages":{"start":6,"end":7}}, {"pages":7}, {"pages":{"start":15,"end":16}}]},
+    {"section": "关键结果", "focus": "用紧凑表格呈现 Table 2 四类任务 TSR/CSR、Table 3 loss weight、Figure 5 memory scaling、Table 4 real-world success，并解释强基线与组件消融。", "reading_goal": "确认 benchmark 有区分度，以及结果是否支持 memory bank/predictive coding 的机制叙事。", "purpose": "建立数字—机制—边界证据链。", "evidence_sources": [{"pages":{"start":8,"end":9}}, {"pages":{"start":9,"end":9}}, {"pages":{"start":9,"end":10}}, {"pages":{"start":10,"end":10}}]},
+    {"section": "深度分析", "focus": "讨论 benchmark 真正测到的能力、协议诱导的失败、仿真/物理外推、基线公平性和 uncapped memory 的扩展成本。", "reading_goal": "将 proven claims 与未验证的通用结论分开。", "purpose": "形成可复用的研究与复现判断。", "evidence_sources": [{"pages":{"start":5,"end":6}}, {"pages":20}, {"pages":{"start":7,"end":10}}]},
+    {"section": "局限", "focus": "覆盖规模、任务分布、自动/人工标注、评测方差、闭源基线不对称、真实平台与开放资源状态。", "reading_goal": "明确哪些 caveat 会阻止跨 benchmark 或现实部署的直接外推。", "purpose": "给出材料级证据边界。", "evidence_sources": [{"pages":{"start":1,"end":2}}, {"pages":{"start":5,"end":7}}, {"pages":{"start":7,"end":10}}, {"pages":{"start":15,"end":22}}]}
+  ]
+}

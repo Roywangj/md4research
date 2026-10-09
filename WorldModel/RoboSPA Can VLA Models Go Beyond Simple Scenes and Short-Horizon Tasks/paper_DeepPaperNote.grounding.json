@@ -1,0 +1,29 @@
+{
+  "paper_claims": [
+    {
+      "claim": "RoboSPA comprises 527K trajectories and 997 hours of video across five embodiments and 280 task variants.",
+      "source": "Abstract & Section 3.3",
+      "verified": true
+    },
+    {
+      "claim": "All four baseline VLA models achieve below 25% average success rate on L5 difficulty, with MIP dropping to 0.0%.",
+      "source": "Table 2",
+      "verified": true
+    },
+    {
+      "claim": "RDT and GO-1 exhibit negative ONTA scores across most spatial reasoning categories (-11.0% and -5.3% average at L5).",
+      "source": "Table 3",
+      "verified": true
+    },
+    {
+      "claim": "Progress Scores on OFE reach 62.1% (pi0.5) and 73.9% (X-VLA) despite low final success rates of 26.1% and 43.6%.",
+      "source": "Table 2 & Table 4",
+      "verified": true
+    },
+    {
+      "claim": "Average object count increases from 2.0 at L1 to 8.4 at L5, and trajectory length increases from 186 to 724 timesteps.",
+      "source": "Figure 3 & Section 3.3",
+      "verified": true
+    }
+  ]
+}

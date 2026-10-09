@@ -1,0 +1,44 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "基准设计概念图：呈现前序基元任务流与最终组合任务的重组关系，以及动作/感知正交分解框架"
+    },
+    {
+      "figure_id": "Table I",
+      "file": "images/table_1.png",
+      "role": "机器人操作基准全景对比表：系统对标 20 个主流基准在套件结构、组合性、持续学习、稠密奖励及专家示范上的差异"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "原则性世界模型解耦架构图：清晰展示任务无关骨干（编码器与动力学）与任务特定头的分离与持续学习更新机制"
+    },
+    {
+      "figure_id": "Table II",
+      "file": "images/table_2.png",
+      "role": "六大组合任务套件定义表：详细列出动作组合（Reach, Grasp）、感知组合（BinPnP, PnPBlock）与完全组合（DrawerPnP, PnPBoxClose）的任务序列"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "主实验战绩总览图：展示整块式模型（DreamerV3, TD-MPC2）在四大 CL 方法下的 BWT 与 FWT，以及模块化 PWM 对抗 TD-MPC2 的柱状图"
+    },
+    {
+      "figure_id": "Table III",
+      "file": "images/table_3.png",
+      "role": "按组合维度性能分解表：量化呈现动作、感知与完全组合下 BWT 单调恶化与 FWT 分化的关键数据"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "任务组合结构与专家路由动态学矩阵图：直观对比已知组合拓扑、专家相对权重变化以及课程各阶段具体专家路由分配"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "专家消融实验对比图：量化证实仅激活历史专家能保留绝大部分闭环回报，而仅激活新专家或均匀路由则严重衰退"
+    }
+  ]
+}

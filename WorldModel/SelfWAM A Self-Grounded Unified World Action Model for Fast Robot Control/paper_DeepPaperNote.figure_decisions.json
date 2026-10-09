@@ -1,0 +1,369 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2608.00725",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Overview of SelfWAM. Compared with action-unconditioned video prediction, SelfWAM shifts the model from a passive observer to an actor that predicts the visual consequences of its own actions, making future generation both action-sensitive and action-consistent.",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "作为全景概览图，直观对比了动作无条件化视频预测与动作条件化/自掩膜预测的核心差异，并在右侧展示了部署期快速闭环推理路径，最适合放在方法主线的机制流程小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_003_fig_figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/page_003_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_003_fig_figure_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "SelfWAM architecture and attention design. Left: the modality-specialized MoT contains a video backbone and a lightweight action expert coupled through mixed attention. Middle: during training, clean executed-action tokens condition only future-video queries... Right: SelfWAM supports two inference modes.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "详尽展示了 MoT 架构、训练期非对称注意力拓扑矩阵以及双推理模式，是理解非对称信息流和防止标签泄漏的核心架构图，适合放在 Self-Grounded Formulation 和 MoT 小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "Self-Grounded Formulation",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_004_fig_figure_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "RoboTwin 2.0 success rates (%). Method / Clean / Random / Average",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "RoboTwin 2.0 的主结果对比表，汇总了与 pi0, pi0.5, Motus, GigaWorld-Policy, FastWAM 在 Clean 与 Random 两种设定下的成功率，必须放入主结果与强基线部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "主结果与强基线",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_005_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_005_fig_table_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Representative real-robot manipulation rollouts. Each column shows a closed-loop execution of SelfWAM on one of four tasks: Cup -> Stand, Pen -> Cup, Mouse -> Pad, and Ball -> Bin.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "真实 ALOHA 双臂机器人闭环执行 4 项具身操作任务的定性序列快照，直观呈现长时程抓取、精准插笔、放置与投掷过程，适合放在真实机器人实验部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_006_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_006_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_006_fig_figure_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Success rates (%) on four real-world manipulation tasks.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "真实机器人 4 项操作任务成功率量化表，证明 SelfWAM 相比 FastWAM 实现了 10% 的大幅跨越，适合放入真实机器人实验部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_006_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_006_fig_table_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Future-video quality on 275 trajectories (LPIPS, PSNR, FVD-I3D).",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "未来视频生成质量评估表，量化对比了条件化动作对像素保真度与视频动态分布的显著改善，适合放入视频预测质量小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_006_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_006_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_006_fig_table_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Directional action perturbation. We perturb the demonstrated action along the vertical and horizontal translation axes...",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "动作方向性扰动实验的直观可视化对比，证明了无条件基线对动作扰动钝化，而 SelfWAM 能精准受控运动，强有力支撑作者核心主张，适合插入视频预测质量小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_007_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_007_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_007_fig_figure_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Component ablation on RoboTwin 2.0. Action Cond. denotes clean-action conditioning for future-RGB prediction, and Self-Mask denotes future robot self-mask supervision.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "消融实验核心表格，直观呈现了单纯动作条件化与自掩膜的非对称效应，是'消融到底说明了什么'小节的核心锚点。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "消融到底说明了什么",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_007_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_007_fig_table_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Inference efficiency after warm-up, averaged over four runs. Relative changes are computed from the unrounded timings.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "推理延迟与显存开销表，证实了闭环控制动作推理仅增加 0.97% 延迟且零额外显存，适合放在推理效率与部署特性小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "推理效率与部署特性",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_007_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_007_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_007_fig_table_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table S1",
+      "source_id": "Table S1",
+      "kind": "table",
+      "label": "Table S1",
+      "caption": "Construction of the two training instance types. Both use the clean action as a condition for future visual prediction, while only the RGB instance receives action supervision.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:app-reproducibility",
+      "decision": "insert",
+      "reason": "清晰展示 RGB 实例与 Self-mask 实例在输入动作、动作目标、视觉目标与损失函数上的精细差别，适合插入数据与任务定义部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_008_fig_table_s1.png",
+      "relative_markdown_embed": "![Table S1](images/page_008_fig_table_s1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_008_fig_table_s1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure S1",
+      "source_id": "Figure S1",
+      "kind": "figure",
+      "label": "Figure S1",
+      "caption": "Temporal sampling and multi-view composition. A representative 32-step future observation window after temporal downsampling to 8 frames, ordered from left to right. Each frame uses the fixed T-shaped composition of the three camera views.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:app-reproducibility",
+      "decision": "insert",
+      "reason": "展示了 32 步时域降采样至 8 帧的流程以及三视角 T 型拼接图像的真实布局，有助于读者快速掌握多视角输入工程实现，适合插入数据与任务定义小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_009_fig_figure_s1.png",
+      "relative_markdown_embed": "![Figure S1](images/page_009_fig_figure_s1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_009_fig_figure_s1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table S2",
+      "source_id": "Table S2",
+      "kind": "table",
+      "label": "Table S2",
+      "caption": "Optimization, inference, and system configuration.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:app-reproducibility",
+      "decision": "insert",
+      "reason": "详细记录了优化器、学习率、训练轮数、批大小、硬件算力、Python/PyTorch/CUDA 环境等核心超参，是复现必读参考，适合插入复现注意点小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "复现注意点",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_009_fig_table_s2.png",
+      "relative_markdown_embed": "![Table S2](images/page_009_fig_table_s2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_009_fig_table_s2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table S3",
+      "source_id": "Table S3",
+      "kind": "table",
+      "label": "Table S3",
+      "caption": "WorldArena-based action sensitivity and raw consistency scores. Higher is better for all reported metrics.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:app-sensitivity",
+      "decision": "insert",
+      "reason": "包含 WorldArena 的动作跟随度及三大一致性得分，是定量证明 FastWAM 动作迟钝与 SelfWAM 动作敏感性飞跃的核心证据，适合放入真实机器人实验与视频预测质量小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_009_fig_table_s3.png",
+      "relative_markdown_embed": "![Table S3](images/page_009_fig_table_s3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_009_fig_table_s3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table S4",
+      "source_id": "Table S4",
+      "kind": "table",
+      "label": "Table S4",
+      "caption": "Task-level success rates (%) on RoboTwin 2.0 under the clean and randomized settings.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:app-robotwin",
+      "decision": "insert",
+      "reason": "RoboTwin 2.0 完整 50 个操作任务的详细成功率矩阵，展示了在不同任务上的收益分布，适合作为大表插入主结果与强基线部分进行全景分析。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "主结果与强基线",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_010_fig_table_s4.png",
+      "relative_markdown_embed": "![Table S4](images/page_010_fig_table_s4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_010_fig_table_s4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure S2",
+      "source_id": "Figure S2",
+      "kind": "figure",
+      "label": "Figure S2",
+      "caption": "Continuous action interpolation. We interpolate from a stationary hold action (0%) to the demonstrated action (100%). The action-unconditioned baseline produces nearly invariant futures, whereas SelfWAM changes progressively toward the demonstrated-action outcome.",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:app-sensitivity",
+      "decision": "insert",
+      "reason": "展示动作从 0% 静止到 100% 专家动作线性插值时的预测视频演变，直接证实 SelfWAM 具备连续平滑的动作物理敏感性，适合放入视频预测质量小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "真实机器人实验与视频预测质量",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_011_fig_figure_s2.png",
+      "relative_markdown_embed": "![Figure S2](images/page_011_fig_figure_s2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_011_fig_figure_s2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure S3",
+      "source_id": "Figure S3",
+      "kind": "figure",
+      "label": "Figure S3",
+      "caption": "Consistency of the clean and noisy action paths at sigma = 0. We compare aligned action representations from the two paths at every Transformer layer using (a) NRMSE and (b) cosine distance.",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:app-consistency",
+      "decision": "insert",
+      "reason": "定量证明干净动作路径与无噪声去噪路径在各 Transformer 层具有高达 10^-5 和 10^-11 极高精度的表征一致性，消除了特征漂移顾虑，适合放入消融到底说明了什么小节。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "消融到底说明了什么",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_012_fig_figure_s3.png",
+      "relative_markdown_embed": "![Figure S3](images/page_012_fig_figure_s3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/SelfWAM A Self-Grounded Unified World Action Model for Fast Robot Control/images/page_012_fig_figure_s3.png",
+      "materialization_status": "materialized"
+    }
+  ],
+  "summary": {
+    "total_items": 16,
+    "by_decision": {
+      "insert": 16,
+      "low_priority": 0,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 0
+    }
+  }
+}

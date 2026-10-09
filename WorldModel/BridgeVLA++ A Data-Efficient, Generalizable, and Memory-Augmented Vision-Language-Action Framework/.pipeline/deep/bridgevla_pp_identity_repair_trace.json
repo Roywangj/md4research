@@ -1,0 +1,80 @@
+{
+  "status": "ok",
+  "run_status": "ok",
+  "script": "build_identity_contract.py",
+  "artifact_type": "identity_repair_trace",
+  "schema_version": 1,
+  "paper_id": "arxiv:2608.05042",
+  "identity_verdict": "accepted",
+  "identity_failure_class": "",
+  "repair_attempts": [],
+  "selected_identity_evidence": [
+    {
+      "kind": "doi",
+      "value": "10.48550/arxiv.2608.05042",
+      "trust": "strong",
+      "source": "metadata"
+    },
+    {
+      "kind": "arxiv_id",
+      "value": "2608.05042",
+      "trust": "strong",
+      "source": "metadata"
+    },
+    {
+      "kind": "title",
+      "value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+      "trust": "metadata",
+      "source": "metadata"
+    },
+    {
+      "kind": "trusted_source_path",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+      "trust": "strong",
+      "source": "source_manifestation"
+    },
+    {
+      "kind": "pdf_url",
+      "value": "https://arxiv.org/pdf/2608.05042v1",
+      "trust": "source_manifestation",
+      "source": "metadata"
+    },
+    {
+      "kind": "source_url",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+      "trust": "source_manifestation",
+      "source": "metadata"
+    },
+    {
+      "kind": "source_url",
+      "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+      "trust": "source_manifestation",
+      "source": "source_manifestation"
+    }
+  ],
+  "equivalence_decision": {
+    "status": "equivalent",
+    "reason": "shared_work_identifier",
+    "location_binding": "source_manifestation",
+    "evidence": [
+      {
+        "kind": "shared_identifier",
+        "value": "arxiv_id:2608.05042"
+      },
+      {
+        "kind": "title_similarity",
+        "status": "match",
+        "score": 1.0,
+        "source_value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+        "work_value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation"
+      }
+    ]
+  },
+  "warnings": [],
+  "unresolved_risks": [],
+  "failure_summary": "",
+  "provenance": {
+    "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_resolve.json",
+    "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_metadata.json"
+  }
+}

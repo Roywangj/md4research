@@ -1,0 +1,29 @@
+{
+  "paper_claims": [
+    {
+      "claim": "VoLoAgent achieves 41.80% overall success on RoboVoLo versus 12.57% for pure pi0.5.",
+      "source": "Abstract & Table 1 & Table 2",
+      "verified": true
+    },
+    {
+      "claim": "VoLoAgent recovers 54% of execution errors in world failure analysis (38 out of 70 failures recovered).",
+      "source": "Section 5.3 & Figure 5",
+      "verified": true
+    },
+    {
+      "claim": "On real Franka FR3 robot, VoLoAgent achieves 42.9% success versus 14.3% for pi0.5 across 14 tasks x 3 trials.",
+      "source": "Section 5.5 & Table 3",
+      "verified": true
+    },
+    {
+      "claim": "RoboVoLo introduces 126 tasks across 15 categories and 501 new realistic 3D assets in RoboLab / Isaac Lab.",
+      "source": "Section 3 & Figure 2",
+      "verified": true
+    },
+    {
+      "claim": "The system interleaves 15Hz continuous VLA / primitive execution with 0.2Hz VLM completion monitoring.",
+      "source": "Section 4.2 & Section 5.1",
+      "verified": true
+    }
+  ]
+}

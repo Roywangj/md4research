@@ -1,0 +1,97 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文在 Fast-WAM 的视频—动作联合去噪部署图上加入仅训练期存在的 4D 几何专家，并以冻结 VGGT 的关系蒸馏、可衰减读掩码和时序关系损失提升操控表现。",
+  "dominant_domain": "世界动作模型、具身操控、4D 几何表征、视频—动作联合训练",
+  "must_cover": [
+    "训练期 4D 专家、冻结 VGGT 与对齐模块为什么能够在部署时全部删除。",
+    "非对称可见性和 decayed 4D read-mask 如何同时阻断未来信息泄漏和训练—部署依赖失配。",
+    "关系匹配、动作感知权重与时序关系损失各自解决的表征问题。",
+    "LIBERO、RoboTwin 2.0、真机小样本任务与 Table 4 的完整证据链。",
+    "PSNR、SSIM、LPIPS、动作 MSE 与闭环成功率之间并非一一对应的关系。",
+    "VGGT 教师、训练算力、统计报告、评测公平性与相机/几何失败边界。"
+  ],
+  "key_numbers": [
+    "LIBERO 平均成功率为 98.2%，Fast-WAM 为 97.6%，但预训练 LingBot-VA 为 98.5%。",
+    "RoboTwin 2.0 的 clean/random/average 为 93.26/91.98/92.62，Fast-WAM 为 91.88/91.78/91.83。",
+    "Table 4 中完整 MECo-WAM 为 PSNR 30.72、SSIM 0.942、LPIPS 0.037、动作 MSE 0.013、平均成功率 92.62。",
+    "真实 Stack Cubes 上成功率同为 60%，但校正数 1.67 降至 0.83、完成时间 27.06 秒降至 25.71 秒；Sort Cubes by Size 上成功率从 60% 升至 70%。",
+    "训练使用 64 张 NVIDIA H20 96GB；动作专家约 1B 参数，训练期 4D 专家约 0.45B，冻结 VGGT-1B；推理为单张 RTX 5090 上 10 个去噪步。",
+    "推理延迟图报告 MECo-WAM 198.73ms，Fast-WAM 198.65ms；二者在图中几乎相同。"
+  ],
+  "real_comparisons": [
+    "LIBERO 四套件与 VLA、预训练 WAM、无预训练 Fast-WAM 的比较。",
+    "RoboTwin 2.0 clean 与随机化条件下和 π0.5、X-VLA、Motus、LingBot-VA、Fast-WAM 的比较。",
+    "两项 ARX-R5 真实桌面任务中成功、进度、校正次数、完成时间的比较。",
+    "Table 4 在相同训练和推理设置下逐步加入 4D expert、decayed read、空间损失、时间损失、动作感知权重的比较。",
+    "Fast-WAM 与 MECo-WAM 部署图/延迟的比较，及其与训练期成本的区别。"
+  ],
+  "central_claims": [
+    {
+      "claim": "训练期 4D 几何专家可以把几何先验迁移给部署的视频—动作路径，而无需把 4D 分支保留到推理。",
+      "supporting_evidence": ["sec:abstract", "sec:introduction", "sec:models", "sec:experiments", "sec:conclusion"],
+      "what_it_actually_proves": "在论文的共享混合注意力、VGGT 特征目标和 Fast-WAM 部署接口下，消融从 91.83 提升至 92.62，深度探针和抓取可视化也给出部署表征更具几何结构的辅助证据。",
+      "what_it_does_not_prove": "这不证明任意训练期辅助专家都可无损删除，也未隔离 4D 专家容量、VGGT 数据预训练和具体注意力掩码的独立贡献。"
+    },
+    {
+      "claim": "decayed 4D read-mask 通过只开放当前帧 $g_0$ 且将访问概率退火为零，避免用未来几何形成非因果动作捷径。",
+      "supporting_evidence": ["sec:models", "sec:experiments"],
+      "what_it_actually_proves": "论文明确规定未来 4D 槽留在辅助分支，训练后半段访问概率从 1.0 线性降至 0；加上该读边后成功率到 92.14、动作 MSE 到 0.026。",
+      "what_it_does_not_prove": "没有报告反事实泄漏测试、不同退火日程或训练末期尚存依赖的诊断，因此不能量化捷径被完全消除。"
+    },
+    {
+      "claim": "动作感知的空间与时间关系蒸馏比单纯重建特征更贴近操控所需的几何。",
+      "supporting_evidence": ["sec:models", "sec:experiments"],
+      "what_it_actually_proves": "空间关系损失把 MSE 降至 0.022、成功率升至 92.22；时间关系损失进一步把 MSE 降至 0.019、成功率升至 92.25；完整动作感知权重模型达到 92.62。",
+      "what_it_does_not_prove": "指标增益并不单独证明模型学到可度量的真实三维坐标、接触力或跨相机不变几何。"
+    }
+  ],
+  "claim_boundaries": [
+    "论文的“无额外推理成本”仅对应部署时与 Fast-WAM 相同的视频—动作计算图；它不包含训练时 0.45B 4D 专家、冻结 VGGT-1B 的前向、额外损失和 64 张 H20 的成本。",
+    "RoboTwin 的随机化增益只有 0.20 个百分点，不能据 clean 条件的 1.38 个百分点增益宣称强视觉域随机鲁棒性。",
+    "两项真机任务的每行数值暗示测试次数有限；论文未在主文报告置信区间、随机种子、显著性检验或跨实验日方差。",
+    "VGGT 目标是特征关系而非标定坐标；优势依赖教师在相机视角、遮挡、反光和物体类别上的几何可靠性。",
+    "LIBERO 与 RoboTwin 遵循 Fast-WAM 配置，主表横向比较混合了是否具身策略预训练的系统，公平性应以同为无预训练的 Fast-WAM 为主。"
+  ],
+  "negative_or_limiting_results": [
+    "单加隔离的 4D expert 后成功率仅从 91.83 到 91.87，动作 MSE 反而从 0.032 变为 0.034。",
+    "空间损失使 PSNR 从 30.06 降至 29.97，时间损失使 LPIPS 从 0.037 升至 0.039，但两者均改善动作和任务指标。",
+    "RoboTwin 随机化条件下相对 Fast-WAM 的提升只有 0.20 个百分点。",
+    "真实 Stack Cubes 成功率与进度率未超过 Fast-WAM，只改善校正次数与时间。",
+    "论文没有呈现失败案例、相机位姿扰动、深度/标定误差、遮挡强度扫描或教师失配压力测试。"
+  ],
+  "mechanism_result_map": [
+    "冻结 VGGT 给出多帧几何关系目标，4D 专家将该信号写入共享表示；对应深度探针和最终平均成功率提升。",
+    "只读当前帧 $g_0$ 的非对称掩码隔离未来几何，退火读取概率使部署分布回到无 4D 图；对应隔离专家几乎无增益而 decayed read 带来 0.27 个百分点提升。",
+    "平方距离关系矩阵绕开学生与教师特征坐标系的绝对对齐；对应空间损失的动作 MSE 降低。",
+    "相邻关键帧关系变化匹配把接近、接触、搬运、释放的动态写入目标；对应时间损失进一步降低动作 MSE。",
+    "动作感知权重强调机器人运动相关 token 对，并混入均匀先验防止坍缩；对应 aware 相比 full w/o aware 的 0.24 个百分点成功率差。"
+  ],
+  "comparative_positioning": [
+    "相对显式 4D 输出的 X-WAM，MECo-WAM 将几何定位为训练期表征约束，不在部署解码深度或多视角未来。",
+    "相对 WAM4D，它同样删除几何路径，但采用冻结 VGGT 的关系蒸馏和读边退火而不是空间 register token/未来深度读出。",
+    "相对 Fast-WAM，二者部署均不需要测试时未来想象；本文的增量是训练期将几何先验显式迁移给该相同接口。",
+    "相对 LingBot-VA 等具身预训练系统，作者的无预训练设定具竞争力，但不能把该表格直接解释成所有训练数据规模相等。"
+  ],
+  "reuse_takeaways": [
+    "若辅助模态不可部署，设计训练末期为零的访问边，而不是仅在训练中追加一个孤立损失。",
+    "当教师与学生嵌入坐标不共享时，优先蒸馏 token 间关系或变化率，并明确何种不变性被保留。",
+    "操控几何监督应该按动作关联加权，但必须保留均匀项避免 attention 只盯住单点。",
+    "评测应把动作收益、视觉预测收益、延迟和训练成本分开报告；较好的 PSNR 不能自动等价于较好的闭环控制。",
+    "对于声称与基线相同部署图的方法，报告端到端动作块延迟、峰值显存和训练总 FLOPs 才足以支持效率叙事。"
+  ],
+  "followup_questions": [
+    "若将 VGGT 换为规模更小、不同相机训练域或有噪声的几何教师，收益曲线和失效点在哪里？",
+    "将 $p_{4d}$ 的线性退火改为阶梯、余弦或基于依赖度的自适应退火，会否更稳地切断辅助依赖？",
+    "用交叉相机、视角外推、镜面/透明物体、强遮挡与快速接触任务能否检验关系蒸馏的真几何而非纹理捷径？",
+    "对全部模型使用相同的视觉预训练、动作数据、参数量与计算预算时，4D 关系蒸馏的净增益是多少？",
+    "真机每项任务的试验数、置信区间、失败类型和跨日重复性如何影响 5 个百分点平均成功率的可信度？"
+  ],
+  "section_plan": [
+    {"section": "研究问题", "focus": "解释外观导向视频潜变量与精确操控所需的随时间演化关系之间的缺口，并区分显式 4D 部署的计算负担。", "evidence_sources": ["sec:abstract", "sec:introduction", "sec:related-work"]},
+    {"section": "数据与任务定义", "focus": "规定部署策略的输入输出、三类基准、真实任务指标、训练块与硬件，并说明可比性范围。", "evidence_sources": ["sec:methodology", "sec:experiments"]},
+    {"section": "方法主线", "focus": "复原三专家去噪、非对称注意力、可衰减读取、关系蒸馏、时间差分损失与训练/部署拆分。", "evidence_sources": ["sec:models"]},
+    {"section": "关键结果", "focus": "用主表和完整消融表串起 LIBERO、RoboTwin、真机、视觉指标和动作指标，避免把不同训练口径混为一谈。", "evidence_sources": ["sec:experiments", "sec:method", "sec:method-2", "sec:method-3"]},
+    {"section": "深度分析", "focus": "解释哪些证据支持知识迁移和因果隔离，哪些地方只是探针或相关性，并审查成本、统计与几何失败边界。", "evidence_sources": ["sec:introduction", "sec:models", "sec:experiments", "sec:conclusion"]},
+    {"section": "局限", "focus": "限定教师假设、相机/可见性、统计功效、随机鲁棒性、基线公平性和训练成本的外推。", "evidence_sources": ["sec:models", "sec:experiments", "sec:conclusion"]}
+  ]
+}

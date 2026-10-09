@@ -1,0 +1,108 @@
+Jialong Wu, Baixuan Li, Runnan Fang, Wenbiao Yin,
+Liwen Zhang, Zhengwei Tao, Dingchu Zhang, Zekun
+Xi, Gang Fu, Yong Jiang, and 1 others. 2025a. Web-
+dancer: Towards autonomous information seeking
+agency. arXiv preprint arXiv:2505.22648.
+Jinming Wu, Zihao Deng, Wei Li, Yiding Liu, Bo You,
+Bo Li, Zejun Ma, and Ziwei Liu. 2025b. Mmsearch-
+r1: Incentivizing lmms to search. arXiv preprint
+arXiv:2506.20670.
+Hui Yang, Sifu Yue, and Yunzhong He. 2023. Auto-gpt
+for online decision making: Benchmarks and addi-
+tional opinions. arXiv preprint arXiv:2306.02224.
+Jihan Yang, Shusheng Yang, Anjali W. Gupta, Rilyn
+Han, Li Fei-Fei, and Saining Xie. 2025a. Thinking
+in space: How multimodal large language models
+see, remember, and recall spaces. In Proceedings of
+the IEEE/CVF Conference on Computer Vision and
+Pattern Recognition (CVPR), pages 10632–10643.
+Zuhao Yang, Sudong Wang, Kaichen Zhang, Keming
+Wu, Sicong Leng, Yifan Zhang, Bo Li, Chengwei
+Qin, Shijian Lu, Xingxuan Li, and 1 others. 2025b.
+Longvt: Incentivizing" thinking with long videos" via
+native tool calling. arXiv preprint arXiv:2511.20785.
+Haoji Zhang, Xin Gu, Jiawen Li, Chixiang Ma, Sule
+Bai, Chubin Zhang, Bowen Zhang, Zhichao Zhou,
+Dongliang He, and Yansong Tang. 2025.
+Think-
+ing with videos: Multimodal tool-augmented rein-
+forcement learning for long video reasoning. arXiv
+preprint arXiv:2508.04416.
+Yuanhan Zhang, Jinming Wu, Wei Li, Bo Li, Zejun
+Ma, Ziwei Liu, and Chunyuan Li. 2024. Llava-video:
+Video instruction tuning with synthetic data. arXiv
+preprint arXiv:2410.02713.
+A
+Appendix
+B
+Training Details
+Training Setup and Hyperparameters. The su-
+pervised fine-tuning (SFT) was conducted on a
+high-performance compute cluster comprising 4
+nodes, each equipped with 8 × 80 GB GPUs (32
+GPUs in total), utilizing the Megatron-LM frame-
+work.
+To accommodate the ultra-long context
+length of 80, 000 tokens without data packing, we
+employed a highly optimized mixed-parallelism
+strategy. Specifically, we configured a Tensor Par-
+allelism (TP) size of 4, a Context Parallelism (CP)
+size of 2, and an Expert Parallelism (EP) size of
+8. Sequence Parallelism (SP) was also enabled to
+further reduce the memory footprint. The training
+spanned 3 epochs with a micro-batch size of 1 and
+a global batch size of 64. The learning rate was
+governed by a linear warmup and decay schedule,
+warming up over the first 5% of training steps to a
+peak of 1 × 10−5, and subsequently decaying to a
+minimum of 5 × 10−7.
+Optimization and Efficiency Enhancements.
+To ensure efficient training of the Mixture-of-
+Experts (MoE) architecture, we applied an aux-
+iliary loss coefficient of 1 × 10−6 for load bal-
+ancing and set the expert capacity factor to 2.0
+to mitigate token dropping. Advanced MoE com-
+putational optimizations were integrated, includ-
+ing permute operation fusion, Grouped GEMM,
+and the overlapping of shared-expert computation
+with communication. Furthermore, strict memory
+optimization techniques were adopted to prevent
+Out-of-Memory (OOM) errors during long-context
+training. We utilized FlashAttention as the pri-
+mary attention backend and PyTorch’s expandable
+segments feature (expandable_segments:True)
+to minimize memory fragmentation. Full activa-
+tion checkpointing was applied uniformly at every
+single layer, trading computation for memory. For
+system-level efficiency, fused cross-entropy loss
+was enabled, CPU threading was optimized with 32
+OpenMP threads, and the data processing pipeline
+was heavily parallelized using 128 preprocessing
+processes and 8 DataLoader workers. Checkpoints
+were serialized in the Safetensors format every 500
+steps, deliberately omitting optimizer and random
+number generator (RNG) states to conserve storage
+overhead.
+C
+Data Details
+For keyframe extraction, we compute inter-frame
+similarities using CLIP-ViT-L/14@336px (Rad-
+ford et al., 2021).
+To reduce redundancy, we
+discard consecutive frames with a similarity
+score exceeding 0.8, alongside any uninformative
+monochromatic frames. The maximum number of
+keyframes per video is strictly capped at 20. No-
+tably, this preprocessing configuration is uniformly
+applied across both the data synthesis pipeline and
+all evaluation phases, including the processing of
+VIDEODR.
+D
+Annotation Details
+The construction of VIDEOHUNT involves a rigor-
+ous human annotation process to ensure benchmark
+quality and reliability. The entire annotation effort
+spans approximately three weeks.
+Annotator Team. We recruit a team of 8 an-
+notators, all with prior professional experience in
+multimodal large language model data annotation.

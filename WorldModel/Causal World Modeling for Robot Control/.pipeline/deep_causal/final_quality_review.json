@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "review": "final_quality_review",
+  "checks": {
+    "central_evidence_chain_complete": true,
+    "key_settings_and_numbers_present": true,
+    "mechanism_result_mapping_present": true,
+    "strong_baseline_positioning_present": true,
+    "limitations_explained_mechanistically": true,
+    "proven_and_unproven_claims_separated": true,
+    "reuse_takeaways_specific": true
+  },
+  "review_notes": [
+    "方法链覆盖视频/动作交错、MoT、flow matching、教师强制、噪声历史、KV cache 与 FDM-grounded async。",
+    "主结果覆盖 RoboTwin、LIBERO、六项真实任务、数据效率、部署消融与 WAN 初始化对照。",
+    "明确保留 Fold Clothes 进度负结果、真实任务 20 trials、内部数据与 action-only 对照缺失等边界。",
+    "Table 3 自动裁图混入 Figure 7，已拒绝该图片并用 Markdown 表转写关键数字。"
+  ]
+}

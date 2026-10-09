@@ -1,0 +1,1046 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "doi:10.48550/arxiv.2607.08448",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Harness VLA system overview. Given a task description, RGB-D observations, and robot state,",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "insert",
+      "reason": "视觉复核通过，图号与裁剪内容匹配，且对方法/主结果有直接解释价值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "方法主线",
+      "plan_kind": "method_overview",
+      "source_image_filename": "figure_1_system_overview.png",
+      "relative_markdown_embed": "![Figure 1](images/figure_1_system_overview.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_001_fig_figure_1_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "881c328515b0eca716f6390e70bdca855d96dc7106004b21098d188d674a7491",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_001_fig_figure_1_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_001.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 1,
+        "caption": "Harness VLA system overview. Given a task description, RGB-D observations, and robot state,",
+        "bbox_pt": [
+          10.940000534057617,
+          101.78099060058594,
+          543.99951171875,
+          599.26904296875
+        ],
+        "normalized_bbox": [
+          0.017876,
+          0.128511,
+          0.888888,
+          0.756653
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "881c328515b0eca716f6390e70bdca855d96dc7106004b21098d188d674a7491",
+        "preserved_scientific_elements": [
+          "Figure 1 主体及完整标题/列名",
+          "关键数字与比较对象"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪边界；未见 caption 或正文污染，科学主体清晰可读。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Primitive composition extends a frozen VLA beyond its trajectory distribution. Deployment",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:introduction",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Terminal-state frames for two LIBERO-Pro cells. The first triplet compares πRLinf on the standard",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Adaptive VLA invocation improves success across benchmarks. Each panel plots cumulative",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Representative rollout frames for adaptive VLA invocation. Top row: a Harness VLA rollout",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "provides the aggregate attribution for this division of labor by separating successful rollouts",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Representative rollout frames for analytic decomposition around contact-rich phases. Top",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:related-work",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Overview of representative environments across the four benchmark families used in our evalua-",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_026_fig_figure_8_review.png",
+      "relative_markdown_embed": "![Figure 8](images/page_026_fig_figure_8_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_026_fig_figure_8_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "bba6cc61ebdb5c54c1bd6ebe5d64074b4f255b4dac7e1789cb333b4508855075",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_026_fig_figure_8_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_026.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 26,
+        "caption": "Overview of representative environments across the four benchmark families used in our evalua-",
+        "bbox_pt": [
+          209.3049774169922,
+          67.99708557128906,
+          402.69891357421875,
+          257.406005859375
+        ],
+        "normalized_bbox": [
+          0.342002,
+          0.085855,
+          0.658005,
+          0.325008
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "gives the primitive vocabulary used throughout the paper. The shared manipulation interface",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:introduction",
+      "decision": "placeholder",
+      "reason": "候选裁剪质量不足，保留文字占位/表格转录，不物化图片。",
+      "skip_reason": "visual_defect",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_006_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Success rate (%) on standard LIBERO. πRLinf [23] and Harness VLA (CC) are evaluated",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_008_fig_table_2_review.png",
+      "relative_markdown_embed": "![Table 2](images/page_008_fig_table_2_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_008_fig_table_2_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "0d7819269d07d6c1cf15df35b7bd2022b2e218bba1f2d543f0ee7214f80480df",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_008_fig_table_2_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 8,
+        "caption": "Success rate (%) on standard LIBERO. πRLinf [23] and Harness VLA (CC) are evaluated",
+        "bbox_pt": [
+          156.69500732421875,
+          183.98150634765625,
+          455.30889892578125,
+          283.15216064453125
+        ],
+        "normalized_bbox": [
+          0.256038,
+          0.2323,
+          0.743969,
+          0.357515
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Aggregate LIBERO-Pro success rates (%) across SPATIAL, OBJECT, GOAL, and LIBERO-10",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "视觉复核通过，图号与裁剪内容匹配，且对方法/主结果有直接解释价值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table_3_libero_pro.png",
+      "relative_markdown_embed": "![Table 3](images/table_3_libero_pro.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_008_fig_table_3_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "1dc2aed10a5e6b45fa5c4466420c15adb8bf13c1b2e628c7a7883627807773fe",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_008_fig_table_3_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 8,
+        "caption": "Aggregate LIBERO-Pro success rates (%) across SPATIAL, OBJECT, GOAL, and LIBERO-10",
+        "bbox_pt": [
+          96.29499816894531,
+          490.947509765625,
+          515.7055053710938,
+          672.89501953125
+        ],
+        "normalized_bbox": [
+          0.157345,
+          0.619883,
+          0.842656,
+          0.849615
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "1dc2aed10a5e6b45fa5c4466420c15adb8bf13c1b2e628c7a7883627807773fe",
+        "preserved_scientific_elements": [
+          "Table 3 主体及完整标题/列名",
+          "关键数字与比较对象"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪边界；未见 caption 或正文污染，科学主体清晰可读。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "RoboCasa365 success rates (%). Baseline rows above the separator are results reported in the cor-",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-2",
+      "decision": "insert",
+      "reason": "视觉复核通过，图号与裁剪内容匹配，且对方法/主结果有直接解释价值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table_4_robocasa.png",
+      "relative_markdown_embed": "![Table 4](images/table_4_robocasa.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_009_fig_table_4_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "b2e2710834aed9b4a7c42162ca5e0097ed86f5893d118dddddfe7d264b1c1066",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_009_fig_table_4_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 9,
+        "caption": "RoboCasa365 success rates (%). Baseline rows above the separator are results reported in the cor-",
+        "bbox_pt": [
+          134.4320068359375,
+          322.76446533203125,
+          477.5688171386719,
+          427.3210754394531
+        ],
+        "normalized_bbox": [
+          0.21966,
+          0.407531,
+          0.780341,
+          0.539547
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "b2e2710834aed9b4a7c42162ca5e0097ed86f5893d118dddddfe7d264b1c1066",
+        "preserved_scientific_elements": [
+          "Table 4 主体及完整标题/列名",
+          "关键数字与比较对象"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪边界；未见 caption 或正文污染，科学主体清晰可读。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Per-task success rate (%) on LIBERO-PRO GOAL: zero-shot Harness VLA (CC) (no Task Specific",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "RoboTwin C2R success rates (%). LingBot-VLA is our post-trained RoboTwin VLA checkpoint",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "视觉复核通过，图号与裁剪内容匹配，且对方法/主结果有直接解释价值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "table_6_robotwin.png",
+      "relative_markdown_embed": "![Table 6](images/table_6_robotwin.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_010_fig_table_6_review.png",
+      "materialization_status": "materialized",
+      "source_image_sha256": "8930e80998cbfdcd7501b2c6c3657c3bc5030e6cb1c04d4e291373c4612391e6",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_010_fig_table_6_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 10,
+        "caption": "RoboTwin C2R success rates (%). LingBot-VLA is our post-trained RoboTwin VLA checkpoint",
+        "bbox_pt": [
+          66.0,
+          120.36678314208984,
+          546.0003051757812,
+          238.2407989501953
+        ],
+        "normalized_bbox": [
+          0.107843,
+          0.151978,
+          0.892157,
+          0.300809
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "8930e80998cbfdcd7501b2c6c3657c3bc5030e6cb1c04d4e291373c4612391e6",
+        "preserved_scientific_elements": [
+          "Table 6 主体及完整标题/列名",
+          "关键数字与比较对象"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "已检查裁剪边界；未见 caption 或正文污染，科学主体清晰可读。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Files used by the file-mediated REPL. The main text abstracts the observation as RGB-D and robot",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:references",
+      "decision": "placeholder",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Primitive availability across the three benchmark embodiments. The exploratory RESET utility",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_025_fig_table_8_review.png",
+      "relative_markdown_embed": "![Table 8](images/page_025_fig_table_8_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_025_fig_table_8_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "1cca741ca3f356ab0a12710cc3249b94bada98f4a01f8ec4fca7efdaea4d478c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_025_fig_table_8_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_025.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 25,
+        "caption": "Primitive availability across the three benchmark embodiments. The exploratory RESET utility",
+        "bbox_pt": [
+          172.5290069580078,
+          107.79945373535156,
+          439.4718933105469,
+          260.2680969238281
+        ],
+        "normalized_bbox": [
+          0.28191,
+          0.13611,
+          0.718091,
+          0.328621
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "LIBERO evaluation protocol.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_027_fig_table_9_review.png",
+      "relative_markdown_embed": "![Table 9](images/page_027_fig_table_9_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_027_fig_table_9_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "4bb18326611f41c5ff910f9227ec11993b5410d27f4f32b73b28e3e8945fefd4",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_027_fig_table_9_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_027.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 27,
+        "caption": "LIBERO evaluation protocol.",
+        "bbox_pt": [
+          147.75100708007812,
+          171.88467407226562,
+          464.51812744140625,
+          273.4947509765625
+        ],
+        "normalized_bbox": [
+          0.241423,
+          0.217026,
+          0.759017,
+          0.345322
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "LIBERO-Pro evaluation protocol.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_027_fig_table_10_review.png",
+      "relative_markdown_embed": "![Table 10](images/page_027_fig_table_10_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_027_fig_table_10_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "0f129d8c3253ffac4a38258d7aa1f4c149662b0810bd484a50bc6d7e6a03385b",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_027_fig_table_10_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_027.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 27,
+        "caption": "LIBERO-Pro evaluation protocol.",
+        "bbox_pt": [
+          82.93599700927734,
+          506.77667236328125,
+          531.3543090820312,
+          692.541748046875
+        ],
+        "normalized_bbox": [
+          0.135516,
+          0.63987,
+          0.868226,
+          0.874421
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 11",
+      "source_id": "Table 11",
+      "kind": "table",
+      "label": "Table 11",
+      "caption": "RoboCasa365 evaluation protocol.",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_028_fig_table_11_review.png",
+      "relative_markdown_embed": "![Table 11](images/page_028_fig_table_11_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_028_fig_table_11_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "69e58cc374800a818b707c09d82455d6e3872e2232cbc683b8e78c758e679b94",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_028_fig_table_11_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_028.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 28,
+        "caption": "RoboCasa365 evaluation protocol.",
+        "bbox_pt": [
+          82.93599700927734,
+          316.9766540527344,
+          531.3543090820312,
+          465.0413513183594
+        ],
+        "normalized_bbox": [
+          0.135516,
+          0.400223,
+          0.868226,
+          0.587173
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 12",
+      "source_id": "Table 12",
+      "kind": "table",
+      "label": "Table 12",
+      "caption": "RoboTwin clean-to-randomized evaluation protocol.",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:references",
+      "decision": "placeholder",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result"
+    },
+    {
+      "item_id": "table:Table 13",
+      "source_id": "Table 13",
+      "kind": "table",
+      "label": "Table 13",
+      "caption": "Summary of evaluation benchmarks.",
+      "pages": [
+        29
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_029_fig_table_13_review.png",
+      "relative_markdown_embed": "![Table 13](images/page_029_fig_table_13_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_029_fig_table_13_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "aa15363d401ea55d45f6216ae12c1cc2cdb4a770f90d09d18d47e7c0d894555c",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_029_fig_table_13_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_029.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 29,
+        "caption": "Summary of evaluation benchmarks.",
+        "bbox_pt": [
+          66.0,
+          252.03463745117188,
+          546.0003051757812,
+          455.3321838378906
+        ],
+        "normalized_bbox": [
+          0.107843,
+          0.318226,
+          0.892157,
+          0.574914
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 14",
+      "source_id": "Table 14",
+      "kind": "table",
+      "label": "Table 14",
+      "caption": "Post-training configuration of LingBot-VLA on RoboTwin.",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_032_fig_table_14_review.png",
+      "relative_markdown_embed": "![Table 14](images/page_032_fig_table_14_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_032_fig_table_14_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "192d8eb7d298d4fcb7b427cc11530416cbe5fa4c64c6c7f285b6c0f5aee6b917",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_032_fig_table_14_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_032.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 32,
+        "caption": "Post-training configuration of LingBot-VLA on RoboTwin.",
+        "bbox_pt": [
+          66.0,
+          94.5490493774414,
+          428.4363708496094,
+          435.30120849609375
+        ],
+        "normalized_bbox": [
+          0.107843,
+          0.11938,
+          0.700059,
+          0.549623
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 15",
+      "source_id": "Table 15",
+      "kind": "table",
+      "label": "Table 15",
+      "caption": "Shared modules in the agent task prompt. Each benchmark-specific prompt keeps this structure",
+      "pages": [
+        33
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 16",
+      "source_id": "Table 16",
+      "kind": "table",
+      "label": "Table 16",
+      "caption": "Interface-level prompt instantiations across benchmarks. In the main text, the heterogeneous VLA",
+      "pages": [
+        35
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_035_fig_table_16_review.png",
+      "relative_markdown_embed": "![Table 16](images/page_035_fig_table_16_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_035_fig_table_16_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "b65c9ffea898d5ca569b8c736b68fd1e21aa1f7f2773fc811817634c05beba23",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_035_fig_table_16_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_035.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 35,
+        "caption": "Interface-level prompt instantiations across benchmarks. In the main text, the heterogeneous VLA",
+        "bbox_pt": [
+          80.43499755859375,
+          353.4129943847656,
+          531.5675048828125,
+          456.56439208984375
+        ],
+        "normalized_bbox": [
+          0.13143,
+          0.446229,
+          0.868574,
+          0.57647
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 17",
+      "source_id": "Table 17",
+      "kind": "table",
+      "label": "Table 17",
+      "caption": "Environment context supplied by the benchmark-specific prompts.",
+      "pages": [
+        35
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_035_fig_table_17_review.png",
+      "relative_markdown_embed": "![Table 17](images/page_035_fig_table_17_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_035_fig_table_17_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "b65c9ffea898d5ca569b8c736b68fd1e21aa1f7f2773fc811817634c05beba23",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_035_fig_table_17_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_035.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 35,
+        "caption": "Environment context supplied by the benchmark-specific prompts.",
+        "bbox_pt": [
+          80.43499755859375,
+          353.4129943847656,
+          531.5675048828125,
+          456.56439208984375
+        ],
+        "normalized_bbox": [
+          0.13143,
+          0.446229,
+          0.868574,
+          0.57647
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 18",
+      "source_id": "Table 18",
+      "kind": "table",
+      "label": "Table 18",
+      "caption": "aggregates the primitive calls issued by Harness VLA (CC) across LIBERO Pro-family, RoboTwin",
+      "pages": [
+        38
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "low_priority",
+      "reason": "候选已检查但不是本笔记需要物化的核心图表；正文或表格转录已覆盖其证据。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task_overview",
+      "source_image_filename": "page_038_fig_table_18_review.png",
+      "relative_markdown_embed": "![Table 18](images/page_038_fig_table_18_review.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_038_fig_table_18_review.png",
+      "materialization_status": "pending",
+      "source_image_sha256": "4355f9c677d0678f2556fe9dcfcf906bdbb45e7926947f7d260ad3fe9b8de6eb",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_038_fig_table_18_review.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/page_previews/page_038.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/pdfs/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents.pdf",
+        "source_page": 38,
+        "caption": "aggregates the primitive calls issued by Harness VLA (CC) across LIBERO Pro-family, RoboTwin",
+        "bbox_pt": [
+          70.71082305908203,
+          538.8923950195312,
+          538.3464965820312,
+          716.946044921875
+        ],
+        "normalized_bbox": [
+          0.115541,
+          0.68042,
+          0.879651,
+          0.905235
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pending",
+        "reviewed_asset_sha256": "",
+        "preserved_scientific_elements": [],
+        "omitted_scientific_elements": [],
+        "notes": "",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:Table 19",
+      "source_id": "Table 19",
+      "kind": "table",
+      "label": "Table 19",
+      "caption": "Primitive usage grouped by class. Analytic primitives include both composite goal-reaching",
+      "pages": [
+        39
+      ],
+      "section_id": "sec:evaluations",
+      "decision": "placeholder",
+      "reason": "候选裁剪质量不足，保留文字占位/表格转录，不物化图片。",
+      "skip_reason": "visual_defect",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_039_fig_table_19.png",
+      "relative_markdown_embed": "![Table 19](images/page_039_fig_table_19.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a477c518ce407ee5e/tmp/DeepPaperNote/assets/Harness_VLA_Steering_Frozen_VLAs_into_Reliable_Manipulation_Primitives_via_Memory_Guided_Agents/images/page_039_fig_table_19.png"
+    }
+  ],
+  "summary": {
+    "total_items": 27,
+    "by_decision": {
+      "insert": 4,
+      "low_priority": 19,
+      "placeholder": 4
+    }
+  },
+  "visual_review_gate": {
+    "status": "passed",
+    "reviewed_insert_items": [
+      "Figure 1",
+      "Table 3",
+      "Table 4",
+      "Table 6"
+    ],
+    "note": "插入项已完成图号、主体、可读性与 SHA-256 复核；其余项目采用 low_priority 或 placeholder。"
+  }
+}

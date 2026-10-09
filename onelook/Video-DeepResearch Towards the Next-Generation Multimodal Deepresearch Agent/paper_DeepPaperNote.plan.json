@@ -1,0 +1,206 @@
+{
+  "paper_id": "2608.03979",
+  "title": "Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "正文主线是视频深度研究 agent 的数据引擎、分阶段工具解锁、SFT 加 GRPO 训练与推理协议；VideoDR-Bench 是配套评测，但机制、训练和工具行为才是论证中心，因此按 AI_method 写，并在数据、结果、边界中单独处理基准协议。",
+  "dominant_domain": "multimodal video tool-use agent / deep research",
+  "must_cover": [
+    "Naive transfer 在 VideoDR（Liu et al. 2026）上暴露模态偏见与参数知识泄漏",
+    "感知与探索解耦：先只开放 Select_Keyframe 与 Crop_Search，再解锁 Search / Visit",
+    "数据引擎：约 3 万视频问答对、7 千条拒采轨迹，外加 7 千条 VDR 文本问答",
+    "两阶段训练：7K 加 7K 的 SFT，再对 Pass@4 落在 (0,1) 的 2K 样本做 GRPO",
+    "VideoDR-Bench 的人机协同标注、泄漏过滤，以及摘要 200 条与 §4.1 写 100 条的冲突",
+    "主结果 Table 3、工具调用 Table 4、30B 消融 Table 5",
+    "裁判是 Qwen3-VL-30B-A3B-Instruct，沿用 Tongyi DeepResearch 官方 prompt",
+    "GPT-5 在旧 VideoDR 上几乎不用工具，因此对 GPT-5 的 SOTA 对比同时是基准设计主张"
+  ],
+  "key_numbers": [
+    "Video-DeepResearch-35B-A3B：平均 64.0；Video-DR 68.0；VideoDR-Bench Overall 60.0；相对 Claude-4.5-Sonnet 59.0 高 5.0；GPT-5 52.5；Gemini 2.5 Pro 57.5",
+    "30B-A3B：平均 59.3；Video-DR 62.0；VideoDR-Bench 56.5；基座 Qwen3-VL-30B-A3B-Instruct 为 38.0 / 43.0 / 40.5，分别 +24.0 / +13.5 / +18.8",
+    "35B 相对 Qwen3.5-35B-A3B 42.0 / 43.5 / 42.8，分别 +26.0 / +16.5 / +21.2",
+    "Table 1：Qwen3.5-35B-A3B Acc 41、视觉 0.04、文本 0.58；397B Acc 58、视觉 0.10、文本 1.27；GPT-5 Acc 57、视觉 0.00、文本 0.12",
+    "Table 2 时长：短 ≤2 分钟 92（46%）；中 2–10 分钟 68（34%）；长 ≥10 分钟 40（20%）；合计 200",
+    "Table 4 30B：VideoDR 视觉/文本 2.33 / 4.24，相对 397B 的 0.10 / 1.27 与 GPT-5 的 0.00 / 0.12",
+    "Table 5 30B 平均：Base 40.5 → 4k-SFT 46.0 → 7K-SFT 53.0 → 7K-SFT+7k-text-SFT 56.8 → 14k-SFT+2K-RL 59.3",
+    "GRPO：每题 4 次 rollout，保留 Pass@4 ∈ (0,1) 的 2K；稀疏 0/1 奖励；格式/循环负梯度以 20% 概率回传",
+    "SFT：80k 上下文、3 epoch、global batch 64、峰值学习率 1e-5；4 节点共 32 张 80GB GPU"
+  ],
+  "real_comparisons": [
+    "相对闭源：35B 平均 64.0 高于 Claude-4.5-Sonnet 59.0、Gemini 2.5 Pro 57.5、GPT-5 52.5；30B 59.3 与 Claude 持平",
+    "相对开源基座：30B 相对 Qwen3-VL-30B-A3B-Instruct +18.8；35B 相对 Qwen3.5-35B-A3B +21.2",
+    "相对更大开源：Qwen3.5-397B 平均 52.8、Kimi K2.5 57.0，均低于训练后的 30B/35B",
+    "工具行为：训练后 30B 的视觉调用远高于 397B 与 GPT-5；VideoDR-Bench 比 VideoDR 更能逼出工具使用",
+    "消融只在 30B 上：轨迹规模、混入 VDR 文本、再加 2K GRPO 逐步抬升，没有单独关掉工具解锁的对照"
+  ],
+  "central_claims": [
+    {
+      "claim": "直接把图像深度研究 agent 接到视频上会失败，核心不是缺工具，而是模态偏见加参数泄漏。",
+      "supporting_evidence": [
+        "§2 与 Table 1：Qwen3.5-397B-A17B 视觉工具 0.10、文本 1.27；GPT-5 准确率 57 但视觉 0.00、文本 0.12",
+        "§4.3 Table 4：同一 GPT-5 在 VideoDR-Bench 上视觉调用仅升到 0.31"
+      ],
+      "what_it_actually_proves": "在 Liu et al. 2026 的 VideoDR 以及作者给的工具接口下，现成强模型会绕开视觉检索，旧集也可被参数记忆打到中等分数。",
+      "what_it_does_not_prove": "不能证明所有视频问答都可被参数记忆解决，也不能证明闭源模型在作者未公开的私有工具栈上同样不用视觉工具。"
+    },
+    {
+      "claim": "分阶段解锁工具的感知–探索解耦，能逼出跨帧视觉 grounding，再进入网页检索。",
+      "supporting_evidence": [
+        "§3.2：轨迹生成前半只给 Select_Keyframe 与 Crop_Search，达到感知地平线后再开放 Search 与 Visit，得到 7K 成功轨迹",
+        "Table 4：Ours 在 VideoDR 上视觉 2.33、文本 4.24",
+        "Table 6 与 Fig. 8：推理侧把两视觉工具合成 select_crop_search，并要求第一跳必须视觉检索"
+      ],
+      "what_it_actually_proves": "在这套合成轨迹和提示词下，训练后的 30B 会显著提高视觉与文本工具调用次数，并伴随准确率上升。",
+      "what_it_does_not_prove": "没有消融“同一数据但不锁工具”或“只改 prompt 不训练”，因此不能把收益单独归因于解锁课程，而不是轨迹质量、混合文本或奖励设计。"
+    },
+    {
+      "claim": "SFT 冷启动加 GRPO 能让 30B/35B 紧凑模型超过更大专有系统。",
+      "supporting_evidence": [
+        "Table 3：35B 平均 64.0，30B 59.3，Claude 59.0，GPT-5 52.5",
+        "Table 5：30B 从 40.5 走到 59.3，其中 7K 轨迹 SFT 贡献最大，2K RL 再加 2.5"
+      ],
+      "what_it_actually_proves": "在 VideoDR 与 VideoDR-Bench、同一套 agentic 工具和 Qwen 裁判下，该训练配方相对对应基座有大幅提升，并在该协议上超过列出的闭源数字。",
+      "what_it_does_not_prove": "不能外推到其他裁判、离线网页快照、更长视频或非问答式深度研究报告；35B 新闻类只有 41.7，低于 30B 的 58.3，规模收益也不均匀。"
+    },
+    {
+      "claim": "VideoDR-Bench 通过视觉可定位、多跳外部知识与无工具过滤，能避免旧基准的泄漏。",
+      "supporting_evidence": [
+        "摘要、贡献与结论写 200 条复杂多跳 VQA；Table 2 时长合计 200；Fig. 2 领域占比带 0.5% 精度",
+        "§3.4：种子问答经人机多代理扩展，无工具答对即丢弃",
+        "§4.1 却写 100 条人工标注问答；附录 D 还出现 VIDEOHUNT 旧名"
+      ],
+      "what_it_actually_proves": "作者意图构造必须同时做视觉检索和网页验证的评测，且 GPT-5 在新集上的文本调用从 0.12 升到 1.43，说明难度设定与旧 VideoDR 不同。",
+      "what_it_does_not_prove": "不能在不澄清样本量的前提下把 200 或 100 当成已冻结的公开协议；也不能证明“每个问题都必然需要视觉搜索”，因为过滤模型本身是 Qwen 系列。"
+    }
+  ],
+  "claim_boundaries": [
+    "主表 Table 3 的 Direct / Agentic 双设置只出现在表注，表内只有一列数字，正文 §4.1 描述的是 Agentic；不能把 64.0 读成无工具分数。",
+    "正文把 35B 的 VideoDR-Bench 写成 65.4，表内 Overall 是 60.0，应以表为准。",
+    "Table 5 文字声称 7K-SFT 在 VideoDR-Bench 上的增益更大，但 55.0-38.0=+17.0 大于 51.0-43.0=+8.0，文字与数字相反。",
+    "Qwen3.5-397B 在 Table 1 写 A17B，Table 3 写 A13B，参数配置本身未对齐。",
+    "裁判、30B 基座与部分数据过滤都落在 Qwen3-VL/Qwen3.5 家族，绝对分数有家族偏置。",
+    "代码仓库与论文同属 Vision-DeepResearch，GitHub 声明数据、代码、权重将发布，当前不能当作可复现发布。"
+  ],
+  "negative_or_limiting_results": [
+    "35B 新闻类 41.7，低于 30B 的 58.3，作者自己承认大模型在时效内容上可能更脆。",
+    "30B 的 OTH 提升为 0.0；该类约 3.5%，若总量 200 则大约 7 条，类别分数噪声很大。",
+    "GPT-5 在新集上视觉调用仍只有 0.31，说明“超过 GPT-5”很大程度是协议逼出工具，而不是在同一行为模式下全面更强。",
+    "附录 B 只给 SFT 超参，GRPO 的学习率、clip、β、组大小除 4 次 rollout 外未写全。",
+    "作者自列局限：算力开销大、动态网页、人工标注限制扩展。"
+  ],
+  "mechanism_result_map": [
+    {
+      "mechanism": "无工具四次试答过滤参数泄漏",
+      "observed_result": "旧 VideoDR 上 GPT-5 几乎零工具仍有 57 分；新集上其文本调用升到 1.43，闭源不再能靠记忆拿满",
+      "link": "评测构念从“会不会答”改成“会不会先看再查”"
+    },
+    {
+      "mechanism": "轨迹前半锁死文本工具，只允许选帧与裁剪检索",
+      "observed_result": "30B 视觉调用从基座 1.82/1.75 提到 2.33/2.98，并远高于 397B 的 0.10/0.04",
+      "link": "行为分布被课程改写，而不只是准确率上升"
+    },
+    {
+      "mechanism": "7K 视频轨迹 SFT + 7K VDR 文本 SFT + 2K 中等难度 GRPO",
+      "observed_result": "Table 5 平均 40.5→53.0→56.8→59.3，轨迹数据贡献最大，文本与 RL 是补丁",
+      "link": "视觉课程解决会不会看，文本数据解决会不会查，RL 只在已会的策略上微调"
+    },
+    {
+      "mechanism": "统一 Qwen 裁判加最后一步抽答案",
+      "observed_result": "所有系统在同一裁判下排序；30B 训练模型与裁判同族",
+      "link": "排序可能放大与裁判风格一致的回答格式，而不是独立人类一致性"
+    }
+  ],
+  "comparative_positioning": [
+    "相对 Vision-DeepResearch（Huang et al. 2026）：从静态图像多实体检索扩到连续视频；训练还显式混入 7K VDR 文本问答，说明视频配方并不能单独撑起文本深搜。",
+    "相对 onelook 目录中的 ODE 工作：ODE 让数据生成器盯着当前策略失败做 on-policy 演化；本文是固定配方（过滤→问答→锁工具轨迹→SFT/GRPO），没有生成器闭环。",
+    "相对 WebWatcher / MMSearch-R1 等图像网页 agent：工具集合相近（反向图搜、search、visit），差异在时间轴选帧与强制视觉第一跳。",
+    "相对闭源通用模型：比的是同一作者工具套件下的 agentic 分数，不是厂商原生深度研究产品。"
+  ],
+  "reuse_takeaways": [
+    "若任务可被参数记忆打到中等分，先做无工具 Pass@k 过滤，再谈工具 agent 是否真的在工作。",
+    "模态偏见不一定要新架构：把文本工具从动作空间里拿掉，直到视觉证据落地，是可迁移的轨迹课程。",
+    "视频深搜的冷启动数据可以是“选帧-裁剪-反向图搜”元数据元组，而不是密集字幕。",
+    "RL 集用 Pass@4∈(0,1) 做中等难度筛选，比把全对全错都丢进 GRPO 更像可学信号。",
+    "格式失败与死循环的负梯度降采样，值得在长轨迹 agent RL 里默认加上。"
+  ],
+  "followup_questions": [
+    "若保持 7K 轨迹不变、取消阶段解锁，只靠 vision-first 提示，30B 还能不能把视觉调用做到 2+？",
+    "把裁判换成 Claude 或人类，64.0 / 59.3 的排序是否还在？",
+    "VideoDR-Bench 究竟是 200 条还是 100 条？公开 json 与视频 id 是否按时长表对齐？",
+    "35B 新闻类回退是检索时效、训练数据过期，还是 vison-first 课程伤害了时效文本检索？",
+    "select_crop_search 的 bbox 是 0–1 还是 0–1000？仓库发布后以哪份 schema 为准？"
+  ],
+  "section_plan": [
+    {
+      "heading": "核心信息",
+      "focus": "只写标题、作者、机构、arXiv、代码与论文类型等元数据，不混入判断句。",
+      "reading_goal": "保证笔记可被 Zotero/Obsidian 索引，且字段顺序符合校验。",
+      "purpose": "固定论文身份，避免把结论写进元数据区。"
+    },
+    {
+      "heading": "原文摘要翻译",
+      "focus": "按摘要原句译成中文，保留 200 条、64.0%、Claude 59.0 等原数字。",
+      "reading_goal": "先看到作者自称，再进入批评，不把后文勘误写进摘要。",
+      "purpose": "满足忠实摘要翻译契约。"
+    },
+    {
+      "heading": "创新点",
+      "focus": "把诊断、锁工具课程、数据引擎、泄漏过滤评测四件事先列清楚，并点明哪些是工程组装。",
+      "reading_goal": "读完能区分可迁移想法与标准 SFT/GRPO 套件。",
+      "purpose": "给后续写作提供可引用的贡献边界。"
+    },
+    {
+      "heading": "一句话总结",
+      "focus": "用一句说清真实贡献，并点出标题里的下一代 agent 过满。",
+      "reading_goal": "快速回忆这篇在本地图谱中的位置。",
+      "purpose": "反摘要式定位。"
+    },
+    {
+      "heading": "研究问题",
+      "focus": "说明视频深搜相对图像深搜多了时间轴，现成模型会抄文本捷径或靠记忆答题。",
+      "reading_goal": "把问题定义成行为与评测问题，而不是又一个 Video-QA 数据集。",
+      "purpose": "对齐 §1–§2 的失败模式。"
+    },
+    {
+      "heading": "数据与任务定义",
+      "focus": "写清 (Q,V)→R、关键帧上限 20、两套评测、3 万/7 千/7 千训练数据，以及 200 对 100 的冲突。",
+      "reading_goal": "复现时知道评测对象和监督从哪来。",
+      "purpose": "把基准协议和方法数据分开记账。"
+    },
+    {
+      "heading": "方法主线",
+      "focus": "用 3–4 步写推理链，再分数据引擎、工具 schema、SFT/GRPO 公式和实现细节。",
+      "reading_goal": "不看原图也能重讲输入、解锁、奖励与抽答案。",
+      "purpose": "满足机制流程契约，并服务复现。"
+    },
+    {
+      "heading": "关键结果",
+      "focus": "主表、消融、工具调用、类别强弱用表格加解释，包含新闻类回退。",
+      "reading_goal": "数字服务于机制，而不是堆 SOTA。",
+      "purpose": "把 Table 3–5 连到课程是否改了行为。"
+    },
+    {
+      "heading": "深度分析",
+      "focus": "拆开真正贡献、结果为何成立、易误读点和复现清单，明确证明与未证明。",
+      "reading_goal": "以后写相关工作或复现时能直接抄边界。",
+      "purpose": "完成分析覆盖契约。"
+    },
+    {
+      "heading": "局限",
+      "focus": "样本量冲突、裁判依赖、网页不可复现、GRPO 超参缺失、类别样本极少。",
+      "reading_goal": "知道这篇不能支撑哪些更大结论。",
+      "purpose": "把作者局限与读者发现的草稿错误一并记下。"
+    },
+    {
+      "heading": "我的笔记",
+      "focus": "放到 Vision-DeepResearch 与 ODE 旁边，标出可迁移的锁工具课程。",
+      "reading_goal": "给后续视频/三维 agent 一个具体接口建议。",
+      "purpose": "个人研究记忆。"
+    },
+    {
+      "heading": "引用",
+      "focus": "本篇、Vision-DeepResearch、ODE、Liu VideoDR、GRPO、Tongyi DeepResearch。",
+      "reading_goal": "能跳到邻近笔记或 arXiv。",
+      "purpose": "图谱链接。"
+    }
+  ]
+}

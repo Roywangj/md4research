@@ -1,0 +1,12 @@
+{
+  "status": "grounded",
+  "source_pdf_pages": 25,
+  "source_text_lines": 1509,
+  "evidence": [
+    {"anchor": "Abstract", "used_in": ["核心信息", "原文摘要翻译"]},
+    {"anchor": "Table 1", "used_in": ["关键结果"]},
+    {"anchor": "Figures 3-5", "used_in": ["消融到底说明了什么", "Static synthesis 对比", "机制分析"]},
+    {"anchor": "Appendices A-B", "used_in": ["复现注意点", "深度分析"]}
+  ],
+  "caveats": ["Chinese detailed reader layer is offline terminology-preserving rendering; English source is adjacent for audit.", "Full-page figure renders are used to preserve labels and captions."]
+}

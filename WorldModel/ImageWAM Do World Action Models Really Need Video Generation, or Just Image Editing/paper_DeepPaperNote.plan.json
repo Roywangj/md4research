@@ -1,0 +1,26 @@
+{
+  "paper": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
+  "source": "detailed_paper.md",
+  "status": "completed",
+  "paper_type": "embodied AI method / world action model",
+  "required_sections": [
+    "核心信息", "原文摘要翻译", "创新点", "一句话总结", "研究问题", "数据与任务定义",
+    "方法主线", "机制流程", "关键结果", "深度分析", "局限", "我的笔记", "引用"
+  ],
+  "evidence_intents": [
+    {"topic": "image editing versus video generation", "evidence": ["Figure 1", "Sections 1, 3.1, 3.4", "Table 5"]},
+    {"topic": "shared representation and action route", "evidence": ["Figure 2", "Equations 5, 9-11", "Appendix 5.1"]},
+    {"topic": "training objectives", "evidence": ["Equations 6-9"]},
+    {"topic": "performance and robustness", "evidence": ["Tables 1-4, 7, 12"]},
+    {"topic": "efficiency protocol", "evidence": ["Table 5", "Appendix Table 11"]},
+    {"topic": "limitations and proof boundaries", "evidence": ["Figures 4-5", "Ablation Q1-Q3", "evaluation scope"]}
+  ],
+  "planned_tables": ["benchmark summary", "efficiency protocol", "ablation interpretation", "dataset protocol"],
+  "figure_table_contract": {
+    "inventory_complete": true,
+    "all_source_items": 17,
+    "insertions": ["Figure 1", "Figure 2", "Table 3", "Figure 5", "Table 11"],
+    "skipped_items_documented_in": "paper_DeepPaperNote.figure_decisions.json"
+  },
+  "review_plan": ["grounding pass", "seven-gate lint", "final quality review", "final readability review", "lint rerun after edits"]
+}

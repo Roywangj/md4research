@@ -1,0 +1,567 @@
+{
+  "status": "ok",
+  "paper_id": "doi:10.48550/arxiv.2606.27504",
+  "review": "PDF figures and extracted candidates were visually inspected. Ten usable crops are materialized with source paths, hashes, page previews, and passing visual-review records; TABLE 2, TABLE 4, and TABLE 8 remain explicit Markdown placeholders because no independent clean crop was available.",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig. 1",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "核心方法总览，裁剪完整且包含三阶段、Video DiT→Action DiT 接口和困难负样本路径。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_002_fig_fig_1.png",
+      "relative_markdown_embed": "![Fig. 1](images/page_002_fig_fig_1.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_002_fig_fig_1.png",
+      "source_image_sha256": "790310548cbb957eb72684d875158cbcf12534eeffa5840027376753dc59b37b",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_002_fig_fig_1.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_002.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 2,
+        "caption": "Overview of ReWorld. A Video DiT learns a latent representation of future scene evolution, whose mid-denoising states F condition an",
+        "bbox_pt": [
+          44.0,
+          20.74329376220703,
+          594.8271484375,
+          378.3658142089844
+        ],
+        "normalized_bbox": [
+          0.071895,
+          0.026191,
+          0.97194,
+          0.477735
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "790310548cbb957eb72684d875158cbcf12534eeffa5840027376753dc59b37b",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig. 2",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:related-work",
+      "decision": "insert",
+      "reason": "直接展示中间—最终预测差异、自引导公式直觉和约两倍收敛趋势，裁剪清晰。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_003_fig_fig_2.png",
+      "relative_markdown_embed": "![Fig. 2](images/page_003_fig_fig_2.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_003_fig_fig_2.png",
+      "source_image_sha256": "9d68425acb307e1eff01b791f993d7a04791f8d933d46384593233ef90749203",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_003_fig_fig_2.png",
+        "source_page": 3,
+        "caption": "Intermediate-supervised inference and accelerated convergence of ReWorld. (a) ReWorld uses the discrepancy between the",
+        "render_dpi": 300,
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_003.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "bbox_pt": [
+          44.0,
+          20.0,
+          594.0,
+          400.0
+        ],
+        "normalized_bbox": [
+          0.07,
+          0.02,
+          0.97,
+          0.5
+        ]
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "9d68425acb307e1eff01b791f993d7a04791f8d933d46384593233ef90749203",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig. 3",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "DriveLaW/ReWorld 三秒未来视频定性对比，身份匹配且裁剪完整。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_009_fig_fig_3.png",
+      "relative_markdown_embed": "![Fig. 3](images/page_009_fig_fig_3.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_009_fig_fig_3.png",
+      "source_image_sha256": "43a948a6d2705d3e311b60af04d209ed6b2b75684bf628af96bd43445344b5f8",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_009_fig_fig_3.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 9,
+        "caption": "Qualitative video-generation comparison with DriveLaW [15]. Conditioning uses 1 s history (8 frames at 8 Hz); columns T−1 and T show",
+        "bbox_pt": [
+          33.5186653137207,
+          24.174880981445312,
+          572.408203125,
+          284.5408020019531
+        ],
+        "normalized_bbox": [
+          0.054769,
+          0.030524,
+          0.935308,
+          0.359269
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "43a948a6d2705d3e311b60af04d209ed6b2b75684bf628af96bd43445344b5f8",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig. 4",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-4",
+      "decision": "insert",
+      "reason": "nuScenes 多天气和路口补充未来生成结果，裁剪完整可读。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_010_fig_fig_4.png",
+      "relative_markdown_embed": "![Fig. 4](images/page_010_fig_fig_4.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_010_fig_fig_4.png",
+      "source_image_sha256": "812d91f851891149807df0717ccdd1da1ce3703548fe3f3cb3300c63d3aae438",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_010_fig_fig_4.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 10,
+        "caption": "Additional video-generation results on nuScenes. Conditioning uses 1 s history (8 frames at 8 Hz); columns T−1 and T show only its first",
+        "bbox_pt": [
+          39.247135162353516,
+          24.174880981445312,
+          572.1758422851562,
+          382.309814453125
+        ],
+        "normalized_bbox": [
+          0.064129,
+          0.030524,
+          0.934928,
+          0.482714
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "812d91f851891149807df0717ccdd1da1ce3703548fe3f3cb3300c63d3aae438",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "figure:Fig 5",
+      "source_id": "Fig 5",
+      "kind": "figure",
+      "label": "Fig. 5",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:method-4",
+      "decision": "insert",
+      "reason": "NAVSIM 直行、转弯和路口规划定性结果，红绿轨迹和地图裁剪清楚。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_011_fig_fig_5.png",
+      "relative_markdown_embed": "![Fig. 5](images/page_011_fig_fig_5.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_011_fig_fig_5.png",
+      "source_image_sha256": "b28e243d0b72b7e2676820a2b17f4e7115510e224d4fbb0f1f9eaeff2949ef02",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_011_fig_fig_5.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_011.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 11,
+        "caption": "Additional planning results on NAVSIM Navtest. From left to right: straight, turn left, turn right, and intersection. Red curves denote the",
+        "bbox_pt": [
+          38.707210540771484,
+          24.174880981445312,
+          578.8427734375,
+          337.5777587890625
+        ],
+        "normalized_bbox": [
+          0.063247,
+          0.030524,
+          0.945822,
+          0.426235
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "b28e243d0b72b7e2676820a2b17f4e7115510e224d4fbb0f1f9eaeff2949ef02",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 1",
+      "source_id": "TABLE 1",
+      "kind": "table",
+      "label": "表 1",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:datasets",
+      "decision": "insert",
+      "reason": "nuScenes 视频生成主结果，裁剪包含完整 FID/FVD 列。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_007_fig_table_1.png",
+      "relative_markdown_embed": "![TABLE 1](images/page_007_fig_table_1.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_007_fig_table_1.png",
+      "source_image_sha256": "40ea8546c46e64c4e6216dbf353d254488a8deead8fc2e176f1d86da11dff35b",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_007_fig_table_1.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_007.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 7,
+        "caption": "Video generation on the nuScenes validation set. DriveLaW",
+        "bbox_pt": [
+          352.54400634765625,
+          101.27982330322266,
+          523.4531860351562,
+          209.7488250732422
+        ],
+        "normalized_bbox": [
+          0.576052,
+          0.127879,
+          0.855316,
+          0.264834
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "40ea8546c46e64c4e6216dbf353d254488a8deead8fc2e176f1d86da11dff35b",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 2",
+      "source_id": "TABLE 2",
+      "kind": "table",
+      "label": "表 2",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-2",
+      "decision": "placeholder",
+      "reason": "闭环规划主结果极重要，但未得到独立干净裁剪；正文已逐项转写全部可见数值。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "not_applicable"
+    },
+    {
+      "item_id": "table:TABLE 3",
+      "source_id": "TABLE 3",
+      "kind": "table",
+      "label": "表 3",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-2",
+      "decision": "insert",
+      "reason": "UCF-101 冻结线性探测表，裁剪完整可读。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_008_fig_table_3.png",
+      "relative_markdown_embed": "![TABLE 3](images/page_008_fig_table_3.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_008_fig_table_3.png",
+      "source_image_sha256": "02fd93b804d84aa90e96124bc84be88c2f2b16d3d5f1e45ddeb1190ab12131f2",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_008_fig_table_3.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_008.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 8,
+        "caption": "Frozen linear probing on UCF-101 split 1. All methods use 33-frame",
+        "bbox_pt": [
+          301.70098876953125,
+          89.68680572509766,
+          543.3441162109375,
+          283.2518005371094
+        ],
+        "normalized_bbox": [
+          0.492975,
+          0.113241,
+          0.887817,
+          0.357641
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "02fd93b804d84aa90e96124bc84be88c2f2b16d3d5f1e45ddeb1190ab12131f2",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 4",
+      "source_id": "TABLE 4",
+      "kind": "table",
+      "label": "表 4",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "placeholder",
+      "reason": "统一长时程表征学习比较极重要，但未得到独立干净裁剪；正文已转写完整表格。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "not_applicable"
+    },
+    {
+      "item_id": "table:TABLE 5",
+      "source_id": "TABLE 5",
+      "kind": "table",
+      "label": "表 5",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:method-3",
+      "decision": "insert",
+      "reason": "归一化每步视频侧成本表，裁剪完整可读。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_009_fig_table_5.png",
+      "relative_markdown_embed": "![TABLE 5](images/page_009_fig_table_5.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_009_fig_table_5.png",
+      "source_image_sha256": "3085b33edd67cc8448a66f6550063354520d6e96c156c6463af8a3f726b811b2",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_009_fig_table_5.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_009.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 9,
+        "caption": "Normalized per-step cost of video-side representation learning.",
+        "bbox_pt": [
+          346.33697509765625,
+          390.0599060058594,
+          556.0521240234375,
+          511.7606201171875
+        ],
+        "normalized_bbox": [
+          0.56591,
+          0.4925,
+          0.908582,
+          0.646162
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "3085b33edd67cc8448a66f6550063354520d6e96c156c6463af8a3f726b811b2",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 6",
+      "source_id": "TABLE 6",
+      "kind": "table",
+      "label": "表 6",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:method-4",
+      "decision": "insert",
+      "reason": "中间层和自引导尺度消融表，裁剪身份匹配；完整数值另行转写。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_010_fig_table_6.png",
+      "relative_markdown_embed": "![TABLE 6](images/page_010_fig_table_6.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_010_fig_table_6.png",
+      "source_image_sha256": "13c52c3c566cce739a12d6cc5125137eb0c4afa5eb94fcc7c517940a6c8938fd",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_010_fig_table_6.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_010.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 10,
+        "caption": "Intermediate-layer and self-guidance ablations. (a) FVD with",
+        "bbox_pt": [
+          84.91200256347656,
+          485.4619140625,
+          250.35394287109375,
+          664.8546752929688
+        ],
+        "normalized_bbox": [
+          0.138745,
+          0.612957,
+          0.409075,
+          0.839463
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "13c52c3c566cce739a12d6cc5125137eb0c4afa5eb94fcc7c517940a6c8938fd",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 7",
+      "source_id": "TABLE 7",
+      "kind": "table",
+      "label": "表 7",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:method-4",
+      "decision": "insert",
+      "reason": "Align/RDE 组合消融表，裁剪清晰且包含四行配置。",
+      "visual_quality_status": "verified_usable",
+      "source_image_filename": "page_011_fig_table_7.png",
+      "relative_markdown_embed": "![TABLE 7](images/page_011_fig_table_7.png)",
+      "materialization_status": "complete",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_011_fig_table_7.png",
+      "source_image_sha256": "724f12c99a90776d08f7883a1dc616a1a029fe92ec85a84b73302976982d486d",
+      "review_evidence": {
+        "candidate_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/worldmodel/ReWorld Representation Learning for World Action Models/images/page_011_fig_table_7.png",
+        "page_preview_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/.claude/worktrees/agent-a513810b04dc65052/tmp/DeepPaperNote/assets/ReWorld_Representation_Learning_for_World_Action_Models/page_previews/page_011.png",
+        "source_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QWGMYLR3/Xia 等 - 2026 - ReWorld Representation Learning for World Action Models.pdf",
+        "source_page": 11,
+        "caption": "Effects of world grounding and behavior-aware action shaping.",
+        "bbox_pt": [
+          88.05400085449219,
+          430.00482177734375,
+          259.9441223144531,
+          491.6748046875
+        ],
+        "normalized_bbox": [
+          0.143879,
+          0.542935,
+          0.424745,
+          0.620802
+        ],
+        "render_dpi": 300
+      },
+      "visual_review": {
+        "status": "pass",
+        "reviewed_asset_sha256": "724f12c99a90776d08f7883a1dc616a1a029fe92ec85a84b73302976982d486d",
+        "preserved_scientific_elements": [
+          "图表主体结构",
+          "与 PDF 对应的流程或数值信息"
+        ],
+        "omitted_scientific_elements": [],
+        "notes": "裁剪与 PDF 页码、图表身份和正文转写相互核对。",
+        "failure_reason": "",
+        "repair_attempts": 0,
+        "revised_bbox": []
+      }
+    },
+    {
+      "item_id": "table:TABLE 8",
+      "source_id": "TABLE 8",
+      "kind": "table",
+      "label": "表 8",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:method-4",
+      "decision": "placeholder",
+      "reason": "权重扫描极重要，但未得到独立干净裁剪；正文已逐项转写完整扫描。",
+      "skip_reason": "asset_candidate_missing",
+      "visual_quality_status": "not_applicable"
+    }
+  ],
+  "summary": {
+    "total_items": 13,
+    "insert": 10,
+    "placeholder": 3,
+    "skip": 0,
+    "review_pending": 0,
+    "visually_verified": 10
+  }
+}

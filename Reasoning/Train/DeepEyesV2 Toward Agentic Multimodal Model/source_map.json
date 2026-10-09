@@ -1,0 +1,143 @@
+{
+  "paper": "DeepEyesV2: Toward Agentic Multimodal Model",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+  "zotero_item": "UEUUVGYS",
+  "arxiv": "2511.05271",
+  "code": "https://github.com/Visual-Agent/DeepEyesV2",
+  "segments": [
+    {
+      "id": "abstract",
+      "pages": "1",
+      "section": "Abstract",
+      "source_summary": "The paper introduces DeepEyesV2 as an agentic multimodal model that uses code execution and web search, trained by cold start followed by RL.",
+      "derived_note": "摘要部分支撑笔记中关于 agentic multimodal model、direct RL failure、two-stage training 和 RealX-Bench 的概括。"
+    },
+    {
+      "id": "intro-tools",
+      "pages": "1-3",
+      "section": "Introduction",
+      "source_summary": "The introduction motivates external operation and knowledge tools for real-world multimodal reasoning.",
+      "derived_note": "用于解释 DeepEyesV2 相比单纯 visual revisiting 更强调工具集合和环境反馈。"
+    },
+    {
+      "id": "figure-2-case",
+      "pages": "3",
+      "section": "Introduction / Figure 2",
+      "source_summary": "A case study shows a trajectory that integrates code execution and web search.",
+      "derived_note": "作为 agentic reasoning loop 的示例背景；正文未插入该图，因为 pipeline 图更适合总览。"
+    },
+    {
+      "id": "pipeline",
+      "pages": "4",
+      "section": "Method / Figure 3",
+      "source_summary": "DeepEyesV2 alternates reasoning, tool calls, environment feedback, and final answer generation.",
+      "asset": "assets/page_004_fig_figure_3.png",
+      "derived_note": "对应 `paper.md` 和 `paper_DeepPaperNote.md` 中的 pipeline 解释。"
+    },
+    {
+      "id": "direct-rl",
+      "pages": "5",
+      "section": "Method / Figure 4",
+      "source_summary": "Pioneer experiments show direct RL either loses tool calls or produces shallow tool-use behavior.",
+      "asset": "assets/page_005_fig_figure_4.png",
+      "derived_note": "支撑 cold-start 必要性的核心证据。"
+    },
+    {
+      "id": "data-curation",
+      "pages": "5-7",
+      "section": "Data Curation",
+      "source_summary": "Training data are filtered to keep moderately difficult cases where tool use is beneficial and trajectories are correct.",
+      "derived_note": "用于解释为什么样本不是越多越好，而是要保留工具可解样本。"
+    },
+    {
+      "id": "agentic-rl",
+      "pages": "7",
+      "section": "Agentic Reinforcement Learning",
+      "source_summary": "The RL reward combines final accuracy and format compliance while the model interacts with tools.",
+      "derived_note": "对应奖励 `R = R_acc + R_format` 的解释。"
+    },
+    {
+      "id": "realx-design",
+      "pages": "7-8",
+      "section": "RealX-Bench",
+      "source_summary": "RealX-Bench contains 300 QA pairs across real-world domains with overlapping perception, search, and reasoning difficulty labels.",
+      "derived_note": "用于说明 benchmark 评估能力组合而非单项能力。"
+    },
+    {
+      "id": "realx-results",
+      "pages": "7-8",
+      "section": "Table 1",
+      "source_summary": "DeepEyesV2 scores 28.3 average and 18.1 on integration, outperforming Qwen2.5-VL-7B search settings but remaining far below human performance.",
+      "asset": "assets/page_007_fig_table_1.png",
+      "derived_note": "用于主实验 RealX-Bench 结果段。"
+    },
+    {
+      "id": "implementation",
+      "pages": "8-9",
+      "section": "Implementation Details",
+      "source_summary": "The model uses Qwen2.5-VL-7B, cold-start SFT, and DAPO-based RL with 16 rollouts per prompt.",
+      "derived_note": "用于训练细节段。"
+    },
+    {
+      "id": "real-world-results",
+      "pages": "9",
+      "section": "Table 2",
+      "source_summary": "DeepEyesV2 improves over Qwen2.5-VL-7B on real-world, OCR, and chart benchmarks.",
+      "asset": "assets/page_009_fig_table_2.png",
+      "derived_note": "用于记录 V* Bench、HRBench、MME-RealWorld、OCRBench、ChartQA 等指标。"
+    },
+    {
+      "id": "reasoning-results",
+      "pages": "9",
+      "section": "Table 3",
+      "source_summary": "DeepEyesV2 improves on MathVista, MathVerse, MathVision, WeMath, DynaMath, and LogicVista.",
+      "asset": "assets/page_009_fig_table_3.png",
+      "derived_note": "用于数学与逻辑推理结果段。"
+    },
+    {
+      "id": "search-results",
+      "pages": "9-12",
+      "section": "Table 4",
+      "source_summary": "DeepEyesV2 performs strongly on FVQA-test, MMSearch, and SimpleVQA, while InfoSeek is lower than the Qwen2.5-VL search baseline.",
+      "derived_note": "用于说明搜索能力强但不完全稳定。"
+    },
+    {
+      "id": "cold-start-ablation",
+      "pages": "10-12",
+      "section": "Table 5",
+      "source_summary": "Cold-start data ablation shows perception, reasoning, and long-CoT data have complementary effects.",
+      "asset": "assets/page_010_fig_table_5.png",
+      "derived_note": "用于数据多样性和 long-CoT 价值分析。"
+    },
+    {
+      "id": "rl-ablation",
+      "pages": "10-12",
+      "section": "Table 6",
+      "source_summary": "RL data ablation shows search data is necessary for retrieval benchmarks and mixed data gives balanced performance.",
+      "asset": "assets/page_010_fig_table_6.png",
+      "derived_note": "用于解释 perception/reasoning/search RL 数据不能互相替代。"
+    },
+    {
+      "id": "tool-distribution",
+      "pages": "11-13",
+      "section": "Figure 6",
+      "source_summary": "Tool distributions differ across tasks and shift after RL.",
+      "asset": "assets/page_011_fig_figure_6.png",
+      "derived_note": "用于工具行为分析和 adaptive thinking 解释。"
+    },
+    {
+      "id": "adaptive-thinking",
+      "pages": "11-13",
+      "section": "Figures 7-8",
+      "source_summary": "After RL, tool-call frequency and response length decrease while tool-call variance remains high.",
+      "derived_note": "用于说明模型学到选择性工具调用，而非固定调用次数。"
+    },
+    {
+      "id": "conclusion",
+      "pages": "13",
+      "section": "Conclusion",
+      "source_summary": "The paper concludes that curated cold start plus RL can produce task-aware tool use and complex tool combinations.",
+      "derived_note": "用于最终总结和与其他 Reasoning 论文的横向定位。"
+    }
+  ]
+}

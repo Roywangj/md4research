@@ -1,0 +1,207 @@
+{
+  "source": "Zotero collection: reasoning (collectionID=98)",
+  "classification_rule": "Train = 核心方法需要 SFT、RL、RFT、BRPO、GRPO 或训练新模型；TrainingFree = 核心方法作为测试时/推理时插件、提示、注意力、缓存、工具编排或分析，不训练新模型参数。",
+  "counts": {
+    "Train": 11,
+    "TrainingFree": 11,
+    "total": 22
+  },
+  "papers": [
+    {
+      "title": "REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting",
+      "category": "TrainingFree",
+      "reason": "摘要明确强调无需大量 3D-specific post-training，核心是 MLLM-agent + 3DGS 多视角渲染与 global-to-local grounding。",
+      "zotero_item_key": "BAE6PIDP",
+      "pdf_key": "D99TFPBN",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/D99TFPBN/Shi 等 - 2025 - REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Spla.pdf",
+      "obsidian_folder": "TrainingFree/REALM An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting"
+    },
+    {
+      "title": "Thyme: Think Beyond Images",
+      "category": "Train",
+      "reason": "两阶段训练：SFT 激活代码/图像操作能力，RL/GRPO-ATS 优化工具调用决策。",
+      "zotero_item_key": "XUEMWACA",
+      "pdf_key": "Y32MYA9Q",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/Y32MYA9Q/Zhang 等 - 2025 - Thyme Think Beyond Images.pdf",
+      "obsidian_folder": "Train/Thyme Think Beyond Images"
+    },
+    {
+      "title": "DeepScan: A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models",
+      "category": "TrainingFree",
+      "reason": "标题和正文均声明 training-free；通过分层扫描、再聚焦和证据记忆在测试时增强 LVLM。",
+      "zotero_item_key": "32IQ3CTT",
+      "pdf_key": "563SEVQR",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/563SEVQR/Li 等 - 2026 - DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models.pdf",
+      "obsidian_folder": "TrainingFree/DeepScan A Training-Free Framework for Visually Grounded Reasoning in Large Vision-Language Models"
+    },
+    {
+      "title": "Interleaved-Modal Chain-of-Thought",
+      "category": "TrainingFree",
+      "reason": "ADS 只依赖 VLM attention map，不需要参数化，论文称其为 training-free / plug-and-play。",
+      "zotero_item_key": "LKAFNEE6",
+      "pdf_key": "DMT6SNMT",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/DMT6SNMT/Gao 等 - 2025 - Interleaved-Modal Chain-of-Thought.pdf",
+      "obsidian_folder": "TrainingFree/Interleaved-Modal Chain-of-Thought"
+    },
+    {
+      "title": "Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with Dynamic and Precise Visual Thoughts",
+      "category": "TrainingFree",
+      "reason": "核心方法是动态决定视觉信息插入与精确视觉提示引导，作为推理时 ICoT 改造使用，未提出训练新模型参数。",
+      "zotero_item_key": "KMXAAADS",
+      "pdf_key": "VZYTSXMW",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VZYTSXMW/Liu 等 - 2026 - Let's Think with Images Efficiently! An Interleaved-Modal Chain-of-Thought Reasoning Framework with.pdf",
+      "obsidian_folder": "TrainingFree/Lets Think with Images Efficiently An Interleaved-Modal Chain-of-Thought Reasoning Framework with Dynamic and Precise Visual Thoughts"
+    },
+    {
+      "title": "VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models",
+      "category": "TrainingFree",
+      "reason": "训练自由的 test-time visual refocusing：不做额外 RL fine-tuning，只在推理时重注入视觉 token coreset。",
+      "zotero_item_key": "34QUN2EN",
+      "pdf_key": "V8UHNJTS",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/V8UHNJTS/Ghosal 等 - 2026 - VisRef Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning M.pdf",
+      "obsidian_folder": "TrainingFree/VisRef Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models"
+    },
+    {
+      "title": "Mitigating Low-Quality Reasoning in MLLMs: Self-Driven Refined Multimodal CoT with Selective Thinking and Step-wise Visual Enhancement",
+      "category": "TrainingFree",
+      "reason": "正文明确称 SDR-MCoT 是 training-free，通过熵置信度选择性思考和 step-wise attention enhancement 工作。",
+      "zotero_item_key": "95JR5SU4",
+      "pdf_key": "TTWS8WL8",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TTWS8WL8/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinkin.pdf",
+      "obsidian_folder": "TrainingFree/Mitigating Low-Quality Reasoning in MLLMs Self-Driven Refined Multimodal CoT with Selective Thinking and Step-wise Visual Enhancement"
+    },
+    {
+      "title": "Position Rebinding Cache Reuse: Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning",
+      "category": "TrainingFree",
+      "reason": "缓存层 replay-free visual revisiting 方法，通过位置重绑定复用历史视觉 KV cache，不训练模型参数。",
+      "zotero_item_key": "IBQ6CTBU",
+      "pdf_key": "TA2B3XTE",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/TA2B3XTE/Wang 等 - 2026 - Position Rebinding Cache Reuse Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning.pdf",
+      "obsidian_folder": "TrainingFree/Position Rebinding Cache Reuse Replay-Free Visual Revisiting for Interleaved Multimodal Reasoning"
+    },
+    {
+      "title": "Qwen Look Again: Guiding Vision-Language Reasoning Models to Re-attention Visual Information",
+      "category": "Train",
+      "reason": "提出 BRPO，并用 cold-start/SFT 与 RL 训练 Qwen-LA 产生 vision-text reflection 和 visual token copy/route。",
+      "zotero_item_key": "UQS3ZY32",
+      "pdf_key": "5WY2LX5P",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5WY2LX5P/Chu 等 - 2025 - Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information.pdf",
+      "obsidian_folder": "Train/Qwen Look Again Guiding Vision-Language Reasoning Models to Re-attention Visual Information"
+    },
+    {
+      "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+      "category": "Train",
+      "reason": "两阶段训练：cold-start SFT 输出 patch-level cue，随后 GRPO/RL 用过程监督 cue reward 优化中间推理。",
+      "zotero_item_key": "BBHEDHWA",
+      "pdf_key": "FJ9U6FIG",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/FJ9U6FIG/Qi 等 - 2026 - PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues.pdf",
+      "obsidian_folder": "Train/PatchCue Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues"
+    },
+    {
+      "title": "MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning",
+      "category": "Train",
+      "reason": "构建 54K 数据集并进行 text-only CoT SFT、interleaved CoT SFT、interleaved CoT RL 三阶段训练。",
+      "zotero_item_key": "64FD3ZTB",
+      "pdf_key": "NVZK9PA9",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/NVZK9PA9/Chen 等 - 2025 - MINT-CoT Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning.pdf",
+      "obsidian_folder": "Train/MINT-CoT Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning"
+    },
+    {
+      "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+      "category": "Train",
+      "reason": "先以完整显式 CoT 训练，再通过渐进式多阶段训练把显式步骤替换为潜在文本与潜在视觉的联合状态。",
+      "zotero_item_key": "BY96Y7AI",
+      "pdf_key": "EAWWASN8",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EAWWASN8/Chen 等 - 2026 - Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space.pdf",
+      "obsidian_folder": "Train/Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space"
+    },
+    {
+      "title": "Latent Visual Reasoning",
+      "category": "Train",
+      "reason": "使用 ROI 视觉标记重建监督进行 SFT，并通过 GRPO_latent 强化潜在视觉状态与文本答案的耦合，需要更新模型参数。",
+      "zotero_item_key": "ABAL4CZP",
+      "pdf_key": "WP65QDXJ",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+      "obsidian_folder": "Train/Latent Visual Reasoning"
+    },
+    {
+      "title": "DeepEyes: Incentivizing \"Thinking with Images\" via Reinforcement Learning",
+      "category": "Train",
+      "reason": "端到端 reinforcement learning 训练 active perception / thinking-with-images 能力。",
+      "zotero_item_key": "9NBFZA6H",
+      "pdf_key": "7SFX2HHW",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/7SFX2HHW/Zheng 等 - 2026 - DeepEyes Incentivizing Thinking with Images via Reinforcement Learning.pdf",
+      "obsidian_folder": "Train/DeepEyes Incentivizing Thinking with Images via Reinforcement Learning"
+    },
+    {
+      "title": "DeepEyesV2: Toward Agentic Multimodal Model",
+      "category": "Train",
+      "reason": "明确采用 cold-start 阶段建立工具使用模式，再用 reinforcement learning 强化动态工具调用。",
+      "zotero_item_key": "UEUUVGYS",
+      "pdf_key": "5RMJR9VI",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/5RMJR9VI/Hong 等 - 2026 - DeepEyesV2 Toward Agentic Multimodal Model.pdf",
+      "obsidian_folder": "Train/DeepEyesV2 Toward Agentic Multimodal Model"
+    },
+    {
+      "title": "Position: Your VLM May Not Be Thinking with Interleaved Images",
+      "category": "TrainingFree",
+      "reason": "立场/分析论文，不训练新模型；通过消融与注意力分析质疑 interleaved images 的实际作用。",
+      "zotero_item_key": "QZAED6JU",
+      "pdf_key": "8TG39CQY",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/8TG39CQY/Position Your VLM May Not Be Thinking with Interleaved Images.pdf",
+      "obsidian_folder": "TrainingFree/Position Your VLM May Not Be Thinking with Interleaved Images"
+    },
+    {
+      "title": "Perceptual Flow Network for Visually Grounded Reasoning",
+      "category": "Train",
+      "reason": "已有精读中已归类为 Train；方法包含 SFT 和 variational reinforcement fine-tuning。",
+      "zotero_item_key": "EXJVAVPQ",
+      "pdf_key": "59DCWCTW",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/59DCWCTW/Li 等 - 2026 - Perceptual Flow Network for Visually Grounded Reasoning.pdf",
+      "obsidian_folder": "Train/Perceptual Flow Network for Visually Grounded Reasoning"
+    },
+    {
+      "title": "CReFT-CAD: Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning",
+      "category": "Train",
+      "reason": "使用课程驱动强化微调与监督后调优训练 CAD 正投影推理能力，并发布 TriView2CAD 基准。",
+      "pdf_key": "H3HILHU6",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/H3HILHU6/Niu 等 - 2025 - CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning.pdf",
+      "obsidian_folder": "Train/CReFT-CAD Boosting Orthographic Projection Reasoning for CAD via Reinforcement Fine-Tuning"
+    },
+    {
+      "title": "Thinking With Tools, Not With Pixels: Tool Calls as Text Scaffolds for Visual Reasoning",
+      "category": "Train",
+      "reason": "论文在 LoRA、full fine-tuning、SFT 与 RL/GRPO 训练设置下比较 TextCall，核心结论依赖训练期 carrier swap，因此属于 Train。",
+      "pdf_key": "HQYRZEGU",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HQYRZEGU/Shao 等 - 2026 - Thinking With Tools, Not With Pixels Tool Calls as Text Scaffolds for Visual Reasoning.pdf",
+      "obsidian_folder": "Train/Thinking With Tools Not With Pixels Tool Calls as Text Scaffolds for Visual Reasoning"
+    },
+    {
+      "title": "Routing Before Looking: Query-Adaptive Evidence Acquisition for Long-form Video Understanding",
+      "category": "TrainingFree",
+      "reason": "训练自由的长视频 Agent，核心方法是在感知前根据查询特征在基于生成与基于检索的策略之间动态路由，不更新模型参数。",
+      "zotero_item_key": "8U9PWSW6",
+      "pdf_key": "Q726YSWI",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/Q726YSWI/Wang 等 - 2026 - Routing Before Looking Query-Adaptive Evidence Acquisition for Long-form Video Understanding.pdf",
+      "obsidian_folder": "TrainingFree/Routing Before Looking Query-Adaptive Evidence Acquisition for Long-form Video Understanding"
+    },
+    {
+      "title": "Deep Video Discovery: Agentic Search with Tool Use for Long-form Video Understanding",
+      "category": "TrainingFree",
+      "reason": "基于多粒度视频数据库与以搜索为核心的工具箱（Global Browse, Clip Search, Frame Inspect）的自主智能体推理，不微调模型参数。",
+      "zotero_item_key": "3IDU9BLS",
+      "pdf_key": "3IDU9BLS",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/3IDU9BLS/Zhang 等 - 2025 - Deep Video Discovery Agentic Search with Tool Use for Long-form Video Understanding.pdf",
+      "obsidian_folder": "TrainingFree/Deep Video Discovery Agentic Search with Tool Use for Long-form Video Understanding"
+    },
+    {
+      "title": "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking",
+      "category": "TrainingFree",
+      "reason": "基于视频逻辑流与多粒度工具箱（<overview>, <skim>, <focus>）的主动搜寻长视程 Agent，完全免训练。",
+      "zotero_item_key": "RF55THX4",
+      "pdf_key": "RF55THX4",
+      "pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/RF55THX4/Lin 等 - 2026 - VideoSeek Long-Horizon Video Agent with Tool-Guided Seeking.pdf",
+      "obsidian_folder": "TrainingFree/VideoSeek Long-Horizon Video Agent with Tool-Guided Seeking"
+    }
+  ]
+}

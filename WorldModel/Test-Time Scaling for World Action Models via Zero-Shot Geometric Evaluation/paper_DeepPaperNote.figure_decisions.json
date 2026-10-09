@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "expected_items": 8,
+  "decisions": [
+    {"item":"Figure 1","kind":"figure","decision":"insert","file":"images/figure1_method_overview.png","reason":"Central two-stage selection/execution chain; visually inspected and readable."},
+    {"item":"Figure 2","kind":"figure","decision":"insert","file":"images/figure2_failure_scaling.png","reason":"Key large-N failure scaling; visually inspected and readable."},
+    {"item":"Figure 3","kind":"figure","decision":"insert","file":"images/figure3_false_low_score_example.png","reason":"Concrete evaluator-outlier example; visually inspected and usable."},
+    {"item":"Table 1","kind":"table","decision":"reconstruct_markdown","file":null,"reason":"Central numeric evidence is clearer and searchable as a compact Markdown table."},
+    {"item":"Table 2","kind":"table","decision":"reconstruct_markdown","file":null,"reason":"Gate recovery/trigger/latency evidence is summarized numerically in text and table."},
+    {"item":"Table 3","kind":"table","decision":"reconstruct_markdown","file":null,"reason":"Offline-versus-online distinction requires values plus interpretation, not a raster image."},
+    {"item":"Table 4","kind":"table","decision":"reconstruct_markdown","file":null,"reason":"Equal-trigger gate diagnostic is compact enough for Markdown."},
+    {"item":"Table 5","kind":"table","decision":"reconstruct_markdown","file":null,"reason":"Value-head comparison is compact enough for Markdown."}
+  ],
+  "all_items_decided": true,
+  "all_inserted_images_visually_inspected": true,
+  "all_image_links_resolve": true
+}

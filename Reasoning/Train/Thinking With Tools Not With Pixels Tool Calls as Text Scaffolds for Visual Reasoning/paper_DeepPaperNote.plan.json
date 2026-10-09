@@ -1,0 +1,23 @@
+{
+  "paper_id": "arxiv:2608.09682",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HQYRZEGU/Shao 等 - 2026 - Thinking With Tools, Not With Pixels Tool Calls as Text Scaffolds for Visual Reasoning.pdf",
+  "pages": 33,
+  "paper_type": "train_method",
+  "classification": "Train",
+  "evidence_questions": [
+    "Does TextCall preserve the tool-call scaffold while replacing returned pixels?",
+    "Are returned pixels necessary under train-test aligned carrier swap?",
+    "Do reasoning text and spatial code contribute independently?",
+    "What are the RL dynamics, latency, hardware, and resource costs?",
+    "Which claims are causal evidence versus mechanism interpretation?"
+  ],
+  "required_sections": ["核心信息", "原文摘要翻译", "创新点", "研究问题", "方法主线", "机制流程", "数据与任务定义", "关键结果", "消融实验", "深度分析", "局限", "复现清单", "引用"],
+  "figure_table_plan": [
+    {"id":"fig_main_protocol","source":"main method figure","purpose":"TextCall carrier swap and train-test alignment","status":"captioned placeholder"},
+    {"id":"table_main_results","source":"main benchmark table","purpose":"LoRA/full fine-tuning/SFT/GRPO comparison","status":"transcribed"},
+    {"id":"table_scaffold_audit","source":"factorial scaffold audit","purpose":"image-only versus scaffold-only non-inferiority","status":"transcribed"},
+    {"id":"fig_rl_dynamics","source":"RL training curves","purpose":"tool-call collapse and recovery","status":"captioned placeholder"},
+    {"id":"table_latency_cost","source":"latency and hardware appendix","purpose":"runtime and resource trade-offs","status":"transcribed"}
+  ],
+  "writing_contract": {"full_paper_basis":"33-page selectable-text PDF and source_full_text.txt","translation_mode":"structured bilingual reconstruction with original claims and Chinese translation","critical_caveat":"not a literal paragraph-by-paragraph translation of every reference entry"}
+}

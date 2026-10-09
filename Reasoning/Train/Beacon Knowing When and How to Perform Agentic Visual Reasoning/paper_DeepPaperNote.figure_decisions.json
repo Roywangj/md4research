@@ -1,0 +1,511 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2607.28595",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "Agentic visual reasoning models should use tools adaptively and effectively.",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "(a) The tool-call ratio at different levels of text-only accuracy. (b) Average performance",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:abstract",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/page_002_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_002_fig_figure_2.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_002_fig_figure_2.png"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "(a) The accuracy of tool-available and tool-free reasoning. (b) The MAtext, MAtool, and",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:analysis",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_005_fig_figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/page_005_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_005_fig_figure_3.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_005_fig_figure_3.png"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Illustration of the RL process of Beacon.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_007_fig_figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/page_007_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_007_fig_figure_4.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_007_fig_figure_4.png"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Training accuracy and rewards of the RL stage. (a) Mean training accuracy. (b)",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:appendix-d-1",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_figure_5.png",
+      "relative_markdown_embed": "![Figure 5](images/page_012_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_012_fig_figure_5.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_012_fig_figure_5.png"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "(a) Proportions of pure-text and code-assisted responses during training. (b) Proportions",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:appendix-d-1",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "(a) Proportions of groups containing at least one correct pure-text response (“w/ text",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:appendix-d-1",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Training data sources of Beacon.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:discussion",
+      "decision": "insert",
+      "reason": "这张图解释任务或数据集如何被构造；如果候选图质量足够，适合放在数据与任务定义部分帮助读者理解数据来源。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task_overview",
+      "source_image_filename": "page_020_fig_figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/page_020_fig_figure_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_020_fig_figure_8.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_020_fig_figure_8.png"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Task category distribution of the SFT and RL data.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:discussion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Detailed statistics of the SFT data. The numbers in the bars indicate the number",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:discussion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Detailed statistics of the RL data. The numbers in the bars indicate the number of",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:results",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Comparison on high-resolution visual search, spatial, and perceptual reasoning",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_010_fig_table_1.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_010_fig_table_1.png"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Comparison on quantitative, diagrammatic, compositional, and agentic visual reason-",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_010_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_010_fig_table_2.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_010_fig_table_2.png"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "The metrics that reflect the Mode Adaptiveness and Tool Effect of agentic visual rea-",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_011_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_011_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_011_fig_table_3.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_011_fig_table_3.png"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "We observe that our full method has the best overall performance, while using the necessity-",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:analysis-2",
+      "decision": "visual_defect",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_011_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_011_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_011_fig_table_4.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_011_fig_table_4.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Training data statistics. We report both the total number of raw samples and the number",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:discussion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Detailed ablation results for Mode Adaptiveness and Tool Effect (%). Metric definitions",
+      "pages": [
+        28
+      ],
+      "section_id": "sec:results",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_028_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_028_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_028_fig_table_6.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_028_fig_table_6.png"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Reasoning Trajectory Example: Case 1",
+      "pages": [
+        29
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_029_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_029_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_029_fig_table_7.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_029_fig_table_7.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Reasoning Trajectory Example: Case 2",
+      "pages": [
+        30
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_030_fig_table_8.png",
+      "relative_markdown_embed": "![Table 8](images/page_030_fig_table_8.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_030_fig_table_8.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_030_fig_table_8.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "Reasoning Trajectory Example: Case 3",
+      "pages": [
+        31
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_031_fig_table_9.png",
+      "relative_markdown_embed": "![Table 9](images/page_031_fig_table_9.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_031_fig_table_9.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_031_fig_table_9.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "Hint Example: Case 1",
+      "pages": [
+        32
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_032_fig_table_10.png",
+      "relative_markdown_embed": "![Table 10](images/page_032_fig_table_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_032_fig_table_10.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_032_fig_table_10.png"
+    },
+    {
+      "item_id": "table:Table 11",
+      "source_id": "Table 11",
+      "kind": "table",
+      "label": "Table 11",
+      "caption": "Hint Example: Case 2",
+      "pages": [
+        33
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_033_fig_table_11.png",
+      "relative_markdown_embed": "![Table 11](images/page_033_fig_table_11.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_033_fig_table_11.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_033_fig_table_11.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    },
+    {
+      "item_id": "table:Table 12",
+      "source_id": "Table 12",
+      "kind": "table",
+      "label": "Table 12",
+      "caption": "Hint Example: Case 3",
+      "pages": [
+        34
+      ],
+      "section_id": "sec:discussion-2",
+      "decision": "visual_defect",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_034_fig_table_12.png",
+      "relative_markdown_embed": "![Table 12](images/page_034_fig_table_12.png)",
+      "source_image_path": "/Users/roywangj/Documents/paper_reading/tmp/DeepPaperNote/assets/Beacon_Knowing_When_and_How_to_Perform_Agentic_Visual_Reasoning/images/page_034_fig_table_12.png",
+      "materialization_status": "materialized",
+      "materialized_relative_path": "images/page_034_fig_table_12.png",
+      "note_usage": "available_in_detailed_reader_or_case-study coverage"
+    }
+  ],
+  "summary": {
+    "total_items": 23,
+    "by_decision": {
+      "insert": 10,
+      "low_priority": 7,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 6
+    }
+  },
+  "materialization_root": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/Reasoning/Train/Beacon Knowing When and How to Perform Agentic Visual Reasoning/images"
+}

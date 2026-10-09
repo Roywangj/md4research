@@ -1,0 +1,1537 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2608.05042",
+  "title": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_raw_sections.jsonl",
+  "full_text_md_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+    "total_pages": 36,
+    "text_pages_extracted": 36,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 36,
+    "text_max_pages": null,
+    "text_pages_extracted": 36,
+    "text_pages_scanned": 36,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 9,
+    "references_start_page": 14
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 402,
+      "text_hash_sha256": "f2f36967c0c5741e24e98a8d352e316f5cd453fb7e1f59a0a45352b499daa23b"
+    },
+    {
+      "section_id": "sec:models",
+      "kind": "method",
+      "title": "models",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1911,
+      "text_hash_sha256": "331672cdf0aa476d8145532c5ba0eec362e8227c21b70b4615e5fc5b6326f8c8"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "I. INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 37,
+      "text_hash_sha256": "5d7014d93babeaf9b9b45f4a5eeced71f6d6f375295600c1a9dadecfe08b6185"
+    },
+    {
+      "section_id": "sec:models-2",
+      "kind": "method",
+      "title": "models",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 45,
+      "text_hash_sha256": "04dc5ada138f5d8ec0a71ffd41c339bbc32b06d2e8e835d28113960df17a5800"
+    },
+    {
+      "section_id": "sec:models-3",
+      "kind": "method",
+      "title": "models",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 20,
+      "text_hash_sha256": "9da474a5e72ba0fcd2077e7cc743a1b473f93e961ac3921a5ba72aab5b656c47"
+    },
+    {
+      "section_id": "sec:approach",
+      "kind": "method",
+      "title": "approach",
+      "page_start": 1,
+      "page_end": 2,
+      "char_count": 3626,
+      "text_hash_sha256": "6266f76fcf7eddc5d9ad45eefd2480c62cb83acda17a4f4920fc51eb333ec655"
+    },
+    {
+      "section_id": "sec:background",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 2,
+      "page_end": 3,
+      "char_count": 4729,
+      "text_hash_sha256": "23ebb73ec0d4e9f3b59e8834496210edbc98632b36924206262333cafd5414c7"
+    },
+    {
+      "section_id": "sec:related-work",
+      "kind": "introduction",
+      "title": "II. RELATED WORK",
+      "page_start": 3,
+      "page_end": 4,
+      "char_count": 5743,
+      "text_hash_sha256": "750534c2ec4a63fd80a53375deffe892499822cab30e811d81c9ed330983b31e"
+    },
+    {
+      "section_id": "sec:data",
+      "kind": "data",
+      "title": "Data",
+      "page_start": 4,
+      "page_end": 4,
+      "char_count": 9,
+      "text_hash_sha256": "2338e160ed2ee5730c96e84cc675fb97364b4d0a0d5d37403bd41fa137c8be8a"
+    },
+    {
+      "section_id": "sec:data-2",
+      "kind": "data",
+      "title": "Data",
+      "page_start": 4,
+      "page_end": 8,
+      "char_count": 25245,
+      "text_hash_sha256": "14b92eed2d3584e0a5ae6b1ec910a3b7a9c5eb6f44cb55859bf0c265bc683469"
+    },
+    {
+      "section_id": "sec:experiments",
+      "kind": "experiment",
+      "title": "V. EXPERIMENTS",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 1942,
+      "text_hash_sha256": "7f1a3c85d57bacb69c57371750ac28e2e0aa97c2d9bdfd01dbf26f7dfc7702f6"
+    },
+    {
+      "section_id": "sec:appendices-c-and-e-the-best-result-in-each-column-is-highlighted-in-bold",
+      "kind": "appendix",
+      "title": "Appendices C and E. The best result in each column is highlighted in bold.",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 58,
+      "text_hash_sha256": "991b99638e1b28c282b83af10c36ccfe169423cd1c18db1b9e9df2cd7cea4da5"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 9,
+      "page_end": 9,
+      "char_count": 1418,
+      "text_hash_sha256": "d414264bb5cbbefa1c7b88d48f90d233917e50cc812fb3161a4d9406176cb96b"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 4837,
+      "text_hash_sha256": "00fb891391a6b6c0d0129d76424e0bbc6c2c65c40b47b5ed94d0694dce104df8"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 1000,
+      "text_hash_sha256": "063dabe711f876b0e083753cdca3f47bd2bf3352fcbc3156b83794115bdd1b53"
+    },
+    {
+      "section_id": "sec:method-4",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 505,
+      "text_hash_sha256": "4152224d4a12f2a86fd05e0edd1c5055ad2f2c3078b52991099b2472ab1b1030"
+    },
+    {
+      "section_id": "sec:background-2",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 6,
+      "text_hash_sha256": "03494b0d1f803522a3497d751eaaf6f987883cd4fe0b0e66baf67a662ae231b2"
+    },
+    {
+      "section_id": "sec:method-5",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 10,
+      "page_end": 11,
+      "char_count": 2802,
+      "text_hash_sha256": "2e5be62a63f12619c38d8d6a5fe38d55e43ebbe5340f379da7c141028b4d916b"
+    },
+    {
+      "section_id": "sec:results",
+      "kind": "experiment",
+      "title": "c) Results:",
+      "page_start": 11,
+      "page_end": 11,
+      "char_count": 20,
+      "text_hash_sha256": "d108f183181e2fbfa2dd203b2dc562997e85a82899e6ad570fe0357b2550a6c3"
+    },
+    {
+      "section_id": "sec:results-2",
+      "kind": "experiment",
+      "title": "results.",
+      "page_start": 11,
+      "page_end": 12,
+      "char_count": 5739,
+      "text_hash_sha256": "9400812bc7c178059458fd9253d6a08d093a6ca066f2f8fc4772161e303cc8e4"
+    },
+    {
+      "section_id": "sec:background-3",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 1201,
+      "text_hash_sha256": "57de28cc1c798326a691d499edab23e4c8621764822fba8d846ab10e1bfab584"
+    },
+    {
+      "section_id": "sec:method-6",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 12,
+      "page_end": 12,
+      "char_count": 492,
+      "text_hash_sha256": "a97ea1c4556ffbbf8a5413ac44ef4874206398fb39acb625bd5765faee69ae17"
+    },
+    {
+      "section_id": "sec:method-7",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 12,
+      "page_end": 13,
+      "char_count": 1914,
+      "text_hash_sha256": "884c020f9557ac2dc24f6e2810b96cc820a209743499daf209e180649c666f2b"
+    },
+    {
+      "section_id": "sec:method-8",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 13,
+      "page_end": 13,
+      "char_count": 522,
+      "text_hash_sha256": "545341f5ea972f1c6c7dfbf59e5d902648d11cd911e56444b44e2a001377faab"
+    },
+    {
+      "section_id": "sec:method-9",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 13,
+      "page_end": 14,
+      "char_count": 6734,
+      "text_hash_sha256": "30a97defc0d0888923d4d2fff4964e8621c7adbb4804afd9dfb6df897f626523"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "REFERENCES",
+      "page_start": 14,
+      "page_end": 16,
+      "char_count": 11995,
+      "text_hash_sha256": "1dc30b3bba60c0c523def47e1b7cc24872af0d847d2832f2acc7efeb430999c2"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "APPENDIX",
+      "page_start": 16,
+      "page_end": 17,
+      "char_count": 9704,
+      "text_hash_sha256": "a99dfd8386137d9d8f85cfae75e58d0377c4544e4e9e9656eaab7a45aa16fb55"
+    },
+    {
+      "section_id": "sec:appendix-p-the-comparison-here-runs-across-all-five-settings",
+      "kind": "appendix",
+      "title": "(Appendix P). The comparison here runs across all five settings",
+      "page_start": 17,
+      "page_end": 19,
+      "char_count": 12402,
+      "text_hash_sha256": "a1acb0e752f88311afc1f8928e6a7b02c31159589b4adb7feb30ce125a05257a"
+    },
+    {
+      "section_id": "sec:appendix-o-we-attribute-the-gap-instead-to-a-residual",
+      "kind": "appendix",
+      "title": "(Appendix O). We attribute the gap instead to a residual",
+      "page_start": 19,
+      "page_end": 21,
+      "char_count": 11276,
+      "text_hash_sha256": "0b6deba3fa672dbfdfdef8135da4630f622b0bdddee7ca19d076b11918e8f0cc"
+    },
+    {
+      "section_id": "sec:method-10",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 21,
+      "page_end": 21,
+      "char_count": 844,
+      "text_hash_sha256": "a922f447d6ca2ceacb8ed2e2b32d14e20cee98db9fea80a41a6dc6d72f8c8cc8"
+    },
+    {
+      "section_id": "sec:method-11",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 21,
+      "page_end": 22,
+      "char_count": 2043,
+      "text_hash_sha256": "bd0e60d40588e199a3c9590e2f24868b53718d3972e49c45b1fd0c575f59df28"
+    },
+    {
+      "section_id": "sec:method-12",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 22,
+      "char_count": 934,
+      "text_hash_sha256": "196daeb940ec20c1841a6201fefb5883b31f14262a6377aa895ce66ae0e5e745"
+    },
+    {
+      "section_id": "sec:method-13",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 22,
+      "char_count": 913,
+      "text_hash_sha256": "928216cd77b988dd016687e5e4967c6acc2c1191597760ed52884378811e9bb8"
+    },
+    {
+      "section_id": "sec:method-14",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 22,
+      "char_count": 1120,
+      "text_hash_sha256": "a23740f5c743224ef24224ad2d02861b9bb21dd9596ee8ba776ecd897fc4a3d7"
+    },
+    {
+      "section_id": "sec:method-15",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 22,
+      "char_count": 848,
+      "text_hash_sha256": "da422c262a0cf505db07046f7cc51da15a7d13626cba40aa9aeb52f38064b41d"
+    },
+    {
+      "section_id": "sec:method-16",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 22,
+      "char_count": 812,
+      "text_hash_sha256": "bd8b556718629252c32d979831a44ff8553d232a3295d40f93edd18675b36d89"
+    },
+    {
+      "section_id": "sec:method-17",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 22,
+      "page_end": 23,
+      "char_count": 1088,
+      "text_hash_sha256": "d126e5b6adcca153e1892b9553fd5ba14c950a3bbe8b4e717631e4bba3e7893c"
+    },
+    {
+      "section_id": "sec:method-18",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 23,
+      "char_count": 692,
+      "text_hash_sha256": "726627fcd23aa52f12f8468903f0454de3207b23a5e5a4c537e2be5078f68e18"
+    },
+    {
+      "section_id": "sec:method-19",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 23,
+      "char_count": 705,
+      "text_hash_sha256": "b6f065b2b4fa9d55d656db254865d2b8a4e9ec77f5a8808a136251ace8425dc1"
+    },
+    {
+      "section_id": "sec:method-20",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 23,
+      "char_count": 810,
+      "text_hash_sha256": "0b6fefadd3fd076b8defa0eed54979dd913e47d55d291655edb6cc7c09ea10d8"
+    },
+    {
+      "section_id": "sec:method-21",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 23,
+      "char_count": 592,
+      "text_hash_sha256": "d25cc33bc8c4fdb4302226e2f3e2d732521d562736266e126cf80c571d48c91a"
+    },
+    {
+      "section_id": "sec:method-22",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 23,
+      "page_end": 24,
+      "char_count": 1257,
+      "text_hash_sha256": "59450f5085d6e5c2046afe6ca61a6d2936368fdc447a74dd5885c4d40260ea5f"
+    },
+    {
+      "section_id": "sec:appendix-k-when-trained-with-3-or-10-demonstrations-per-task",
+      "kind": "appendix",
+      "title": "(Appendix K) when trained with 3 or 10 demonstrations per task.",
+      "page_start": 24,
+      "page_end": 24,
+      "char_count": 906,
+      "text_hash_sha256": "5085aa8090df6df3a3779caef1c215d0567285613d23c7e9f8fe4fe469b1a670"
+    },
+    {
+      "section_id": "sec:method-23",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 24,
+      "page_end": 24,
+      "char_count": 577,
+      "text_hash_sha256": "07e758165ad9375f572a3a799681e6fb332e81bc578fc4657ac8eb1f89d07a5d"
+    },
+    {
+      "section_id": "sec:method-24",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 24,
+      "page_end": 25,
+      "char_count": 1086,
+      "text_hash_sha256": "8172f37a6f6523c1b282435d71ea5a30afbfba31c934f095d2a2f4554056fa9a"
+    },
+    {
+      "section_id": "sec:background-4",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 25,
+      "page_end": 25,
+      "char_count": 149,
+      "text_hash_sha256": "012d5abd47f5a5f84d1776a744fc379cad57d01bcc45eddc5895e71094ee7e55"
+    },
+    {
+      "section_id": "sec:appendix-k",
+      "kind": "appendix",
+      "title": "(Appendix K).",
+      "page_start": 25,
+      "page_end": 25,
+      "char_count": 182,
+      "text_hash_sha256": "9d20c761937e051f50d11fdf35e76c5f125ce5e4b6388f119320b3a588e20616"
+    },
+    {
+      "section_id": "sec:background-5",
+      "kind": "introduction",
+      "title": "Background",
+      "page_start": 25,
+      "page_end": 36,
+      "char_count": 8801,
+      "text_hash_sha256": "bb68397ca8247298de032069ebf89d92b747d5000944689ffe203e726a0b77b9"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 5696,
+      "section_ids": [
+        "sec:preamble",
+        "sec:models",
+        "sec:introduction",
+        "sec:models-2",
+        "sec:models-3",
+        "sec:approach"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4283,
+      "section_ids": [
+        "sec:approach",
+        "sec:background"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 6310,
+      "section_ids": [
+        "sec:background",
+        "sec:related-work"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 4151,
+      "section_ids": [
+        "sec:related-work",
+        "sec:data",
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 5382,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 5998,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 5750,
+      "section_ids": [
+        "sec:data-2"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 5695,
+      "section_ids": [
+        "sec:data-2",
+        "sec:experiments"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 6551,
+      "section_ids": [
+        "sec:experiments",
+        "sec:appendices-c-and-e-the-best-result-in-each-column-is-highlighted-in-bold",
+        "sec:method",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 4448,
+      "section_ids": [
+        "sec:method-2",
+        "sec:method-3",
+        "sec:method-4",
+        "sec:background-2",
+        "sec:method-5"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 6350,
+      "section_ids": [
+        "sec:method-5",
+        "sec:results",
+        "sec:results-2"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3123,
+      "section_ids": [
+        "sec:results-2",
+        "sec:background-3",
+        "sec:method-6",
+        "sec:method-7"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 5888,
+      "section_ids": [
+        "sec:method-7",
+        "sec:method-8",
+        "sec:method-9"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 8130,
+      "section_ids": [
+        "sec:method-9",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 4645,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 16,
+      "char_count": 4721,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    },
+    {
+      "page": 17,
+      "char_count": 6505,
+      "section_ids": [
+        "sec:appendix",
+        "sec:appendix-p-the-comparison-here-runs-across-all-five-settings"
+      ]
+    },
+    {
+      "page": 18,
+      "char_count": 6241,
+      "section_ids": [
+        "sec:appendix-p-the-comparison-here-runs-across-all-five-settings"
+      ]
+    },
+    {
+      "page": 19,
+      "char_count": 6979,
+      "section_ids": [
+        "sec:appendix-p-the-comparison-here-runs-across-all-five-settings",
+        "sec:appendix-o-we-attribute-the-gap-instead-to-a-residual"
+      ]
+    },
+    {
+      "page": 20,
+      "char_count": 6986,
+      "section_ids": [
+        "sec:appendix-o-we-attribute-the-gap-instead-to-a-residual"
+      ]
+    },
+    {
+      "page": 21,
+      "char_count": 6348,
+      "section_ids": [
+        "sec:appendix-o-we-attribute-the-gap-instead-to-a-residual",
+        "sec:method-10",
+        "sec:method-11"
+      ]
+    },
+    {
+      "page": 22,
+      "char_count": 5758,
+      "section_ids": [
+        "sec:method-11",
+        "sec:method-12",
+        "sec:method-13",
+        "sec:method-14",
+        "sec:method-15",
+        "sec:method-16",
+        "sec:method-17"
+      ]
+    },
+    {
+      "page": 23,
+      "char_count": 3680,
+      "section_ids": [
+        "sec:method-17",
+        "sec:method-18",
+        "sec:method-19",
+        "sec:method-20",
+        "sec:method-21",
+        "sec:method-22"
+      ]
+    },
+    {
+      "page": 24,
+      "char_count": 3167,
+      "section_ids": [
+        "sec:method-22",
+        "sec:appendix-k-when-trained-with-3-or-10-demonstrations-per-task",
+        "sec:method-23",
+        "sec:method-24"
+      ]
+    },
+    {
+      "page": 25,
+      "char_count": 1129,
+      "section_ids": [
+        "sec:method-24",
+        "sec:background-4",
+        "sec:appendix-k",
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 26,
+      "char_count": 460,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 27,
+      "char_count": 412,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 28,
+      "char_count": 510,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 29,
+      "char_count": 390,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 30,
+      "char_count": 401,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 31,
+      "char_count": 868,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 32,
+      "char_count": 1246,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 33,
+      "char_count": 690,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 34,
+      "char_count": 800,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 35,
+      "char_count": 1053,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    },
+    {
+      "page": 36,
+      "char_count": 1583,
+      "section_ids": [
+        "sec:background-5"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Fig 1",
+        "caption": "Overview. BridgeVLA is a 3D VLA framework that aligns its inputs and outputs in a unified 2D image space. It is pre-trained on object grounding using",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:approach"
+      },
+      {
+        "id": "Fig 2",
+        "caption": "Model Architecture. Top: BridgeVLA first learns language-conditioned 2D heatmap prediction from detection data and transfers the resulting",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:related-work"
+      },
+      {
+        "id": "Fig 3",
+        "caption": "Occlusion-robust fine localization using spatial memory. Left: the",
+        "page": 7,
+        "pages": [
+          7
+        ],
+        "section_id": "sec:data-2"
+      },
+      {
+        "id": "Fig 4",
+        "caption": "Real-Robot Evaluation Setup. Top left: the general-manipulation platform—a 7-DoF Franka Research 3 arm observed by a static ZED 2i stereo",
+        "page": 12,
+        "pages": [
+          12
+        ],
+        "section_id": "sec:results-2"
+      },
+      {
+        "id": "Fig 5",
+        "caption": "Real-Robot Generalization Results. Average success rate over the",
+        "page": 13,
+        "pages": [
+          13
+        ],
+        "section_id": "sec:method-7"
+      },
+      {
+        "id": "Fig 6",
+        "caption": "The Distractor, Lighting, Background, and Height Settings. Visualization of the four visual-disturbance settings of the real-robot evaluation",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:method-24"
+      },
+      {
+        "id": "Fig 7",
+        "caption": "The Distractor, Lighting, Background, and Height Settings on the Dobot Platform. Initial scene of every instruction of the Dobot suite (columns,",
+        "page": 25,
+        "pages": [
+          25
+        ],
+        "section_id": "sec:method-24"
+      },
+      {
+        "id": "Fig 8",
+        "caption": "Real-Robot Rollouts (I). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+        "page": 26,
+        "pages": [
+          26
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 9",
+        "caption": "Real-Robot Rollouts (II). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+        "page": 27,
+        "pages": [
+          27
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 10",
+        "caption": "The Combination Setting (I). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 11",
+        "caption": "The Combination Setting (II). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+        "page": 29,
+        "pages": [
+          29
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 12",
+        "caption": "The Category Setting. In total, we evaluate on 7 objects from categories that are unseen during training.",
+        "page": 30,
+        "pages": [
+          30
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 13",
+        "caption": "Dobot Rollouts (I): Memory-Dependent Tasks. BridgeVLA++ rollouts on the three memory-dependent instructions of the Dobot suite (Appendix L)",
+        "page": 31,
+        "pages": [
+          31
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 14",
+        "caption": "Dobot Rollouts (II): Memory-Free Tasks. BridgeVLA++ rollouts on the four memory-free instructions of the Dobot suite in the Basic setting, laid",
+        "page": 31,
+        "pages": [
+          31
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 15",
+        "caption": "Ground-Truth Heatmap Construction on Detection Data. For each sample: the original image (left), the bounding boxes of the objects of interest",
+        "page": 32,
+        "pages": [
+          32
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 16",
+        "caption": "Predictions on Pre-Training Data after Fine-Tuning. Each input image is repeated three times to mimic the multi-view input format of fine-tuning.",
+        "page": 33,
+        "pages": [
+          33
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 17",
+        "caption": "The 18 RLBench Tasks. Visualization of the 18 RLBench [13] tasks used in Sec. V-A.",
+        "page": 34,
+        "pages": [
+          34
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 18",
+        "caption": "The Nine RMBench Tasks. One evaluation rollout per task of RMBench [16], shown as three frames in temporal order; the dual-arm tasks span",
+        "page": 34,
+        "pages": [
+          34
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 19",
+        "caption": "Perturbations in COLOSSEUM [14]. All perturbation axes are shown except the original-RLBench variation setting.",
+        "page": 35,
+        "pages": [
+          35
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 20",
+        "caption": "The GemBench Task Suite. One representative variation of every task of GemBench [15], shown as the first and final frame of an evaluation",
+        "page": 36,
+        "pages": [
+          36
+        ],
+        "section_id": "sec:background-5"
+      },
+      {
+        "id": "Fig 21",
+        "caption": "The Three MemoryBench Tasks. Two variants of each MemoryBench [17] task, each shown as three rollout frames in which the robot’s own",
+        "page": 36,
+        "pages": [
+          36
+        ],
+        "section_id": "sec:background-5"
+      }
+    ],
+    "tables": []
+  },
+  "math_index": [
+    {
+      "text": "Real-World Generalization with ≤ 10 Trajectories",
+      "section_id": "sec:approach",
+      "page_start": 1,
+      "page_end": 2
+    },
+    {
+      "text": ">>>>",
+      "section_id": "sec:background",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": ">>>>",
+      "section_id": "sec:background",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": ">>>>",
+      "section_id": "sec:background",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": ">>>>",
+      "section_id": "sec:background",
+      "page_start": 2,
+      "page_end": 3
+    },
+    {
+      "text": "tion learned from a set of expert demonstrations D = {τ i}N",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "i=1.",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "τ i =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "at = (xt, Rt, gt, ct) ,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "where xt ∈R3 is the target end-effector translation, Rt ∈",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "SO(3) is the target rotation, gt ∈{0, 1} denotes the gripper",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "state, and ct ∈{0, 1} is a collision-avoidance flag used by the",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "at = πB (ot, l) .",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "i (x) =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "pi(x) ≥pmin,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "where x = (u, v) denotes a pixel location and",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "pi(x) = exp",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Havg(x) =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "i=1",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Hgt(x) =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "x′∈ΩHavg(x′),",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Lpre = −",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "x∈Ω",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "st(x) =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "v=1",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "V = 3,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "bxt = arg max",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Lbase = Ltrans + Lrot + Lgripper + Lcollision.",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "at = πM (ot, l, Mt) ,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Mt = (Tt, St) ,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "Tt =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "with n = 2 in all our experiments. It provides short-term",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "St = Φ (Render (Zoom (P0; bxc",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "t = Ftemp (Zc",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "t = Fspa",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "t ∈RV ×N×d,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "s ∈{c, f}.",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "t =",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "L = Lbase + λcheckLcheck,",
+      "section_id": "sec:data-2",
+      "page_start": 4,
+      "page_end": 8
+    },
+    {
+      "text": "AdamW, (β1, β2) = (0.9, 0.95)",
+      "section_id": "sec:references",
+      "page_start": 14,
+      "page_end": 16
+    },
+    {
+      "text": "L=2 layers with 8 attention heads of dimension 128 and a",
+      "section_id": "sec:appendix",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "c) Slot budgets: On RMBench the budget K=12 holds",
+      "section_id": "sec:appendix",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "keyframes, K=2; the temporal memory there reduces to the",
+      "section_id": "sec:appendix",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "axes degenerate and orientations that are close in SO(3) may",
+      "section_id": "sec:appendix",
+      "page_start": 16,
+      "page_end": 17
+    },
+    {
+      "text": "of K=12 frames plus the anchor occupies 39 MiB. Because",
+      "section_id": "sec:appendix-p-the-comparison-here-runs-across-all-five-settings",
+      "page_start": 17,
+      "page_end": 19
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 9,
+    "sections": [
+      {
+        "title": "B. COLOSSEUM & GemBench: Generalization",
+        "page": 9
+      },
+      {
+        "title": "C. RMBench: Memory-Dependent Bimanual Manipulation",
+        "page": 10
+      },
+      {
+        "title": "a trial-and-error sorting task requiring the tracking of past",
+        "page": 11
+      },
+      {
+        "title": "D. MemoryBench: Single-Arm Memory Validation",
+        "page": 11
+      },
+      {
+        "title": "E. Real-World Experiments",
+        "page": 11
+      },
+      {
+        "title": "a success rate of 95.4%, highlighting its exceptional sample",
+        "page": 11
+      },
+      {
+        "title": "F. Ablation Studies",
+        "page": 13
+      },
+      {
+        "title": "a threefold larger batch size (192 vs. 64) and careful learning-",
+        "page": 13
+      },
+      {
+        "title": "a single demonstration,” in 2021 IEEE international conference on",
+        "page": 15
+      },
+      {
+        "title": "A universal visual representation for robot manipulation,” 2022,",
+        "page": 15
+      },
+      {
+        "title": "A. Network and Memory Architecture",
+        "page": 16
+      },
+      {
+        "title": "B. Pre-Training",
+        "page": 16
+      },
+      {
+        "title": "a stage has nothing to read, the injection block gates all",
+        "page": 16
+      },
+      {
+        "title": "C. Fine-Tuning Details",
+        "page": 16
+      },
+      {
+        "title": "D. Training Data Preparation",
+        "page": 17
+      },
+      {
+        "title": "E. Evaluation Protocol",
+        "page": 17
+      },
+      {
+        "title": "a 25-step budget, and we report mean±std over five evaluation",
+        "page": 17
+      },
+      {
+        "title": "F. Computational Cost",
+        "page": 18
+      },
+      {
+        "title": "A cached memory entry is a single bf16 coarse-stage token",
+        "page": 18
+      },
+      {
+        "title": "G. Per-Task Results on COLOSSEUM",
+        "page": 18
+      }
+    ],
+    "figure_captions": [
+      {
+        "id": "Fig 4",
+        "caption": "Real-Robot Evaluation Setup. Top left: the general-manipulation platform—a 7-DoF Franka Research 3 arm observed by a static ZED 2i stereo",
+        "page_hint": "p.12"
+      },
+      {
+        "id": "Fig 5",
+        "caption": "Real-Robot Generalization Results. Average success rate over the",
+        "page_hint": "p.13"
+      },
+      {
+        "id": "Fig 6",
+        "caption": "The Distractor, Lighting, Background, and Height Settings. Visualization of the four visual-disturbance settings of the real-robot evaluation",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Fig 7",
+        "caption": "The Distractor, Lighting, Background, and Height Settings on the Dobot Platform. Initial scene of every instruction of the Dobot suite (columns,",
+        "page_hint": "p.25"
+      },
+      {
+        "id": "Fig 8",
+        "caption": "Real-Robot Rollouts (I). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+        "page_hint": "p.26"
+      },
+      {
+        "id": "Fig 9",
+        "caption": "Real-Robot Rollouts (II). BridgeVLA rollouts on the real-robot task suite of Appendix K.",
+        "page_hint": "p.27"
+      },
+      {
+        "id": "Fig 10",
+        "caption": "The Combination Setting (I). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+        "page_hint": "p.28"
+      },
+      {
+        "id": "Fig 11",
+        "caption": "The Combination Setting (II). During training, the manipulated objects and skills are seen, but their combinations are unseen.",
+        "page_hint": "p.29"
+      },
+      {
+        "id": "Fig 12",
+        "caption": "The Category Setting. In total, we evaluate on 7 objects from categories that are unseen during training.",
+        "page_hint": "p.30"
+      },
+      {
+        "id": "Fig 13",
+        "caption": "Dobot Rollouts (I): Memory-Dependent Tasks. BridgeVLA++ rollouts on the three memory-dependent instructions of the Dobot suite (Appendix L)",
+        "page_hint": "p.31"
+      },
+      {
+        "id": "Fig 14",
+        "caption": "Dobot Rollouts (II): Memory-Free Tasks. BridgeVLA++ rollouts on the four memory-free instructions of the Dobot suite in the Basic setting, laid",
+        "page_hint": "p.31"
+      },
+      {
+        "id": "Fig 15",
+        "caption": "Ground-Truth Heatmap Construction on Detection Data. For each sample: the original image (left), the bounding boxes of the objects of interest",
+        "page_hint": "p.32"
+      },
+      {
+        "id": "Fig 16",
+        "caption": "Predictions on Pre-Training Data after Fine-Tuning. Each input image is repeated three times to mimic the multi-view input format of fine-tuning.",
+        "page_hint": "p.33"
+      },
+      {
+        "id": "Fig 17",
+        "caption": "The 18 RLBench Tasks. Visualization of the 18 RLBench [13] tasks used in Sec. V-A.",
+        "page_hint": "p.34"
+      },
+      {
+        "id": "Fig 18",
+        "caption": "The Nine RMBench Tasks. One evaluation rollout per task of RMBench [16], shown as three frames in temporal order; the dual-arm tasks span",
+        "page_hint": "p.34"
+      },
+      {
+        "id": "Fig 19",
+        "caption": "Perturbations in COLOSSEUM [14]. All perturbation axes are shown except the original-RLBench variation setting.",
+        "page_hint": "p.35"
+      },
+      {
+        "id": "Fig 20",
+        "caption": "The GemBench Task Suite. One representative variation of every task of GemBench [15], shown as the first and final frame of an evaluation",
+        "page_hint": "p.36"
+      },
+      {
+        "id": "Fig 21",
+        "caption": "The Three MemoryBench Tasks. Two variants of each MemoryBench [17] task, each shown as three rollout frames in which the robot’s own",
+        "page_hint": "p.36"
+      }
+    ],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "96a88fcfd986d27de03e28375c7c77c011f66cc6575b29deb9e2ce2701c5e682",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2608.05042",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+      "translated_title": "",
+      "authors": [
+        "Peiyan Li",
+        "Yuze Zhu",
+        "Yixiang Chen",
+        "Qisen Ma",
+        "Yuan Xu",
+        "Jiabing Yang",
+        "He Guan",
+        "Yan Huang",
+        "Hongtao Wu",
+        "Xiao Ma",
+        "Tao Kong",
+        "Liang Wang",
+        "Tieniu Tan"
+      ],
+      "year": "2026",
+      "venue": "arXiv (Cornell University)",
+      "doi": "10.48550/arxiv.2608.05042",
+      "arxiv_id": "2608.05042",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2608.05042v1",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+      "doi": "",
+      "arxiv_id": "2608.05042",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arxiv.2608.05042",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2608.05042",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2608.05042v1",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2608.05042"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+          "work_value": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_resolve.json",
+      "metadata_artifact_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework/.pipeline/deep/bridgevla_pp_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "BridgeVLA++: A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework for 3D Manipulation",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2608.05042v1",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/UQ5DQRWD/Li 等 - 2026 - BridgeVLA++ A Data-Efficient, Generalizable, and Memory-Augmented Vision-Language-Action Framework.pdf",
+    "doi": "",
+    "arxiv_id": "2608.05042",
+    "zotero_key": ""
+  }
+}

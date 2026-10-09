@@ -1,0 +1,17 @@
+{
+  "stage": "final_readability_review",
+  "status": "passed",
+  "checks": {
+    "natural_chinese_prose": true,
+    "ordinary_english_leftovers_removed": true,
+    "mechanical_translation_artifacts_removed": true,
+    "mid_sentence_linebreaks_removed": true,
+    "facts_and_numbers_unchanged_during_polish": true
+  },
+  "edits_made": [
+    "将普通英文 token、latent、query、key/value 改为自然中文术语。",
+    "拆分过长的跨基准比较段落，并修复公式与编号列表触发的可读性问题。"
+  ],
+  "lint_rerun_required": true,
+  "lint_rerun_passed": true
+}

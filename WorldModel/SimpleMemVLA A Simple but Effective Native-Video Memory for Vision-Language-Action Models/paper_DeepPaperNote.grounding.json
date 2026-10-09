@@ -1,0 +1,34 @@
+{
+  "paper_claims": [
+    {
+      "claim": "SimpleMemVLA achieves 94.0% overall success on RMBench, outperforming MemoryWAM (83.0%) and all published baselines in a single multi-task model.",
+      "source": "Abstract & Table 1 & Section 4.2",
+      "verified": true
+    },
+    {
+      "claim": "On RoboMME, SimpleMemVLA reaches 88.3%, leading all 21 deployable baselines by 43.7 points and nearing human performance (90.5%).",
+      "source": "Abstract & Table 2 & Section 4.2",
+      "verified": true
+    },
+    {
+      "claim": "Holding the backbone and training setup fixed, native context reaches 88.3% on RoboMME whereas retrieval reaches 31.5%, token compression 22.6%, and recurrent state 20.6%.",
+      "source": "Section 4.3 & Table 2 & Figure 4",
+      "verified": true
+    },
+    {
+      "claim": "Streaming inference prefills the shared history prefix during action execution, reducing decision latency from 1.02 s to 0.68 s within the 0.96 s budget.",
+      "source": "Section 3.4 & Section 4.5 & Figure 6",
+      "verified": true
+    },
+    {
+      "claim": "Counterfactual replacement of historical cue frames redirects the policy to follow the counterfactual cue in 86%–98% of trials across suites.",
+      "source": "Section 4.4 & Figure 5",
+      "verified": true
+    },
+    {
+      "claim": "On LIBERO and LIBERO-Plus, SimpleMemVLA achieves 97.5% and 78.4% success, matching or leading all general-purpose and memory baselines.",
+      "source": "Table 5 & Table 6 & Section 4.2",
+      "verified": true
+    }
+  ]
+}

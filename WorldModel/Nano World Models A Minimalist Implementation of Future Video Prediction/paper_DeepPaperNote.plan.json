@@ -1,0 +1,32 @@
+{
+  "paper": "Nano World Models: A Minimalist Implementation of Future Video Prediction",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/AMCJCEKS/Huang 等 - 2026 - Nano World Models A Minimalist Implementation of Future Video Prediction.pdf",
+  "page_count": 19,
+  "note_file": "paper_DeepPaperNote.md",
+  "language": "zh-CN",
+  "purpose": "独立、批判性的 WJ 精读；不替代全文翻译",
+  "sections": [
+    {"id":"core","heading":"核心信息","evidence_pages":"1-3"},
+    {"id":"abstract","heading":"原文摘要翻译","evidence_pages":"1-2"},
+    {"id":"position","heading":"研究问题与相对定位","evidence_pages":"2-4,13-14"},
+    {"id":"task","heading":"数据与任务定义","evidence_pages":"4-6"},
+    {"id":"method","heading":"方法主线","evidence_pages":"4-8"},
+    {"id":"results","heading":"关键结果","evidence_pages":"9-14"},
+    {"id":"analysis","heading":"深度分析","evidence_pages":"4-14"},
+    {"id":"limitations","heading":"局限","evidence_pages":"9-14"},
+    {"id":"transfer","heading":"与 WAM、视频世界模型、latent dynamics 的关系与可迁移洞见","evidence_pages":"4,10-14"},
+    {"id":"caveat","heading":"材料级 caveat","evidence_pages":"1-19"}
+  ],
+  "required_coverage": [
+    "研究问题与背景", "现有 world/video model 定位", "逐步数据流", "关键公式/目标/架构",
+    "训练数据与实现细节", "主结果与消融", "定性证据", "证据强度与过度主张",
+    "局限", "复现缺口", "WAM/视频世界模型/latent dynamics 关系", "可迁移研究洞见"
+  ],
+  "figure_references": [
+    "images/figure2_qualitative_rollouts.jpg",
+    "images/figure3_logging_evaluation.png",
+    "images/figure4_pointcloud_export.jpg",
+    "images/figure5_long_horizon_rollouts.png",
+    "images/page12_rollout_error.png"
+  ]
+}

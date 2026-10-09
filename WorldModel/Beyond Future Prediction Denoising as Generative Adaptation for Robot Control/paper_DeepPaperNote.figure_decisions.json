@@ -1,0 +1,44 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "核心动机与范式演变对比图：全景呈现从在线未来预测 (UniPi) 到训练期未来协同 (Fast-WAM / ImageWAM) 再到 NowWAM 当前帧去噪的范式进化"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "模型架构与训练-推断流向图：展示训练期沿流匹配去噪轨迹采样及速度目标优化，以及推断期干净端点 σ=0 单次前向零延迟执行"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "标准与跨域少样本实验表：展示 Standard LIBERO 98.4% 饱和性能与 RoboCasa GR1 100-shot 64.9% 显著领先"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "LIBERO-Plus 极限扰动主战绩表：系统量化 7 大扰动类别下 87.7% / 87.8% 的绝对统领地位"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "真实执行轨迹定性对比图：直观对比基线在机械臂初始位姿扰动与极端视角偏移下的执行失败与 NowWAM 的平稳成功"
+    },
+    {
+      "figure_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "颠覆性可控消融实验表：严格证明过去/未来辅助目标无差异，以及纯净端点/无去噪损失的性能断崖"
+    },
+    {
+      "figure_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "训练效率与显存开销表：量化验证视觉 Token 减半 (784→392)、步时缩短 1.8 倍与显存压降"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "任务条件化交叉注意力热力图：展示在背景干扰与少样本迁移中对任务目标与交互边界的高保真聚焦"
+    }
+  ]
+}

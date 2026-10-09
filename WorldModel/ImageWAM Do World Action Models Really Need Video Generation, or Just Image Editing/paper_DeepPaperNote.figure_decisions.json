@@ -1,0 +1,25 @@
+{
+  "inventory_status": "complete_before_drafting",
+  "source_counts": {"figures": 5, "tables": 12, "total": 17},
+  "decisions": [
+    {"item": "Figure 1", "page": 2, "decision": "insert", "image": "images/figure_1_overview.png", "reason": "central conceptual comparison and architecture summary", "usable": true},
+    {"item": "Figure 2", "page": 4, "decision": "insert", "image": "images/figure_2_pipeline.png", "reason": "mechanism and action-route diagram", "usable": true},
+    {"item": "Figure 3", "page": 6, "decision": "skip", "reason": "setup photographs add less than protocol table"},
+    {"item": "Figure 4", "page": 6, "decision": "skip", "reason": "attention interpretation covered textually; crop is visually dense"},
+    {"item": "Figure 5", "page": 9, "decision": "insert", "image": "images/figure_5_artifacts.png", "reason": "qualitative artifact evidence and proof boundary", "usable": true},
+    {"item": "Table 1", "page": 6, "decision": "skip", "reason": "central values transcribed in compact benchmark table"},
+    {"item": "Table 2", "page": 6, "decision": "skip", "reason": "central values transcribed in compact benchmark table"},
+    {"item": "Table 3", "page": 7, "decision": "insert", "image": "images/table_3_libero_plus.png", "reason": "most discriminative robustness result", "usable": true},
+    {"item": "Table 4", "page": 8, "decision": "skip", "reason": "values transcribed and interpreted"},
+    {"item": "Table 5", "page": 8, "decision": "skip", "reason": "protocol-sensitive values better expressed in note table"},
+    {"item": "Table 6", "page": 8, "decision": "skip", "reason": "non-controlled comparison summarized with caution"},
+    {"item": "Table 7", "page": 9, "decision": "skip", "reason": "two-row scale ablation transcribed"},
+    {"item": "Table 8", "page": 17, "decision": "skip", "reason": "hyperparameters listed in replication notes"},
+    {"item": "Table 9", "page": 17, "decision": "skip", "reason": "dataset protocols consolidated into compact note table"},
+    {"item": "Table 10", "page": 17, "decision": "skip", "reason": "training costs summarized in prose"},
+    {"item": "Table 11", "page": 18, "decision": "insert", "image": "images/table_11_latency.png", "reason": "separates model path from compilation/static-graph gains", "usable": true},
+    {"item": "Table 12", "page": 19, "decision": "skip", "reason": "very dense; fully searchable transcription retained in detailed_paper.md"}
+  ],
+  "all_insert_assets_materialized": true,
+  "passes_figure_table_gate": true
+}

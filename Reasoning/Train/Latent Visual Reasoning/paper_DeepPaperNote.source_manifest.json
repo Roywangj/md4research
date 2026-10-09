@@ -1,0 +1,702 @@
+{
+  "status": "ok",
+  "script": "extract_source_text.py",
+  "schema_version": 1,
+  "paper_id": "arxiv:2509.24251",
+  "title": "Latent Visual Reasoning",
+  "source_kind": "pdf_text",
+  "raw_sections_path": "/private/tmp/lvr_deeppapernote.qBsZvM/paper_DeepPaperNote_raw_sections.jsonl",
+  "full_text_md_path": "/private/tmp/lvr_deeppapernote.qBsZvM/paper_DeepPaperNote_full_text.md",
+  "pdf": {
+    "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+    "total_pages": 15,
+    "text_pages_extracted": 15,
+    "text_max_pages": null,
+    "text_truncated": false
+  },
+  "coverage": {
+    "total_pages": 15,
+    "text_max_pages": null,
+    "text_pages_extracted": 15,
+    "text_pages_scanned": 15,
+    "text_truncated": false,
+    "truncated_due_to_page_limit": false,
+    "appendix_detected": true,
+    "appendix_start_page": 15,
+    "references_start_page": 10
+  },
+  "sections": [
+    {
+      "section_id": "sec:preamble",
+      "kind": "preamble",
+      "title": "preamble",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 258,
+      "text_hash_sha256": "6338ff1b96cfc9824f7b6ef4a166d81b1cfd3cfb1a4410b4a071ebf086ebed4a"
+    },
+    {
+      "section_id": "sec:abstract",
+      "kind": "abstract",
+      "title": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "char_count": 1420,
+      "text_hash_sha256": "7da25b4b78f7bd1de199ea31b83ba09aeebf40229b7c3c70b471bca89038dab4"
+    },
+    {
+      "section_id": "sec:introduction",
+      "kind": "introduction",
+      "title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 7,
+      "char_count": 23946,
+      "text_hash_sha256": "8250ac5fa5eadfbc8e64df1d1064c19db11b3e7adceb7798acc1a095cebf9663"
+    },
+    {
+      "section_id": "sec:experiment",
+      "kind": "experiment",
+      "title": "EXPERIMENT",
+      "page_start": 7,
+      "page_end": 8,
+      "char_count": 2649,
+      "text_hash_sha256": "fbcaa25e160fc29cbd6491d496367dae103b5288d89b71f4d362dac6dd90d220"
+    },
+    {
+      "section_id": "sec:method",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 8,
+      "char_count": 845,
+      "text_hash_sha256": "cceea70477c2ad9342242a046c5854adb207b834cafc0336f1b56c21af6a980e"
+    },
+    {
+      "section_id": "sec:method-2",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 8,
+      "page_end": 9,
+      "char_count": 3112,
+      "text_hash_sha256": "a30f040d44f7cd706c88fe1f6d8908a3eeec2330592e7d3e2cd9d24bed607259"
+    },
+    {
+      "section_id": "sec:method-3",
+      "kind": "method",
+      "title": "Method",
+      "page_start": 9,
+      "page_end": 10,
+      "char_count": 3966,
+      "text_hash_sha256": "fc8bf84c25ce099df9499fb8a275c0053e6a97986f0ca8a88b2daac47cfde70d"
+    },
+    {
+      "section_id": "sec:conclusion",
+      "kind": "conclusion",
+      "title": "CONCLUSION",
+      "page_start": 10,
+      "page_end": 10,
+      "char_count": 1953,
+      "text_hash_sha256": "e4746ebaa73da9e3415271c6a331ec422bc01e8c513329baa3237c14412e8e1a"
+    },
+    {
+      "section_id": "sec:references",
+      "kind": "references",
+      "title": "REFERENCES",
+      "page_start": 10,
+      "page_end": 15,
+      "char_count": 16451,
+      "text_hash_sha256": "081dec57a201597eee9315b8495281be77e720fbe5992edfae3ff6169297190e"
+    },
+    {
+      "section_id": "sec:appendix",
+      "kind": "appendix",
+      "title": "APPENDIX",
+      "page_start": 15,
+      "page_end": 15,
+      "char_count": 233,
+      "text_hash_sha256": "34f7a5a51491246c82c9abe44497daf86141b1e8f422fdd19887d270b5bc1755"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "char_count": 3535,
+      "section_ids": [
+        "sec:preamble",
+        "sec:abstract",
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 2,
+      "char_count": 4651,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 3,
+      "char_count": 4803,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 4,
+      "char_count": 3644,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 5,
+      "char_count": 4241,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 6,
+      "char_count": 3151,
+      "section_ids": [
+        "sec:introduction"
+      ]
+    },
+    {
+      "page": 7,
+      "char_count": 4352,
+      "section_ids": [
+        "sec:introduction",
+        "sec:experiment"
+      ]
+    },
+    {
+      "page": 8,
+      "char_count": 4013,
+      "section_ids": [
+        "sec:experiment",
+        "sec:method",
+        "sec:method-2"
+      ]
+    },
+    {
+      "page": 9,
+      "char_count": 3975,
+      "section_ids": [
+        "sec:method-2",
+        "sec:method-3"
+      ]
+    },
+    {
+      "page": 10,
+      "char_count": 3500,
+      "section_ids": [
+        "sec:method-3",
+        "sec:conclusion",
+        "sec:references"
+      ]
+    },
+    {
+      "page": 11,
+      "char_count": 3641,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 12,
+      "char_count": 3434,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 13,
+      "char_count": 3437,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 14,
+      "char_count": 3546,
+      "section_ids": [
+        "sec:references"
+      ]
+    },
+    {
+      "page": 15,
+      "char_count": 1143,
+      "section_ids": [
+        "sec:references",
+        "sec:appendix"
+      ]
+    }
+  ],
+  "captions": {
+    "figures": [
+      {
+        "id": "Figure 1",
+        "caption": "Conceptual illustration of LATENT VISUAL REASONING (LVR). We compare LVR with two",
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Figure 2",
+        "caption": "Training and inference pipeline of LVR. The overall framework closely follows a standard MLLM.",
+        "page": 4,
+        "pages": [
+          4
+        ],
+        "section_id": "sec:introduction"
+      },
+      {
+        "id": "Fig 2",
+        "caption": "illustrates the architecture of LVR, which largely follows the standard MLLM design. It con-",
+        "page": 5,
+        "pages": [
+          5
+        ],
+        "section_id": "sec:introduction"
+      }
+    ],
+    "tables": [
+      {
+        "id": "Table 1",
+        "caption": "Experimental results on vision-centric tasks. LVR outperforms both “Think about Images” and",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 2",
+        "caption": "RL results with 3B models. GRPOlatent further boosts performance, demonstrating the effective-",
+        "page": 8,
+        "pages": [
+          8
+        ],
+        "section_id": "sec:experiment"
+      },
+      {
+        "id": "Table 3",
+        "caption": "Ablation studies on the 7B model show the standard approach performs best, indicating the LLM",
+        "page": 9,
+        "pages": [
+          9
+        ],
+        "section_id": "sec:method-2"
+      }
+    ]
+  },
+  "math_index": [
+    {
+      "text": "<think> …, hat",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<think>This image shows",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "their heads…</think>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<|lvr_end|>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<|lvr_start|>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<|lvr_start|>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<|lvr_end|>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "<|lvr_end|>",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "vision encoder transforms the image into visual features V = vision(Xv). In parallel, the textual",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "into a representation aligned with the language model’s latent space, denoted as VT = proj(V).",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "< |lvr start| > is generated, the model enters a latent reasoning mode, where it reconstructs",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "a stopping criterion is reached. At that point, the model generate the token < |lvr end| > and",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "selects the corresponding patches and retrieves their indices I = {I1, I2, I3, . . . , ITv} from the",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "sequence of flattened visual patches in O(1) time. During the forward pass, the image is encoded",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "tokens. A subset of visual embeddings v = {v1, v2, . . . , vTv} is then gathered using the index list",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "These selected tokens are enclosed by the special tokens < |lvr start| > and < |lvr end| >,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1 that are expected to encode the underlying visual semantics. We enforce these",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1 via a mean squared error",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "LLVR = 1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1 to answer the visual question. We adopt the standard cross-",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "LNTP = −1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "log pθ(yt | y<t, h1:Tv) .",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "L = LNTP + λLVR · LLVR,",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "the < |lvr start| > token, thereby increasing the likelihood of activating the LVR process during",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "JGRPOlatent(θ) = Eq,I, o∼πθold",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "t=1",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "ri,t(θ) =",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": ", yi,<t)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": ", yi,<t)",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "= {hlatent",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "reward, which equals 1 if the response contains both < |lvr start| > and < |lvr end| >",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "˜Ri = R(yi) −mean(R(y1), . . . , R(yG))",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "ˆAi,t = ˜Ri",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "(∀t ∈{1, . . . , |yi|}).",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "model should exit the LVR process. Specifically, when the next-token prediction introduces a <",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "|lvr start| > token, the decoder switches into the LVR mode, passing the last hidden states",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "continues producing token predictions, but it should ideally emit < |lvr end| > once an optimal",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "the distribution of the final latent reasoning token toward < |lvr end| > (close to 1), while all",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "intermediate tokens are pushed away from < |lvr end| > (close to 0). At inference time, the",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "model exits latent reasoning mode once < |lvr end| > is predicted.",
+      "section_id": "sec:introduction",
+      "page_start": 1,
+      "page_end": 7
+    },
+    {
+      "text": "responses per input, with a learning rate of 1×10−5, a fixed sampling temperature of τ = 0.9, and a",
+      "section_id": "sec:experiment",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "KL coefficient of β = 0.04. This stage is applied only to the 3B variant, requiring about 20 hours to",
+      "section_id": "sec:experiment",
+      "page_start": 7,
+      "page_end": 8
+    },
+    {
+      "text": "results demonstrate that incorporating a format reward based on the < |lvr start| > and",
+      "section_id": "sec:method-3",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "< |lvr end| > tokens effectively encourages the model to perform LATENT VISUAL REASON-",
+      "section_id": "sec:method-3",
+      "page_start": 9,
+      "page_end": 10
+    },
+    {
+      "text": "Conference on Language Modeling, 2025e. URL https://openreview.net/forum?id=",
+      "section_id": "sec:references",
+      "page_start": 10,
+      "page_end": 15
+    }
+  ],
+  "appendix_index": {
+    "appendix_detected": true,
+    "start_page": 15,
+    "sections": [],
+    "figure_captions": [],
+    "table_captions": []
+  },
+  "language_hint": "en",
+  "text_hash_sha256": "952a5eb3d78b088502ffbce543daf4b325f61b169aaa282f2ca560327484391d",
+  "identity_contract": {
+    "artifact_type": "canonical_identity",
+    "paper_id": "arxiv:2509.24251",
+    "identity_verdict": "accepted",
+    "work_level_identity": {
+      "title": "Latent Visual Reasoning",
+      "translated_title": "",
+      "authors": [],
+      "year": "",
+      "venue": "",
+      "doi": "10.48550/arXiv.2509.24251",
+      "arxiv_id": "2509.24251",
+      "zotero_key": ""
+    },
+    "source_manifestation": {
+      "source_kind": "local_pdf",
+      "title": "Latent Visual Reasoning",
+      "year": "",
+      "venue": "",
+      "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+      "pdf_url": "https://arxiv.org/pdf/2509.24251.pdf",
+      "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+      "doi": "",
+      "arxiv_id": "2509.24251",
+      "zotero_key": ""
+    },
+    "selected_identity_evidence": [
+      {
+        "kind": "doi",
+        "value": "10.48550/arXiv.2509.24251",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "arxiv_id",
+        "value": "2509.24251",
+        "trust": "strong",
+        "source": "metadata"
+      },
+      {
+        "kind": "title",
+        "value": "Latent Visual Reasoning",
+        "trust": "metadata",
+        "source": "metadata"
+      },
+      {
+        "kind": "trusted_source_path",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+        "trust": "strong",
+        "source": "source_manifestation"
+      },
+      {
+        "kind": "pdf_url",
+        "value": "https://arxiv.org/pdf/2509.24251.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+        "trust": "source_manifestation",
+        "source": "metadata"
+      },
+      {
+        "kind": "source_url",
+        "value": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+        "trust": "source_manifestation",
+        "source": "source_manifestation"
+      }
+    ],
+    "equivalence_decision": {
+      "status": "equivalent",
+      "reason": "shared_work_identifier",
+      "location_binding": "source_manifestation",
+      "evidence": [
+        {
+          "kind": "shared_identifier",
+          "value": "arxiv_id:2509.24251"
+        },
+        {
+          "kind": "title_similarity",
+          "status": "match",
+          "score": 1.0,
+          "source_value": "Latent Visual Reasoning",
+          "work_value": "Latent Visual Reasoning"
+        }
+      ]
+    },
+    "warnings": [],
+    "repair_trace_path": "/private/tmp/lvr_deeppapernote.qBsZvM/paper_DeepPaperNote_identity_repair_trace.json",
+    "provenance": {
+      "resolve_artifact_path": "/private/tmp/lvr_deeppapernote.qBsZvM/paper_DeepPaperNote_resolve.json",
+      "metadata_artifact_path": "/private/tmp/lvr_deeppapernote.qBsZvM/paper_DeepPaperNote_metadata.json"
+    }
+  },
+  "source_manifestation": {
+    "source_kind": "local_pdf",
+    "title": "Latent Visual Reasoning",
+    "year": "",
+    "venue": "",
+    "source_url": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+    "pdf_url": "https://arxiv.org/pdf/2509.24251.pdf",
+    "local_pdf_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WP65QDXJ/Li 等 - 2025 - Latent Visual Reasoning.pdf",
+    "doi": "",
+    "arxiv_id": "2509.24251",
+    "zotero_key": ""
+  }
+}

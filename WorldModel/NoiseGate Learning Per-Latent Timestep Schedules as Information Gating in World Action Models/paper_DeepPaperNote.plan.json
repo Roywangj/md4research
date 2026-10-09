@@ -1,0 +1,378 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出并训练一种用于联合视频—动作世界动作模型的每潜变量时间表策略，并在 RoboTwin 随机场景上与共享时间表、手工时间表及强基线比较。",
+  "dominant_domain": "robot learning / world action models / diffusion or flow-matching policies",
+  "must_cover": [
+    "问题形式化",
+    "数据与任务定义",
+    "两阶段训练",
+    "GPN 架构与 GRPO 目标",
+    "机制证据",
+    "主结果与消融",
+    "局限与复现"
+  ],
+  "key_numbers": [
+    "主比较平均成功率：Stage-1 WAM 92.58%，NoiseGate 94.28%，绝对提升 1.70 个百分点（p.7, Table 1）",
+    "受控消融平均成功率：Shared-t 57.5%、Stage-1 WAM 61.3%、Hand-crafted 63.4%、NoiseGate 67.5%（p.7, Table 2；p.16, Table 4）",
+    "GPN 训练：组大小 8、内循环 4 epoch、学习率 1×10^-4、去噪步数 10、训练 50 epoch、8 个滚动 GPU、seed 42（p.14, Table 3）",
+    "RoboTwin 随机场景：每任务 100 个 episode，主比较覆盖 50-task context（pp.6-7,16）",
+    "GPN token 维度 D=256，三层 Transformer、8 heads、前馈宽度 4D（pp.13-14）"
+  ],
+  "real_comparisons": [
+    "同一 scaled WAM/MoT backbone 上 Stage-1 WAM vs NoiseGate，隔离学习时间表的增益",
+    "受控配置下 Shared-t、Stage-1 WAM、Hand-crafted、NoiseGate 的逐组件比较",
+    "与 Fast-WAM、LingBot-VA、π0.5、Motus 的 RoboTwin random-scene 主比较"
+  ],
+  "central_claims": [
+    {
+      "claim": "将每个未来视频潜变量的时间步视为共享注意力中的连续信息门，并由任务奖励学习其轨迹，能提升联合视频—动作 WAM 的操作成功率。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:introduction"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "pages": [
+            1,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在 RoboTwin 随机场景、固定 backbone 与 100 episode/任务的报告设置下，NoiseGate 的平均成功率高于 Stage-1 WAM 与受控替代方案；注意力探针同时观察到噪声增大时 action→video attention 单调下降。",
+      "what_it_does_not_prove": "不能单凭这些实验证明噪声是唯一因果门控机制，也不能证明在真实机器人、其他 WAM backbone 或非操作任务上同样成立。"
+    },
+    {
+      "claim": "独立的每潜变量噪声训练是让推理时异质时间表可用的必要训练基底，GPN 则把可用自由度转化为任务自适应选择。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "pages": [
+            4,
+            7,
+            8
+          ]
+        }
+      ],
+      "what_it_actually_proves": "受控消融中移除独立噪声训练并使用 Shared-t 得到 57.5%，保留独立噪声训练但共享标量推理得到 61.3%，加入手工单调表得到 63.4%，完整 GPN 得到 67.5%。",
+      "what_it_does_not_prove": "消融没有给出不同噪声采样分布、动作时间表、GPN 容量或 RL 算法的系统敏感性，因此无法唯一归因于某个实现细节。"
+    },
+    {
+      "claim": "GPN 学到的是随任务变化的非均匀残余噪声结构，而非固定单调形状。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            8,
+            9,
+            17
+          ]
+        }
+      ],
+      "what_it_actually_proves": "两个代表任务的轨迹曲线次序不同，且附录 Figure 7 报告不同任务、未来帧的最终残余噪声存在差异。",
+      "what_it_does_not_prove": "可视化只展示代表样本与汇总统计，未提供策略熵、跨 seed 稳定性或 schedule 与 success 的相关/因果检验。"
+    }
+  ],
+  "claim_boundaries": [
+    "证据集中于 RoboTwin random-scene 仿真操作；论文没有报告真实机器人迁移。",
+    "主比较与受控消融使用不同训练规模（batch 1024 的 Fast-WAM-style 与 batch 128 的 Motus-derived），平均值不可直接跨表比较。",
+    "奖励是二值 episodic success，不能直接推出视觉预测质量、轨迹平滑性或安全性改善。",
+    "论文报告的是 arXiv v1 预印本；代码仓库、完整训练数据与计算成本未在本文中给出。"
+  ],
+  "negative_or_limiting_results": [
+    "主比较中 Place Object Scale 从 99% 降至 98%，Open Microwave 从 77% 降至 69%（p.16, Table 5；正文 p.7 提及）。",
+    "主比较有多项零增益任务，通常已接近成功率上限；因此平均提升 1.70 个百分点不是普遍一致的逐任务提升（p.7, Table 1）。",
+    "作者明确指出 GRPO rollout 是主要成本，成功轨迹稀少时收敛变慢，跨大规模多任务泛化尚未解决（p.13）。",
+    "中间层（10–19）action→video attention 对噪声近似平坦，门控效应集中在早期与晚期层（p.17, Figure 6）。"
+  ],
+  "mechanism_result_map": [
+    "独立采样训练让 backbone 在每个视频帧具有不同不确定度时仍能预测动作/视频目标；因此 GPN 的异质时间表不会落在训练分布之外。",
+    "MoT 共享 self-attention 使带噪视频 token 的 K/V 进入 action token；Figure 3 的单调 attention 衰减为“时间步→可靠性”解释提供直接但非充分的机制证据。",
+    "相对缩放动作 Δt_f=δt·r_f 固定全局去噪节拍，只学习帧间优先级，降低稀疏奖励下同时学习绝对速度与相对排序的难度。",
+    "二值成功奖励直接优化最终操作 utility，解释了为何保留关键接触帧的残余不确定性可能比追求视觉上最干净的未来帧更有利于动作。"
+  ],
+  "comparative_positioning": [
+    "相对 Motus/Fast-WAM 等 WAM，论文不改变联合视频—动作 backbone，而把被折叠成共享标量的 per-latent 时间自由度变成可学习调度器。",
+    "相对 Diffusion Forcing，独立噪声采样从因果序列 rollout 机制转为 chunk-bidirectional WAM 的训练 substrate；用途是支持推理时任意异质 profile。",
+    "相对直接对 VLA policy 做 GRPO，本文冻结 WAM，仅优化轻量 GPN，RL 控制的是信息揭示顺序而非动作网络参数。"
+  ],
+  "reuse_takeaways": [
+    "在共享注意力的生成模型中，可把噪声/掩码水平视为下游 token 的软信息路由变量，再用最终任务奖励学习其分配。",
+    "为了让推理时控制变量可用，应在 backbone 训练阶段覆盖该控制变量的分布，而不是只在推理时外挂策略。",
+    "对稀疏奖励的调度策略，使用相对步长参数化可把全局采样速度与帧间优先级解耦，减少策略学习负担。"
+  ],
+  "followup_questions": [
+    "在真实机器人或不同相机/动作频率下，GPN 学到的残余噪声门控是否仍稳定？",
+    "若将成功率替换为分阶段接触奖励、轨迹平滑和视觉预测一致性的组合，时间表是否会发生系统变化？",
+    "跨任务共享 GPN 时，是否需要任务 ID、语言条件或不确定度校准来避免把某一任务的帧排序迁移到另一任务？",
+    "不同 backbone、未来帧数 F、动作全局 schedule 与独立采样分布的敏感性如何？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "weight": "low",
+      "focus": "固定记录论文身份、作者、机构、版本与资源字段，不加入判断句。",
+      "reading_goal": "确保笔记身份与 arXiv v1 和本地 PDF 一致。",
+      "purpose": "提供可追溯元数据。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble"
+        },
+        {
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "weight": "medium",
+      "focus": "忠实翻译摘要中的 WAM、共享时间步问题、信息门控解释、三组件与 RoboTwin 结论，不引入后文判断。",
+      "reading_goal": "保留作者摘要的论证边界。",
+      "purpose": "区分原文摘要与分析。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract"
+        },
+        {
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "weight": "medium",
+      "focus": "列出 per-latent 信息门控视角、独立噪声 substrate、GPN+GRPO 调度三项具体创新，并区分 backbone 组装与真正新对象。",
+      "reading_goal": "判断相对 WAM、Diffusion Forcing、VLA-RL 的新意。",
+      "purpose": "定位论文实际贡献。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction"
+        },
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "weight": "high",
+      "focus": "说明共享标量 t 隐含等可靠先验、未来帧对动作的 utility 异质，以及为何固定单调形状不足。",
+      "reading_goal": "把研究问题与“做一个更强 VLA”区分开。",
+      "purpose": "建立问题—机制链。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction"
+        },
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "明确 pθ(v,a|v0,l)、F 个未来潜变量、动作块、RoboTwin random-scene、100 episode/任务、主比较与受控配置的任务覆盖边界。",
+      "reading_goal": "知道模型预测什么、奖励何时给、哪些结果可比。",
+      "purpose": "避免把视觉预测或仿真成功率过度外推。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            2,
+            6,
+            7,
+            13,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "focus": "重建 MoT 信息流、独立噪声训练、GPN 输入输出、相对缩放更新、冻结 backbone 的两阶段训练与 GRPO。",
+      "reading_goal": "达到工程师可按笔记重述实现的程度。",
+      "purpose": "解释真正机制而非罗列模块。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            4,
+            5,
+            6,
+            13,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "focus": "用表格呈现主比较与完整受控消融，解释提升、零增益和回退任务；保留 1.70 与 +10.0 两条不同配置的数字。",
+      "reading_goal": "区分主比较的外部强基线与机制消融证据。",
+      "purpose": "把 claim 与 quantitative evidence 对齐。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            7,
+            8,
+            9,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "focus": "解释 attention probe、task-specific schedule、case study 如何连接到消融；明确因果证据不足、跨配置比较限制和相邻工作定位。",
+      "reading_goal": "回答为什么可能有效、证据证明到哪里。",
+      "purpose": "形成可复用的机制判断。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            2,
+            3,
+            8,
+            9,
+            15,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "focus": "写 rollout 成本、稀疏奖励、仿真与真实差距、跨任务泛化、缺失敏感性与代码资源等具体边界。",
+      "reading_goal": "记录不能由当前结果推出的结论。",
+      "purpose": "阻止 overclaim。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            6,
+            7,
+            13,
+            14,
+            16,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "weight": "medium",
+      "focus": "给出论文值得保留的抽象、一个实现复现实验和一个需要验证的假设。",
+      "reading_goal": "转化为后续 world model/3D/navigation 研究问题。",
+      "purpose": "支持未来复用。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work"
+        },
+        {
+          "section_id": "sec:experiments"
+        },
+        {
+          "section_id": "sec:limitations"
+        },
+        {
+          "pages": [
+            2,
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "weight": "low",
+      "focus": "列出 WAM、Diffusion Forcing、MoT、GRPO、RoboTwin 及与本文论证直接相关的文献。",
+      "reading_goal": "保留相邻工作坐标。",
+      "purpose": "便于后续引用和比较。",
+      "evidence_sources": [
+        {
+          "section_id": "sec:references"
+        },
+        {
+          "pages": [
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    }
+  ]
+}

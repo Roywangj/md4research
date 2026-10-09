@@ -1,0 +1,127 @@
+difficulty RL dataset by executing four rollouts per
+trajectory (Sec.3.2) and strictly retaining instances
+with a Pass@4 score between 0 and 1. We apply a
+sparse binary reward, assigning r = 1 for correct
+answers (judged by Qwen3-VL-30B-A3B-Instruct)
+and r = 0 otherwise. To prevent formatting viola-
+tions or repetitive loops from dominating the up-
+dates, we compute the corresponding advantage ˆA
+but down-sample their negative gradients, applying
+them with only a 20% probability. The objective is
+defined as:
+LGRPO = 1
+G
+G
+X
+i=1
+h
+min
+ πθ(oi)
+πold(oi)
+ˆAi,
+clip
+ πθ(oi)
+πold(oi), 1 −ϵ, 1 + ϵ
+
+ˆAi
+i
+−βDKL
+(3)
+3.4
+VIDEODR-BENCH
+To establish our evaluation benchmark, we sample
+a subset from the rigorously filtered video pool.
+Since a robust benchmark strictly necessitates both
+answerability and high data fidelity, we introduce a
+scalable human-in-the-loop annotation framework
+to finalize the curation.
+Specifically, given a video and an optional
+source URL, human annotators are instructed to
+pause at critical timestamps. They then utilize
+the Crop_Search tool to query salient visual en-
+tities, strictly verifying the consistency between
+the retrieved external evidence and the original
+frame. Based on these verified results, annotators
+formulate several seed VQA pairs per video. Sub-
+sequently, these seeds are fed into a multi-agent
+framework to synthesize complex, multi-hop rea-
+soning questions.
+Specifically, the multi-agent
+pipeline operates as follows. First, a Drafting
+Agent brainstorms semantic directions to expand
+the seed VQA (e.g., expanding a base answer like
+“LeBron James” into related keywords such as his
+team, spouse, or MVP awards). These generated
+keywords are subsequently queried via a search
+engine. Next, a QA Generation Agent utilizes the
+retrieved web contexts to formulate novel multi-
+hop questions. To strictly enforce external tool
+dependency, we filter out any questions that the
+model can answer correctly without tool access
+(i.e., parametric knowledge leakage). Human an-
+notators then manually verify the answerability of
+the remaining candidates based on the retrieved
+evidence. Following this, a Ranking Agent scores
+the validated questions, retaining only the highest-
+rated instance. Crucially, this top-ranked VQA
+can recursively serve as a new seed, enabling an
+iterative loop to synthesize increasingly complex,
+higher-hop reasoning tasks.
+Table 2: Video Length Distribution of VIDEODR-
+BENCH.
+Video Type
+Duration (min)
+Count
+Percentage
+Short
+≤2
+92
+46.0%
+Medium
+2 ∼10
+68
+34.0%
+Long
+≥10
+40
+20.0%
+4
+Experiments
+4.1
+Experimental Setups
+We evaluate various Vision–Language Models
+(VLMs), including Gemini 2.5 Pro (Comanici
+et al., 2025), GPT-5 (OpenAI., 2025), Claude-
+4.5-Sonnet (Anthropic, 2025), Qwen3-VL-30B-
+A3B-Instruct (Bai et al., 2025), Qwen3.5-35B-
+A3B (Team, 2026), Qwen3.5-397B-A3B (Team,
+2026) and Kimi K2.5 (Team et al., 2026), on
+VIDEODR-BENCH and VideoDR (Liu et al., 2026).
+VIDEODR-BENCH is an evaluation benchmark
+comprising 100 human-annotated VQA pairs, de-
+signed to assess an agent’s complex reasoning ca-
+pabilities by integrating video contexts with open-
+web exploration.
+We evaluate the models under the Agentic set-
+ting: where the model is equipped with the full
+suite of visual and text tools as shown in Table 6.
+arxiv
+Under identical interaction constraints for fair-
+ness, we extract the final prediction from the tra-
+jectory’s last step.
+Correctness is then evalu-
+ated by Qwen3-VL-30B-A3B-Instruct, adopting
+the official judge prompt from Tongyi DeepRe-
+search (Team et al., 2025).
+4.2
+Main Results
+The main evaluation results are summarized in
+Table 3. Our proposed VIDEO-DEEPRESEARCH
+demonstrates exceptional deep research capabili-
+ties across multiple model scales.
+Video-DeepResearch-35B-A3B. Establishing a
+new state-of-the-art among all evaluated models
+with an overall average accuracy of 64.0%, our
+35B variant surpasses the leading closed-source
+model, Claude-4.5-Sonnet (59.0%) by 5.0 percent-
+age points. Compared to its foundation model

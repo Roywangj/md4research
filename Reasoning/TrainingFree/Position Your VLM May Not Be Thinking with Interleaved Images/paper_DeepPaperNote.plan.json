@@ -1,0 +1,332 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "This is a position and analysis paper about training-free evaluation of whether interleaved images are causally useful in recent thinking-with-images VLMs.",
+  "dominant_domain": "Vision-language reasoning, thinking with images, interleaved visual CoT, benchmark validity, ablation analysis.",
+  "must_cover": [
+    "The paper argues that current VLMs seldom truly use interleaved images in visual chain-of-thought.",
+    "Ablating interleaved images from DeepEyes, Pixel-Reasoner, and Thyme causes little or no performance drop on popular benchmarks.",
+    "Attention rollout visualizations show answer tokens mainly attend to original input images rather than interleaved images.",
+    "Vanilla SFT without reasoning traces or interleaved images can match or exceed a thinking-with-images model on many benchmarks.",
+    "Masked V* experiments show finetuned models still outperform the base model when target objects are occluded, suggesting benchmark-aligned language priors.",
+    "The call to action asks future work to report interleaved-image ablations, use tools that provide genuinely new information, and build benchmarks that require visual feedback."
+  ],
+  "key_numbers": [
+    "DeepEyes-7B on V*: 84.3 with interleaved images and 84.3 without them.",
+    "Pixel-Reasoner-7B on V*: 85.3 with interleaved images and 83.8 without them.",
+    "Thyme-7B on HRBench-8K: 72.3 with interleaved images and 72.4 without them.",
+    "Qwen3-VL on HRBench overall: raw 84.0 and thinking-with-image 83.9, essentially unchanged.",
+    "DeepEyes-SFT-7B average across eight benchmarks: 65.8 versus DeepEyes-7B at 65.3.",
+    "Masked V* overall: Qwen2.5-VL-7B 28.8, DeepEyes-7B 37.7, Pixel-Reasoner-7B 37.7, Thyme-7B 40.8.",
+    "V* bonus with Hide: Qwen2.5-VL-7B improves from 76.4 to 86.9; DeepEyes-7B improves from 84.3 to 88.0."
+  ],
+  "real_comparisons": [
+    "Compared with claims that interleaved image crops drive gains, the paper directly suppresses image outputs while preserving preceding text reasoning.",
+    "Compared with attention over interleaved crops, attention rollout suggests answer tokens attend more to the original image.",
+    "Compared with RL-based thinking-with-images training, vanilla SFT on direct answers gives comparable performance on several benchmarks.",
+    "Compared with simply making benchmarks harder, the paper argues for tasks that require new visual feedback rather than only stronger priors."
+  ],
+  "central_claims": [
+    {
+      "claim": "Current thinking-with-images VLMs do not necessarily rely on interleaved images for their reported benchmark gains.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "what_it_actually_proves": "For the evaluated methods and benchmarks, removing interleaved image outputs causes small and inconsistent changes rather than a systematic collapse.",
+      "what_it_does_not_prove": "It does not prove that interleaved images are never useful, especially on tasks specifically designed to require visual feedback."
+    },
+    {
+      "claim": "Performance gains may come mainly from finetuning-induced language distribution changes rather than interleaved visual evidence.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method-4",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Vanilla SFT can match DeepEyes on many benchmarks, and finetuned models remain stronger than the base model under masked targets.",
+      "what_it_does_not_prove": "It does not isolate all possible effects of RL, tool policy learning, or data mixture design."
+    },
+    {
+      "claim": "The field needs stronger evidence protocols and benchmarks for visual thinking.",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "what_it_actually_proves": "The paper provides concrete low-cost ablations and benchmark desiderata that can be adopted in future work.",
+      "what_it_does_not_prove": "It does not itself introduce a new benchmark that fully satisfies these desiderata."
+    }
+  ],
+  "claim_boundaries": [
+    "The paper focuses mainly on recent RL-based thinking-with-images methods finetuned from Qwen2.5-VL-7B and related Qwen3-VL analysis.",
+    "Attention rollout is diagnostic but not a definitive causal proof.",
+    "The conclusions are scoped to current popular benchmarks such as V*, HRBench, MME-RealWorld-Lite, ChartQA, OCRBench, LogicVista, and MathVision.",
+    "The paper is a position paper and does not propose a new model or training method."
+  ],
+  "negative_or_limiting_results": [
+    "Removing interleaved images sometimes slightly hurts, sometimes slightly helps, and often leaves performance nearly unchanged.",
+    "DeepEyes-SFT-7B is worse than DeepEyes-7B on MME-RealWorld-Lite, suggesting RL can still matter for some reasoning-heavy settings.",
+    "Masked V* results show high performance can persist without target visibility, which is a warning about benchmark priors rather than a success of visual reasoning.",
+    "The paper acknowledges alternative explanations such as unfaithful crops or insufficiently hard benchmarks."
+  ],
+  "mechanism_result_map": [
+    "Suppressing tool image outputs maps to Table 1's small deltas.",
+    "Attention rollout over answer tokens maps to Figure 2's observation that models attend mostly to original images.",
+    "Vanilla SFT without CoT or interleaved images maps to Table 3's comparable macro average.",
+    "Masking target objects maps to Table 4's evidence for benchmark-aligned language priors.",
+    "Combining Hide with finetuned priors maps to Table 5's better-context plus better-prior gains."
+  ],
+  "comparative_positioning": [
+    "This paper is a counterweight to training-based thinking-with-images papers such as DeepEyes, Pixel-Reasoner, and Thyme.",
+    "Unlike SDR-MCoT, VisRef, and PRCR, it does not improve inference; it audits whether visual insertion is actually needed.",
+    "It is closest to a benchmark-validity and mechanism-transparency paper within the Reasoning collection.",
+    "Its main contribution is an evaluation protocol rather than a new architecture."
+  ],
+  "reuse_takeaways": [
+    "Always report a no-interleaved-image ablation for methods that claim to think with images.",
+    "Treat benchmark gains skeptically when target-masked images still yield high scores.",
+    "For 3D agent work, distinguish tool-use traces that merely look visual from traces that add indispensable new evidence.",
+    "Design tasks where removing intermediate visual feedback causes a consistent, explainable performance collapse."
+  ],
+  "followup_questions": [
+    "Would the same ablation hold on tasks with strict spatial feedback requirements such as maze solving or geometric editing?",
+    "Can causal interventions on interleaved image tokens provide stronger evidence than attention rollout?",
+    "Which visual tools add genuinely new information rather than reformatting the original image?",
+    "How should 3D agent benchmarks be designed so that rendered intermediate views are necessary rather than decorative?"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "focus": "Record metadata, ICML venue, authors, institutions, PDF source, and TrainingFree classification.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "原文摘要翻译",
+      "focus": "Translate the abstract's position: current VLMs rarely truly use interleaved images, gains come from finetuning, and future work needs ablations and better benchmarks.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section": "创新点",
+      "focus": "Explain the paper's value as an analysis protocol: image ablation, attention visualization, vanilla SFT control, masked benchmark test, and call to action.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "一句话总结",
+      "focus": "Position it as a warning paper in the Reasoning/TrainingFree map.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "研究问题",
+      "focus": "Explain why interleaved images are expensive and why their necessity must be tested.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "数据与任务定义",
+      "focus": "Define thinking with images, interleaved image tokens, evaluated methods, and benchmarks.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preliminaries",
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "section": "方法主线",
+      "focus": "Describe the four-step audit: define framework, remove images, inspect attention, test SFT/masked priors.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method-3",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "关键结果",
+      "focus": "Summarize Tables 1-5 and Figure 2.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:method-4",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:method-8",
+          "pages": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "section": "深度分析",
+      "focus": "Explain what the evidence does and does not prove, and why this matters for interpreting visual CoT gains.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "局限",
+      "focus": "State scope limitations around method coverage, attention rollout, and missing new benchmark.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:method-7",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "我的笔记",
+      "focus": "Connect the warning to 3D agent and Reasoning notes.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "section": "引用",
+      "focus": "Record citation and local source artifacts.",
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

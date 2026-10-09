@@ -1,0 +1,113 @@
+Step 2: VQA Generation and Verification. Fi-
+nally, we synthesize QA pairs from the curated
+metadata via two generation patterns: (1) Single-
+entity: sampling one entity to formulate fact-based
+questions, and (2) Multi-entity: sampling n enti-
+ties to construct compositional questions requiring
+cross-entity reasoning. In both settings, we ex-
+plicitly penalize superficial visual attribute queries.
+Post-generation, we rigorously filter out instances
+prone to parametric memory leakage. Specifically,
+we conduct four tool-free rollouts for each ques-
+tion; if the agent answers correctly in any attempt,
+the instance is permanently discarded, guarantee-
+ing that the remaining tasks strictly require external
+tool utilization. Ultimately, we obtained 30k vqa
+pairs.
+3.2
+Trajectory Generation
+Given the synthesized VQA pairs, we proceed to
+construct execution trajectories for agent training.
+As observed in Sec. 2, current Video-DR agents ex-
+hibit an inherent reluctance to invoke visual tools,
+often bypassing them in favor of text-only search.
+To overcome this modality bias, we propose a de-
+coupled trajectory construction pipeline that ex-
+plicitly separates visual perception from web ex-
+ploration. Specifically, we generate trajectories
+using Qwen3.5-397B-A17B and apply rejection
+sampling. To operationalize the decoupling, we
+employ a stage-wise tool unlocking strategy. In the
+initial phase, the agent is restricted to a vision-only
+action space, comprising solely Select_Keyframe
+and Crop_Search. Instead of rushing to an an-
+swer, the agent is forced to execute extensive vi-
+sual retrieval by cropping distinct entities across
+multiple keyframes. Once the agent determines the
+visual context is sufficient—or a predefined max-
+imum perception horizon is reached—we expand
+the action space to include textual tools (Search
+and Visit) and prompt the agent to derive the fi-
+nal answer. This two-stage paradigm compels the
+model to conduct exhaustive cross-frame, cross-
+entity visual grounding prior to web exploration.
+Finally, we retain only the successfully resolved
+trajectories for downstream policy training. Ulti-
+mately, we obtained 7k correct trajectories.
+3.3
+Training
+We adopt a two-stage training paradigm.
+We
+select Qwen3-VL-30B-A3B-Instruct (Bai et al.,
+2025) as our base model for Video-DeepResearch-
+30B-A3B, given its widespread adoption as an
+open-source VLM and its robust AI infrastruc-
+ture support. For Video-DeepResearch-35B-A3B,
+we adopt Qwen3.5-35B-A3B (Team, 2026) as the
+foundation model, following the same training
+recipe. Both variants undergo identical training
+procedures. In the first stage, we perform Super-
+vised Fine-Tuning (SFT) to establish a cold start.
+This phase aims to align the model with the de-
+sired decoupled perception-exploration workflow,
+enabling it to internalize the correct multi-modal
+reasoning syntax. In the second stage, we apply
+Group Relative Policy Optimization (GRPO) to
+further refine the policy. By actively generating
+rollouts and receiving rewards for successful tra-
+jectories, the agent is encouraged to autonomously
+explore the action space, thereby surpassing the
+performance ceiling of the initial SFT phase. Ex-
+periments are conducted on a compute cluster com-
+prising four NVIDIA H800 (80GB) GPU nodes.
+More details are detailed in Appendix. B.
+SFT
+For the SFT phase, we utilize the 7K high-
+quality trajectories synthesized in Sec. 3.2, en-
+abling the model to internalize the decoupled
+perception-exploration paradigm.
+Furthermore,
+to address the under-utilization of text tools ob-
+served in Table ??, we augment our training corpus
+with an additional 7K text-only QA instances from
+VDR (Huang et al., 2026). This mixed-training
+strategy explicitly reinforces the agent’s fundamen-
+tal deep research capabilities. The same data recipe
+is applied for both the 30B and 35B variants. For-
+mally, given the mixed dataset D, where each in-
+stance consists of a context x (including the system
+prompt, visual inputs, and interaction history) and
+the target output sequence y = {y1, . . . , yN}, the
+SFT objective is to minimize the standard auto-
+regressive negative log-likelihood:
+LSFT = −E(x,y)∼D
+
+
+|y|
+X
+i=1
+log πθ(yi | x, y<i)
+
+
+(2)
+where πθ represents the policy of the base model
+and y<i denotes the preceding tokens.
+RL
+To push the agent beyond static SFT im-
+itation and incentivize endogenous exploration,
+we employ Group Relative Policy Optimization
+(GRPO) (Shao et al., 2024).
+GRPO computes
+advantages via intra-group relative rewards, effi-
+ciently eliminating the memory overhead of a sepa-
+rate value network. We construct a 2K moderate-

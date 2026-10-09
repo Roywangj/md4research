@@ -1,0 +1,365 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2603.05869",
+  "decisions": [
+    {
+      "item_id": "figure:Fig 1",
+      "source_id": "Fig 1",
+      "kind": "figure",
+      "label": "Fig 1",
+      "caption": "Comparison of reasoning with different cue types: (a) Text-only: rea-",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_002_fig_fig_1.png",
+      "relative_markdown_embed": "![Fig 1](images/page_002_fig_fig_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_002_fig_fig_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 2",
+      "source_id": "Fig 2",
+      "kind": "figure",
+      "label": "Fig 2",
+      "caption": "Overview of PatchCue. We divide images into fixed-size patches in order to",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_005_fig_fig_2.png",
+      "relative_markdown_embed": "![Fig 2](images/page_005_fig_fig_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_005_fig_fig_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 3",
+      "source_id": "Fig 3",
+      "kind": "figure",
+      "label": "Fig 3",
+      "caption": "Data Pipeline. Starting from the collected original data, we filter to obtain",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图概括了整体方法或系统流程；如果匹配置信度足够高，最适合放在 `### 机制流程` 帮助快速建立执行链理解。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "plan_kind": "method_overview",
+      "source_image_filename": "page_006_fig_fig_3.png",
+      "relative_markdown_embed": "![Fig 3](images/page_006_fig_fig_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_006_fig_fig_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 4",
+      "source_id": "Fig 4",
+      "kind": "figure",
+      "label": "Fig 4",
+      "caption": "Data Distribution. In the left figure, we show the distribution of the number",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "这张图更像任务设定或数据说明，放在数据与任务定义最合适。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 3,
+      "target_section": "数据与任务定义",
+      "plan_kind": "data_or_task",
+      "source_image_filename": "page_007_fig_fig_4.png",
+      "relative_markdown_embed": "![Fig 4](images/page_007_fig_fig_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_007_fig_fig_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "figure:Fig 5",
+      "source_id": "Fig 5",
+      "kind": "figure",
+      "label": "Fig 5",
+      "caption": "Case Study. We compare the model’s outputs before and after PatchCue",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:discussion",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 6",
+      "source_id": "Fig 6",
+      "kind": "figure",
+      "label": "Fig 6",
+      "caption": "Successful examples where visual cues effectively guide the model to conduct",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 7",
+      "source_id": "Fig 7",
+      "kind": "figure",
+      "label": "Fig 7",
+      "caption": "Common failure cases of cue-based reasoning, including flawed reasoning despite",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 8",
+      "source_id": "Fig 8",
+      "kind": "figure",
+      "label": "Fig 8",
+      "caption": "Cue Extraction Prompt",
+      "pages": [
+        24
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 9",
+      "source_id": "Fig 9",
+      "kind": "figure",
+      "label": "Fig 9",
+      "caption": "Cue Grounding Prompt",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:references",
+      "decision": "low_priority",
+      "reason": "caption_detected_but_not_selected_by_figure_plan",
+      "skip_reason": "",
+      "visual_quality_status": "",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Fig 10",
+      "source_id": "Fig 10",
+      "kind": "figure",
+      "label": "Fig 10",
+      "caption": "Reasoning Construction Prompt.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:references",
+      "decision": "visual_defect",
+      "reason": "这张图更适合作为补充图，放在深度分析部分帮助解释作者论点。",
+      "skip_reason": "visual_quality_gate_rejected_candidate",
+      "visual_quality_status": "reject_visual_quality",
+      "priority": 3,
+      "target_section": "深度分析",
+      "plan_kind": "supporting_figure",
+      "source_image_filename": "page_027_fig_fig_10.png",
+      "relative_markdown_embed": "![Fig 10](images/page_027_fig_fig_10.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_027_fig_fig_10.png"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Main results across multiple benchmarks. We evaluate the performance",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiment",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_010_fig_table_1.png",
+      "relative_markdown_embed": "![Table 1](images/page_010_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_010_fig_table_1.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Performance comparison across different forms of visual cues. We",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:analysis",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_011_fig_table_2.png",
+      "relative_markdown_embed": "![Table 2](images/page_011_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_011_fig_table_2.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Performance comparison under different training data setups. We",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:analysis",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_table_3.png",
+      "relative_markdown_embed": "![Table 3](images/page_012_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_3.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Ablation of cue reward. We compare the performance differences between",
+      "pages": [
+        12
+      ],
+      "section_id": "sec:analysis",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_012_fig_table_4.png",
+      "relative_markdown_embed": "![Table 4](images/page_012_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_012_fig_table_4.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Performance comparison of different methods on multimodal benchmarks. We",
+      "pages": [
+        13
+      ],
+      "section_id": "sec:model",
+      "decision": "insert",
+      "reason": "这张图或表直接承载主结果，适合放在关键结果部分。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "main_result",
+      "source_image_filename": "page_013_fig_table_5.png",
+      "relative_markdown_embed": "![Table 5](images/page_013_fig_table_5.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_013_fig_table_5.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Hyperparameters for SFT Training.",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_021_fig_table_6.png",
+      "relative_markdown_embed": "![Table 6](images/page_021_fig_table_6.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_021_fig_table_6.png",
+      "materialization_status": "pending"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Hyperparameters for GRPO Training",
+      "pages": [
+        22
+      ],
+      "section_id": "sec:references",
+      "decision": "insert",
+      "reason": "这是关键结果表，适合放在关键结果部分辅助定位核心数值。",
+      "skip_reason": "",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "target_section": "关键结果",
+      "plan_kind": "table_result",
+      "source_image_filename": "page_022_fig_table_7.png",
+      "relative_markdown_embed": "![Table 7](images/page_022_fig_table_7.png)",
+      "source_image_path": "/Users/roywangj/Documents/3d agent/tmp/DeepPaperNote/assets/PatchCue_Enhancing_Vision_Language_Model_Reasoning_with_Patch_Based_Visual_Cues/images/page_022_fig_table_7.png",
+      "materialization_status": "pending"
+    }
+  ],
+  "summary": {
+    "total_items": 17,
+    "by_decision": {
+      "insert": 11,
+      "low_priority": 5,
+      "placeholder": 0,
+      "skip": 0,
+      "visual_defect": 1
+    }
+  }
+}

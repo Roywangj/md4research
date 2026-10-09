@@ -1,0 +1,422 @@
+{
+  "paper": "MeshCoder: LLM-Powered Structured Mesh Code Generation from Point Clouds",
+  "source": "https://arxiv.org/abs/2508.14879",
+  "blocks": [
+    {
+      "para": 1,
+      "section_id": "sec:preamble",
+      "section_label": "preamble",
+      "pages": [
+        1,
+        1
+      ],
+      "english_chars": 782,
+      "chinese_chars": 388
+    },
+    {
+      "para": 2,
+      "section_id": "sec:abstract",
+      "section_label": "Abstract",
+      "pages": [
+        1,
+        2
+      ],
+      "english_chars": 1467,
+      "chinese_chars": 555
+    },
+    {
+      "para": 3,
+      "section_id": "sec:introduction",
+      "section_label": "Introduction",
+      "pages": [
+        2,
+        3
+      ],
+      "english_chars": 1730,
+      "chinese_chars": 602
+    },
+    {
+      "para": 4,
+      "section_id": "sec:introduction",
+      "section_label": "Introduction",
+      "pages": [
+        2,
+        3
+      ],
+      "english_chars": 1628,
+      "chinese_chars": 536
+    },
+    {
+      "para": 5,
+      "section_id": "sec:introduction",
+      "section_label": "Introduction",
+      "pages": [
+        2,
+        3
+      ],
+      "english_chars": 959,
+      "chinese_chars": 325
+    },
+    {
+      "para": 6,
+      "section_id": "sec:introduction",
+      "section_label": "Introduction",
+      "pages": [
+        2,
+        3
+      ],
+      "english_chars": 1513,
+      "chinese_chars": 1069
+    },
+    {
+      "para": 7,
+      "section_id": "sec:related-work",
+      "section_label": "Related Work",
+      "pages": [
+        3,
+        4
+      ],
+      "english_chars": 1785,
+      "chinese_chars": 622
+    },
+    {
+      "para": 8,
+      "section_id": "sec:related-work",
+      "section_label": "Related Work",
+      "pages": [
+        3,
+        4
+      ],
+      "english_chars": 965,
+      "chinese_chars": 339
+    },
+    {
+      "para": 9,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1751,
+      "chinese_chars": 596
+    },
+    {
+      "para": 10,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1751,
+      "chinese_chars": 539
+    },
+    {
+      "para": 11,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1776,
+      "chinese_chars": 500
+    },
+    {
+      "para": 12,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1766,
+      "chinese_chars": 621
+    },
+    {
+      "para": 13,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1626,
+      "chinese_chars": 640
+    },
+    {
+      "para": 14,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 1726,
+      "chinese_chars": 642
+    },
+    {
+      "para": 15,
+      "section_id": "sec:methodology",
+      "section_label": "Methodology",
+      "pages": [
+        4,
+        7
+      ],
+      "english_chars": 987,
+      "chinese_chars": 288
+    },
+    {
+      "para": 16,
+      "section_id": "sec:experiment",
+      "section_label": "Experiment",
+      "pages": [
+        7,
+        7
+      ],
+      "english_chars": 3,
+      "chinese_chars": 3
+    },
+    {
+      "para": 17,
+      "section_id": "sec:datasets",
+      "section_label": "Datasets",
+      "pages": [
+        7,
+        8
+      ],
+      "english_chars": 1771,
+      "chinese_chars": 658
+    },
+    {
+      "para": 18,
+      "section_id": "sec:datasets",
+      "section_label": "Datasets",
+      "pages": [
+        7,
+        8
+      ],
+      "english_chars": 1766,
+      "chinese_chars": 581
+    },
+    {
+      "para": 19,
+      "section_id": "sec:method",
+      "section_label": "Method",
+      "pages": [
+        8,
+        9
+      ],
+      "english_chars": 1682,
+      "chinese_chars": 656
+    },
+    {
+      "para": 20,
+      "section_id": "sec:method",
+      "section_label": "Method",
+      "pages": [
+        8,
+        9
+      ],
+      "english_chars": 1287,
+      "chinese_chars": 481
+    },
+    {
+      "para": 21,
+      "section_id": "sec:limitations",
+      "section_label": "Limitations",
+      "pages": [
+        9,
+        9
+      ],
+      "english_chars": 370,
+      "chinese_chars": 100
+    },
+    {
+      "para": 22,
+      "section_id": "sec:conclusion",
+      "section_label": "Conclusion",
+      "pages": [
+        9,
+        10
+      ],
+      "english_chars": 1017,
+      "chinese_chars": 364
+    },
+    {
+      "section_id": "sec:references",
+      "label": "References",
+      "pages": [
+        10,
+        13
+      ],
+      "status": "bibliography_not_translated"
+    },
+    {
+      "para": 23,
+      "section_id": "sec:appendix-of-meshcoder-llm-powered-structured-mesh-code",
+      "section_label": "Appendix of MeshCoder: LLM-Powered Structured Mesh Code",
+      "pages": [
+        13,
+        13
+      ],
+      "english_chars": 32,
+      "chinese_chars": 9
+    },
+    {
+      "para": 24,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1799,
+      "chinese_chars": 539
+    },
+    {
+      "para": 25,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1799,
+      "chinese_chars": 540
+    },
+    {
+      "para": 26,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1618,
+      "chinese_chars": 504
+    },
+    {
+      "para": 27,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1664,
+      "chinese_chars": 540
+    },
+    {
+      "para": 28,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1769,
+      "chinese_chars": 676
+    },
+    {
+      "para": 29,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1730,
+      "chinese_chars": 665
+    },
+    {
+      "para": 30,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1258,
+      "chinese_chars": 405
+    },
+    {
+      "para": 31,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1800,
+      "chinese_chars": 1587
+    },
+    {
+      "para": 32,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 214,
+      "chinese_chars": 103
+    },
+    {
+      "para": 33,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 534,
+      "chinese_chars": 168
+    },
+    {
+      "para": 34,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1800,
+      "chinese_chars": 1693
+    },
+    {
+      "para": 35,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1679,
+      "chinese_chars": 1564
+    },
+    {
+      "para": 36,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 1714,
+      "chinese_chars": 569
+    },
+    {
+      "para": 37,
+      "section_id": "sec:datasets-2",
+      "section_label": "Datasets",
+      "pages": [
+        13,
+        28
+      ],
+      "english_chars": 913,
+      "chinese_chars": 247
+    }
+  ]
+}

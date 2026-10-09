@@ -1,0 +1,107 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "The paper introduces a trained multimodal reasoning method that alternates hidden-state visual-semantic reconstruction with ordinary text generation, using SFT and a latent-state-compatible GRPO variant.",
+  "dominant_domain": "多模态大模型、潜在推理、细粒度视觉感知、强化学习",
+  "must_cover": [
+    "LVR 的潜在视觉思维不是生成图像，而是让语言模型隐藏状态自回归逼近与问题相关的视觉 token。",
+    "SFT 同时优化视觉语义重建均方误差与答案 token 的交叉熵。",
+    "GRPO_latent 在 rollout 时保存潜在隐藏状态，并在 teacher-forcing 重放时恢复这些状态，仅从文本输出分布计算比率。",
+    "固定 4/8/16 步解码优于不稳定的可学习终止 token，且步数并非越多越好。",
+    "主结果覆盖 V*、MMVP、Counting、IQ-Test、JigSaw、Relative Reflect 与 Spatial Relation。",
+    "与 IVT-LR、MINT-CoT、PFlowNet 的比较必须区分潜在重建、token 重注入与显式感知轨迹。"
+  ],
+  "key_numbers": [
+    "LVR-7B 在 MMVP 上平均 71.67%，Qwen2.5-VL-7B 为 66.67%。",
+    "LVR 4 步在 V*_{D.A.}、MMVP 与 Spatial Relation 上分别为 84.4、72.0、89.5。",
+    "LVR 8 步在 V*、Counting 与 IQ-Test 上分别为 81.7、70.0、29.3。",
+    "LVR 16 步在 V*_{R.P.} 与 Counting 上分别为 79.0、70.8。",
+    "Latent End Token 消融使 V* 从 81.7 降至 39.8，MMVP 从 71.7 降至 19.0。",
+    "7B SFT 约 40 小时完成 2500 steps；3B RL 约 20 小时完成 1500 steps。"
+  ],
+  "real_comparisons": [
+    "相对 PAPO、Vision-R1 的文本空间推理，LVR 不生成显式 CoT，而在视觉-语言共享嵌入空间中传播隐藏状态。",
+    "相对 PixelReasoner 的外部图像编辑，LVR 不产生新观察，只重建初始视觉编码中的相关语义。",
+    "相对 IVT-LR，LVR 用 ROI token 重建目标直接监督潜在状态，并用 GRPO_latent 继续优化，而不是把选中的视觉 embedding 直接拼入每个联合潜在步。",
+    "相对 MINT-CoT，LVR 的中间轨迹不可读，也没有逐步 token 选择标签；相对 PFlowNet，它没有坐标、证据描述或外部裁剪回注。"
+  ],
+  "central_claims": [
+    {
+      "claim": "在所测静态视觉任务上，潜在视觉语义重建可优于文本 CoT 与外部图像工具基线。",
+      "supporting_evidence": [{"section_id": "sec:method", "pages": [8]}, {"section_id": "sec:method-2", "pages": [8, 9]}],
+      "what_it_actually_proves": "在 Qwen2.5-VL 3B/7B、固定协议与列出的九项指标上，LVR 多数取得表内最佳或并列最佳。",
+      "what_it_does_not_prove": "没有证明模型获得了初始视觉编码之外的新信息，也没有证明潜在轨迹忠实对应人类可解释推理。"
+    },
+    {
+      "claim": "共享视觉-文本语义空间中的直接隐藏状态重建比增加独立视觉预测头更有效。",
+      "supporting_evidence": [{"section_id": "sec:method-2", "pages": [9]}],
+      "what_it_actually_proves": "Table 3 中原始 LVR 在六项指标上均优于 MLP Head 与 GLU Head。",
+      "what_it_does_not_prove": "消融没有控制额外头的优化难度、参数初始化与训练预算，不能推出所有显式视觉头都必然更差。"
+    },
+    {
+      "claim": "GRPO_latent 能在保留潜在上下文的情况下用文本奖励改进部分 3B 结果。",
+      "supporting_evidence": [{"section_id": "sec:introduction", "pages": [6]}, {"section_id": "sec:method-3", "pages": [9]}],
+      "what_it_actually_proves": "Table 2 显示在若干步数与任务组合上 RL 有增益，并且论文报告移除格式奖励会导致退化。",
+      "what_it_does_not_prove": "RL 并非所有任务和步数都单调增益，且只在 3B 上运行，不能证明可无损扩展到更大模型。"
+    },
+    {
+      "claim": "可学习终止仍是该潜在推理机制的关键未解问题。",
+      "supporting_evidence": [{"section_id": "sec:introduction", "pages": [7]}, {"section_id": "sec:method-3", "pages": [9]}],
+      "what_it_actually_proves": "Mode Switching Loss 坍缩到零步，Latent End Token 不稳定且性能大幅下降，固定步数最佳。",
+      "what_it_does_not_prove": "这些失败只排除了论文测试的两种终止设计，不代表变量长度潜在推理不可行。"
+    }
+  ],
+  "claim_boundaries": [
+    "全部评测都是静态单图、感知密集型任务；没有视频、3D、交互式新观察或长程规划。",
+    "ROI 框只用于 SFT 教师监督，推理时不能产生初始视觉 token 中不存在的细节。",
+    "主要结果没有报告随机种子方差、显著性检验、端到端推理时延、FLOPs 或峰值显存。",
+    "视觉与文本处于联合语义空间是训练假设；MSE 对齐成功不等同于语义可解释性或因果忠实性。",
+    "RL 仅在 3B 模型上实验。"
+  ],
+  "negative_or_limiting_results": [
+    "固定 8 步并不在所有任务上优于 4 步，16 步还会让 V*、V*_{D.A.}、IQ-Test 与 Spatial Relation 下降。",
+    "Latent End Token 在 V*、MMVP、IQ-Test、JigSaw 上分别跌至 39.8、19.0、6.7、13.3。",
+    "Mode Switching Loss 退化为零个 LVR step。",
+    "LVR 在 Relative Reflect 上未超过 Vision-R1，作者将其归因于单图训练与多图测试的分布偏移。",
+    "Table 2 的 RL 增益并非跨任务、跨步数一致。"
+  ],
+  "mechanism_result_map": [
+    "ROI token 的 MSE 重建为潜在状态提供直接视觉教师信号，对应原始 LVR 优于附加视觉头的消融。",
+    "特殊起止 token 把潜在传播与文本解码分开，对应格式奖励缺失时 RL 不稳定。",
+    "rollout 隐藏状态重放修复策略比率只能由文本 token 定义的问题，对应 GRPO_latent 在部分 3B 设置上的增益。",
+    "固定预算避免不可靠的距离式终止，对应 Fixed Token 优于 Latent End Token 与 Mode Switching Loss。",
+    "只重建初始视觉 token 可加强已有证据，却无法补回编码器未保留的信息，对应 Relative Reflect 多图任务的失败边界。"
+  ],
+  "comparative_positioning": [
+    "IVT-LR：每步把上一隐藏状态与注意力选出的视觉 embedding 组合；LVR：让隐藏状态预测 ROI 视觉 embedding，且明确加入重建损失与 GRPO_latent。",
+    "MINT-CoT：可见、可监督的视觉 token 选择与文本 CoT 交错；LVR：隐式轨迹更紧凑但不可审计。",
+    "PFlowNet：显式生成区域与证据描述并重新裁剪编码，能产生新观察；LVR：只做已有 embedding 的内部语义重构，成本低但信息上限更低。",
+    "在本地 Reasoning 栈中，LVR 位于比 token 重选更深的隐藏状态层，但仍属于信息重组织而非外部行动。"
+  ],
+  "reuse_takeaways": [
+    "把潜在视觉思维定义为可验证的中间预测目标，而不是只靠答案损失期待隐藏状态自动获得视觉语义。",
+    "3D 扩展可把重建目标换成对象、视角、点或 Gaussian token，但必须加入位姿与可见性约束。",
+    "变量长度推理应采用任务收益或不确定性门控，而不是只比较隐藏状态与一个终止向量的距离。",
+    "后续机制审计应做重建 token 删除、交换、错误 ROI 替换与等算力对照。"
+  ],
+  "followup_questions": [
+    "若将重建到的 ROI token 替换为错误区域或随机 token，答案是否因果翻转？",
+    "在匹配总前向 FLOPs 后，4/8/16 步的收益是否仍存在？",
+    "GRPO_latent 的隐藏状态重放会否造成新旧策略条件分布不一致，其误差随训练如何变化？",
+    "能否用答案熵、重建误差与跨步新颖度共同学习停止策略？",
+    "在必须 crop-and-reencode 才能获取答案的信息瓶颈任务上，LVR 与 PFlowNet 类外部感知谁更有效？"
+  ],
+  "section_plan": [
+    {"section": "核心信息", "focus": "记录作者、机构、预印本身份、开放链接和训练资源。", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}, {"section_id": "sec:conclusion", "pages": [10]}]},
+    {"section": "原文摘要翻译", "focus": "忠实翻译摘要中的问题、机制、训练与 MMVP 结论。", "evidence_sources": [{"section_id": "sec:abstract", "pages": [1]}]},
+    {"section": "创新点", "focus": "拆分视觉语义重建、双阶段训练、潜在策略优化与解码研究。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [2, 3, 4, 5, 6, 7]}]},
+    {"section": "一句话总结", "focus": "以结果边界约束概括论文的真实贡献。", "evidence_sources": [{"section_id": "sec:abstract", "pages": [1]}, {"section_id": "sec:method-2", "pages": [8, 9]}]},
+    {"section": "研究问题", "focus": "解释文本化视觉推理、外部工具与潜在状态之间的核心矛盾。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2, 3]}]},
+    {"section": "数据与任务定义", "focus": "说明 Visual CoT、ViRL、ROI 监督、模型规模与七类评测任务。", "evidence_sources": [{"section_id": "sec:experiment", "pages": [7, 8]}]},
+    {"section": "方法主线", "focus": "从视觉投影、潜在自回归、重建损失、NTP 到 GRPO_latent 重放完整复原。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [4, 5, 6, 7]}]},
+    {"section": "关键结果", "focus": "转录主表、RL 表与解码消融，并计算可核对的差值。", "evidence_sources": [{"section_id": "sec:method", "pages": [8]}, {"section_id": "sec:method-2", "pages": [8, 9]}, {"section_id": "sec:method-3", "pages": [9]}]},
+    {"section": "深度分析", "focus": "建立机制到结果的映射，并与 IVT-LR、MINT-CoT、PFlowNet 横向定位。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [4, 5, 6, 7]}, {"section_id": "sec:method-2", "pages": [8, 9]}]},
+    {"section": "局限", "focus": "覆盖信息上限、固定预算、RL 尺度、统计报告与过度声明风险。", "evidence_sources": [{"section_id": "sec:experiment", "pages": [7, 8]}, {"section_id": "sec:method-3", "pages": [9]}, {"section_id": "sec:conclusion", "pages": [10]}]},
+    {"section": "我的笔记", "focus": "把方法放入 Reasoning 证据重注入栈并提出可执行后续实验。", "evidence_sources": [{"section_id": "sec:introduction", "pages": [4, 5, 6, 7]}, {"section_id": "sec:method-2", "pages": [8, 9]}]},
+    {"section": "引用", "focus": "提供 arXiv 与 DOI 形式的规范引用。", "evidence_sources": [{"section_id": "sec:preamble", "pages": [1]}]}
+  ]
+}

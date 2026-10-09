@@ -1,0 +1,35 @@
+\begin{table}[!t]
+\centering
+\caption{\textbf{Per-task success rates on the real Dobot platform in the
+basic setting.}
+Ten trials per language instruction; \emph{Mem.}\ marks memory-augmented
+policies.
+\emph{Put in Drawer} and \emph{Put on Shelf} are each evaluated with two
+instructions (upper and lower target) and are reported as their average;
+per-instruction counts are given in Table~\ref{tab:app:real_dobot_all}.}
+\label{tab:real_dobot_basic}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+% zero rule separation; \arraystretch below compensates the row height
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lcccccc}
+\toprule
+& & \multicolumn{3}{c}{\textbf{Memory-Dependent}}
+& \multicolumn{2}{c}{\textbf{Memory-Free}} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-7}
+\textbf{Method}
+& \textbf{Mem.}
+& \textbf{\makecell{Cover\\Blocks}}
+& \textbf{\makecell{Press\\Button}}
+& \textbf{\makecell{Swap\\Eggplant}}
+& \textbf{\makecell{Put in\\Drawer}}
+& \textbf{\makecell{Put on\\Shelf}} \\
+\midrule
+SAM2Act+~\cite{fang2025sam2act} & \cmark & 20.0\% & 0.0\% & 70.0\% & 60.0\% & 20.0\% \\
+\textbf{\method} & \xmark & 0.0\% & 0.0\% & 60.0\% & 100.0\% & 90.0\% \\
+\textbf{\memmethod} & \cmark & 100.0\% & 100.0\% & 80.0\% & 100.0\% & 100.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "paper": {
+    "title": "RynnWorld-4D: 4D Embodied World Models for Robotic Manipulation",
+    "arxiv_id": "2607.06559",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/HVJ283GL/Zhao 等 - 2026 - RynnWorld-4D 4D Embodied World Models for Robotic Manipulation.pdf",
+    "pages": 26
+  },
+  "output": "paper_DeepPaperNote.md",
+  "paper_type": ["embodied world model", "video diffusion", "robot policy"],
+  "central_thesis": "RGB-DF is a scalable projective 4D interface: depth and optical flow admit scene-flow lifting while retaining a 2D grid compatible with video diffusion priors; predictive latents can then support a robot policy without full visual denoising.",
+  "required_sections": [
+    "核心信息", "原文摘要翻译", "创新点", "一句话总结", "研究问题", "数据与任务定义", "方法主线", "关键结果", "延迟与闭环语义", "与相邻路线的定位", "深度分析", "公式与附录覆盖索引", "局限", "我的笔记", "图表覆盖与选图说明", "引用"
+  ],
+  "coverage_contract": {
+    "pages": "1-26",
+    "figures": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "tables": [1, 2, 3, 4, 5],
+    "equations": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "appendices": ["A", "B", "C", "D", "E"]
+  },
+  "evidence_priorities": [
+    {"topic": "projective 4D boundary", "anchors": ["Fig. 1", "Eq. 1-2", "pp. 2, 5-6"]},
+    {"topic": "dataset composition and pseudo-label bias", "anchors": ["Fig. 2-3", "pp. 4-5"]},
+    {"topic": "tri-branch, JA, 3D RoPE, gates, shared KV, dropout", "anchors": ["Fig. 4", "Eq. 3-7, 9", "pp. 6-9"]},
+    {"topic": "three-stage training", "anchors": ["Table 2", "p. 9"]},
+    {"topic": "policy predictive latent", "anchors": ["Eq. 8", "pp. 7, 9-10"]},
+    {"topic": "latency semantics", "anchors": ["Table 1", "p. 8"]},
+    {"topic": "world-model metrics and ablations", "anchors": ["Table 4", "pp. 13-14"]},
+    {"topic": "six robot tasks and 35 trials", "anchors": ["Fig. 5", "Table 3, 5", "pp. 10-13"]},
+    {"topic": "limitations and appendix", "anchors": ["p. 15", "Appendix A-E, pp. 22-26"]}
+  ],
+  "comparison_axes": ["2D WAM", "explicit 4DGS and Free4D", "4DNeX and TesserAct", "VLA and policy learning"],
+  "critical_checks": [
+    "65.71 percent applies separately to Lid Placement and Bowl Stacking and equals 23/35",
+    "planning frequency is about 0.9 Hz, not 9 Hz",
+    "990 ms of 1106 ms is the world model",
+    "AEPE is computed on color-coded flow RGB in the reported protocol",
+    "Hand-over absolute success remains 28.57 percent"
+  ]
+}

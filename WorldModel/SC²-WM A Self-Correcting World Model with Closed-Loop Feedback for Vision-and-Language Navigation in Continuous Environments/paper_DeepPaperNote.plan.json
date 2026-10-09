@@ -1,0 +1,467 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出面向 VLN-CE 的世界模型与测试时自校正机制，并通过 R2R-CE、RxR-CE、消融和真实机器人验证其方法效果。",
+  "dominant_domain": "embodied AI / vision-and-language navigation",
+  "must_cover": [
+    "任务与数据定义",
+    "机制流程",
+    "视觉校准与内部反馈",
+    "训练目标",
+    "测试时模型适配",
+    "主结果与消融",
+    "真实世界验证",
+    "失败边界与复现"
+  ],
+  "key_numbers": [
+    "R2R-CE Val Unseen 单目：SR 43.77→50.90，SPL 29.39→37.17，TL 26.16→17.65 m",
+    "RxR-CE Val Unseen 单目：SR 35.8，SPL 27.2，SDTW 26.5",
+    "视觉记忆长度 L=4 最优；L=8 的 TL 更短但 SR/SPL 明显下降",
+    "训练使用单张 RTX 3090、少于 40 小时",
+    "真实室内 100 trials×5 repetitions（500 physical runs），成功率 85% 对基线 70%"
+  ],
+  "real_comparisons": [
+    "R2R-CE Val Unseen 上与复现实验的 VLN-3DFF、ETPNav/HNR 兼容基线比较",
+    "RxR-CE Val Unseen 上与 VLN-3DFF、ETPNav/HNR 的单目与全景比较",
+    "Table 3 的 Base→State-C→VCM→Model-C 组件递进",
+    "FRL 与 Self-Entropy、Async Scoring、无适配的测试时适配目标比较",
+    "VCM 的 L∈{2,4,6,8} 记忆长度比较"
+  ],
+  "central_claims": [
+    {
+      "claim": "世界模型的前瞻状态差分可作为内部反馈，在执行动作前修正潜状态并减少 VLN-CE 的误差累积。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:appendix-for-details",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在论文报告的 R2R-CE/RxR-CE 协议中，加入 State-C 后相对 Base model 的 SR、SPL 和轨迹长度均改善；机制定义为 Δ_t=ŝ_{t+1}−s_t 并经 ψ 得到 refined state。",
+      "what_it_does_not_prove": "它没有证明 Δ_t 是真实环境误差或经典控制意义的外部反馈，也没有通过独立的状态漂移检测或反事实实验验证因果链。"
+    },
+    {
+      "claim": "视觉校准模块 VCM 的短期时空记忆为反馈提供更稳定的潜表示。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:appendix-for-details",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:methods-5",
+          "pages": [
+            16,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "what_it_actually_proves": "Table 3 中加入 VCM 后 TL 从 21.75 降到 18.73 m、SPL 从 33.02 升到 36.05；L=4 在记忆长度消融中取得最高 SR/SPL/NDTW/SDTW。",
+      "what_it_does_not_prove": "不能证明 VCM 单独优于显式地图或更长历史建模，也不能排除训练配置、表示容量或与其他组件交互带来的收益。"
+    },
+    {
+      "claim": "由反馈触发的世界模型测试时适配能够在域偏移下进一步提高泛化。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:appendix-for-details",
+          "pages": [
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:methods-5",
+          "pages": [
+            16
+          ]
+        }
+      ],
+      "what_it_actually_proves": "论文的 Table 3/6 在 R2R-CE Val Unseen 报告 Model-C 和 FRL 相比无适配或替代损失更高的综合指标；触发器是动作分布 KL 超过近期队列的 τ=0.5 分位点且熵足够低。",
+      "what_it_does_not_prove": "没有给出不同域偏移强度、适配失败率、灾难性遗忘或跨 episode 污染的系统分析；运行时开销也只给出定性说明。"
+    },
+    {
+      "claim": "SC²-WM 可从仿真 VLN-CE 迁移到 Unitree GO2 室内真实导航。",
+      "supporting_evidence": [
+        {
+          "section_id": "sec:methods-6",
+          "pages": [
+            17,
+            18
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在约 100 m² 室内环境、500 次物理运行中，以 1.5 m 到达阈值计，SC²-WM 成功率为 85%，基线为 70%。",
+      "what_it_does_not_prove": "这不是对任意真实环境、天气、传感器或长时间运行的验证；计算在机外完成，深度只用于避障安全机制。"
+    }
+  ],
+  "claim_boundaries": [
+    "所谓 closed-loop 是模型内部的前瞻—修正循环，不是利用未来真实观测的经典外部反馈控制。",
+    "结果依赖 R2R-CE/RxR-CE、指定基座模型、动作空间、视觉编码器和在线评测协议。",
+    "测试时梯度更新引入潜在延迟、状态污染与适配不稳定风险，论文未充分量化。",
+    "真实机器人实验规模有限且使用了 offboard computation，不能等同于端到端边缘部署。"
+  ],
+  "negative_or_limiting_results": [
+    "L=8 虽然 TL=16.13 m 更短，但 SR=44.48、SPL=33.78，均低于 L=4 的 50.90 和 37.17，说明更长记忆会造成注意力稀释。",
+    "Self-Entropy Loss 没有带来改善，作者认为其缺少 grounded supervision；Async Scoring 仅有有限提升。",
+    "去掉 Lrec 后 SR/SPL 从 50.90/37.17 降至 48.89/34.58。",
+    "论文承认反馈质量受世界模型表达能力限制，适配效率仍需优化；没有报告完整的失败率、方差或显著性检验。"
+  ],
+  "mechanism_result_map": [
+    "VCM 的跨注意力、相对几何/时间编码和自适应门控减少视角与部分可观测造成的表示歧义，对应加入 VCM 后 TL/SPL 的跃升。",
+    "用先验状态转移预测 ŝ_{t+1} 并取 Δ_t，而不是等待外部奖励，使动作执行前就能修正潜状态，对应 State-C 的 SR 提升与 TL 缩短。",
+    "Lrec 让前瞻潜状态能重构下一步视觉特征，约束世界模型学习任务相关动力学，对应去掉 Lrec 后性能下降。",
+    "基于 κ_t 的分位点触发比固定每 T=2 步更新更有选择性，对应 Model-C 的综合指标优于固定间隔变体。"
+  ],
+  "comparative_positioning": [
+    "相对 NavMorph 等开环世界模型，SC²-WM 将世界模型从未来状态建模器变为执行前的内部纠错源。",
+    "相对 RL critic 或熵最小化，Δ_t 是高维潜状态转移信号，FRL 使用预测视觉特征与现实之间的自监督差异。",
+    "相对 g3D-LF、monoVLN 等额外 3D 表示路线，SC²-WM 的主张是轻量表示与在线闭环适配；但 monoVLN 在部分 R2R-CE 结果更强且不可复现整合。",
+    "相对 MLLM-based VLN，论文牺牲高层语义规模，换取单张 RTX 3090、少于 40 小时训练和紧凑模型的执行时调节。"
+  ],
+  "reuse_takeaways": [
+    "将世界模型的预测—现实差异保留为结构化潜信号，而不是压缩为标量 critic 或熵。",
+    "状态级纠错与模型级适配应由不同触发条件分开，避免每一步更新模型。",
+    "短期视觉记忆需要结合相对几何和时间衰减；历史越长不一定越好。",
+    "在线适配必须同时报告触发频率、时间开销、跨 episode 隔离和失败回滚策略。"
+  ],
+  "followup_questions": [
+    "Δ_t 的范数、方向与真实导航误差是否有相关性？",
+    "在固定计算预算下，反馈修正、VCM 和更强 3D 表示谁贡献最大？",
+    "在线适配发生在 episode 内还是跨 episode 持续？如何防止错误自监督目标导致模型漂移？",
+    "能否在纯机载设备上异步完成梯度更新，并报告端到端控制延迟？",
+    "在更长指令、动态障碍、多机器人和传感器失效场景下是否仍稳定？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "weight": "low",
+      "subsections": [],
+      "evidence_sources": [
+        {
+          "section_id": "sec:preamble",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "focus": "固定记录标题、作者、机构、时间、渠道、标识符、代码与论文类型，不混入分析判断。"
+    },
+    {
+      "section": "原文摘要翻译",
+      "weight": "medium",
+      "subsections": [],
+      "evidence_sources": [
+        {
+          "section_id": "sec:abstract",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "focus": "忠实翻译摘要中的问题、双层自校正方法与实验结论，不引入正文后验信息。"
+    },
+    {
+      "section": "研究问题",
+      "weight": "medium",
+      "subsections": [],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "section_id": "sec:related-work",
+          "pages": [
+            2,
+            4
+          ]
+        }
+      ],
+      "focus": "解释部分可观测和稀疏延迟监督下，开环 VLN-CE 如何积累内部状态漂移，以及论文为何寻找可计算的内部反馈。"
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "subsections": [
+        "任务定义",
+        "数据集与动作空间",
+        "评测指标"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:introduction",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "section_id": "sec:methods-3",
+          "pages": [
+            15,
+            16
+          ]
+        }
+      ],
+      "focus": "交代 RGB-D 与语言输入、连续环境中的 waypoint/低层控制、R2R-CE 与 RxR-CE 差异、动作终止和评测指标。"
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "subsections": [
+        "机制流程",
+        "模型结构",
+        "VCM 与时空记忆",
+        "内部反馈与状态修正",
+        "训练目标",
+        "条件世界感知适配",
+        "推理链路"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "section_id": "sec:appendix-for-details",
+          "pages": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "section_id": "sec:methods",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:methods-3",
+          "pages": [
+            15,
+            16
+          ]
+        }
+      ],
+      "focus": "重建 VCM→后验状态→前瞻动作/状态→潜差分→状态修正→条件模型适配的完整闭环，并说明训练与推理边界。"
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "subsections": [
+        "主结果与强基线",
+        "消融到底说明了什么",
+        "定性结果",
+        "真实世界验证"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:experiments",
+          "pages": [
+            7,
+            8
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:methods-3",
+          "pages": [
+            15,
+            16
+          ]
+        },
+        {
+          "section_id": "sec:methods-5",
+          "pages": [
+            16,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:methods-6",
+          "pages": [
+            17,
+            18
+          ]
+        }
+      ],
+      "focus": "用主结果、组件消融、适配损失和记忆长度实验判断每个机制实际支持的结论，并覆盖定性与真实部署。"
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "subsections": [
+        "真正贡献是什么",
+        "为什么结果成立",
+        "与相邻路线的关系",
+        "容易误读的地方",
+        "复杂度与扩展性",
+        "复现注意点"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:related-work",
+          "pages": [
+            2,
+            4
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "section_id": "sec:methods-5",
+          "pages": [
+            16,
+            17
+          ]
+        },
+        {
+          "section_id": "sec:methods-6",
+          "pages": [
+            17,
+            18
+          ]
+        }
+      ],
+      "focus": "区分真正贡献与工程拼装，解释机制为何对应指标模式，并与 world model、3D 表示、navigation 与 action-model 路线定位。"
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "subsections": [
+        "证据边界",
+        "在线适配风险",
+        "真实部署边界"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:conclusion",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "section_id": "sec:methods-6",
+          "pages": [
+            17,
+            18
+          ]
+        },
+        {
+          "section_id": "sec:model",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "focus": "明确内部闭环不等于经典控制反馈，审视测试时梯度更新、实验方差、算力和真实机器人覆盖范围。"
+    },
+    {
+      "section": "我的笔记",
+      "weight": "medium",
+      "subsections": [
+        "研究启示",
+        "工程启示",
+        "可复现实验清单",
+        "后续问题"
+      ],
+      "evidence_sources": [
+        {
+          "section_id": "sec:methods-3",
+          "pages": [
+            15,
+            16
+          ]
+        },
+        {
+          "section_id": "sec:methods-6",
+          "pages": [
+            17,
+            18
+          ]
+        }
+      ],
+      "focus": "提炼可复用的研究设计、工程落地清单和针对状态漂移、在线适配与端侧延迟的后续实验问题。"
+    },
+    {
+      "section": "引用",
+      "weight": "low",
+      "subsections": [],
+      "evidence_sources": [
+        {
+          "section_id": "sec:references",
+          "pages": [
+            10,
+            15
+          ]
+        }
+      ],
+      "focus": "列出论文及直接用于路线定位的关键相关工作，避免臆造未核验的 vault wikilink。"
+    }
+  ]
+}

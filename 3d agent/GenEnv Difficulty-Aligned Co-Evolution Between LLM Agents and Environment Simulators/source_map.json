@@ -1,0 +1,268 @@
+{
+  "paper": {
+    "title": "GenEnv: Difficulty-Aligned Co-Evolution Between LLM Agents and Environment Simulators",
+    "authors": [
+      "Jiacheng Guo",
+      "Ling Yang",
+      "Peter Chen",
+      "Qixin Xiao",
+      "Yinjie Wang",
+      "Xinzhe Juan",
+      "Jiahao Qiu",
+      "Ke Shen",
+      "Mengdi Wang"
+    ],
+    "year": 2025,
+    "arxiv": "2512.19682v2",
+    "doi": "10.48550/arXiv.2512.19682",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/LWGKP6MW/Guo 等 - 2025 - GenEnv Difficulty-Aligned Co-Evolution Between LLM Agents and Environment Simulators.pdf",
+    "reader_file": "detailed_paper.md",
+    "source_format": "pdf-text"
+  },
+  "notes": {
+    "style": "Paragraph-by-paragraph Chinese-English bilingual reader following the nature-reader-detail-wj specification.",
+    "references": "Bibliographic entries are preserved in searchable numbered form and explained in the reader.",
+    "layout": "23 pages extracted from official arXiv preprint PDF and extracted_text.txt with complete paragraph-level alignment, equations, transcribed tables, and figures."
+  },
+  "blocks": [
+    {
+      "id": "B001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Motivation, Data-Evolving Paradigm, alpha-Curriculum Reward, and benchmark gains."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Abstract",
+      "pages": "1",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "2",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png"
+    },
+    {
+      "id": "B002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2-3",
+      "summary": "High cost and static nature of interaction data, limitations of static expert datasets, GenEnv simulation framework, and 3 core contributions."
+    },
+    {
+      "id": "B003",
+      "type": "body",
+      "section": "2 GenEnv: Difficulty-Aligned Co-Evolution",
+      "pages": "3",
+      "summary": "Two-player curriculum game view, Agent Policy and Environment Policy co-evolution."
+    },
+    {
+      "id": "B004",
+      "type": "body",
+      "section": "2.1 Data-Evolving Paradigm",
+      "pages": "3",
+      "summary": "Data-Evolving Paradigm vs static loss minimization; feedback loop targeting breaking points."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "2 GenEnv: Difficulty-Aligned Co-Evolution",
+      "pages": "4",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png"
+    },
+    {
+      "id": "B005",
+      "type": "body",
+      "section": "2.2.1 Agent Task Reward",
+      "pages": "4",
+      "summary": "Structured action space vs natural language, exact execution, soft similarity, Equation (1)."
+    },
+    {
+      "id": "B006",
+      "type": "body",
+      "section": "2.2.2 Environment Difficulty-Alignment Reward",
+      "pages": "4-5",
+      "summary": "Empirical success rate p_hat, bell-shaped reward peaked at alpha=0.5, Equations (2)-(3), difficulty filter."
+    },
+    {
+      "id": "B007",
+      "type": "body",
+      "section": "2.3 Data Structures and How New Training Data Is Produced",
+      "pages": "5",
+      "summary": "Environment generated task batch T_t, agent trace e in E_t, D_train and D_env growing pools, data-evolving closed loop."
+    },
+    {
+      "id": "B008",
+      "type": "body",
+      "section": "2.4 Two-Player Curriculum RL: Optimization Loop",
+      "pages": "6",
+      "summary": "Player 1 agent update via GRPO, Player 2 environment update via RWR, and Algorithm 1 co-evolution loop."
+    },
+    {
+      "id": "B009",
+      "type": "body",
+      "section": "3.1 Intermediate Difficulty Maximizes Agent Learning Signal",
+      "pages": "6-7",
+      "summary": "Bandit formulation, score function norm, Assumption 1, Proposition 1, gradient signal proportional to p(1-p), Remark 1."
+    },
+    {
+      "id": "B010",
+      "type": "body",
+      "section": "3.2 Ranking Consistency of the alpha-Curriculum Reward",
+      "pages": "8",
+      "summary": "Theorem 1 Hoeffding-bound exponential consistency of R_env, implications for ZPD calibration."
+    },
+    {
+      "id": "B011",
+      "type": "body",
+      "section": "4.1 Experimental Setup",
+      "pages": "8-10",
+      "summary": "Qwen2.5-7B-Instruct backbone, 5 benchmarks (API-Bank, Bamboogle, ALFWorld, BFCL, TravelPlanner), baselines (GenEnv-Random, GenEnv-Static, Gemini-Offline), GRPO and RWR training setup."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "4.1 Experimental Setup",
+      "pages": "9",
+      "label": "Table 1",
+      "asset": "assets/table_1.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "4.1 Experimental Setup",
+      "pages": "10",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "4.2 RQ1 Downstream Task Performance",
+      "pages": "11",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png"
+    },
+    {
+      "id": "B012",
+      "type": "body",
+      "section": "4.2 RQ1: Does GenEnv Improve Downstream Task Performance?",
+      "pages": "11",
+      "summary": "Main benchmark results analysis, +40.3% on ALFWorld, closing the gap to 14B-72B models, stable training dynamics."
+    },
+    {
+      "id": "B013",
+      "type": "body",
+      "section": "4.3 RQ2: Does GenEnv Learn to Tackle Harder Tasks Over Time?",
+      "pages": "11-12",
+      "summary": "Emergent curriculum analysis, response length growing from 137 to 204 tokens (+49%), multi-step reasoning progression."
+    },
+    {
+      "id": "B014",
+      "type": "body",
+      "section": "4.4 RQ3: Is GenEnv More Data-Efficient Than Gemini-Based Augmentation?",
+      "pages": "12-13",
+      "summary": "Validation score 0.458 vs Gemini-Offline 3.3x 0.438 with 3.3x less data, +12.3% over RandomEnv."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.4 RQ3 Data-Efficiency",
+      "pages": "12",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png"
+    },
+    {
+      "id": "B015",
+      "type": "body",
+      "section": "4.5 RQ4: Does the Environment Reward Produce Well-Calibrated Difficulty?",
+      "pages": "13-14",
+      "summary": "Empirical convergence of success rate from 0.138 into [0.4, 0.6] band centered at alpha=0.5, empirical validation of Theorem 1."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "4.5 RQ4 Difficulty Calibration",
+      "pages": "13",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "4.5 RQ4 Difficulty Calibration",
+      "pages": "14",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png"
+    },
+    {
+      "id": "B016",
+      "type": "body",
+      "section": "5 Related Work",
+      "pages": "14-16",
+      "summary": "5.1 LLM Agents, 5.2 Trajectory Synthesis for Agent Training, 5.3 Environment Simulation."
+    },
+    {
+      "id": "B017",
+      "type": "body",
+      "section": "6 Conclusion",
+      "pages": "16",
+      "summary": "Summary of GenEnv, data-evolving game, implications for future self-calibrating simulation environments."
+    },
+    {
+      "id": "B018",
+      "type": "body",
+      "section": "References",
+      "pages": "17-20",
+      "summary": "52 full bibliographic references from the source paper."
+    },
+    {
+      "id": "B019",
+      "type": "body",
+      "section": "A.1 Proofs for Section 3",
+      "pages": "21-22",
+      "summary": "A.1.1 Full derivation of Proposition 1; A.1.2 Full Hoeffding-bound proof of Theorem 1."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "A.2 Hyperparameter Details",
+      "pages": "23",
+      "label": "Table 2",
+      "asset": "assets/table_2.png"
+    },
+    {
+      "id": "B020",
+      "type": "body",
+      "section": "A.2 Hyperparameter Details",
+      "pages": "23",
+      "summary": "Hyperparameter table and training notes for Agent GRPO and Environment RWR."
+    },
+    {
+      "id": "B021",
+      "type": "body",
+      "section": "A.3 Environment Baseline Implementation Details",
+      "pages": "23",
+      "summary": "Implementation specifics of GenEnv-Random, GenEnv-Static, and Gemini-Offline."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/table_1.png",
+    "assets/table_2.png"
+  ]
+}

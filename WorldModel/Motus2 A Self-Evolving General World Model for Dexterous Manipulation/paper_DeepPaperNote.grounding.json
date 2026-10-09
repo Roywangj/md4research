@@ -1,0 +1,34 @@
+{
+  "paper_claims": [
+    {
+      "claim": "Motus2 Midtrain-SFT achieves an 84% average success rate across 5 challenging real-world dexterous manipulation tasks, while pi0.5 and pure video SFT score 0%.",
+      "source": "Abstract, Section 4.1 & Table 2",
+      "verified": true
+    },
+    {
+      "claim": "Action-first factorization factorizes the joint distribution into policy, action-conditioned visual simulation, and task evaluation.",
+      "source": "Section 3.1, Equation (2)",
+      "verified": true
+    },
+    {
+      "claim": "DiffusionNFT optimizes the policy using relative progress value guidance without manual reward engineering.",
+      "source": "Section 3.3, Equations (11)-(13)",
+      "verified": true
+    },
+    {
+      "claim": "MBRL with Best-of-N planning raises average performance from 65.0% to 75.0% on real robot tasks.",
+      "source": "Section 4.2 & Table 3",
+      "verified": true
+    },
+    {
+      "claim": "Global autoregression achieves 57.5% success rate on long-horizon memory tasks, outperforming hybrid memory (25.0%).",
+      "source": "Section 4.3 & Table 4",
+      "verified": true
+    },
+    {
+      "claim": "Tactile expert provides a +12.5% gain on contact-critical tasks (72.5% vs 60.0%).",
+      "source": "Section 4.4 & Table 5",
+      "verified": true
+    }
+  ]
+}

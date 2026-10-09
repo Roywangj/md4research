@@ -1,0 +1,70 @@
+{
+  "paper": {
+    "title": "Reasoning in the Dark: Interleaved Vision-Text Reasoning in Latent Space",
+    "authors": [
+      "Chao Chen",
+      "Zhixin Ma",
+      "Yongqi Li",
+      "Yupeng Hu",
+      "Yinwei Wei",
+      "Wenjie Li",
+      "Liqiang Nie"
+    ],
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/EAWWASN8/Chen 等 - 2026 - Reasoning in the Dark Interleaved Vision-Text Reasoning in Latent Space.pdf",
+    "reader_file": "paper.md",
+    "source_format": "pdf-text",
+    "zotero_item": "BY96Y7AI",
+    "zotero_attachment": "EAWWASN8",
+    "paper_id": "arxiv:2510.12603"
+  },
+  "notes": {
+    "coverage": "12-page selectable-text PDF processed in full; references occupy pages 9-11 and Appendix A occupies pages 11-12.",
+    "reader_scope": "Bilingual reader coverage of abstract, introduction, related work, method, training, inference, experiments, conclusion, and Appendix A. Bibliographic entries are indexed but not translated line by line.",
+    "layout": "Two-column extraction was reordered by section. Figure 4 and Algorithm 1 plus Tables 4-5 were re-cropped from rendered PDF pages after automatic extraction was incomplete."
+  },
+  "blocks": [
+    {"id": "S001", "type": "body", "section": "Abstract", "pages": "1", "summary": "Motivation, IVT-LR definition, progressive training, and headline accuracy and speed claims."},
+    {"id": "S002", "type": "body", "section": "Introduction", "pages": "1-2", "summary": "Progression from text-only to vision-text reasoning and motivation for multimodal latent steps."},
+    {"id": "S003", "type": "body", "section": "Related Work", "pages": "2-3", "summary": "Text-only and interleaved multimodal reasoning plus continuous latent-reasoning predecessors."},
+    {"id": "S004", "type": "body", "section": "Method", "pages": "3-5", "summary": "Latent text, attention-selected latent vision, multimodal latent state, and progressive replacement curriculum."},
+    {"id": "S005", "type": "body", "section": "Inference and Experimental Setup", "pages": "5-6", "summary": "Fixed latent positions at inference, datasets, baselines, metrics, backbones, optimizer, and hardware."},
+    {"id": "S006", "type": "body", "section": "Main Results and Ablation", "pages": "6-8", "summary": "Accuracy, autoregressive steps, latency, component removal, visual length, and latent-stage results."},
+    {"id": "S007", "type": "body", "section": "Attention Analysis and Conclusion", "pages": "8-9", "summary": "Attention ratio, inverse-entropy focus, conclusions, and future adaptive-depth direction."},
+    {"id": "S008", "type": "body", "section": "References", "pages": "9-11", "summary": "Thirty-one bibliographic entries retained in the source PDF and indexed in the reader."},
+    {"id": "S009", "type": "body", "section": "Appendix A", "pages": "11-12", "summary": "Rationale-step distribution, choice of three core steps, consolidation policy, and two examples."},
+    {"id": "F001", "type": "figure", "section": "Introduction", "pages": "2", "summary": "Conceptual example of three interleaved vision-text latent steps."},
+    {"id": "F002", "type": "figure", "section": "Method", "pages": "4", "summary": "IVT-LR architecture and hidden-state plus image-embedding feedback paths."},
+    {"id": "F003", "type": "figure", "section": "Training Procedure", "pages": "5", "summary": "Progressive replacement from explicit CoT to three latent text-vision steps."},
+    {"id": "F004", "type": "algorithm", "section": "Training Procedure", "pages": "5", "summary": "Algorithm 1 for hidden-state extraction, attention selection, concatenation, and answer decoding."},
+    {"id": "T001", "type": "table", "section": "Main Results", "pages": "6", "summary": "Accuracy, autoregressive-step, and latency comparison on two datasets and two backbones."},
+    {"id": "T002", "type": "table", "section": "Ablation", "pages": "7", "summary": "Removal of latent text, latent vision, and the whole latent component."},
+    {"id": "F005", "type": "figure", "section": "In-depth Analysis", "pages": "8", "summary": "Accuracy trend for latent-vision length 8, 16, and 32."},
+    {"id": "T003", "type": "table", "section": "In-depth Analysis", "pages": "8", "summary": "M3CoT domain accuracy for one, two, and three latent stages."},
+    {"id": "F006", "type": "figure", "section": "In-depth Analysis", "pages": "9", "summary": "Visual-to-text attention ratio and inverse-entropy focus."},
+    {"id": "F007", "type": "figure", "section": "Appendix A", "pages": "12", "summary": "Native rationale-step distributions for M3CoT and ScienceQA."},
+    {"id": "T004", "type": "table", "section": "Appendix A", "pages": "12", "summary": "Consolidated hairdryer rationale example."},
+    {"id": "T005", "type": "table", "section": "Appendix A", "pages": "12", "summary": "Consolidated street-pylon rationale example."}
+  ],
+  "assets": [
+    "assets/page_002_fig_figure_1.png",
+    "assets/page_004_fig_figure_2.png",
+    "assets/page_005_fig_figure_3.png",
+    "assets/page_005_fig_algorithm_1.png",
+    "assets/page_006_fig_table_1.png",
+    "assets/page_007_fig_table_2.png",
+    "assets/page_008_fig_figure_4.png",
+    "assets/page_008_fig_table_3.png",
+    "assets/page_009_fig_figure_5.png",
+    "assets/page_012_fig_figure_6.png",
+    "assets/page_012_fig_table_4.png",
+    "assets/page_012_fig_table_5.png"
+  ],
+  "glossary": [
+    {"term": "latent text", "translation": "潜在文本", "note": "The last hidden state from the previous reasoning step."},
+    {"term": "latent vision", "translation": "潜在视觉", "note": "Top-k image embeddings selected by accumulated attention scores."},
+    {"term": "autoregressive step", "translation": "自回归步", "note": "A decoded output-token step; it does not count all latent forward computation."},
+    {"term": "attention focus", "translation": "注意力集中度", "note": "Inverse entropy of normalized attention weights."}
+  ]
+}

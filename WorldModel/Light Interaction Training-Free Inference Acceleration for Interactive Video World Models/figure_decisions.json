@@ -1,0 +1,86 @@
+{
+  "paper_id": "arxiv:2605.31158v3",
+  "complete_inventory": true,
+  "decisions": [
+    {
+      "id": "Figure 1",
+      "decision": "insert",
+      "path": "images/page_001_fig_figure_1.png",
+      "reason": "核心结论图，已物化但正文优先使用方法和表格",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Figure 2",
+      "decision": "insert",
+      "path": "images/page_004_fig_figure_2.png",
+      "reason": "机制流程核心图",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Figure 3",
+      "decision": "insert",
+      "path": "images/page_005_fig_figure_3.png",
+      "reason": "去噪缓存依据，已物化，正文以公式解释",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Figure 4",
+      "decision": "insert",
+      "path": "images/page_009_fig_figure_4.png",
+      "reason": "阶段延迟，已物化，正文用分析覆盖",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Figure 5",
+      "decision": "insert",
+      "path": "images/page_009_fig_figure_5.png",
+      "reason": "算法稀疏性与墙钟时间",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Figure 6",
+      "decision": "skip",
+      "path": null,
+      "reason": "超参数趋势已由详细读者保留，精读非核心",
+      "identity_match": true,
+      "visually_usable": null
+    },
+    {
+      "id": "Figure 7",
+      "decision": "skip",
+      "path": null,
+      "reason": "阈值趋势以文字分析，避免图片堆叠",
+      "identity_match": true,
+      "visually_usable": null
+    },
+    {
+      "id": "Table 1",
+      "decision": "insert",
+      "path": "images/page_008_tbl_table_1.png",
+      "reason": "主结果",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Table 2",
+      "decision": "insert",
+      "path": "images/page_008_tbl_table_2.png",
+      "reason": "完整集单模块消融，已物化，正文用可搜索表述",
+      "identity_match": true,
+      "visually_usable": true
+    },
+    {
+      "id": "Table 3",
+      "decision": "insert",
+      "path": "images/page_013_tbl_table_3.png",
+      "reason": "固定子集留一消融",
+      "identity_match": true,
+      "visually_usable": true
+    }
+  ]
+}

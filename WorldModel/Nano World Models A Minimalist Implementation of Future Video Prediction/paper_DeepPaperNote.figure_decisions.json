@@ -1,0 +1,14 @@
+{
+  "paper": "Nano World Models: A Minimalist Implementation of Future Video Prediction",
+  "source_page_count": 19,
+  "decisions": [
+    {"figure":"Figure 1","decision":"skipped","reason":"首页总览以矢量图和大面积布局为主，方法流程已在笔记文字中重述；避免引用标题页截图作为主要证据。","source_page":"1","asset":null},
+    {"figure":"Figure 2","decision":"included","reason":"跨 Point Maze、Wall、Rope、Granular、PushT、RT-1 的 GT/rollout 定性总览，支撑跨域接口主张。","source_page":"6","asset":"images/figure2_qualitative_rollouts.jpg","evidence_limit":"只支持定性跨域可运行，不证明物理正确性或规划成功。"},
+    {"figure":"Figure 3","decision":"included","reason":"训练曲线、验证指标和可视化样例，支撑 logging/fixed-seed evaluation 的复现性讨论。","source_page":"7","asset":"images/figure3_logging_evaluation.png"},
+    {"figure":"Figure 4","decision":"included","reason":"展示 CS:GO rollout 经下游 depth/camera estimation 形成点云，说明 2D video 到 3D asset 的工具链边界。","source_page":"8","asset":"images/figure4_pointcloud_export.jpg","evidence_limit":"几何由外部重建后端产生。"},
+    {"figure":"Figure 5","decision":"included","reason":"CS:GO 50-frame long-horizon GT/rollout 定性证据。","source_page":"12","asset":"images/figure5_long_horizon_rollouts.png"},
+    {"figure":"Figure 6","decision":"included","reason":"LPIPS 随 rollout step 和 DDIM sampling budget 的误差累积曲线。","source_page":"12","asset":"images/page12_rollout_error.png","evidence_limit":"以整页渲染保存，图 5 也出现在同页。"}
+  ],
+  "included_count": 5,
+  "image_asset_count": 5
+}

@@ -1,0 +1,488 @@
+{
+  "status": "ok",
+  "script": "independent_validation_snapshot",
+  "paper_id": "arxiv:2608.10232",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "FACT first generates an action and then rolls out the resulting future video and task-",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:preamble",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "FACT architecture. (a) A shared causal diffusion transformer denoises action, value,",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Training and inference masks.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Real-world task overview. We show intermediate frame results for five tasks.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "and jointly denoises action, value, and future-video tokens. Its lower real-world seen-task",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "shows that, under",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Effect of failure data on future prediction. Under the same bad-action condition, the",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "Failure-data scaling on RoboTwin.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "visualizes a Pick Cubes rollout with a missed",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "Choices of different N. Relative",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:method-4",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 1",
+      "source_id": "Algorithm 1",
+      "kind": "figure",
+      "label": "Algorithm 1",
+      "caption": "Failure-aware co-training of FACT",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 2",
+      "source_id": "Algorithm 2",
+      "kind": "figure",
+      "label": "Algorithm 2",
+      "caption": "Rollout failures for co-training",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Algorithm 3",
+      "source_id": "Algorithm 3",
+      "kind": "figure",
+      "label": "Algorithm 3",
+      "caption": "Two-stage inference with optional candidate scoring",
+      "pages": [
+        14
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Seen real-world tasks. Rollout image sequences for the five seen tasks reported in Table 2,",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "Unseen real-world tasks. Held-out task variants used for Table 3, ordered from top to",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "shows the real-world platform used for the experiments in Sec. 4.2. The setup contains",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 11",
+      "source_id": "Figure 11",
+      "kind": "figure",
+      "label": "Figure 11",
+      "caption": "Real-world hardware setup. As shown in (a), we use two YAM arms, three RGB",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 12",
+      "source_id": "Figure 12",
+      "kind": "figure",
+      "label": "Figure 12",
+      "caption": "provides additional value-trace visualizations for the Stack Bowls and Stack Cubes tasks.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "provides an additional diagnostic for the value head discussed in Sec. 4.3. On the Stack",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "figure:Figure 13",
+      "source_id": "Figure 13",
+      "kind": "figure",
+      "label": "Figure 13",
+      "caption": "Action-conditioned value heat map. On Stack Cubes, the learned value head scores the",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "RoboTwin simulation results.",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Real-world results on seen tasks.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Unseen real-world task results.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Future prediction quality (PSNR ↑).",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:ablations",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Real-world task prompts. For real-world experiments, we use the prompts listed above",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "compares success rates with measured deployment latency on an RTX PRO 6000. Although",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "reports the full future-image prediction metrics for the ablation in Sec. 4.3, including",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Detailed RoboTwin results. Per-task success rates on 50 RoboTwin tasks under clean and",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Success rate and inference time. Success rates are averages from Sec. 4; latency is",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Future prediction quality. SSIM and PSNR on 512 held-out future-prediction samples,",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix",
+      "decision": "low_priority",
+      "reason": "仅用于本次 grounding 的独立决策快照；共享目录中的视觉冻结表保持不变。",
+      "skip_reason": "not_selected_for_note",
+      "priority": 99,
+      "target_section": ""
+    }
+  ],
+  "note": "不覆盖共享 figure_decisions.json；该快照仅避免旧 review 路径影响 grounding。"
+}

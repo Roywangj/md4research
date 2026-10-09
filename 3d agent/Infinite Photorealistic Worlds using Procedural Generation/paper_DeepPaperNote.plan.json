@@ -1,0 +1,48 @@
+{
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一套完整的自然世界程序化建模与数据生成系统，技术贡献横跨资产生成、场景组合、精细几何、标注提取和动态分辨率，并以立体匹配训练验证。",
+  "dominant_domain": "procedural 3D world generation and synthetic data",
+  "must_cover": ["完全程序化与真实几何", "节点图转译器", "自然资产生成子系统", "场景组合与动态分辨率", "几何真值提取", "立体匹配迁移与生成成本"],
+  "key_numbers": ["182 个程序化资产生成器、1070 个可解释自由度", "50 个程序化材质生成器", "平均每场景 1600 万三角形", "一对 1080p 立体图平均 3.5 小时墙钟时间、约 1 GPU 小时和 24GB 内存", "30K 立体图像对、RAFT-Stereo 训练 200K 步", "独立 Infinigen 测试 Bad 3.0 为 5.527%，Middlebury 平均为 29.7%"],
+  "real_comparisons": ["完全程序化资产与静态外部资产库的数据生成器", "真实网格细节与凹凸贴图、法线插值等伪几何", "Infinigen 与 SceneFlow、TartanAir、FallingThings 等训练数据对 RAFT-Stereo 的迁移", "自然场景优势与室内平面/无纹理表面弱点"],
+  "central_claims": [
+    {
+      "claim": "Infinigen 在不使用外部资产的前提下，从形状、材质、微观几何到场景组合都由随机程序生成。",
+      "supporting_evidence": [{"section_id": "sec:introduction"}, {"section_id": "sec:method"}, {"section_id": "sec:results"}, {"pages": [1, 19]}],
+      "what_it_actually_proves": "论文公开实现并统计 182 个生成器、1070 个可解释自由度和多个自然域子系统，且随机样本展示跨地形、植物、生物、水下与天气的覆盖。",
+      "what_it_does_not_prove": "有限的手写生成器族仍限定了拓扑与语义长尾；数学上可无限采样不等于分布上无重复或覆盖真实世界全部变化。"
+    },
+    {
+      "claim": "真实几何与自定义标注提取能为三维视觉提供比常规渲染通道更可靠的稠密真值。",
+      "supporting_evidence": [{"section_id": "sec:method"}, {"section_id": "sec:appendix-g-6-for-details"}, {"section_id": "sec:appendix-c-2-for-examples-of-these-issues"}, {"pages": [5, 8]}],
+      "what_it_actually_proves": "系统避免用凹凸贴图和透明遮罩伪造几何，并从网格直接计算深度、法线、遮挡边界、分割与边界框，规避透明、体积、运动模糊时的渲染通道错误。",
+      "what_it_does_not_prove": "没有对每种标注给出与真实传感器或人工真值的系统误差评估；真实几何仍受程序建模精度限制。"
+    },
+    {
+      "claim": "Infinigen 数据能补足自然对象在现有合成数据中的覆盖缺口。",
+      "supporting_evidence": [{"section_id": "sec:experiments"}, {"section_id": "sec:appendix"}, {"pages": [8, 19]}],
+      "what_it_actually_proves": "同一 RAFT-Stereo 架构在 30K Infinigen 对上训练后，在独立 Infinigen 测试和含植物的 Middlebury 样例上表现有优势，野外自然图像也有定性改善。",
+      "what_it_does_not_prove": "Middlebury 平均误差不是最佳，真实自然场景缺少定量真值，因此核心跨真实域结论主要依赖定性展示。"
+    },
+    {
+      "claim": "动态分辨率使超高细节网格能够按最终像素需求生成。",
+      "supporting_evidence": [{"section_id": "sec:appendix-g-6-for-details"}, {"pages": [7, 8]}],
+      "what_it_actually_proves": "资产在给定相机下被细分到单面小于一个像素，并用实例化复用密集散布对象；图中远近网格分辨率变化未造成明显渲染差异。",
+      "what_it_does_not_prove": "即便如此平均场景仍有 1600 万多边形，生成一对图像耗时 3.5 小时，未达到交互式世界生成。"
+    }
+  ],
+  "claim_boundaries": ["无限指参数化采样空间，而不是已证实的现实分布全覆盖。", "照片真实感主要由随机样本展示与下游立体任务间接支持，没有大规模人类感知或统一生成质量基准。", "真实自然场景的立体深度缺乏定量基准，使 sim-to-real 证据不完整。", "高几何精度伴随显著 CPU、GPU、内存和存储成本。"],
+  "negative_or_limiting_results": ["Infinigen 训练的 RAFT-Stereo 在 Middlebury 平均 Bad 3.0 为 29.7%，弱于 SceneFlow 的 25.0%，并在纯人造、平面或无纹理室内场景上较差。", "真实自然场景只有定性评估。", "一对 1080p 图像平均需 3.5 小时墙钟时间和约 1 GPU 小时。", "Table 2 的自由度统计可能高估，因为参数并非完全独立。"],
+  "mechanism_result_map": ["真实微几何让网格标注与渲染外观一致，因此更适合立体与深度任务。", "自然域生成器把训练分布从驾驶/室内资产扩展到叶片、枝条、珊瑚和地形，解释了植物样例上的迁移优势。", "动态分辨率和实例化按像素预算分配几何，使 1600 万面场景仍可离线生成，但不能消除高成本。", "节点图转译器把艺术家可编辑图变为可组合代码，扩大贡献者范围并允许随机化图结构。"],
+  "comparative_positioning": ["相对静态库路线，Infinigen 不复用外部网格，降低训练集对有限资产身份的过拟合风险。", "相对游戏资产，它拒绝伪几何捷径，优先保证三维真值准确而非实时性。", "相对通用室内/驾驶合成集，它专注自然世界，优势和失败都表现出强烈域偏置。"],
+  "reuse_takeaways": ["将艺术家节点图编译成代码，可以同时保留可视化创作界面与软件工程可组合性。", "几何细节应按相机投影像素自适应生成，而非在整个世界均匀使用最高分辨率。", "合成数据系统应使用同一模型的跨训练集对照，并主动报告目标域优势和非目标域退化。"],
+  "followup_questions": ["能否用真实图像或多模态模型自动拟合生成器参数分布，而不是人工调参？", "能否把 3.5 小时离线生成降到秒级，同时保留真实几何和精确标注？", "对自然域预训练的收益能否在深度、法线、光流和具身导航等多任务中稳定复现？"],
+  "section_plan": [
+    {"section": "研究问题", "weight": "medium", "focus": "说明现有合成数据为何受静态资产和人造环境偏置限制，以及自然世界和真实三维几何为何成为关键缺口。", "subsections": ["数据缺口", "问题边界"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:related-work"}]},
+    {"section": "数据与任务定义", "weight": "medium", "focus": "交代自然场景、资产自由度、生成标注与立体匹配实验的输入输出、规模、训练协议和测试域。", "subsections": ["生成空间", "标注与实验任务"], "evidence_sources": [{"section_id": "sec:method"}, {"section_id": "sec:experiments"}, {"section_id": "sec:appendix"}]},
+    {"section": "方法主线", "weight": "high", "focus": "重建节点图转译、概率资产生成、场景组合、像素自适应几何、渲染和网格真值提取的端到端执行链。", "subsections": ["机制流程", "资产与材质", "场景组合", "动态分辨率与真值"], "evidence_sources": [{"section_id": "sec:method"}, {"section_id": "sec:appendix-g-6-for-details"}, {"section_id": "sec:appendix-c-2-for-examples-of-these-issues"}, {"section_id": "sec:results"}]},
+    {"section": "关键结果", "weight": "high", "focus": "以生成器规模、资源成本、独立合成测试、真实自然图像和室内基准退化共同判断系统价值。", "subsections": ["覆盖与成本", "立体匹配迁移", "负面结果"], "evidence_sources": [{"section_id": "sec:experiments"}, {"section_id": "sec:appendix"}, {"section_id": "sec:results"}]},
+    {"section": "深度分析", "weight": "high", "focus": "区分程序空间无限、真实分布覆盖和照片真实感三种不同主张，并解释机制与立体任务结果的对应关系。", "subsections": ["真正贡献", "为何有效", "容易误读"], "evidence_sources": [{"section_id": "sec:introduction"}, {"section_id": "sec:method"}, {"section_id": "sec:experiments"}, {"section_id": "sec:appendix"}]},
+    {"section": "局限", "weight": "medium", "focus": "集中评估人工程序偏置、真实域定量证据缺口、自然域专化、自由度口径和高算力成本。", "subsections": ["覆盖与评测", "计算与工程"], "evidence_sources": [{"section_id": "sec:appendix-g-6-for-details"}, {"section_id": "sec:appendix-c-2-for-examples-of-these-issues"}, {"section_id": "sec:appendix"}, {"section_id": "sec:results"}]}
+  ]
+}
