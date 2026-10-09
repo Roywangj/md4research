@@ -1,0 +1,308 @@
+{
+  "paper": {
+    "title": "Native Action-Prior Learning from Videos for World Action Models",
+    "authors": [
+      "Zhaochong An",
+      "Fei Zhang",
+      "Menglin Jia",
+      "Duncan Frost",
+      "Zijian Zhou",
+      "Yikai Wang",
+      "Xudong Wang",
+      "Aditya Patel",
+      "Belinda Zeng",
+      "Tao Xiang",
+      "Serge Belongie",
+      "Amir Bar",
+      "Sen He"
+    ],
+    "year": 2026,
+    "arxiv": "2610.03391v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QDPQ5QXT/An 等 - 2026 - Native Action-Prior Learning from Videos for World Action Models.pdf",
+    "reader_file": "detailed_paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "selectable-text PDF",
+    "pages": 27
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Introduction of NAVA-WAM and native action-prior learning from observation-only videos."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-3",
+      "summary": "Scaling bottleneck of WAMs, limitations of vision representation and latent-action paradigms, core contributions of NAVA-WAM."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "2",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png",
+      "summary": "Paradigms of leveraging observation-only videos for robot policy learning."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3-4",
+      "summary": "World action models (cascaded vs joint) and learning robot policies from observation-only videos."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3 Method: NAVA-WAM",
+      "pages": "4-7",
+      "summary": "Preliminaries (3.1), Native action-prior pre-training (3.2), Downstream post-training and action-only inference (3.3)."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3 Method",
+      "pages": "4",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png",
+      "summary": "Overview of NAVA-WAM architecture, pre-training and downstream post-training pipelines."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "7-10",
+      "summary": "Setup (4.1), Main simulation results and Franka FR3 deployment (4.2), Ablations and analysis (4.3)."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "4.2 Main Results",
+      "pages": "7",
+      "label": "Table 1",
+      "asset": "assets/table_1.png",
+      "summary": "Comprehensive benchmark results on LIBERO/LIBERO-Plus and RoboTwin 2.0 Clean/Random."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "4.2 Main Results",
+      "pages": "7",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png",
+      "summary": "Real-robot evaluation on a Franka FR3 arm across three tabletop manipulation tasks."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "4.3 Ablation Studies",
+      "pages": "8",
+      "label": "Table 2",
+      "asset": "assets/table_2.png",
+      "summary": "Ablation studies on RoboTwin 2.0: (a) pre-training & label efficiency, (b) action relevance R2, (c) inference efficiency."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "4.3 Ablation Studies",
+      "pages": "8",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png",
+      "summary": "Attention maps from learned action representations to visual tokens on held-out data."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "4.3 Ablation Studies",
+      "pages": "9",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png",
+      "summary": "Qualitative visualization of motion transfer across simulation, real-world, and sim-to-real domains."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.3 Ablation Studies",
+      "pages": "9",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png",
+      "summary": "Scaling observation-only pre-training corpus size under 10 and 50 demonstrations per task."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "5 Conclusion and Limitations",
+      "pages": "10",
+      "summary": "Conclusion, future directions, and acknowledgements."
+    },
+    {
+      "id": "S007",
+      "type": "references",
+      "section": "References",
+      "pages": "10-15",
+      "summary": "Complete references [1]-[95] retained in original bibliographic form."
+    },
+    {
+      "id": "S008",
+      "type": "appendix",
+      "section": "Appendix A: Theoretical Analysis",
+      "pages": "16-17",
+      "summary": "Proposition A.1 on transition representation predictive value and Proposition A.2 on Gaussian corruption preventing target copying."
+    },
+    {
+      "id": "S009",
+      "type": "appendix",
+      "section": "Appendix B: Implementation Details",
+      "pages": "17-20",
+      "summary": "Pre-training data and optimization (B.1), downstream post-training (B.2), attention masks (B.3), benchmark protocols (B.4), action-only inference (B.5, Algorithm 1)."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Appendix B.2",
+      "pages": "18",
+      "label": "Table 3",
+      "asset": "assets/table_3.png",
+      "summary": "Downstream training hyperparameters on LIBERO (cold start and joint post-training)."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Appendix B.2",
+      "pages": "18",
+      "label": "Table 4",
+      "asset": "assets/table_4.png",
+      "summary": "Downstream training hyperparameters on RoboTwin 2.0 (cold start and joint post-training)."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix B.3",
+      "pages": "19",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png",
+      "summary": "Detailed transition-structured attention masks for pre-training and post-training across segments."
+    },
+    {
+      "id": "S010",
+      "type": "appendix",
+      "section": "Appendix C: Additional Experimental Results",
+      "pages": "20-27",
+      "summary": "Pre-training dynamics (C.1), motion transfer qualitative analysis (C.2), detailed benchmark breakdowns (C.3), RoboTwin rollouts (C.4), real-robot evaluation details (C.5)."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix C.1",
+      "pages": "21",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png",
+      "summary": "Native action-prior pre-training loss dynamics over 14k steps."
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix C.1",
+      "pages": "21",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png",
+      "summary": "Future-video predictions on held-out egocentric manipulation clips."
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix C.2",
+      "pages": "22",
+      "label": "Figure 10",
+      "asset": "assets/figure_10.png",
+      "summary": "Additional qualitative visualizations of motion transfer across simulation, real-world, and sim-to-real domains."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix C.3",
+      "pages": "23",
+      "label": "Table 5",
+      "asset": "assets/table_5.png",
+      "summary": "Per-suite success rates on LIBERO (Spatial, Object, Goal, Long)."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix C.3",
+      "pages": "23",
+      "label": "Table 6",
+      "asset": "assets/table_6.png",
+      "summary": "Per-perturbation success rates on LIBERO-Plus across 7 perturbation types."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix C.3",
+      "pages": "24",
+      "label": "Table 7",
+      "asset": "assets/table_7.png",
+      "summary": "Per-task success rates on RoboTwin 2.0 across all 50 tasks in Clean and Random domains."
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "Appendix C.4",
+      "pages": "25",
+      "label": "Figure 11",
+      "asset": "assets/figure_11.png",
+      "summary": "Qualitative NAVA-WAM rollouts on RoboTwin 2.0 Random domain showing 7 successes and 2 failures."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix C.5",
+      "pages": "26",
+      "label": "Table 8",
+      "asset": "assets/table_8.png",
+      "summary": "Real-robot success rates on Franka FR3 and per-call/per-action inference latency."
+    },
+    {
+      "id": "S011",
+      "type": "appendix",
+      "section": "Appendix D: Limitations",
+      "pages": "27",
+      "summary": "Discussion of fine-grained contact-rich manipulation challenges and lack of local execution error recovery."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png"
+  ],
+  "notes": {
+    "page_count_checked": true,
+    "total_pages": 27,
+    "reference_pages": "10-15",
+    "references_count": 95,
+    "appendices_present": true,
+    "appendices_scope": "Appendices A-D covering pages 16 to 27 (Note: paper ends with Appendix D Limitations on page 27)",
+    "table_transcription": "All 8 tables (Tables 1-8) transcribed into complete, searchable Markdown tables",
+    "visual_assets": "All 19 figures and tables matched to assets/ local PNG crops"
+  }
+}

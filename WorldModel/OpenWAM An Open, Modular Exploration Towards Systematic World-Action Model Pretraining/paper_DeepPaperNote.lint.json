@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线、关键结果、深度分析、局限、我的笔记与引用等全量必须章节与子章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的18张Figure与14张Table高清裁剪图均真实存在于images/目录下，相对路径解析无断链且显示正常"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "518.5M预训练帧数、6,369预训练小时数、80维统一控制空间、170ms RTX 5090推理延迟、99.3% LIBERO、69.2% LIBERO-Plus、60.5% RoboCasa-GR1、82.5% Franka单臂实机、37.6/24.4% RoboDojo双臂实机总评等核心数据严格与论文43页正文及附录一致"
+    },
+    {
+      "name": "No Hallucination",
+      "status": "PASSED",
+      "detail": "严格基于论文43页extracted_text.txt原文提取，准确传达OpenWAM-Infra解耦机制、OpenWAM-Study六大设计原则、OpenWAM-α模型实现、实验消融以及与近邻工作（InternW0-Δ、Fast-WAM、ImageWAM等）的技术生态横向对比"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "paper": {
+    "title": "OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining",
+    "short_title": "OpenWAM",
+    "year": 2026,
+    "venue": "arXiv:2609.07398v1",
+    "team": "National University of Singapore, Tsinghua University, Peking University, The University of Hong Kong, Zhejiang University, The Chinese University of Hong Kong, Shanghai Jiao Tong University",
+    "authors": "Yuran Wang, Siqiao Huang, Mingleyang Li, Chenhao Zhang, Jiaqi Liang, Weiyang Jin, Yue Chen, Xuemin Chi, Donghao Zhou, Qize Yu, Yu-Kai Wang, Yuhan Rui, Shenzhe Yao, Zhen Yuan, Zhenhao Shen, Kefei Zhu, Zijie Zhu, Ning Gao, Xiaowei Chi, Guanqi He, Shanghang Zhang, Hao Dong, Lin Shao, Hang Zhao"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总联合研究团队（NUS/清华/北大/港大/浙大/中大/上交）、核心项目链接、模型体量与跨基准跨实体巅峰战绩"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达解耦模块化基建、系统实证探索与全开源基础模型的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：解耦模块化基建、6大设计原则实证闭环、S-VAE隐空间紧凑对齐、80维统一控制空间、518.5M帧跨域联合预训练、170ms低延迟加速推理"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 OpenWAM 在具身世界-动作模型领域的里程碑地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深剖现有单体式WAM（Monolithic WAMs）紧耦合导致的归因黑盒痛点，解析为什么模块化解耦是世界动作模型预训练的必由之路"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述518.5M帧/6,369小时多域预训练数据集配比、双层清洗管线（视觉级+信号级）、8大仿真基准与3大真实机器人平台任务覆盖"
+    },
+    {
+      "section": "方法主线",
+      "goal": "拆解机制流程、OpenWAM-Infra解耦三元组C(E, S, M)、OpenWAM-Study 6大设计原则（Q1~Q6）、OpenWAM-α基础模型架构、80维统一控制空间与CUDA Graphs/DiT Cache加速栈"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现OpenWAM-Study消融实验（Table 1-3, Fig 6-11）、8大仿真基准评测（LIBERO, LIBERO-Plus, VLABench, RoboTwin 2.0 Full/C2R, RoboDojo, EBench, RoboCasa365, RoboCasa-GR1）、真实机器人跨具身实验（Franka单臂, ARX X5/Piper双臂, 无极手+天机臂灵巧手）以及VLA vs WAM范式之争深度对比"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透表象提炼真正贡献、剖析为何结果成立、厘清容易误读的盲区（在线视频开销、80维掩码梯度、单阶段混合），并给出工程复现踩坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出像素级隐空间视觉扰动脆弱性、UMI式丰富动作数据缺席、后训练自适应机制待探索与统一多模态融合受限等瓶颈"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与InternW0-Δ, FastWAM, ImageWAM, Beyond Future Prediction, Motus2, SimpleMemVLA, π0.5等进行深度生态位横向对比与技术路线定位"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用格式记录"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "paper": {
+    "title": "Long-WAM: Scaling the Context of World-Action Models",
+    "authors": [
+      "Wei Huang",
+      "Bohan Zhang",
+      "Chenzhi Liu",
+      "Isabella Liu",
+      "Shuai Yang",
+      "Weian Mao",
+      "Luozhou Wang",
+      "Yicheng Xiao",
+      "Weifeng Lin",
+      "Qixin Hu",
+      "Bryan Chu",
+      "Sifei Liu",
+      "Linxi \"Jim\" Fan",
+      "Xiaojuan Qi",
+      "Song Han",
+      "Yukang Chen"
+    ],
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2610.10528v1",
+    "zotero_key": "YUGJ3HC7",
+    "attachment_key": "YUGJ3HC7",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/YUGJ3HC7/Huang 等 - 2026 - Long-WAM Scaling the Context of World-Action Models.pdf",
+    "reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "page_count": 28
+  },
+  "notes": {
+    "mode": "full-paper bilingual semantic reader",
+    "paragraph_numbering": "reset by major section",
+    "reference_policy": "59 references retained in original scholarly bibliographic format with sequential numbering.",
+    "layout_note": "Includes all 28 visual elements (16 figures, 12 tables) with local assets in assets/ and searchable Markdown tables.",
+    "appendix_note": "Complete Appendices A-H fully transcribed in bilingual pairs."
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Real-time WAM context scaling, autoregressive pretraining finding, and system overview."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-2",
+      "summary": "Physical history vs latency dilemma, AR vs bidirectional pretraining, and core empirical results."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "2-3",
+      "summary": "Positioning relative to WAMs, memory scaling, and real-time generative control."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3.1 Pretraining",
+      "pages": "3-4",
+      "summary": "LongLive2.0-Robot dataset composition, teacher-forcing sequence-parallel AR pretraining, and error recycling."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "3.2 Adaptation",
+      "pages": "4",
+      "summary": "Causal-to-causal asymmetric coupling, IDM predict-then-act inference, and flow matching objectives."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "3.3 Context Scaling",
+      "pages": "4",
+      "summary": "Controlled sweep over 0 to 38.4 seconds of real physical observation history."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "4.1 Asynchronous Execution",
+      "pages": "4-5",
+      "summary": "Pure asynchronous overlapping without trajectory blending, handoff deadline, and streaming VAE."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "4.2 Edge Deployment",
+      "pages": "5-6",
+      "summary": "NVFP4 quantization, CUDA Graph, online softmax, and device-specific kernel tuning for RTX 5090, Spark, Thor."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "5.1 Implementation",
+      "pages": "6-7",
+      "summary": "Compute resources (64 H100s, 16 GB200s), AdamW hyperparameters, and robot platforms."
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "5.2 Simulation Benchmarks",
+      "pages": "7-8",
+      "summary": "Evaluation on LIBERO, RoboTwin 2.0, DOMINO, and RoboCasa GR-1."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "5.3 Ablation Studies",
+      "pages": "8-9",
+      "summary": "Context scaling peak analysis, AR vs bidirectional divergence, and IDM vs CoD vs w/o V."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "6 Hierarchical Planning",
+      "pages": "9",
+      "summary": "RoboCasa365 atomic skill execution and GPT-6 Astra composition on unseen tasks."
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "6.1 Real-World Deployment",
+      "pages": "10-11",
+      "summary": "Dynamic conveyor grasping and cup stacking on Unitree G1, long-horizon manipulation on YAM."
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "6.2 Efficiency",
+      "pages": "11-12",
+      "summary": "RTX 5090 107.4 ms latency, pure async smoothness, and cumulative 3.2-4.1x speedup decomposition."
+    },
+    {
+      "id": "S015",
+      "type": "references",
+      "section": "References",
+      "pages": "12-16",
+      "summary": "59 scholarly bibliographic citations."
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "Appendix A",
+      "pages": "17",
+      "summary": "Discussion, division of labor between planning and execution, and adaptive context horizon."
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Appendix B",
+      "pages": "17-18",
+      "summary": "Pretraining data breakdown (Table 9), teacher-forcing error recycling formulation, and cache scope."
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Appendix C",
+      "pages": "18-19",
+      "summary": "Qualitative video generation rollouts with LongLive2.0-Robot (Figure 9)."
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "Appendix D",
+      "pages": "18-19",
+      "summary": "Detailed citations and configurations for policy and WAM baselines."
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "Appendix E",
+      "pages": "19-20",
+      "summary": "RoboTwin 2.0 overlap length sweep (Table 10), overlap RMSE, Jerk proxy, and decision frequency trade-off."
+    },
+    {
+      "id": "S021",
+      "type": "body",
+      "section": "Appendix F",
+      "pages": "20-21",
+      "summary": "IDM vs CoD latency protocol (Table 11), compute rates, and observed-video KV reuse speedups."
+    },
+    {
+      "id": "S022",
+      "type": "body",
+      "section": "Appendix G",
+      "pages": "21",
+      "summary": "Latency vs context length on RTX 5090 (Table 12)."
+    },
+    {
+      "id": "S023",
+      "type": "body",
+      "section": "Appendix H",
+      "pages": "21-28",
+      "summary": "Additional real-world deployment rollouts for G1 and YAM (Figures 10-16)."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/figure_13.png",
+    "assets/figure_14.png",
+    "assets/figure_15.png",
+    "assets/figure_16.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12.png"
+  ],
+  "glossary": [
+    {
+      "term": "World-Action Model (WAM)",
+      "translation": "世界-动作模型",
+      "note": "Unified foundation model linking visual dynamics prediction with robot action execution."
+    },
+    {
+      "term": "Inverse Dynamics Modeling (IDM)",
+      "translation": "逆动力学建模",
+      "note": "Predict-then-act inference: first predicts future latents, then conditions action denoising on both history and predicted futures."
+    },
+    {
+      "term": "Co-Denoising (CoD)",
+      "translation": "协同去噪 / 联合去噪",
+      "note": "Joint bidirectional denoising of future video and action tokens across steps."
+    },
+    {
+      "term": "Streaming VAE",
+      "translation": "流式变分自编码器",
+      "note": "Incremental visual encoding overlapping observation chunks with robot execution to avoid trigger stalls."
+    },
+    {
+      "term": "Pure Asynchronous Execution",
+      "translation": "纯异步执行",
+      "note": "Model inference fully overlapped with robot movement without trajectory blending or test-time guidance."
+    },
+    {
+      "term": "NVFP4 Quantization",
+      "translation": "NVFP4 浮点量化",
+      "note": "Native 4-bit floating point weight and activation quantization on NVIDIA Blackwell architecture."
+    },
+    {
+      "term": "Online Softmax",
+      "translation": "在线 Softmax",
+      "note": "Numerically stable cross-segment attention fusion without physical tensor concatenation of video and action KV."
+    }
+  ]
+}

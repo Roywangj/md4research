@@ -1,0 +1,120 @@
+{
+  "figures": [
+    {
+      "label": "Figure 1",
+      "decision": "insert",
+      "asset": "images/figure_1.png",
+      "rationale": "Three paradigms of leveraging observation-only videos for robot policy learning"
+    },
+    {
+      "label": "Figure 2",
+      "decision": "insert",
+      "asset": "images/figure_2.png",
+      "rationale": "NAVA-WAM architecture, native action-prior pre-training, downstream post-training, and inference decoupling"
+    },
+    {
+      "label": "Figure 3",
+      "decision": "insert",
+      "asset": "images/figure_3.png",
+      "rationale": "Real-robot Franka FR3 evaluation results across three tasks and multi-camera rollout views"
+    },
+    {
+      "label": "Figure 4",
+      "decision": "insert",
+      "asset": "images/figure_4.png",
+      "rationale": "Action representation cross-attention visualization comparing Action-DiT vs CoMo baseline"
+    },
+    {
+      "label": "Figure 5",
+      "decision": "insert",
+      "asset": "images/figure_5.png",
+      "rationale": "Cross-domain motion transfer qualitative results across simulation, real, and sim-to-real pairs"
+    },
+    {
+      "label": "Figure 6",
+      "decision": "insert",
+      "asset": "images/figure_6.png",
+      "rationale": "Observation-only pre-training corpus scaling curve on RoboTwin 2.0 Random domain"
+    },
+    {
+      "label": "Figure 7",
+      "decision": "insert",
+      "asset": "images/figure_7.png",
+      "rationale": "Detailed transition-structured attention masks for pre-training and downstream post-training"
+    },
+    {
+      "label": "Figure 8",
+      "decision": "insert",
+      "asset": "images/figure_8.png",
+      "rationale": "Training and held-out future-video flow-matching loss convergence curves"
+    },
+    {
+      "label": "Figure 9",
+      "decision": "insert",
+      "asset": "images/figure_9.png",
+      "rationale": "Held-out egocentric manipulation future-video prediction quality after native action-prior pre-training"
+    },
+    {
+      "label": "Figure 10",
+      "decision": "insert",
+      "asset": "images/figure_10.png",
+      "rationale": "Additional qualitative visualizations of cross-domain motion transfer from Appendix C.2"
+    },
+    {
+      "label": "Figure 11",
+      "decision": "insert",
+      "asset": "images/figure_11.png",
+      "rationale": "RoboTwin 2.0 Random-domain rollouts showcasing 7 successful bimanual tasks and 2 contact-rich failure modes"
+    }
+  ],
+  "tables": [
+    {
+      "label": "Table 1",
+      "decision": "transcribe_and_embed",
+      "asset": "images/table_1.png",
+      "rationale": "Main simulation results on LIBERO, LIBERO-Plus, and RoboTwin 2.0 Clean and Random"
+    },
+    {
+      "label": "Table 2",
+      "decision": "transcribe_and_embed",
+      "asset": "images/table_2.png",
+      "rationale": "RoboTwin 2.0 ablations: label efficiency, Ridge regression R2 probing, and inference TFLOPs"
+    },
+    {
+      "label": "Table 3",
+      "decision": "transcribe",
+      "asset": "images/table_3.png",
+      "rationale": "LIBERO downstream cold start and joint post-training hyperparameters"
+    },
+    {
+      "label": "Table 4",
+      "decision": "transcribe",
+      "asset": "images/table_4.png",
+      "rationale": "RoboTwin 2.0 downstream cold start and joint post-training hyperparameters"
+    },
+    {
+      "label": "Table 5",
+      "decision": "transcribe",
+      "asset": "images/table_5.png",
+      "rationale": "Detailed LIBERO per-suite breakdown across Spatial, Object, Goal, and Long"
+    },
+    {
+      "label": "Table 6",
+      "decision": "transcribe",
+      "asset": "images/table_6.png",
+      "rationale": "Detailed LIBERO-Plus per-perturbation breakdown across 7 distribution shifts"
+    },
+    {
+      "label": "Table 7",
+      "decision": "transcribe",
+      "asset": "images/table_7.png",
+      "rationale": "RoboTwin 2.0 50-task comprehensive Clean and Random domain per-task breakdown"
+    },
+    {
+      "label": "Table 8",
+      "decision": "transcribe_and_embed",
+      "asset": "images/table_8.png",
+      "rationale": "Real-robot Franka FR3 success rates per task and server-side latency breakdown"
+    }
+  ]
+}

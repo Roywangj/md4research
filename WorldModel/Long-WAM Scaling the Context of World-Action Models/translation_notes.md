@@ -1,0 +1,32 @@
+# Translation Notes | 翻译与文献处理说明
+
+- **文献来源**：Zotero 条目与附件存储目录 `YUGJ3HC7`，对应官方 PDF 文件 `Huang 等 - 2026 - Long-WAM Scaling the Context of World-Action Models.pdf`（28 页完整版，涵盖全部正文与附录 A–H）。
+- **抽取与翻译范围**：
+  - 完整涵盖论文封面元数据、摘要、1 节引言、2 节相关工作、3 节 Long-WAM 架构（3.1 自回归视频预训练、3.2 世界-动作适配、3.3 上下文扩展）、4 节系统基础设施与高效推理（4.1 异步执行与流式 VAE、4.2 边缘端高效部署）、5 节实验评测（5.1 实现细节、5.2 仿真基准评测、5.3 消融实验）、6 节原子技能与复合规划（6.1 真机部署、6.2 推理效率分析）、59 条完整参考文献、以及全部 8 个附录（Appendix A 讨论与结论、Appendix B 数据与训练细节、Appendix C 视频预测展示、Appendix D 基线细节、Appendix E 异步重叠步长讨论、Appendix F IDM 与 CoD 对比、Appendix G 上下文相关延迟、Appendix H 更多真机部署可视化）。
+- **视觉资产与图表对齐**：
+  - 论文包含全部 28 个视觉资产：Figure 1 至 Figure 16，Table 1 至 Table 12。
+  - 所有资产均通过相对路径 `assets/figure_X.png` 与 `assets/table_X.png` 准确链接。
+  - 所有 12 张表格均在图像链接后紧跟完整的原生 Markdown 检索表格，保留完整的行列表头与精确数值，并紧跟中英文对照的 `**Caption:**` 与 `**Caption[CN]:**`。
+- **数学公式与排版规范**：
+  - 行内公式均使用 `$...$` 严格排版；
+  - 独立块级公式（式 1 至式 6 及未编号公式）均置于引用块 `>` 之外，采用独立 `$$...$$` 语法，严格避免任何 `\(...\)` 或 `\[...\]` 定界符。
+- **段落组织与双语配对**：
+  - 严格采用 Nature Reader Detail 标准规范，每一自然段均由带有彩标的英文段落与紧随其后的严谨学术中文翻译配对：
+    - `> <span style="color:#3B82F6"><strong>Para. X:</strong></span> English text...`
+    - `> <span style="color:#F59E0B"><strong>Para. X[CN]:</strong></span> 严谨专业学术中文翻译...`
+  - 每一主章节重新从 `Para. 1` 开始编号，确保中英文编号严格成对一致。
+- **核心术语统一**：
+  - `World-Action Model (WAM)` 译为“世界-动作模型（WAM）”；
+  - `Autoregressive (AR)` 译为“自回归（AR）”；
+  - `Inverse Dynamics Modeling (IDM)` 译为“逆动力学建模（IDM）”；
+  - `Co-Denoising (CoD)` 译为“协同去噪 / 联合去噪（CoD）”；
+  - `Streaming VAE` 译为“流式变分自编码器（Streaming VAE）”；
+  - `Pure Asynchronous Execution` 译为“纯异步执行”；
+  - `Teacher-Forcing` 译为“强制教学 / 教师引导”；
+  - `Error Recycling` 译为“误差复用 / 误差循环”；
+  - `Jerk` 译为“跃度 / 加加速度”；
+  - `Overlap RMSE` 译为“重叠均方根误差”；
+  - `Handoff` 译为“动作交接 / 移交”；
+  - `Online Softmax` 译为“在线 Softmax”。
+- **文件一致性保障**：
+  - `paper.md` 严格作为 `detailed_paper.md` 的逐字节相同副本（SHA-256 完全一致），并通过官方验证脚本 `--require-identical` 的自动化严苛检验。

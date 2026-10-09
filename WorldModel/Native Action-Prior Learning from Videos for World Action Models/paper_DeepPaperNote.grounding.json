@@ -1,0 +1,19 @@
+{
+  "status": "grounded",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/QDPQ5QXT/An 等 - 2026 - Native Action-Prior Learning from Videos for World Action Models.pdf",
+  "pages": 27,
+  "evidence": [
+    "abstract",
+    "method equations 1-13",
+    "propositions A.1-A.2 and formal proofs",
+    "Tables 1-8",
+    "Figures 1-11",
+    "References 1-70",
+    "Appendix B hyperparameter specifications (Tables 3-4)"
+  ],
+  "caveats": [
+    "Observation-only pretraining data consists of Open X-Embodiment, AgiBotWorld, and EgoDex totaling 1,054.3 hours",
+    "Zero-shot deployment without task-specific fine-tuning on physical Franka FR3",
+    "Downstream RoboTwin 2.0 trained exclusively on Clean domain and evaluated on Random OOD"
+  ]
+}

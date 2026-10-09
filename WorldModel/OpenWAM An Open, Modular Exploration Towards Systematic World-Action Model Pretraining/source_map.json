@@ -1,0 +1,166 @@
+{
+  "paper": {
+    "title": "OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining",
+    "authors": [
+      "Yuran Wang",
+      "Siqiao Huang",
+      "Mingleyang Li",
+      "Chenhao Zhang",
+      "Jiaqi Liang",
+      "Weiyang Jin",
+      "Yue Chen",
+      "Xuemin Chi",
+      "Donghao Zhou",
+      "Qize Yu",
+      "Yu-Kai Wang",
+      "Yuhan Rui",
+      "Shenzhe Yao",
+      "Zhen Yuan",
+      "Zhenhao Shen",
+      "Kefei Zhu",
+      "Zijie Zhu",
+      "Ning Gao",
+      "Xiaowei Chi",
+      "Guanqi He",
+      "Shanghang Zhang",
+      "Hao Dong",
+      "Lin Shao",
+      "Hang Zhao"
+    ],
+    "year": 2026,
+    "version": "arXiv:2609.07398v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/6IMBVEAT/Wang 等 - 2026 - OpenWAM An Open, Modular Exploration Towards Systematic World-Action Model Pretraining.pdf",
+    "reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "pages": 43,
+    "sha256": "09606aafdd27a377b669331c2d11ad87c11dbba31066689c8d48d9fd2f28151b"
+  },
+  "attachments": {
+    "canonical": {
+      "storage_key": "6IMBVEAT",
+      "path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/6IMBVEAT/Wang 等 - 2026 - OpenWAM An Open, Modular Exploration Towards Systematic World-Action Model Pretraining.pdf"
+    }
+  },
+  "inventory": {
+    "figures": 21,
+    "tables": 20,
+    "equations": 6,
+    "references": 108,
+    "appendices": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "algorithm_count": 0,
+    "acknowledgments_present": false
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract and 1 Introduction",
+      "pages": "1-4",
+      "summary": "Core motivation, Wang Yangming quote, three research questions, and contributions overview."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "4-5",
+      "summary": "World-Action models, open robot research ecosystems, and empirical model design methodology."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "3 OpenWAM-Infra",
+      "pages": "5-10",
+      "summary": "Modular composable model (streams, modules, 6 architectures), training runtime, deployment runtime, evaluation protocol."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "4 OpenWAM-Study",
+      "pages": "11-16",
+      "summary": "Controlled studies on inheriting world priors, building world-action synergy, and consolidating across domains."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "5 OpenWAM-α",
+      "pages": "17-26",
+      "summary": "Pretrained model architecture, 6.4K-hour heterogeneous data curation, 8 simulation benchmarks, and real-robot evaluations."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "6 Conclusions and References",
+      "pages": "26-32",
+      "summary": "Concluding remarks and 108 bibliographic citations."
+    },
+    {
+      "id": "S007",
+      "type": "appendix",
+      "section": "Appendices A-D",
+      "pages": "33-43",
+      "summary": "Limitations and future work, training hyperparameters (Tables 9-10), real-robot protocols (Tables 11-12, Figures 18-21), and full benchmark results (Tables 13-20)."
+    },
+    {
+      "id": "F001-F021",
+      "type": "figures",
+      "section": "Figures 1-21",
+      "pages": "1-38",
+      "summary": "21 figures covering system overview, model architectures, serving latency, empirical study curves, and real-robot setups."
+    },
+    {
+      "id": "T001-T020",
+      "type": "tables",
+      "section": "Tables 1-20",
+      "pages": "13-43",
+      "summary": "20 tables covering architecture ablations, recipe summary, pretraining data mixtures, real-robot evaluations, hyperparameters, and simulation benchmark results."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/figure_13.png",
+    "assets/figure_14.png",
+    "assets/figure_15.png",
+    "assets/figure_16.png",
+    "assets/figure_17.png",
+    "assets/figure_18.png",
+    "assets/figure_19.png",
+    "assets/figure_20.png",
+    "assets/figure_21.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12.png",
+    "assets/table_13.png",
+    "assets/table_14.png",
+    "assets/table_15.png",
+    "assets/table_16.png",
+    "assets/table_17.png",
+    "assets/table_18.png",
+    "assets/table_19.png",
+    "assets/table_20.png"
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "系统全景图：OpenWAM-Infra解耦基建、OpenWAM-Study实证设计原则与OpenWAM-α基础模型全局技术路线"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "OpenWAM-Infra模型基建：视觉编码器E、流主干S与注意力掩码M三元组组合及六大网络架构变体"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "RTX 5090推理延迟消融：torch.compile与DiT速度缓存带来2.0x~2.6x加速，实现170ms实时控制"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "统一评测基建：WebSocket轻量级客户端-服务器流式交互与80维统一动作空间Scatter/Gather变换"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "视频生成主干参数规模拓展定律：从1.3B扩展至14B时下游动作成功率单调提升"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "视觉表征隐空间对比：S-VAE降维适配器使语义编码器（DINOv3/V-JEPA）匹敌像素重构编码器"
+    },
+    {
+      "figure_id": "Figure 8",
+      "file": "images/figure_8.png",
+      "role": "训练期流间信息流动注意力可见性掩码策略（Isolated, Video Sees Action, Action Sees Video, Mutual）"
+    },
+    {
+      "figure_id": "Figure 9",
+      "file": "images/figure_9.png",
+      "role": "推理期去噪调度消融：方差漂移与线性偏移异步流调度对比同步对角线调度"
+    },
+    {
+      "figure_id": "Figure 10",
+      "file": "images/figure_10.png",
+      "role": "具身预训练核心增益定位：RoboTwin-C2R上OOD泛化成功率暴涨+12.12pp"
+    },
+    {
+      "figure_id": "Figure 11",
+      "file": "images/figure_11.png",
+      "role": "预训练前后注意力可见性掩码偏好逆转：数据充足时Mutual双向交互全面占优"
+    },
+    {
+      "figure_id": "Figure 12",
+      "file": "images/figure_12.png",
+      "role": "OpenWAM-α基础模型总览：双流DiT网络架构、预训练数据配比、同步去噪与80维控制空间定义"
+    },
+    {
+      "figure_id": "Figure 14",
+      "file": "images/figure_14.png",
+      "role": "八大仿真基准宏观对比总览：OpenWAM-α与顶尖VLA/WAM在不同具身平台上的战力分布"
+    },
+    {
+      "figure_id": "Figure 15",
+      "file": "images/figure_15.png",
+      "role": "单臂预训练数据量对比与LIBERO-Plus缺陷深度归因分析"
+    },
+    {
+      "figure_id": "Figure 16",
+      "file": "images/figure_16.png",
+      "role": "VLA与WAM范式之争细粒度对比：分布内WAM拟合更优，分布外VLA鲁棒性更强"
+    },
+    {
+      "figure_id": "Figure 17",
+      "file": "images/figure_17.png",
+      "role": "真实机器人实验平台全景：Franka单臂、RoboDojo双臂（ARX X5/Piper/Piper X）与无极手+天机臂"
+    },
+    {
+      "figure_id": "Figure 18",
+      "file": "images/figure_18.png",
+      "role": "Franka单臂真实机器人实验工作区布置与6项操作任务台面"
+    },
+    {
+      "figure_id": "Figure 20",
+      "file": "images/figure_20.png",
+      "role": "无极手+天机臂高自由度灵巧手实体机器人操作评测环境与传感器视角"
+    },
+    {
+      "figure_id": "Figure 21",
+      "file": "images/figure_21.png",
+      "role": "灵巧手四项复杂物理任务执行阶段分解与ID/OOD环境扰动设置"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "网络架构容量消融对比表（Single-System vs Dual-System vs Tri-System）"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "训练期信息流动掩码消融表（动作端需要世界端信息注入）"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "OpenWAM-Study累积实验设计决策与承接原则表"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "518.5M帧 / 6,369小时跨域多具身预训练数据集多维统计表"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "LIBERO-Plus七大扰动维度下游评测战绩表"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "Franka单臂6项真实机器人评测任务战绩表"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "RoboDojo双臂18项真实机器人评测任务权威评测表"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "无极手+天机臂4项复杂灵巧手实机任务ID/OOD战绩表"
+    },
+    {
+      "table_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "OpenWAM-α大规模分布式预训练超参数与配置表"
+    },
+    {
+      "table_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "下游基准微调（SFT）超参数配置表"
+    },
+    {
+      "table_id": "Table 13",
+      "file": "images/table_13.png",
+      "role": "LIBERO仿真基准全量评测表"
+    },
+    {
+      "table_id": "Table 15",
+      "file": "images/table_15.png",
+      "role": "RoboTwin 2.0 Clean2Random仿真评测表"
+    },
+    {
+      "table_id": "Table 16",
+      "file": "images/table_16.png",
+      "role": "RoboTwin 2.0 Full仿真评测表"
+    },
+    {
+      "table_id": "Table 17",
+      "file": "images/table_17.png",
+      "role": "RoboDojo仿真基准综合评测表"
+    },
+    {
+      "table_id": "Table 18",
+      "file": "images/table_18.png",
+      "role": "EBench移动双臂长时程仿真评测表"
+    }
+  ]
+}
