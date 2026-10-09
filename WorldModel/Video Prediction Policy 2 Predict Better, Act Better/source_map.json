@@ -1,0 +1,323 @@
+{
+  "paper": {
+    "title": "Video Prediction Policy 2: Predict Better, Act Better",
+    "authors": [
+      "Yanjiang Guo",
+      "Haodong Yan",
+      "Zhide Zhong",
+      "Zhongru Zhang",
+      "Qingyuan Yang",
+      "Qingzhou Lu",
+      "Xiaoyu Chen",
+      "Yen-Jen Wang",
+      "Shuying Deng",
+      "Chenghan Yang",
+      "Puzhen Yuan",
+      "Chenxin Liu",
+      "Tun Ban",
+      "Xiang Zhu",
+      "Yichen Liu",
+      "Kun Feng",
+      "Haoang Li",
+      "Jianyu Chen"
+    ],
+    "year": 2026,
+    "arxiv": "2610.10270v2",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/ZFMEAB8V/Guo 等 - 2026 - Video Prediction Policy 2 Predict Better, Act Better.pdf",
+    "reader_file": "detailed_paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "selectable-text PDF",
+    "pages": 21
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "VPP2 addresses WAM generalization limitations through event-level pretraining and MoT action modeling."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Abstract / Introduction",
+      "pages": "1",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2",
+      "summary": "Two limitations of existing WAMs and three key advantages demonstrated by VPP2."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Data Processing Pipeline",
+      "pages": "2-4",
+      "summary": "Video sources, filtering, segmentation, detailed captioning, workspace and end-effector alignment."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "2 Data Processing Pipeline",
+      "pages": "3",
+      "label": "Table 1",
+      "asset": "assets/table_1.png"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "2 Data Processing Pipeline",
+      "pages": "3",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "2 Data Processing Pipeline",
+      "pages": "3",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3 VPP2 Methodology",
+      "pages": "4-6",
+      "summary": "Wan2.1-14B backbone, event-level flow matching, chunk-level post-training, consistency distillation, MoT action expert, and VLM planning."
+    },
+    {
+      "id": "E001",
+      "type": "equations",
+      "section": "3.1 Video Prediction Pipeline",
+      "pages": "4-5",
+      "summary": "Event sampling Eq (1), latent interpolation Eq (2), flow matching Eq (3), chunk sampling Eq (4), consistency distillation Eq (5)."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "3.1 Video Prediction Pipeline",
+      "pages": "5",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "4 Experiments",
+      "pages": "6",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "4.1 Video Prediction Quality Analysis",
+      "pages": "6-7",
+      "summary": "Comparison against Wan2.1-14B, LVP, Cosmos3-16B, Cosmos3-64B, and ablation."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "4.1 Video Prediction Quality Analysis",
+      "pages": "7",
+      "label": "Table 2",
+      "asset": "assets/table_2.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.1 Video Prediction Quality Analysis",
+      "pages": "7",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "4.1 Video Prediction Quality Analysis",
+      "pages": "7",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "4.2 Policy Performance Analysis",
+      "pages": "7-9",
+      "summary": "Real-world zero-shot ALOHA evaluation, LIBERO benchmarks, RoboDojo benchmark, and VLM subtask planning."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "4.2 Policy Performance Analysis",
+      "pages": "8",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "4.2 Policy Performance Analysis",
+      "pages": "8",
+      "label": "Table 3",
+      "asset": "assets/table_3.png"
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "4.2 Policy Performance Analysis",
+      "pages": "9",
+      "label": "Table 4",
+      "asset": "assets/table_4.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "4.2 Policy Performance Analysis",
+      "pages": "9",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "5 Related Works",
+      "pages": "9-10",
+      "summary": "Video foundation models and world action models."
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "6 Conclusion",
+      "pages": "9-10",
+      "summary": "Summary of contributions and recommendations for future WAM research."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Acknowledgments and Statements",
+      "pages": "11",
+      "summary": "Acknowledgments, AI use statement, reproducibility statement."
+    },
+    {
+      "id": "S010",
+      "type": "references",
+      "section": "References",
+      "pages": "11-17",
+      "summary": "Searchable bibliographic references [1]-[48]."
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "Appendix A: Dataset Process Details",
+      "pages": "18",
+      "summary": "Dataset references, detailed video captioning template, and unified action space equation Eq (6)."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix A: Dataset Process Details",
+      "pages": "18",
+      "label": "Table 5",
+      "asset": "assets/table_5.png"
+    },
+    {
+      "id": "E002",
+      "type": "equations",
+      "section": "Appendix A.2 Unified Action Space",
+      "pages": "18",
+      "summary": "Aligned end-effector pose transformation Eq (6)."
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Appendix B: More Video Prediction Results",
+      "pages": "19",
+      "summary": "Single-step video prediction qualitative comparisons before and after distillation."
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix B: More Video Prediction Results",
+      "pages": "19",
+      "label": "Figure 10",
+      "asset": "assets/figure_10.png"
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "Appendix C.1 Detailed LIBERO Results",
+      "pages": "20",
+      "summary": "Per-suite LIBERO-ID success rates."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix C.1 Detailed LIBERO Results",
+      "pages": "20",
+      "label": "Table 6",
+      "asset": "assets/table_6.png"
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "Appendix C.2 Detailed RoboDojo Results",
+      "pages": "20-21",
+      "summary": "RoboDojo capability dimensions, per-dimension average score and success rate tables."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix C.2 Detailed RoboDojo Results",
+      "pages": "20",
+      "label": "Table 7",
+      "asset": "assets/table_7.png"
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix C.2 Detailed RoboDojo Results",
+      "pages": "21",
+      "label": "Table 8",
+      "asset": "assets/table_8.png"
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png"
+  ],
+  "notes": {
+    "page_count_checked": true,
+    "total_pages": 21,
+    "figures_count": 10,
+    "tables_count": 8,
+    "appendices_present": true,
+    "appendices": [
+      "A",
+      "B",
+      "C"
+    ],
+    "verification_status": "complete"
+  }
+}

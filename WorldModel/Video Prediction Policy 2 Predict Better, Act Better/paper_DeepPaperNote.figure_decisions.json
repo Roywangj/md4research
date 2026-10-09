@@ -1,0 +1,330 @@
+{
+  "status": "ok",
+  "output_language": "zh-CN",
+  "paper_id": "arxiv:2610.10270",
+  "manual_visual_review": "已逐一检查全部 18 个视觉元素（Figure 1-10, Table 1-8）；选中的核心图表均包含完整清晰的主体结构、文字标注及图注编号，裁剪完备，与正文技术逻辑严密对齐。",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "pages": [
+        1
+      ],
+      "section_id": "sec:introduction",
+      "decision": "insert",
+      "reason": "呈现 VPP2 的系统全景对比与核心动机：对比简单字幕与精细字幕、多模态发散与单模态确定性映射，以及三大核心定量评估概览，是全篇最重要的全景概览图。",
+      "visual_observation": "四个对比面板与三个条形图子面板文字清晰、对比鲜明。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "机制流程",
+      "source_image_filename": "figure_1.png",
+      "relative_markdown_embed": "![Figure 1](images/figure_1.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:data-pipeline",
+      "decision": "insert",
+      "reason": "展现数据处理与四要素精细字幕生成流水线，解释如何消除预测不确定性。",
+      "visual_observation": "机械臂双重视角拼接、端到端字幕标注模板及物体指向标注极其清晰。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "数据引擎: 可扩展标准化数据集构建与精细字幕生成",
+      "source_image_filename": "figure_2.png",
+      "relative_markdown_embed": "![Figure 2](images/figure_2.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:coordinate-alignment",
+      "decision": "insert",
+      "reason": "展示工作空间包围盒对齐与末端执行器局部坐标系变换几何原理。",
+      "visual_observation": "包围盒对准与坐标轴三维示意图明确无缺失。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "统一动作空间与末端执行器坐标系对齐",
+      "source_image_filename": "figure_3.png",
+      "relative_markdown_embed": "![Figure 3](images/figure_3.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method-training",
+      "decision": "insert",
+      "reason": "详细呈现阶段 1 事件级继续预训练、阶段 2 块级后训练与一致性蒸馏、阶段 3 MoT 动作专家训练的三阶段演化全流程与注意力掩码设计。",
+      "visual_observation": "三阶段框架时序展开、注意力矩阵掩码结构清晰完备。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "两阶段训练管线: 事件级继续预训练 + 块级后训练与蒸馏",
+      "source_image_filename": "figure_4.png",
+      "relative_markdown_embed": "![Figure 4](images/figure_4.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:experiments-video",
+      "decision": "usable_candidate",
+      "reason": "多任务定性预测面板，展示 16 组人手与机械臂的未来视觉生成细节；精读以重点图 7 替代并在正文中详述。",
+      "visual_observation": "16 组多任务连续帧生成效果优秀。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "figure_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments-video-winrate",
+      "decision": "insert",
+      "reason": "呈现预训练 VPP2 模型与 Wan-2.1-14B、LVP、Cosmos3-16B、Cosmos3-64B 的人类成对盲评胜率分布，具有极强说服力。",
+      "visual_observation": "胜率百分比条形堆叠图清晰易读。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "视频预测评估与开放域胜率",
+      "source_image_filename": "figure_6.png",
+      "relative_markdown_embed": "![Figure 6](images/figure_6.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments-video-spatial",
+      "decision": "insert",
+      "reason": "定性比对 VPP2、Wan-14B 与 Cosmos3-64B 在复杂空间理解指令下的预测生成结果。",
+      "visual_observation": "左右杯子叠放与瓶子抓取对比直观鲜明。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "视频预测评估与开放域胜率",
+      "source_image_filename": "figure_7.png",
+      "relative_markdown_embed": "![Figure 7](images/figure_7.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments-real-aloha",
+      "decision": "insert",
+      "reason": "呈现真实 ALOHA 双臂机械臂上 10 类未见任务的全零样本成功率对比柱状图，直观体现 58.5% 对比 40.0% 和 20.5% 的压倒性优势。",
+      "visual_observation": "10 项任务与均值成功率彩色条形对比非常直观清晰。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "真实机器人零样本操作",
+      "source_image_filename": "figure_8.png",
+      "relative_markdown_embed": "![Figure 8](images/figure_8.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiments-vlm-planning",
+      "decision": "insert",
+      "reason": "呈现 RoboDojo 五组长时序复杂任务中，接入 VLM 分层规划带来的成功率跃升条形图（27.6% 到 57.6%）。",
+      "visual_observation": "5 项任务对比与均值对比清晰无歧义。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 1,
+      "target_section": "VLM 分层规划对长时序操作的增益",
+      "source_image_filename": "figure_9.png",
+      "relative_markdown_embed": "![Figure 9](images/figure_9.png)",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix-video-distill",
+      "decision": "usable_candidate",
+      "reason": "附录中一致性蒸馏前后单步视频预测的定性对比，8 项开放任务高保真生成，精读中以文字进行深入机制解读。",
+      "visual_observation": "蒸馏前后画质对比极其逼真。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "figure_10.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "pages": [
+        3
+      ],
+      "section_id": "sec:data-pipeline",
+      "decision": "usable_candidate",
+      "reason": "训练数据来源总览表；在精读正文已完整转录为结构化 Markdown 表格。",
+      "visual_observation": "数据源与具身形态分类清晰。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:experiments-video",
+      "decision": "usable_candidate",
+      "reason": "人手与机械臂指令跟随成功率表；在精读正文已完整转录为结构化 Markdown 表格并作深度评述。",
+      "visual_observation": "对比数值清晰完整。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments-libero",
+      "decision": "usable_candidate",
+      "reason": "LIBERO-ID、LIBERO-Pro 与 LIBERO-OOD 后训练结果主表；在精读中已完整转录为高密度对比 Markdown 表格。",
+      "visual_observation": "排版工整，数据对比鲜明。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiments-robodojo",
+      "decision": "usable_candidate",
+      "reason": "RoboDojo 仿真基准主结果表；在精读正文已转写为精细对比 Markdown 表格。",
+      "visual_observation": "分值与成功率并列呈现，数据清晰。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:appendix-data",
+      "decision": "usable_candidate",
+      "reason": "附录完整训练数据集与文献引用表；已融入数据定义章节。",
+      "visual_observation": "引用与数据集名称完备。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix-libero-id",
+      "decision": "usable_candidate",
+      "reason": "LIBERO 四大子套件分布内成功率详表；核心结论已融合至主结果分析中。",
+      "visual_observation": "4 列单项成功率与平均分数值完整。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_6.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix-robodojo-score",
+      "decision": "usable_candidate",
+      "reason": "RoboDojo 五大维度平均操作得分详表；已在正文进行多维度纵深拆解。",
+      "visual_observation": "各维度得分清晰排列。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_7.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:appendix-robodojo-sr",
+      "decision": "usable_candidate",
+      "reason": "RoboDojo 五大维度完成成功率详表；已在正文进行多维度纵深拆解。",
+      "visual_observation": "各维度成功率清晰排列。",
+      "visual_quality_status": "usable_candidate",
+      "priority": 2,
+      "source_image_filename": "table_8.png",
+      "materialization_status": "materialized"
+    }
+  ]
+}

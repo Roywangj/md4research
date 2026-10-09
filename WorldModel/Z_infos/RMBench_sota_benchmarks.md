@@ -12,7 +12,7 @@ status: synthesis
 last_verified: 2026-08-05
 ---
 
-哈喽青林，我想请教一下：有没有把 VLM 做子任务规划、再接到 WAM 或其他 action model 上的论文，是比较推荐的？我现在主要卡在长程任务的语言怎么用，想先看看已有做法。
+思考：有没有把 VLM 做子任务规划、再接到 WAM 或其他 action model 上的论文，是比较推荐的？我现在主要卡在长程任务的语言怎么用，想先看看已有做法。
 
 我目前主要基于ImageWAM做开发，这是从 Fast-WAM 这条线过来的：Fast-WAM 是比较 vanilla 的 world-action model，用当前观察同时预测未来视频和动作 chunk，没有单独的语言模块。ImageWAM 还是这个思路，骨干换成了 FLUX.2。LIBERO 这类短程任务，数据里通常只有一个 goal，我们就是把整句 task 文本 embedding 进模型。目前在做RMBench，这是一个长程任务，一条 demo 既有整局 goal，又有逐帧 subtask_text，过程会拆成好几段，所以除了整局指令，还能取出当前窗的 Current 和之前的 Previous。（不过ImageWAM FastWAM的codebase并没有用上）
 
