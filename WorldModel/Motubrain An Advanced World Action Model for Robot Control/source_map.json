@@ -1,0 +1,240 @@
+{
+  "paper": {
+    "title": "Motubrain: An Advanced World Action Model for Robot Control",
+    "title_cn": "Motubrain：面向机器人控制的进阶世界动作模型",
+    "authors": [
+      "Motubrain Team",
+      "Chendong Xiang",
+      "Fan Bao",
+      "Haitian Liu",
+      "Hengkai Tan",
+      "Hongzhe Bi",
+      "James Li",
+      "Jiabao Liu",
+      "Jingrui Pang",
+      "Kiro Jing",
+      "Louis Liu",
+      "Mengchen Cai",
+      "Rongxu Cui",
+      "Ruowen Zhao",
+      "Runqing Wang",
+      "Shuhe Huang",
+      "Yao Feng",
+      "Yinze Rong",
+      "Zeyuan Wang",
+      "Jun Zhu"
+    ],
+    "affiliations": [
+      "ShengShu AI",
+      "Tsinghua University"
+    ],
+    "venue": "arXiv:2604.27792v5 [cs.RO]",
+    "date": "2026-07-15",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/T4L9SY3H/Team 等 - 2026 - Motubrain An Advanced World Action Model for Robot Control.pdf",
+    "pages": 21,
+    "appendix": false,
+    "project_page": "https://www.genspi.com/en/motubrain",
+    "github": "https://github.com/shengshu-ai/Motubrain"
+  },
+  "sections": [
+    {
+      "id": "SEC0",
+      "title": "Abstract",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "id": "SEC1",
+      "title": "1 Introduction",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "SEC2",
+      "title": "2 Related Work",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "id": "SEC3",
+      "title": "3 Method",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "SEC4",
+      "title": "4 Experiments & Benchmark Evaluations",
+      "pages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "id": "SEC5",
+      "title": "5 Conclusion, Limitations and Future Work",
+      "pages": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "SEC6",
+      "title": "Contributors",
+      "pages": [
+        18
+      ]
+    },
+    {
+      "id": "SEC7",
+      "title": "References",
+      "pages": [
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "id": "SEC8",
+      "title": "Appendices A–D",
+      "pages": [
+        21
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "F001",
+      "type": "figure",
+      "label": "Figure 1",
+      "path": "assets/figure_1.png",
+      "page": 3,
+      "caption": "Overview of Motubrain’s architecture."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "label": "Table 1",
+      "path": "assets/table_1.png",
+      "page": 4,
+      "caption": "Different prediction modes (non-autoregressive mode)."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "label": "Figure 2",
+      "path": "assets/figure_2.png",
+      "page": 5,
+      "caption": "Attention masks used in all training stages and post-training modes."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "label": "Table 2",
+      "path": "assets/table_2.png",
+      "page": 8,
+      "caption": "Cumulative speedup from inference optimizations."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "label": "Table 3",
+      "path": "assets/table_3.png",
+      "page": 9,
+      "caption": "RoboTwin 2.0 Results."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "label": "Table 4",
+      "path": "assets/table_4.png",
+      "page": 10,
+      "caption": "Per-task success rates on RoboTwin under clean and randomized evaluation settings."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "label": "Figure 3",
+      "path": "assets/figure_3.png",
+      "page": 11,
+      "caption": "Task scaling results."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "label": "Figure 4",
+      "path": "assets/figure_4.png",
+      "page": 11,
+      "caption": "Data scaling results."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "label": "Table 5",
+      "path": "assets/table_5.png",
+      "page": 13,
+      "caption": "Per-metric WorldArena results and overall EWMScore comparison."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "label": "Figure 5",
+      "path": "assets/figure_5.png",
+      "page": 13,
+      "caption": "WorldArena public leaderboard."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "label": "Table 6",
+      "path": "assets/table_6.png",
+      "page": 14,
+      "caption": "Per-step performance evaluation of the bimanual Making Oden task."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "label": "Table 7",
+      "path": "assets/table_7.png",
+      "page": 15,
+      "caption": "Per-step real-world evaluation results for the long-horizon Mixing Cocktails task."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "label": "Table 8",
+      "path": "assets/table_8.png",
+      "page": 15,
+      "caption": "Per-step real-world evaluation results for the Flower Arrangement task."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "label": "Figure 6",
+      "path": "assets/figure_6.png",
+      "page": 17,
+      "caption": "Real-world demonstrations on multiple long-horizon and dexterous manipulation tasks."
+    }
+  ]
+}

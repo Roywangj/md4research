@@ -1,0 +1,126 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "系统全景图：四类动作头二维分类法（DF, CF, DR, CR）、三大真实机器人接触操作任务与RoboMimic/RoboCasa/LIBERO闭环成功率对比"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "时序抖动（Jerk Ratio）小提琴图与Chunk内各时间步末端执行器（EEF）位置追踪精度曲线对比"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "状态响应性（State Responsiveness）与单步仿真动力学扰动下的动作纠偏传输分布"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "迭代精炼与CFG引导消除Token歧义：模糊Token数量与置信区间宽度W90随NFE及引导权重变化曲线，以及t-SNE多模态聚类分布"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "Push-T环境下因式分解误差机理可视化：时序模态跳变如何导致独立乘积分布生成错误的嵌合动作，以及连续流与离散流的平滑修复机制"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "三种动作空间几何坐标系解构：Delta（增量式）、Relative（预测时刻相对基准）与Absolute（基座绝对坐标系）规划对比"
+    },
+    {
+      "figure_id": "Figure 9",
+      "file": "images/figure_9.png",
+      "role": "无分类器引导权重λ对末端执行器L2追踪误差的影响敏感度曲线"
+    },
+    {
+      "figure_id": "Figure 13",
+      "file": "images/figure_13.png",
+      "role": "RoboCasa闭环成功率随推理步数NFE与CFG引导权重双维度变化的Scaling曲面分析"
+    },
+    {
+      "figure_id": "Figure 14",
+      "file": "images/figure_14.png",
+      "role": "RoboCasa厨房关冰箱门任务中多模态轨迹与时序因式分解混叠案例分析"
+    },
+    {
+      "figure_id": "Figure 16",
+      "file": "images/figure_16.png",
+      "role": "离散动作头（DR vs DF）最后一层分类嵌入权重余弦相似度矩阵：相邻动作Bin天然自发学到局部度量连续几何结构"
+    },
+    {
+      "figure_id": "Figure 17",
+      "file": "images/figure_17.png",
+      "role": "真实机器人评测硬件平台（Franka Emika FR3）部署工作区与三个精细接触操作任务环境总览"
+    },
+    {
+      "figure_id": "Figure 18",
+      "file": "images/figure_18.png",
+      "role": "真实机器人三项任务（掷瓶入桶、拔钢笔帽、杯子翻转复位）多步骤执行时序实录展开"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "自回归（AR）、离散回归（DR）与离散流（DF）在CFG引导前后的EEF追踪误差与RoboCasa成功率对比表"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "VLA规模多任务联合预训练数据配比表（RoboCasa365六大子集、LIBERO-plus、DROID等170M+帧分布）"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "动作表征与推理计算二维解耦的四类动作头技术规格与数学目标定义表"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "RoboMimic单任务DiT Transformer模型架构与参数规模配置表"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "VLA规模PaliGemma-3B与四类动作头结构参数、训练超参及硬件集群配置表"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "Delta增量、Relative相对与Absolute绝对动作空间在RoboCasa上的闭环成功率消融对比表"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "关节空间（Joint-space）与末端执行器空间（EEF-space）动作控制性能对比表"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "不同视觉语言骨干网络设置（微调π0.5 vs 冻结π0）下的RoboCasa控制成功率对比表"
+    },
+    {
+      "table_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "单步仿真动力学脉冲扰动下各策略的动作方差扩展与超额传输响应率表"
+    },
+    {
+      "table_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "测试集专家轨迹不同时间延迟Lag下各动作头的原始位移响应幅度对比表"
+    },
+    {
+      "table_id": "Table 11",
+      "file": "images/table_11.png",
+      "role": "六大离线数据集验证集上的末端执行器L2追踪误差（mm）诊断表"
+    },
+    {
+      "table_id": "Table 12",
+      "file": "images/table_12.png",
+      "role": "不同分词器（均匀Flat-Bin、频率分位数Bin、nFSQ、RVQ、FAST）在RoboCasa上的控制成功率对比表"
+    }
+  ]
+}

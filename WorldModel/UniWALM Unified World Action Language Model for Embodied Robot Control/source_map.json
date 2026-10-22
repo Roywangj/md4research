@@ -1,0 +1,335 @@
+{
+  "paper": {
+    "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
+    "authors": [
+      "Rahul Sajnani",
+      "Diego Romeres",
+      "Mingyuan Zhang",
+      "Kai Gao",
+      "Carl Qi",
+      "Baichuan Huang",
+      "Srinath Sridhar",
+      "Dylan Randle",
+      "Lillian J. Ratliff",
+      "Jose Barreiros",
+      "Manikantan Nambi",
+      "Jeroen Vanbaar"
+    ],
+    "year": 2026,
+    "arxiv": "2610.28626v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/3TQC6L9E/Sajnani 等 - 2026 - UniWALM Unified World Action Language Model for Embodied Robot Control.pdf",
+    "reader_file": "detailed_paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "selectable-text PDF",
+    "pages": 25
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "UniWALM introduces unified world action language model co-denoising video, action, and language."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "Introduction",
+      "pages": "1-3",
+      "summary": "Any-to-any multimodal modeling for embodied intelligence; language as working memory; FMC objective."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Introduction",
+      "pages": "1",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "Related Works",
+      "pages": "3",
+      "summary": "Generalist visuomotor policies, WAMs, reasoning/memory hybrid systems, omnimodal models."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "UniWALM / Reasoning with Video Action Models",
+      "pages": "3-4",
+      "summary": "Mixture-of-transformers (MoT) backbone; video, action, discrete language diffusion."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "UniWALM",
+      "pages": "4",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "UniWALM",
+      "pages": "7",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png"
+    },
+    {
+      "id": "S005",
+      "type": "equations",
+      "section": "Multi-Modal Co-Training",
+      "pages": "5",
+      "summary": "Flow matching loss on video and action with discrete diffusion cross-entropy loss on language."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "Memory",
+      "pages": "5",
+      "summary": "Textual memory re-consumption, visual memory anchor frame, and 1-D task completion signal beta."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "Flow Matching with Correction (FMC)",
+      "pages": "5-7",
+      "summary": "Simulating perturbed action trajectory and supervising correction velocity to return to clean manifold."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "FMC",
+      "pages": "6",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "Architecture and Training Details",
+      "pages": "7",
+      "summary": "Wan2.2 backbone, LoRA rank 256, 30 layers MoT, 8-bit AdamW, H200 cluster runtime."
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "Experiments / Benchmarks and Setup",
+      "pages": "7-9",
+      "summary": "MolmoSpaces simulation, RMBench M(n) memory subset, real-world dual-arm Flexiv Rizon setup."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "Experiments / Manipulation",
+      "pages": "9",
+      "label": "Table 1",
+      "asset": "assets/table_1.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "Experiments / Real-World",
+      "pages": "9",
+      "label": "Table 2",
+      "asset": "assets/table_2.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "8",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png"
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "Experiments / Memory Results",
+      "pages": "9-10",
+      "summary": "Generated language as working memory outperforms memoryless baselines and Mem-0."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "10",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Experiments",
+      "pages": "12",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Experiments / RMBench M(n)",
+      "pages": "11",
+      "label": "Table 3",
+      "asset": "assets/table_3.png"
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "Ablations",
+      "pages": "11",
+      "summary": "Pick&Place component attribution (Table 4) and Press Button memory attribution (Table 5)."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Ablations",
+      "pages": "11",
+      "label": "Table 4",
+      "asset": "assets/table_4.png"
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Ablations",
+      "pages": "11",
+      "label": "Table 5",
+      "asset": "assets/table_5.png"
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "Limitations and Conclusion",
+      "pages": "12",
+      "summary": "Grasping geometry, timing-lag failures, conclusion, and future directions."
+    },
+    {
+      "id": "S013",
+      "type": "references",
+      "section": "References",
+      "pages": "12-17",
+      "summary": "References [1] to [58] in searchable bibliographic format."
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix A: Related Works (Extended)",
+      "pages": "17-18",
+      "summary": "Extended comparisons with Cosmos 3, FastWAM, MEM, pi0.7, and embodied CoT."
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix B: Additional Experimental Details",
+      "pages": "18-22",
+      "summary": "B.1 qualitative results, B.2 RMBench tasks, B.3 config, B.4 memory details, B.5 FMC 2D sweep, B.6 timing lag."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix B.1",
+      "pages": "19",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix B.2",
+      "pages": "20",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png"
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix B.5",
+      "pages": "21",
+      "label": "Figure 10",
+      "asset": "assets/figure_10.png"
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "Appendix B.5",
+      "pages": "23",
+      "label": "Figure 11",
+      "asset": "assets/figure_11.png"
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix B.5",
+      "pages": "22",
+      "label": "Table 6",
+      "asset": "assets/table_6.png"
+    },
+    {
+      "id": "F012",
+      "type": "figure",
+      "section": "Appendix B.6",
+      "pages": "24",
+      "label": "Figure 12",
+      "asset": "assets/figure_12.png"
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix C & D: Limitations and Future Work",
+      "pages": "22-23",
+      "summary": "Extended failure modes and 7 future research directions."
+    },
+    {
+      "id": "S017",
+      "type": "appendix",
+      "section": "Appendix E: Additional Visualizations",
+      "pages": "24-25",
+      "summary": "MolmoSpaces Pick & Place extensive rollout galleries."
+    },
+    {
+      "id": "F013",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "24",
+      "label": "Figure 13",
+      "asset": "assets/figure_13.png"
+    },
+    {
+      "id": "F014",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "25",
+      "label": "Figure 14",
+      "asset": "assets/figure_14.png"
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/figure_13.png",
+    "assets/figure_14.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png"
+  ],
+  "notes": {
+    "page_count_checked": true,
+    "reference_pages": "12-17",
+    "appendices_present": true,
+    "page_assets": "rendered PDF figure crops and transcribed tables"
+  }
+}

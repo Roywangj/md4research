@@ -1,0 +1,235 @@
+{
+  "paper": {
+    "title": "OpenWAM: An Open Framework for Composable World-Action Models",
+    "rendered_pdf_title": "OPENWAM: An Open Framework for Composable World-Action Models",
+    "authors": [
+      "Heng Yu",
+      "David D. Yuan",
+      "Juze Zhang",
+      "Changan Chen",
+      "Yao Feng",
+      "Michelle Baldonado",
+      "Steve Cousins",
+      "Li Fei-Fei",
+      "Jiajun Wu",
+      "Ehsan Adeli"
+    ],
+    "affiliation": "Stanford University",
+    "year": 2026,
+    "version": "arXiv:2610.07922v1",
+    "version_date": "2026-10-06",
+    "doi": "10.48550/arXiv.2610.07922",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "source_path": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/PICQTU9H/Yu 等 - 2026 - OpenWAM An Open Framework for Composable World-Action Models.pdf",
+    "sha256": "3f1db3ad26c6b598177b81cc6ee0704a6f0813146eb2039148e997d3dbc06249",
+    "page_count": 18,
+    "reader_file": "paper.md",
+    "authoritative_reader": "detailed_paper.md",
+    "copy_relationship": "paper.md is required to be an exact byte-identical copy of detailed_paper.md"
+  },
+  "inventory": {
+    "figures": 5,
+    "tables": 14,
+    "equations": 13,
+    "algorithms": 0,
+    "references": 108,
+    "appendix": true,
+    "supplement": false,
+    "appendices": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "figures": [
+    {
+      "id": "F001",
+      "page": 2,
+      "label": "Figure 1",
+      "image_path": "assets/figure_1.png",
+      "title": "Overview of OPENWAM"
+    },
+    {
+      "id": "F002",
+      "page": 5,
+      "label": "Figure 2",
+      "image_path": "assets/figure_2.png",
+      "title": "Shared MoT architecture"
+    },
+    {
+      "id": "F003",
+      "page": 5,
+      "label": "Figure 3",
+      "image_path": "assets/figure_3.png",
+      "title": "Attention masks for interaction and dynamics programs"
+    },
+    {
+      "id": "F004",
+      "page": 6,
+      "label": "Figure 4",
+      "image_path": "assets/figure_4.png",
+      "title": "Evaluation tasks (Real-World Bimanual & LIBERO-90)"
+    },
+    {
+      "id": "F005",
+      "page": 15,
+      "label": "Figure 5",
+      "image_path": "assets/figure_5.png",
+      "title": "Real-world bimanual setup"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "page": 5,
+      "label": "Table 1",
+      "image_path": "assets/table_1.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T002",
+      "page": 7,
+      "label": "Table 2",
+      "image_path": "assets/table_2.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T003",
+      "page": 8,
+      "label": "Table 3",
+      "image_path": "assets/table_3.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T004",
+      "page": 8,
+      "label": "Table 4",
+      "image_path": "assets/table_4.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T005",
+      "page": 9,
+      "label": "Table 5",
+      "image_path": "assets/table_5.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T006",
+      "page": 9,
+      "label": "Table 6",
+      "image_path": "assets/table_6.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T007",
+      "page": 9,
+      "label": "Table 7",
+      "image_path": "assets/table_7.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T008",
+      "page": 16,
+      "label": "Table 8",
+      "image_path": "assets/table_8.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T009",
+      "page": 16,
+      "label": "Table 9",
+      "image_path": "assets/table_9.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T010",
+      "page": 17,
+      "label": "Table 10",
+      "image_path": "assets/table_10.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T011",
+      "page": 17,
+      "label": "Table 11",
+      "image_path": "assets/table_11.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T012",
+      "page": 17,
+      "label": "Table 12",
+      "image_path": "assets/table_12.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T013",
+      "page": 17,
+      "label": "Table 13",
+      "image_path": "assets/table_13.png",
+      "markdown_transcribed": true
+    },
+    {
+      "id": "T014",
+      "page": 18,
+      "label": "Table 14",
+      "image_path": "assets/table_14.png",
+      "markdown_transcribed": true
+    }
+  ],
+  "glossary": [
+    {
+      "term": "World-Action Model (WAM)",
+      "translation": "世界动作模型"
+    },
+    {
+      "term": "Mixture-of-Transformers (MoT)",
+      "translation": "多专家 Transformer 架构"
+    },
+    {
+      "term": "Video-then-Action (VTA)",
+      "translation": "视频先导动作"
+    },
+    {
+      "term": "Action-then-Video (ATV)",
+      "translation": "动作先导视频"
+    },
+    {
+      "term": "Joint Denoising",
+      "translation": "联合去噪生成"
+    },
+    {
+      "term": "Decoupled Denoising",
+      "translation": "解耦去噪生成"
+    },
+    {
+      "term": "Causal Robot-Video Pretraining",
+      "translation": "因果机器人视频预训练"
+    },
+    {
+      "term": "Chunk-Causal Prediction",
+      "translation": "块因果预测"
+    },
+    {
+      "term": "Local-Context IDM (LC-IDM)",
+      "translation": "局部上下文逆动力学模型"
+    },
+    {
+      "term": "Local-Context FDM (LC-FDM)",
+      "translation": "局部上下文前向动力学模型"
+    },
+    {
+      "term": "Counterfactual Transitions",
+      "translation": "反事实状态转移"
+    },
+    {
+      "term": "Outcome Identification",
+      "translation": "结果辨识度 / 结局识别率"
+    }
+  ]
+}

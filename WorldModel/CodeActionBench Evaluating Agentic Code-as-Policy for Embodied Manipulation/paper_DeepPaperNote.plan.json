@@ -1,0 +1,60 @@
+{
+  "paper": {
+    "title": "CodeActionBench: Evaluating Agentic Code-as-Policy for Embodied Manipulation",
+    "short_title": "CodeActionBench",
+    "year": 2026,
+    "venue": "arXiv:2609.33807v1",
+    "team": "Nanyang Technological University, Singapore & Independent Researcher",
+    "authors": "Yiheng Lyu, Xueying Jiang, Wenhao Li, Shijian Lu, Gongjie Zhang"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总论文标题、作者团队（南洋理工大学S-Lab/独立研究者）、论文发表时间与arXiv索引、项目代码主页与核心评测基准定位"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达通用多模态模型无需示范与特化模块、端到端通过代码即策略进行具身操作评测的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：纯代码即策略评测基准体系、无特化感知与特权状态的零示范零微调评测、基于几何标定与双目三角化的纯RGB空间估计链、隐蔽物理结果验证器与72维检查点规约、程序合成相对直接工具调用的降维打击、细粒度物理失效归因与完成度自检审计"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 CodeActionBench 在具身智能代码策略与多模态大模型评测领域的基准奠基地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析为什么在无示范、无特权位姿、无特化抓取模块下评测多模态智能体极度困难；视觉语义理解与代码级物理执行之间的鸿沟；虚假完成声称（False Done）与空间估计误差累积"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述 SAPIEN/RoboTwin 2.0 ALOHA 双臂环境下的 6 大类 25 个精巧操作任务、9 种智能体系统配置、675 次独立评测尝试、双重资源预算（工具调用与仿真时间）及物理终止判定"
+    },
+    {
+      "section": "方法主线",
+      "goal": "拆解机制流程（信息边界、智能体交互闭环、沙箱执行）、共享控制与感知 API 规范（29个原子工具）、空间估计与位姿构建工具链（像素反投影、平面相交、动态双目三角化、夹爪几何参考）、隐蔽物理结果验证器规约（55子目标+72空间检查点）、评测脚手架实现（Reference vs Claude Code vs Codex CLI）"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现 9 大模型配置大比拼（成功率 2.7%~73.3%，GPT-6 Astra 解决 22/25 任务）、推理成本与中位耗时帕累托分析、子目标与空间检查点达成率演进、491次失败尝试的五大失效阶段病理深度诊断"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透表象提炼真正贡献、剖析为何脚本级程序合成（变量与循环）远优于单步工具调用、厘清容易误读的盲区（与 VLA/WAM 的路线分野、允许几何工具不等于作弊、示范缺席的评测意义）、给出真实复现踩坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出单实体双臂固定场景限制、缺乏真机实体验证、API 往返与长上下文推理延迟高昂、闭源黑盒模型依赖与确定性动作规划依赖等短板"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与 Code as Policies (CaP), CaP-X, VLCP, OpenETA, Eureka, Voyager, ASPIRE, OpenWAM, VPP2, VoxPoser, ReKep 等进行全局生态位横向对比与技术演进谱系梳理"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用格式记录"
+    }
+  ]
+}

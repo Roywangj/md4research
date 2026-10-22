@@ -1,0 +1,54 @@
+{
+  "paper": "OpenWAM: An Open Framework for Composable World-Action Models",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文针对具身智能世界-动作模型（WAM）存在的架构混杂、生成时序与动力学解耦模糊的问题，提出了基于因果视频基底与 MoT 专家交互的模块化开源框架 OpenWAM，并通过 LIBERO 仿真、反事实动力学合成基准 LIBERO-Long-CF 以及真实双臂机器人验证了交互拓扑与动力学模块迁移效果。",
+  "dominant_domain": "embodied world-action models, robotic manipulation, causal video foundation, counterfactual dynamics learning",
+  "must_cover": [
+    "因果视频基座 pretraining 与 Wan2.2-5B 块因果时序重构",
+    "MoT (Mixture-of-Transformers) 架构设计 (5B 视频专家 + 2B 动作专家)",
+    "四种交互范式 (Joint, VTA, ATV, Decoupled) 与对应因果注意力掩码",
+    "局部动力学接口 LC-IDM 与 LC-FDM 的无任务上下文独立建模",
+    "LIBERO-Long-CF 反事实数据合成引擎与 32,000 条干预轨迹",
+    "LIBERO 4 大基准评测 (Spatial, Object, Goal, Long)",
+    "真实双臂 Franka FR3 平台 (GELLO 遥操, 3 视角) 闭环评测",
+    "冻结动作专家的零样本逆动力学跨任务迁移 (LIBERO-90 targets)",
+    "流式闭环推理加速与工程部署架构",
+    "与 OpenWAM-Alpha (王鹤团队) 等相近 WAM 体系的生态位横向对照"
+  ],
+  "key_numbers": [
+    "10,000+ 视频预训练小时 (标称 14,640 小时，334 万轨迹单元)",
+    "Wan2.2-5B 视频专家 + 2B 动作专家 (30 层 MoT 结构)",
+    "16 步动作块 (0.8s 时域) 与 4 帧潜视频帧 (4 步环境压缩比) 对齐",
+    "LIBERO-Long-CF 包含 410 万控制步 (56.9 小时)，对比原演示 13.8 万步扩展 29.7 倍",
+    "LIBERO-Long-CF 接触率 90.4%，抓取率 50.0%，物体位态改变量 72.3%",
+    "LIBERO-Long 上因果机器人预训练将 VTA 成功率从 68.4% 提升至 97.8% (+29.4%)",
+    "LIBERO 4 域主成绩：Object 99.4%, Goal 98.4%, Spatial 98.6%, Long 97.8%, Mean 98.6%",
+    "真实双臂实机成功率：Toast Bread 92.0%, Rubik's Cube 90.0%, Sort Cups 94.4%, Mean 92.1%",
+    "LIBERO-90 零样本 IDM 迁移：反事实训练达 84.0% 均值 (对比 demo-only 的 21.5%)",
+    "前向动力学 (FDM) 反事实训练降低 RGB MSE 34.5%，K=16 结果识别率从 21.1% 飙升至 71.3%"
+  ],
+  "real_comparisons": [
+    "OpenWAM-VTA vs OpenWAM-Joint vs OpenWAM-ATV vs OpenWAM-Decoupled",
+    "Wan2.2 原生初始化 vs 机器人因果预训练初始化 vs 随机初始化",
+    "MoT 双专家架构 vs 纯共享单一 DiT (Non-MoT)",
+    "Local-context IDM vs Full-context IDM 在未见任务迁移中的表现",
+    "Demo-only vs Counterfactual-only vs Mixed 监督对动力学学习的鲁棒性影响",
+    "OpenWAM vs OpenVLA, π0, π0.5, GR00T-N1, Motus, Fast-WAM, LingBot-VA",
+    "OpenWAM vs UVA 在统一策略与前向/逆向动力学多任务目标上的权衡"
+  ],
+  "deliverable": "paper_DeepPaperNote.md",
+  "sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ]
+}

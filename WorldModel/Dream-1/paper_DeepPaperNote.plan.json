@@ -1,0 +1,195 @@
+{
+  "paper": "Zero-Shot to New Robots: Introducing Dream-1",
+  "source": "https://dreamlabs.ai/research/dream-1/ (official web page; no paper exists)",
+  "source_local_copy": "/workspace/dream1_research/src/dream1.html",
+  "source_sha256": "dc264c99de004796e0c1dd7fa5c682e6099dcb4df25d67ddfbff03fcfa63a5b8",
+  "live_refetch": {
+    "date": "2026-10-21",
+    "http_status": 200,
+    "byte_identical_to_local_copy": true
+  },
+  "status": "completed",
+  "paper_type": "robot foundation model release / web announcement (World Action Model)",
+  "paper_type_rationale": "官方研究博客兼产品发布页；无论文、无技术报告、无权重；定量证据来自页面 data-chart 内嵌 JSON 与第三方 Robocurve 报告。",
+  "dominant_domain": "robot foundation models, world action models, cross-embodiment zero-shot transfer",
+  "required_sections": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "机制流程",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "must_cover": [
+    "零样本驱动因素：EEF 位姿 + 每台机器人自带 IK 的共享动作接口 vs WAM 视频先验（页面称前者必要但不充分），以及 UMI 腕部视角不变性。",
+    "zero-shot 的实际范围：本体专属数据为零，但限定为双臂平行夹爪、三相机（头部 + 双腕）、用户 IK；未见任务无定义、无训练清单。",
+    "全部定量为相对 YAM=100；YAM 绝对分未给出；仿真 300 rollouts/本体（150 语言跟随 + 150 未见任务）；真机用 earlier checkpoints。",
+    "训练本体上未见任务完全成功率 6%–40%，按 rollout 汇总约 18.7%；Progress 与 Success 差约 34 个百分点。",
+    "Robocurve RoboDojo-RC Tier 1 = YAM 训练本体，不构成跨本体证据；Robocurve 同为 beta 合作方，其 beta 视频任务与 Tier 1 任务名一致。",
+    "FaaS：5/77/98 分钟；12 台中 10 升 2 降；FaaS 图零样本分与主图不一致。",
+    "未披露项：骨干、参数量、数据、算力、时延/硬件、仿真器、任务清单、IK guide（需登录）。"
+  ],
+  "key_numbers": [
+    "仿真 27 未见本体相对 YAM：91.2 (PiPER) – 36.6 (Bracket Bot)，均值 63.2，中位数 62.4【计算】。",
+    "真机 4 台相对 YAM：OpenYAM 92.7、reBot B601-DM 87.3、Maker Arm 86.2、Metal Arm 70.5。",
+    "未见任务 YAM：Progress 42–69，Success 6–40；类别平均 52.5/18.5；嵌入 449 条 rollout 汇总 52.6/18.7【计算】。",
+    "未见任务 YAM+UMI：类别平均 53.5/16.4；448 条汇总 54.1/16.5【计算】。",
+    "Robocurve：Dream-1 59（runs.json 59.25%，120 次，31 次完全完成，$0.15、1.45 min/次）；页面称 16× 便宜于 Gemini 4 Argon、1.7× 快于 GPT-6 Astra。",
+    "$3/h（Dream-1）、$2/h（flash）；1.6 s/调用，2250 调用/h。",
+    "FaaS 12 台平均 48.3 → 66.7【计算】；Bracket Bot 32→31、Unitree R1 42→31。"
+  ],
+  "central_claims": [
+    {
+      "claim": "Dream-1 能零样本控制未见的双臂平行夹爪机器人。",
+      "supporting_evidence": [
+        "§04.2",
+        "Chart C1 (sim)",
+        "Chart C2 (real)",
+        "unseen-robots video wall"
+      ],
+      "what_it_actually_proves": "在 Dream Labs 自建仿真（27 本体 × 300 rollouts）与 4 台真机（旧 checkpoint）上，相对 YAM 保留 36.6%–92.7% 的表现。",
+      "what_it_does_not_prove": "绝对成功率；对非双臂/非平行夹爪的迁移；与非 WAM 基线相比的优势；最新发布 checkpoint 的真机跨本体表现。"
+    },
+    {
+      "claim": "EEF + IK 接口必要但不充分，WAM 的视频表征使零样本成立。",
+      "supporting_evidence": [
+        "§04.3 text",
+        "WAM diagram"
+      ],
+      "what_it_actually_proves": "仅为页面论证，无实验。",
+      "what_it_does_not_prove": "EEF、腕部相机、头部相机、视频目标各自的贡献。"
+    },
+    {
+      "claim": "Dream-1 在 Robocurve 独立评测中优于所有 LLM，构成新的 Pareto 前沿。",
+      "supporting_evidence": [
+        "Robocurve figure",
+        "fn 6",
+        "Robocurve runs.json (context)"
+      ],
+      "what_it_actually_proves": "在 YAM（训练本体）6 个任务上平均 59.25%、成本与时间低。",
+      "what_it_does_not_prove": "跨本体能力；与在 YAM 上充分微调的 VLA 的公平比较；评测与合作关系的独立性。"
+    },
+    {
+      "claim": "少量本体数据（FaaS）可缩小零样本差距。",
+      "supporting_evidence": [
+        "§04.5",
+        "Chart C5",
+        "FaaS video stills"
+      ],
+      "what_it_actually_proves": "12 台仿真机器人中 10 台语言跟随分提升，平均 48.3→66.7。",
+      "what_it_does_not_prove": "每台数据量、真机定量、为何 2 台下降。"
+    }
+  ],
+  "evidence_intents": [
+    {
+      "topic": "action interface and mechanism",
+      "evidence": [
+        "§04.3",
+        "WAM diagram (assets/wam.html)",
+        "Limitations callout"
+      ]
+    },
+    {
+      "topic": "zero-shot embodiment results",
+      "evidence": [
+        "Chart C1 sim",
+        "Chart C2 real",
+        "caption protocol"
+      ]
+    },
+    {
+      "topic": "unseen-task capability",
+      "evidence": [
+        "Chart C3 YAM",
+        "Chart C4 YAM+UMI",
+        "embedded per-rollout scores"
+      ]
+    },
+    {
+      "topic": "third-party eval",
+      "evidence": [
+        "Robocurve figure",
+        "fn 6",
+        "context: Robocurve spec page + runs.json"
+      ]
+    },
+    {
+      "topic": "FaaS",
+      "evidence": [
+        "§04.5",
+        "Chart C5",
+        "FaaS stills"
+      ]
+    },
+    {
+      "topic": "lineage",
+      "evidence": [
+        "§03",
+        "fn 3",
+        "context: DreamZero paper"
+      ]
+    }
+  ],
+  "planned_tables": [
+    "训练侧披露状态",
+    "仿真本体统计",
+    "未见任务 8 类",
+    "FaaS 12 台对照"
+  ],
+  "figure_table_contract": {
+    "inventory_complete": true,
+    "all_source_items": 14,
+    "insertions": [
+      "Fig 3 tasks wall",
+      "Fig 4 robots wall",
+      "Fig 5a sim chart",
+      "Fig 5b real chart",
+      "Fig 6 WAM diagram",
+      "Fig 7 Robocurve",
+      "Fig 8a/8b unseen-task charts",
+      "Fig 10 FaaS pair",
+      "Fig 11 FaaS far",
+      "Fig 12 FaaS chart"
+    ],
+    "skipped_items_documented_in": "paper_DeepPaperNote.figure_decisions.json"
+  },
+  "context_sources_used": [
+    {
+      "source": "/workspace/dream1_research/src/dreamzero.txt",
+      "label": "DreamZero paper (predecessor, not Dream-1 page)"
+    },
+    {
+      "source": "/workspace/dream1_research/src/runs.json",
+      "label": "Robocurve all-runs data (not Dream-1 page)"
+    },
+    {
+      "source": "/workspace/dream1_research/src/robocurve_home.html",
+      "label": "Robocurve home (not Dream-1 page)"
+    },
+    {
+      "source": "https://robocurve.org/opus-5-5-robodojo-rc-tier-1/ (fetched 2026-10-21)",
+      "label": "Robocurve Tier 1 spec page (not Dream-1 page)"
+    },
+    {
+      "source": "/workspace/dream1_research/src/forbes.html (og:description only)",
+      "label": "Forbes (not Dream-1 page)"
+    },
+    {
+      "source": "/workspace/dream1_research/src/wam.html",
+      "label": "Dream-1 page embedded asset (part of primary source)"
+    }
+  ],
+  "prior_report_usage": "Dream-1_调研报告.md 仅用作线索清单；所有写入笔记的数字均已从页面 data-chart JSON、页面正文或标注的上下文来源重新核对。",
+  "review_plan": [
+    "grounding pass against page text and data-chart JSON",
+    "structure/style/math/figure lint",
+    "link and image existence check"
+  ]
+}

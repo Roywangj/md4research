@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "严格包含论文核心信息、原文摘要翻译、创新点（带编号加粗Takeaways）、一句话总结、研究问题、数据与任务定义、方法主线（6大子章节，覆盖机制流程、概念界定、Model、Data、Environment、Harness）、关键分类与代表性工作横向对比（4大领域大比拼）、深度分析（4大剖析子章节）、局限与未来挑战、我的笔记（深度链接OpenWAM, Long-WAM, VPP2, ViGAR, ASPIRE, Rolling-WAM, CodeActionBench等本库前沿成果）、以及标准学术引用等完整规约"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的7幅Figure（figure_1至figure_7）与全部18项Table切图（table_1至table_18）均在images/目录中100%存在且文件完整，在Markdown中采用标准相对路径嵌入，图文排版位置严密贴合学术逻辑"
+    },
+    {
+      "name": "Numeric and Fact Faithfulness",
+      "status": "PASSED",
+      "detail": "严格基于79页arXiv:2610.20442v1正文及326k字符提取文本，涵盖四大功能领域、17个非互斥操作分类、600+篇前沿学术文献、四代机器人学习范式演变、典型系统参数与采样频率（如System 1/2速率划分、数据收集规模等），数据与概念零虚构"
+    },
+    {
+      "name": "Traceability and Vault Grounding",
+      "status": "PASSED",
+      "detail": "完全对齐WJ精读（DeepPaperNote）知识库标准，紧密契合WorldModel目录下近邻工作（Harness VLA, Long-WAM, VPP2, ViGAR, ASPIRE, CodeActionBench）的技术逻辑，并深入提炼具身智能体通用脚手架的核心设计范式"
+    }
+  ]
+}

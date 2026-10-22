@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线（机制流程、闭环执行引擎、技能库蒸馏与检索、进化搜索策略、跨任务跨具身虚实迁移）、关键结果（仿真主结果、零样本长程迁移、真实机器人实证、核心消融）、深度分析（真正贡献、为何成立、容易误读、复现注意点）、局限、我的笔记（横向生态对比与演进图谱）与引用等全量规范章节与深度子章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的Figure 1至Figure 12及Table 1至Table 9高清裁剪图均真实存在于images/目录下，全部使用images/相对路径解析，无断链且图文对应精准"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "LIBERO-Pro各套件提升（Object +77%, Goal +41.5%, Spatial +42.5%, Overall 72% vs 18%）、Robosuite双臂交接（20%至92%）、BEHAVIOR-1K收音机抓取（88% vs 36%）、LIBERO-Pro Long零样本迁移（30.5% vs 3.8%）、实机Token消耗（抽屉任务334.92M降至81.67M，易拉罐抓取61.94M降至6.58M）等关键数值均严格对应正文与附录原始表格"
+    },
+    {
+      "name": "No Hallucination",
+      "status": "PASSED",
+      "detail": "严格基于论文43页正文及附录extracted_text.txt进行结构化精读，完整还原Coordinator-Actor多智能体机制、cuRobo/SAM3/GraspNet多模态轨迹暴露、进化搜索Algorithm 1伪代码、CLAUDE.md宪法机制以及与Voyager/Eureka/Code2Worlds/OpenWAM等工作的深度学理辨析"
+    }
+  ]
+}

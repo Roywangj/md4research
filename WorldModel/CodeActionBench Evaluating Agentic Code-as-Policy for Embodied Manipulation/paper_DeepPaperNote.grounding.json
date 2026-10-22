@@ -1,0 +1,34 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "CodeActionBench 建立了首个面向具身操作的严格 Agentic Code-as-Policy 基准体系，在彻底剔除示范轨迹、特化感知模块（如SAM/Grounding DINO）、专用抓取位姿提议网络（如Contact-GraspNet）以及特权仿真环境真值位姿的严苛条件下，评测前沿通用多模态大模型的闭环具身代码策略生成能力",
+      "evidence": "Section 1, Section 2, Section 3.1-3.2, Table 1, Figure 1; 对比了 CaP, CaP-X, VLCP, OpenETA 等已有工作，证实 CodeActionBench 是首个实现四项限制全为 '√' 的严格基准：无深度图、无特权位姿、无特化模块、完全由智能体自主估计3D与抓取位姿"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "基准涵盖 SAPIEN/RoboTwin 2.0 ALOHA-AgileX 双臂平台的 25 个精巧操作任务（分属工具使用、多物体组装、双臂协作、交接重定向、关节机构等6大类），并基于专家解推导出的工具调用预算（Btool）与仿真时间预算（Bsim）确立了双重资源界限",
+      "evidence": "Section 3.1, Appendix A.1-A.3, Appendix A.6, Table 3; 详列了25个任务的指令、种子、评分模式（21项最终状态评分 final + 4项关键执行事件锁存 latch）、Btool 与 Bsim 计算公式（Btool = ceil(14 * texpert,min), Bsim = ceil5s(max(60, 5 * texpert,sim))）"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "提出了包含 29 个原子工具的机器人控制与感知 API 规范，配备基于相机标定与主动运动双目三角化（capture_motion_pair + triangulate_correspondence）、射线相交（ray + plane_intersect）、夹爪物理参考标尺（scale_from_gripper）的零深度空间几何构建链，并通过沙箱化 run_code 支持完整 Python 程序合成",
+      "evidence": "Section 3.2, Appendix B.1-B.6, Tables 4, 5, 7, Figure 7; 智能体使用 RGB 视图与几何投影工具构建度量级 3D 目标，cuRobo 负责逆运动学与避障规划，变量和函数在交互中持久化，执行中断时回滚状态并返回物理观测"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "设计了全隐蔽的物理结果验证器（Out-of-band Verifier）与细粒度轨迹检查点规约（55 个子目标检查点 + 72 个空间检查点），将任务实际物理达成与智能体主观完成判断（done 调用的 report 与 success_claim）完全隔离，并利用 5mm 严格重放验证确保评测结论的物理保真度",
+      "evidence": "Section 3.4, Section 4.3-4.4, Appendix E.1-E.3, Appendix F, Tables 12, 13, Figure 2, Figure 9; 成功判定独立于智能体可见信息，重放验证要求工具顺序、动作状态、物理步数与终态判定全吻合，且轨迹端点与物体位置误差在 5mm 以内"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "在 9 种模型配置、675 次独立评测尝试中，任务成功率呈现断层分布（2.7%~73.3%），GPT-6 Astra 配合 Codex CLI 取得 73.3% 成功率与 88% 任务覆盖率（解决 22/25 任务），显著超越 Claude Opus 5（49.3%）与 Gemini 3.6 Flash（20.0%），且兼具最低中位执行耗时（477.2s）与极高成本效益",
+      "evidence": "Section 4.1-4.2, Table 8, Table 10, Table 11, Figure 3, Figure 4, Figure 8; 675次尝试总成功率仅 27.3%（184/675），Astra 展现了极强的双目三角化调用倾向（75次尝试全量使用，成功率73.3%），而弱模型则主要依赖接触探测盲试"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "实证揭示了以 Python 脚本合成（run_code）为核心的推理组织对具身控制具有决定性优势（高成功率模型程序调用占比超 85%，Astra 达 92.6% 且代码错误率仅 0.46%），同时系统归因了 491 次失败尝试的五大致命失效阶段，证实了虚假完成声称（False Done / Overclaim）与末端执行脱节是具身智能体的普遍病理",
+      "evidence": "Section 4.3-4.4, Appendix C.4, Appendix F, Appendix G, Table 2, Table 9, Table 14, Table 15, Figure 5, Figure 6, Figure 10; 491次失败中有 280 次未到达相关区域（225次未发出兼容目标）、77次物体失控、122次子目标未维持；弱模型过度声称率高达 34.2%，且 56.5% 的尝试因单步工具调用频繁而提前耗尽预算"
+    }
+  ]
+}

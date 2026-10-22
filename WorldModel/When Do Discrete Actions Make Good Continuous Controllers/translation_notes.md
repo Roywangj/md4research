@@ -1,0 +1,31 @@
+# Translation Notes: When Do Discrete Actions Make Good Continuous Controllers?
+
+- **Scope:** Full 53-page paper by Zeji Yi, Soham Dasgupta, Xinyang Zhang, Koushil Sreenath, Guannan Qu, Xi Chen, Max Simchowitz, Guanya Shi (CMU & Amazon FAR, Oct 15, 2026, arXiv:2610.15939 / 2610.20429). Preserves all 6 main sections, 139 bibliographic citations, and Appendices A through H.
+- **Source:** Extracted directly from the original vector PDF using PyMuPDF (fitz) with clean UTF-8 text filtering and exact bounding-box asset extraction at 300 DPI.
+- **Terminology Ledger:**
+  - *Action Chunking:* 动作分块
+  - *Continuous Regression (CR):* 连续回归
+  - *Continuous Flow (CF):* 连续流
+  - *Discrete Regression (DR):* 离散回归
+  - *Discrete Flow (DF):* 离散流
+  - *Classifier-Free Guidance (CFG):* 无分类器引导
+  - *End-Effector (EEF):* 末端执行器
+  - *Relative EEF actions:* 相对末端执行器动作
+  - *Jerk Ratio ($R_{\mathrm{jerk}}$):* 加加加速度比（刻画动作时变剧烈度与时序过平滑的关键物理指标）
+  - *State Responsiveness:* 状态反应性 / 灵敏度（衡量观测输入发生微小扰动时策略输出的响应幅度）
+  - *Factorization Error:* 坐标因式分解误差 / 独立性假设误差
+  - *Mode Switching:* 跨多峰模式切换（由于坐标独立抽样导致预测落在不同动作模态之间）
+  - *Metric-aware Discrete Flow (Metric-DF):* 度量感知离散流（在损坏过程中引入物理空间距离衰减先验）
+  - *Open-loop execution:* 开环执行
+  - *Replanning horizon:* 重规划视界
+- **Equations & Notation:** All inline mathematics use `$ ... $`. Display equations appear on standalone lines outside blockquotes (`$$ ... $$`). Inside blockquotes, formulas are formatted as inline mathematics with equation markers (e.g., `(Eq. C.1)`) to ensure strict compatibility with GitHub Flavored Markdown and Obsidian while avoiding blockquote-display-math lint violations.
+- **Figures & Tables:**
+  - 19 figures (`assets/figure_1.png` through `assets/figure_19.png`) embedded with complete bilingual captions (`**Caption:**` and `**Caption[CN]:**`).
+  - 12 tables (`assets/table_1.png` through `assets/table_12.png`) embedded as image assets followed immediately by full searchable Markdown transcriptions and paired bilingual captions.
+- **References:** All 139 bibliographic citations (pages 13–25) are preserved in numbered format (`1. Author et al. ...` through `139. Author et al. ...`), ensuring full searchability and 100% citation coverage.
+- **Validation:** Strictly validated via `validate_detailed_paper.py`:
+  - Paragraph pairs: 141 (0 unpaired, 0 malformed)
+  - Caption pairs: 31 original / 31 Chinese (0 missing, 0 unaligned)
+  - Image links: 31 (0 broken)
+  - Byte-identical parity between `detailed_paper.md` and `paper.md` verified via SHA256 (`--require-identical` passes with 0 errors).
+- **Integrity Guarantee:** DeepPaperNote artifacts (`paper_DeepPaperNote.md`, `paper_DeepPaperNote.*.json`) and existing `images/` directory were preserved untouched.

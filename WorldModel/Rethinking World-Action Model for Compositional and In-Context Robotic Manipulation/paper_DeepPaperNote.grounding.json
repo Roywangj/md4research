@@ -1,0 +1,44 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "ViGAR 将长时程组合操作解耦为视觉子目标规划器（Subgoal Planner G_theta）与子目标驱动动作执行器（Subgoal Executor pi_theta），两者共享预训练视频世界模型骨干的物理动力学先验",
+      "evidence": "Section 1, Section 4.1-4.2, Figure 1, Figure 2; 基于 Cosmos3-Nano 16B-A8B 骨干，规划器以图像编辑范式预测下一阶段目标关键帧，执行器据此联合生成短程未来视频与 48 步动作块"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "子目标监督设计中的时序前瞻规则（Subgoal Look-ahead Rule）有效解决了子任务过渡边界视觉相似导致的规划回退死锁",
+      "evidence": "Section 4.1 (Eq. 2), Section 5.5, Figure 3a, Figure 9, Table 2b; 将子任务最后 p% 帧重定向至下一个目标 g_{i+1}，在仿真中消除回退振荡，使整体成功率从 72.86% 提升至 74.51%"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "末端执行器空间 ROI 掩码加权损失（4:1 前后景比）将流匹配监督精准聚焦在操作交互区，显著提升子目标生成的物理保真度与空间改变一致性",
+      "evidence": "Section 4.1 (Eq. 3), Section 5.5, Figure 3b, Table 1b, Table 2b; 消除背景过拟合，ΔIoU 从 0.22 暴涨至 0.65，RetAcc 达到 0.94，若移除 ROI 权重平均成功率下降 2.05%"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "几何注入路径（Generator 潜变量直接输入）在空间泛化与抗扰动能力上显著优于语义注入路径（Reasoner 令牌输入）",
+      "evidence": "Section 4.2, Section 5.5, Table 2a; 在 RoboTwin Random 设定下，Generator 注入成功率达到 45.42%，而 Reasoner 语义注入仅为 23.52%，两者结合反降至 41.28%"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "在 RoboTwin Clean2Random 基准上，ViGAR 以 82.00% (Clean) 和 67.02% (Random) 达到 74.51% 平均成功率，超越最强基线 4D-WAM 12.86 个百分点",
+      "evidence": "Section 5.2, Table 1a; 相比相同骨干无子目标引导的 Cosmos3-Nano-RoboTwin (49.76%) 净提升 24.75 个百分点，充分证明显式视觉子目标在抵抗空间随机化中的关键价值"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "真实机器人实验（AgiBot A2 双臂）在 5 项长时程组合任务上取得 0.69 平均进度得分，大幅领先 π0.5 (0.60) 与同骨干基线 Cosmos3-Nano-Policy (0.54)",
+      "evidence": "Section 5.3, Section C.3, Figure 4, Figure 6, Figure 8, Table 4; 在叠杯子、分类叠碗、盖章传递、桌面清理及蒸笼取包子等多阶段复杂长程任务中展现出稳定的阶段推进与协调能力"
+    },
+    {
+      "claim_id": "C07",
+      "claim": "全局终态目标图像（Global Goal Image）作为推理上下文，赋予机器人无需参数更新的即时上下文重组操作能力（In-Context Robotic Manipulation）",
+      "evidence": "Section 4.3, Section 5.4, Figure 5, Figure 7, Table 5; 在保持初始场景和语言指令不变的条件下，仅变更终态目标图像即可引导规划器生成全新的子任务顺序，在实机水果整理与桌面收纳任务中取得 72%~83% 域内进度与 43%~52% OOD 进度"
+    },
+    {
+      "claim_id": "C08",
+      "claim": "全栈推理工程优化（Static CUDA Graph, Fused Projections, Batched CFG, Condition Caching, TeaCache）使单卡 B20Z 上的策略推理提速 2.5 倍，子目标生成提速 11.2 倍",
+      "evidence": "Section B, Table 3; 在保证数值无损的前提下大幅压降重型双分支扩散世界模型的闭环控制延迟，奠定实体双臂机器人实时部署基础"
+    }
+  ]
+}

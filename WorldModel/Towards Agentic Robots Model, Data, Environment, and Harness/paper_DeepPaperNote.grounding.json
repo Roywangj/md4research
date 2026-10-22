@@ -1,0 +1,39 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "本文首次建立了具身智能体（Agentic Robots）跨越研发全生命周期的大一统理论与系统架构体系，将机器人智能的历史演进划分为四个代际范式（Task-specific Policies -> VLAs -> World-Action Models -> Agentic Robots），并论证了为何单体动作预测网络无法支撑复杂长时程开放环境交互",
+      "evidence": "Section 1, Section 2.1-2.4, Figure 1; 梳理了传统强化学习/模仿学习（如 ACT, Diffusion Policy）、视觉语言动作模型（如 RT-1, RT-2, OpenVLA, Octo, π0）、世界动作模型（如 UniPi, SuSIE, WAM, OpenWAM, VPP2）的局限，指出第四代智能体机器人必须具备超越策略动作预测的自主目标分解、环境反馈反思与自适应恢复能力"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "提出了将具身智能体系统解耦为四大核心功能领域（Model, Data, Environment, Harness）与跨越系统开发与运行时的十七个非互斥操作分类（17 Operational Categories），终结了此前不同具身功能模块碎片化拼凑而缺乏统一分类视角的混乱状态",
+      "evidence": "Section 3.1-3.2, Table 1, Figure 2, Figure 3; 明确定义了 Agentic Robots 的内涵与外延：不仅包括在线执行过程中的规划、协调与恢复，更涵盖利用智能体离线自动化构建数据、搭建仿真环境、生成任务与改进模型学习策略的全闭环体系"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "在 Model 领域，系统梳理了智能体在模型训练（Training）、主动与语义感知（Perception）、任务与几何可行规划（Planning）、分层机器人控制（Robot Control）以及测试时经验自适应（Adaptation）五大维度的技术脉络与 30+ 代表性工作",
+      "evidence": "Section 4.1-4.5, Tables 2-6, Figure 4; 覆盖了 Eureka、Demo2Reward、SoFar、MG-VQA、KnowNo、Reflective Planning、ReKep、VoxPoser、Code as Policies、In-Context Adaptation 等经典工作，揭示了模型侧干预从纯权重调整走向代码合成与上下文推理的演进"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "在 Data 领域，剖析了由自主智能体主导的经验数据飞轮自循环机制，解构了数据自主收集（Collection）、多模态结构化标注（Annotation）与轨迹质量精炼筛选（Refinement）三大操作环节，展现了模型生成数据反哺模型训练的可扩展路径",
+      "evidence": "Section 5.1-5.3, Tables 7-9, Figure 5; 详析了 AutoRT、RoboGen、SOAR、Video2Policy、HumanoidGen、RoboLineage、Zero2Skill、Reflective Test-Time Planning 等工作，量化了上万条合成轨迹与物理交互数据的过滤与精炼准则"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "在 Environment 领域，建立了数字孪生可执行环境重建（Reconstruction）、自动化任务与课程生成（Task Generation）以及细粒度动态基准评测（Benchmarking）的三位一体仿真评估闭环",
+      "evidence": "Section 6.1-6.3, Tables 10-12, Figure 6; 调研了 Articulate-Anything、Articraft、Genie Sim 3.0、GenSim、RoboGen、EmbodiedBench、Arnold、CodeActionBench 等代表作，分析了从静态网格重建迈向带物理关节、执行器参数与隐蔽评估断言的可交互环境演进趋势"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "在 Harness 领域，首次将具身智能体的工程架构与脚手架提炼为六大核心系统支柱：编排调度（Orchestration）、多模态记忆（Memory）、监控与异常恢复（Monitoring & Recovery）、可复用技能库（Skills）、底层基础设施与安全沙箱（Infrastructure）、以及多速率快慢系统分层架构（Layered Systems）",
+      "evidence": "Section 7.1-7.6, Tables 13-18, Figure 7; 调研了 VoLo、HarnessVLA、HAM-VLN、SafeHarness、Code-as-Monitor、Voyager、ASPIRE、SafetyChip、SmolVLA、SayCan、MOKA 等系统，深刻论证了 Harness 并非简单的工程外壳，而是赋予冻结模型环境鲁棒性、物理容错性与跨时域长程推理的关键中枢"
+    },
+    {
+      "claim_id": "C07",
+      "claim": "前瞻性指出了具身智能体落地面临的四大根本性开放挑战：公平与隐蔽评测基准（Fair Benchmarking）、真机真实环境复杂接触与延迟约束下的物理鲁棒性（Real-robot Agentic Robotics）、多层多智能体调用的 token 与计算效率（Efficient Robot Use）、以及跨机械臂/双臂/双足人型多本体的通用泛化壁垒（Cross-Embodiment Generalization）",
+      "evidence": "Section 8.1-8.4, Section 9; 讨论了当前学术界仿真与真机评测之间的巨大鸿沟，指出由于缺乏真实物理反馈与长推理延迟，许多多层智能体系统在现实世界难以实现毫秒级反应与安全碰撞规避"
+    }
+  ]
+}

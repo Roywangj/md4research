@@ -1,0 +1,60 @@
+{
+  "paper": {
+    "title": "Towards Agentic Robots: Model, Data, Environment, and Harness",
+    "short_title": "Agentic Robots Survey",
+    "year": 2026,
+    "venue": "arXiv:2610.20442v1 [cs.RO]",
+    "team": "MMLab CUHK, Fudan University, NovaXBot, Tsinghua University, Zhejiang University, Sun Yat-sen University",
+    "authors": "Chonghan Qin, Dongming Wu, Kaituo Feng, Jiaxu Wang, Xinlei Yu, Peiwen Sun, Yijia Fan, Xilin He, Bingao Chen, Weitong Lian, Ryan Ji, Wenqi Ren, Xiaobin Hu, Dahua Lin, Yu-Gang Jiang, Xiangyu Yue"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "系统整理论文元数据、作者团队与核心机构、开源仓库、调研规模（600+篇前沿文献）与具身智能领域宏观定位"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "提供严谨、信达雅的学术中文摘要全译，精准传达从低级动作预测迈向目标导向自主编排的范式跃迁核心思想"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大架构与理论创新：四代机器人学习范式演进图谱、首个四维功能域（Model/Data/Environment/Harness）大一统解耦架构、跨生命周期的17个可操作职能分类、打破单体黑盒策略的 Harness 脚手架哲学、数据与环境自驱动演化飞轮机制、具身智能体多层速率解耦与韧性闭环"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括本文在具身智能、VLA与世界动作模型（WAM）之上的系统架构奠基石地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析为什么传统任务特化策略与单体端到端 VLA 在长时程任务中撞墙；缺乏统一架构分类导致具身功能碎片化的痛点；解耦 Model、Data、Environment 与 Harness 的根本必要性"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述 4 大功能领域下 17 个操作分类（Table 1）的形式化规约与职责边界，梳理覆盖 600+ 篇文献的系统化综述范畴与多实体硬件基底"
+    },
+    {
+      "section": "方法主线",
+      "goal": "全面剖析机器人学习四代演化主线（图1）、概念界定与分类体系（表1/图3）、Model 学习与控制五大环节（图4/表2-6）、Data 收集标注与精炼（图5/表7-9）、Environment 虚拟重建与基准（图6/表10-12）、Harness 六大脚手架核心支柱（图7/表13-18）"
+    },
+    {
+      "section": "关键分类与代表性工作横向对比",
+      "goal": "以大跨度横向对比表形式对 Model、Data、Environment、Harness 四个领域的代表性前沿方法（如 Eureka, SoFar, VoxPoser, RoboGen, Articulate-Anything, VoLo, HarnessVLA, Voyager, SafetyChip 等）进行纵深技术特性透析"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透综述表象剖析核心贡献：确立具身智能体首个完整操作环解耦架构；证明该分类体系能够彻底切分决策流与物理交互流；破除关于纯软件 Agent、VLA、WAM 的本质界限误区；直面真实物理世界延迟瓶颈、多层协调开销与物理沙箱安全边界"
+    },
+    {
+      "section": "局限与未来挑战",
+      "goal": "深入探讨公平基准评测（Fair Benchmarking）、真机具身落地壁垒（Real-robot Agentic Robotics）、高效机器人调用（Efficient Robot Use）以及跨本体泛化（Cross-Embodiment Generalization）"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与 WJ 核心知识库中的近邻重量级工作（OpenWAM, Long-WAM, VPP2, ViGAR, ASPIRE, Rolling-WAM, CodeActionBench, Harness VLA）进行深度宏观生态位对照与大一统具身架构推演"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用格式规范记录"
+    }
+  ]
+}

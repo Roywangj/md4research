@@ -1,0 +1,39 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "ASPIRE构建了Coordinator-Actor解耦的自主演进架构，通过闭环机器人执行引擎暴露包含RGB关键帧图层叠加、抓取候选、三维位姿、碰撞报警（如cuRobo PLANNING_ERROR）的细粒度多模态原语轨迹，从根本上打破了传统黑盒标量奖励反馈的局限",
+      "evidence": "Section 1, Section 2.1, Figure 1, Figure 2; 在BEHAVIOR-1K收音机抓取任务中，系统精准定位cuRobo规划失败系因目标点落入桌沿20cm碰撞缓冲区，指导Agent合成多角度进近例程顺利通过"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "提出持续积累的跨任务异构技能库，包含定位提示词、空间几何解歧、抓取约束、多角度导航恢复与接触运动原语等6大异构门类，经协调器审计过滤后沉淀为高复用性上下文代码知识",
+      "evidence": "Section 2.2, Figure 3, Figure 7-12, Appendix A, Appendix E.1-E.5; 技能非任务级完整代码，而是细粒度故障签名、适用守卫条件（When-to-Apply）、修复策略与精简代码片段"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "引入基于种群多样性探索与持久任务分析账本（task_analysis.md）的进化搜索算法（Algorithm 1），有效打破单一轨迹贪心调试的局部死循环陷阱",
+      "evidence": "Section 2.3, Algorithm 1, Appendix E.4; 每轮依据Top-3存活候选与未解决故障轨迹并行变异K个假设，LIBERO-Pro难任务在消除假说与解除阻碍分支后性能显著提升，Table 9展示了跨轮次单调突破"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "在三大短程与富接触仿真基准上全面大幅碾压前沿基线：LIBERO-Pro在三大扰动套件上相较最强基线提升41.5%~77.0%，Robosuite双臂交接从20%暴涨至92%（+72%），BEHAVIOR-1K超长程移动操作大幅超越人类专家水平（88% vs 36%）",
+      "evidence": "Section 3.4, Figure 4, Table 2, Table 3, Table 4; LIBERO-Pro综合总体达到72%（vs CaP-Agent0 18%, π0.5 13%, OpenVLA 0%），Robosuite 7任务平均81%（vs 68%），BEHAVIOR-1K导航100%/任务88%"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "在未见任务的零样本长程迁移（LIBERO-Pro Long）评测中，技能库表现出极强的正向知识复利效应，随着积累任务数N从0、25、50增至90，零样本成功率从4.7%稳步提升至30.5%（约31%），远超CaP-Agent0（3.8%）与π0.5（5.0%）",
+      "evidence": "Section 3.5, Figure 5, Table 5, Table 6; 测试期无需任何额外调试、重试或库更新，仅依靠检索先前积累的短程与接触修复技能即可实现长程组合泛化"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "仿真环境（Franka单臂）中沉淀的物理交互与调试技能成功跨具身零样本迁移至真实双臂YAM工作站（OpenAI Codex GPT-5.5驱动），大幅削减实机调试推理Token消耗最高达9.4倍，并在抽屉开关等复杂任务上实现从0/20到11/20的零的突破",
+      "evidence": "Section 3.1, Section 3.6, Table 1; 易拉罐抓取实机成功率从13/20升至19/20且总Token由61.94M骤降至6.58M；抽屉任务无技能基线耗尽334.92M Token完全失败，而检索技能仅耗费81.67M Token并取得11/20成功"
+    },
+    {
+      "claim_id": "C07",
+      "claim": "消融实验明确验证系统各组件贡献阶梯：闭环机器人执行引擎是性能跃迁的关键主干（贡献+48pp，从14%提升至62%），进化搜索进一步攻克残余长尾瓶颈（推升至72%~77%）",
+      "evidence": "Section 3.7, Figure 6, Table 7, Table 8; 详细消融证实细粒度故障归因优于盲目重试，多候选假设探索比单轨迹贪心修补更具抗局部最优能力"
+    }
+  ]
+}

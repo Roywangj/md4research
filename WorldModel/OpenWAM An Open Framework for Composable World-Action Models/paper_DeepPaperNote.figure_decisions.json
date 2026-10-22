@@ -1,0 +1,121 @@
+{
+  "figures": [
+    {
+      "label": "Figure 1",
+      "decision": "insert",
+      "asset": "images/figure_1.png",
+      "reason": "OpenWAM 全景架构示意图：展示三阶段流程（Wan2.2 视频初始化、10k+小时因果机器人预训练、视频-动作后训练）、共享 MoT 双专家结构、四种交互模式与局部动力学解耦迁移框架。"
+    },
+    {
+      "label": "Figure 2",
+      "decision": "insert",
+      "asset": "images/figure_2.png",
+      "reason": "共享 MoT 架构图：展示 5B 视频专家与 2B 动作专家的独立归一化与 FFN，通过共享注意力层在打包的视频与动作 token 上进行交互，结合跨注意力注入任务语言指令。"
+    },
+    {
+      "label": "Figure 3",
+      "decision": "insert",
+      "asset": "images/figure_3.png",
+      "reason": "六种因果交互模式的注意力掩码矩阵：明确对比 VTA、ATV、Joint、Decoupled 以及局部动力学接口 LC-IDM、LC-FDM 的时序可见性与生成阶段。"
+    },
+    {
+      "label": "Figure 4",
+      "decision": "insert",
+      "asset": "images/figure_4.png",
+      "reason": "评测任务展示图：左侧展示真实双臂 Franka FR3 机器人的三项长时程具身操作任务，右侧展示 LIBERO-90 跨域迁移的四项测试任务。"
+    },
+    {
+      "label": "Figure 5",
+      "decision": "insert",
+      "asset": "images/figure_5.png",
+      "reason": "真实机器人硬件平台：展示双臂 Franka FR3 机械臂、Flexiv Grav 夹爪、GELLO 双臂遥操作套件、腕部 RealSense D405 与中央 Orbbec Femto Mega 三相机硬件布局。"
+    }
+  ],
+  "tables": [
+    {
+      "label": "Table 1",
+      "decision": "insert",
+      "asset": "images/table_1.png",
+      "reason": "LIBERO-90 跨任务迁移评估集定义与迁移挑战分析。"
+    },
+    {
+      "label": "Table 2",
+      "decision": "insert",
+      "asset": "images/table_2.png",
+      "reason": "真实世界双臂具身操作任务定义与核心物理挑战（Toast Bread, Rubik's Cube, Sort Cups）。"
+    },
+    {
+      "label": "Table 3",
+      "decision": "insert",
+      "asset": "images/table_3.png",
+      "reason": "LIBERO 四大基准（Spatial, Object, Goal, Long）闭环策略主评测结果对比表格。"
+    },
+    {
+      "label": "Table 4",
+      "decision": "insert",
+      "asset": "images/table_4.png",
+      "reason": "真实世界双臂操作闭环成功率评测结果（VTA vs Joint）。"
+    },
+    {
+      "label": "Table 5",
+      "decision": "insert",
+      "asset": "images/table_5.png",
+      "reason": "冻结动作组件向 LIBERO-90 目标任务迁移结果：Local-context IDM 在反事实数据加持下的零样本动力学迁移突破。"
+    },
+    {
+      "label": "Table 6",
+      "decision": "insert",
+      "asset": "images/table_6.png",
+      "reason": "源任务 LIBERO-Long 上的动作组件与视频预测器组合评测。"
+    },
+    {
+      "label": "Table 7",
+      "decision": "insert",
+      "asset": "images/table_7.png",
+      "reason": "局部前向动力学 (LC-FDM) 在反事实轨迹上的预测误差与 K=2 / K=16 结果识别精度。"
+    },
+    {
+      "label": "Table 8",
+      "decision": "insert",
+      "asset": "images/table_8.png",
+      "reason": "因果机器人视频预训练数据集构成清单（14,640 小时，334 万轨迹单元）。"
+    },
+    {
+      "label": "Table 9",
+      "decision": "insert",
+      "asset": "images/table_9.png",
+      "reason": "LIBERO-Long-CF 反事实数据集与原生专家演示数据集的规模对照。"
+    },
+    {
+      "label": "Table 10",
+      "decision": "insert",
+      "asset": "images/table_10.png",
+      "reason": "LIBERO-Long-CF 反事实物理干预策略分类分布。"
+    },
+    {
+      "label": "Table 11",
+      "decision": "insert",
+      "asset": "images/table_11.png",
+      "reason": "LIBERO-Long-CF 物理交互统计指标（接触率、抓取率、位态改变）。"
+    },
+    {
+      "label": "Table 12",
+      "decision": "insert",
+      "asset": "images/table_12.png",
+      "reason": "视频主干初始化消融实验（随机 vs Wan2.2 原生 vs 机器人因果预训练）。"
+    },
+    {
+      "label": "Table 13",
+      "decision": "insert",
+      "asset": "images/table_13.png",
+      "reason": "MoT 双流架构 vs 纯共享 Non-MoT DiT 架构消融对比。"
+    },
+    {
+      "label": "Table 14",
+      "decision": "insert",
+      "asset": "images/table_14.png",
+      "reason": "LIBERO-Long 上策略与动力学精度综合对比：专精模型 vs 多任务统一模型 vs UVA 基线。"
+    }
+  ],
+  "policy": "核心图表嵌入 DeepPaperNote 正文，所有图片链接均指向本地相对路径 images/，保证在 Obsidian vault 中无需网络即可自包含渲染。"
+}

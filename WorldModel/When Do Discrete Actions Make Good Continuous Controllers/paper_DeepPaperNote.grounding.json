@@ -1,0 +1,34 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "首次提出跨'动作表征（连续 vs 离散）'与'推理计算维度（单步回归 vs 迭代精炼）'的2x2正交动作头解耦分类法（DF, CF, DR, CR），在相同骨干网络与严格对齐的实验条件下实现无偏对比",
+      "evidence": "Section 1.1, Section 2, Table 3, Table 5, Figure 1(a); 四类动作头共享PaliGemma-3B（π0初始化）骨干网络、64个重采样条件Token以及相同的Transformer结构（8 blocks, width 1536, 12 heads），严格消除了模型容量带来的混淆变量"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "打破'离散动作量化必然损害控制精度'的经典假设：最朴素的512均匀Bin离散动作预测在闭环成功率和末端执行器（EEF）追踪精度上全面匹敌甚至超越连续流/扩散动作头",
+      "evidence": "Section 3, Figure 1(b,c), Figure 2(b), Table 11; 在RoboMimic单任务、RoboCasa及LIBERO多任务中，离散流（DF）成功率（53.9%）超越连续流（CF 52.7%），离散回归（DR 49.2%）大幅超越连续回归（CR 38.8%）；在6大离线数据源中，DF在4个源上取得最低的EEF L2追踪误差（DROID上19.67mm vs CF 26.60mm）"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "离散策略在Chunk内的更高时序变化率（Jerk Ratio）并非纯高频噪声，而是策略对环境状态位移和时序步长具备更高响应性（State Responsiveness）的体现",
+      "evidence": "Section 3.1, Figure 2(a), Figure 3, Table 9, Table 10; 在单步仿真扰动下，DF展现出显著高于CF的超额传输响应率Rπ（0.19/0.39/0.86 vs 0.06/0.17/0.68），在专家轨迹状态位移||Δs||增加时能更敏锐地调整动作输出，增强了开环Chunk执行期间对动态扰动的纠偏能力"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "离散回归（DR）落后于连续/离散流策略的核心痛点在于'因式分解误差（Factorization Error）'而非量化精度损失；时序与维度间的独立乘积分布导致了多模态混叠与嵌合动作（Chimera Actions）",
+      "evidence": "Section 4, Figure 4(a), Figure 5, Table 1; 当状态存在多条可行路径时，独立自回归或回归解码在时间步和坐标维度上独立选取概率峰值，导致同一Chunk前半段属于Mode A而后半段跳变至Mode B；Push-T与RoboCasa案例直观证实了这一因式分解缺陷"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "多步迭代精炼（DF）与无分类器引导（CFG）是消除因式分解误差的两大正交有效机制：DF通过多步条件迭代将不一致模态预测降低5.28倍，CFG通过锐化离散分布将DR成功率从27.1%暴拉至49.2%",
+      "evidence": "Section 4, Figure 4, Figure 9, Figure 13, Table 1; CFG=2使DR在RoboCasa上的成功率从27.1%飙升至49.2%（逼近DF 53.9%与CF 52.7%），且并没有显著改变L2重构误差（16.4mm -> 16.3mm），证明其核心收益来自于模态消歧；DF在NFE>=10时平均模糊Token数降至1以下"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "外加显式几何距离约束（如度量诱导流路径）或复杂结构化分词器（nFSQ, RVQ, FAST）无法实质超越朴素均匀Bin分词配合离散流；离散动作头最后一层分类嵌入天然学会了相邻Bin的高余弦相似度几何流形",
+      "evidence": "Section 5, Table 12, Figure 15, Figure 16; 均匀Flat-Bin配合DF取得全场最高的53.9%成功率，超越nFSQ (52.4%)、FAST (46.2%)与RVQ (38.2%)；对末层Logit权重的余弦相似度分析显示相邻Bin具有极高对齐度（高正相关），网络自主学会了动作连续度量结构"
+    }
+  ]
+}

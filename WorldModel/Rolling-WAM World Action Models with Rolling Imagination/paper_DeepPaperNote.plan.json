@@ -1,0 +1,174 @@
+{
+  "output_language": "zh-CN",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "论文提出一种面向机器人闭环控制的世界动作模型（WAM）推理与训练新范式，通过错峰噪声调度（Staggered Noise Scheduling）与滑动窗口滚动去噪（Rolling Window Denoising），将联合去噪的巨大算力开销分摊到连续的重规划控制周期中，核心证据来自严谨的数学形式化、仿真基准（LIBERO、RoboTwin 2.0）、真实人形机器人（Unitree G1）实测以及完备的延迟和消融分析。",
+  "dominant_domain": "embodied AI and robot learning",
+  "must_cover": [
+    "标准联合 WAM 每次重规划从头去噪整个预测时域导致的巨大延迟瓶颈与闭环响应迟钝",
+    "滚动滑动窗口（Rolling Sliding Window）与错峰噪声调度（Staggered Noise Scheduling）的数学公式与状态转移",
+    "首个动作块完全去噪执行、保留未来块部分去噪进位推进与新观测注入机制",
+    "跨模态动作-视频注意力隔离与单向耦合模式（动作读取全时域视觉，动作间阻断跨块注意力，视频不看动作）",
+    "MoT 混合专家架构（Wan2.2-5B 视频 DiT + 1B 动作专家）与流匹配（Flow Matching）联合训练目标",
+    "稳态重规划每周期仅需 2 步去噪带来的 4.5 倍加速（215 ms vs 978 ms Joint-WAM）与 80 步超长动作时域保留",
+    "LIBERO（98.1%）、RoboTwin 2.0（Clean 93.5%, Rand 93.0%, 均值 93.3%）与 Unitree G1 人形实机（85.0%）的量化表现",
+    "与 Fast-WAM、Joint-WAM、Faster-WAM、DreamZero、LingBot-VA 等前沿体系的横向全景对比与技术谱系演进",
+    "长时域外推衰减、快速动态环境下的视觉预测滞后风险以及部署时的工程复现陷阱"
+  ],
+  "key_numbers": [
+    "模型架构：Wan2.2-TI2V-5B 视频专家（5B 参数）+ 30 层轻量动作专家（da=1024，约 1B 参数），总计约 6B 参数",
+    "时域配置：默认窗口大小 W=5 块，每块 K=16 步动作，总预测时域 H=80 步；单块总去噪步数 N=10",
+    "稳态计算量：每个重规划周期仅需 N/W = 10/5 = 2 步联合去噪，执行 K=16 步动作",
+    "重规划延迟：Rolling-WAM 稳态仅需 215 ms，相比 Joint-WAM（978 ms）提速 4.55 倍，相比 Fast-WAM（548 ms）提速 2.55 倍，甚至低于直接策略 π0.5（296 ms）和 GR00T N1.7（285 ms）",
+    "LIBERO 90 任务基准：Rolling-WAM 平均成功率 98.1%（Spatial 98.2%, Object 98.0%, Goal 98.2%, Long 97.8%），接近联合最优 LingBot-VA（98.5%）和 Joint-WAM（98.5%），优于 Fast-WAM（97.6%）和 π0.5（96.9%）",
+    "RoboTwin 2.0 双臂操作：Rolling-WAM 取得 Clean 93.5%、Rand 93.0%、平均 93.3%，位列全部对比方法第一，超越有具身预训练的 LingBot-VA（92.2%）和 Motus（87.8%），显著优于 Joint-WAM（90.6%）和 Fast-WAM（91.8%）",
+    "Unitree G1 人形机器人真机：3 项长程双臂/全身任务 60 次测试平均成功率 85.0%（Doll 85%, Plate 100%, Pouring 70%），显著领先 Joint-WAM（78.3%）、Fast-WAM（75.0%）、GR00T N1.7（66.7%）和 π0.5（61.7%）",
+    "兼容加速拓展：与 Faster-WAM 特征缓存结合（Rolling-WAM-Faster），重规划延迟进一步压缩至 142 ms，同时保持 97.5%（LIBERO）和 75.0%（RoboTwin）的高成功率"
+  ],
+  "real_comparisons": [
+    "在严格对齐的 Wan2.2-5B 骨干与无具身预训练配方下，公平对比 Rolling-WAM、Joint-WAM（从头去噪）与 Fast-WAM（测试期抛弃视频去噪）",
+    "与包含海量具身预训练的代表性 VLA（π0、π0.5、GR00T N1.7）和 WAM（LingBot-VA、Motus）进行性能与延迟的双轴对比",
+    "消融错峰滚动调度（Full Rolling）与恒定噪声（Constant）、随机噪声（Random）以及跨块动作注意力（A2A）的因果效应",
+    "探究窗口大小 W 从 1 到 8 的缩放规律，揭示物理世界预测视野与累积预测漂移之间的精度-速度权衡折点（W=5）",
+    "与 Faster-WAM 单次前向特征缓存机制进行正交叠加实测（Rolling-WAM-Faster）"
+  ],
+  "central_claims": [
+    {
+      "claim": "联合世界动作模型无需在每个重规划周期从纯高斯噪声从头去噪全部预测时域，通过错峰噪声调度可将联合去噪计算分摊至多个控制周期。",
+      "supporting_evidence": [
+        {"section_id": "sec:method", "pages": [2, 3, 4]},
+        {"section_id": "sec:experiment", "pages": [5, 6, 7]}
+      ],
+      "what_it_actually_proves": "在 LIBERO、RoboTwin 2.0 和 Unitree G1 真机评测中，每个周期仅执行 2 步去噪的 Rolling-WAM 不仅没有发生级联误差崩溃，反而取得了与完整 10 步从头去噪相当甚至更优的成功率，稳态延迟从 978 ms 降至 215 ms。",
+      "what_it_does_not_prove": "不能证明该调度在极端剧烈动态突变（如物体被突然外力撞飞）时无需清空缓存重置，也不能证明无限大的窗口 W 能持续提升性能。"
+    },
+    {
+      "claim": "测试期保留动态演化的未来视觉想象对于复杂长程双臂和人形机器人操作具有实质性增益，盲目去除视觉去噪（如 Fast-WAM）会牺牲动作连续性与灵巧性。",
+      "supporting_evidence": [
+        {"section_id": "sec:experiment", "pages": [6, 7]},
+        {"section_id": "sec:ablation", "pages": [7, 8]}
+      ],
+      "what_it_actually_proves": "在 Unitree G1 真机多任务操作中，Rolling-WAM 达到 85.0% 成功率，优于舍弃测试期视觉生成的 Fast-WAM（75.0%）；在 RoboTwin 50 任务随机化评测中，Rolling-WAM（93.0%）同样高于 Fast-WAM（91.8%），动作更平滑无停顿。",
+      "what_it_does_not_prove": "不能证明对于所有纯刚体短程单臂任务视觉想象都不可或缺，在部分简单任务上 Fast-WAM 仍具极高性价比。"
+    },
+    {
+      "claim": "动作令牌只与全时域视频令牌交互，而阻断动作块之间的跨时序双向注意力（w/o A2A），能获得更好的泛化鲁棒性与更低的策略累积误差。",
+      "supporting_evidence": [
+        {"section_id": "sec:method", "pages": [3, 4]},
+        {"section_id": "sec:ablation", "pages": [7, 8]}
+      ],
+      "what_it_actually_proves": "消融实验显示，允许跨块动作自注意力（w/ A2A）会导致 RoboTwin 成功率从 78.2% 掉至 76.3%，LIBERO 从 98.1% 降至 97.9%，验证了视觉空间作为动作时序唯一媒介的解耦优越性。",
+      "what_it_does_not_prove": "未探索因果单向动作自注意力或动作流平滑惩罚是否能进一步改善 A2A 的表现。"
+    }
+  ],
+  "claim_boundaries": [
+    "首周期冷启动惩罚：在任务刚启动时（Initialization Mode），模型必须执行完整的 N=10 步去噪以建立错峰噪声梯度，初始周期的延迟仍为 ~978 ms，仅在稳态周期体现 215 ms 极速。",
+    "开环窗口内物理有效性假设：Rolling-WAM 假设前一周期对未来块的部分去噪方向与新环境观测基本一致；若环境发生超预期的剧烈外部突变，保留的带噪潜在变量可能成为干扰先验。",
+    "真机评测样本规模：Unitree G1 真机评测覆盖 3 个任务、每任务 20 次共 60 次尝试，样本量能够体现统计趋势但置信区间仍有一定宽度。",
+    "GPU 显存占用开销：为了并行处理 W=5 块的联合视频潜变量（即使步数少），前向激活值与 KV 缓存显存占用显著高于仅处理单块动作的轻量策略。"
+  ],
+  "negative_or_limiting_results": [
+    "超长窗口性能回落：当窗口 W 从 5 扩大到 8 时，预测时域拓展至 128 步，但 RoboTwin 成功率反而从 78.2% 大幅下跌至 69.5%，说明过远未来的无约束想象会反向污染动作生成。",
+    "与 Faster-WAM 结合时的性能轻微折损：虽然 Rolling-WAM-Faster 将延迟降至 142 ms，但在 RoboTwin 上的成功率从 78.2% 降至 75.0%，表明单次前向视频特征缓存略微削弱了精细接触表征。",
+    "非错峰训练的不相容性：如果在训练期使用固定全噪（Constant）替代错峰滚动噪声（Full Rolling），RoboTwin 表现明显下滑（74.7% 和 73.0% vs 78.2%），说明训练与推理的噪声分布对齐是强前提。"
+  ],
+  "mechanism_result_map": [
+    "错峰噪声调度（式 2 与式 3）使得第 j+1 块在上一周期的终点噪声严格等于第 j 块在新周期的起点噪声，从而消除窗口滑动时的噪声阶跃突变，保证了时序平滑性与去噪连贯性。",
+    "每个稳态周期只走 N/W=2 步 Euler 积分，由于保留的未来块已经历了先前的部分去噪（暖启动），其流速度场预测比纯高斯噪声去噪更精准，这解释了为何步数骤减却性能反升（93.3% vs 90.6% Joint-WAM）。",
+    "注意力掩码中动作令牌可跨块查看整条演化中的未来视频，使当前执行动作在运动学上与未来场景演变保持隐式轨迹连贯，从而消除了 Joint-WAM 常见的周期边界顿挫现象。",
+    "真机 215 ms 的重规划延迟刚好与执行 K=16 步动作（在 10 Hz 控制下对应 1.6 秒或更高频缓冲）实现完美的低时延流水线重叠，极大增强了人形机器人在接触扰动下的动态反馈能力。"
+  ],
+  "comparative_positioning": [
+    "相较于直接策略 VLA（π0、π0.5、GR00T N1.7）：Rolling-WAM 摆脱了昂贵的具身预训练，借助 Wan2.2-5B 视频扩散先验实现强大的空间与物理动态泛化，且重规划延迟更低（215 ms vs 285~296 ms）。",
+    "相较于 Joint-WAM（如 DreamZero、Cosmos Policy）：Rolling-WAM 彻底破除了从头去噪的延迟魔咒，将推理耗时削减 78%，使联合世界动作模型第一次真正具备部署到高动态人形机器人上的实时闭环可行性。",
+    "相较于 Fast-WAM：Fast-WAM 走向了极端——推理期完全抛弃视觉未来生成；Rolling-WAM 证明了保留动态演进的未来视觉想象对双臂和全身灵巧操作至关重要（真机 85.0% vs 75.0%）。",
+    "相较于两阶段因果 WAM（LingBot-VA、Causal WAM、VPP2）：因果 WAM 必须严格等待视频完全生成再输入逆动力学动作头（IDM），串行延迟高达 800+ ms；Rolling-WAM 通过滑动窗口并行更新，实现了真正在线流水线化。",
+    "相较于单模态动作滚动扩散（Streaming Diffusion Policy、RNR-DP）：Rolling-WAM 首次将滚动扩散推广至跨模态图生视频-动作联合去噪，解决了视频高维时空潜变量在滑动窗口下的对齐与对流难题。"
+  ],
+  "reuse_takeaways": [
+    "时间维度上的算力平摊原则：对于必须包含昂贵生成式多模态推理的系统，与其在单次调用内压缩去噪步数导致生成崩塌，不如利用控制闭环的时序重叠性，将完整扩散过程拆散到连续周期中完成。",
+    "跨模态注意力的单向中介法则：高维模态（视频）充当全局时空舞台，低维控制模态（动作）单向读取舞台信息，而阻断低维模态之间的跨时序长程直连，可有效阻断累积误差传播。",
+    "噪声流转的完美数学对齐：设计滚动去噪时，必须保证窗口滑动前后的噪声水平满足严格连续性（σ_next(1) = σ_prev(0)），否则每次滑动相当于向系统施加隐式噪声冲击。",
+    "双模式混合训练机制：必须以一定比例（如 20% init + 80% rolling）混合训练从全噪冷启动与错峰滚动去噪，使单一权重能兼具冷启动自愈能力与稳态高频响应能力。"
+  ],
+  "followup_questions": [
+    "在面对外部突发强扰动（如被人类突然推开机械臂或目标被强行移走）时，如何设计自适应的残差重置触发器（Adaptive Window Reset），动态判定何时放弃保留窗口并触发局部冷启动？",
+    "能否将 Rolling-WAM 的错峰窗口与非对称去噪（如高分辨率关键帧 + 低分辨率动作插值）结合，进一步压低显存和计算复杂度？",
+    "动作专家从 Wan2.2 视频权重插值初始化的机理是什么？是否可以探索视频与动作在隐空间内的双向流形正则？",
+    "在更高控制频率（如 50 Hz ~ 100 Hz）的足式平衡或高动态接触任务中，Rolling-WAM 的窗口参数（W, K, N）该如何重构？"
+  ],
+  "section_plan": [
+    {
+      "section": "原文摘要翻译",
+      "weight": "medium",
+      "focus": "忠实完整翻译论文英文摘要，精准保留世界动作模型、错峰噪声调度、滑动窗口与 4.5 倍稳态重规划加速的核心术语与论述。",
+      "evidence_sources": [{"section_id": "sec:abstract", "pages": [1]}]
+    },
+    {
+      "section": "创新点",
+      "weight": "high",
+      "focus": "提炼 4 个核心创新：算力时域平摊范式、错峰噪声调度数学对齐、跨模态单向注意力解耦、低延迟人形机器人闭环实机部署。",
+      "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:method", "pages": [2, 3, 4]}]
+    },
+    {
+      "section": "研究问题",
+      "weight": "high",
+      "focus": "深入剖析标准联合 WAM 每次重规划从头迭代去噪导致的延迟危机，阐述闭环控制对高频响应的迫切需求与长程动作视野之间的根本张力。",
+      "evidence_sources": [{"section_id": "sec:introduction", "pages": [1, 2]}, {"section_id": "sec:method", "pages": [2, 3]}]
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "详尽拆解 LIBERO（4 大套件 40 任务）、RoboTwin 2.0（50 个双臂灵巧操作任务，Clean 与 Random 对比）以及 Unitree G1 人形机器人（Doll Placement, Plate Stacking, Bead Pouring）的多模态输入输出规格与实验评测协议。",
+      "evidence_sources": [{"section_id": "sec:experiment", "pages": [4, 5, 6, 7]}, {"section_id": "sec:appendix", "pages": [9, 10]}]
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "focus": "彻底重建 Rolling-WAM 的全套数学形式化、错峰调度调度公式、Euler 积分更新、MoT 骨干、掩码注意力机制与流匹配联合损失函数。",
+      "subsections": [
+        "机制流程",
+        "错峰噪声调度机制",
+        "滚动滑动窗口推进与时间对齐",
+        "动作-视频注意力耦合模式",
+        "实时重规划加速与推理架构"
+      ],
+      "evidence_sources": [{"section_id": "sec:method", "pages": [2, 3, 4]}]
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "focus": "用紧凑 Markdown 表格与定量分析呈现 LIBERO、RoboTwin 2.0、Unitree G1 真机以及推理延迟与消融实验的完整数据链。",
+      "subsections": [
+        "仿真基准主结果",
+        "真实人形机器人评测",
+        "推理延迟与稳态加速实测",
+        "消融分析"
+      ],
+      "evidence_sources": [{"section_id": "sec:experiment", "pages": [4, 5, 6, 7, 8]}]
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "focus": "深挖真正贡献、成立机理、三大认知误区与全套工程复现避坑指南。",
+      "subsections": [
+        "真正贡献是什么",
+        "为什么结果成立",
+        "容易误读的地方",
+        "复现注意点"
+      ],
+      "evidence_sources": [{"section_id": "sec:method", "pages": [2, 3, 4]}, {"section_id": "sec:experiment", "pages": [5, 6, 7, 8]}, {"section_id": "sec:conclusion", "pages": [8]}]
+    },
+    {
+      "section": "局限",
+      "weight": "high",
+      "focus": "诚实审视超长窗口预测发散、突发动态扰动下的滞后风险、冷启动延迟与高显存占用等现实短板。",
+      "evidence_sources": [{"section_id": "sec:conclusion", "pages": [8]}]
+    },
+    {
+      "section": "我的笔记",
+      "weight": "high",
+      "focus": "构建与 OpenWAM、Long-WAM、VPP2、ViGAR、Fast-WAM、InternW0-Δ 等的横向全景对比与技术谱系演进，沉淀最核心的可复用架构原则与后续实验规划。",
+      "evidence_sources": [{"section_id": "sec:related-work", "pages": [2]}, {"section_id": "sec:method", "pages": [3, 4]}]
+    }
+  ]
+}

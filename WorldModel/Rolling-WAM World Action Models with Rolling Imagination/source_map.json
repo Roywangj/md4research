@@ -1,0 +1,1464 @@
+{
+  "paper": {
+    "title": "Rolling-WAM: World Action Models with Rolling Imagination",
+    "authors": [
+      "Yinghua Zhou",
+      "Junjie Ye",
+      "Yiqi Zhao",
+      "Hao Dong",
+      "Celina Shiyu Wang",
+      "Ruohai Ge",
+      "Tingyi Yang",
+      "Basile Van Hoorick",
+      "Gaurav Sukhatme",
+      "Vitor Guizilini",
+      "Yue Wang"
+    ],
+    "year": 2026,
+    "venue": "arXiv preprint arXiv:2609.30247v2",
+    "source_type": "pdf",
+    "source_format": "pdf-text",
+    "language": "en",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/PQDH947H/Zhou 等 - 2026 - Rolling-WAM World Action Models with Rolling Imagination.pdf",
+    "reader_file": "detailed_paper.md",
+    "page_count": 10
+  },
+  "notes": {
+    "mode": "full-paper bilingual reader",
+    "paragraph_numbering": "reset at each major section",
+    "reference_policy": "References are indexed as one block and not translated entry by entry.",
+    "equations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "blocks": [
+    {
+      "id": "B001",
+      "page": 1,
+      "type": "paragraph",
+      "section": "Abstract",
+      "order": 1,
+      "reader_anchor": "Abstract Para. 1",
+      "original_text_excerpt": "World Action Models (WAMs) couple action generation with future visual prediction...",
+      "translation_excerpt": "世界动作模型（WAM）将动作生成与未来视觉预测紧密耦合...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B002",
+      "page": 1,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 2,
+      "reader_anchor": "Introduction Para. 1",
+      "original_text_excerpt": "World Action Models (WAMs) have recently advanced robotic manipulation...",
+      "translation_excerpt": "世界动作模型（WAM）通过联合预测机器人动作与未来观测...",
+      "confidence": "high",
+      "refs": [
+        "Ref.1",
+        "Ref.2",
+        "Ref.3"
+      ]
+    },
+    {
+      "id": "B003",
+      "page": 1,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 3,
+      "reader_anchor": "Introduction Para. 2",
+      "original_text_excerpt": "Frequent replanning exposes a computational bottleneck in standard WAMs...",
+      "translation_excerpt": "高频重规划暴露了标准 WAM 的计算瓶颈...",
+      "confidence": "high",
+      "refs": [
+        "Ref.4"
+      ]
+    },
+    {
+      "id": "B004",
+      "page": 1,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 4,
+      "reader_anchor": "Introduction Para. 3",
+      "original_text_excerpt": "We argue that denoising can be organized more efficiently across replanning cycles...",
+      "translation_excerpt": "我们认为，去噪计算可以在不同的重规划周期之间组织得更加高效...",
+      "confidence": "high",
+      "refs": [
+        "Ref.2",
+        "Ref.4"
+      ]
+    },
+    {
+      "id": "B005",
+      "page": 1,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 5,
+      "reader_anchor": "Introduction Para. 4",
+      "original_text_excerpt": "We therefore introduce Rolling-WAM, a formulation that inherits this intuition...",
+      "translation_excerpt": "为此，我们提出了 Rolling-WAM，这种形式化方法继承了上述直觉...",
+      "confidence": "high",
+      "refs": [
+        "F001",
+        "Ref.5",
+        "Ref.6"
+      ]
+    },
+    {
+      "id": "C001",
+      "page": 1,
+      "type": "caption",
+      "section": "Figure 1",
+      "order": 6,
+      "reader_anchor": "Figure 1 Caption",
+      "original_text_excerpt": "Fig. 1. Rolling-WAM maintains a rolling window of video-action predictions...",
+      "translation_excerpt": "图 1. Rolling-WAM 在错落的噪声水平上维持一个由视频-动作预测构成的滚动窗口...",
+      "confidence": "high",
+      "refs": [
+        "F001"
+      ]
+    },
+    {
+      "id": "B006",
+      "page": 2,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 7,
+      "reader_anchor": "Introduction Para. 5",
+      "original_text_excerpt": "After the first action chunk is executed, the window advances...",
+      "translation_excerpt": "在第一个动作块执行完毕后，窗口向前滑动...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B007",
+      "page": 2,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 8,
+      "reader_anchor": "Introduction Para. 6",
+      "original_text_excerpt": "We evaluate Rolling-WAM on simulation benchmarks, including LIBERO...",
+      "translation_excerpt": "我们在包括 LIBERO 和 RoboTwin 在内的仿真基准...",
+      "confidence": "high",
+      "refs": [
+        "Ref.7",
+        "Ref.8"
+      ]
+    },
+    {
+      "id": "B008",
+      "page": 2,
+      "type": "paragraph",
+      "section": "I. Introduction",
+      "order": 9,
+      "reader_anchor": "Introduction Para. 7",
+      "original_text_excerpt": "Our primary contribution is a rolling formulation for joint video-action models...",
+      "translation_excerpt": "我们的核心贡献在于为联合视频-动作模型提出了一种滚动表述范式...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B009",
+      "page": 2,
+      "type": "paragraph",
+      "section": "II. Related Work",
+      "order": 10,
+      "reader_anchor": "Related Work Para. 1",
+      "original_text_excerpt": "World Action Models (WAMs) augment action generation with future visual prediction...",
+      "translation_excerpt": "世界动作模型（WAM）通过未来视觉预测来增强动作生成能力...",
+      "confidence": "high",
+      "refs": [
+        "Ref.1",
+        "Ref.2",
+        "Ref.3",
+        "Ref.9",
+        "Ref.10",
+        "Ref.11",
+        "Ref.12",
+        "Ref.13",
+        "Ref.14"
+      ]
+    },
+    {
+      "id": "B010",
+      "page": 2,
+      "type": "paragraph",
+      "section": "II. Related Work",
+      "order": 11,
+      "reader_anchor": "Related Work Para. 2",
+      "original_text_excerpt": "Accelerating WAM inference typically involves reducing the computational burden...",
+      "translation_excerpt": "加速 WAM 推理通常围绕降低未来预测的计算负担展开...",
+      "confidence": "high",
+      "refs": [
+        "Ref.4",
+        "Ref.15",
+        "Ref.16",
+        "Ref.17",
+        "Ref.18",
+        "Ref.19",
+        "Ref.20",
+        "Ref.21"
+      ]
+    },
+    {
+      "id": "B011",
+      "page": 2,
+      "type": "paragraph",
+      "section": "II. Related Work",
+      "order": 12,
+      "reader_anchor": "Related Work Para. 3",
+      "original_text_excerpt": "Rolling Diffusion [5] introduces a sliding denoising window with progressively higher noise levels...",
+      "translation_excerpt": "Rolling Diffusion [5] 引入了一种滑动去噪窗口...",
+      "confidence": "high",
+      "refs": [
+        "Ref.5",
+        "Ref.6",
+        "Ref.22"
+      ]
+    },
+    {
+      "id": "B012",
+      "page": 2,
+      "type": "paragraph",
+      "section": "II. Related Work",
+      "order": 13,
+      "reader_anchor": "Related Work Para. 4",
+      "original_text_excerpt": "In robotic manipulation, Streaming Diffusion Policy [23] and RNR-DP [24] maintain partially denoised action buffers...",
+      "translation_excerpt": "在机器人操作领域，Streaming Diffusion Policy [23] 和 RNR-DP [24]...",
+      "confidence": "high",
+      "refs": [
+        "Ref.23",
+        "Ref.24"
+      ]
+    },
+    {
+      "id": "B013",
+      "page": 2,
+      "type": "paragraph",
+      "section": "III. Method",
+      "order": 14,
+      "reader_anchor": "Method Para. 1",
+      "original_text_excerpt": "This section presents Rolling-WAM, a joint video-action model...",
+      "translation_excerpt": "本节详细介绍 Rolling-WAM，这是一种用于低延迟闭环机器人控制的联合视频-动作模型...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B014",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-A. Problem Formulation",
+      "order": 15,
+      "reader_anchor": "Method Para. 2",
+      "original_text_excerpt": "We consider language-conditioned robotic manipulation from visual observations and proprioception...",
+      "translation_excerpt": "我们考虑基于视觉观测和本体感觉的语言条件机器人操作任务...",
+      "confidence": "high",
+      "refs": [
+        "Eq.1",
+        "Ref.1",
+        "Ref.2"
+      ]
+    },
+    {
+      "id": "B015",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-A. Problem Formulation",
+      "order": 16,
+      "reader_anchor": "Method Para. 3",
+      "original_text_excerpt": "This distribution can be modeled jointly or factorized...",
+      "translation_excerpt": "该分布既可以进行联合建模，也可以分解为...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B016",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-A. Problem Formulation",
+      "order": 17,
+      "reader_anchor": "Method Para. 4",
+      "original_text_excerpt": "As shown in Fig. 2, Rolling-WAM addresses this bottleneck by distributing...",
+      "translation_excerpt": "如图 2 所示，Rolling-WAM 通过将去噪计算分摊至连续的重规划周期...",
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ]
+    },
+    {
+      "id": "C002",
+      "page": 3,
+      "type": "caption",
+      "section": "Figure 2",
+      "order": 18,
+      "reader_anchor": "Figure 2 Caption",
+      "original_text_excerpt": "Fig. 2. Rolling-WAM framework...",
+      "translation_excerpt": "图 2. Rolling-WAM 框架...",
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ]
+    },
+    {
+      "id": "B017",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 19,
+      "reader_anchor": "Method Para. 5",
+      "original_text_excerpt": "We partition the prediction window into W temporally aligned chunks...",
+      "translation_excerpt": "我们将预测窗口划分为 W 个在时间上严格对齐的分块...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B018",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 20,
+      "reader_anchor": "Method Para. 6",
+      "original_text_excerpt": "Let tau in [0, 1] parameterize the denoising phase of a single replanning cycle...",
+      "translation_excerpt": "令 tau in [0, 1] 参数化单个重规划周期内的去噪阶段...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B019",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 21,
+      "reader_anchor": "Method Para. 7",
+      "original_text_excerpt": "a) Rolling mode: The first chunk must become clean at the end of a replanning cycle...",
+      "translation_excerpt": "a) 滚动模式（Rolling mode）：在重规划周期结束时...",
+      "confidence": "high",
+      "refs": [
+        "Eq.2",
+        "Ref.5"
+      ]
+    },
+    {
+      "id": "B020",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 22,
+      "reader_anchor": "Method Para. 8",
+      "original_text_excerpt": "As tau decreases from 1 to 0, chunk j moves from noise level...",
+      "translation_excerpt": "随着 tau 从 1 减小到 0，分块 j 的噪声水平...",
+      "confidence": "high",
+      "refs": [
+        "Eq.3"
+      ]
+    },
+    {
+      "id": "B021",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 23,
+      "reader_anchor": "Method Para. 9",
+      "original_text_excerpt": "After the first chunk is removed, every retained chunk is already...",
+      "translation_excerpt": "在移除首个动作块后，每一个保留下来的块都已经精确处于...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B022",
+      "page": 3,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 24,
+      "reader_anchor": "Method Para. 10",
+      "original_text_excerpt": "b) Initialization mode: At the beginning of an episode...",
+      "translation_excerpt": "b) 初始化模式（Initialization mode）：在每个任务回合开始时...",
+      "confidence": "high",
+      "refs": [
+        "Eq.4"
+      ]
+    },
+    {
+      "id": "B023",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 25,
+      "reader_anchor": "Method Para. 11",
+      "original_text_excerpt": "All chunks start at a noise level sigma = 1...",
+      "translation_excerpt": "所有分块均从噪声水平 sigma = 1 开始...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B024",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-B. Rolling Video-Action Denoising",
+      "order": 26,
+      "reader_anchor": "Method Para. 12",
+      "original_text_excerpt": "Together, these two modes allow each chunk to begin...",
+      "translation_excerpt": "这两种模式相辅相成，使得每个分块都能从远期的粗略预测起步...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B025",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-C. Sampling and Execution",
+      "order": 27,
+      "reader_anchor": "Method Para. 13",
+      "original_text_excerpt": "We allocate N total denoising steps per chunk...",
+      "translation_excerpt": "我们为每个分块分配总量为 N 步的去噪计算预算...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B026",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-C. Sampling and Execution",
+      "order": 28,
+      "reader_anchor": "Method Para. 14",
+      "original_text_excerpt": "At each denoising step, the model jointly updates the video and action predictions...",
+      "translation_excerpt": "在每一个去噪步，模型联合更新整个窗口内的视频与动作预测...",
+      "confidence": "high",
+      "refs": [
+        "Eq.5"
+      ]
+    },
+    {
+      "id": "B027",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-C. Sampling and Execution",
+      "order": 29,
+      "reader_anchor": "Method Para. 15",
+      "original_text_excerpt": "Once the first chunk is clean, the robot executes its K actions...",
+      "translation_excerpt": "一旦首个分块去噪为干净数据，机器人立即执行其中的 K 个动作指令...",
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ]
+    },
+    {
+      "id": "B028",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-C. Sampling and Execution",
+      "order": 30,
+      "reader_anchor": "Method Para. 16",
+      "original_text_excerpt": "Each chunk traverses all N denoising steps before execution...",
+      "translation_excerpt": "每个分块在真正执行之前都经历过完整的 N 次去噪更新...",
+      "confidence": "high",
+      "refs": [
+        "Ref.15",
+        "Ref.16"
+      ]
+    },
+    {
+      "id": "B029",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 31,
+      "reader_anchor": "Method Para. 17",
+      "original_text_excerpt": "As shown in Fig. 2(a), Rolling-WAM pairs a pretrained video Diffusion Transformer...",
+      "translation_excerpt": "如图 2(a) 所示，Rolling-WAM 采用 Transformer 混合架构...",
+      "confidence": "high",
+      "refs": [
+        "F002",
+        "Ref.4",
+        "Ref.25",
+        "Ref.26",
+        "Ref.27",
+        "Ref.28",
+        "Ref.29"
+      ]
+    },
+    {
+      "id": "B030",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 32,
+      "reader_anchor": "Method Para. 18",
+      "original_text_excerpt": "To support rolling denoising, video and action tokens are modulated...",
+      "translation_excerpt": "为了支持滚动去噪，视频与动作 token 均由其各自所属分块的噪声水平进行调制...",
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ]
+    },
+    {
+      "id": "B031",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 33,
+      "reader_anchor": "Method Para. 19",
+      "original_text_excerpt": "Training objective. We train the joint denoiser with flow matching...",
+      "translation_excerpt": "训练目标函数。我们使用流匹配训练联合去噪模型...",
+      "confidence": "high",
+      "refs": [
+        "Ref.30"
+      ]
+    },
+    {
+      "id": "B032",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 34,
+      "reader_anchor": "Method Para. 20",
+      "original_text_excerpt": "Let sigma_j denote the video and action noise levels of chunk j...",
+      "translation_excerpt": "令 sigma_j 表示在选定调度下分块 j 的视频与动作噪声水平...",
+      "confidence": "high",
+      "refs": [
+        "Eq.6"
+      ]
+    },
+    {
+      "id": "B033",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 35,
+      "reader_anchor": "Method Para. 21",
+      "original_text_excerpt": "using independent Gaussian samples for video and actions...",
+      "translation_excerpt": "其中视频与动作采用独立采样的高斯噪声...",
+      "confidence": "high",
+      "refs": [
+        "Eq.7"
+      ]
+    },
+    {
+      "id": "B034",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 36,
+      "reader_anchor": "Method Para. 22",
+      "original_text_excerpt": "where [.]_j selects the prediction for chunk j...",
+      "translation_excerpt": "其中 [.]_j 提取第 j 个分块的预测结果...",
+      "confidence": "high",
+      "refs": [
+        "Eq.8"
+      ]
+    },
+    {
+      "id": "B035",
+      "page": 4,
+      "type": "paragraph",
+      "section": "III-D. Architecture and Training",
+      "order": 37,
+      "reader_anchor": "Method Para. 23",
+      "original_text_excerpt": "where w weights the noise levels and lambda_v, lambda_a balance...",
+      "translation_excerpt": "其中 w 为不同噪声水平的权重函数...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B036",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV. Experiments",
+      "order": 38,
+      "reader_anchor": "Experiments Para. 1",
+      "original_text_excerpt": "Our experiments verify whether rolling denoising can accelerate...",
+      "translation_excerpt": "我们的实验旨在验证滚动去噪能否在保持操作性能的同时...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B037",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-A. Experimental Setup",
+      "order": 39,
+      "reader_anchor": "Experiments Para. 2",
+      "original_text_excerpt": "We evaluate Rolling-WAM on the following settings...",
+      "translation_excerpt": "我们在以下评测基准上测试 Rolling-WAM...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B038",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-A. Experimental Setup",
+      "order": 40,
+      "reader_anchor": "Experiments Para. 3",
+      "original_text_excerpt": "1) LIBERO: We evaluate the Spatial, Object, Goal, and Long suites...",
+      "translation_excerpt": "1) LIBERO：我们评测了 LIBERO 的全部四个测试集...",
+      "confidence": "high",
+      "refs": [
+        "Ref.7"
+      ]
+    },
+    {
+      "id": "B039",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-A. Experimental Setup",
+      "order": 41,
+      "reader_anchor": "Experiments Para. 4",
+      "original_text_excerpt": "2) RoboTwin 2.0: We evaluate 50 bimanual manipulation tasks...",
+      "translation_excerpt": "2) RoboTwin 2.0：我们在 RoboTwin 2.0 的 Clean 与 Randomized 两种设定下...",
+      "confidence": "high",
+      "refs": [
+        "Ref.8"
+      ]
+    },
+    {
+      "id": "B040",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-A. Experimental Setup",
+      "order": 42,
+      "reader_anchor": "Experiments Para. 5",
+      "original_text_excerpt": "3) Real-world humanoid manipulation: As shown in Fig. 6...",
+      "translation_excerpt": "3) 真实人形机器人操作：如图 6 所示...",
+      "confidence": "high",
+      "refs": [
+        "F006",
+        "Ref.31"
+      ]
+    },
+    {
+      "id": "B041",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-B. Implementation Details",
+      "order": 43,
+      "reader_anchor": "Experiments Para. 6",
+      "original_text_excerpt": "We initialize the video expert from Wan2.2-TI2V-5B [25]...",
+      "translation_excerpt": "实现细节。我们将视频专家初始化自 Wan2.2-TI2V-5B [25]...",
+      "confidence": "high",
+      "refs": [
+        "Ref.4",
+        "Ref.25"
+      ]
+    },
+    {
+      "id": "B042",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-B. Implementation Details",
+      "order": 44,
+      "reader_anchor": "Experiments Para. 7",
+      "original_text_excerpt": "We use AdamW with learning rate 10^-4, weight decay 10^-2...",
+      "translation_excerpt": "优化器采用 AdamW，基础学习率为 10^-4...",
+      "confidence": "high",
+      "refs": [
+        "Ref.32"
+      ]
+    },
+    {
+      "id": "B043",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-B. Implementation Details",
+      "order": 45,
+      "reader_anchor": "Experiments Para. 8",
+      "original_text_excerpt": "Unless otherwise specified, we use N = 10 denoising steps per chunk...",
+      "translation_excerpt": "除特别指明外，我们默认每个分块的总去噪步数为 N = 10...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B044",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-B. Implementation Details",
+      "order": 46,
+      "reader_anchor": "Experiments Para. 9",
+      "original_text_excerpt": "Baselines. We compare with both VLA and WAM policies...",
+      "translation_excerpt": "对比基线。我们与主流的 VLA 和 WAM 策略进行了全面对比...",
+      "confidence": "high",
+      "refs": [
+        "Ref.1",
+        "Ref.4",
+        "Ref.11",
+        "Ref.33",
+        "Ref.34",
+        "Ref.35"
+      ]
+    },
+    {
+      "id": "B045",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-C. Simulation Benchmarks",
+      "order": 47,
+      "reader_anchor": "Experiments Para. 10",
+      "original_text_excerpt": "We first evaluate whether rolling denoising can deliver competitive manipulation performance...",
+      "translation_excerpt": "我们首先评估滚动去噪能否在每个重规划周期大幅削减去噪步数的前提下...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B046",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-C. Simulation Benchmarks",
+      "order": 48,
+      "reader_anchor": "Experiments Para. 11",
+      "original_text_excerpt": "As shown in Table I, Rolling-WAM achieves an average success rate of 98.1% on LIBERO...",
+      "translation_excerpt": "如表 I 所示，Rolling-WAM 在 LIBERO 上的平均成功率达到了 98.1%...",
+      "confidence": "high",
+      "refs": [
+        "T001"
+      ]
+    },
+    {
+      "id": "C003",
+      "page": 5,
+      "type": "caption",
+      "section": "Table I",
+      "order": 49,
+      "reader_anchor": "Table I Caption",
+      "original_text_excerpt": "TABLE I: Success rates (%) on LIBERO...",
+      "translation_excerpt": "表 I：LIBERO 基准上的成功率（%）...",
+      "confidence": "high",
+      "refs": [
+        "T001"
+      ]
+    },
+    {
+      "id": "B047",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-C. Simulation Benchmarks",
+      "order": 50,
+      "reader_anchor": "Experiments Para. 12",
+      "original_text_excerpt": "RoboTwin 2.0 further tests bimanual manipulation under scene randomization...",
+      "translation_excerpt": "RoboTwin 2.0 进一步检验了双臂在复杂场景重随机化下的操控能力...",
+      "confidence": "high",
+      "refs": [
+        "T002",
+        "T006"
+      ]
+    },
+    {
+      "id": "C004",
+      "page": 5,
+      "type": "caption",
+      "section": "Table II",
+      "order": 51,
+      "reader_anchor": "Table II Caption",
+      "original_text_excerpt": "TABLE II: Success rates (%) on RoboTwin 2.0...",
+      "translation_excerpt": "表 II：RoboTwin 2.0 上的成功率（%）...",
+      "confidence": "high",
+      "refs": [
+        "T002"
+      ]
+    },
+    {
+      "id": "B048",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-C. Simulation Benchmarks",
+      "order": 52,
+      "reader_anchor": "Experiments Para. 13",
+      "original_text_excerpt": "Rolling-WAM achieves these results with only two denoising steps...",
+      "translation_excerpt": "值得强调的是，Rolling-WAM 仅需在每个重规划周期执行两次去噪步...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B049",
+      "page": 5,
+      "type": "paragraph",
+      "section": "IV-C. Simulation Benchmarks",
+      "order": 53,
+      "reader_anchor": "Experiments Para. 14",
+      "original_text_excerpt": "We also inspect whether the retained visual predictions remain aligned...",
+      "translation_excerpt": "我们还考察了在执行推进过程中，保留的视觉预测是否能与真实环境观测保持高度一致...",
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ]
+    },
+    {
+      "id": "C005",
+      "page": 5,
+      "type": "caption",
+      "section": "Figure 3",
+      "order": 54,
+      "reader_anchor": "Figure 3 Caption",
+      "original_text_excerpt": "Fig. 3. Imagined and observed rollouts...",
+      "translation_excerpt": "图 3. 想象与观测轨迹展开对比...",
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ]
+    },
+    {
+      "id": "B050",
+      "page": 6,
+      "type": "paragraph",
+      "section": "IV-D. Inference Efficiency",
+      "order": 55,
+      "reader_anchor": "Experiments Para. 15",
+      "original_text_excerpt": "To formally investigate the inference efficiency gains of rolling denoising...",
+      "translation_excerpt": "为了严谨探讨滚动去噪带来的推理效率增益...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B051",
+      "page": 6,
+      "type": "paragraph",
+      "section": "IV-D. Inference Efficiency",
+      "order": 56,
+      "reader_anchor": "Experiments Para. 16",
+      "original_text_excerpt": "Default configuration. As shown in Fig. 4, with N = 10 and W = 5...",
+      "translation_excerpt": "默认配置分析。如图 4 所示，在 N = 10 且 W = 5 的默认配置下...",
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ]
+    },
+    {
+      "id": "C006",
+      "page": 6,
+      "type": "caption",
+      "section": "Figure 4",
+      "order": 57,
+      "reader_anchor": "Figure 4 Caption",
+      "original_text_excerpt": "Fig. 4. Replanning latency comparison...",
+      "translation_excerpt": "图 4. 重规划延迟对比...",
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ]
+    },
+    {
+      "id": "B052",
+      "page": 6,
+      "type": "paragraph",
+      "section": "IV-D. Inference Efficiency",
+      "order": 58,
+      "reader_anchor": "Experiments Para. 17",
+      "original_text_excerpt": "Window-size scaling. To examine how distributing denoising over more cycles affects latency...",
+      "translation_excerpt": "窗口尺寸扩展性分析。为了探究将去噪预算分摊至更多周期对延迟的具体影响...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B053",
+      "page": 6,
+      "type": "paragraph",
+      "section": "IV-D. Inference Efficiency",
+      "order": 59,
+      "reader_anchor": "Experiments Para. 18",
+      "original_text_excerpt": "As shown in Fig. 5, at W = 5, Rolling-WAM requires only 322 ms...",
+      "translation_excerpt": "如图 5 所示，在 W = 5 时，Rolling-WAM 单次重规划仅需 322 ms...",
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ]
+    },
+    {
+      "id": "C007",
+      "page": 6,
+      "type": "caption",
+      "section": "Figure 5",
+      "order": 60,
+      "reader_anchor": "Figure 5 Caption",
+      "original_text_excerpt": "Fig. 5. Replanning latency across window sizes...",
+      "translation_excerpt": "图 5. 不同窗口尺寸下的重规划延迟...",
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ]
+    },
+    {
+      "id": "B054",
+      "page": 6,
+      "type": "paragraph",
+      "section": "IV-E. Humanoid Evaluation",
+      "order": 61,
+      "reader_anchor": "Experiments Para. 19",
+      "original_text_excerpt": "To assess the practical benefits of rolling denoising in physical manipulation...",
+      "translation_excerpt": "真实世界人形机器人评估。为了评估滚动去噪在实体物理操作中的实用价值...",
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ]
+    },
+    {
+      "id": "C008",
+      "page": 6,
+      "type": "caption",
+      "section": "Figure 6",
+      "order": 62,
+      "reader_anchor": "Figure 6 Caption",
+      "original_text_excerpt": "Fig. 6. Real-world humanoid manipulation tasks...",
+      "translation_excerpt": "图 6. 真实世界人形机器人操作任务...",
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ]
+    },
+    {
+      "id": "B055",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-E. Humanoid Evaluation",
+      "order": 63,
+      "reader_anchor": "Experiments Para. 20",
+      "original_text_excerpt": "As shown in Table III, Rolling-WAM achieves the highest average success rate of 85.0%...",
+      "translation_excerpt": "如表 III 所示，在所测试的五种策略中，Rolling-WAM 取得了最高的平均成功率 85.0%...",
+      "confidence": "high",
+      "refs": [
+        "T003"
+      ]
+    },
+    {
+      "id": "C009",
+      "page": 7,
+      "type": "caption",
+      "section": "Table III",
+      "order": 64,
+      "reader_anchor": "Table III Caption",
+      "original_text_excerpt": "TABLE III: Humanoid manipulation on Unitree G1...",
+      "translation_excerpt": "表 III：Unitree G1 人形机器人操作评估...",
+      "confidence": "high",
+      "refs": [
+        "T003"
+      ]
+    },
+    {
+      "id": "B056",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-E. Humanoid Evaluation",
+      "order": 65,
+      "reader_anchor": "Experiments Para. 21",
+      "original_text_excerpt": "Qualitatively, we observe more continuous execution across action-chunk boundaries...",
+      "translation_excerpt": "从定性观察来看，Rolling-WAM 在各个动作块衔接边界处表现出更加连贯平滑的运动轨迹...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B057",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 66,
+      "reader_anchor": "Experiments Para. 22",
+      "original_text_excerpt": "To support our design choices, we examine the prediction window...",
+      "translation_excerpt": "消融实验。为了验证核心设计决策的合理性...",
+      "confidence": "high",
+      "refs": [
+        "T004"
+      ]
+    },
+    {
+      "id": "B058",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 67,
+      "reader_anchor": "Experiments Para. 23",
+      "original_text_excerpt": "Window size. Increasing W provides a longer predicted future...",
+      "translation_excerpt": "窗口尺寸的影响。增大 W 能够提供更长远的未来预测...",
+      "confidence": "high",
+      "refs": [
+        "F007"
+      ]
+    },
+    {
+      "id": "C010",
+      "page": 7,
+      "type": "caption",
+      "section": "Figure 7",
+      "order": 68,
+      "reader_anchor": "Figure 7 Caption",
+      "original_text_excerpt": "Fig. 7. Window size and task success...",
+      "translation_excerpt": "图 7. 窗口尺寸与任务成功率...",
+      "confidence": "high",
+      "refs": [
+        "F007"
+      ]
+    },
+    {
+      "id": "B059",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 69,
+      "reader_anchor": "Experiments Para. 24",
+      "original_text_excerpt": "We conjecture that more distant visual predictions are less constrained...",
+      "translation_excerpt": "我们推测，过于久远的未来视觉预测受到当前即时观测的物理约束较弱...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B060",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 70,
+      "reader_anchor": "Experiments Para. 25",
+      "original_text_excerpt": "Training noise mixture. Our default training matches the staggered noise profiles...",
+      "translation_excerpt": "训练噪声混合机制消融。默认情况下，我们的训练严格匹配推理阶段使用的错落噪声剖面...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B061",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 71,
+      "reader_anchor": "Experiments Para. 26",
+      "original_text_excerpt": "The results are shown in Table IV. The full rolling schedule gives 78.2%...",
+      "translation_excerpt": "测试结果如表 IV 所示。完全滚动调度方案在选定的 RoboTwin 任务上取得 78.2%...",
+      "confidence": "high",
+      "refs": [
+        "T004"
+      ]
+    },
+    {
+      "id": "C011",
+      "page": 7,
+      "type": "caption",
+      "section": "Table IV",
+      "order": 72,
+      "reader_anchor": "Table IV Caption",
+      "original_text_excerpt": "TABLE IV: Ablations on noise scheduling and action attention...",
+      "translation_excerpt": "表 IV：噪声调度与动作注意力消融实验...",
+      "confidence": "high",
+      "refs": [
+        "T004"
+      ]
+    },
+    {
+      "id": "B062",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 73,
+      "reader_anchor": "Experiments Para. 27",
+      "original_text_excerpt": "Cross-chunk action attention. Action chunks already receive context from the entire visual window...",
+      "translation_excerpt": "跨分块动作注意力机制消融。由于动作块已经能够从整个视觉窗口中汲取全局上下文...",
+      "confidence": "high",
+      "refs": [
+        "T004"
+      ]
+    },
+    {
+      "id": "B063",
+      "page": 7,
+      "type": "paragraph",
+      "section": "IV-F. Ablation Studies",
+      "order": 74,
+      "reader_anchor": "Experiments Para. 28",
+      "original_text_excerpt": "Combining with other efficiency methods. To explore the compatibility of Rolling-WAM...",
+      "translation_excerpt": "与其他高效推理方法的兼容性。为了探索 Rolling-WAM 与其他效率优化手段的正交兼容性...",
+      "confidence": "high",
+      "refs": [
+        "T005",
+        "Ref.15"
+      ]
+    },
+    {
+      "id": "C012",
+      "page": 7,
+      "type": "caption",
+      "section": "Table V",
+      "order": 75,
+      "reader_anchor": "Table V Caption",
+      "original_text_excerpt": "TABLE V: Compatibility with Faster-WAM [15]...",
+      "translation_excerpt": "表 V：与 Faster-WAM [15] 的兼容性实验...",
+      "confidence": "high",
+      "refs": [
+        "T005"
+      ]
+    },
+    {
+      "id": "B064",
+      "page": 8,
+      "type": "paragraph",
+      "section": "V. Conclusion",
+      "order": 76,
+      "reader_anchor": "Conclusion Para. 1",
+      "original_text_excerpt": "In this paper, we presented Rolling-WAM, an efficient World Action Model...",
+      "translation_excerpt": "本文提出了 Rolling-WAM，这是一种高效的世界动作模型...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B065",
+      "page": 8,
+      "type": "paragraph",
+      "section": "V. Conclusion",
+      "order": 77,
+      "reader_anchor": "Conclusion Para. 2",
+      "original_text_excerpt": "Limitations and future work. Design choices such as window and chunk sizes...",
+      "translation_excerpt": "局限性与未来工作。窗口大小与分块长度等关键超参数的选择...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B066",
+      "page": 8,
+      "type": "paragraph",
+      "section": "Acknowledgments",
+      "order": 78,
+      "reader_anchor": "Conclusion Para. 3",
+      "original_text_excerpt": "ACKNOWLEDGMENTS. We are grateful to our friends and colleagues...",
+      "translation_excerpt": "致谢。我们由衷感谢包括 Songlin Wei、Jiawei Yang 以及 Hongyi Jing 在内的朋友与同事...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B067",
+      "page": "8-9",
+      "type": "paragraph",
+      "section": "References",
+      "order": 79,
+      "reader_anchor": "References Para. 1",
+      "original_text_excerpt": "REFERENCES [1]--[35]: All bibliographic references from the original manuscript are retained...",
+      "translation_excerpt": "参考文献 [1]--[35]：源论文中的全部 35 条书目文献均完整保留...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B068",
+      "page": 9,
+      "type": "paragraph",
+      "section": "Appendix A",
+      "order": 80,
+      "reader_anchor": "Appendix Para. 1",
+      "original_text_excerpt": "Table VI presents per-task success rates for Rolling-WAM and the baselines on all 50 RoboTwin 2.0 tasks...",
+      "translation_excerpt": "附录表 VI 详细汇报了 Rolling-WAM 与各基线模型在 RoboTwin 2.0 全部 50 项任务中...",
+      "confidence": "high",
+      "refs": [
+        "T006"
+      ]
+    },
+    {
+      "id": "C013",
+      "page": 10,
+      "type": "caption",
+      "section": "Table VI",
+      "order": 81,
+      "reader_anchor": "Table VI Caption",
+      "original_text_excerpt": "TABLE VI: Per-task success rates (%) on RoboTwin 2.0 under clean and randomized settings...",
+      "translation_excerpt": "表 VI：RoboTwin 2.0 在 Clean 与 Randomized 设定下的逐任务成功率（%）...",
+      "confidence": "high",
+      "refs": [
+        "T006"
+      ]
+    },
+    {
+      "id": "B069",
+      "page": 10,
+      "type": "paragraph",
+      "section": "Appendix B",
+      "order": 82,
+      "reader_anchor": "Appendix Para. 2",
+      "original_text_excerpt": "Summary of training and inference hyperparameters across simulation and real-world platforms...",
+      "translation_excerpt": "仿真平台与真实 Unitree G1 人形机器人操作任务的核心训练与推理超参数汇总...",
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "B070",
+      "page": 10,
+      "type": "paragraph",
+      "section": "Appendix C",
+      "order": 83,
+      "reader_anchor": "Appendix Para. 3",
+      "original_text_excerpt": "Failure mode analysis and robustness considerations in rolling imagination...",
+      "translation_excerpt": "滚动想象机制下的主要失效模式与鲁棒性分析...",
+      "confidence": "high",
+      "refs": []
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "B001",
+        "B002",
+        "B003",
+        "B004",
+        "B005",
+        "C001"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "B006",
+        "B007",
+        "B008",
+        "B009",
+        "B010",
+        "B011",
+        "B012",
+        "B013"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "B014",
+        "B015",
+        "B016",
+        "C002",
+        "B017",
+        "B018",
+        "B019",
+        "B020",
+        "B021",
+        "B022"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "B023",
+        "B024",
+        "B025",
+        "B026",
+        "B027",
+        "B028",
+        "B029",
+        "B030",
+        "B031",
+        "B032",
+        "B033",
+        "B034",
+        "B035"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "B036",
+        "B037",
+        "B038",
+        "B039",
+        "B040",
+        "B041",
+        "B042",
+        "B043",
+        "B044",
+        "B045",
+        "B046",
+        "C003",
+        "B047",
+        "C004",
+        "B048",
+        "B049",
+        "C005"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "B050",
+        "B051",
+        "C006",
+        "B052",
+        "B053",
+        "C007",
+        "B054",
+        "C008"
+      ]
+    },
+    {
+      "page": 7,
+      "block_ids": [
+        "B055",
+        "C009",
+        "B056",
+        "B057",
+        "B058",
+        "C010",
+        "B059",
+        "B060",
+        "B061",
+        "C011",
+        "B062",
+        "B063",
+        "C012"
+      ]
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "B064",
+        "B065",
+        "B066",
+        "B067"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": [
+        "B067",
+        "B068"
+      ]
+    },
+    {
+      "page": 10,
+      "block_ids": [
+        "C013",
+        "B069",
+        "B070"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 1,
+      "caption_id": "C001",
+      "image_path": "assets/figure_1.png",
+      "placement_hint": "near_intro_summary",
+      "placed_after": "B005",
+      "alt_text": "Rolling-WAM rolling window denoising mechanism and benchmark comparison"
+    },
+    {
+      "id": "F002",
+      "page": 3,
+      "caption_id": "C002",
+      "image_path": "assets/figure_2.png",
+      "placement_hint": "near_method_overview",
+      "placed_after": "B016",
+      "alt_text": "Rolling-WAM joint video-action architecture, rolling inference, and attention mask"
+    },
+    {
+      "id": "F003",
+      "page": 5,
+      "caption_id": "C005",
+      "image_path": "assets/figure_3.png",
+      "placement_hint": "near_sim_results",
+      "placed_after": "B049",
+      "alt_text": "Qualitative comparison between imagined video rollout and ground truth observation"
+    },
+    {
+      "id": "F004",
+      "page": 6,
+      "caption_id": "C006",
+      "image_path": "assets/figure_4.png",
+      "placement_hint": "near_latency_analysis",
+      "placed_after": "B051",
+      "alt_text": "Average replanning latency across policies on A100 GPU"
+    },
+    {
+      "id": "F005",
+      "page": 6,
+      "caption_id": "C007",
+      "image_path": "assets/figure_5.png",
+      "placement_hint": "near_window_scaling",
+      "placed_after": "B053",
+      "alt_text": "Replanning latency scaling curve as window size W increases"
+    },
+    {
+      "id": "F006",
+      "page": 6,
+      "caption_id": "C008",
+      "image_path": "assets/figure_6.png",
+      "placement_hint": "near_real_world_setup",
+      "placed_after": "B054",
+      "alt_text": "Real-world humanoid manipulation tasks on Unitree G1"
+    },
+    {
+      "id": "F007",
+      "page": 7,
+      "caption_id": "C010",
+      "image_path": "assets/figure_7.png",
+      "placement_hint": "near_window_ablation",
+      "placed_after": "B058",
+      "alt_text": "RoboTwin task success rate across window sizes W"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "page": 5,
+      "caption_id": "C003",
+      "image_path": "assets/table_1.png",
+      "placement_hint": "near_libero_results",
+      "placed_after": "B046",
+      "alt_text": "LIBERO benchmark success rates across suites"
+    },
+    {
+      "id": "T002",
+      "page": 5,
+      "caption_id": "C004",
+      "image_path": "assets/table_2.png",
+      "placement_hint": "near_robotwin_results",
+      "placed_after": "B047",
+      "alt_text": "RoboTwin 2.0 clean and randomized success rates"
+    },
+    {
+      "id": "T003",
+      "page": 7,
+      "caption_id": "C009",
+      "image_path": "assets/table_3.png",
+      "placement_hint": "near_humanoid_results",
+      "placed_after": "B055",
+      "alt_text": "Real-world Unitree G1 humanoid manipulation success rates"
+    },
+    {
+      "id": "T004",
+      "page": 7,
+      "caption_id": "C011",
+      "image_path": "assets/table_4.png",
+      "placement_hint": "near_noise_ablations",
+      "placed_after": "B061",
+      "alt_text": "Ablations on noise scheduling and cross-chunk action attention"
+    },
+    {
+      "id": "T005",
+      "page": 7,
+      "caption_id": "C012",
+      "image_path": "assets/table_5.png",
+      "placement_hint": "near_faster_wam_ablation",
+      "placed_after": "B063",
+      "alt_text": "Compatibility with Faster-WAM architecture and latency comparison"
+    },
+    {
+      "id": "T006",
+      "page": 10,
+      "caption_id": "C013",
+      "image_path": "assets/table_6.png",
+      "placement_hint": "Appendix_A",
+      "placed_after": "B068",
+      "alt_text": "Per-task success rates on RoboTwin 2.0 under clean and randomized settings"
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png"
+  ]
+}

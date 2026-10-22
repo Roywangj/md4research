@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、原文摘要翻译、创新点（带编号加粗Takeaway）、一句话总结、研究问题、数据与任务定义、方法主线（机制流程、表征解耦、计算维度、时序抖动、状态响应性、Token消歧）、关键结果（跨尺度基准、实机评测、NFE/CFG消融、动作空间消融）、深度分析（真正贡献、成立机理、误读澄清、复现注意点）、局限、我的笔记（与OpenWAM, Long-WAM, VPP2, ViGAR, UniWALM, Motubrain, ASPIRE横向生态位对比）与引用等全量要求章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的12张Figure与12张Table高清裁剪图均真实存在于images/目录下，相对路径解析全部有效"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "严格忠实于原论文53页文本与实验表格：RoboCasa闭环成功率（DF 53.9%, CF 52.7%, DR 49.2%, CR 38.8%）、CFG引导跃迁（DR从27.1%提至49.2%）、DF消歧降幅5.28x、微调π0.5表现（DF 60.2%, CF 58.2%）、170M+帧训练配比、Table 1/6/7/8/9/10/11/12全部数值精准还原"
+    },
+    {
+      "name": "No Hallucination and WJ Analytical Tone",
+      "status": "PASSED",
+      "detail": "深入透视因式分解误差而非量化精度瓶颈的核心洞察，辩证分析时序抖动（Jerk）背后的高状态响应性收益，严谨阐述离散流匹配数学机制与实际机器人高精度控制的工程落地细节"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "paper": "OpenWAM: An Open Framework for Composable World-Action Models",
+  "grounding_status": "grounded",
+  "source_pages": 18,
+  "claims_checked": [
+    "Causal robot-video pretraining corpus (14,640 nominal hours, 3.34M trajectories, 32 B200 GPUs, 14 days, Wan2.2-5B adaptation)",
+    "MoT dual-stream architecture (Video Expert 5B hidden 3072, Action Expert 2B hidden 2048, 30 layers, 24 heads, head dim 128)",
+    "Four configurable interaction topologies (Joint, VTA, ATV, Decoupled) and flow matching formulation",
+    "Independent local-context dynamics interfaces (LC-IDM and LC-FDM) conditioned on (O_0, q_t, O+) or (O_0, q_t, A+)",
+    "LIBERO-Long-CF counterfactual benchmark (32,000 segments, 4.10M controls, 29.7x expansion, 7 intervention families)",
+    "Closed-loop policy evaluation on LIBERO (Spatial 98.6%, Object 99.4%, Goal 98.4%, Long 97.8%, Mean 98.6%)",
+    "Real-world dual Franka FR3 bimanual manipulation (Toast Bread 92.0%, Rubik's Cube 90.0%, Sort Cups 94.4%, Mean 92.1%)",
+    "Component transfer on four LIBERO-90 targets (Tasks 64, 74, 21, 45; frozen LC-IDM mixed reaching 84.0% mean success)",
+    "Forward dynamics prediction error (-34.5% MSE, K=16 outcome accuracy 21.1% -> 71.3%)",
+    "Multi-objective vs dedicated specialist dynamics trade-off compared with UVA"
+  ],
+  "caveats": [
+    "Real-world bimanual experiments evaluate native VTA and Joint policies; zero-shot dynamics transfer was primarily benchmarked in simulation due to real-robot counterfactual data collection cost",
+    "Multi-objective training (policy + IDM + FDM) displays expected trade-offs compared to single-purpose specialists (Table 14)",
+    "Inference acceleration (CUDA Graphs, DiT cache) represents engineering deployment mechanisms aligned with chunked streaming execution"
+  ],
+  "passes_grounding": true
+}

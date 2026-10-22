@@ -1,0 +1,121 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "范式对比与信息边界图：对比经典大规模离线数据训练的 VLA 范式与推理期动态代码合成的 Code-as-Policy 范式，重点展示 CodeActionBench 严格剥离深度感知、特化模块与特权状态的信息分界"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "基准架构与交互流向全景图：呈现智能体系统（模型+脚手架）、共享机器人 API、SAPIEN/RoboTwin 2.0 仿真底座与完全隐蔽的带外物理验证器（Out-of-band Verifier）之间的数据边界与决策流"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "九大智能体配置核心性能对比：展示 75 次独立评测尝试下的单次尝试成功率（Attempt Success Rate）与 25 个固定场景的至少解决一次任务覆盖率（Task Coverage）"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "成功率与推理成本及运行耗时帕累托散点图：呈现 9 种配置在 API 等效总花费（USD）与中位数物理墙钟耗时（Median Wall Time）维度下的效率对比"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "子目标与空间检查点达成率演进分析：展示各模型最终 Subgoal 与 Spatial 检查点覆盖率排名，以及累积空间检查点覆盖率随有效计费工具调用次数增加的变化轨迹"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "各模型 75 次尝试的任务终态与失效阶段堆叠柱状图：拆解任务成功、仅末端夹爪不达标、子目标未达成或丢失、物体控制未确认、目标区域未到达等物理阶段分布"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "空间估计与目标姿态构建的视觉交互反馈：展示夹爪物理刻度对齐（scale_from_gripper）、图像特征像素标记（draw_marks）、候选位姿单视投影预览（preview_tcp_pose）与多位姿几何对比（compare_tcp_poses）"
+    },
+    {
+      "figure_id": "Figure 8",
+      "file": "images/figure_8.png",
+      "role": "25 项操作任务在 9 大模型配置下的细粒度成功次数分布热力矩阵：清晰反映各模型在特定任务类型（如双臂抬锅、挂马克杯、倒球等）上的能力盲区与突破点"
+    },
+    {
+      "figure_id": "Figure 9",
+      "file": "images/figure_9.png",
+      "role": "任务结果与确认检查点阶段进展堆叠对比图：展示各配置在 75 次尝试中完全成功、虽失败但满足子目标、仅满足空间区域匹配、以及完全无确认检查点的粗粒度进展分布"
+    },
+    {
+      "figure_id": "Figure 10",
+      "file": "images/figure_10.png",
+      "role": "491 次失败尝试的五大致命失效阶段与细粒度动作病理双环饼图：内环展示 5 大宏观失效阶段，外环细分 12 种底层动作与物理接触失控模式"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "具身代码即策略（Code-as-Policy）接口与信息边界横向对比表（对比 CaP, CaP-X, VLCP, OpenETA 与本文）"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "任务终止与智能体完成判断审计表（正确声明、过度声称 Overclaim、欠缺声称 Underclaim 与无声明统计）"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3_part1.png",
+      "role": "CodeActionBench 25 项操作任务卡与评测双重资源预算表（第一部分：工具使用与多物体排列任务）"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "机器人状态测量与多视角 RGB 观测接口 API 规范总览表"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "空间几何估计与候选抓取姿态构建核心工具 API 规范表"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "各模型在几何计算工具与接触探测工具调用偏好及对应尝试成功率消融表"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "末端笛卡尔运动控制、接触探测与夹爪控制原子操作 API 规范表"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "9 种被评测智能体系统的模型规格、脚手架类型、推理深度与输出 Token 上限配置表"
+    },
+    {
+      "table_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "程序合成（run_code）使用占比与 Python 代码执行异常报错率统计表"
+    },
+    {
+      "table_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "9 大配置在 25 项固定场景任务中 3 次尝试的成功分布与覆盖率总表"
+    },
+    {
+      "table_id": "Table 11",
+      "file": "images/table_11.png",
+      "role": "全量 75 次尝试的资源消耗详表（平均调用次数、中位仿真时间、墙钟耗时、等待耗时与等效 API 成本）"
+    },
+    {
+      "table_id": "Table 14",
+      "file": "images/table_14.png",
+      "role": "未完成机器人动作的物理原因细分统计表（规划器拒绝 Planner、停滞 Stall、轨迹偏离 Deviation、步幅超限 Allowance）"
+    },
+    {
+      "table_id": "Table 15",
+      "file": "images/table_15.png",
+      "role": "全量 9 种配置的终止触发条件（Done/Tool/Phys/Other）与完成判断声称一致性完整统计表"
+    }
+  ]
+}

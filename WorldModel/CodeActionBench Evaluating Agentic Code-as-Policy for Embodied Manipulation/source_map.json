@@ -1,0 +1,419 @@
+{
+  "paper": {
+    "title": "CodeActionBench: Evaluating Agentic Code-as-Policy for Embodied Manipulation",
+    "authors": [
+      "Yiheng Lyu",
+      "Xueying Jiang",
+      "Wenhao Li",
+      "Shijian Lu",
+      "Gongjie Zhang"
+    ],
+    "year": 2026,
+    "arxiv": "2609.33807v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/VKJ5IF59/Lyu 等 - 2026 - CodeActionBench Evaluating Agentic Code-as-Policy for Embodied Manipulation.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "pages": 28,
+    "project_page": "https://codeactionbench.github.io/"
+  },
+  "notes": {
+    "reading_order": "Recovered across all 28 pages from rendered page PNGs and PyMuPDF text extractions; paragraph-by-paragraph bilingual alignment in source order; substantive tables transcribed into Markdown.",
+    "substantive_tables_transcribed": [
+      "Table 1 (Interface boundaries in Code-as-Policy manipulation)",
+      "Table 2 (Termination and completion judgment)",
+      "Table 8 (Detailed agent configurations)",
+      "Table 9 (Program use and execution errors over 75 attempts per configuration)",
+      "Table 10 (Attempt success and task coverage across three attempts)",
+      "Table 11 (Resource use over 75 attempts per configuration)",
+      "Table 14 (Non-completed robot actions)",
+      "Table 15 (Attempt termination and completion claims)"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "section",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Core motivation, 25-task suite, agentic Code-as-Policy formulation, 2.7%–73.3% success rates, GPT-6 Astra top performance."
+    },
+    {
+      "id": "S002",
+      "type": "section",
+      "section": "1 Introduction",
+      "pages": "1-2",
+      "summary": "Multimodal models for embodied manipulation, VLA vs Code-as-Policy, CodeActionBench design, three main contributions."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "2",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png",
+      "summary": "Robot-control paradigms and agentic Code-as-Policy architecture."
+    },
+    {
+      "id": "S003",
+      "type": "section",
+      "section": "2 Related Work",
+      "pages": "3-4",
+      "summary": "VLA policies, Code-as-Policy methods, interface boundaries, manipulation benchmarks."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "2 Related Work",
+      "pages": "3",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png",
+      "summary": "Benchmark system and information boundaries diagram."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "2 Related Work",
+      "pages": "4",
+      "label": "Table 1",
+      "asset": "assets/table_1.png",
+      "summary": "Interface boundaries in Code-as-Policy manipulation comparing depth sensing, privileged state, specialist outputs, and agent 3D construction."
+    },
+    {
+      "id": "S004",
+      "type": "section",
+      "section": "3 CodeActionBench Formulation",
+      "pages": "4-5",
+      "summary": "3.1 Tasks and settings, 3.2 Agentic interface & information boundaries, 3.3 Reference harness, 3.4 Out-of-band verifier, 3.5 Protocol & metrics."
+    },
+    {
+      "id": "S005",
+      "type": "section",
+      "section": "4 Empirical Evaluation",
+      "pages": "5-8",
+      "summary": "4.1 Performance across 9 configurations, 4.2 Cost and time efficiency, 4.3 Checkpoint & subgoal coverage, 4.4 Completion assessment & termination."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "4.1 Performance",
+      "pages": "5",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png",
+      "summary": "Task performance: (A) Attempt success rate, (B) Task coverage."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "4.2 Cost and Efficiency",
+      "pages": "6",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png",
+      "summary": "Success rate against inference cost and median wall time."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "4.3 Policy Execution",
+      "pages": "7",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png",
+      "summary": "Subgoal and spatial checkpoint coverage across configurations and cumulative tool calls."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "4.3 Policy Execution",
+      "pages": "7",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png",
+      "summary": "Task outcomes and failure stages distribution across 75 attempts."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "4.4 Completion Assessment",
+      "pages": "8",
+      "label": "Table 2",
+      "asset": "assets/table_2.png",
+      "summary": "Termination and completion judgment: done calls, correct claims, overclaims, underclaims."
+    },
+    {
+      "id": "S006",
+      "type": "section",
+      "section": "5 Limitations",
+      "pages": "8",
+      "summary": "Simulation scope, fixed scene seeds, embodiment generalization, inference latency and cost."
+    },
+    {
+      "id": "S007",
+      "type": "section",
+      "section": "6 Conclusion",
+      "pages": "8",
+      "summary": "Summary of benchmark findings, checkpoint analysis insights, and future research directions."
+    },
+    {
+      "id": "S008",
+      "type": "section",
+      "section": "References",
+      "pages": "9-12",
+      "summary": "62 complete bibliographic references preserved in searchable English format."
+    },
+    {
+      "id": "S009",
+      "type": "appendix",
+      "section": "Appendix A: Evaluation Protocol and Task Suite",
+      "pages": "12-15",
+      "summary": "A.1 Environment, A.2 Resource budgets Btool and Bsim formulas, A.3 Instruction alignment, A.4 Reference solutions, A.5 Data availability, A.6 Task catalog."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Appendix A.6",
+      "pages": "14",
+      "label": "Table 3 Part 1",
+      "asset": "assets/table_3_part1.png",
+      "summary": "Tasks and evaluation budgets Part 1 (Tasks 1-13)."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Appendix A.6",
+      "pages": "15",
+      "label": "Table 3 Part 2",
+      "asset": "assets/table_3_part2.png",
+      "summary": "Tasks and evaluation budgets Part 2 (Tasks 14-25)."
+    },
+    {
+      "id": "S010",
+      "type": "appendix",
+      "section": "Appendix B: Robot Interface and Information Boundary",
+      "pages": "15-19",
+      "summary": "B.1 Information access, B.2 Conventions, B.3 Robot state & RGB, B.4 Spatial calculations, B.5 Motion & contact feedback, B.6 Program composition."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix B.3",
+      "pages": "16",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png",
+      "summary": "Visual feedback for spatial estimation and target construction."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix B.3",
+      "pages": "16",
+      "label": "Table 4",
+      "asset": "assets/table_4.png",
+      "summary": "Robot-state measurements and RGB observations API specification."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix B.4",
+      "pages": "17",
+      "label": "Table 5",
+      "asset": "assets/table_5.png",
+      "summary": "Spatial estimation and target-pose construction API specification."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix B.4",
+      "pages": "18",
+      "label": "Table 6",
+      "asset": "assets/table_6.png",
+      "summary": "Task success associated with geometric and contact tool use."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix B.5",
+      "pages": "18",
+      "label": "Table 7",
+      "asset": "assets/table_7.png",
+      "summary": "TCP motion, contact probing, and gripper control API specification."
+    },
+    {
+      "id": "S011",
+      "type": "appendix",
+      "section": "Appendix C: Agent Harnesses",
+      "pages": "19-20",
+      "summary": "C.1 Reference harness, C.2 Vendor harnesses, C.3 Initial prompt, C.4 Program use & execution."
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "Appendix C",
+      "pages": "19",
+      "label": "Table 8",
+      "asset": "assets/table_8.png",
+      "summary": "Detailed agent configurations: models, reasoning effort, output limits."
+    },
+    {
+      "id": "T010",
+      "type": "table",
+      "section": "Appendix C.4",
+      "pages": "20",
+      "label": "Table 9",
+      "asset": "assets/table_9.png",
+      "summary": "Program use and execution errors over 75 attempts per configuration."
+    },
+    {
+      "id": "S012",
+      "type": "appendix",
+      "section": "Appendix D: Outcomes and Resource Use",
+      "pages": "20-22",
+      "summary": "D.1 Task coverage, D.2 Task-level outcomes, D.3 Cost and elapsed time breakdown."
+    },
+    {
+      "id": "T011",
+      "type": "table",
+      "section": "Appendix D.1",
+      "pages": "21",
+      "label": "Table 10",
+      "asset": "assets/table_10.png",
+      "summary": "Attempt success and task coverage across three attempts (0/3 to 3/3)."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix D.2",
+      "pages": "21",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png",
+      "summary": "Task-level success heatmap across 9 agent configurations and 25 tasks."
+    },
+    {
+      "id": "T012",
+      "type": "table",
+      "section": "Appendix D.3",
+      "pages": "22",
+      "label": "Table 11",
+      "asset": "assets/table_11.png",
+      "summary": "Resource use over 75 attempts: mean calls, median sim/wall/wait time, costs."
+    },
+    {
+      "id": "S013",
+      "type": "appendix",
+      "section": "Appendix E: Policy Execution Analysis",
+      "pages": "22-26",
+      "summary": "E.1 Checkpoint annotation & replay validation, E.2 Attempt-level progress, E.3 Catalogs."
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix E.2",
+      "pages": "23",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png",
+      "summary": "Task outcomes and confirmed checkpoint progress breakdown."
+    },
+    {
+      "id": "T013",
+      "type": "table",
+      "section": "Appendix E.3",
+      "pages": "23",
+      "label": "Table 12 Part 1",
+      "asset": "assets/table_12_part1.png",
+      "summary": "Subgoal checkpoints and annotation counts Part 1 (Tasks 1-18)."
+    },
+    {
+      "id": "T014",
+      "type": "table",
+      "section": "Appendix E.3",
+      "pages": "24",
+      "label": "Table 12 Part 2",
+      "asset": "assets/table_12_part2.png",
+      "summary": "Subgoal checkpoints and annotation counts Part 2 (Tasks 19-25)."
+    },
+    {
+      "id": "T015",
+      "type": "table",
+      "section": "Appendix E.3",
+      "pages": "24",
+      "label": "Table 13",
+      "asset": "assets/table_13_part1.png",
+      "summary": "Spatial rules for all 72 checkpoints."
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix F: Failure Analysis",
+      "pages": "26-27",
+      "summary": "F.1 Observed failure stages taxonomy, object control, transport loss, and state loss."
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix F.1",
+      "pages": "27",
+      "label": "Figure 10",
+      "asset": "assets/figure_10.png",
+      "summary": "Observed failure stages and action patterns sunburst diagram for 491 failed attempts."
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix G: Motion Execution and Completion Reports",
+      "pages": "27-28",
+      "summary": "G.1 Motion execution outcomes, G.2 Completion claims & stopping conditions."
+    },
+    {
+      "id": "T016",
+      "type": "table",
+      "section": "Appendix G.1",
+      "pages": "28",
+      "label": "Table 14",
+      "asset": "assets/table_14.png",
+      "summary": "Non-completed robot actions: planner refusals, stalls, deviations, allowance stops."
+    },
+    {
+      "id": "T017",
+      "type": "table",
+      "section": "Appendix G.2",
+      "pages": "28",
+      "label": "Table 15",
+      "asset": "assets/table_15.png",
+      "summary": "Attempt termination and completion claims: done vs budget stops, claim correctness."
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix H: Use of Generative AI",
+      "pages": "28",
+      "summary": "Generative AI usage statement and authors' review responsibility."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3_part1.png",
+    "assets/table_3_part2.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12_part1.png",
+    "assets/table_12_part2.png",
+    "assets/table_13_part1.png",
+    "assets/table_14.png",
+    "assets/table_15.png"
+  ]
+}

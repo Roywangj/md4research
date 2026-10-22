@@ -1,0 +1,60 @@
+{
+  "paper": {
+    "title": "ASPIRE: Agentic Skills Discovery for Robotics",
+    "short_title": "ASPIRE",
+    "year": 2026,
+    "venue": "arXiv:2607.00272v1",
+    "team": "NVIDIA, University of Michigan, University of Illinois Urbana-Champaign, UC Berkeley, Carnegie Mellon University",
+    "authors": "Runyu Lu, Yubo Wu, Ethan Kou, Letian Fu, Wenli Xiao, Ajay Mandlekar, Yinzhen Xu, Guanya Shi, Ken Goldberg, Ang Chen, Mosharaf Chowdhury, Yuke Zhu, Linxi \"Jim\" Fan, Guanzhi Wang"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "总结NVIDIA GEAR与顶尖高校联合团队、开源项目主页、核心技术定位、测试基准覆盖与跨任务跨具身巅峰战绩"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "准确、严谨、流畅的学术中文全译，精准传达代码即策略（Code-as-Policy）、闭环执行引擎、持续技能库与进化搜索的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：闭环执行引擎细粒度多模态轨迹暴露、持续积累的异构技能库、多样性驱动的进化程序搜索、基于拓扑与几何的物理鲁棒技能表征、零样本跨任务长程技能复用复合、跨具身与虚实迁移降本"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 ASPIRE 在具身智能与机器人自进化代码策略领域的奠基性地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析传统机器人编程与端到端VLA模型在面对物理接触动态、几何扰动和长程任务时的脆弱性本质，解析代码即策略结合经验复利（Skill Compounding）的必然性"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述LIBERO-Pro抗扰动基准、Robosuite富接触双臂协作、BEHAVIOR-1K超长程家庭具身移动操作及Franka/URe真实机器人跨具身迁移评测协议与种子隔离机制"
+    },
+    {
+      "section": "方法主线",
+      "goal": "全面剖析Coordinator-Actor解耦架构、闭环多模态轨迹暴露引擎、技能库蒸馏与检索准入协议、进化搜索算法（Algorithm 1）与虚实跨具身迁移机制"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现LIBERO-Pro（+77%）、Robosuite双臂交接（20%->92%）、BEHAVIOR-1K长程移动操作（+32%）主结果（Figure 4, Table 2-4）、LIBERO-Pro Long零样本迁移拓展曲线（Figure 5, Table 5-6）、真实机器人跨具身迁移实证（Table 1）与核心消融分析（Figure 6, Table 7-9）"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透表象提炼真正贡献、揭示为何代码策略优于端到端黑盒VLA、解构结果成立的机理、厘清关于数据示范与模型边界的容易误读点，并给出底层工程复现踩坑避障指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出实机自主重置评测闭环缺失、高阶模型推理成本昂贵、预定义API原语对复杂灵巧行为的表达上限、技能库规模膨胀下的长效记忆检索与剪枝衰减难题"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "绘制具身智能与智能体演进全景图谱，与Voyager、Eureka、Code2Worlds、OpenWAM、Long-WAM、VPP2、ViGAR展开深度生态位横向对比与技术路线定位"
+    },
+    {
+      "section": "引用",
+      "goal": "提供标准学术BibTeX与引文记录"
+    }
+  ]
+}

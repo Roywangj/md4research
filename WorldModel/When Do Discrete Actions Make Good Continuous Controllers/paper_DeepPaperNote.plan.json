@@ -1,0 +1,60 @@
+{
+  "paper": {
+    "title": "When Do Discrete Actions Make Good Continuous Controllers?",
+    "short_title": "Discrete Actions for Continuous Controllers",
+    "year": 2026,
+    "venue": "arXiv:2610.15939 / arXiv:2610.20429v1 [cs.RO]",
+    "team": "Carnegie Mellon University & Amazon FAR (Frontier AI & Robotics)",
+    "authors": "Zeji Yi, Soham Dasgupta, Xinyang Zhang, Koushil Sreenath, Guannan Qu, Xi Chen, Max Simchowitz, Guanya Shi"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "总结CMU与Amazon FAR联合团队、开源主页、核心问题意识与跨单任务/VLA多任务/实机Franka评测体系"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达挑战机器人连续动作头共识、解耦表征与计算维度、揭示因式分解误差与离散流/CFG机制的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：动作表征与推理计算二维正交解耦、打破精度瓶颈迷思、定位因式分解误差根因、离散流多步迭代消歧、CFG离散分布锐化机制、结构化分词与度量先验冗余性"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括本文在机器人具身策略动作头范式上的里程碑颠覆性地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析机器人学术界在离散分词（Discrete Tokenization）与连续扩散/流（Continuous Flow/Diffusion）之间的长期路线分裂，解析表达力、精度与计算开销的假性权衡"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述RoboMimic单任务基准（Can, Square, ToolHang, Transport）、VLA规模RoboCasa365与LIBERO-plus大规模多域混合数据配比（170M+帧）、以及真实世界Franka FR3接触敏感操作任务"
+    },
+    {
+      "section": "方法主线",
+      "goal": "全面剖析四类动作头分类法（DF, CF, DR, CR）、离散交叉熵 vs 连续流匹配数学目标、单步回归 vs 迭代精炼计算维度、时序抖动（Jerk ratio）与状态响应性诊断、以及迭代流如何消除Token歧义"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现RoboMimic与RoboCasa/LIBERO跨基准评测、真实机器人接触操作实证、推理步数NFE与CFG引导权重敏感度分析、以及Delta/Relative/Absolute动作空间消融"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透表象提炼真正贡献、剖析为何离散策略成立的深层机理、澄清关于离散必然抖动和自回归优于块级流的认知误区、并给出工程落地超参调优指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出词表爆炸维度诅咒、开环Chunk执行累积漂移、高频阻抗自适应挑战以及仿真到实机离散扰动鲁棒性边界"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与OpenWAM, Long-WAM, VPP2, ViGAR, UniWALM, Motubrain, ASPIRE等进行宏观生态位横向对照，探讨统一离散Token世界动作模型的终局演进"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用格式记录"
+    }
+  ]
+}

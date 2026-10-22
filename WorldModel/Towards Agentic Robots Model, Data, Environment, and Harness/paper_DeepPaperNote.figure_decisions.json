@@ -1,0 +1,131 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "具身智能四代范式演进图：清晰展示从任务特定直接控制策略（Task-Specific Policies）、融入语言知识的多模态动作大模型（VLAs）、物理前瞻未来想象的世界动作模型（WMs / WAMs），跨越至具备超越既定策略的宏观决策与动态纠偏能力的智能体机器人（Agentic Robots）"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "智能体机器人四大功能领域全局交互宏观闭环图：展示 Model、Data、Environment 与 Harness 之间如何通过模型决策、机器人底层执行、环境交互反馈以及经验沉淀进行全链路有机联动"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "智能体机器人操作分类体系与文献全景图谱：全面呈现 4 大功能领域下的 17 个非互斥操作分类及其代表性前沿工作在整个具身学术生态中的坐标分布"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "Model 领域五大干预环节示意图（以抽屉取物任务为例）：具象化展示模型训练（Training）、主动与语义感知（Perception）、任务与几何可行规划（Planning）、分层机器人控制（Robot Control）以及经验自适应（Adaptation）在同一任务时序中的协同流向"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "Data 领域三大操作干预闭环示意图：基于抽屉开合失败重试交互，展示智能体如何进行数据自主收集（Collection）、多模态语义与时序标注（Annotation）、以及轨迹质量筛选与纠偏精炼（Refinement）"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "Environment 领域三位一体仿真与评测构建图：呈现智能体如何从多源观测重建可执行 3D 关节场景（Reconstruction）、自动化合成任务目标与环境约束（Task Generation）、以及设立包含扰动与隐蔽验证断言的评测基准（Benchmarking）"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "Harness 领域六大脚手架核心支柱协同运转图：解构编排调度（Orchestration）、历史与空间记忆（Memory）、异常监控与恢复（Monitoring & Recovery）、可复用技能库（Skills）、底层基础设施与沙箱（Infrastructure）、以及分层多速率控制系统（Layered Systems）的交互架构"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "智能体机器人 4 大功能领域与 17 个操作分类的形式化定义与职责边界全景总表"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "Model 领域：模型训练干预代表性工作横向对比表（覆盖奖励代码演化、超参自适应、强化学习反馈等）"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "Model 领域：主动感知与 3D 语义理解代表性工作横向对比表（输入类型、几何表征与感知决策链路）"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "Model 领域：任务长时程规划与几何可行性校验代表性工作对比表（操作任务、规划输出与推理骨干）"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "Model 领域：机器人动作控制与程序化策略代表性工作对比表（控制输出表征、执行器与反馈源）"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "Model 领域：在线经验自适应与上下文微调代表性工作对比表（示范、纠偏、执行结果反馈与更新机制）"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "Data 领域：智能体引导数据收集代表性工作对比表（物理交互、仿真执行、生成模型合成及数据规模）"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "Data 领域：自动化数据标注代表性工作对比表（多模态输入、标注格式、语义骨干与物理元数据）"
+    },
+    {
+      "table_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "Data 领域：轨迹数据精炼与质量重构代表性工作对比表（精炼目标、反思审查骨干与纠偏机制）"
+    },
+    {
+      "table_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "Environment 领域：可执行可交互场景重建代表性工作对比表（输入观测、几何与关节表征、仿真引擎）"
+    },
+    {
+      "table_id": "Table 11",
+      "file": "images/table_11.png",
+      "role": "Environment 领域：自动化任务合成与课程设计代表性工作对比表（生成产物、代码、配置与执行方案）"
+    },
+    {
+      "table_id": "Table 12",
+      "file": "images/table_12.png",
+      "role": "Environment 领域：动态基准评测体系代表性工作对比表（系统接口、评测断言、重置协议与评分机制）"
+    },
+    {
+      "table_id": "Table 13",
+      "file": "images/table_13.png",
+      "role": "Harness 领域：组件编排调度代表性工作横向对比表（执行器类型、决策路由机制与跨组件接管协议）"
+    },
+    {
+      "table_id": "Table 14",
+      "file": "images/table_14.png",
+      "role": "Harness 领域：情境与拓扑记忆代表性工作横向对比表（存储格式、写入时机、检索方式与跨时程持久化）"
+    },
+    {
+      "table_id": "Table 15",
+      "file": "images/table_15.png",
+      "role": "Harness 领域：执行监控与异常恢复代表性工作横向对比表（检查时机、校验器类型、异常信号与恢复响应）"
+    },
+    {
+      "table_id": "Table 16",
+      "file": "images/table_16.png",
+      "role": "Harness 领域：模块化技能库代表性工作横向对比表（技能载体、构建来源、复用机制与迭代演化）"
+    },
+    {
+      "table_id": "Table 17",
+      "file": "images/table_17.png",
+      "role": "Harness 领域：系统底层基础设施与运行时沙箱对比表（系统目的、工作对象、核心操作与安全机制）"
+    },
+    {
+      "table_id": "Table 18",
+      "file": "images/table_18.png",
+      "role": "Harness 领域：多层快慢异构控制系统代表性工作对比表（高层规划器、低层执行器、信息传递格式与刷新频率）"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "paper": {
+    "title": "When Do Discrete Actions Make Good Continuous Controllers?",
+    "authors": [
+      "Zeji Yi",
+      "Soham Dasgupta",
+      "Xinyang Zhang",
+      "Koushil Sreenath",
+      "Guannan Qu",
+      "Xi Chen",
+      "Max Simchowitz",
+      "Guanya Shi"
+    ],
+    "affiliations": [
+      "Carnegie Mellon University",
+      "Amazon FAR"
+    ],
+    "date": "2026-10-15",
+    "arxiv": "2610.15939",
+    "reader_file": "detailed_paper.md",
+    "paper_file": "paper.md",
+    "note_file": "paper_DeepPaperNote.md",
+    "source_format": "pdf-text-single-and-two-column",
+    "pages": 53
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "meta",
+      "section": "Front matter & Abstract",
+      "pages": "1",
+      "summary": "Title, authors, affiliations, abstract framing continuous vs discrete actions."
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction & 1.1 Contributions",
+      "pages": "1-3",
+      "summary": "Core research questions, findings, summary of contributions."
+    },
+    {
+      "id": "S003",
+      "type": "method",
+      "section": "2 Preliminaries: Action Representations and Heads",
+      "pages": "3-6",
+      "summary": "CR, CF, DR, DF, uniform quantization, CFG formulation."
+    },
+    {
+      "id": "S004",
+      "type": "experiments",
+      "section": "3 Empirical Evaluation of Discrete Actions",
+      "pages": "6-8",
+      "summary": "RoboMimic, RoboCasa, LIBERO, real-world evaluations."
+    },
+    {
+      "id": "S005",
+      "type": "analysis",
+      "section": "3.1 What Enables Performance of Discrete Policies?",
+      "pages": "8-9",
+      "summary": "Jerk ratio, temporal variation, state responsiveness."
+    },
+    {
+      "id": "S006",
+      "type": "analysis",
+      "section": "4 When Do Discrete Actions Fail?",
+      "pages": "9-11",
+      "summary": "Factorization error, mode switching, error compounding."
+    },
+    {
+      "id": "S007",
+      "type": "method",
+      "section": "5 When Can We Bridge the Gap?",
+      "pages": "11-12",
+      "summary": "Metric-aware diffusion / discrete flow, coordinate coupling."
+    },
+    {
+      "id": "S008",
+      "type": "conclusion",
+      "section": "6 Discussion & Declarations",
+      "pages": "12-13",
+      "summary": "Takeaways, open challenges, AI use and reproducibility statements."
+    },
+    {
+      "id": "S009",
+      "type": "references",
+      "section": "References",
+      "pages": "13-25",
+      "summary": "Complete 139 bibliographic citations in original searchable format."
+    },
+    {
+      "id": "S010",
+      "type": "appendix",
+      "section": "Appendix Table of Contents & A Related Work",
+      "pages": "26-28",
+      "summary": "Navigational index and extended literature review."
+    },
+    {
+      "id": "S011",
+      "type": "appendix",
+      "section": "Appendix B Benchmark Details & C Implementation",
+      "pages": "28-36",
+      "summary": "Tasks, observations, action spaces, heads, CFG, backbones."
+    },
+    {
+      "id": "S012",
+      "type": "appendix",
+      "section": "Appendix D Additional Experimental Results",
+      "pages": "36-41",
+      "summary": "Success rates, action spaces, scaling, quantization vocab."
+    },
+    {
+      "id": "S013",
+      "type": "appendix",
+      "section": "Appendix E Mechanism Analysis Details",
+      "pages": "41-45",
+      "summary": "Jerk ratio, state responsiveness, multi-modality metrics."
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix F Analysis of Discrete Policy Failures",
+      "pages": "45-48",
+      "summary": "Factorization error bounds, mode switches, compounding error."
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix G Theoretical & Metric-DF Analysis",
+      "pages": "48-52",
+      "summary": "Distance metrics, schedule derivations, velocity fields."
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix H Hyperparameters and Architectures",
+      "pages": "52-53",
+      "summary": "Training budgets, model dimensions, hyperparameter tables."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/figure_13.png",
+    "assets/figure_14.png",
+    "assets/figure_15.png",
+    "assets/figure_16.png",
+    "assets/figure_17.png",
+    "assets/figure_18.png",
+    "assets/figure_19.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12.png"
+  ],
+  "notes": {
+    "references": "Complete 139 references extracted from pages 13-25 and retained in searchable numbered list format.",
+    "tables": "All 12 tables transcribed to full Markdown tables directly below their cropped images with bilingual captions.",
+    "figures": "All 19 figures cropped at 300 DPI with bilingual captions and cross-referenced in prose.",
+    "identity": "detailed_paper.md and paper.md are byte-identical (sha256 verified)."
+  }
+}

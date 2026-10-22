@@ -1,0 +1,76 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "系统全景架构图：展示 Motubrain 统一视频-动作骨干网络、文本/视频/动作三流 Mixture-of-Transformers (MoT) 拓扑结构、H-Bridge 跨模态注意力设计以及基于 3D RoPE 的任意视点扩展机制"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "全阶段注意力掩码演进图：详尽对比 (a) 阶段一预训练（纯视频流更新）、(b) 阶段二预训练（跨模态全可见性联合对齐）、(c) 非自回归后训练（V2A 非对称因果单向注意力）与 (d) 自回归后训练（基于干净历史视频块的分块因果时序注意力）"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "任务扩展法则 (Task Scaling Law)：展示随着训练任务数量从 10 扩展至 50，Motubrain 平均成功率单调上升，且斜率显著陡峭于传统静态 VLA 基线，验证跨任务世界动力学表征的复用价值"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "数据扩展法则 (Data Scaling Law)：展示在固定任务集下均匀下采样轨迹预算时，Motubrain 的样本利用效率与持续收益，对比任务扩展实证表明任务多样性扩展比单纯轨迹量堆叠更高效"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "WorldArena 权威排行榜总览：呈现 Motubrain 以 63.77 EWMScore 力压 Veo3.1、Wan2.6、GigaWorld-1 等顶尖视频与世界生成大模型位列榜首"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "真实人形机器人多阶段长时程复杂家务操作展示：包含牙刷收纳、鸡尾酒调制、关东煮烹饪、衣物收拾与插花浇水等连续高难度实体部署"
+    }
+  ],
+  "selected_tables": [
+    {
+      "table_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "多模态推断分布因式分解表：单模型统一支持 VLA 策略、世界模型 WM、逆动力学 IDM、视频生成 VGM 与联合视频-动作预测五大条件概率分布"
+    },
+    {
+      "table_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "全栈推理加速消融梯级推进表：从原始 Baseline 50 步 4.90 秒 (0.20 Hz) 到全栈优化后 0.09 秒 (11.11 Hz)，实现 54.4 倍无损端到端加速"
+    },
+    {
+      "table_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "RoboTwin 2.0 仿真基准主结果对比表：Clean (95.8%) 与 Randomized (96.1%) 场景下全面超越 pi0、pi0.5、Motus、Fast-WAM、LingBot-VA 等前沿基线"
+    },
+    {
+      "table_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "RoboTwin 50 项任务全细粒度细分结果表：逐项呈现复杂接触交互、铰接机构操作与长程双臂协作任务下的极致表现"
+    },
+    {
+      "table_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "WorldArena 16 维细粒度世界动力学评测指标全景对比表：凸显运动质量（Dynamic Degree 0.5148, Flow Score 0.4911, Motion Smoothness 0.8566）的统治级优势"
+    },
+    {
+      "table_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "真实机器人煮关东煮 (Making Oden) 7 步细粒度评分与执行耗时表（总评 98.54 分）"
+    },
+    {
+      "table_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "真实机器人调鸡尾酒 (Mixing Cocktails) 15 步长时程操作评测表（总评 97.34 分）"
+    },
+    {
+      "table_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "真实机器人高精度插花 (Flower Arrangement) 10 步细粒度评分与闭环自纠错评测表（总评 83.30 分）"
+    }
+  ]
+}

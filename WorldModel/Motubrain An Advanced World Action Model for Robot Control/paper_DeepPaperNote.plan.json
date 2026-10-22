@@ -1,0 +1,62 @@
+{
+  "paper": {
+    "title": "Motubrain: An Advanced World Action Model for Robot Control",
+    "short_title": "Motubrain",
+    "year": 2026,
+    "venue": "arXiv:2604.27792v5 [cs.RO]",
+    "team": "ShengShu AI (生数科技) & Tsinghua University (清华大学)",
+    "authors": "Chendong Xiang*, Louis Liu*, Jiabao Liu*, James Li*, Zeyuan Wang*, Hengkai Tan*, Haitian Liu*, Yao Feng, Ruowen Zhao, Shuhe Huang, Hongzhe Bi, Rongxu Cui*, Mengchen Cai*, Jingrui Pang, Yinze Rong, Runqing Wang, Kiro Jing, Fan Bao, Jun Zhu",
+    "project_url": "https://www.genspi.com/en/motubrain",
+    "github_url": "https://github.com/shengshu-ai/Motubrain"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总作者团队（生数科技/清华朱军团队）、论文定位、开源链接、架构体量与跨基准跨实体核心指标"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "提供严谨、流畅、精准的学术中文全译，传递大一统视频-动作世界模型、非自回归/自回归双模态与54倍推理加速的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：统一视频-动作生成流骨干、三流MoT与H-Bridge注意力设计、四层数据金字塔渐进式两阶段预训练、统一跨实体相对EEF动作表征、V2A非对称注意力与端到端54.4倍全栈推理加速、RTC启发式异步执行重叠平滑"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 Motubrain 在具身世界-动作大模型从学术探索走向高频实体部署的里程碑地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析三大核心研究张力：静态VLA忽视时序物理动态、VGM+IDM两阶段管道的级联误差累积、以及大规模高维视频生成扩散算力与毫秒级机械臂低延迟控制之间的根本矛盾"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述四级数据金字塔流转、RoboTwin 2.0仿真基准（Clean与Random）、WorldArena排行榜16维世界动力学指标、以及真实人形机器人多阶段长时程复杂任务（煮关东煮、调鸡尾酒、插花）的实验协议"
+    },
+    {
+      "section": "方法主线",
+      "goal": "全面剖析机制流程（预训练->后训练->在线执行）、统一视频-动作骨干与跨阶段注意力掩码（Figure 1, 2）、五大预测模式因式分解（Table 1）、推理加速五联套件（Table 2）以及任务与数据扩展法则实证（Figure 3, 4）"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现RoboTwin 2.0突破（Table 3-4, 50任务Clean 95.8% / Random 96.1%）、WorldArena排行榜夺冠（Table 5, Figure 5, EWMScore 63.77及动态质量榜首）、真实机器人长时程灵巧操作（Table 6-8, Figure 6）以及全模块消融分析"
+    },
+    {
+      "section": "深度分析",
+      "goal": "透视真正贡献（打通仿真与实机双SOTA的生产级WAM）、归因底层物理先验转移机理、澄清三大常见认知误区（测试时是否需要在线跑视频、时序边界因式分解、与单纯视频生成差异），并给出工程落地踩坑防坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出对目标实体特定数据的残余依赖、多视角空间未显式3D几何物理对齐、复杂高维触觉反馈缺席以及开放式长程导航泛化未涉及等核心瓶颈"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与Motus/Motus2、OpenWAM、Fast-WAM、LingBot-VA、Cosmos Policy、π0.5等业界顶尖具身基线展开深度生态位横向对照，勾勒大一统具身世界模型的技术演进图谱"
+    },
+    {
+      "section": "引用",
+      "goal": "提供标准学术引用格式（BibTeX）"
+    }
+  ]
+}

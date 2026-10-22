@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "完整包含核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线（5个子章节）、关键结果（4个子章节）、深度分析（4个子章节）、局限、我的笔记与引用等全部 WJ-Reading 精读章节与子章节规约"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的10张Figure（figure_1至figure_10）与关键Table切图（table_1至table_15）均严格存在于images/本地路径中，相对路径无坏链，排版嵌入位置契合语义脉络"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "25项操控任务、675次独立尝试、184次总成功（27.3%）、GPT-6 Astra 73.3%（55/75）成功率与88%（22/25）覆盖率、Astra 477.2s最低中位耗时与$252.87花费、Gemini 3.6 Flash $52.00最低花费、92.6% Astra程序调用占比与0.46%报错率、55个子目标检查点与72个空间检查点、491次失败尝试中280次区域未到达与77次物体失控等核心量化指标，与28页论文正文及附录数据百分之百精确对应"
+    },
+    {
+      "name": "No Hallucination and Traceability",
+      "status": "PASSED",
+      "detail": "严格基于论文28页extracted_text.txt原文与附录详实数据提取，忠实还原SAPIEN/RoboTwin 2.0 ALOHA双臂实验平台、共享机器人API（29个工具）、cuRobo运动规划与隐蔽验证器（Out-of-band Verifier）运作机制，并对近邻具身规划工作（CaP, CaP-X, VLCP, OpenETA, ASPIRE, Eureka, Voyager, OpenWAM等）给出客观精准的学术谱系定位"
+    }
+  ]
+}

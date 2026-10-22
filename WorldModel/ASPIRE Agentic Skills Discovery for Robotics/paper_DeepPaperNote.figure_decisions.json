@@ -1,0 +1,109 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "系统全景图：ASPIRE开放式自演进循环，包含协调器（Coordinator）、执行智能体（Actor）、闭环机器人执行引擎、细粒度多模态轨迹、异构技能库与进化搜索机制，以及向真实机器人的跨具身迁移通道"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "执行引擎与轨迹引导调试特写：BEHAVIOR-1K导航与收音机抓取任务中的失败归因与修复过程，展示cuRobo规划撞墙（PLANNING_ERROR）定位与多角度进近（Multi-Angle Approach）技能诱导"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "异构技能库全景：自演进代码知识库架构，涵盖定位消歧、运动原语、导航避障、目标抓取、场景理解与调试工作流6大门类，及其跨虚实迁移表征"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "三大仿真基准主实验对比图：(a) LIBERO-Pro扰动套件、(b) Robosuite富接触双臂任务、(c) BEHAVIOR-1K超长程移动操作，对比CaP-Agent0、π0.5、π0、OpenVLA及人类专家"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "LIBERO-Pro Long零样本长程迁移能力：(a) N=90完整技能库与各强基线零样本对比；(b) 随积累源任务数N（0, 25, 50, 90）增长的零样本成功率正向递增曲线"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "核心组件与迭代消融分析：(a)(b) 机器人执行引擎与进化搜索在LIBERO-Pro位置与任务扰动下的堆叠增益柱状图；(c) 进化搜索跨迭代轮次的持续突破轨迹"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "技能库示例之调试技能（Debugging Skills）：故障模式提取（Failure Pattern）、跨轮次聚类、轨迹细粒度分析与负向约束（Negative Constraints）"
+    },
+    {
+      "figure_id": "Figure 8",
+      "file": "images/figure_8.png",
+      "role": "技能库示例之定位技能（Localization Skills）：SAM3提示词工程、前/后/左/右空间几何多目标解歧（Multi-Object Disambiguation）与置信度过滤"
+    },
+    {
+      "figure_id": "Figure 9",
+      "file": "images/figure_9.png",
+      "role": "技能库示例之导航技能（Navigation Skills）：多角度进近（Multi-Angle Approach）、航路点跳跃（Waypoint Hopping）与空间自由探测（Exploration-Based Search）"
+    },
+    {
+      "figure_id": "Figure 10",
+      "file": "images/figure_10.png",
+      "role": "技能库示例之策略抓取技能（Strategic Grasping Skills）：长柱体酒瓶OBB主轴对齐抓取、扁平盒体抓取与空抓闭环检测（Air-Grasp Detection）"
+    },
+    {
+      "figure_id": "Figure 11",
+      "file": "images/figure_11.png",
+      "role": "技能库示例之运动原语技能（Motion-Primitive Skills）：针对超薄平坦物体的地平面水平推移（Linear Push）、旋钮旋转与抽屉拉开/推入"
+    },
+    {
+      "figure_id": "Figure 12",
+      "file": "images/figure_12.png",
+      "role": "技能库示例之场景推理技能（Scene-Reasoning Skills）：OBB主次轴几何语义（Major vs Minor Axis）与复杂容器空间解歧（Container Disambiguation）"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "真实机器人跨具身虚实迁移实证：双臂YAM工作站（OpenAI Codex GPT-5.5驱动）在抓取易拉罐、碗碟放置与抽屉操作中的Token消耗暴降与成功率暴增对比"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "LIBERO-Pro三大套件宏平均主表：OpenVLA、π0、π0.5、CaP-Agent0与ASPIRE在Pos与Task扰动下的完整性能对比"
+    },
+    {
+      "figure_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "Robosuite 7大富接触任务对比表：涵盖双臂交接、双臂抬起、擦拭桌面与螺母装配等高难度动力学接触交互"
+    },
+    {
+      "figure_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "BEHAVIOR-1K超长程移动操作主表：导航成功率与整体任务成功率解耦评测"
+    },
+    {
+      "figure_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "LIBERO-Pro Long零样本迁移宏平均总表：随积累任务数N（0, 25, 50, 90）的泛化收益全貌"
+    },
+    {
+      "figure_id": "Table 6",
+      "file": "images/table_6.png",
+      "role": "LIBERO-Pro Long逐任务细粒度零样本迁移分解表：10大长程复合任务在Pos与Task扰动下的各库容量表现"
+    },
+    {
+      "figure_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "LIBERO-Pro位置扰动逐任务消融表：无引擎/进化、仅引擎、进化搜索及最终选定策略性能分解"
+    },
+    {
+      "figure_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "LIBERO-Pro语义任务扰动逐任务消融表：揭示执行引擎与进化搜索在目标语义变更下的鲁棒性边界"
+    },
+    {
+      "figure_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "进化搜索迭代演进明细表：8大典型低分瓶颈任务在跨轮次（Iter 0~4）中的成功率演进与收敛突破轨迹"
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "paper": {
+    "title": "Rethinking World-Action Model for Compositional and In-Context Robotic Manipulation",
+    "authors": [
+      "Shukai Gong",
+      "Xuanran Zhai",
+      "Yintianrun Zhang",
+      "Ruopeng Cui",
+      "Ye Huang",
+      "Yiyang Fu",
+      "Dexuan Lyu",
+      "Chaojie Li",
+      "Xinyi Song",
+      "Peiwen Lin",
+      "Chuang Wang",
+      "Mingyuan Jia",
+      "Yufan Deng",
+      "Jiaxin Fang",
+      "Bo Liang",
+      "Jiaxin Li",
+      "Yuxiang Gao",
+      "Hao Liu",
+      "Daquan Zhou"
+    ],
+    "affiliations": [
+      "Peking University",
+      "AgiBot",
+      "CocoMatrix"
+    ],
+    "year": 2026,
+    "arxiv": "2610.02368v1",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/C3KRZVED/Gong 等 - 2026 - Rethinking World-Action Model for Compositional and In-Context Robotic Manipulation.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "source_format": "pdf-text",
+    "pages": 19,
+    "project_page": "https://dagroup-pku.github.io/ViGAR",
+    "code": "https://github.com/DAGroup-PKU/ViGAR",
+    "huggingface": "https://huggingface.co/DAGroup-PKU/ViGAR"
+  },
+  "notes": {
+    "reading_order": "two-column / single-column PDF layout reconstructed from PyMuPDF and page scans",
+    "internal_inconsistencies": [
+      "Cosmos3-Nano dual branch architecture used across both subgoal planner G_theta and policy pi^WAM_phi",
+      "Table 1a groups methods into VLA and WAM paradigms",
+      "Table 5 separates In-domain vs OOD Setting A and Setting B with stage progression"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Compositional manipulation problem, WAM limitation, ViGAR hierarchical framework, Clean2Random 82.00%/67.02% results, in-context learning"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "1-3",
+      "summary": "Robotic compositional manipulation challenge, WAM strengths and lack of task-level reasoning, language vs visual subgoals, long-term selection vs short-term realization, in-context manipulation, contributions"
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "2",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png",
+      "summary": "Overview of ViGAR framework: subgoal planning and execution on task-diverse robot data"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "3",
+      "summary": "VLAs for compositional manipulation, World Models for robotics, In-Context Learning for manipulation"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "3.1 Problem Formulation & Preliminaries",
+      "pages": "3-4",
+      "summary": "VLA and WAM formulations, compositional task decomposition into subtasks (T_1, ..., T_n), subgoals (l_i, g_i), ICL formulation Eq. (1)"
+    },
+    {
+      "id": "E001",
+      "type": "equation",
+      "section": "3.1 Preliminaries",
+      "pages": "4",
+      "label": "Equation (1)",
+      "summary": "In-context manipulation formulation conditioned on optional context C"
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "3.2 Visual Subgoal Planner G_theta",
+      "pages": "4-5",
+      "summary": "Fixing instruction l_i = l, casting planning as image editing, flow-matching objective"
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3 ViGAR",
+      "pages": "5",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png",
+      "summary": "Model architecture of ViGAR: subgoal planner G_theta and subgoal executor pi^WAM_phi"
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "3.3 Implementation Details: Subgoal Supervision",
+      "pages": "5-6",
+      "summary": "Temporal boundary confusion, subgoal look-ahead rule Eq. (2), end-effector ROI weighting Eq. (3), weighted flow-matching loss"
+    },
+    {
+      "id": "E002",
+      "type": "equation",
+      "section": "3.3 Implementation Details",
+      "pages": "5",
+      "label": "Equation (2)",
+      "summary": "Subgoal look-ahead rule redirecting last p% of T_i to g_{i+1}"
+    },
+    {
+      "id": "E003",
+      "type": "equation",
+      "section": "3.3 Implementation Details",
+      "pages": "6",
+      "label": "Equation (3)",
+      "summary": "End-effector ROI weighting formulation w_i(u)"
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "3.3 Implementation Details",
+      "pages": "6",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png",
+      "summary": "Subgoal supervision design: (a) look-ahead redirection, (b) end-effector ROI masks"
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "3.4 Subgoal Executor pi^WAM_phi",
+      "pages": "6",
+      "summary": "Joint flow matching on video future and action chunk, geometric vs semantic injection routes, zero-initialized goal-role embedding"
+    },
+    {
+      "id": "S008",
+      "type": "body",
+      "section": "3.5 In-Context Task Specification via Global Goal",
+      "pages": "7",
+      "summary": "Context C instantiated as global goal image G, planning loss L_{Plan-ICL}, zero parameter update steering"
+    },
+    {
+      "id": "S009",
+      "type": "body",
+      "section": "4 Simulation Experiments",
+      "pages": "7",
+      "summary": "RoboTwin Clean2Random setup, Aloha AgileX, 2500 Clean demonstrations, VLA & WAM baselines, Cosmos3-Nano-RoboTwin ablation"
+    },
+    {
+      "id": "S010",
+      "type": "body",
+      "section": "4.2 Main Results on Clean & Random",
+      "pages": "7-8",
+      "summary": "Subgoal prediction quality (LPIPS, DINO-cos, Delta IoU, RetAcc), manipulation success rate 82.00%/67.02%, WAM saturation on Clean vs huge boost on Random"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "4.2 Main Results",
+      "pages": "8",
+      "label": "Table 1",
+      "asset": "assets/table_1.png",
+      "summary": "(a) Simulation manipulation performance on RoboTwin Clean2Random; (b) Visual subgoal prediction quality on RoboTwin & Real Robot"
+    },
+    {
+      "id": "S011",
+      "type": "body",
+      "section": "5 Real-World Robot Deployment",
+      "pages": "8",
+      "summary": "AgiBot A2 setup, 900h teleoperation mid-training, 5 long-horizon tasks (Pile Paper Cups, Stack Colored Bowls, Stamp Over Letters, Tidy-up Desktop, Take-out Steam Buns)"
+    },
+    {
+      "id": "S012",
+      "type": "body",
+      "section": "5.2 Five Long-Horizon Compositional Tasks",
+      "pages": "8-9",
+      "summary": "Comparison against pi_{0.5} and Cosmos3-Nano-Policy, task progress score gains"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "5 Real-World Robot Deployment",
+      "pages": "9",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png",
+      "summary": "Real-world deployment progress scores across five long-horizon tasks"
+    },
+    {
+      "id": "S013",
+      "type": "body",
+      "section": "5.3 In-Context Learning Tasks with Global Goal Images",
+      "pages": "9",
+      "summary": "Fruit Arrangement & Desktop Item Storage, fixed scene/prompt with varying global goal, 77.5% in-domain / 47.5% OOD progress"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "5.3 In-Context Learning Tasks",
+      "pages": "10",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png",
+      "summary": "Real-world ICL qualitative execution sequences and progress scores on in-domain & OOD settings"
+    },
+    {
+      "id": "S014",
+      "type": "body",
+      "section": "5.4 Ablation Studies",
+      "pages": "9-10",
+      "summary": "Goal injection route (generator vs reasoner vs both), subgoal look-ahead rule and EEF ROI weighting ablations"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "5.4 Ablation Studies",
+      "pages": "10",
+      "label": "Table 2",
+      "asset": "assets/table_2.png",
+      "summary": "(a) Ablation on goal injection routes; (b) Ablation on subgoal look-ahead rule & EEF ROI weighting"
+    },
+    {
+      "id": "S015",
+      "type": "body",
+      "section": "6 Conclusion and Limitations",
+      "pages": "10",
+      "summary": "Conclusion and limitations (annotation dependency, diffusion latency, dexterous hand scaling)"
+    },
+    {
+      "id": "S016",
+      "type": "body",
+      "section": "References",
+      "pages": "11-13",
+      "summary": "40 bibliographic references preserved in searchable English format"
+    },
+    {
+      "id": "S017",
+      "type": "body",
+      "section": "Appendix A: Task Details & Dataset",
+      "pages": "14",
+      "summary": "RoboTwin 2500 rollouts (19 multi-stage, 31 single-stage), 900h AgiBot A2 dataset with human-in-the-loop segmentation"
+    },
+    {
+      "id": "S018",
+      "type": "body",
+      "section": "Appendix B: Architecture, Hyperparameters & Infrastructure Optimization",
+      "pages": "14-15",
+      "summary": "Planner adaptation via 4-frame replication, Base vs ROI variants, policy post-training recipe, receding-horizon loop, Table 3, inference acceleration (CUDA graph, CFG, TeaCache)"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "15",
+      "label": "Table 3",
+      "asset": "assets/table_3.png",
+      "summary": "Training configurations and hyperparameters for subgoal planner and policy"
+    },
+    {
+      "id": "S019",
+      "type": "body",
+      "section": "Appendix C.1 Visualization of Real-world Robot Task Settings",
+      "pages": "15-16",
+      "summary": "Overview of visual setups for 5 long-horizon tasks and 2 in-context tasks"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Appendix C.1",
+      "pages": "16",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png",
+      "summary": "Visualization of the five real-world compositional manipulation tasks"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix C.1",
+      "pages": "16",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png",
+      "summary": "Visualization of the two real-world in-context learning tasks"
+    },
+    {
+      "id": "S020",
+      "type": "body",
+      "section": "Appendix C.2 Visual Subgoal Prediction Quality",
+      "pages": "17",
+      "summary": "Mathematical definitions of LPIPS, DINO-cos, Delta IoU, and RetAcc metrics"
+    },
+    {
+      "id": "S021",
+      "type": "body",
+      "section": "Appendix C.3 Detailed Results on Real-robot Experiments",
+      "pages": "17-19",
+      "summary": "Mathematical definitions of stage-wise success rate Eq. (4) and task progress score Eq. (5), qualitative analysis, Tables 4 & 5"
+    },
+    {
+      "id": "E004",
+      "type": "equation",
+      "section": "Appendix C.3",
+      "pages": "17",
+      "label": "Equation (4)",
+      "summary": "Stage-wise success rate formula SR_k"
+    },
+    {
+      "id": "E005",
+      "type": "equation",
+      "section": "Appendix C.3",
+      "pages": "17",
+      "label": "Equation (5)",
+      "summary": "Task progress score formula TPS"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix C.3",
+      "pages": "18",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png",
+      "summary": "Qualitative execution results of five real-world compositional manipulation tasks"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix C.3",
+      "pages": "18",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png",
+      "summary": "Empirical evidence for the subgoal look-ahead rule eliminating regression loops"
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "Appendix C.3",
+      "pages": "19",
+      "label": "Table 4",
+      "asset": "assets/table_4.png",
+      "summary": "Stage-wise success rates and task progress scores across five real-robot tasks"
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix C.3",
+      "pages": "19",
+      "label": "Table 5",
+      "asset": "assets/table_5.png",
+      "summary": "Stage-wise success rates and task progress scores for in-context tasks (Fruit Arrangement & Desktop Item Storage)"
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png"
+  ]
+}

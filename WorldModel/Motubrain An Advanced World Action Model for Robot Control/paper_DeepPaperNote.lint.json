@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线、关键结果、深度分析、局限、我的笔记与引用等 WJ 核心标准全部结构与子章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的 6 张高清 Figure (figure_1.png 到 figure_6.png) 与 8 张 Table (table_1.png 到 table_8.png) 均真实存在于 images/ 目录中，相对路径正确且均在正文中配有严谨的图表解析"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "论文核心数值（RoboTwin 2.0 Clean 95.8% / Random 96.1%、WorldArena EWMScore 63.77、Motion Quality 细粒度指标 0.5148/0.4911/0.8566、推理加速 54.4x 达 11.11 Hz、关东煮 98.54 分、鸡尾酒 97.34 分、插花 83.30 分、100条演示实体微调等）严格忠实于原文 21 页文本及表格"
+    },
+    {
+      "name": "No Hallucination",
+      "status": "PASSED",
+      "detail": "严格基于论文 extracted_text.txt 原文逻辑构建，精确梳理 UniDiffuser 联合流匹配、三流 MoT 结构、H-Bridge 注意力分布、四级数据金字塔、V2A 动作单向注意力、RTC 异步执行平滑机制，以及与 Motus2、OpenWAM、Fast-WAM 等具身世界模型的生态位横向对比"
+    }
+  ]
+}
