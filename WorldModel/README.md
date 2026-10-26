@@ -1,6 +1,6 @@
 # WorldModel
 
-`WorldModel` 下 60 篇。机器人相关 50 篇，视频世界模型 / 游戏世界模型 10 篇。
+`WorldModel` 下 61 篇。机器人相关 51 篇，视频世界模型 / 游戏世界模型 10 篇。
 
 有 GitHub 仓库的写出链接，没有的写 `-`。链接来自论文正文、arXiv 摘要或官方项目页上的 Code 按钮。参考文献里引用的其他项目不记入。时间是 arXiv 编号里的年月，2026 年 8 月写成 `202608`。DM0.5 没有 arXiv，用文中发布日期 2026-09。
 
@@ -12,8 +12,9 @@
 
 | 编号 | 论文目录 | 时间 | GitHub |
 | --- | --- | --- | --- |
-| 50 | Long-WAM Scaling the Context of World-Action Models | 202610 | https://github.com/NVlabs/Long-WAM |
-| 49 | Native Action-Prior Learning from Videos for World Action Models | 202610 | - |
+| 51 | Long-WAM Scaling the Context of World-Action Models | 202610 | https://github.com/NVlabs/Long-WAM |
+| 50 | Native Action-Prior Learning from Videos for World Action Models | 202610 | - |
+| 49 | UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry | 202610 | https://kksham111.github.io/UniFlowWAM_ProjectPage/ |
 | 48 | Video Prediction Policy 2 Predict Better, Act Better | 202610 | https://github.com/roboterax/video-prediction-policy-2 |
 | 47 | Benchmarking World Models for Continual Learning on Compositional Tasks | 202609 | - |
 | 46 | Beyond Future Prediction Denoising as Generative Adaptation for Robot Control | 202609 | https://github.com/xmz111/NowWAM |

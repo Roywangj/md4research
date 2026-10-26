@@ -1,0 +1,350 @@
+{
+  "paper": {
+    "title": "Self-Distilling Future Video Representations for World Action Models",
+    "authors": [
+      "Huiwon Jang",
+      "Suhyeok Jang",
+      "Hyeonmo Kang",
+      "Seungku Kim",
+      "Jinwoo Shin",
+      "Sihyun Yu"
+    ],
+    "year": 2026,
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/WX7RFZP9/Jang 等 - 2026 - Self-Distilling Future Video Representations for World Action Models.pdf",
+    "reader_file": "paper.md",
+    "detailed_reader_file": "detailed_paper.md",
+    "deep_note_file": "paper_DeepPaperNote.md",
+    "source_format": "pdf-text",
+    "arxiv": "2610.30320v1",
+    "code": "https://github.com/suhyeok-jang/FRED/",
+    "project_page": "https://huiwon-jang.github.io/FRED/"
+  },
+  "notes": {
+    "summary": "Full 27-page bilingual translation and deep reading note for FRED (KAIST & RLWRLD).",
+    "assets_count": 23,
+    "sections_count": 16
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "frontmatter",
+      "section": "Title and Metadata",
+      "pages": "1",
+      "summary": "Title, authors, affiliations, links, and publication metadata."
+    },
+    {
+      "id": "S002",
+      "type": "abstract",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "Abstract of the FRED paper."
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "3-4",
+      "summary": "Motivation of decoupled WAMs, paradox of noise-generated representation degradation, probing analysis, and FRED overview."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "4",
+      "asset": "assets/page_004_fig_1.png",
+      "summary": "Figure 1: Probing accuracy and CKNNA of VDM hidden states."
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "2 Related Work",
+      "pages": "4",
+      "summary": "World Action Models and Diffusion Models in Representation Learning."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "3 Method",
+      "pages": "5-6",
+      "summary": "3.1 Overview of decoupled WAMs; 3.2 FRED architecture, EMA teacher, KL self-distillation loss, temporal historical context, training objective, and inference."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "3 Method",
+      "pages": "5",
+      "asset": "assets/page_005_fig_2.png",
+      "summary": "Figure 2: Overview of FRED architecture and data flow."
+    },
+    {
+      "id": "S006",
+      "type": "body",
+      "section": "4 Experiments",
+      "pages": "6-11",
+      "summary": "4.1 Setup; 4.2 Zero-shot Environment Generalization; 4.3 Human-robot Co-training; 4.4 Analysis and Ablation Studies."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "4 Experiments",
+      "pages": "7",
+      "asset": "assets/page_007_fig_3.png",
+      "summary": "Figure 3: Training and evaluation setup on Franka and OpenArm."
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "4.2 Zero-shot Environment Generalization",
+      "pages": "7",
+      "asset": "assets/page_007_tab_1.png",
+      "summary": "Table 1: Zero-shot generalization to a new real-world environment (DROID)."
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "4.3 Human-robot Co-training",
+      "pages": "8",
+      "asset": "assets/page_008_tab_2.png",
+      "summary": "Table 2: Humanoid control with and without human-robot co-training (OpenArm)."
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "9",
+      "asset": "assets/page_009_tab_3.png",
+      "summary": "Table 3: Component ablation study on RoboCasa."
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "9",
+      "asset": "assets/page_009_tab_4.png",
+      "summary": "Table 4: Representation learning methods comparison across simulation benchmarks."
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "10",
+      "asset": "assets/page_010_fig_4.png",
+      "summary": "Figure 4: Policy performance vs video generation quality and representation probing."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "10",
+      "asset": "assets/page_010_tab_5.png",
+      "summary": "Table 5: Analysis of FRED design choices (teacher noise, layer, loss weight, gradient stopping)."
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "11",
+      "asset": "assets/page_011_tab_6.png",
+      "summary": "Table 6: Generalization across video backbones."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "4.4 Analysis and Ablation Studies",
+      "pages": "11",
+      "asset": "assets/page_011_tab_7.png",
+      "summary": "Table 7: Inference cost and latency."
+    },
+    {
+      "id": "S007",
+      "type": "body",
+      "section": "5 Conclusion",
+      "pages": "11",
+      "summary": "Conclusion and acknowledgements."
+    },
+    {
+      "id": "S008",
+      "type": "references",
+      "section": "References",
+      "pages": "12-14",
+      "summary": "Academic references."
+    },
+    {
+      "id": "S009",
+      "type": "appendix",
+      "section": "Appendix A Implementation Details",
+      "pages": "15-16",
+      "summary": "Real-world and simulation implementation details, hyperparameter table, and image augmentations."
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix A Implementation Details",
+      "pages": "15",
+      "asset": "assets/page_015_tab_8.png",
+      "summary": "Table 8: Hyperparameter details for training FRED."
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "Appendix A Implementation Details",
+      "pages": "16",
+      "asset": "assets/page_016_tab_9.png",
+      "summary": "Table 9: PyTorch-like image augmentations for FRED."
+    },
+    {
+      "id": "S010",
+      "type": "appendix",
+      "section": "Appendix B Benchmark Details",
+      "pages": "17-21",
+      "summary": "B.1 DROID hardware and 4 task suites; B.2 OpenArm hardware, robot/human datasets, and 7 evaluation tasks."
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "Appendix B.1 DROID",
+      "pages": "17",
+      "asset": "assets/page_017_fig_5.png",
+      "summary": "Figure 5: DROID evaluation setup."
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "Appendix B.1 DROID",
+      "pages": "18",
+      "asset": "assets/page_018_fig_6.png",
+      "summary": "Figure 6: DROID evaluation tasks visualization."
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "Appendix B.2 OpenArm",
+      "pages": "19",
+      "asset": "assets/page_019_fig_7.png",
+      "summary": "Figure 7: OpenArm evaluation setup."
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix B.2 OpenArm",
+      "pages": "20",
+      "asset": "assets/page_020_fig_8.png",
+      "summary": "Figure 8: Skill and object distribution in OpenArm robot dataset."
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix B.2 OpenArm",
+      "pages": "20",
+      "asset": "assets/page_020_fig_9.png",
+      "summary": "Figure 9: Skill and object distribution in human video dataset."
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix B.2 OpenArm",
+      "pages": "21",
+      "asset": "assets/page_021_fig_10.png",
+      "summary": "Figure 10: OpenArm evaluation tasks visualization."
+    },
+    {
+      "id": "S011",
+      "type": "appendix",
+      "section": "Appendix C Baselines",
+      "pages": "22",
+      "summary": "Detailed descriptions of pi_0.5, GR00T N1.7, Fast-WAM, DiT4DiT, AGRA, DreamZero."
+    },
+    {
+      "id": "S012",
+      "type": "appendix",
+      "section": "Appendix D Analysis Setup Details",
+      "pages": "23",
+      "summary": "D.1 Attentive Probe architecture and motion primitive labels; D.2 CKNNA formula; D.3 Video quality and one-step distillation."
+    },
+    {
+      "id": "T010",
+      "type": "table",
+      "section": "Appendix D Analysis Setup Details",
+      "pages": "23",
+      "asset": "assets/page_023_tab_10.png",
+      "summary": "Table 10: Motion primitive distribution in validation dataset."
+    },
+    {
+      "id": "S013",
+      "type": "appendix",
+      "section": "Appendix E Flow Matching Process in FRED",
+      "pages": "24",
+      "summary": "Conditional flow matching, linear interpolation, target velocity, and one-step Euler generation."
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix F Limitations and Future Work",
+      "pages": "24",
+      "summary": "Language understanding dependence, morphology gap in human transfer, and future directions."
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix G Full Benchmark Results",
+      "pages": "25-26",
+      "summary": "G.1 Full DROID per-task table; G.2 Full OpenArm per-task table."
+    },
+    {
+      "id": "T011",
+      "type": "table",
+      "section": "Appendix G.1 DROID",
+      "pages": "25",
+      "asset": "assets/page_025_tab_11.png",
+      "summary": "Table 11: Per-task results on zero-shot generalization (DROID)."
+    },
+    {
+      "id": "T012",
+      "type": "table",
+      "section": "Appendix G.2 OpenArm",
+      "pages": "26",
+      "asset": "assets/page_026_tab_12.png",
+      "summary": "Table 12: Per-task results on humanoid control (OpenArm)."
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix H Additional Simulation Benchmark Results",
+      "pages": "27",
+      "summary": "Table 13 RoboCasa Kitchen comparison with SOTA foundation models."
+    },
+    {
+      "id": "T013",
+      "type": "table",
+      "section": "Appendix H Simulation Results",
+      "pages": "27",
+      "asset": "assets/page_027_tab_13.png",
+      "summary": "Table 13: Results on RoboCasa Kitchen benchmark."
+    }
+  ],
+  "assets": [
+    "assets/page_004_fig_1.png",
+    "assets/page_005_fig_2.png",
+    "assets/page_007_fig_3.png",
+    "assets/page_007_tab_1.png",
+    "assets/page_008_tab_2.png",
+    "assets/page_009_tab_3.png",
+    "assets/page_009_tab_4.png",
+    "assets/page_010_fig_4.png",
+    "assets/page_010_tab_5.png",
+    "assets/page_011_tab_6.png",
+    "assets/page_011_tab_7.png",
+    "assets/page_015_tab_8.png",
+    "assets/page_016_tab_9.png",
+    "assets/page_017_fig_5.png",
+    "assets/page_018_fig_6.png",
+    "assets/page_019_fig_7.png",
+    "assets/page_020_fig_8.png",
+    "assets/page_020_fig_9.png",
+    "assets/page_021_fig_10.png",
+    "assets/page_023_tab_10.png",
+    "assets/page_025_tab_11.png",
+    "assets/page_026_tab_12.png",
+    "assets/page_027_tab_13.png"
+  ]
+}

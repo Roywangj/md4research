@@ -1,0 +1,164 @@
+{
+  "selected_figures": [
+    {
+      "figure_id": "Figure 1",
+      "file": "images/figure_1.png",
+      "role": "系统全景图：AW-0 架构总览，涵盖代码规划、未来视频预测与动作生成的联合去噪，以及自动化智能体标注管线与混合执行模式"
+    },
+    {
+      "figure_id": "Figure 2",
+      "file": "images/figure_2.png",
+      "role": "核心机制架构：Mixture-of-Transformers (MoT) 专家骨干、模态因果注意力掩码 (C->V->A) 与离散掩码扩散+连续流匹配联合去噪过程"
+    },
+    {
+      "figure_id": "Figure 3",
+      "file": "images/figure_3.png",
+      "role": "自动化数据标注流水线：由 Claude 协调器与 Gemini 编码智能体构成的三阶段技能提炼、对齐与缓存复用系统"
+    },
+    {
+      "figure_id": "Figure 4",
+      "file": "images/figure_4.png",
+      "role": "仿真基准对比柱状图：RoboTwin 2.0 Clean 与 Random 两种评测环境下的全景表现"
+    },
+    {
+      "figure_id": "Figure 5",
+      "file": "images/figure_5.png",
+      "role": "注意力因果结构消融：C->V->A、V->C->A 与纯物理 V->A 在实机 8 项任务上的性能差异"
+    },
+    {
+      "figure_id": "Figure 6",
+      "file": "images/figure_6.png",
+      "role": "生成范式与推理效率消融：联合去噪 (Joint Denoising) 对比自回归 (AR) 解码的准确率与 RTX 5090 运行延迟"
+    },
+    {
+      "figure_id": "Figure 7",
+      "file": "images/figure_7.png",
+      "role": "代码规划表征消融：全量程序、去除注释、去除技能抽象与自然语言 Subgoal 的实机任务对比"
+    },
+    {
+      "figure_id": "Figure 18",
+      "file": "images/figure_18.png",
+      "role": "技能表征隐空间：YAM 机器人 18 个高频技能在代码专家潜空间中的 t-SNE 流形聚类"
+    },
+    {
+      "figure_id": "Figure 19",
+      "file": "images/figure_19.png",
+      "role": "人类技能隐空间：人类第一人称 16 个高频操作技能在潜空间中的流形分离分布"
+    },
+    {
+      "figure_id": "Figure 20",
+      "file": "images/figure_20.png",
+      "role": "实机实验硬件系统：YAM 双臂平行夹爪工作站与天机-Sharpa 双臂 22-DoF 灵巧手人形躯干"
+    },
+    {
+      "figure_id": "Figure 21",
+      "file": "images/figure_21.png",
+      "role": "真实任务进度与程序对齐：Arrange Fruits 关键帧、时间戳与带条件分支的代码标签"
+    },
+    {
+      "figure_id": "Figure 23",
+      "file": "images/figure_23.png",
+      "role": "真实任务进度与程序对齐：Replace Lightbulb 闭环感知检测与螺纹旋合代码结构"
+    },
+    {
+      "figure_id": "Figure 24",
+      "file": "images/figure_24.png",
+      "role": "长程柔性体复杂操作：Fold and Stack Towels 6 阶段折叠与堆叠程序流"
+    },
+    {
+      "figure_id": "Figure 26",
+      "file": "images/figure_26.png",
+      "role": "双臂灵巧手协作任务：Deal Poker 发扑克牌关键帧与多阶段精细指尖接触"
+    },
+    {
+      "figure_id": "Figure 28",
+      "file": "images/figure_28.png",
+      "role": "高维度灵巧手翻转与旋转：Solve Rubik's Cube 解魔方关键帧与层旋转动作"
+    },
+    {
+      "figure_id": "Figure 31",
+      "file": "images/figure_31.png",
+      "role": "在线真实部署代码生成：Pack Backpack 运行时的动态程序生成与基准对齐"
+    },
+    {
+      "figure_id": "Figure 33",
+      "file": "images/figure_33.png",
+      "role": "未来视频前瞻预测对比：Arrange Fruits 上代码引导、语言 Subgoal 与无代码基准的视觉想象精度"
+    },
+    {
+      "figure_id": "Figure 34",
+      "file": "images/figure_34.png",
+      "role": "精细物理接触预测对比：Deal Poker 扑克牌插入狭窄卡槽时的指尖与物体形变前瞻"
+    },
+    {
+      "figure_id": "Figure 35",
+      "file": "images/figure_35.png",
+      "role": "混合执行定性轨迹：Fold and Stack Towels 中代码执行与连续 WAM 动作的动态交替切换"
+    },
+    {
+      "figure_id": "Figure 36",
+      "file": "images/figure_36.png",
+      "role": "全景失败案例诊断：容器边缘碰撞、柔性体拖拽倾覆、微距对齐偏差、工具冲突、卡牌滑脱与指尖脱靶"
+    },
+    {
+      "figure_id": "Figure 37",
+      "file": "images/figure_37.png",
+      "role": "RoboTwin 仿真混合执行阶段可视化：blocks ranking rgb 与 pick dual bottles 控制通道切换"
+    },
+    {
+      "figure_id": "Figure 38",
+      "file": "images/figure_38.png",
+      "role": "声明式底层 API 规范：面向平行夹爪与 22-DoF 灵巧手的统一语义动词与运动基元定义"
+    },
+    {
+      "figure_id": "Table 1",
+      "file": "images/table_1.png",
+      "role": "仿真主结果表格：RoboTwin 2.0 Clean 与 Random 50 项任务全景成功率对比"
+    },
+    {
+      "figure_id": "Table 2",
+      "file": "images/table_2.png",
+      "role": "实机主结果表格：8 项任务在 YAM 与天机-Sharpa 双具身上的 Rubric 评分全景对比"
+    },
+    {
+      "figure_id": "Table 3",
+      "file": "images/table_3.png",
+      "role": "代码专家视觉表征消融表：独立冻结 ViT 表征与共享重构 VAE 表征的实机任务对比"
+    },
+    {
+      "figure_id": "Table 4",
+      "file": "images/table_4.png",
+      "role": "生成范式消融表：联合去噪 (Joint Denoising) 对比自回归 (AR) 在 8 项任务上的打分对比"
+    },
+    {
+      "figure_id": "Table 5",
+      "file": "images/table_5.png",
+      "role": "网络架构规格表：Code、Video、Action 三专家的参数量、层数、通道与输入规格"
+    },
+    {
+      "figure_id": "Table 7",
+      "file": "images/table_7.png",
+      "role": "预训练多源数据集统计表：YAM 遥操与人类第一人称视频的集数、时长与子任务切片量"
+    },
+    {
+      "figure_id": "Table 8",
+      "file": "images/table_8.png",
+      "role": "YAM 机器人 23 个冻结可复用技能定义表"
+    },
+    {
+      "figure_id": "Table 9",
+      "file": "images/table_9.png",
+      "role": "人类第一人称 27 个冻结可复用技能定义表"
+    },
+    {
+      "figure_id": "Table 10",
+      "file": "images/table_10.png",
+      "role": "预训练阶段代码专家生成质量客观评估表（准确率、接地差距、解析率与 F1）"
+    },
+    {
+      "figure_id": "Table 12",
+      "file": "images/table_12.png",
+      "role": "混合执行控制通道分布统计表：成功与失败轨迹中代码执行与原生动作的时步占比"
+    }
+  ]
+}

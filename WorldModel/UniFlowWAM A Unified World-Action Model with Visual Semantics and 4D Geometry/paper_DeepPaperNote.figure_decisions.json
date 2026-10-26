@@ -1,0 +1,169 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2610.30991",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "UniFlowWAM overview: UniFlowWAM couples visual features, scene-level 3D flow, and actions in one three-expert diffusion transformer",
+      "pages": [
+        2
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "架构总览图，直接展示三专家 MM-DiT 与十目标角色网格的交互机制。",
+      "target_section": "方法主线",
+      "source_image_filename": "page_002_fig_figure_1.png",
+      "relative_markdown_embed": "![](images/page_002_fig_figure_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_002_fig_figure_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Network architecture. Actions, scene-level 3D flow, and future visual features are three modalities of one diffusion transformer",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "详细网络架构图，呈现 Token 映射、MM-RoPE 与跨模态联合注意力。",
+      "target_section": "方法主线",
+      "source_image_filename": "page_004_fig_figure_2.png",
+      "relative_markdown_embed": "![](images/page_004_fig_figure_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_004_fig_figure_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "The ten training objectives (Sec. 3.4). Fixed denotes the context shared by all objectives",
+      "pages": [
+        6
+      ],
+      "section_id": "sec:method",
+      "decision": "insert",
+      "reason": "十项训练目标的完整角色分配网格，是方法的核心数学形式化部分。",
+      "target_section": "方法主线",
+      "source_image_filename": "page_006_fig_table_1.png",
+      "relative_markdown_embed": "![](images/page_006_fig_table_1.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_006_fig_table_1.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Success rates (%) on RoboCasa-GR1 tabletop.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "RoboCasa-GR1 人形仿真基准主结果对比表。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_008_fig_table_2.png",
+      "relative_markdown_embed": "![](images/page_008_fig_table_2.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_008_fig_table_2.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Success rates (%) on LIBERO and LIBERO-Plus.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "LIBERO 与 LIBERO-Plus 七维扰动下与十余种主流基线的全方位对比。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_008_fig_table_3.png",
+      "relative_markdown_embed": "![](images/page_008_fig_table_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_008_fig_table_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Real-world manipulation tasks. Instructions and scored milestones for four tasks",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "真实机器人评测四项任务的执行过程与阶段性里程碑定义。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_009_fig_figure_3.png",
+      "relative_markdown_embed": "![](images/page_009_fig_figure_3.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_009_fig_figure_3.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Results of real-world manipulation on ALOHA. Solid bars give the full-task success rate",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "实体机器人成功率与过程分柱状图，直观展现全面领先优势与失败模式分析。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_010_fig_figure_4.png",
+      "relative_markdown_embed": "![](images/page_010_fig_figure_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_010_fig_figure_4.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "Demonstration coverage on two real-robot tasks. Left: chili transfer, with coverage measured over the chili rotation angle",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "数据覆盖热力分布图，揭示边缘稀疏区外推成功的物理机理。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_010_fig_figure_5.png",
+      "relative_markdown_embed": "![](images/page_010_fig_figure_5.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_010_fig_figure_5.png",
+      "materialization_status": "materialized"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Objective ablations on ALOHA (success rate, %).",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:experiments",
+      "decision": "insert",
+      "reason": "目标网格分层递进消融表，证实各流目标在实体控制上的独立边际收益。",
+      "target_section": "关键结果",
+      "source_image_filename": "page_011_fig_table_4.png",
+      "relative_markdown_embed": "![](images/page_011_fig_table_4.png)",
+      "source_image_path": "/Users/roywangj/journey_wj/research/mds4zotero/markdowns4zotero/WorldModel/UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry/images/page_011_fig_table_4.png",
+      "materialization_status": "materialized"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "Schema and Section Integrity",
+      "status": "PASSED",
+      "detail": "包含核心信息、原文摘要翻译、创新点、一句话总结、研究问题、数据与任务定义、方法主线（机制流程、三流耦合生成与模态因果注意力、自动化标注流水线、混合执行模式、推理加速）、关键结果（仿真主结果、实机长程操作、语言与语义推理、核心消融）、深度分析（真正贡献、为何成立、容易误读、复现注意点）、局限、我的笔记（宏观横向对比矩阵与技术演化图谱）与引用等全量指定章节"
+    },
+    {
+      "name": "Image and Asset Integrity",
+      "status": "PASSED",
+      "detail": "选取的29张高清图表裁剪（涵盖Figure 1-7, 18-21, 23, 24, 26, 28, 33-38 以及 Table 1-5, 7-9）均真实存在于 images/ 目录下，相对路径完全合法解析无断链"
+    },
+    {
+      "name": "Numeric Faithfulness",
+      "status": "PASSED",
+      "detail": "2,913.2预训练小时数、248,642预训练集数、207.5万子任务程序切片、50项可复用技能库、64维跨具身统一动作空间、0.23秒RTX 5090推理延迟（提速2.39倍）、RoboTwin 2.0干净环境80.8%成功率与随机环境29.2%混合模式成功率、实机8项任务71.1%总均分（大幅超越π0.5 43.6%与DreamZero 46.0%）等核心数据严格与论文50页正文及附录权威数据一致"
+    },
+    {
+      "name": "No Hallucination and Traceability",
+      "status": "PASSED",
+      "detail": "严格基于论文50页extracted_text.txt原文提取，精准阐释Mixture-of-Transformers三专家骨干、离散掩码扩散+连续流匹配联合去噪、C->V->A模态因果注意力掩码、Claude+Gemini双层标注管线、CaP混合执行与三层安全门控算法，客观定位局限与工程避坑点"
+    }
+  ]
+}

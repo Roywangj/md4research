@@ -1,0 +1,61 @@
+{
+  "paper": {
+    "title": "Agentic World Action Models",
+    "short_title": "AW-0",
+    "year": 2026,
+    "venue": "arXiv:2610.30136v1 [cs.RO]",
+    "team": "UC Berkeley, NVIDIA, University of Pennsylvania",
+    "authors": "Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi 'Jim' Fan, Trevor Darrell",
+    "project_page": "https://agentic-wam.github.io/"
+  },
+  "structure_plan": [
+    {
+      "section": "核心信息",
+      "goal": "汇总联合研究团队（UC Berkeley / NVIDIA / UPenn）、项目主页、核心学术贡献与跨具身长程操作实证成果"
+    },
+    {
+      "section": "原文摘要翻译",
+      "goal": "严谨流利的学术中文全译，精准传达将代码式规划与联合视频-动作预测大一统耦合的核心主旨"
+    },
+    {
+      "section": "创新点",
+      "goal": "提炼6大带加粗Takeaway的重大技术创新：三流耦合MoT架构、离散代码扩散与连续Flow联合去噪、模态因果注意力流向、自动化智能体标注与技能库蒸馏、CaP代码执行与纯动作自适应回退混合机制、2.39倍低延迟加速推理"
+    },
+    {
+      "section": "一句话总结",
+      "goal": "一针见血概括 AW-0 在具身世界-动作模型与智能体代码规划结合领域的奠基性里程碑地位"
+    },
+    {
+      "section": "研究问题",
+      "goal": "深入剖析传统单体WAM缺乏程序化长程组合技能复用能力，以及纯Agentic机器人缺乏对物理动态前瞻预测接地的双重断层"
+    },
+    {
+      "section": "数据与任务定义",
+      "goal": "详述2,913小时多源预训练数据（YAM双臂遥操+人类第一人称接触）、50个可复用技能库、RoboTwin 2.0仿真基准（50任务Clean/Random）与8项真实世界高难度双臂/灵巧手长程接触任务定义"
+    },
+    {
+      "section": "方法主线",
+      "goal": "系统拆解机制流程（Code/Video/Action专家MoT骨干）、离散-连续三流耦合生成与因果掩码、自动化标注与技能提炼流水线、CaP混合执行与安全回退算法、以及渐进式反掩码推理加速机制"
+    },
+    {
+      "section": "关键结果",
+      "goal": "全景呈现RoboTwin 2.0仿真基准（Clean 80.8%, Random 64.8%）、8项实机双臂与灵巧手操作成绩（71.1% vs π0.5 43.6%）、语言遵循与语义推理对比（Table 3-4, Fig 5）、以及四大核心消融分析"
+    },
+    {
+      "section": "深度分析",
+      "goal": "穿透表象提炼真正贡献、剖析为何代码归纳偏置能约束物理前瞻空间、厘清测试期交互界限与仿真器假设盲区，并给出工业级复现踩坑指南"
+    },
+    {
+      "section": "局限",
+      "goal": "客观指出参数语义幻觉、视觉扰动敏感性、灵巧手CaP基建缺席以及自监督在线闭环探索不足等瓶颈"
+    },
+    {
+      "section": "我的笔记",
+      "goal": "与OpenWAM, Long-WAM, Motubrain, UniWALM, VPP2, ViGAR, ASPIRE, CodeActionBench构建全景宏观横向对照与大一统演化图谱"
+    },
+    {
+      "section": "引用",
+      "goal": "标准学术引用与arXiv元数据记录"
+    }
+  ]
+}

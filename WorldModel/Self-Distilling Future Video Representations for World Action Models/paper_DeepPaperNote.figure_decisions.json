@@ -1,0 +1,398 @@
+{
+  "status": "ok",
+  "script": "plan_figure_table_decisions.py",
+  "paper_id": "arxiv:2610.30320",
+  "decisions": [
+    {
+      "item_id": "figure:Figure 1",
+      "source_id": "Figure 1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "caption": "VDM learns future representations during WAM training. Probing accuracy and CKNNA structural similarity over training iterations.",
+      "pages": [
+        4
+      ],
+      "section_id": "sec:intro",
+      "decision": "selected",
+      "reason": "核心机理动机图：揭示基线 WAM 在 tau=1.0（噪声输入）下单步表征严重劣化，而 FRED 能学到接近 tau=0（真实未来）的高质量时空表征。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 1,
+      "target_section": "研究问题"
+    },
+    {
+      "item_id": "figure:Figure 2",
+      "source_id": "Figure 2",
+      "kind": "figure",
+      "label": "Figure 2",
+      "caption": "Overview of FRED. VDM as future representation generator, self-distillation from EMA teacher with temporal context.",
+      "pages": [
+        5
+      ],
+      "section_id": "sec:method",
+      "decision": "selected",
+      "reason": "FRED 系统架构总览图：展示 Student 噪声输入、Teacher 真实未来加噪输入、EMA 动量更新、Patch 投影头与 KL 蒸馏损失、时序历史条件与动作解码头。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 1,
+      "target_section": "方法主线"
+    },
+    {
+      "item_id": "figure:Figure 3",
+      "source_id": "Figure 3",
+      "kind": "figure",
+      "label": "Figure 3",
+      "caption": "Visualization of the training and evaluation setup: (a) Zero-shot Environment Generalization on Franka, (b) Human-Robot Co-training on OpenArm.",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:exp_setup",
+      "decision": "selected",
+      "reason": "实验场景总览图：清晰展示 DROID 实机新环境零样本泛化设定与 OpenArm 人形机器人人类视频协同训练迁移流程。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "table:Table 1",
+      "source_id": "Table 1",
+      "kind": "table",
+      "label": "Table 1",
+      "caption": "Results on zero-shot generalization to a new real-world environment (DROID, Franka Research 3).",
+      "pages": [
+        7
+      ],
+      "section_id": "sec:exp_droid",
+      "decision": "selected",
+      "reason": "真实世界零样本泛化主表：在域内容易、长时程、域外新动作、目标定位四大场景中全面对比 5B/14B WAM 与 VLA 基线。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 1,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 2",
+      "source_id": "Table 2",
+      "kind": "table",
+      "label": "Table 2",
+      "caption": "Results on humanoid control with and without human-robot co-training on OpenArm.",
+      "pages": [
+        8
+      ],
+      "section_id": "sec:exp_openarm",
+      "decision": "selected",
+      "reason": "双臂人形机器人实验主表：证明 FRED 在人类无动作视频协同训练下实现 50.0% 的零样本技能迁移（强基线最高仅 19.4%）。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 1,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 3",
+      "source_id": "Table 3",
+      "kind": "table",
+      "label": "Table 3",
+      "caption": "Component ablation study of FRED on RoboCasa Kitchen benchmark.",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:ablation",
+      "decision": "selected",
+      "reason": "消融核心表：分解自蒸馏（+4.2%）与时序历史条件（+3.2%）的独立与叠加增益。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 4",
+      "source_id": "Table 4",
+      "kind": "table",
+      "label": "Table 4",
+      "caption": "Comparison of representation learning methods on simulation benchmarks (RoboCasa, GR-1, LIBERO).",
+      "pages": [
+        9
+      ],
+      "section_id": "sec:ablation_rep",
+      "decision": "selected",
+      "reason": "表征学习方法对比表：证明直接未来表征自蒸馏优于 DINOv2 特征蒸馏、纯逆动力学 (IDM) 监督与纯视频流匹配。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "figure:Figure 4",
+      "source_id": "Figure 4",
+      "kind": "figure",
+      "label": "Figure 4",
+      "caption": "Policy performance versus video generation quality (FVD), clean representation probing, and noise-generated representation probing.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:analysis",
+      "decision": "selected",
+      "reason": "深度发现分析图：揭示视频像素生成质量与控制表现弱相关 (r=0.24)，而单步噪声生成的未来表征质量与控制表现强相关 (r=0.89)。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 1,
+      "target_section": "深度分析"
+    },
+    {
+      "item_id": "table:Table 5",
+      "source_id": "Table 5",
+      "kind": "table",
+      "label": "Table 5",
+      "caption": "Analysis of FRED design choices: (a) teacher noise, (b) layer index, (c) loss weight lambda_SD, (d) action gradient stopping.",
+      "pages": [
+        10
+      ],
+      "section_id": "sec:ablation_design",
+      "decision": "selected",
+      "reason": "设计选择消融表：揭示中等教师噪声 tau=0.25 最优、中间层（第19层）最优、阻断动作梯度至视频模型更优。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "深度分析"
+    },
+    {
+      "item_id": "table:Table 6",
+      "source_id": "Table 6",
+      "kind": "table",
+      "label": "Table 6",
+      "caption": "Generalization across video backbones (Wan2.2-5B vs Cosmos-Predict2.5-2B).",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:backbones",
+      "decision": "selected",
+      "reason": "骨干网络通用性表：证明 FRED 不仅适配 Wan2.2，在 Cosmos-Predict2.5 上同样取得稳定一致的显著提升。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 7",
+      "source_id": "Table 7",
+      "kind": "table",
+      "label": "Table 7",
+      "caption": "Inference cost and latency on NVIDIA A100 GPU.",
+      "pages": [
+        11
+      ],
+      "section_id": "sec:cost",
+      "decision": "selected",
+      "reason": "推理时延表：证明 FRED 单步去噪表征提取使 14B 模型仅需 0.406s（比多步 WAM DreamZero 快 8 倍），具备极高实用性。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "深度分析"
+    },
+    {
+      "item_id": "table:Table 8",
+      "source_id": "Table 8",
+      "kind": "table",
+      "label": "Table 8",
+      "caption": "Hyperparameter details for training FRED.",
+      "pages": [
+        15
+      ],
+      "section_id": "sec:appendix_a",
+      "decision": "selected",
+      "reason": "超参数全表：记录 5B/14B、Franka/OpenArm 各项训练超参数，用于复现核验。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "深度分析"
+    },
+    {
+      "item_id": "table:Table 9",
+      "source_id": "Table 9",
+      "kind": "table",
+      "label": "Table 9",
+      "caption": "PyTorch-like descriptions of image augmentations for FRED.",
+      "pages": [
+        16
+      ],
+      "section_id": "sec:appendix_a",
+      "decision": "selected",
+      "reason": "图像增强策略表：记录视觉扰动与增强代码规范。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "深度分析"
+    },
+    {
+      "item_id": "figure:Figure 5",
+      "source_id": "Figure 5",
+      "kind": "figure",
+      "label": "Figure 5",
+      "caption": "DROID evaluation hardware setup.",
+      "pages": [
+        17
+      ],
+      "section_id": "sec:appendix_b1",
+      "decision": "selected",
+      "reason": "DROID 真实硬件视角图：Franka Research 3、Robotiq 2F-85、手腕相机与双外置相机。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "figure:Figure 6",
+      "source_id": "Figure 6",
+      "kind": "figure",
+      "label": "Figure 6",
+      "caption": "DROID evaluation task suite visualizations.",
+      "pages": [
+        18
+      ],
+      "section_id": "sec:appendix_b1",
+      "decision": "selected",
+      "reason": "DROID 4 大评测套件任务可视化（香蕉、微波炉、长时程桌面清理、印章、刀叉等）。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "figure:Figure 7",
+      "source_id": "Figure 7",
+      "kind": "figure",
+      "label": "Figure 7",
+      "caption": "OpenArm humanoid evaluation hardware setup.",
+      "pages": [
+        19
+      ],
+      "section_id": "sec:appendix_b2",
+      "decision": "selected",
+      "reason": "OpenArm 人形双臂硬件平台与 ZED 2i 双目立体相机实物图。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "figure:Figure 8",
+      "source_id": "Figure 8",
+      "kind": "figure",
+      "label": "Figure 8",
+      "caption": "Distribution of skills and object categories in the OpenArm robot dataset.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix_b2",
+      "decision": "selected",
+      "reason": "OpenArm 机器人数据集技能与物体类别分布直方图。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "figure:Figure 9",
+      "source_id": "Figure 9",
+      "kind": "figure",
+      "label": "Figure 9",
+      "caption": "Distribution of skills and object categories in the human video dataset.",
+      "pages": [
+        20
+      ],
+      "section_id": "sec:appendix_b2",
+      "decision": "selected",
+      "reason": "人类自我中心视频数据集技能与物体类别分布直方图。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "figure:Figure 10",
+      "source_id": "Figure 10",
+      "kind": "figure",
+      "label": "Figure 10",
+      "caption": "OpenArm evaluation tasks visualization (atomic, composite, human skill transfer).",
+      "pages": [
+        21
+      ],
+      "section_id": "sec:appendix_b2",
+      "decision": "selected",
+      "reason": "OpenArm 7 大任务实物操作轨迹图，尤其包含人类技能迁移（倒咖啡、放篮子）。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "数据与任务定义"
+    },
+    {
+      "item_id": "table:Table 10",
+      "source_id": "Table 10",
+      "kind": "table",
+      "label": "Table 10",
+      "caption": "Distribution of motion-primitive labels in probing validation dataset.",
+      "pages": [
+        23
+      ],
+      "section_id": "sec:appendix_d",
+      "decision": "selected",
+      "reason": "9 类运动原语分布表，支持图 1 和图 4 的注意力探测器分析。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 3,
+      "target_section": "研究问题"
+    },
+    {
+      "item_id": "table:Table 11",
+      "source_id": "Table 11",
+      "kind": "table",
+      "label": "Table 11",
+      "caption": "Per-task results on zero-shot generalization on DROID.",
+      "pages": [
+        25
+      ],
+      "section_id": "sec:appendix_g1",
+      "decision": "selected",
+      "reason": "DROID 各单任务细分成功率全表。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 12",
+      "source_id": "Table 12",
+      "kind": "table",
+      "label": "Table 12",
+      "caption": "Per-task results on humanoid control on OpenArm.",
+      "pages": [
+        26
+      ],
+      "section_id": "sec:appendix_g2",
+      "decision": "selected",
+      "reason": "OpenArm 各单任务细分成功率与指令遵循率全表。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "关键结果"
+    },
+    {
+      "item_id": "table:Table 13",
+      "source_id": "Table 13",
+      "kind": "table",
+      "label": "Table 13",
+      "caption": "Results on RoboCasa Kitchen benchmark with SOTA foundation models.",
+      "pages": [
+        27
+      ],
+      "section_id": "sec:appendix_h",
+      "decision": "selected",
+      "reason": "RoboCasa Kitchen 基准对比表：FRED 扩展规模取得 75.4%，超越 RLDX-1、GR00T N1.7 与 Xiaomi-Robotics-1。",
+      "skip_reason": "",
+      "visual_quality_status": "good",
+      "priority": 2,
+      "target_section": "关键结果"
+    }
+  ]
+}

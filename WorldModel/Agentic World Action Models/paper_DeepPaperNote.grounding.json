@@ -1,0 +1,44 @@
+{
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "AW-0 首次在统一的 Mixture-of-Transformers (MoT) 骨干网络中将代码规划、未来视频预测与连续动作生成三流耦合，并通过块状因果注意力 (C -> V -> A) 实现语义先验对物理动态与底层控制的同步引导",
+      "evidence": "Section 2.1, Section 3.3, Figure 2, Figure 5; 包含28层Transformer，注意力隐空间统一为2048维；消融证实 C -> V -> A 显著优于无代码基准 V -> A (71.1% vs 32.9%) 以及逆序架构 V -> C -> A (54.5%)"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "提出异构生成统一联合去噪范式，视频与动作采用连续流匹配 (Continuous Flow Matching)，代码规划采用离散掩码扩散 (Masked Token Diffusion)，并通过噪声重采样分布与重要性加权平衡物理特征学习与预测引导",
+      "evidence": "Section 2.2, Eq. 2-6; 视频专家初始化自 Cosmos-Predict2.5-2B，动作专家从头训练，代码专家初始化自 SDAR-1.7B 并外接冻结 Qwen3-VL 视觉塔；采用混合噪声分布 q(u) = 0.5 p_pre(u) + 0.5 U(0,1) 优化联合梯度"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "构建了由协调器与编码智能体协同的双层自动化标注与技能提炼流水线，从近3,000小时机器人与人类多源数据中蒸馏出涵盖50个跨任务可复用技能的高层程序库，完成语义时空对齐",
+      "evidence": "Section 2.3, Appendix B, Appendix K, Figure 3, Table 7-9; 包含 YAM 双臂 23 个可复用技能与人类第一人称 27 个灵巧手技能；跨 606 项任务完成 207.5 万个子任务程序切片标注，缓存复用机制大幅降低标注开销"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "提出代码执行与 WAM 原生动作块自适应门控的混合执行机制 (Hybrid Action)，通过阶段门控、依赖门控与语法/白名单门控实现 CaP 程序调用与底层动作 chunk 的动态回退",
+      "evidence": "Section 2.3, Section 3.1, Appendix I, Appendix J.2, Algorithm 1 & 2, Table 12, Figure 37; 在 RoboTwin 随机扰动场景下，混合模式将成功率从 20.6% 提升至 29.2%，成功轨迹中代码执行占比达 35.0%"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "在 RoboTwin 2.0 50项高难度双臂仿真基准中，AW-0 在干净场景下取得 80.8% 成功率，超越最强基线 WLA (64.8%) 与 π0.5 (54.9%)；在视觉随机化场景下，混合模式取得 29.2%，综合性能位列第一",
+      "evidence": "Section 3.1, Table 1, Table 11, Figure 4; 涵盖50项任务各50次 rollout（总计 2,500 次评估），相比传统单体 WAM (DreamZero 33.6%/17.6%) 与纯人类预训练策略 (EgoScale 26.2%/2.9%) 展现断代级长程规划优势"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "在真实世界 YAM 双臂平行夹爪与天机-Sharpa 22-DoF 灵巧手双平台上，AW-0 在 8 项高难度长程接触操作任务中取得 71.1% 的平均分，大幅领先 π0.5 (43.6%)、DreamZero (46.0%)、WLA (39.9%) 与 EgoScale (35.9%)",
+      "evidence": "Section 3.2, Table 2, Figure 20-28; 在水果分类 (91.7%)、换灯泡 (75.0%)、叠毛巾 (84.4%)、夹子分拣 (54.2%)、发扑克牌 (58.3%)、翻记分牌 (68.8%) 与还原魔方 (72.1%) 上均取得最优"
+    },
+    {
+      "claim_id": "C07",
+      "claim": "联合去噪生成范式打破了自回归 (AR) 串行解码瓶颈，在单张 RTX 5090 上实现 0.23 秒端到端低延迟推理，比自回归代码+物理预测方案提速 2.39 倍，且成功率大幅领先 +16.6 个百分点",
+      "evidence": "Section 3.3, Table 4, Figure 6; 联合去噪 4 步迭代下仅比无代码基准 (0.19s) 增加 40ms，同时克服了自回归模型由于 Teacher Forcing 暴露偏差造成的长程漂移与误差累积"
+    },
+    {
+      "claim_id": "C08",
+      "claim": "系统消融证实了结构化程序、可复用技能抽象、注释解释语言与独立视觉 ViT 表征在世界动作模型中的核心价值，证明代码不是简单的符号装饰，而是物理前瞻预测的强归纳偏置",
+      "evidence": "Section 3.3, Table 3, Figure 7, Figure 33, Figure 34; 去除注释使平均分下降 6.7pp，去除技能库下降 7.9pp，降级为自然语言 Subgoal 下降 11.9pp；ViT 视觉前缀相比 VAE 特征提升 15.5pp (71.1% vs 55.6%)"
+    }
+  ]
+}

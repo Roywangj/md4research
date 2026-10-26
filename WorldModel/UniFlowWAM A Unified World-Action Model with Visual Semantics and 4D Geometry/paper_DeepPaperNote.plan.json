@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "output_language": "zh-CN",
+  "paper_type": "AI_method",
+  "paper_type_rationale": "统一世界-动作扩散模型，结合 4D 场景流几何与高层视觉语义，基于仿真基准与真实双臂机器人进行系统评测与消融。",
+  "dominant_domain": "robotics / world-action models",
+  "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/JZEHHI4Y/Tian 等 - 2026 - UniFlowWAM A Unified World-Action Model with Visual Semantics and 4D Geometry.pdf",
+  "source_coverage": {
+    "pages": 14,
+    "body_pages": "1-12",
+    "reference_pages": "12-14",
+    "appendix_detected": false
+  },
+  "must_cover": [
+    "核心信息",
+    "原文摘要翻译",
+    "创新点",
+    "一句话总结",
+    "研究问题",
+    "数据与任务定义",
+    "方法主线",
+    "关键结果",
+    "深度分析",
+    "局限",
+    "我的笔记",
+    "引用"
+  ],
+  "technical_depth": [
+    "三专家 MM-DiT 架构与单目 4D 场景流表征",
+    "Track4World 单目 3D 跟踪与 MotionCrafter 4D VAE 潜在编码",
+    "MM-RoPE 多模态时空旋转位置编码",
+    "十目标角色网格与流匹配速度场损失",
+    "测试期零额外开销的直接反应式策略部署",
+    "2D 图像 VAE 压缩 3D 流模式崩溃机理与门控消融"
+  ],
+  "key_numbers": [
+    "RoboCasa-GR1 成功率 52.11% -> 56.38% (+4.27%)，最薄弱 10 项任务提升 +6.47%",
+    "LIBERO 原生保持 98.1%，LIBERO-Plus 零样本达到 87.7%",
+    "LIBERO-Plus 相机视角扰动达到 96.9%，相比最强基线 76.6% 带来 +20.3% 净胜",
+    "ALOHA 真实双臂平均成功率 87.0%（过程分 92.3），对比 pi0.5 68.5% 和 LDA 15.5%",
+    "极限朝向成功率 90% vs 30%，稀疏边缘工作带成功率 85% vs 30%",
+    "中期预训练使用 214,443 条轨迹、1.33 亿帧图像、4,200 万个时序训练窗口"
+  ],
+  "real_comparisons": [
+    "UniFlowWAM vs LDA vs pi0.5 vs DreamZero on real ALOHA",
+    "UniFlowWAM vs Track4Action vs 4D-WAM vs FLEX-pi on LIBERO-Plus",
+    "Ten-objective grid vs flow-as-condition (obj-7) vs no-flow (obj-4) vs policy-only (obj-1)",
+    "MM-RoPE on/off and absolute position encoding on/off",
+    "Image VAE vs 4D VAE and Gated vs Ungated attention"
+  ],
+  "central_claims": [
+    {
+      "claim": "把场景级 3D 流作为 MM-DiT 的对等核心模态，为世界动作模型赋予了显式 4D 物理几何约束。",
+      "supporting_evidence": [
+        {
+          "pages": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "sections": [
+            "§1",
+            "§3.1",
+            "§3.2",
+            "§3.3"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "PDF 证实通过单目 Track4World 与 MotionCrafter 4D VAE 能够有效提取并表征场景点 3D 坐标与连续位移，且流模态在 MM-DiT 中享有专属专家网络与端到端损失监督。",
+      "what_it_does_not_prove": "未证明单目提取的 3D 流能够完全替代真实高精度激光雷达或双目动捕设备在所有复杂遮挡与反光极端场景下的精度。"
+    },
+    {
+      "claim": "十目标角色网格使流模态在训练期充当监督目标与调控条件，而在部署时实现无需任何流输入的零开销直接策略执行。",
+      "supporting_evidence": [
+        {
+          "pages": [
+            2,
+            3,
+            5,
+            6,
+            11
+          ],
+          "sections": [
+            "§1",
+            "§3.4",
+            "§4.4"
+          ],
+          "tables": [
+            "Table 1",
+            "Table 4"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "十目标网格完整穷尽了视觉与流条件组合，且部署时通过常数占位符 Token 填入流槽位即可直接输出动作块，无需在线计算流特征。",
+      "what_it_does_not_prove": "未证明十目标网格是动作求解的最优离散划分，亦未排除自适应动态采样概率可能优于均匀任务采样的可能性。"
+    },
+    {
+      "claim": "4D 几何动力学约束赋予了策略卓越的空间视点不变性与边缘稀疏分布外推能力。",
+      "supporting_evidence": [
+        {
+          "pages": [
+            8,
+            10,
+            11
+          ],
+          "sections": [
+            "§4.2",
+            "§4.3",
+            "§4.4"
+          ],
+          "tables": [
+            "Table 3",
+            "Table 4"
+          ],
+          "figures": [
+            "Figure 4",
+            "Figure 5"
+          ]
+        }
+      ],
+      "what_it_actually_proves": "在 LIBERO-Plus 相机视角扰动下取得 96.9% 成功率，真实 ALOHA 极限朝向与稀疏边缘区分别取得 90% 与 85% 成功率，大幅抛离纯行为克隆基线。",
+      "what_it_does_not_prove": "未验证完全脱离机器人工作台宏观物理尺度的超大规模开放场景泛化能力。"
+    }
+  ],
+  "claim_boundaries": [
+    "离线 3D 流依赖单目跟踪大模型 Track4World 生成的伪标签，存在偶发时序方向逆转噪声。",
+    "中期预训练演示数据规模为 1,200 小时，相比数十万小时级互联网通用视频预训练依然有限。",
+    "真实机器人评测涵盖 4 项固定条件任务，未包含完全随机环境下的开放世界评测。"
+  ],
+  "negative_or_limiting_results": [
+    "使用 2D 图像 VAE 压缩 3D 点位移遭遇严重模式崩溃，退化为数据集平均流。",
+    "对流模态施加逐层渐进注意力门控导致 RoboCasa-GR1 平均成功率下滑 3.3 个百分点。",
+    "动作词元在网格原点与网格中心的摆放差异小于 1 个百分点。"
+  ],
+  "mechanism_result_map": [
+    "3D 场景位移场约束与相机透视投影解耦，对应相机视角扰动下 96.9% 的超强稳定性。",
+    "多模态联合自注意力与十目标流匹配正则化，对应边缘稀疏分布与极限旋转角度下的外推增益。",
+    "4D VAE 点图与位移通道分离编码，对应连续物理流场的无损重构与动作执行平滑度。"
+  ],
+  "comparative_positioning": [
+    "相比纯视觉 WAM（UWM、LDA），引入显式 4D 几何位移场，攻克了视角扰动与边缘外推崩溃难题。",
+    "相比外挂式流策略（Im2Flow2Act、LaMP），彻底剥离测试时点跟踪负担，实现零额外延迟的高频闭环控制。",
+    "相比静态几何蒸馏模型（GaussianWAM），更聚焦于时态连续物理运动流场的端到端协同生成。"
+  ],
+  "reuse_takeaways": [
+    "训练期单目自监督几何升维：无需额外传感器硬件，通过离线前向大模型提取物理流场注入训练。",
+    "避免使用自然图像 VAE 压缩连续物理矢量场，必须采用面向点云与位移的专用 4D VAE。",
+    "放弃人为设计的跨模态注意力门控，扩散 Transformer 具备充足容量自主平衡多模态异质信息。"
+  ],
+  "followup_questions": [
+    "若将 3D 流中期预训练从 1,200 小时进一步缩放到数万小时，能否涌现出零样本跨本体操作能力？",
+    "能否将 4D 流表征与端到端触觉或六维力传感器反馈进一步融合，实现力控灵巧操作？"
+  ],
+  "section_plan": [
+    {
+      "section": "核心信息",
+      "weight": "medium",
+      "focus": "记录论文身份、作者、机构、出处与核心资源。"
+    },
+    {
+      "section": "原文摘要翻译",
+      "weight": "medium",
+      "focus": "完整忠实翻译原文摘要，保留核心数据与主张。"
+    },
+    {
+      "section": "创新点",
+      "weight": "high",
+      "focus": "提炼 4D 几何内生模态、十目标角色网格、测试期零流开销三大机制突破。"
+    },
+    {
+      "section": "一句话总结",
+      "weight": "medium",
+      "focus": "凝练方法本质与最核心物理洞见。"
+    },
+    {
+      "section": "研究问题",
+      "weight": "high",
+      "focus": "剖析纯 2D 视频 WAM 缺乏几何约束与外挂流策略的延迟痛点。"
+    },
+    {
+      "section": "数据与任务定义",
+      "weight": "high",
+      "focus": "详述 1.33 亿帧多模态语料、4D 场景流提取流以及三大基准与 ALOHA 真实评测协议。"
+    },
+    {
+      "section": "方法主线",
+      "weight": "high",
+      "focus": "解构三专家 MM-DiT、MM-RoPE 对齐、十目标角色网格与流匹配损失函数。"
+    },
+    {
+      "section": "关键结果",
+      "weight": "high",
+      "focus": "系统列出 RoboCasa、LIBERO-Plus 及 ALOHA 真实评测数据与各维度消融。"
+    },
+    {
+      "section": "深度分析",
+      "weight": "high",
+      "focus": "深入剖析视点不变性与外推能力的几何机理，记录 2D VAE 崩溃与门控失效两项宝贵负面经验。"
+    },
+    {
+      "section": "局限",
+      "weight": "medium",
+      "focus": "客观指出单目伪标签噪声与中期预训练规模瓶颈。"
+    },
+    {
+      "section": "我的笔记",
+      "weight": "medium",
+      "focus": "定位与近邻工作技术谱系关系，提出训练期自监督升维的工程落地启示。"
+    },
+    {
+      "section": "引用",
+      "weight": "medium",
+      "focus": "提供标准学术引用与核心参考文献条目。"
+    }
+  ],
+  "formula_requirements": [
+    "Eq. (1) flow-matching velocity loss",
+    "4D VAE latent concatenation: m = [E_P(P); E_F(F)]",
+    "Joint Self-Attention private projections: (Q_k, K_k, V_k) = W_k x_hat_k"
+  ]
+}

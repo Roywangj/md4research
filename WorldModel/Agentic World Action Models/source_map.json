@@ -1,0 +1,629 @@
+{
+  "paper": {
+    "title": "Agentic World Action Models",
+    "aliases": [
+      "AW-0"
+    ],
+    "authors": [
+      "Zhuoyang Liu",
+      "Dantong Niu",
+      "Botong Zhang",
+      "Boning Shao",
+      "Jing Wang",
+      "Ruijie Zheng",
+      "Yuvan Sharma",
+      "Runyu Lu",
+      "Jiaming Liu",
+      "Renrui Zhang",
+      "Roei Herzig",
+      "Yutong Bai",
+      "Ken Goldberg",
+      "Danfei Xu",
+      "Yuke Zhu",
+      "Guanzhi Wang",
+      "Linxi 'Jim' Fan",
+      "Trevor Darrell"
+    ],
+    "affiliations": [
+      "UC Berkeley",
+      "NVIDIA",
+      "University of Pennsylvania"
+    ],
+    "year": 2026,
+    "arxiv": "2610.30136v1",
+    "project_page": "https://agentic-wam.github.io/",
+    "source_pdf": "/Users/roywangj/journey_wj/research/papers4zotero/zotero1/storage/BR3SEPJQ/Liu 等 - 2026 - Agentic World Action Models.pdf",
+    "reader_file": "detailed_paper.md",
+    "sibling_file": "paper.md",
+    "source_format": "selectable-text PDF",
+    "pages": 50
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "body",
+      "section": "Abstract",
+      "pages": "1",
+      "summary": "AW-0 unifies code planning, future video prediction, and robot action generation."
+    },
+    {
+      "id": "F001",
+      "type": "figure",
+      "section": "Abstract",
+      "pages": "1",
+      "label": "Figure 1",
+      "asset": "assets/figure_1.png"
+    },
+    {
+      "id": "S002",
+      "type": "body",
+      "section": "1 Introduction",
+      "pages": "2-3",
+      "summary": "Motivation for integrating agentic code planning into world action models."
+    },
+    {
+      "id": "F002",
+      "type": "figure",
+      "section": "1 Introduction",
+      "pages": "3",
+      "label": "Figure 2",
+      "asset": "assets/figure_2.png"
+    },
+    {
+      "id": "S003",
+      "type": "body",
+      "section": "2 Agentic World Action Model",
+      "pages": "3-6",
+      "summary": "Mixture-of-Transformers architecture, joint denoising flow matching, and automated annotation."
+    },
+    {
+      "id": "F003",
+      "type": "figure",
+      "section": "2 Agentic World Action Model",
+      "pages": "5",
+      "label": "Figure 3",
+      "asset": "assets/figure_3.png"
+    },
+    {
+      "id": "T001",
+      "type": "table",
+      "section": "3 Experiments",
+      "pages": "6",
+      "label": "Table 1",
+      "asset": "assets/table_1.png"
+    },
+    {
+      "id": "F004",
+      "type": "figure",
+      "section": "3 Experiments",
+      "pages": "6",
+      "label": "Figure 4",
+      "asset": "assets/figure_4.png"
+    },
+    {
+      "id": "T002",
+      "type": "table",
+      "section": "3 Experiments",
+      "pages": "7",
+      "label": "Table 2",
+      "asset": "assets/table_2.png"
+    },
+    {
+      "id": "F005",
+      "type": "figure",
+      "section": "3 Experiments",
+      "pages": "8",
+      "label": "Figure 5",
+      "asset": "assets/figure_5.png"
+    },
+    {
+      "id": "T003",
+      "type": "table",
+      "section": "3 Experiments",
+      "pages": "8",
+      "label": "Table 3",
+      "asset": "assets/table_3.png"
+    },
+    {
+      "id": "T004",
+      "type": "table",
+      "section": "3 Experiments",
+      "pages": "8",
+      "label": "Table 4",
+      "asset": "assets/table_4.png"
+    },
+    {
+      "id": "F006",
+      "type": "figure",
+      "section": "3 Experiments",
+      "pages": "8",
+      "label": "Figure 6",
+      "asset": "assets/figure_6.png"
+    },
+    {
+      "id": "F007",
+      "type": "figure",
+      "section": "3 Experiments",
+      "pages": "9",
+      "label": "Figure 7",
+      "asset": "assets/figure_7.png"
+    },
+    {
+      "id": "S004",
+      "type": "body",
+      "section": "4 Related Work",
+      "pages": "9-10",
+      "summary": "World action models and agentic robotics."
+    },
+    {
+      "id": "S005",
+      "type": "body",
+      "section": "5 Conclusion",
+      "pages": "10",
+      "summary": "Concluding remarks and foundational contributions."
+    },
+    {
+      "id": "S006",
+      "type": "references",
+      "section": "References",
+      "pages": "11-15",
+      "summary": "50 numbered bibliographic references in standard format."
+    },
+    {
+      "id": "S007",
+      "type": "appendix",
+      "section": "Appendix A: Model Details",
+      "pages": "17-18",
+      "summary": "Architecture specifications, state-action space, training hyperparameters."
+    },
+    {
+      "id": "T005",
+      "type": "table",
+      "section": "Appendix A",
+      "pages": "17",
+      "label": "Table 5",
+      "asset": "assets/table_5.png"
+    },
+    {
+      "id": "T006",
+      "type": "table",
+      "section": "Appendix A",
+      "pages": "18",
+      "label": "Table 6",
+      "asset": "assets/table_6.png"
+    },
+    {
+      "id": "S008",
+      "type": "appendix",
+      "section": "Appendix B: Pretraining Analysis",
+      "pages": "18-27",
+      "summary": "Dataset statistics, 23 YAM skills, 27 human skills, and t-SNE distributions."
+    },
+    {
+      "id": "T007",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "19",
+      "label": "Table 7",
+      "asset": "assets/table_7.png"
+    },
+    {
+      "id": "T008",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "19",
+      "label": "Table 8",
+      "asset": "assets/table_8.png"
+    },
+    {
+      "id": "T009",
+      "type": "table",
+      "section": "Appendix B",
+      "pages": "20",
+      "label": "Table 9",
+      "asset": "assets/table_9.png"
+    },
+    {
+      "id": "F008",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "21",
+      "label": "Figure 8",
+      "asset": "assets/figure_8.png"
+    },
+    {
+      "id": "F009",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "22",
+      "label": "Figure 9",
+      "asset": "assets/figure_9.png"
+    },
+    {
+      "id": "F010",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "22",
+      "label": "Figure 10",
+      "asset": "assets/figure_10.png"
+    },
+    {
+      "id": "F011",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "23",
+      "label": "Figure 11",
+      "asset": "assets/figure_11.png"
+    },
+    {
+      "id": "F012",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "23",
+      "label": "Figure 12",
+      "asset": "assets/figure_12.png"
+    },
+    {
+      "id": "F013",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "24",
+      "label": "Figure 13",
+      "asset": "assets/figure_13.png"
+    },
+    {
+      "id": "F014",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "24",
+      "label": "Figure 14",
+      "asset": "assets/figure_14.png"
+    },
+    {
+      "id": "F015",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "25",
+      "label": "Figure 15",
+      "asset": "assets/figure_15.png"
+    },
+    {
+      "id": "F016",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "25",
+      "label": "Figure 16",
+      "asset": "assets/figure_16.png"
+    },
+    {
+      "id": "F017",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "26",
+      "label": "Figure 17",
+      "asset": "assets/figure_17.png"
+    },
+    {
+      "id": "F018",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "27",
+      "label": "Figure 18",
+      "asset": "assets/figure_18.png"
+    },
+    {
+      "id": "F019",
+      "type": "figure",
+      "section": "Appendix B",
+      "pages": "27",
+      "label": "Figure 19",
+      "asset": "assets/figure_19.png"
+    },
+    {
+      "id": "S009",
+      "type": "appendix",
+      "section": "Appendix C: Baselines",
+      "pages": "27-28",
+      "summary": "pi0.5, DreamZero, EgoScale, and WLA baseline implementation details."
+    },
+    {
+      "id": "S010",
+      "type": "appendix",
+      "section": "Appendix D: Real-world Setup",
+      "pages": "28-29",
+      "summary": "Robot hardware, perception setup, and teleoperation interfaces."
+    },
+    {
+      "id": "F020",
+      "type": "figure",
+      "section": "Appendix D",
+      "pages": "29",
+      "label": "Figure 20",
+      "asset": "assets/figure_20.png"
+    },
+    {
+      "id": "S011",
+      "type": "appendix",
+      "section": "Appendix E: Real-world Tasks",
+      "pages": "29-36",
+      "summary": "Execution progress, code labels, timelines, and rubrics for 8 real-world tasks."
+    },
+    {
+      "id": "F021",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "30",
+      "label": "Figure 21",
+      "asset": "assets/figure_21.png"
+    },
+    {
+      "id": "F022",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "31",
+      "label": "Figure 22",
+      "asset": "assets/figure_22.png"
+    },
+    {
+      "id": "F023",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "32",
+      "label": "Figure 23",
+      "asset": "assets/figure_23.png"
+    },
+    {
+      "id": "F024",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "33",
+      "label": "Figure 24",
+      "asset": "assets/figure_24.png"
+    },
+    {
+      "id": "F025",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "34",
+      "label": "Figure 25",
+      "asset": "assets/figure_25.png"
+    },
+    {
+      "id": "F026",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "35",
+      "label": "Figure 26",
+      "asset": "assets/figure_26.png"
+    },
+    {
+      "id": "F027",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "36",
+      "label": "Figure 27",
+      "asset": "assets/figure_27.png"
+    },
+    {
+      "id": "F028",
+      "type": "figure",
+      "section": "Appendix E",
+      "pages": "36",
+      "label": "Figure 28",
+      "asset": "assets/figure_28.png"
+    },
+    {
+      "id": "S012",
+      "type": "appendix",
+      "section": "Appendix F: Code Quality",
+      "pages": "36-39",
+      "summary": "Pretrained and post-trained code generation quality evaluation."
+    },
+    {
+      "id": "T010",
+      "type": "table",
+      "section": "Appendix F",
+      "pages": "37",
+      "label": "Table 10",
+      "asset": "assets/table_10.png"
+    },
+    {
+      "id": "F029",
+      "type": "figure",
+      "section": "Appendix F",
+      "pages": "37",
+      "label": "Figure 29",
+      "asset": "assets/figure_29.png"
+    },
+    {
+      "id": "F030",
+      "type": "figure",
+      "section": "Appendix F",
+      "pages": "38",
+      "label": "Figure 30",
+      "asset": "assets/figure_30.png"
+    },
+    {
+      "id": "F031",
+      "type": "figure",
+      "section": "Appendix F",
+      "pages": "39",
+      "label": "Figure 31",
+      "asset": "assets/figure_31.png"
+    },
+    {
+      "id": "F032",
+      "type": "figure",
+      "section": "Appendix F",
+      "pages": "39",
+      "label": "Figure 32",
+      "asset": "assets/figure_32.png"
+    },
+    {
+      "id": "S013",
+      "type": "appendix",
+      "section": "Appendix G: Real-world Analysis",
+      "pages": "40-41",
+      "summary": "Impact on language following, skill robustness, and hybrid execution qualitative example."
+    },
+    {
+      "id": "F033",
+      "type": "figure",
+      "section": "Appendix G",
+      "pages": "40",
+      "label": "Figure 33",
+      "asset": "assets/figure_33.png"
+    },
+    {
+      "id": "F034",
+      "type": "figure",
+      "section": "Appendix G",
+      "pages": "41",
+      "label": "Figure 34",
+      "asset": "assets/figure_34.png"
+    },
+    {
+      "id": "F035",
+      "type": "figure",
+      "section": "Appendix G",
+      "pages": "41",
+      "label": "Figure 35",
+      "asset": "assets/figure_35.png"
+    },
+    {
+      "id": "S014",
+      "type": "appendix",
+      "section": "Appendix H: Failure Cases",
+      "pages": "41-42",
+      "summary": "Analysis of 6 representative physical manipulation failure modes."
+    },
+    {
+      "id": "F036",
+      "type": "figure",
+      "section": "Appendix H",
+      "pages": "42",
+      "label": "Figure 36",
+      "asset": "assets/figure_36.png"
+    },
+    {
+      "id": "S015",
+      "type": "appendix",
+      "section": "Appendix I: Hybrid Algorithm",
+      "pages": "43-44",
+      "summary": "Hybrid control workflow and multi-gate ARBITRATE algorithm."
+    },
+    {
+      "id": "S016",
+      "type": "appendix",
+      "section": "Appendix J: Simulation Details",
+      "pages": "43-47",
+      "summary": "RoboTwin 50-task breakdown, execution primitives, and control channel step share."
+    },
+    {
+      "id": "T011",
+      "type": "table",
+      "section": "Appendix J",
+      "pages": "45",
+      "label": "Table 11",
+      "asset": "assets/table_11.png"
+    },
+    {
+      "id": "F037",
+      "type": "figure",
+      "section": "Appendix J",
+      "pages": "47",
+      "label": "Figure 37",
+      "asset": "assets/figure_37.png"
+    },
+    {
+      "id": "T012",
+      "type": "table",
+      "section": "Appendix J",
+      "pages": "47",
+      "label": "Table 12",
+      "asset": "assets/table_12.png"
+    },
+    {
+      "id": "S017",
+      "type": "appendix",
+      "section": "Appendix K: Annotation Details",
+      "pages": "46-50",
+      "summary": "Declaration-only APIs, annotator system prompts, and coordinator audit protocol."
+    },
+    {
+      "id": "F038",
+      "type": "figure",
+      "section": "Appendix K",
+      "pages": "48",
+      "label": "Figure 38",
+      "asset": "assets/figure_38.png"
+    },
+    {
+      "id": "S018",
+      "type": "appendix",
+      "section": "Appendix L: Limitations",
+      "pages": "50",
+      "summary": "Program grounding, visual distribution sensitivity, and continual agentic learning."
+    }
+  ],
+  "assets": [
+    "assets/figure_1.png",
+    "assets/figure_2.png",
+    "assets/figure_3.png",
+    "assets/figure_4.png",
+    "assets/figure_5.png",
+    "assets/figure_6.png",
+    "assets/figure_7.png",
+    "assets/figure_8.png",
+    "assets/figure_9.png",
+    "assets/figure_10.png",
+    "assets/figure_11.png",
+    "assets/figure_12.png",
+    "assets/figure_13.png",
+    "assets/figure_14.png",
+    "assets/figure_15.png",
+    "assets/figure_16.png",
+    "assets/figure_17.png",
+    "assets/figure_18.png",
+    "assets/figure_19.png",
+    "assets/figure_20.png",
+    "assets/figure_21.png",
+    "assets/figure_22.png",
+    "assets/figure_23.png",
+    "assets/figure_24.png",
+    "assets/figure_25.png",
+    "assets/figure_26.png",
+    "assets/figure_27.png",
+    "assets/figure_28.png",
+    "assets/figure_29.png",
+    "assets/figure_30.png",
+    "assets/figure_31.png",
+    "assets/figure_32.png",
+    "assets/figure_33.png",
+    "assets/figure_34.png",
+    "assets/figure_35.png",
+    "assets/figure_36.png",
+    "assets/figure_37.png",
+    "assets/figure_38.png",
+    "assets/table_1.png",
+    "assets/table_2.png",
+    "assets/table_3.png",
+    "assets/table_4.png",
+    "assets/table_5.png",
+    "assets/table_6.png",
+    "assets/table_7.png",
+    "assets/table_8.png",
+    "assets/table_9.png",
+    "assets/table_10.png",
+    "assets/table_11.png",
+    "assets/table_12.png"
+  ],
+  "notes": {
+    "page_count_checked": true,
+    "figures_count": 38,
+    "tables_count": 12,
+    "appendices_present": true,
+    "appendices_range": "A-L (Pages 16-50)",
+    "validator_status": "passed_strict"
+  }
+}

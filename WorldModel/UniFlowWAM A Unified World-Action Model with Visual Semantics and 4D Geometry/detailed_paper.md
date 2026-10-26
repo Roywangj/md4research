@@ -1,0 +1,671 @@
+# UniFlowWAM: A Unified World–Action Model with Visual Semantics and 4D Geometry
+
+> **Source identity / 来源标识**  Jialin Tian et al., arXiv:2610.30991v1 [cs.RO], 22 Oct 2026; 14-page PDF supplied by the user (Shanghai Jiao Tong University MVIG, Shanghai Innovation Institute, Noematrix).
+> **Source format / 源格式**  selectable-text PDF (`pdf-text`)
+> **Reader type / 阅读器类型**  full-paper Chinese-English Markdown reader with figure/table assets (`detailed_paper.md` / `paper.md`).
+
+## Page / Section Index
+
+| Section / 章节 | Page in PDF / 页码 | Content Focus / 内容重点 | Key Assets / 关联图表 |
+|---|---|---|---|
+| Abstract / 摘要 | 1 | 4D 几何与视觉语义在世界动作模型中的统一定义与主干结论 | – |
+| 1 Introduction / 引言 | 1–3 | 现有 WAM 局限、4D 场景流内生模态动机、十目标角色网格、主要贡献 | Figure 1 |
+| 2 Related Work / 相关工作 | 3–4 | 具身统一模型、从光流到场景级 3D 流、流在控制策略中的应用范式 | – |
+| 3 Method / 方法 | 4–6 | MM-DiT 三专家架构、单目 3D 流与 4D VAE、十目标角色网格与流匹配损失 | Figure 2, Table 1 |
+| 4 Experiments / 实验 | 6–12 | 仿真基准（RoboCasa、LIBERO-Plus）、真实双臂 ALOHA 评测、目标消融、负面设计经验 | Table 2, Table 3, Figure 3, Figure 4, Figure 5, Table 4 |
+| 5 Limitations / 局限性 | 12 | 单目跟踪伪标签噪声与 SAM 前景过滤、中期训练规模限制与未来扩展 | – |
+| References / 参考文献 | 12–14 | 全部 51 篇参考文献（保留完整西文条目并补充中文题名） | – |
+| Critical Reading Notes / WJ 批判性精读附注 | – | 范式升维机制剖析、边缘鲁棒性因果归因、2D VAE 崩溃深层物理机理 | – |
+
+## Terminology ledger / 术语表
+
+| English | 中文 | Note |
+|---|---|---|
+| World-Action Model (WAM) | 世界—动作模型 | 具备联合生成/预测环境演化与控制动作能力的基础模型，保留缩写 WAM。 |
+| Scene-level 3D Flow | 场景级 3D 流 / 场景流 | 显式跟踪 3D 空间中物理场景点的连续位移与几何位置，简称 3D flow。 |
+| Visual Semantics | 视觉语义 | 本文中指代未来帧的预训练高层视觉特征（如 DINOv3 表征）。 |
+| 4D Geometry | 4D 几何 | 包含 3D 点云结构与随时间演化的运动位移场。 |
+| MM-DiT | 多模态扩散 Transformer | Multimodal Diffusion Transformer，具有各模态独立专家与跨模态自注意力。 |
+| Flow Matching | 流匹配 | 基于连续时间速度场的目标生成范式。 |
+| Inverse Dynamics | 逆动力学 | 根据当前状态与未来结果推断所需执行的动作 $p(a \mid v, c_t)$。 |
+| Forward Dynamics | 正向动力学 | 根据当前状态与执行动作预测环境未来演化 $p(v \mid a, c_t)$。 |
+| EEF / Joint Action | 末端执行器动作 / 关节动作 | 机器人的控制指令空间，如 14 自由度双臂关节与夹爪位置。 |
+| Role Grid | 角色网格 | 将各模态分配为 Target、Condition 或 Absent 的 10 个训练目标矩阵。 |
+| 4D VAE | 4D 变分自编码器 | MotionCrafter 提出的几何与时序位移潜变量编码器。 |
+| MM-RoPE | 多模态旋转位置编码 | Multimodal Rotary Position Embedding，在时间与 2D 网格空间对齐各模态 token。 |
+| In-distribution / OOD | 分布内 / 分布外 | LIBERO 原生评测 vs LIBERO-Plus 7 维扰动零样本评测。 |
+
+## Abstract / 摘要
+
+<!-- source:block-001 page=1 section="Abstract" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 1:</strong></span> Robot demonstrations record what the robot saw and what it did. They do not specify how the 3D world changed in between. Scene-level 3D flow describes it by tracking 3D scene points, providing the world representation with 4D geometry. Prior work has used flow to improve robot policies. Flow served as an intermediate prediction that a separate model converts into actions, as a prior injected at inference time, or as an extra output learned together with the action. In all of these designs, flow stays outside the policy, as a separate module or as an extra prediction head. We introduce UniFlowWAM, a Unified World–Action Model that makes 3D scene flow a third modality on par with vision and action. Its world representation therefore covers both visual semantics, through future visual features, and 4D geometry, through 3D flow, and flow receives its own supervision. UniFlowWAM is a diffusion transformer with one expert per modality, and the three experts exchange information through joint attention. We train UniFlowWAM under a ten-objective role grid, where each objective assigns every modality exactly one of three roles, namely target, condition, or absent. The same model thus serves as a policy, as forward and inverse dynamics, and as a predictor of future visual features or 3D flow. We evaluate UniFlowWAM on RoboCasa-GR1, LIBERO, and LIBERO-Plus in simulation, and on four real-world bimanual manipulation tasks. On RoboCasa-GR1, UniFlowWAM raises the success rate of its base model without flow from 52.1% to 56.4%. It preserves in-distribution success on LIBERO at 98.1% and reaches 87.7% zero-shot on LIBERO-Plus. On the real robot, it achieves 87.0% average success, compared with 68.5% for the strongest baseline.
+
+> <span style="color:#F59E0B"><strong>Para. 1[CN]:</strong></span> 机器人演示数据记录了机器人“看到了什么”以及“执行了什么动作”，却并未说明在此期间三维物理世界发生了怎样的变化。场景级 3D 流（Scene-level 3D Flow）通过跟踪三维场景点来描述这一动态过程，为世界表征赋予了 4D 几何约束。以往工作常利用流来增强机器人策略：流可以作为由独立模型转换为动作的中间预测结果、作为推理时注入的运动先验、或作为与动作联合学习的额外辅助输出。但在所有这些设计中，流始终游离于核心控制策略之外，仅仅作为一个外置模块或附加的预测分支。我们提出了 UniFlowWAM，一种统一世界—动作模型（Unified World–Action Model），将 3D 场景流提升为与视觉和动作处于同等对等地位的第三种核心模态。因此，该模型的“世界表征”通过未来高层视觉特征涵盖了视觉语义，并通过 3D 流涵盖了 4D 几何结构，且流模态本身享有显式的端到端监督。UniFlowWAM 采用扩散 Transformer（MM-DiT）架构，每个模态配备独立的专家网络，三类专家通过共享的联合注意力机制交换信息。我们基于一个“十目标角色网格”（Ten-objective Role Grid）对 UniFlowWAM 进行联合训练，其中每个目标将每种模态明确赋予“目标（Target）”、“条件（Condition）”或“缺省（Absent）”三种角色之一。因此，同一个模型能够同时充当策略模型、正向动力学与逆动力学模型、以及未来视觉特征或 3D 流的预测器。我们在仿真环境 RoboCasa-GR1、LIBERO 和 LIBERO-Plus 以及四项真实世界双臂操作任务上对 UniFlowWAM 进行了系统评测。在 RoboCasa-GR1 上，UniFlowWAM 将不含流的基准模型成功率从 52.1% 提升至 56.4%；在 LIBERO 上保持了 98.1% 的高分布内成功率，并在 LIBERO-Plus 上取得了 87.7% 的零样本跨域成功率；在真实机器人实验中，UniFlowWAM 实现了 87.0% 的平均成功率，显著超越了最强基线（68.5%）。
+
+## 1 Introduction / 引言
+
+<!-- source:block-002 page=1 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 2:</strong></span> A robot manipulates objects by moving its own body. Its action labels only record the commands that its joints or end-effector execute. What those commands do to the scene is left unwritten. A mug pushed across the table and a mug lifted and set back down can end in the same pose. The action labels do not describe how the mug translates or rotates along the way. Among possible world representations in a world–action model, a goal image describes the resulting state, but not the transition. A video sequence captures this process visually, but does not describe how scene points move in 3D. Scene-level 3D flow makes the effects of robot commands on the scene explicit: it describes how each scene point is displaced in 3D over time, providing a 4D geometric representation of this process.
+
+> <span style="color:#F59E0B"><strong>Para. 2[CN]:</strong></span> 机器人通过自身机构的运动来操作物体。其动作标签通常仅记录关节或末端执行器所执行的控制指令，而这些指令对物理场景造成的实际改变并未被显式记载。例如，一只马克杯在桌面上被水平推移，与被拿起后又原位放回，可能最终处于完全相同的静态位姿；动作标签本身无法描述马克杯在这一过程中的连续平移或旋转轨迹。在世界—动作模型（WAM）的各类世界表征中，目标图像仅描述了动作完成后的最终状态，却遗失了物理演化的过渡过程；视频序列虽然在视觉像素层面记录了这一过程，却无法刻画场景点在三维物理空间中的真实位移。场景级 3D 流能够使机器人控制指令对物理场景的实际影响显式化：它精确描述了场景中每个物理点随时间在三维空间中发生的连续位移，从而为该物理过程提供了坚实的 4D 几何表征。
+
+<!-- source:figure-1 page=2 section="1 Introduction" type=figure -->
+### Figure 1. UniFlowWAM overview / UniFlowWAM 架构概览
+
+![figure-1](assets/figure_1.png)
+
+**Caption:** Figure 1. UniFlowWAM overview: UniFlowWAM couples visual features, scene-level 3D flow, and actions in one three-expert diffusion transformer, denoising the three jointly so that 3D flow carries scene displacement into the space where actions are executed. A grid of ten objectives assigns each modality the role of target, condition, or absent, so a single model covers policy, dynamics, and prediction, yet deploys as a direct policy that needs no flow at test time.
+
+**Caption[CN]:** 图 1 UniFlowWAM 架构概览：UniFlowWAM 将视觉特征、场景级 3D 流以及控制动作耦合在单一的三专家扩散 Transformer 中，对三者进行联合去噪，从而使 3D 流能够将物理场景的位移信息直接传递至动作执行所在的空间。由十个目标组成的网格将每个模态分配为目标（Target）、条件（Condition）或缺省（Absent）角色，使得单个模型既能覆盖策略、动力学建模与未来预测任务，又能在测试部署阶段作为无需任何流输入的直接策略运行。
+
+<!-- source:block-003 page=2 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 3:</strong></span> Prior work has used scene-level flow to improve robot policies. Flow served as intermediate representations that were predicted first and then converted into actions in a separate stage [38, 42]. A learned 3D scene-flow prior sharpened a vision-language-action policy when injected at inference [34]. Concurrent work trains sparse 3D keypoint flow jointly with the action [18]. These results establish flow as a useful control signal and as a variable that can be learned with actions.
+
+> <span style="color:#F59E0B"><strong>Para. 3[CN]:</strong></span> 以往的工作已尝试利用场景级流来提升机器人控制策略。流曾作为中间表征被单独预测，随后在独立的第二阶段模块中转换为动作 [38, 42]；学习得到的 3D 场景流先验在推理阶段被直接注入视觉—语言—动作策略中以增强动作精度 [34]；近期的并行工作则探索将稀疏 3D 关键点流与动作进行联合训练 [18]。这些成果证明了流是一种极具价值的控制信号，也是一种能够与动作协同学习的关键物理变量。
+
+<!-- source:block-004 page=2 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 4:</strong></span> Unified future-image–action models learn actions together with predictions of the future. UWM [50] and UVA [17] train the policy together with forward and inverse dynamics models of the camera image. LDA [24] predicts latent features of a visual foundation model instead of pixel values, and other unified models learn actions together with language [4] or video diffusion [1]. In these models, the world is represented visually, as pixels or latent visual features. They model scene transitions implicitly through video dynamics, but they do not make 3D geometry or 3D motion explicit.
+
+> <span style="color:#F59E0B"><strong>Para. 4[CN]:</strong></span> 统一的“未来图像—动作”模型将动作生成与未来预测融为一体进行学习。UWM [50] 和 UVA [17] 将控制策略与基于相机图像的正向及逆向动力学模型共同训练；LDA [24] 预测视觉基础模型的潜在特征而非底层像素值；其他统一模型则将动作与语言 [4] 或视频扩散模型 [1] 协同建模。在这些模型中，世界表征完全局限于视觉域（表现为 RGB 像素或潜在视觉特征）。它们通过视频动态隐式建模场景的状态转移，但并未将三维几何结构或 3D 物理运动显式化。
+
+<!-- source:block-005 page=2 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 5:</strong></span> We explicitly supervise the 3D displacement of scene points, beyond the geometric state that a depth map encodes. Depth describes surface distance at a single moment in time, but it does not specify how points move from one frame to the next. Two scenes with identical initial and final depth maps can correspond to different physical interactions. 3D flow couples spatial geometry with temporal dynamics by tracking the 3D position and velocity of each surface element. By supervising 3D flow directly, the model learns a world representation constrained by 3D physical motion.
+
+> <span style="color:#F59E0B"><strong>Para. 5[CN]:</strong></span> 我们超越了仅由深度图所编码的静态几何状态，对场景点的 3D 空间位移进行显式监督。深度图仅描述了某一单时刻的物体表面空间距离，却无法指明表面点如何从当前帧向下一帧连续运动。两个具有完全相同起始与终止深度图的场景，在物理层面上可能对应着截然不同的交互动力学路径。3D 流通过持续跟踪每个表面微元的三维空间位置与运动速度，将空间几何与时间演化紧密耦合在一起。通过对 3D 流施加显式直接监督，模型能够学习到严格受到三维物理运动定律约束的底层世界表征。
+
+<!-- source:block-006 page=2 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 6:</strong></span> Unlike the flow-based policies above, flow here is neither a separate module nor a tracked input, but a modality inside the model. From the same demonstration clips used for policy learning, we extract point maps and scene flow offline with a monocular 3D tracker [22] and encode them with a frozen 4D VAE [51]. Each modality has its own expert, and the three exchange information only through shared joint attention. We add flow to a pretrained visual–action model during mid-training and post-training. The visual and action experts start from the pretrained weights, while the flow expert is trained from scratch. All three experts are then trained jointly, so the pretrained representations adapt to the new modality.
+
+> <span style="color:#F59E0B"><strong>Para. 6[CN]:</strong></span> 与上述基于流的策略不同，在我们的架构中，流既不是外置的级联模块，也不是测试时必需的跟踪输入，而是内生于模型核心骨干中的原生模态。利用策略训练所用的相同机器人演示视频片段，我们通过单目 3D 跟踪器 [22] 离线提取点图与场景流，并使用冻结的 4D VAE [51] 将其编码为潜在表征。每个模态均拥有专属的专家网络分支，三者仅通过共享的跨模态联合注意力机制交换信息。我们在中期训练（Mid-training）与下游后训练（Post-training）阶段将流模态平滑注入预训练的视觉—动作基干中：视觉专家与动作专家继承预训练权重进行热启动，流专家则从随机初始化开始训练；随后三者联合优化，使预训练表征自适应适配全新的几何模态。
+
+<!-- source:block-007 page=3 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 7:</strong></span> Each function of the model corresponds to one training objective. Ten objectives form a role grid, which assigns each modality the role of target, condition, or absent. With one target per objective, the grid covers all four combinations of flow and future visual features being present or absent for action prediction, and retains three objectives each for flow and visual prediction. This deliberate asymmetry design prioritizes the conditioning choices for the control variable. The four objectives without flow recover the pretrained model's task set. Under the direct policy objective, the flow stream carries learned placeholders, so deployment requires no scene-flow extraction or flow encoding.
+
+> <span style="color:#F59E0B"><strong>Para. 7[CN]:</strong></span> 模型的各项功能严格对应着特定的训练目标。十项训练目标构成了一个完备的“角色网格”，它为每种模态赋予目标（Target）、条件（Condition）或缺省（Absent）中的一种角色。在每个目标单一监督一个目标模态的设计下，该网格穷尽了动作预测任务中流与未来视觉特征在“存在”或“缺省”下的全部四种条件组合，并为流预测与视觉预测各自保留了三种目标。这种精心设计的非对称性凸显了控制变量的核心地位。其中不包含流模态的四个目标精准复现了基础预训练模型的原生任务空间；而在执行直接控制策略目标时，流模态分支完全输入可学习的缺省占位符（Placeholder），因此在线部署时无需执行任何场景流提取或潜在编码计算。
+
+<!-- source:block-008 page=3 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 8:</strong></span> We evaluate UniFlowWAM in simulation on RoboCasa-GR1 [25], LIBERO, and LIBERO-Plus, and on four real-world bimanual tasks. On RoboCasa-GR1, adding flow to the base model improves the average success rate by 4.3 percentage points. The gain is largest on the tasks where the base model is weakest (Sec. 4.2). On LIBERO, UniFlowWAM preserves in-distribution success at 98.1%, and it reaches 87.7% zero-shot on LIBERO-Plus under out-of-distribution perturbations. On the real robot, UniFlowWAM achieves an average success rate of 87.0%, compared with 68.5% for π0.5 [27], the strongest baseline (Sec. 4.3). Ablations show where the flow objectives matter. On the real robot, post-training with the full ten-objective grid outperforms policy-only post-training by 12 to 18 points on every task, and the gap is largest on object placements at the edge of the demonstrated region.
+
+> <span style="color:#F59E0B"><strong>Para. 8[CN]:</strong></span> 我们在仿真基准 RoboCasa-GR1 [25]、LIBERO、LIBERO-Plus 以及四项真实世界双臂操作任务上对 UniFlowWAM 进行了系统评测。在 RoboCasa-GR1 上，为基干模型引入流模态使平均操作成功率提升了 4.3 个百分点，且在基础模型表现最薄弱的任务上增益最为显著（第 4.2 节）。在 LIBERO 上，UniFlowWAM 保持了 98.1% 的高分布内表现；在面临分布外扰动的 LIBERO-Plus 评测中，其零样本成功率达到 87.7%。在真实双臂机器人上，UniFlowWAM 取得了 87.0% 的平均成功率，而目前最强基线 π0.5 [27] 仅为 68.5%（第 4.3 节）。消融实验进一步厘清了流目标的具体价值：在真实机器人上，采用完整十目标网格后训练的策略相比纯策略监督后训练在所有任务上均提升了 12 至 18 个百分点，且在物体处于演示数据边缘分布区域时表现出压倒性的泛化优势。
+
+<!-- source:block-009 page=3 section="1 Introduction" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 9:</strong></span> Contributions. (i) We make scene-level 3D flow a co-equal modality of a unified visual–action model, added to a pretrained model through a dedicated expert and joint mid-training and post-training on the same demonstrations. (ii) We organize actions, 3D flow, and future visual features through ten role-conditioned objectives, allowing flow to serve as a target or a condition while retaining a direct policy that needs no flow input. (iii) We show manipulation gains on RoboCasa-GR1 and improved robustness on LIBERO-Plus while retaining in-distribution performance on LIBERO.
+
+> <span style="color:#F59E0B"><strong>Para. 9[CN]:</strong></span> 核心贡献：(i) 我们将场景级 3D 流提升为统一视觉—动作模型中的对等核心模态，通过专属专家网络结构以及在相同演示数据上的联合中期训练和后训练，成功将其注入预训练骨干网络；(ii) 我们通过十个角色条件目标有机组织动作、3D 流与未来视觉特征，既允许流充当预测目标或调控条件，又完整保留了在线部署时无需任何流输入的直接策略模式；(iii) 我们在 RoboCasa-GR1 上证明了显著的操作性能提升，在 LIBERO-Plus 上展现了卓越的抗扰动鲁棒性，同时完全保留了 LIBERO 原生分布内的高成功率。
+
+## 2 Related Work / 相关工作
+
+<!-- source:block-010 page=3 section="2 Related Work" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 10:</strong></span> Unified models for manipulation. Most robot foundation models scale behavior cloning over expert demonstrations [2, 3]. Some other models also learn to predict the future. VPP [12] conditions actions on the predicted future representations of a video diffusion model, and unified models such as UWM [50], UVA [17], and Motus [1] predict future observations jointly with actions. Recent work, including DINO-WM [49], FLARE [47], and LDA [24], predicts the features of a pretrained visual encoder instead of pixels. UniVLA [4] learns latent actions in such a feature space, so that videos without action labels can be used to pretrain the policy. SpatialVLA [28], MolmoAct [15], DreamVLA [45], and X-WAM [10] further use depth to provide 3D information about the scene.
+
+> <span style="color:#F59E0B"><strong>Para. 10[CN]:</strong></span> 面向机器人操作的统一模型。当前大多数机器人基础模型侧重于在专家演示数据上对行为克隆（Behavior Cloning）进行规模化缩放 [2, 3]。另有一类前沿模型致力于联合预测物理未来：VPP [12] 以视频扩散模型预测的未来表征为条件生成动作；UWM [50]、UVA [17] 和 Motus [1] 等统一模型则实现动作与未来视觉观测的端到端联合预测。近期具有代表性的工作，包括 DINO-WM [49]、FLARE [47] 与 LDA [24]，开始转向预测预训练视觉编码器的高层语义潜变量，而非生硬地重建底层像素；UniVLA [4] 在此特征空间中学习潜在动作，从而使海量无动作标签的互联网视频能够用于策略预训练；SpatialVLA [28]、MolmoAct [15]、DreamVLA [45] 以及 X-WAM [10] 则进一步引入深度信息以增强场景的三维空间感知。
+
+<!-- source:block-011 page=3 section="2 Related Work" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 11:</strong></span> From optical flow to scene-level 3D flow. Flow was classically estimated in 2D, between adjacent frames [30]. Such flow is limited to the pixel level, with no awareness of 3D geometry. Lifting flow to 3D requires per-pixel geometry, which feed-forward models such as VGGT [33] now recover from ordinary video. 3D point trackers such as SpatialTrackerV2 [37] estimate world-space tracks jointly with depth and camera motion. Track4World [22] and TrackingWorld [21] extend such tracking to nearly all pixels, while MotionCrafter [51] estimates dense geometry and 3D flow directly. Either route yields scene-level 3D flow from monocular video alone. These advances make 3D flow a practical training modality, rich in 3D information and cheap to obtain.
+
+> <span style="color:#F59E0B"><strong>Para. 11[CN]:</strong></span> 从光流到场景级 3D 流。经典的流估计通常在相邻两帧的 2D 像素平面上进行 [30]，此类光流仅局限于像素层面，完全缺乏 3D 几何与空间物理感知。将光流提升至 3D 维度需要稠密的逐像素几何先验，如今前向视觉几何大模型（如 VGGT [33]）已能从普通单目视频中可靠重建这一信息；3D 点跟踪模型（如 SpatialTrackerV2 [37]）能够联合估计世界坐标系轨迹、深度及相机位姿；Track4World [22] 与 TrackingWorld [21] 进一步将 3D 跟踪拓展至场景中的近乎全部像素，而 MotionCrafter [51] 则能直接估计稠密几何与 3D 流场。这些最新突破使得仅凭单目 RGB 视频即可大规模离线提取高质量的场景级 3D 流，使其成为一种既包含丰富 3D 物理信息、又具备极高获取性价比的实用训练模态。
+
+<!-- source:block-012 page=4 section="2 Related Work" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 12:</strong></span> How flow is used in policies. In the most direct use, flow serves as an explicit interface between perception and control. NovaFlow [16] extracts 3D object flow from generated videos without training a flow predictor, and plans actions from it. Im2Flow2Act [38] and PointAction [31] predict flow or point trajectories and convert them into actions with a separate module, so the predictor is trained without action labels and reused across embodiments. Flow can also be used inside a single policy. TraceVLA [46], MolmoAct [15], 3D Flow Diffusion Policy [26], and LaMP [34] condition the actions on tracked or predicted flow at inference. Other methods use flow as a training signal. FlowVLA [48] and Track4Action [32] use it as supervision and keep it out of policy inference. Concurrently, UMA [5] and ChronoFlow-Policy [18] learn 3D keypoint trajectories jointly with actions.
+
+> <span style="color:#F59E0B"><strong>Para. 12[CN]:</strong></span> 流在机器人策略中的应用形式。在最直观的应用中，流充当了感知与动作控制之间的显式桥梁：NovaFlow [16] 直接从生成视频中提取 3D 物体流进行轨迹规划，无需额外训练专用的流预测器；Im2Flow2Act [38] 与 PointAction [31] 预测流场或点云轨迹，并通过后置的独立模块将其解算为控制动作，使得预测模型可在无动作标签数据上预训练并在异构实体间复用。流亦可直接集成在单体策略内部：TraceVLA [46]、MolmoAct [15]、3D Flow Diffusion Policy [26] 与 LaMP [34] 在推理阶段以跟踪或预测的流为条件生成动作；另一些方法将流纯粹作为训练阶段的辅助表征监督信号，如 FlowVLA [48] 与 Track4Action [32]，而在部署推理时彻底剥离流输入。与本文同期的 UMA [5] 和 ChronoFlow-Policy [18] 则探索了稀疏 3D 关键点轨迹与动作的联合学习机制。
+
+## 3 Method / 方法
+
+<!-- source:block-013 page=4 section="3 Method" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 13:</strong></span> UniFlowWAM models robot actions, scene-level 3D flow, and future visual features within a single multimodal diffusion transformer (MMDiT) [7] (Fig. 2). Building on the visual–action backbone of LDA [24], we introduce a dedicated expert for the 3D flow representation and train the model with 10 role-conditioned objectives. Each objective specifies a prediction target and the modalities available as conditions.
+
+> <span style="color:#F59E0B"><strong>Para. 13[CN]:</strong></span> UniFlowWAM 在统一的多模态扩散 Transformer（MMDiT）[7] 架构内部，联合建模机器人动作、场景级 3D 流以及未来高层视觉特征（图 2）。在 LDA [24] 的视觉—动作基干之上，我们为 3D 流表征设计了专用的流专家网络，并采用 10 个基于角色条件的目标对模型进行协同优化。每个目标明确定义了当前前向传播的预测目标模态以及可作为纯净输入条件的上下文模态。
+
+<!-- source:figure-2 page=4 section="3 Method" type=figure -->
+### Figure 2. Network architecture / 网络架构
+
+![figure-2](assets/figure_2.png)
+
+**Caption:** Figure 2. Network architecture. Actions, scene-level 3D flow, and future visual features are three modalities of one diffusion transformer, each processed by its own expert; the experts exchange information only through joint self-attention. The objective decides which modalities are noised targets and which are clean conditions. Predicted flow latents are decoded by the 4D VAE into point maps and scene flow.
+
+**Caption[CN]:** 图 2 网络架构。动作、场景级 3D 流以及未来视觉特征是单一扩散 Transformer 中的三种并列模态，各自交由独立的专家模块处理；各个专家仅通过跨模态联合自注意力（Joint Self-Attention）交换信息。训练目标决定哪些模态作为带噪目标进行监督，哪些模态作为纯净条件直接输入。预测生成的流潜变量可通过 4D VAE 解码为显式的三维点图与 3D 场景流。
+
+### 3.1 Problem Formulation / 问题形式化
+
+<!-- source:block-014 page=4 section="3.1 Problem Formulation" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 14:</strong></span> At time t, the model receives the context $c_t = (o_t, s_t, \ell)$: the visual observation, the proprioceptive state, and the language instruction. Three variables are defined over a horizon of $H$ frames. The action chunk $a = a_{t:t+H}$ is the command sequence, and the future visual feature $v$ refers to the frozen DINOv3 feature [29] of the frame $o_{t+H}$ at the end of the horizon and serves as the visual-semantic part of the world representation. The 3D flow representation $m$ summarizes how the scene moves over $[t, t+H]$ (Sec. 3.2). Every objective in Sec. 3.4 is one conditional of the joint $p(a, m, v \mid c_t)$.
+
+> <span style="color:#F59E0B"><strong>Para. 14[CN]:</strong></span> 在时刻 $t$，模型接收多模态上下文输入 $c_t = (o_t, s_t, \ell)$，分别包含当前视觉观测、本体感知状态（Proprioceptive State）以及自然语言任务指令。在长度为 $H$ 帧的规划窗口内，定义了三个核心变量：动作块 $a = a_{t:t+H}$ 为机器人的连续控制指令序列；未来视觉特征 $v$ 为规划时域末端帧 $o_{t+H}$ 经冻结的 DINOv3 [29] 编码器提取的潜在表征，承担世界表征中的视觉语义部分；3D 流表征 $m$ 刻画了场景在时间区间 $[t, t+H]$ 内的物理运动动态（第 3.2 节）。第 3.4 节中的十项训练目标本质上是全模态联合概率分布 $p(a, m, v \mid c_t)$ 在不同条件约束下的具体单峰或条件概率分布。
+
+### 3.2 Scene-Level 3D Flow Representation / 场景级 3D 流表征
+
+<!-- source:block-015 page=5 section="3.2 Scene-Level 3D Flow Representation" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 15:</strong></span> The 3D flow is defined by the displacement of each point in the scene to the next frame and by the 3D position of that point, so that it also carries the structure of the scene. A pretrained dense 3D point tracker [22] produces this pair for the clip over $[t, t+H]$. We take $m$ to be the latent of a pretrained 4D VAE [51], which jointly encodes both the point map of the scene and the 3D flow.
+
+> <span style="color:#F59E0B"><strong>Para. 15[CN]:</strong></span> 场景级 3D 流通过场景中每个物理点向下一帧的位移矢量以及该点自身的三维空间坐标共同定义，因此它内生地承载了场景的 3D 几何拓扑结构。预训练的稠密 3D 点跟踪大模型 [22] 针对时域区间 $[t, t+H]$ 内的视频片段提取该点位与位移对。我们将 $m$ 定义为一个预训练 4D VAE [51] 的潜在编码，该编码器将场景点图（Point Map）与 3D 场景流进行联合压缩表征。
+
+<!-- source:block-016 page=5 section="3.2 Scene-Level 3D Flow Representation" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 16:</strong></span> For frame $i$ and pixel $u$, the tracker returns $P_i(u)$, the 3D point seen at that pixel, and $F_i(u)$, the displacement of that point to the next frame. Every frame is anchored on its own pixel grid, and no point is followed beyond the next frame. The 4D VAE uses two frozen encoders to separately encode the 3D position and displacement sequences, then concatenates their outputs along the channel dimension, $m = [\mathcal{E}_P(P_{t:t+H}); \mathcal{E}_F(F_{t:t+H})]$, where the two components represent scene geometry and frame-to-frame flow, respectively. Its decoder $\mathcal{D}$ recovers both $P$ and $F$ from $m$, so a predicted $m$ can be decoded and inspected. The pipeline is monocular. Flow is extracted from the same RGB videos used for training, so no depth sensor is needed for data collection or deployment.
+
+> <span style="color:#F59E0B"><strong>Para. 16[CN]:</strong></span> 对于第 $i$ 帧中的像素点 $u$，跟踪器解算出该像素点对应的三维空间物理坐标 $P_i(u)$ 以及该点向相邻下一帧移动的三维位移矢量 $F_i(u)$。每一帧均锚定在自身的像素网格坐标系上，不进行跨越下一帧之外的长期轨迹跟踪。4D VAE 采用两个参数冻结的编码器分别处理 3D 位置序列与位移序列，并将它们的潜在特征沿通道维度进行拼接：$m = [\mathcal{E}_P(P_{t:t+H}); \mathcal{E}_F(F_{t:t+H})]$，这两部分分别表征了场景的静态 3D 几何与相邻帧间的动态物理流场。其解码器 $\mathcal{D}$ 能够从潜变量 $m$ 中高保真重构出完整的点图 $P$ 与流场 $F$，使得模型预测生成的 $m$ 具备极强的可解释性与可视化质检能力。整个数据处理流水线完全基于单目 RGB 视频，从训练数据到实际部署均无需依赖任何昂贵的深度传感器或专用动捕设备。
+
+### 3.3 Three-Expert Setup / 三专家架构设置
+
+<!-- source:block-017 page=5 section="3.3 Three-Expert Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 17:</strong></span> From variables to tokens. Each of the three variables enters through its own mapping. Action tokens encode the action chunk and are prefixed by state tokens. A visual token carries two things at once: the DINOv3 features of the current frame, and the future-frame slot; a linear layer merges them, so the current observation is present under every objective. Flow arrives as the latent $m$, already encoded offline by the 4D VAE. A flow patchifier then cuts $m$ into the tokens of the flow expert. The rest of the context enters as conditioning. The instruction and the current frame are encoded by the Qwen3-VL-4B vision–language model (VLM), and each expert reads the VLM outputs through cross-attention.
+
+> <span style="color:#F59E0B"><strong>Para. 17[CN]:</strong></span> 从物理变量到模型 Token。三个核心变量分别通过各自的专用映射模块转换为 Token 序列：动作 Token 对连续动作块进行编码，并在序列前端拼接本体状态 Token；视觉 Token 同时承载双重信息——当前观测帧的 DINOv3 特征与未来目标帧的预测槽位，通过线性投影层将二者融合，确保当前视觉观测在任何训练目标下均保持显式可见；3D 流则以离线提取并经 4D VAE 压缩的潜变量 $m$ 输入，通过专用的流分块器（Flow Patchifier）切分为流专家的输入 Token。其余上下文信息均作为条件引入：任务语言指令与当前帧图像由预训练的 Qwen3-VL-4B 视觉—语言模型（VLM）进行联合表征，各个模态专家通过交叉注意力（Cross-Attention）机制独立读取 VLM 提取的多模态语义上下文。
+
+<!-- source:block-018 page=5 section="3.3 Three-Expert Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 18:</strong></span> Within a modality, and across them. Each expert keeps its own normalization, its own Q/K/V projections, its own feed-forward network and its own AdaLN modulation, so no parameter is shared between modalities. They meet in joint self-attention. Writing $\hat{x}_k$ for the modulated tokens of modality $k \in \{a, m, v\}$, each expert projects its own queries, keys and values, $(Q_k, K_k, V_k) = W_k \hat{x}_k$, with private weights $W_k$. Its queries then attend over the keys and values of all three.
+
+> <span style="color:#F59E0B"><strong>Para. 18[CN]:</strong></span> 模态内部与跨模态交互。每个专家网络均维持独立的归一化层、独立的 Q/K/V 投影权重、独立的前馈神经网络（FFN）以及专有的自适应层归一化（AdaLN）调制参数，各模态之间完全不共享网络参数。三者仅在联合自注意力（Joint Self-Attention）层进行跨模态交互。设 $\hat{x}_k$ 为模态 $k \in \{a, m, v\}$ 经过 AdaLN 调制后的 Token 序列，每个专家利用自身的私有投影矩阵 $W_k$ 计算其专有的查询、键和值：$(Q_k, K_k, V_k) = W_k \hat{x}_k$；随后，该专家的查询向量 $Q_k$ 将在拼接了全部三种模态的键 $K = [K_a; K_m; K_v]$ 与值 $V = [V_a; V_m; V_v]$ 空间上进行全局自注意力聚合。
+
+<!-- source:block-019 page=5 section="3.3 Three-Expert Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 19:</strong></span> This is the one place where a modality sees the other two, and query–key normalization bounds its logits. Besides the learned absolute position embedding of the base model, added by sequence index, MM-RoPE [43] rotates the queries and keys of all three experts in one shared $(t, h, w)$ frame over the horizon and the visual patch grid. A visual token takes $t = H$, the frame it predicts, and its patch position. Action and state tokens take their step or frame index, with $(h, w) = (0, 0)$. The flow patchifier merges two latent frames into each token, so the $t'$-th flow token takes $t = 2t'$, and the center of its latent cell is rescaled onto the visual patch grid.
+
+> <span style="color:#F59E0B"><strong>Para. 19[CN]:</strong></span> 联合自注意力是模态间感知彼此信息的唯一通道，并通过查询—键归一化（QK-Norm）严格限制注意力 Logits 的数值边界。除了基干模型按序列索引添加的可学习绝对位置编码之外，我们引入多模态旋转位置编码（MM-RoPE [43]），在跨越预测时域与视觉图像网格的统一 $(t, h, w)$ 坐标系中，对三类专家的查询与键实施联合旋转对齐。视觉 Token 取 $t = H$（其预测的目标帧时间索引）及其对应的 2D Patch 空间坐标；动作与状态 Token 取其对应的控制步数或帧索引，空间坐标设为基准点 $(h, w) = (0, 0)$；流分块器在时间维度上将每两帧潜在流压缩为一个 Token，因此第 $t'$ 个流 Token 取时间坐标 $t = 2t'$，并将其潜在特征单元的几何中心等比例重映射至视觉 Patch 空间坐标系中。
+
+<!-- source:block-020 page=5 section="3.3 Three-Expert Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 20:</strong></span> From tokens back to variables. Each expert ends in its own head, which predicts a flow-matching velocity [19] in that modality's own space, and therefore output DINO latent, Flow latent, or action latent.
+
+> <span style="color:#F59E0B"><strong>Para. 20[CN]:</strong></span> 从 Token 还原物理变量。每个专家网络末端连接专属的预测头，在其各自独立的物理特征空间内预测连续流匹配速度场矢量 [19]，从而分别输出预测的 DINO 视觉潜变量、3D 流潜变量或机器人控制动作序列潜变量。
+
+### 3.4 Role-Conditioned Multi-Objective Learning / 基于角色条件的多目标学习
+
+<!-- source:block-021 page=5 section="3.4 Role-Conditioned Multi-Objective Learning" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 21:</strong></span> A visual–action model has four natural tasks. They come from choosing which of action and future visual features is the target and whether the other is given, namely policy $p(a \mid c_t)$, forward dynamics $p(v \mid a, c_t)$, inverse dynamics $p(a \mid v, c_t)$, and visual prediction $p(v \mid c_t)$ [50]. When we add the third modality, it naturally extends the set in the same way. An objective assigns each of the three modalities one of three roles. Target means the slot is noised and supervised. Condition means it holds a clean input, with its flow-matching time fixed at the clean end. Absent means the slot holds a learned placeholder that remains visible to attention and indicates that the modality is not provided for the current objective. Table 1 lists the ten objectives we use, in three kinds. Three predict one modality from the context alone (rows 1–3), namely policy, visual prediction, and flow prediction. Six predict one modality with one other given (rows 4–9). For each target, they cover the two ways of conditioning on a single other modality. These nine are symmetric across the three modalities. The tenth conditions the action on both flow and visual features (row 10). We add it for the action alone, as action is the highlighted modality for downstream use.
+
+> <span style="color:#F59E0B"><strong>Para. 21[CN]:</strong></span> 经典的视觉—动作双模态模型天然具有四类基础任务，源于在动作与未来视觉特征之间选择何者为预测目标、何者作为已知输入条件：即直接策略 $p(a \mid c_t)$、正向动力学 $p(v \mid a, c_t)$、逆动力学 $p(a \mid v, c_t)$ 以及未来视觉预测 $p(v \mid c_t)$ [50]。当我们引入 3D 流作为第三模态时，任务空间得以系统性自然拓展。每个训练目标将三种模态分别赋予三种角色之一：“目标（Target）”表示该槽位被注入噪声并施加流匹配速度损失监督；“条件（Condition）”表示该槽位输入无噪纯净真值，其流匹配时间固定在纯净终点；“缺省（Absent）”表示该槽位填入可学习的全局占位符 Token，在注意力计算中保持可见，以明确向网络传递该模态缺失的结构先验。表 1 详细列出了我们构建的十项训练目标，共分为三类：第一类仅依赖上下文预测单一模态（第 1–3 行），即直接策略、未来视觉预测和 3D 流预测；第二类在给定另一模态作为条件的基准下预测目标模态（第 4–9 行），针对每个目标模态覆盖了两种单模态条件组合，这前九项在三模态之间构成了严格的数学对称性；第三类则是同时以 3D 流与视觉特征为双重条件联合求解动作（第 10 行），该目标专为动作模态量身打造，以强化下游核心控制决策的物理表征支撑。
+
+<!-- source:table-1 page=6 section="3.4 Role-Conditioned Multi-Objective Learning" type=table -->
+### Table 1. The ten training objectives / 十项训练目标
+
+![table-1](assets/table_1.png)
+
+**Caption:** Table 1. The ten training objectives (Sec. 3.4). Fixed denotes the context $c_t$ shared by all objectives. Cond. = Condition; Abs. = Absent; Tar. = Target. a, m, and v denote action, 3D flow, and visual features, respectively. A dash indicates no modality assigned to that role. † marks the four tasks of the base model.
+
+**Caption[CN]:** 表 1 十项训练目标（第 3.4 节）。Fixed 表示所有目标所共享的基础多模态上下文 $c_t$。Cond. = Condition（条件输入）；Abs. = Absent（缺省占位符）；Tar. = Target（监督目标）。a、m、v 分别代表动作、3D 流与高层视觉特征。短横线“–”表示在该目标下无模态被分配为该角色。† 标识继承自基础预训练模型的四项原生任务。
+
+| # | Objective | Fixed | Cond. | Abs. | Tar. |
+|---|---|---|---|---|---|
+| 1 | policy† | $c_t$ | – | m, v | a |
+| 2 | visual prediction† | $c_t$ | – | a, m | v |
+| 3 | flow prediction | $c_t$ | – | a, v | m |
+| 4 | inverse dynamics† | $c_t$ | v | m | a |
+| 5 | flow-cond. policy | $c_t$ | m | v | a |
+| 6 | forward dynamics† | $c_t$ | a | m | v |
+| 7 | dynamics from flow | $c_t$ | m | a | v |
+| 8 | visual flow estimation | $c_t$ | v | a | m |
+| 9 | action-driven flow generation | $c_t$ | a | v | m |
+| 10 | dual-cond. inverse dynamics | $c_t$ | m, v | – | a |
+
+<!-- source:block-022 page=6 section="3.4 Role-Conditioned Multi-Objective Learning" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 22:</strong></span> The objective is a learned embedding, added to the timestep embedding before AdaLN. Each training sample draws one objective. A task-balanced sampler keeps every objective present in each batch, and the loader skips the modalities that objective does not need. The loss is the flow-matching velocity loss, on target slots only,
+$$
+\mathcal{L} = \sum_{k \in T(r)} \mathcal{L}_{\text{FM}}^{(k)}, \quad k \in \{a, m, v\}, \tag{1}
+$$
+> where $r$ indexes the objective, $T(r)$ denotes its target set, and $\mathcal{L}_{\text{FM}}^{(k)}$ is the flow-matching loss for expert $k$. Condition slots receive clean inputs and no loss, and absent slots receive neither.
+
+> <span style="color:#F59E0B"><strong>Para. 22[CN]:</strong></span> 训练目标的类型被编码为可学习的目标嵌入向量（Objective Embedding），在输入 AdaLN 调制前与扩散时间步嵌入相加融合。在训练过程中，每个样本动态抽取一个目标角色配置；任务平衡采样器确保每个批次（Batch）内均均衡覆盖全部十项目标，数据加载器则智能跳过当前目标无需读取的无用数据流。模型的优化目标为施加在目标模态槽位上的流匹配速度场损失函数：
+$$
+\mathcal{L} = \sum_{k \in T(r)} \mathcal{L}_{\text{FM}}^{(k)}, \quad k \in \{a, m, v\}, \tag{1}
+$$
+> 其中 $r$ 为目标索引，$T(r)$ 表示目标 $r$ 下被指定为预测目标的模态集合，$\mathcal{L}_{\text{FM}}^{(k)}$ 为专家网络 $k$ 的标准流匹配均方误差损失。条件槽位仅作为纯净特征输入而不反向传播梯度损失，缺省槽位则填入占位符且不参与损失计算。
+
+### 3.5 Training Strategy / 训练策略
+
+<!-- source:block-023 page=6 section="3.5 Training Strategy" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 23:</strong></span> We initialize the visual–action backbone from the publicly released pretrained checkpoint of LDA [24]. We then perform mid-training to incorporate scene-level 3D flow into the model, jointly optimizing the ten objectives in Sec. 3.4 over actions, future visual features, and 3D flow. This stage extends the pretrained visual–action model to support 3D flow as both a prediction target and a conditioning modality. The resulting model is subsequently post-trained on demonstrations from each downstream domain.
+
+> <span style="color:#F59E0B"><strong>Para. 23[CN]:</strong></span> 我们使用开源发布的预训练 LDA [24] 权重对视觉—动作核心骨干进行初始化；随后执行中期训练（Mid-training），全面引入场景级 3D 流模态，在海量机器人演示数据上围绕动作、未来视觉特征与 3D 流联合优化第 3.4 节定义的十项多任务目标。该阶段赋予了预训练模型将 3D 流兼作预测目标与条件调控输入的全模态协同表征能力。完成中期训练后的基础模型，进一步在各个具体下游领域的专家演示轨迹上执行下游后训练（Post-training）。
+
+## 4 Experiments / 实验
+
+<!-- source:block-024 page=6 section="4 Experiments" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 24:</strong></span> Our experiments assess manipulation performance, robustness to distribution shifts, and the contribution of scene-level 3D flow. We evaluate UniFlowWAM on RoboCasa-GR1, LIBERO, and LIBERO-Plus in simulation, and on an ALOHA-style robot for real-world bimanual manipulation.
+
+> <span style="color:#F59E0B"><strong>Para. 24[CN]:</strong></span> 我们的实验系统评估了 UniFlowWAM 的机器人操作控制性能、抗分布偏移鲁棒性、以及场景级 3D 流所带来的核心表征增益。评测涵盖仿真基准 RoboCasa-GR1、LIBERO、LIBERO-Plus，以及搭载双臂的 ALOHA 硬件系统在真实环境中的复杂双手操作任务。
+
+### 4.1 Experimental Setup / 实验设置
+
+<!-- source:block-025 page=7 section="4.1 Experimental Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 25:</strong></span> Mid-training data. We use a filtered mixture of three public robot-demonstration datasets; all are robot-camera recordings. RoboCOIN [36] is a bimanual manipulation dataset collected on 15 robot platforms in residential, commercial, and industrial settings; we use 47,050 episodes from six of these platforms. RoboMIND 2.0 [11] is a dual-arm and mobile manipulation dataset collected on six robot embodiments; we use 140,231 episodes from three of them, including Franka and UR arms. MolmoAct2-BimanualYAM [8] is AllenAI’s teleoperated bimanual dataset collected on a single low-cost platform, the YAM arms; we use 27,162 episodes. The combined corpus covers ten embodiments, with 214,443 episodes and 133.0 million frames. We sample 16-step chunks at three-frame intervals, yielding around 42 million training windows. We extract scene-level 3D flow offline with frozen Track4World [22] and encode its point maps and flow into latents using a frozen MotionCrafter 4D VAE [51].
+
+> <span style="color:#F59E0B"><strong>Para. 25[CN]:</strong></span> 中期训练数据集。我们采用了三个公开的大规模真实机器人演示数据集的过滤混合子集，所有数据均来自安装于机器人本体上的相机真实拍摄。RoboCOIN [36] 是一个涵盖家庭、商业与工业场景中 15 种机器人实体的双臂操作数据集，我们采纳了其中 6 个平台的 47,050 个演示片段；RoboMIND 2.0 [11] 是涵盖 6 种实体的双臂及移动操作数据集，我们采纳了包含 Franka 和 UR 机械臂在内的 3 种实体的 140,231 个片段；MolmoAct2-BimanualYAM [8] 是由 AllenAI 发布的低成本 YAM 双臂遥操作数据集，采纳了全部 27,162 个片段。整合后的多实体多模态语料库涵盖 10 种机器人本体、共计 214,443 个完整轨迹和 1.33 亿帧高保真图像。我们以 3 帧为间隔滑窗采样长度为 16 步的操作片段，总计构建了约 4,200 万个训练窗口。所有视频通过参数冻结的 Track4World [22] 离线提取场景级 3D 点云与流场，并使用冻结的 MotionCrafter 4D VAE [51] 压缩为稠密潜在表征。
+
+<!-- source:block-026 page=7 section="4.1 Experimental Setup" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 26:</strong></span> Model and training. Starting from LDA’s released pretrained checkpoint [24], our model UniFlowWAM adds a dedicated 3D flow expert to the MMDiT backbone to incorporate flow as a third modality. Qwen3-VL-4B supplies visual–language conditioning through cross-attention, while DINOv3 provides visual prediction targets. Both encoders remain frozen during mid-training. We train on 48 NVIDIA H200 GPUs with a global batch size of 1,536.
+
+> <span style="color:#F59E0B"><strong>Para. 26[CN]:</strong></span> 模型配置与硬件训练。在开源发布的 LDA [24] 预训练模型基础上，UniFlowWAM 在 MMDiT 骨干网络中新增了一个专属的 3D 流专家模块，将流模态作为第三核心模态无缝接入。Qwen3-VL-4B 负责通过交叉注意力向全网络注入视觉—语言多模态提示条件，DINOv3 则提供视觉预测的高层语义目标，两个预训练编码器在中期训练过程中均保持参数冻结。中期训练在 48 块 NVIDIA H200 GPU 集群上分布式执行，全局批量大小（Global Batch Size）设为 1,536。
+
+### 4.2 Simulation Experiments / 仿真实验
+
+<!-- source:block-027 page=7 section="4.2 Simulation Experiments" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 27:</strong></span> 4.2.1 Benchmarks. RoboCasa [25] targets everyday household tasks for generalist robots. We use its GR-1 tabletop tasks: 24 tasks for a GR-1 humanoid with dexterous hands, observed by a single egocentric camera and controlled through 29 joint dimensions across the arms, hands, and waist. Each task comes with 1,000 demonstrations, 24,000 in total, or 6.0 million frames and 83.6 hours at 20 fps.
+
+> <span style="color:#F59E0B"><strong>Para. 27[CN]:</strong></span> 4.2.1 评测基准。RoboCasa [25] 专为通用机器人评估日常家居环境中的复杂操作能力而构建。我们采用其 GR-1 桌面操作套件：包含傅利叶 GR-1 人形机器人的 24 项双臂灵巧手桌面任务，由单目第一人称自中心相机观测，控制自由度高达 29 维（覆盖双臂、灵巧手及腰部各关节）。每项任务配备 1,000 条专家演示数据，全套基准共计 24,000 条轨迹（在 20 fps 下相当于 600 万帧和 83.6 小时演示时长）。
+
+<!-- source:block-028 page=7 section="4.2 Simulation Experiments" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 28:</strong></span> LIBERO [20] targets lifelong robot learning with a single Franka Panda arm. It contains 4 suites of 10 tasks each: Spatial varies the layout of the same objects, Object varies the objects to manipulate, Goal varies the goal within one scene, and Long collects long-horizon tasks. We use the no-noops release introduced by OpenVLA [13]. We evaluate in two settings. LIBERO itself is the in-distribution test. LIBERO-Plus [9] perturbs the same tasks along seven axes, camera viewpoint, robot initial state, language, lighting, background, sensor noise, and object layout, for 10,030 episodes in total. Following its official zero-shot protocol, we train only on LIBERO and evaluate on LIBERO-Plus.
+
+> <span style="color:#F59E0B"><strong>Para. 28[CN]:</strong></span> LIBERO [20] 旨在评测 Franka Panda 单臂在终身机器人学习场景下的控制与泛化能力，包含 4 个任务套件、各 10 项精细任务：Spatial 变换相同物体的空间摆放布局，Object 变换操作目标物体的类别属性，Goal 变换同场景下的操作子目标，Long 考察长程复合规划。我们采用 OpenVLA [13] 引入的过滤无操作空帧（No-noops）标准版本。评测分为两大设定：LIBERO 原生任务作为分布内（In-distribution）测试；LIBERO-Plus [9] 则沿七大维度对任务实施系统性环境扰动（相机视角、机器人初始状态、语言指令变异、光照变化、背景切换、传感器噪声、以及物体布局），共包含 10,030 个严苛测试场景。遵循其官方制定的严格零样本（Zero-shot）协议，模型仅在标准 LIBERO 上训练，并在完全未见过的 LIBERO-Plus 上执行直接泛化评测。
+
+#### 4.2.2 Post-training and Results / 后训练与评测结果
+
+<!-- source:block-029 page=7 section="4.2.2 Post-training and Results" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 29:</strong></span> On RoboCasa-GR1, we train one model on all 24 tasks jointly. UniFlowWAM without mid-training starts from the released LDA pretrained checkpoint, and UniFlowWAM with mid-training starts from our mid-training checkpoint. Both follow a 500k-step cosine schedule with 5k warmup steps. The learning rate is $10^{-4}$ for the action model and $10^{-5}$ for the VLM, while DINOv3 remains frozen.
+
+> <span style="color:#F59E0B"><strong>Para. 29[CN]:</strong></span> 在 RoboCasa-GR1 上，我们在全部 24 项任务上联合后训练单一多任务控制模型。不含中期训练的 UniFlowWAM 直接从官方开源的 LDA 预训练检查点热启动，而含中期训练的 UniFlowWAM 则从我们完成 3D 流协同预训练的检查点启动。两者均采用余弦退火学习率策略训练 500k 步（包含 5k 步预热），动作模型的学习率设为 $10^{-4}$，VLM 设为 $10^{-5}$，DINOv3 特征提取器全程保持冻结。
+
+<!-- source:block-030 page=7 section="4.2.2 Post-training and Results" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 30:</strong></span> We evaluate released and reproduced LDA checkpoints and both UniFlowWAM variants over 11 shared evaluation seeds (0–10), with 50 episodes per task and seed. UniFlowWAM achieves mean SRs of 54.84% without mid-training and 56.38% with mid-training (Table 2, bottom). Both exceed released LDA (52.11%) and reproduced LDA (52.76%). UniFlowWAM with mid-training improves over released LDA by 4.27 percentage points. The gain concentrates on the tasks where released LDA is weaker. On the 10 tasks where its mean SR is below 50%, UniFlowWAM with mid-training improves on all 10, by 6.47 percentage points on average; on the remaining 14 tasks the average gain is 2.71 points.
+
+> <span style="color:#F59E0B"><strong>Para. 30[CN]:</strong></span> 我们在 11 个共享评估随机种子（Seed 0–10）下评测了官方开源与我们本地复现的 LDA 检查点以及两种 UniFlowWAM 变体，每个种子在每项任务上测试 50 次评测轨迹。如表 2 下半部分所示，无中期训练的 UniFlowWAM 取得了 54.84% 的平均成功率，含中期训练的 UniFlowWAM 则进一步攀升至 56.38%，均大幅超越了官方发布的 LDA（52.11%）与复现的 LDA 基线（52.76%）。含中期训练的完整 UniFlowWAM 相比开源 LDA 实现了 4.27 个百分点的实质净胜，且这一增益高度集中于基准模型原本表现较差的挑战性长程任务上：在基准模型成功率低于 50% 的 10 项高难度任务中，UniFlowWAM 在全部 10 项任务上均取得正向突破，平均成功率跃升 6.47 个百分点；在其余 14 项基线表现较好的任务上，平均增益亦达到 2.71 个百分点。
+
+<!-- source:table-2 page=8 section="4.2.2 Post-training and Results" type=table -->
+### Table 2. Success rates on RoboCasa-GR1 / RoboCasa-GR1 成功率
+
+![table-2](assets/table_2.png)
+
+**Caption:** Table 2. Success rates (%) on RoboCasa-GR1 tabletop. †: UniFlowWAM’s best result over evaluation seeds 0–10. Bold marks the best score in each block, underline the second best.
+
+**Caption[CN]:** 表 2 RoboCasa-GR1 桌面任务上的操作成功率（%）。† 表示 UniFlowWAM 在 0–10 号评测种子中的单次最佳得分。加粗字体表示各对比分块中的最高分，下划线表示次高分。
+
+| Model | SR (%) ↑ |
+|---|---|
+| **Comparison with published results** | |
+| UWM [50] | 14.2 |
+| GR00T-N1.6 [2] | 47.6 |
+| StarVLA [6] | 47.8 |
+| Being-H0.7 [23] | 49.2 |
+| FLARE [47] | 55.0 |
+| LDA-1B [24] | 55.4 |
+| **UniFlowWAM** | **58.9**† |
+| OpenWAM-α [35] | 60.5 |
+| **Repeated evaluation (seed 0–seed 10)** | **Average ± SD (%) ↑** |
+| LDA (released) | 52.11 ± 2.24 |
+| LDA (reproduced) | 52.76 ± 1.16 |
+| UniFlowWAM w/o mid-training | 54.84 ± 1.00 |
+| **UniFlowWAM w/ mid-training** | **56.38 ± 1.47** |
+
+<!-- source:block-031 page=8 section="4.2.2 Post-training and Results" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 31:</strong></span> On LIBERO, we post-train one model on the four suites jointly, for 120k steps by default, and evaluate it on LIBERO and, zero-shot without adaptation, on LIBERO-Plus. On LIBERO, UniFlowWAM reaches 98.05% average SR (Table 3). Leading methods already score 97–99% on this benchmark; at this level of success rate observed, a difference of one percentage point is not informative, and we report LIBERO only to verify that in-distribution performance is preserved. LIBERO-Plus separates the methods more clearly. UniFlowWAM reaches 87.65% with its best evaluated checkpoint, and Table 3 reports its success rates across all seven perturbation categories. The margin is widest under camera perturbations, where UniFlowWAM reaches 96.9%, against 76.6% for the strongest baseline in that category.
+
+> <span style="color:#F59E0B"><strong>Para. 31[CN]:</strong></span> 在 LIBERO 基准上，我们在 4 个任务套件上联合后训练单一策略（默认训练 120k 步），随后分别在 LIBERO 原生环境以及未做任何微调适应的 LIBERO-Plus 扰动环境上进行零样本评测。在 LIBERO 上，UniFlowWAM 取得了 98.05% 的平均成功率（表 3）。鉴于当前业界领先方法在该基准上普遍达到 97%–99% 的饱和成功率，1 个百分点的微弱波动缺乏足够的统计区分度，因此报告 LIBERO 主要是为了验证模型在引入 3D 流后完整保留了分布内高精度控制能力。相比之下，LIBERO-Plus 则清晰拉开了各模型的性能梯次：UniFlowWAM 的最佳评测检查点达到了 87.65% 的全局平均成功率。表 3 详尽列出了其在七大扰动维度下的成功率。尤其在相机视角扰动（Camera Perturbations）这一极大考验 3D 空间几何理解的维度下，UniFlowWAM 取得了高达 96.9% 的惊人成功率，大幅抛开该维度下最强基准模型的 76.6%，体现了内生 4D 几何约束所带来的无可比拟的空间视点不变性。
+
+<!-- source:table-3 page=8 section="4.2.2 Post-training and Results" type=table -->
+### Table 3. Success rates on LIBERO and LIBERO-Plus / LIBERO 与 LIBERO-Plus 成功率
+
+![table-3](assets/table_3.png)
+
+**Caption:** Table 3. Success rates (%) on LIBERO and LIBERO-Plus. Bold marks the best score in each column, underline the second best. –: not reported.
+
+**Caption[CN]:** 表 3 LIBERO 与 LIBERO-Plus 上的操作成功率（%）。加粗字体表示各列中的最高得分，下划线表示次高分。短横线“–”表示原文未报告该指标。
+
+| Model | LIBERO Avg | LIBERO-Plus Cam. | Robot | Lang. | Light | Bg. | Noise | Layout | Total |
+|---|---|---|---|---|---|---|---|---|---|
+| OpenVLA-OFT [14] | 97.1 | 56.4 | 31.9 | 79.5 | 88.7 | 93.3 | 75.8 | 74.2 | 69.6 |
+| π0.5 [27] | 96.9 | 72.2 | **76.8** | 85.1 | 96.2 | 95.5 | 87.0 | **86.9** | 84.7 |
+| StarVLA-α [41] | – | 48.7 | 63.4 | 86.8 | 95.8 | 94.6 | 75.0 | 80.2 | 77.8 |
+| Fast-WAM [44] | 97.6 | 40.0 | 65.3 | 68.8 | 91.4 | 58.2 | 63.8 | 75.5 | 65.3 |
+| 4D-WAM [40] | 98.6 | 45.2 | 64.3 | **90.6** | 94.3 | 57.7 | 69.1 | 79.2 | 71.0 |
+| FLEX-π [39] | 98.5 | 73.7 | 53.1 | 84.3 | 91.9 | 93.8 | 93.4 | 82.9 | 80.9 |
+| OpenWAM-α [35] | **99.3** | 33.8 | 76.1 | 88.0 | 97.0 | 87.1 | 39.8 | 77.5 | 69.2 |
+| LaMP [34] | 98.3 | 64.5 | 69.6 | 88.2 | 95.3 | **97.4** | 76.9 | 73.8 | 79.3 |
+| Track4Action [32] | 97.0 | 76.6 | 60.7 | 87.1 | 96.3 | 96.1 | 88.4 | 78.7 | 82.3 |
+| LDA [24] | 92.8 | 33.1 | 71.2 | 76.0 | 89.9 | 91.1 | 72.0 | 66.2 | 69.5 |
+| **UniFlowWAM (ours)** | 98.1 | **96.9** | 66.0 | 87.4 | **98.0** | 87.3 | **98.1** | 81.7 | **87.7** |
+
+### 4.3 Real-World Experiments on ALOHA / ALOHA 真实机器人实验
+
+<!-- source:block-032 page=8 section="4.3 Real-World Experiments on ALOHA" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 32:</strong></span> Hardware. We use AgileX Cobot Magic, an ALOHA-style platform with two 6-DoF PiPER arms and parallel-jaw grippers. A top-mounted camera provides the main view, and two wrist cameras provide the wrist views. Both the proprioceptive state and the action command are 14-dimensional, with six joint positions and one gripper position per arm.
+
+> <span style="color:#F59E0B"><strong>Para. 32[CN]:</strong></span> 真实机器人硬件配置。我们采用松灵开源的 AgileX Cobot Magic 双臂移动操作平台（ALOHA 架构），搭载两只 6 自由度 PiPER 机械臂及平行二指夹爪。顶部安装的固定俯视相机提供场景全局主视角观测，两只机械臂手腕处各安装一只腕部相机提供近场精细视角。本体感知状态反馈与动作控制指令均为 14 维连续向量，分别对应双臂各 6 个关节角度位置以及各自 1 个夹爪开合度开度编码。
+
+<!-- source:block-033 page=9 section="4.3 Real-World Experiments on ALOHA" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 33:</strong></span> Demonstrations. We consider four tasks that differ in what they demand of the two arms (Fig. 3). Chili transfer repeats a single pick-and-place primitive, moving two chilies onto a plate. Cabbage transfer chains distinct primitives instead of repeating one, placing a cabbage into a pot and then covering the pot with a lid. Pen manipulation adds an articulated object and asymmetric arm roles, as one arm holds the drawer steady while the other places two pens into it in succession, after which the drawer is pushed closed. Towel folding replaces the rigid objects with a deformable one that has no pose to track, requiring two successive folds. After preprocessing, we retain 50 demonstrations per task and post-train a separate model for each task. At inference, each model uses the policy mode to predict 16-step action chunks.
+
+> <span style="color:#F59E0B"><strong>Para. 33[CN]:</strong></span> 专家演示数据采集。我们设计了四项对双臂协同能力提出阶梯式要求的复杂操作任务（图 3）：辣椒转移（Chili Transfer）重复执行基础抓取—放置动作基元，依次将两个辣椒抓取放入餐盘；卷心菜烹饪（Cabbage Transfer）串联执行截然不同的异质动作基元，先将卷心菜抓入汤锅，随后精准抓取锅盖扣严锅体；放笔入抽屉（Pen Manipulation）引入了铰接机构（Articulated Object）与双臂非对称协同分工，左臂负责压紧固定活动抽屉，右臂连续将两支笔放入抽屉内，最后协同推合抽屉；折叠毛巾（Towel Folding）则脱离了刚体范畴，引入缺乏显式位姿的柔性可形变物体（Deformable Object），要求执行两次连续的对折操作。经质检过滤后，每项任务保留 50 条高质量专家演示轨迹，并分别为每项任务独立后训练专属模型。在实际在线部署推理时，各模型均运行于纯策略模式，实时滚动输出 16 步动作块（Action Chunk）。
+
+<!-- source:figure-3 page=9 section="4.3 Real-World Experiments on ALOHA" type=figure -->
+### Figure 3. Real-world manipulation tasks / 真实机器人操作任务
+
+![figure-3](assets/figure_3.png)
+
+**Caption:** Figure 3. Real-world manipulation tasks. Instructions and scored milestones for four tasks: placing a cabbage in a pot and closing the lid, transferring two chilies onto a plate, placing two pens in a drawer and closing it, and folding a towel.
+
+**Caption[CN]:** 图 3 真实机器人操作任务。展示了四项评测任务的任务语言指令与判分里程碑（Milestones）：将卷心菜放入锅中并盖上锅盖；将两只辣椒移到盘中；将两支笔放入抽屉并关上抽屉；四折折叠毛巾。
+
+<!-- source:block-034 page=9 section="4.3 Real-World Experiments on ALOHA" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 34:</strong></span> Evaluation. For model with full objective setup as our default model, each policy is evaluated for 50 trials per task. We fix the starting conditions in advance instead of drawing them at random. Within a task we change one thing at a time, in equal steps. For chili transfer we keep the chili at the same spot on the table and turn it about the vertical axis to five fixed orientations. Each orientation is run the same number of times, and the plate position varies slightly across trials. The other three tasks follow the same idea along the factor that matters for them. All conditions stay inside the area the demonstrations cover. Every policy sees the same starting conditions, so the differences we report come from the policies and not from where the objects happened to start. We report full-task success rate and a process score, the fraction of milestones completed, scaled to 100. The milestones are those in Fig. 3, four for cabbage (grasp, place in pot, grasp lid, close) and chili (grasp and place each chili), six for pen (pick and place each pen, support the drawer with the right gripper, push it closed), and five for towel (grasp, lift, fold in half, fold again, press flat). Milestones are scored independently, so a trial that fails one but recovers on a later one still earns credit for the later one. Both metrics are averaged over trials, then over tasks.
+
+> <span style="color:#F59E0B"><strong>Para. 34[CN]:</strong></span> 评测协议与度量指标。针对采用完整十目标网格训练的默认模型，每种策略在每项任务上均进行 50 次严格的实体评测实验。为了杜绝随机摆放引入的偶发误差，我们在实验前预先固定所有测试初始状态：在单项任务内部，严格遵循单变量等间距变化的受控原则——例如在辣椒转移任务中，将辣椒放置于桌面固定坐标点，并沿垂直轴设定 5 个等分固定的旋转角度，每个朝向测试等量试验，同时餐盘位置在试验间作轻微受控偏移；其余三项任务亦沿其关键影响维度遵循相同严密设计。所有初始条件均严格处于专家演示所覆盖的物理空间包络之内，确保所有参与对比的策略经历完全相同的初始测试条件，所体现的性能差异完全源于策略本身的控制能力，而非初始位置的随机扰动。我们同时报告全任务成功率（Full-task Success Rate）与过程分（Process Score，即完成预设里程碑的加权百分比比例，见图 3）：卷心菜包含 4 个里程碑（抓取、入锅、抓盖、盖严），辣椒包含 4 个里程碑（依次抓取并放置两只辣椒），放笔包含 6 个里程碑（依次抓取两支笔、稳定抽屉、推合抽屉），折毛巾包含 5 个里程碑（对角抓取、抬起、对折、二次折叠、压平）。各里程碑独立打分，某一步骤虽有瑕疵但若后续自主恢复仍可获得对应得分。两项指标先在单任务试验内平均，再跨四项任务求取全局平均值。
+
+<!-- source:figure-4 page=10 section="4.3 Real-World Experiments on ALOHA" type=figure -->
+### Figure 4. Real-world results on ALOHA / ALOHA 真实机器人操作结果
+
+![figure-4](assets/figure_4.png)
+
+**Caption:** Figure 4. Results of real-world manipulation on ALOHA. Solid bars give the full-task success rate; the lighter dashed segment extends to the process score, the fraction of ordered milestones completed (Fig. 3), scaled to 100. 50 trials per task and policy.
+
+**Caption[CN]:** 图 4 ALOHA 上的真实机器人操作评测结果。实心柱形表示完整任务成功率；较浅的虚线段延伸至过程分（Process Score，即完成有序里程碑的比例折算为百分制）。每种策略在每项任务上均严格评测 50 次实体试验。
+
+<!-- source:figure-5 page=10 section="4.3 Real-World Experiments on ALOHA" type=figure -->
+### Figure 5. Demonstration coverage / 演示数据空间覆盖分布
+
+![figure-5](assets/figure_5.png)
+
+**Caption:** Figure 5. Demonstration coverage on two real-robot tasks. Left: chili transfer, with coverage measured over the chili’s rotation angle: 0° is lengthwise, ±90° sideways. Right: pen manipulation, with coverage measured over the pen’s placement in the top camera. The red box spans the initial pen positions of all 49 demonstrations; the blue band is its boundary, where demonstrations are naturally sparse.
+
+**Caption[CN]:** 图 5 两项真实机器人任务上的演示数据覆盖分布。左图：辣椒抓取任务，按辣椒旋转角度统计样本分布：0° 为标准纵向放置，±90° 为横向放置。右图：放笔任务，按顶视相机下笔的初始空间坐标统计覆盖热区。红框涵盖全部 49 条演示的笔位置核心区；蓝色条带为其外围边界区域，演示数据在此区域高度稀疏。
+
+<!-- source:block-035 page=10 section="4.3 Real-World Experiments on ALOHA" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 35:</strong></span> Task performance. UniFlowWAM reaches 87.0% average success with a process score of 92.3, against 68.5% and 77.0 for π0.5, 30.0% and 34.5 for DreamZero, and 15.5% and 17.8 for LDA (Fig. 4). It is the strongest policy on every task. The two metrics also separate the failure modes. Averaged over the trials it does not complete, UniFlowWAM still earns 41 of 100 milestone points and π0.5 earns 27, whereas LDA earns 3, so LDA tends to fail at the first milestone rather than partway through. The failure for LDA comes from severe arm tremor. Our reproduced LDA shakes strongly during execution, so the arm often knocks the object away before the gripper closes, and the trial rarely recovers. The two metrics diverge most on cabbage transfer. Its first two milestones handle the cabbage and the last two handle the lid. The round cabbage can roll out of the gripper while the lid is still grasped and closed, so UniFlowWAM succeeds on 80% of trials yet completes 92.5% of the milestones.
+
+> <span style="color:#F59E0B"><strong>Para. 35[CN]:</strong></span> 真实机器人操作表现。在真实实体评测中，UniFlowWAM 取得了 87.0% 的平均成功率和高达 92.3 的过程分，显著优于业界强基准：相比之下，π0.5 为 68.5%（过程分 77.0），DreamZero 为 30.0%（过程分 34.5），而 LDA 仅为 15.5%（过程分 17.8）（图 4）。UniFlowWAM 在全部四项任务中均稳居第一。双重评测指标亦深入揭示了不同策略的失败机理：在未完全成功的试验中，UniFlowWAM 依然能够平均斩获 41 分的阶段里程碑得分，π0.5 获得 27 分，而 LDA 仅获 3 分——这表明 LDA 几乎在起步的第一个动作基元就遭遇彻底失败。深入分析发现，LDA 的核心瓶颈在于严重的执行端机械臂震颤（Arm Tremor），在轨迹执行过程中频繁发生剧烈抖动，导致夹爪尚未完全闭合前就将目标物体碰落出有效工作区，且完全缺乏闭环恢复能力。两项指标差异最显著的是卷心菜任务：前两个里程碑负责搬运卷心菜，后两个里程碑负责取盖并闭合；球状卷心菜极易在夹爪中打滑滚落，即便偶发滚落，机械臂依然能够高精度完成后续抓取锅盖并严密扣合的复杂长程动作，因此 UniFlowWAM 最终实现了 80% 的完全成功率，而过程分高达 92.5%。
+
+### 4.4 Ablation Studies / 消融实验
+
+<!-- source:block-036 page=10 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 36:</strong></span> Post-training objectives. We first ask what the objective grid contributes on its own, varying the objectives used in LIBERO post-training while holding the mid-trained initialization and the demonstration data fixed. The four variants form a nested ladder. The full grid uses all ten objectives, with 3D flow as both a target and a condition. The flow-as-condition variant drops the three objectives that predict flow and keeps the other seven. The no-flow variant also drops flow conditioning and keeps the four visual–action objectives of the base model. Policy-only training keeps the single action-prediction objective. Every variant acts through the direct policy objective and takes no flow input at test time, so the differences come from training rather than from the inference path.
+
+> <span style="color:#F59E0B"><strong>Para. 36[CN]:</strong></span> 后训练目标架构消融。我们首先探究目标角色网格本身的独立贡献：在固定中期训练初始化权重与下游演示数据的前提下，改变 LIBERO 后训练所采用的目标组合。四种变体构成了层层嵌套的递进阶梯：完整网格（Full Grid）启用全部 10 项联合目标，3D 流兼具目标与条件双重身份；“仅以流为条件”变体（Flow-as-condition，obj-7）剔除了将流作为预测目标的 3 项任务，保留其余 7 项；“无流”变体（No-flow，obj-4）进一步剥离以流为条件的目标，仅保留基准模型的 4 项视觉—动作经典目标；“纯策略”训练变体（Policy-only，obj-1）则退化为仅保留单一的动作预测目标。值得强调的是，所有变体在测试部署时均仅通过直接策略目标执行推理，完全不输入任何 3D 流，因此所有表现差异纯粹源于训练期多任务流匹配目标对共享表征的塑造作用。
+
+<!-- source:block-037 page=11 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 37:</strong></span> All four objective sets are first post-trained on the same 120k-step schedule. The reduced sets level off within this budget, whereas the full ten-objective grid is still improving at 120k steps. We therefore extend the full grid alone to a 200k-step schedule, and at 170k steps it reaches 87.0% on LIBERO-Plus. More objectives thus call for a longer schedule rather than lowering the attainable success rate. Because the simulated benchmark separates the objective sets mainly by training speed, we compare them on the real robot below, where at equal training steps the full grid clearly outperforms policy-only training.
+
+> <span style="color:#F59E0B"><strong>Para. 37[CN]:</strong></span> 四种目标配置最初均在相同的 120k 步训练预算下后训练。精简的目标子集在该预算内已迅速收敛达到性能瓶颈，而完整的十目标网格在 120k 步时仍在持续稳健上升。为此我们将完整网格的训练进一步拓展至 200k 步，其在 170k 步时在 LIBERO-Plus 上达到了 87.0% 的优异表现。这表明更多的多任务目标需要更为充裕的优化步数来充分释放表征容量，而非降低了模型所能达到的性能上限。鉴于仿真基准上各目标子集的主要区别体现在训练收敛速度上，我们在后续的实体机器人上对它们进行了严格的同等步数公平横向评测，完整网格显著超越了纯策略训练模式。
+
+<!-- source:table-4 page=11 section="4.4 Ablation Studies" type=table -->
+### Table 4. Objective ablations on ALOHA / ALOHA 真实机器人目标消融实验
+
+![table-4](assets/table_4.png)
+
+**Caption:** Table 4. Objective ablations on ALOHA (success rate, %). The three ablation rows are measured over 25 trials per task. The obj-10 row below the rule is the main experiment, measured over 50 trials, and is the run reported in Fig. 4. The obj-4 variant retains the four visual–action objectives and omits all 3D flow objectives. The obj-7 variant adds three objectives that use 3D flow as a condition but never as a prediction target. These variants change the post-training objectives while retaining the model architecture, and all of them deploy without flow input.
+
+**Caption[CN]:** 表 4 ALOHA 实体机器人上的目标消融实验（成功率，%）。前三行消融变体在每项任务上评测 25 次试验；底部的 obj-10 行为主实验结果（每项任务评测 50 次，对应图 4 中报告的数据）。obj-4 变体保留 4 项视觉—动作目标并剔除全部 3D 流目标；obj-7 变体新增了 3 项将 3D 流作为纯输入条件的目标，但从不将其作为预测目标进行监督。这些变体在保持网络架构完全不变的前提下仅调整后训练目标配置，且全部在无任何流输入的纯策略模式下部署。
+
+| Training objectives | Chili | Pen | Towel |
+|---|---|---|---|
+| obj-1: policy only | 76 | 76 | 72 |
+| obj-4: without flow objectives | 92 | 80 | 76 |
+| obj-7: flow as condition only | 92 | 88 | 76 |
+| **obj-10: full UniFlowWAM** | **94** | **90** | **84** |
+
+<!-- source:block-038 page=11 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 38:</strong></span> Objectives on the real robot. On the real robot, the four variants differ noticeably in success rate (Table 4). Policy-only post-training reaches 76% on chili transfer, 76% on pen manipulation, and 72% on towel folding, while the full ten-objective grid reaches 94%, 90%, and 84%, a gain of 12 to 18 points on every task. The no-flow variant, which keeps the four visual–action objectives, closes most of this gap on chili transfer (92%), but the gap remains wide on pen manipulation (80%) and towel folding (76%). Adding flow as a condition (obj-7) brings pen manipulation to 88%, close to the full grid, while towel folding still requires the full ten-objective setup (84%) to unfold its full gain.
+
+> <span style="color:#F59E0B"><strong>Para. 38[CN]:</strong></span> 真实机器人上的目标消融表现。在实体机器人上，四种目标变体展现出了清晰而显著的成功率差距（表 4）。纯策略后训练（obj-1）在辣椒转移、放笔和折毛巾任务上的成功率分别为 76%、76% 和 72%；而完整的十目标网格（obj-10）分别跃升至 94%、90% 和 84%，在每项真实任务上均带来了 12 至 18 个百分点的扎实提升。“无流”变体（obj-4，保留基础模型的 4 项视觉—动作目标）在辣椒任务上弥合了大部分差距（达到 92%），但在结构铰接的放笔任务（80%）与形变物体的折毛巾任务（76%）上依然存在巨大劣势；将流作为条件引入（obj-7）使放笔任务成功率大幅回升至 88%（逼近完整网格），而具有极高物理连续性要求的柔性折毛巾任务则必须依托完整的十目标架构（84%）才能彻底释放其 4D 物理动态约束的全部效能。
+
+<!-- source:block-039 page=11 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 39:</strong></span> Where the failures fall. The losses concentrate in one place. Chili transfer splits the workspace into five orientations. The policies tie on the three middle orientations (−30°, 0°, 30°), where all of them succeed on nearly every trial. The difference is on the extremes (−90°, 60°): policy-only training succeeds on 6/20 trials, whereas the full grid succeeds on 18/20. Pen manipulation shows the same pattern. The table area is divided into a demonstrated region and its boundary. Inside the box, both policies succeed on most trials; on the outer band, policy-only drops to 30% success, while full UniFlowWAM maintains 85%.
+
+> <span style="color:#F59E0B"><strong>Para. 39[CN]:</strong></span> 失败案例的时空聚集特性。实验表明，失败案例高度集中于特定物理分布区间。在辣椒转移任务中，我们将工作空间划分为 5 个离散朝向：在位于中间分布的三个朝向（−30°、0°、30°）上，各类策略的表现高度一致，几乎在每次试验中均能稳定成功；真正的决定性差距爆发于极限边缘朝向（−90° 与 60°）——纯策略模型在极限位姿下的成功率骤降至 6/20（30%），而采用完整网格训练的 UniFlowWAM 依然保持着 18/20（90%）的统治级成功率。放笔任务亦呈现出完全一致的统计规律：桌面区域被划分为演示数据密集的核心覆盖区与其外围边界区；在核心区内，两类策略均能稳定完成大部分任务；但在演示数据极度稀疏的外围边界带上，纯策略模型的成功率断崖式跌落至 30%，而完整的 UniFlowWAM 依然维持着 85% 的强劲成功率。
+
+<!-- source:block-040 page=11 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 40:</strong></span> Why that group is hard is visible in the training data. Fig. 5 shows that the demonstrations naturally concentrate around standard poses and central table positions, with few demonstrations at extreme angles or near the workspace edge. A policy trained solely by behavior cloning easily overfits to the dominant trajectory patterns and struggles when required to extrapolate to sparse regions. Flow objectives enforce consistency over scene-wide physical displacement, anchoring the representation in continuous 3D transformations rather than brittle 2D appearance associations.
+
+> <span style="color:#F59E0B"><strong>Para. 40[CN]:</strong></span> 为何边缘样本极难泛化，从训练数据的统计分布中一目了然。图 5 揭示了真实机器人演示数据天然高度富集于桌面中心与常规标准位姿附近，在极限转角或工作空间边缘处的演示样本极其稀缺。仅靠行为克隆训练的纯策略模型极易过拟合于数据集中占主导地位的高频动作轨迹，在面对稀疏区域的外推需求时发生崩溃；而多模态流匹配目标强制网络在全场景物理位移场层面建立时空连续性一致性约束，将动作表征牢固锚定在连续的 3D 几何变换物理规律上，从而彻底摆脱了对脆弱 2D 视觉表观关联的过度拟合依赖。
+
+<!-- source:block-041 page=11 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 41:</strong></span> The two variants differ in one respect. Policy-only post-training never sees 3D flow, and its action expert adapts only to the downstream task actions. In contrast, the full grid exposes the action expert to 3D flow representations both as conditioning signals and through shared self-attention with the flow expert. Even though no flow input is supplied at inference, the action representations formed during joint training are conditioned on 4D geometric dynamics, resulting in substantially better spatial generalization.
+
+> <span style="color:#F59E0B"><strong>Para. 41[CN]:</strong></span> 这两类变体在机制层面存在根本性分野：纯策略后训练在整个优化过程中从未接触过 3D 场景流，其动作专家网络仅仅单一拟合下游控制指令；而在完整十目标网格训练下，动作专家网络不仅直接将 3D 流作为上游条件进行表征交互，还通过共享自注意力机制持续与流专家进行密集的特征对齐与空间交互。即便在实际部署推理阶段完全不提供任何流输入，动作专家在联合训练期所淬炼出的内部表征早已深度内化了 4D 几何动力学先验，从而在物理世界中展现出压倒性的空间泛化适应能力。
+
+<!-- source:block-042 page=12 section="4.4 Ablation Studies" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 42:</strong></span> Position encoding. Removing MM-RoPE lowers LIBERO-Plus at every evaluated checkpoint, costing 2.1 points at matched steps and 1.8 points at the best checkpoint. Removing the absolute embedding costs 1.5 points at the best checkpoint and up to 4.4 at matched steps, with the gap narrowing as training proceeds. We keep both. Observation and flow tokens lie on the image grid, while action tokens have no image location. We tested two placements for the action tokens, the grid origin and the grid center. The origin is better by less than one point in the best LIBERO success rate. We therefore adopt the grid origin, while considering the difference between the two placements to be small.
+
+> <span style="color:#F59E0B"><strong>Para. 42[CN]:</strong></span> 位置编码消融。移除多模态旋转位置编码（MM-RoPE）导致 LIBERO-Plus 在所有评估检查点上的表现均全面下滑（同等步数下损失 2.1 个百分点，最佳检查点损失 1.8 个百分点）；移除基干模型的绝对位置编码在最佳检查点造成 1.5 个百分点的损失，同等步数下损失高达 4.4 个百分点（该差距随训练推进逐步收窄），因此我们在最终架构中完整保留两者。视觉观测 Token 与 3D 流 Token 均天然分布于 2D 图像网格平面上，而动作 Token 则缺乏显式的图像几何坐标。我们对比了动作 Token 的两种空间网格摆放策略：网格原点 $(0, 0)$ 与网格几何中心；测试表明将动作 Token 锚定于网格原点在最佳 LIBERO 成功率上微弱领先不足 1 个百分点。因此我们最终采用网格原点配置，同时判定两种摆放方式的实际影响差异较小。
+
+### 4.5 Discarded Designs / 被摒弃的设计探索
+
+<!-- source:block-043 page=12 section="4.5 Discarded Designs" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 43:</strong></span> While developing joint training with 3D flow, we tried several designs that did not work well. The two below were not run as controlled ablations, but each bears on a natural design choice.
+
+> <span style="color:#F59E0B"><strong>Para. 43[CN]:</strong></span> 在探索与 3D 流协同联合训练的技术演进过程中，我们曾尝试过若干在直觉上极其自然但实际表现不佳的备选设计方案。以下两项探索虽未作为严格的对照消融运行，但对后续同类研究的技术选型具有极强的指导与警示意义。
+
+<!-- source:block-044 page=12 section="4.5 Discarded Designs" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 44:</strong></span> Encoding flow with an image VAE. Im2Flow2Act [38] wrote 2D point tracks into image channels and encoded them with a Stable Diffusion autoencoder. Our first version extended this idea to 3D. It mapped the displacement (Δx, Δy, Δz) of each tracked point, relative to its position in the first frame of the clip, directly to the R, G, and B channels and encoded the result with the frozen SDXL image VAE. The VAE reconstructs these images faithfully, and the flow denoising loss decreases normally. The generated flow, however, is nearly the same for every input, so the model has collapsed to an average flow over the dataset. Revising the training data and the patch embedding reduced the collapse but never produced usable flow. We later replaced the image VAE with the 4D VAE of MotionCrafter [51], which is trained on geometry and flow.
+
+> <span style="color:#F59E0B"><strong>Para. 44[CN]:</strong></span> 尝试使用标准 2D 图像 VAE 压缩 3D 流。Im2Flow2Act [38] 曾将二维点轨迹写入图像色彩通道并通过 Stable Diffusion 的图像自编码器进行压缩；我们的初代版本尝试将这一思路直接推广至 3D 空间：将每个被跟踪点相对于切片起始帧的三维位移 $(\Delta x, \Delta y, \Delta z)$ 直接映射至 RGB 三通道，并使用冻结的 SDXL 图像 VAE 进行编码。该 2D VAE 确实能够高保真重构这类伪彩色图像，且流去噪损失函数在训练过程中正常下降；然而，模型生成解算出的流场在几乎所有不同输入下均高度雷同，发生了极其严重的模式崩溃（Model Collapse）——网络退化为仅仅输出整个数据集的平均流场。尽管清洗训练数据并调整 Patch Embedding 能在一定程度上缓解崩溃，但始终无法生成具有物理控制意义的高质量动态流场。最终，我们彻底摒弃了 2D 图像 VAE，转而采用专门针对几何点图与时间流场联合训练的 MotionCrafter 4D VAE [51]，才彻底攻克了这一表征瓶颈。
+
+<!-- source:block-045 page=12 section="4.5 Discarded Designs" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 45:</strong></span> Gating the flow modality. To preserve what the LDA backbone learned in pretraining, we first admitted flow gradually through a per-layer gate on the attention logits from the existing tokens to the flow tokens. The gate starts closed and opens on a fixed fast or slow schedule. On RoboCasa-GR1, neither schedule helps. The faster one trails the ungated model by 3.3 points in mean success rate over 21 seeds. All later experiments, including every UniFlowWAM result in this paper, therefore use no gate.
+
+> <span style="color:#F59E0B"><strong>Para. 45[CN]:</strong></span> 对流模态施加渐进式门控机制。为了最大程度保护 LDA 预训练基干已掌握的通用先验不被破坏，我们最初尝试设计逐层的注意力门控机制（Gating Mechanism）：在已有 Token 对新增流 Token 的注意力 Logits 上施加渐进权重门控，门控初始处于完全闭合状态，随后按照固定设定的快速或慢速退火时间表逐步开启。然而在 RoboCasa-GR1 上的系统测试表明，无论快慢门控均未能带来正面收益；在 21 个随机种子下，快速开启门控模型的平均成功率反而落后于完全无门控的标准模型达 3.3 个百分点。因此，本文后续的所有实验以及最终报告的 UniFlowWAM 结果，均果断弃用了门控设计，直接采用无门控的端到端联合自注意力机制。
+
+## 5 Limitations / 局限性
+
+<!-- source:block-046 page=12 section="5 Limitations" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 46:</strong></span> Flow tracking noise and representation shift. We use Track4World to generate offline 3D flow pseudo-labels from demonstration videos. These labels can contain temporal inconsistencies, such as an isolated reversal of flow direction within a continuous trajectory. In our pipeline, we use SAM-based segmentation to separate the manipulation foreground from the background and retain only foreground 3D flow for latent encoding. The pretrained 4D VAE [51] remains effective at compressing these foreground-only inputs.
+
+> <span style="color:#F59E0B"><strong>Para. 46[CN]:</strong></span> 3D 点跟踪噪声与表征分布偏移。我们依赖前向视觉大模型 Track4World 从无标注演示视频中离线伪标签化提取 3D 场景流，这些伪标签中难免潜存时序不一致性噪声（例如在平滑连续轨迹中出现孤立的瞬时运动方向突变逆转）。在现行工程流水线中，我们引入基于 SAM 的语义分割将操作前景物体与静态背景解耦，仅保留操作前景区域的 3D 流输入 4D VAE 进行潜在编码，预训练的 4D VAE [51] 在压缩这类经过滤的前景几何流场时展现出了出色的鲁棒性与保真度。
+
+<!-- source:block-047 page=12 section="5 Limitations" type=paragraph -->
+> <span style="color:#3B82F6"><strong>Para. 47:</strong></span> Limited flow pretraining. Our 3D flow mid-training uses approximately 1,200 hours of demonstrations, substantially less than the EI-30k corpus used for LDA pretraining [24]. The added flow expert has not been pretrained alongside the visual–action backbone on that scale. As tracking models continue to improve, flow extraction is expected to become faster and more accurate, making flow easier to scale for robot training in the same way as video. We leave larger-scale joint pretraining to future work.
+
+> <span style="color:#F59E0B"><strong>Para. 47[CN]:</strong></span> 流模态预训练数据规模依然受限。我们用于 3D 流协同优化的中期训练数据集总时长约为 1,200 小时，这一规模显著少于 LDA 原生预训练所采用的数十万小时级别的海量 EI-30k 语料库 [24]；新引入的流专家网络在此规模上尚未与视觉—动作基干经历同等深度的超大规模联合预训练。随着三维跟踪与几何基础模型的持续跨越式发展，3D 流的提取效率与精度必将迎来质的飞跃，使 3D 流能够像普通视频数据一样无门槛地在机器人学习领域实现超级规模化扩展（Scaling）。我们将在未来工作中探索更大规模、更深层次的全模态联合基础预训练。
+
+## References / 参考文献
+
+<!-- source:ref-001 page=12-14 section="References" type=reference -->
+[1] H. Bi, H. Tan, S. Xie, Z. Wang, S. Huang, H. Liu, R. Zhao, Y. Feng, C. Xiang, Y. Rong, et al. Motus: A unified latent action world model. In CVPR, 2026.
+    *Motus：统一潜在动作世界模型*
+
+<!-- source:ref-002 page=12-14 section="References" type=reference -->
+[2] J. Bjorck, F. Castañeda, N. Cherniadev, X. Da, R. Ding, L. Fan, Y. Fang, D. Fox, F. Hu, S. Huang, et al. GR00T N1: An open foundation model for generalist humanoid robots. arXiv:2503.14734, 2025.
+    *GR00T N1：面向通用人形机器人的开源基础模型*
+
+<!-- source:ref-003 page=12-14 section="References" type=reference -->
+[3] K. Black, N. Brown, D. Driess, A. Esmail, M. Equi, C. Finn, N. Fusai, L. Groom, K. Hausman, B. Ichter, et al. π0: A vision-language-action flow model for general robot control. In RSS, 2025.
+    *π0：面向通用机器人控制的视觉—语言—动作流模型*
+
+<!-- source:ref-004 page=12-14 section="References" type=reference -->
+[4] Q. Bu, Y. Yang, J. Cai, S. Gao, G. Ren, M. Yao, P. Luo, and H. Li. Learning to Act Anywhere with Task-centric Latent Actions. In RSS, 2025.
+    *通过以任务为中心的潜在动作学习在任意场景中行动*
+
+<!-- source:ref-005 page=12-14 section="References" type=reference -->
+[5] Y. Cao, S. Liu, C. Feng, M. Zhang, X. Lu, A. Owens, and K. Fang. Unified motion-action modeling for heterogeneous robot learning. arXiv:2606.16917, 2026.
+    *面向异构机器人学习的统一运动—动作建模*
+
+<!-- source:ref-006 page=12-14 section="References" type=reference -->
+[6] S. Community. StarVLA: A Lego-like codebase for vision-language-action model developing. arXiv:2604.05014, 2026.
+    *StarVLA：面向视觉—语言—动作模型开发的乐高式代码库*
+
+<!-- source:ref-007 page=12-14 section="References" type=reference -->
+[7] P. Esser, S. Kulal, A. Blattmann, R. Entezari, J. Müller, H. Saini, Y. Levi, D. Lorenz, A. Sauer, F. Boesel, et al. Scaling rectified flow transformers for high-resolution image synthesis. In ICML, 2024.
+    *用于高分辨率图像合成的可扩展修正流 Transformer（MM-DiT）*
+
+<!-- source:ref-008 page=12-14 section="References" type=reference -->
+[8] H. Fang, J. Duan, D. Clay, S. Wang, S. Liu, W. Huang, X. Fan, W.-C. Tsai, S. Chen, Y. R. Wang, et al. MolmoAct2: Action reasoning models for real-world deployment. In CoRL, 2026.
+    *MolmoAct2：面向真实世界部署的动作推理模型*
+
+<!-- source:ref-009 page=12-14 section="References" type=reference -->
+[9] S. Fei, S. Wang, J. Shi, Z. Dai, J. Cai, P. Qian, L. Ji, X. He, S. Zhang, Z. Fei, et al. LIBERO-Plus: A Progressive Robustness Benchmark for Visual-Language-Action Models. In CVPR, 2026.
+    *LIBERO-Plus：面向视觉—语言—动作模型的渐进鲁棒性评测基准*
+
+<!-- source:ref-010 page=12-14 section="References" type=reference -->
+[10] J. Guo, Q. Li, P. Li, Z. Chen, N. Sun, Y. Su, H. Wang, Y. Zhang, X. Li, and H. Liu. Unified 4D world action modeling from video priors with asynchronous denoising. arXiv:2604.26694, 2026.
+    *基于视频先验与异步去噪的统一 4D 世界动作建模*
+
+<!-- source:ref-011 page=12-14 section="References" type=reference -->
+[11] C. Hou, K. Wu, J. Liu, Z. Che, D. Wu, F. Liao, G. Li, J. He, Q. Feng, Z. Jin, et al. RoboMIND 2.0: A multimodal, bimanual mobile manipulation dataset for generalizable embodied intelligence. arXiv:2512.24651, 2025.
+    *RoboMIND 2.0：面向可泛化具身智能的多模态双臂移动操作数据集*
+
+<!-- source:ref-012 page=12-14 section="References" type=reference -->
+[12] Y. Hu, Y. Guo, P. Wang, X. Chen, Y.-J. Wang, J. Zhang, K. Sreenath, C. Lu, and J. Chen. Video prediction policy: Robot control through the lens of video generation. In CoRL, 2024.
+    *视频预测策略（VPP）：以视频生成视角审视机器人控制*
+
+<!-- source:ref-013 page=12-14 section="References" type=reference -->
+[13] M. J. Kim, K. Pertsch, S. Karamcheti, T. Xiao, A. Balakrishna, S. Nair, R. Rafailov, E. Foster, G. Lam, P. Sanketi, et al. OpenVLA: An open-source vision-language-action model. arXiv:2406.09246, 2024.
+    *OpenVLA：开源视觉—语言—动作模型*
+
+<!-- source:ref-014 page=12-14 section="References" type=reference -->
+[14] M. J. Kim, C. Finn, and P. Liang. Fine-tuning vision-language-action models: Optimizing, evaluating, and analyzing OFT. In CoRL, 2025.
+    *微调视觉—语言—动作模型：OFT 的优化、评测与机理分析*
+
+<!-- source:ref-015 page=12-14 section="References" type=reference -->
+[15] J. Lee, J. Duan, H. Fang, Y. Deng, S. Liu, B. Li, B. Fang, J. Zhang, Y. R. Wang, S. Levine, et al. MolmoAct: Action reasoning models for embodied manipulation. In RSS, 2025.
+    *MolmoAct：面向具身操作的动作推理模型*
+
+<!-- source:ref-016 page=12-14 section="References" type=reference -->
+[16] H. Li, L. Sun, Y. Hu, D. Ta, J. Barry, G. Konidaris, and J. Fu. NovaFlow: Zero-shot motion transfer for visual policy learning. In RSS, 2025.
+    *NovaFlow：面向视觉策略学习的零样本运动迁移*
+
+<!-- source:ref-017 page=12-14 section="References" type=reference -->
+[17] S. Li, Y. Gao, D. Sadigh, and S. Song. Unified Video Action Model. In RSS, 2025.
+    *统一视频动作模型（UVA）*
+
+<!-- source:ref-018 page=12-14 section="References" type=reference -->
+[18] B. Lin, Y. Xu, X. Zhan, H. Fang, J. Tian, F.-C. Zhang, Y.-L. Li, C. Lu, and L. Yang. ChronoFlow-Policy: Unified keypoint 3D flow for robot manipulation. arXiv:2610.12345, 2026.
+    *ChronoFlow-Policy：面向机器人操作的统一点云 3D 关键点流策略*
+
+<!-- source:ref-019 page=12-14 section="References" type=reference -->
+[19] Y. Lipman, R. T. Chen, H. Ben-Hamu, M. Nickel, and M. Le. Flow matching for generative modeling. In ICLR, 2023.
+    *面向生成式建模的流匹配（Flow Matching）*
+
+<!-- source:ref-020 page=12-14 section="References" type=reference -->
+[20] B. Liu, Y. Zhu, C. Gao, Y. Feng, Q. Liu, Y. Zhu, and P. Stone. LIBERO: Benchmarking knowledge transfer for lifelong robot learning. In NeurIPS, 2023.
+    *LIBERO：终身机器人学习知识迁移评测基准*
+
+<!-- source:ref-021 page=12-14 section="References" type=reference -->
+[21] J. Lu, W. Xiong, J. Deng, P. Li, T. Huang, Z. Dou, C. Lin, S.-K. Yeung, and Y. Liu. TrackingWorld: Dense 3D tracking from monocular video. arXiv:2603.04567, 2026.
+    *TrackingWorld：基于单目视频的稠密 3D 点跟踪*
+
+<!-- source:ref-022 page=12-14 section="References" type=reference -->
+[22] J. Lu, J. Xu, W. Hu, R. Zhu, C. Zhao, S.-K. Yeung, Y. Shan, and Y. Liu. Track4World: Monocular 3D tracking for world modeling. In CVPR, 2026.
+    *Track4World：面向世界建模的单目 3D 跟踪大模型*
+
+<!-- source:ref-023 page=12-14 section="References" type=reference -->
+[23] H. Luo, W. Zhang, Y. Feng, S. Zheng, H. Xu, C. Xu, Z. Xi, Y. Fu, and Z. Lu. Being-H0.7: Generalist humanoid manipulation policy. arXiv:2602.08912, 2026.
+    *Being-H0.7：通用人形机器人操作策略*
+
+<!-- source:ref-024 page=12-14 section="References" type=reference -->
+[24] J. Lyu, K. Liu, X. Zhang, H. Liao, Y. Feng, W. Zhu, T. Shen, J. Chen, J. Zhang, Y. Dong, et al. LDA-1B: Scaling latent dynamics action model via universal embodied data ingestion. In RSS, 2026.
+    *LDA-1B：通过通用具身数据吞吐规模化潜空间动力学动作模型*
+
+<!-- source:ref-025 page=12-14 section="References" type=reference -->
+[25] S. Nasiriany, A. Maddukuri, L. Zhang, A. Parikh, A. Lo, A. Joshi, A. Mandlekar, and Y. Zhu. RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots. In RSS, 2024.
+    *RoboCasa：面向通用机器人家居任务的大规模仿真环境*
+
+<!-- source:ref-026 page=12-14 section="References" type=reference -->
+[26] S. Noh, D. Nam, K. Kim, G. Lee, Y. Yu, R. Kang, and K. Lee. 3D flow diffusion policy: Visuomotor policy learning via generating flow in 3D space. arXiv:2509.18676, 2025.
+    *3D 流扩散策略：通过在三维空间中生成流学习视觉运动控制*
+
+<!-- source:ref-027 page=12-14 section="References" type=reference -->
+[27] Physical Intelligence, K. Black, N. Brown, J. Darpinian, K. Dhabalia, D. Driess, et al. π0.5: a vision-language-action model with open-world generalization. In CoRL, 2025.
+    *π0.5：具备开放世界泛化能力的视觉—语言—动作大模型*
+
+<!-- source:ref-028 page=12-14 section="References" type=reference -->
+[28] D. Qu, H. Song, Q. Chen, Y. Yao, X. Ye, Y. Ding, Z. Wang, J. Gu, B. Zhao, D. Wang, et al. SpatialVLA: Exploring Spatial Representations for Visual-Language-Action Models. In RSS, 2025.
+    *SpatialVLA：探索面向视觉—语言—动作模型的空间表征*
+
+<!-- source:ref-029 page=12-14 section="References" type=reference -->
+[29] O. Siméoni, H. V. Vo, M. Seitzer, F. Baldassarre, M. Oquab, C. Jose, V. Khalidov, M. Szafraniec, S. Yi, M. Ramamonjisoa, et al. DINOv3. arXiv:2508.10104, 2025.
+    *DINOv3：自监督视觉表征基础模型*
+
+<!-- source:ref-030 page=12-14 section="References" type=reference -->
+[30] Z. Teed and J. Deng. RAFT: Recurrent all-pairs field transforms for optical flow. In ECCV, 2020.
+    *RAFT：基于全对循环场变换的光流估计*
+
+<!-- source:ref-031 page=12-14 section="References" type=reference -->
+[31] M. Tong, H. Jiang, Q. Feng, L. Liu, and J. Gu. PointAction: 3D points as universal action representations for robot control. arXiv:2606.03943, 2026.
+    *PointAction：以 3D 点云作为机器人控制的通用动作表征*
+
+<!-- source:ref-032 page=12-14 section="References" type=reference -->
+[32] C. Wang, X. Wang, B. Lin, J. Tian, F. Zhang, C. Lu, and L. Yang. Track4Action: Distilling world-centric 3D tracker into vision-language-action policies. arXiv:2608.03727, 2026.
+    *Track4Action：将世界坐标系 3D 跟踪器蒸馏至视觉—语言—动作策略中*
+
+<!-- source:ref-033 page=12-14 section="References" type=reference -->
+[33] J. Wang, M. Chen, N. Karaev, A. Vedaldi, C. Rupprecht, and D. Novotny. VGGT: Visual geometry grounded transformer. In CVPR, 2025.
+    *VGGT：视觉几何基础 Transformer*
+
+<!-- source:ref-034 page=12-14 section="References" type=reference -->
+[34] X. Wang, C. Wang, Y. Xu, M. Ye, F. Zhang, J. Tian, X. Zhan, L. Zhu, C. Lu, and L. Yang. LaMP: Learning Vision-Language-Action Policy with 3D Scene Flow as Latent Motion Prior. In ECCV, 2026.
+    *LaMP：以 3D 场景流为潜在运动先验的视觉—语言—动作策略学习*
+
+<!-- source:ref-035 page=12-14 section="References" type=reference -->
+[35] Y. Wang, S. Huang, M. Li, C. Zhang, J. Liang, W. Jin, Y. Chen, X. Chi, D. Zhou, Q. Yu, et al. OpenWAM: An open, modular exploration towards systematic world-action model pretraining. arXiv:2609.07398, 2026.
+    *OpenWAM：系统化世界—动作模型预训练的开源模块化探索*
+
+<!-- source:ref-036 page=12-14 section="References" type=reference -->
+[36] S. Wu, X. Liu, S. Xie, P. Wang, X. Li, B. Yang, Z. Li, K. Zhu, H. Wu, Y. Liu, et al. RoboCOIN: An open-sourced bimanual robotic data collection for integrated manipulation. arXiv:2511.17441, 2025.
+    *RoboCOIN：面向集成操作的开源双臂机器人数据集*
+
+<!-- source:ref-037 page=12-14 section="References" type=reference -->
+[37] Y. Xiao, J. Wang, N. Xue, N. Karaev, Y. Makarov, B. Kang, X. Zhu, H. Bao, Y. Shen, and X. Zhou. SpatialTrackerV2: Advancing 3D Point Tracking with Explicit Camera Motion. In ICCV, 2025.
+    *SpatialTrackerV2：引入显式相机运动建模的高阶 3D 点跟踪*
+
+<!-- source:ref-038 page=12-14 section="References" type=reference -->
+[38] M. Xu, Z. Xu, Y. Xu, C. Chi, G. Wetzstein, M. Veloso, and S. Song. Flow as the cross-domain manipulation interface. In CoRL, 2024.
+    *以流作为跨域机器人操作的通用接口（Im2Flow2Act）*
+
+<!-- source:ref-039 page=12-14 section="References" type=reference -->
+[39] G. Yan, J. Liu, Y. Fan, L. Cai, M. Liao, J. Zhang, and D. Fox. Flex-π: A multi-stream world-action model with compute flexibility. arXiv:2608.10860, 2026.
+    *Flex-π：具备算力调度灵活性的多流世界—动作模型*
+
+<!-- source:ref-040 page=12-14 section="References" type=reference -->
+[40] L. Yang, W. Song, X. Wang, P. Sheng, Z. Fang, Z. Zhou, J. He, H. Yan, J. Chen, N. Sun, et al. 4D-WAM: Infusing spatiotemporal awareness into world action models through trajectory fields. arXiv:2608.08023, 2026.
+    *4D-WAM：通过轨迹场向世界动作模型注入时空动态感知*
+
+<!-- source:ref-041 page=12-14 section="References" type=reference -->
+[41] J. Ye, N. Gao, S. Yang, J. Zheng, Z. Wang, Y. Chen, P. Chen, Y. Chen, S. Liu, and J. Jia. StarVLA-α: Reducing complexity in vision-language-action systems. In ECCV, 2026.
+    *StarVLA-α：降低视觉—语言—动作系统的建模复杂度*
+
+<!-- source:ref-042 page=12-14 section="References" type=reference -->
+[42] C. Yuan, C. Wen, T. Zhang, and Y. Gao. General flow as foundation affordance for scalable robot learning. In CoRL, 2024.
+    *通用流作为可扩展机器人学习的基础可操作性（Affordance）*
+
+<!-- source:ref-043 page=12-14 section="References" type=reference -->
+[43] H. Yuan, W. Chen, J. Cen, H. Yu, J. Liang, S. Chang, Z. Lin, T. Feng, P. Liu, J. Xing, et al. Lumos-1: On Autoregressive Video Generation with Discrete Diffusion from a Unified Model Perspective. In ICLR, 2026.
+    *Lumos-1：统一模型视角下基于离散扩散的自回归视频生成（MM-RoPE）*
+
+<!-- source:ref-044 page=12-14 section="References" type=reference -->
+[44] T. Yuan, Z. Dong, Y. Liu, and H. Zhao. Fast-WAM: Do world action models need test-time future imagination? arXiv:2603.16666, 2026.
+    *Fast-WAM：世界动作模型真的需要在测试时进行未来想象吗？*
+
+<!-- source:ref-045 page=12-14 section="References" type=reference -->
+[45] W. Zhang, H. Liu, Z. Qi, Y. Wang, X. Yu, J. Zhang, R. Dong, J. He, H. Wang, Z. Zhang, et al. DreamVLA: A vision-language-action model dreamed with comprehensive world knowledge. In NeurIPS, 2025.
+    *DreamVLA：融入全景世界知识构想的视觉—语言—动作模型*
+
+<!-- source:ref-046 page=12-14 section="References" type=reference -->
+[46] R. Zheng, Y. Liang, S. Huang, J. Gao, H. Daumé III, A. Kolobov, F. Huang, and J. Yang. TraceVLA: Visual trace prompting enhances spatial-temporal awareness for generalist robotic policies. In ICLR, 2025.
+    *TraceVLA：视觉轨迹提示增强通用机器人策略的时空感知*
+
+<!-- source:ref-047 page=12-14 section="References" type=reference -->
+[47] R. Zheng, J. Wang, S. Reed, J. Bjorck, Y. Fang, F. Hu, J. Jang, K. Kundalia, Z. Lin, L. Magne, et al. FLARE: Robot learning with implicit world modeling. In CoRL, 2025.
+    *FLARE：基于隐式世界建模的机器人强化学习*
+
+<!-- source:ref-048 page=12-14 section="References" type=reference -->
+[48] Z. Zhong, H. Yan, J. Li, X. Liu, X. Gong, T. Zhang, W. Song, J. Chen, X. Zheng, H. Wang, et al. FlowVLA: Visual chain of thought-based motion reasoning for vision-language-action models. arXiv:2508.18269, 2025.
+    *FlowVLA：面向视觉—语言—动作模型的视觉思维链运动推理*
+
+<!-- source:ref-049 page=12-14 section="References" type=reference -->
+[49] G. Zhou, H. Pan, Y. LeCun, and L. Pinto. DINO-WM: World models on pre-trained visual features enable zero-shot planning. In ICML, 2025.
+    *DINO-WM：基于预训练视觉特征的世界模型赋能零样本规划*
+
+<!-- source:ref-050 page=12-14 section="References" type=reference -->
+[50] C. Zhu, R. Yu, S. Feng, B. Burchfiel, P. Shah, and A. Gupta. Unified world models: Coupling video and action diffusion for pretraining on large robotic datasets. In RSS, 2025.
+    *统一世界模型（UWM）：在大规模机器人数据集上耦合视频与动作扩散进行预训练*
+
+<!-- source:ref-051 page=12-14 section="References" type=reference -->
+[51] R. Zhu, J. Lu, W. Hu, X. Han, J. Cai, Y. Shan, and C. Zheng. MotionCrafter: Dense geometry and motion reconstruction with a 4D VAE. In CVPR, 2026.
+    *MotionCrafter：基于 4D VAE 的稠密几何与运动重建*
+
+## Critical Reading Notes / WJ 批判性精读附注
+
+1. **核心范式突破：将 4D 几何流从“外挂式脚手架”演进为“内生性第一公民”**
+   在现有的具身世界模型或 VLA 文献中，3D 流或点云轨迹大多扮演着外围角色：要么在两阶段架构中充当感知中间接口（如 Im2Flow2Act [38]、PointAction [31]），要么仅在推理阶段作为外置运动先验硬性输入（如 LaMP [34]）。这类设计存在三大固有痛点：(1) 推理延迟居高不下，无法满足 20~50Hz 的闭环高频控制；(2) 极度依赖测试时前向跟踪算法的稳定性，极易因点云抖动导致误差级联；(3) 割裂了高层语义与底层几何的表征耦合。UniFlowWAM 的精妙之处在于通过 **三专家 MM-DiT 架构** 与 **十目标角色网格（Role Grid）**，将 4D 场景流与视觉语义、动作统一吸纳进同一个扩散流匹配生成空间。在训练时，流模态接受显式的流匹配速度监督，迫使共享联合自注意力将高层视觉语义（DINOv3）与物理空间 3D 位移矢量（4D VAE）紧密锁相；在部署推理时，流模态槽位被直接替换为无算力开销的可学习占位符（Absent Placeholder），使模型能够以纯反应式直接策略（Direct Policy）高速前向运行，同时在内部动作生成头中享受到了 4D 几何动力学所带来的深刻归纳偏置。
+
+2. **为什么 4D 几何能带来超预期的边缘外推与视点鲁棒性？**
+   在 LIBERO-Plus 评测中，UniFlowWAM 在相机视点扰动（Camera Viewpoint）下取得了 96.9% 的惊艳成功率（相比最强基线 76.6% 带来 +20.3% 的巨大净胜）；在真实 ALOHA 机器人上，性能优势最显著爆发于极限旋转角（-90° 与 60°，成功率 90% vs 30%）与稀疏外围工作带（85% vs 30%）。这一深层因果关系在于：
+   - 纯 RGB 像素或 2D 潜在空间中的视频预测，本质上是在高维流形上拟合外观视差纹理，极易将特定相机的摆放角度或工作台局部的特定光影作为捷径特征（Shortcut Features）而发生过拟合；
+   - 3D 场景流则内生于欧几里得物理空间，其位移场遵循空间平移旋转群的客观物理规律。通过监督场景点的真实 3D 位移，网络被迫学会将 2D 图像变化分解为“刚体/柔体在 3D 空间中的真实位移 + 相机透视投影”；
+   - 因而当相机角度发生偏移、或者操作物体被放置于罕见的边缘偏角时，基于 4D 几何约束的动作专家依然能够准确解码出目标物体在物理空间中的真实位姿演化路径，展现出了纯视觉 WAM 所无法企及的几何不变性与空间外推能力。
+
+3. **工程避坑洞察：为何 2D 图像 VAE 压缩 3D 流会遭遇彻底崩溃？**
+   论文第 4.5 节给出了极为宝贵的负面结果记录（Negative Results）：将 3D 点位移伪彩色编码为 RGB 图像并送入标准 SDXL 2D VAE 编码时，重构图像虽然视觉保真度极高且去噪损失正常下降，但生成动作却发生了严重的全局模式崩溃（退化为数据集平均流）。这一现象深刻揭示了 2D 图像自编码器的归纳偏置陷阱：
+   - 自然图像 VAE 的先验重在压缩高频纹理、边缘反差与色彩分布，它对空间局部平滑性与通道间语义具有天然的滤波假定；
+   - 3D 位移矢量场在本质上是严格物理意义下的连续向量场，其通道 $(Δx, Δy, Δz)$ 代表相互正交的笛卡尔坐标方向，空间拓扑受刚体动力学与连续介质力学严格约束，与 RGB 颜色空间的统计分布完全风马牛不相及；
+   - 强行套用 2D 图像 VAE 会破坏向量分量之间的正交性与局部几何关联，导致扩散网络无法建立连续的物理梯度。改用由几何点图编码器 $\mathcal{E}_P$ 与时序位移编码器 $\mathcal{E}_F$ 拼接构成的 MotionCrafter 4D VAE [51]，才从根本上锁定了 3D 拓扑与运动速度的时空几何流形。
+
+4. **对未来具身基座研发的启发：**
+   UniFlowWAM 为下一代大具身模型（Embodied Foundation Models）提供了一条极具可落地性的演化范式：**无传感器额外负担的训练期几何升维**。由于 Track4World 等前向跟踪大模型完全基于单目 RGB 视频，未来学术界与产业界在摄取海量互联网人类操作视频（如 Ego4D、Epic-Kitchens）或跨本体通用遥操作数据时，完全可以离线自动化批量生成高质量场景级 3D 流真值，并依托多任务角色网格将这一廉价的几何自监督信号大规模注入基干网络，无需在测试端搭载复杂点云硬件，便能大幅提升通用机器人的空间物理交互上限。
